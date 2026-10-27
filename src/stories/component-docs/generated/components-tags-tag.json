@@ -47,11 +47,11 @@
   "imports": [
     {
       "name": "Tag",
-      "path": "@dimitriszoitas/aegis-ui/tag"
+      "path": "@dimitriszoitas/aegis-agentic/tag"
     },
     {
       "name": "Chip",
-      "path": "@dimitriszoitas/aegis-ui/tag"
+      "path": "@dimitriszoitas/aegis-agentic/tag"
     }
   ],
   "stories": [

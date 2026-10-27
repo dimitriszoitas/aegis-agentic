@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-overlays-modal",
   "name": "Modal",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A blocking dialog for a focused task, with a required title and independently scrollable content.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/modal"
+    "@dimitriszoitas/aegis-agentic/modal"
   ],
   "links": {
     "contract": "./components-overlays-modal.json",
@@ -34,9 +34,9 @@
     "ModalClose"
   ],
   "importStatements": [
-    "import { ConfirmDialog, Dialog, Modal, ModalClose } from '@dimitriszoitas/aegis-ui/modal';"
+    "import { ConfirmDialog, Dialog, Modal, ModalClose } from '@dimitriszoitas/aegis-agentic/modal';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Modal",

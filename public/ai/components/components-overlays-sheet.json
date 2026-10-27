@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-overlays-sheet",
   "name": "Sheet",
@@ -18,7 +18,7 @@
   ],
   "purpose": "A nonmodal, resizable panel that pushes content within its own bounded workspace.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/sheet"
+    "@dimitriszoitas/aegis-agentic/sheet"
   ],
   "links": {
     "contract": "./components-overlays-sheet.json",
@@ -32,9 +32,9 @@
     "Sheet"
   ],
   "importStatements": [
-    "import { Sheet } from '@dimitriszoitas/aegis-ui/sheet';"
+    "import { Sheet } from '@dimitriszoitas/aegis-agentic/sheet';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Sheet",

@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-data-timeline",
   "name": "Timeline",
@@ -17,7 +17,7 @@
   ],
   "purpose": "An ordered activity list with timestamps, event types, optional actors, and actions.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/timeline"
+    "@dimitriszoitas/aegis-agentic/timeline"
   ],
   "links": {
     "contract": "./components-data-timeline.json",
@@ -31,9 +31,9 @@
     "Timeline"
   ],
   "importStatements": [
-    "import { Timeline } from '@dimitriszoitas/aegis-ui/timeline';"
+    "import { Timeline } from '@dimitriszoitas/aegis-agentic/timeline';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Timeline",

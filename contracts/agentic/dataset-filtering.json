@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "dataset-filtering",
+  "version": 1,
+  "status": "candidate",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Filter a dataset without losing the applied query or draft.",
+  "anatomy": [
+    "heading",
+    "controls",
+    "apply-action?",
+    "results",
+    "empty-state"
+  ],
+  "states": [
+    "idle",
+    "draft",
+    "empty",
+    "results"
+  ],
+  "invariants": [
+    "Immediate mode has no Apply action.",
+    "Explicit mode requires Apply and separates draft from applied filters.",
+    "Theme changes preserve draft and applied values.",
+    "This experiment supports customer query (text) and status (select: all, Active, Trial, Paused); other datasets require a new reviewed pattern contract."
+  ],
+  "tokenGroup": "filtering",
+  "behaviorProvider": "host-controlled-state"
+}

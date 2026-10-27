@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-charts-ganttchart",
   "name": "GanttChart",
@@ -19,7 +19,7 @@
   ],
   "purpose": "A schedule view of tasks, milestones, progress, and dependencies across a day, week, or month scale.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/gantt-chart"
+    "@dimitriszoitas/aegis-agentic/gantt-chart"
   ],
   "links": {
     "contract": "./components-charts-ganttchart.json",
@@ -33,9 +33,9 @@
     "GanttChart"
   ],
   "importStatements": [
-    "import { GanttChart } from '@dimitriszoitas/aegis-ui/gantt-chart';"
+    "import { GanttChart } from '@dimitriszoitas/aegis-agentic/gantt-chart';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "GanttChart",

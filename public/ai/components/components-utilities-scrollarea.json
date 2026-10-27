@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-utilities-scrollarea",
   "name": "ScrollArea",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A named, keyboard-focusable native scrolling region with a configurable maximum height.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/scroll-area"
+    "@dimitriszoitas/aegis-agentic/scroll-area"
   ],
   "links": {
     "contract": "./components-utilities-scrollarea.json",
@@ -31,9 +31,9 @@
     "ScrollArea"
   ],
   "importStatements": [
-    "import { ScrollArea } from '@dimitriszoitas/aegis-ui/scroll-area';"
+    "import { ScrollArea } from '@dimitriszoitas/aegis-agentic/scroll-area';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "ScrollArea",

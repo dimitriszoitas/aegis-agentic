@@ -13,6 +13,7 @@ import {
 } from './component-doc-navigation.mjs';
 
 const root = process.cwd();
+const packageName = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8')).name;
 const inspectFamily = process.argv
   .find((argument) => argument.startsWith('--inspect-family='))
   ?.split('=')[1];
@@ -758,10 +759,10 @@ for (const file of storyFiles) {
     return {
       name: componentName,
       path: sourceFile?.includes('/src/patterns/')
-        ? '@dimitriszoitas/aegis-ui/patterns'
-        : (curated?.importPath ??
+        ? `${packageName}/patterns`
+        : (curated?.importPath?.replace('@dimitriszoitas/aegis-ui', packageName) ??
           (segment
-            ? `@dimitriszoitas/aegis-ui/${segment === 'icon' ? 'icons' : segment}`
+            ? `${packageName}/${segment === 'icon' ? 'icons' : segment}`
             : relative(sourceFile ?? file))),
     };
   });

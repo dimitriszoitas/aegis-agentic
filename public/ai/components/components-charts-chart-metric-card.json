@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-charts-chart-metric-card",
   "name": "Chart metric card",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A summary metric, explicit comparison, latest readout, and underlying bar, area, or compact-bar series.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/metric-card"
+    "@dimitriszoitas/aegis-agentic/metric-card"
   ],
   "links": {
     "contract": "./components-charts-chart-metric-card.json",
@@ -31,9 +31,9 @@
     "ChartMetricCard"
   ],
   "importStatements": [
-    "import { ChartMetricCard } from '@dimitriszoitas/aegis-ui/metric-card';"
+    "import { ChartMetricCard } from '@dimitriszoitas/aegis-agentic/metric-card';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "ChartMetricCard",

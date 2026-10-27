@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-field",
   "name": "Field",
@@ -19,7 +19,7 @@
   ],
   "purpose": "A label, helper text, and validation boundary that shares accessible metadata with one compatible control.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/field"
+    "@dimitriszoitas/aegis-agentic/field"
   ],
   "links": {
     "contract": "./components-forms-field.json",
@@ -33,9 +33,9 @@
     "Field"
   ],
   "importStatements": [
-    "import { Field } from '@dimitriszoitas/aegis-ui/field';"
+    "import { Field } from '@dimitriszoitas/aegis-agentic/field';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Field",

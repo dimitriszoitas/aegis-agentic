@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-charts-metric-card",
   "name": "Metric card",
@@ -19,7 +19,7 @@
   ],
   "purpose": "A summary value with an optional unit, percentage comparison, and compact supporting trend.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/metric-card"
+    "@dimitriszoitas/aegis-agentic/metric-card"
   ],
   "links": {
     "contract": "./components-charts-metric-card.json",
@@ -33,9 +33,9 @@
     "MetricCard"
   ],
   "importStatements": [
-    "import { MetricCard } from '@dimitriszoitas/aegis-ui/metric-card';"
+    "import { MetricCard } from '@dimitriszoitas/aegis-agentic/metric-card';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "MetricCard",

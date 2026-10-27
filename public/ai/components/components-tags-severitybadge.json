@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-tags-severitybadge",
   "name": "SeverityBadge",
@@ -18,7 +18,7 @@
   ],
   "purpose": "A severity label using the shared critical, high, medium, low, and info scale.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/severity-badge"
+    "@dimitriszoitas/aegis-agentic/severity-badge"
   ],
   "links": {
     "contract": "./components-tags-severitybadge.json",
@@ -32,9 +32,9 @@
     "SeverityBadge"
   ],
   "importStatements": [
-    "import { SeverityBadge } from '@dimitriszoitas/aegis-ui/severity-badge';"
+    "import { SeverityBadge } from '@dimitriszoitas/aegis-agentic/severity-badge';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "SeverityBadge",

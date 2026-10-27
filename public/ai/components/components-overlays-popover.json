@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-overlays-popover",
   "name": "Popover",
@@ -17,7 +17,7 @@
   ],
   "purpose": "Anchored interactive content with optional header and footer outside the scrollable body.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/popover"
+    "@dimitriszoitas/aegis-agentic/popover"
   ],
   "links": {
     "contract": "./components-overlays-popover.json",
@@ -32,9 +32,9 @@
     "PopoverClose"
   ],
   "importStatements": [
-    "import { Popover, PopoverClose } from '@dimitriszoitas/aegis-ui/popover';"
+    "import { Popover, PopoverClose } from '@dimitriszoitas/aegis-agentic/popover';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Popover",

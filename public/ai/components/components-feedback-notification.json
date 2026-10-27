@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-feedback-notification",
   "name": "Notification",
@@ -18,7 +18,7 @@
   ],
   "purpose": "One notification presentation for inline messages and floating lifecycle-managed feedback.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/notification"
+    "@dimitriszoitas/aegis-agentic/notification"
   ],
   "links": {
     "contract": "./components-feedback-notification.json",
@@ -33,9 +33,9 @@
     "NotificationViewport"
   ],
   "importStatements": [
-    "import { Notification, NotificationViewport } from '@dimitriszoitas/aegis-ui/notification';"
+    "import { Notification, NotificationViewport } from '@dimitriszoitas/aegis-agentic/notification';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Notification",

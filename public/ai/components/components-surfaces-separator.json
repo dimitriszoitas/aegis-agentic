@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-surfaces-separator",
   "name": "Separator",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A horizontal or vertical divider for a meaningful boundary between adjacent content.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/separator"
+    "@dimitriszoitas/aegis-agentic/separator"
   ],
   "links": {
     "contract": "./components-surfaces-separator.json",
@@ -31,9 +31,9 @@
     "Separator"
   ],
   "importStatements": [
-    "import { Separator } from '@dimitriszoitas/aegis-ui/separator';"
+    "import { Separator } from '@dimitriszoitas/aegis-agentic/separator';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Separator",

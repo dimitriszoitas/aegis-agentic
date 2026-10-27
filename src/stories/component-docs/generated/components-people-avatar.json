@@ -44,11 +44,11 @@
   "imports": [
     {
       "name": "Avatar",
-      "path": "@dimitriszoitas/aegis-ui/avatar"
+      "path": "@dimitriszoitas/aegis-agentic/avatar"
     },
     {
       "name": "AvatarGroup",
-      "path": "@dimitriszoitas/aegis-ui/avatar"
+      "path": "@dimitriszoitas/aegis-agentic/avatar"
     }
   ],
   "stories": [

@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/proposal.schema.json",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "proposedId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "baseRegistryRevision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "evidence": {
+      "enum": ["illustrative-fixture", "independent-agent-proposal"]
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "allOf": [
+        {
+          "contains": {
+            "const": "multi-value-entry"
+          }
+        },
+        {
+          "contains": {
+            "const": "free-text-entry"
+          }
+        },
+        {
+          "contains": {
+            "const": "value-validation"
+          }
+        }
+      ]
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "behavior": {
+      "type": "object",
+      "properties": {
+        "freeText": {
+          "const": true
+        },
+        "commitKeys": {
+          "type": "array",
+          "items": {
+            "enum": ["Enter", ","]
+          },
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "contains": {
+            "const": "Enter"
+          }
+        },
+        "duplicatePolicy": {
+          "enum": ["reject", "ignore"]
+        },
+        "commitOnBlur": {
+          "type": "boolean"
+        }
+      },
+      "required": ["freeText", "commitKeys", "duplicatePolicy", "commitOnBlur"],
+      "additionalProperties": false
+    },
+    "anatomy": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "allOf": [
+        {
+          "contains": {
+            "const": "label"
+          }
+        },
+        {
+          "contains": {
+            "const": "input"
+          }
+        },
+        {
+          "contains": {
+            "const": "tokens"
+          }
+        },
+        {
+          "contains": {
+            "const": "error"
+          }
+        }
+      ]
+    },
+    "requiredStates": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "allOf": [
+        {
+          "contains": {
+            "const": "empty"
+          }
+        },
+        {
+          "contains": {
+            "const": "populated"
+          }
+        },
+        {
+          "contains": {
+            "const": "invalid"
+          }
+        },
+        {
+          "contains": {
+            "const": "disabled"
+          }
+        },
+        {
+          "contains": {
+            "const": "focus-visible"
+          }
+        }
+      ]
+    },
+    "tokenGroup": {
+      "const": "input"
+    },
+    "implementation": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "proposedId",
+    "name",
+    "baseRegistryRevision",
+    "evidence",
+    "author",
+    "capabilities",
+    "aliases",
+    "behavior",
+    "anatomy",
+    "requiredStates",
+    "tokenGroup",
+    "implementation"
+  ],
+  "additionalProperties": false
+}

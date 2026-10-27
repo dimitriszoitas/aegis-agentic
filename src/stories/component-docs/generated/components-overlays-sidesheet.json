@@ -52,15 +52,15 @@
   "imports": [
     {
       "name": "SideSheet",
-      "path": "@dimitriszoitas/aegis-ui/side-sheet"
+      "path": "@dimitriszoitas/aegis-agentic/side-sheet"
     },
     {
       "name": "SideSheetSection",
-      "path": "@dimitriszoitas/aegis-ui/side-sheet"
+      "path": "@dimitriszoitas/aegis-agentic/side-sheet"
     },
     {
       "name": "SideSheetField",
-      "path": "@dimitriszoitas/aegis-ui/side-sheet"
+      "path": "@dimitriszoitas/aegis-agentic/side-sheet"
     }
   ],
   "stories": [

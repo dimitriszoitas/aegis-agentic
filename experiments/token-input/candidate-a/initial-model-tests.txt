@@ -1,0 +1,48 @@
+✔ Enter trims and commits new free text, preserving display case (1.146625ms)
+✔ empty or whitespace-only submission does not create a value (0.113541ms)
+✔ validation error preserves exact draft and existing values (0.44625ms)
+✔ correcting a validation error permits retry (0.079458ms)
+✔ case and surrounding whitespace do not bypass duplicate rejection (0.071083ms)
+✔ canonically equivalent Unicode strings count as duplicates (0.098958ms)
+✔ comma is literal label text, not a commit key or paste separator (0.09625ms)
+✔ blur preserves both a valid draft and an invalid draft without a change (0.101542ms)
+✔ multi-value paste commits lines and tabs in order, skipping empty segments (0.102583ms)
+✔ paste replaces only the selected draft substring before parsing (0.091417ms)
+✔ one invalid pasted value rejects entire batch and retains exact pasted input (0.078375ms)
+✔ duplicates inside a pasted batch reject all values (0.04675ms)
+✔ duplicates against committed values reject the entire pasted batch (0.045084ms)
+✔ all validation errors are returned with their positions (0.062ms)
+✔ failed batch can be corrected and resubmitted without duplicating valid siblings (0.04325ms)
+✔ single pasted text stays in the draft until explicit submission (0.049833ms)
+✔ editing Backspace never removes a token (0.03375ms)
+✔ empty Backspace first focuses last remove control; second explicit key removes it (0.060708ms)
+✔ Enter and Space activate a focused remove button and return focus when empty (0.055208ms)
+✔ removal focuses the next value at that position and preserves draft (0.032125ms)
+✔ invalid removal targets are no-ops (0.035625ms)
+✔ IME Enter and Shift+Enter do not accidentally commit (0.051458ms)
+✔ paste during IME composition preserves text without committing (0.025917ms)
+✔ optional suggestion adds a validated value without destroying unrelated free-text draft (0.033334ms)
+✔ suggestions obey validation and duplicate rules (0.041916ms)
+✔ disabled state blocks input, keyboard, paste, removal, suggestion and commit (0.052292ms)
+✔ controlled request does not mutate value or clear draft before acknowledgment (0.063708ms)
+✔ controlled rejection preserves submitted draft and allows retry (0.046459ms)
+✔ draft edits made while a controlled request is pending survive acceptance (0.033875ms)
+✔ pending requests block duplicate commits and removal but keep the draft editable (0.037291ms)
+✔ unrelated external value update cancels pending request and preserves draft (0.043375ms)
+✔ stale acknowledgments and rejections cannot roll back state (0.039417ms)
+✔ controlled removal awaits acceptance and preserves input (0.045833ms)
+✔ external controlled updates work while disabled without requesting focus (0.045125ms)
+✔ late acceptance does not steal focus after blur (0.041875ms)
+✔ accessibility descriptors provide visible label, error association and named non-submit buttons (0.143333ms)
+✔ disabled and pending accessibility descriptors disable all mutation buttons (0.058791ms)
+✔ validation exceptions or asynchronous results fail safely without data loss (0.082958ms)
+✔ invalid host values and missing accessible names fail explicitly (0.21975ms)
+✔ transitions do not mutate the input state or event data (0.078792ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 48.689167

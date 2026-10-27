@@ -72,7 +72,7 @@
   "imports": [
     {
       "name": "AiMessage",
-      "path": "@dimitriszoitas/aegis-ui/ai-message"
+      "path": "@dimitriszoitas/aegis-agentic/ai-message"
     }
   ],
   "stories": [

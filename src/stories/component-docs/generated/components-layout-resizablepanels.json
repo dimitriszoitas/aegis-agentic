@@ -47,15 +47,15 @@
   "imports": [
     {
       "name": "ResizablePanels",
-      "path": "@dimitriszoitas/aegis-ui/resizable-panels"
+      "path": "@dimitriszoitas/aegis-agentic/resizable-panels"
     },
     {
       "name": "ResizablePanel",
-      "path": "@dimitriszoitas/aegis-ui/resizable-panels"
+      "path": "@dimitriszoitas/aegis-agentic/resizable-panels"
     },
     {
       "name": "ResizeHandle",
-      "path": "@dimitriszoitas/aegis-ui/resizable-panels"
+      "path": "@dimitriszoitas/aegis-agentic/resizable-panels"
     }
   ],
   "stories": [

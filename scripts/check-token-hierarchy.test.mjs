@@ -618,6 +618,12 @@ test('new production CSS and TS files cannot bypass ownership by omitting manife
     await mkdir(join(rootDir, 'src/components/button'), { recursive: true });
     await mkdir(join(rootDir, 'src/patterns/new-pattern'), { recursive: true });
     await mkdir(join(rootDir, 'src/review'), { recursive: true });
+    await mkdir(join(rootDir, 'src/agentic/components'), { recursive: true });
+    for (const file of ['src/agentic/workbench.tsx', 'src/agentic/components/New.tsx'])
+      await writeFile(join(rootDir, file), "const color = 'var(--group-trigger-background)';");
+    for (const file of ['src/agentic/workbench.css', 'src/agentic/components/New.css'])
+      await writeFile(join(rootDir, file), '.sample {color:var(--group-trigger-background)}');
+    await writeFile(join(rootDir, 'src/agentic/profile.ts'), 'export const compiler = {};');
     await writeFile(
       join(rootDir, 'src/components/button/new.tsx'),
       "const color = 'var(--group-trigger-background)';",
@@ -647,13 +653,22 @@ test('new production CSS and TS files cannot bypass ownership by omitting manife
         .filter((error) => error.code === 'consumer-coverage')
         .map((error) => error.file),
       [
+        'src/agentic/components/New.css',
+        'src/agentic/components/New.tsx',
+        'src/agentic/workbench.css',
+        'src/agentic/workbench.tsx',
         'src/components/button/new.css',
         'src/components/button/new.tsx',
         'src/patterns/new-pattern/index.ts',
       ],
     );
-    assert.equal(missing.inventoryFiles, 3);
+    assert.equal(missing.inventoryFiles, 7);
     categories.categories.trigger.prefixes.push('src/patterns/new-pattern/');
+    categories.categories.trigger.prefixes.push(
+      'src/agentic/components/',
+      'src/agentic/workbench.tsx',
+      'src/agentic/workbench.css',
+    );
     m.consumers = missing.errors.map(({ file }) => ({ file, family: 'trigger' }));
     assert.deepEqual(
       (await auditTokenConsumers(m, { rootDir, categoryMap: categories })).errors,

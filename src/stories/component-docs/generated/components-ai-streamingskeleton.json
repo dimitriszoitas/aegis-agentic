@@ -39,7 +39,7 @@
   "imports": [
     {
       "name": "StreamingSkeleton",
-      "path": "@dimitriszoitas/aegis-ui/streaming-skeleton"
+      "path": "@dimitriszoitas/aegis-agentic/streaming-skeleton"
     }
   ],
   "stories": [

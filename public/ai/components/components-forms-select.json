@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-select",
   "name": "Select",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A single-value picker with grouped options, optional icons, descriptions, and native form integration.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/select"
+    "@dimitriszoitas/aegis-agentic/select"
   ],
   "links": {
     "contract": "./components-forms-select.json",
@@ -31,9 +31,9 @@
     "Select"
   ],
   "importStatements": [
-    "import { Select } from '@dimitriszoitas/aegis-ui/select';"
+    "import { Select } from '@dimitriszoitas/aegis-agentic/select';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Select",

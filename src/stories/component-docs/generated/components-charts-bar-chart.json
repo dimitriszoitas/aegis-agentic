@@ -57,7 +57,7 @@
   "imports": [
     {
       "name": "BarChart",
-      "path": "@dimitriszoitas/aegis-ui/charts"
+      "path": "@dimitriszoitas/aegis-agentic/charts"
     }
   ],
   "stories": [

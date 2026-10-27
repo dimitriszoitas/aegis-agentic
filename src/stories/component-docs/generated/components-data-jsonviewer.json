@@ -53,7 +53,7 @@
   "imports": [
     {
       "name": "JsonViewer",
-      "path": "@dimitriszoitas/aegis-ui/json-viewer"
+      "path": "@dimitriszoitas/aegis-agentic/json-viewer"
     }
   ],
   "stories": [

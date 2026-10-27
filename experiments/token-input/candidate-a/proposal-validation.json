@@ -1,0 +1,26 @@
+{
+  "validator": "portable runtime validateProposal",
+  "proposalId": "candidate-a-token-input",
+  "registryRevision": 1,
+  "valid": true,
+  "issues": [],
+  "profile": {
+    "id": "aegis",
+    "version": 1,
+    "compiledHash": "v1-638d0fd6"
+  },
+  "negativeChecks": [
+    {
+      "name": "stale revision",
+      "rejected": true
+    },
+    {
+      "name": "unknown behavior",
+      "rejected": true
+    },
+    {
+      "name": "wrong ownership",
+      "rejected": true
+    }
+  ]
+}

@@ -38,7 +38,7 @@
   "imports": [
     {
       "name": "Separator",
-      "path": "@dimitriszoitas/aegis-ui/separator"
+      "path": "@dimitriszoitas/aegis-agentic/separator"
     }
   ],
   "stories": [

@@ -49,7 +49,7 @@
   "imports": [
     {
       "name": "ContextMenu",
-      "path": "@dimitriszoitas/aegis-ui/context-menu"
+      "path": "@dimitriszoitas/aegis-agentic/context-menu"
     }
   ],
   "stories": [

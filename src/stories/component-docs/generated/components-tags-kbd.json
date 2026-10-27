@@ -38,7 +38,7 @@
   "imports": [
     {
       "name": "Kbd",
-      "path": "@dimitriszoitas/aegis-ui/kbd"
+      "path": "@dimitriszoitas/aegis-agentic/kbd"
     }
   ],
   "stories": [

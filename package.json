@@ -1,6 +1,6 @@
 {
-  "name": "@dimitriszoitas/aegis-ui",
-  "version": "0.1.0",
+  "name": "@dimitriszoitas/aegis-agentic",
+  "version": "0.1.0-experiment.0",
   "type": "module",
   "license": "MIT",
   "packageManager": "pnpm@11.19.0",
@@ -14,21 +14,30 @@
     "lint": "eslint . && npm run tokens:check && npm run headless:check",
     "test": "vitest run src",
     "format": "prettier --write .",
-    "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm docs:check && pnpm build-storybook",
+    "check": "npm run agentic:check",
     "test:stories": "node scripts/verify-stories.mjs",
     "test:docs": "node scripts/verify-documentation.mjs",
     "test:foundations": "node scripts/verify-foundation-docs.mjs",
     "build:package": "node scripts/build-package.mjs",
     "test:package": "node scripts/verify-package.mjs",
     "docs:check": "node scripts/check-component-docs.mjs && node --test scripts/component-story-args.test.mjs && npm run ai:check",
-    "prepack": "npm run build:package",
+    "prepack": "npm run agentic:kit && npm run build:package",
     "docs:generate": "node scripts/generate-component-docs.mjs && npm run ai:generate",
     "test:anatomy": "node scripts/verify-anatomy.mjs",
     "tokens:check": "node scripts/generate-token-hierarchy.mjs --check && node scripts/check-token-hierarchy.mjs && node --test scripts/check-token-hierarchy.test.mjs && node scripts/check-tokens.mjs && node scripts/check-component-css-tokens.mjs --self-test && node scripts/check-component-runtime-tokens.mjs",
     "ai:generate": "node scripts/generate-ai-contracts.mjs",
     "ai:check": "node scripts/generate-ai-contracts.mjs --check && node --test scripts/generate-ai-contracts.test.mjs",
     "headless:check": "node scripts/check-headless-boundary.mjs",
-    "tokens:generate": "node scripts/generate-color-palettes.mjs && node scripts/generate-token-hierarchy.mjs"
+    "tokens:generate": "node scripts/generate-color-palettes.mjs && node scripts/generate-token-hierarchy.mjs",
+    "agentic:kit": "node scripts/build-agent-kit.mjs",
+    "agentic": "node scripts/agentic.mjs",
+    "agentic:test": "vitest run src/agentic",
+    "agentic:consumer": "node scripts/verify-agent-kit.mjs",
+    "agentic:check": "npm run typecheck && npm run lint && npm test && npm run ai:check && npm run agentic:kit && npm run agentic:consumer && npm run infrastructure:test && npm run build && npm run build:package",
+    "legacy:check": "pnpm typecheck && pnpm lint && pnpm test && pnpm docs:check && pnpm build-storybook",
+    "agentic:browser": "node scripts/run-agentic-browser.mjs",
+    "infrastructure": "node scripts/infrastructure.mjs",
+    "infrastructure:test": "node --test scripts/infrastructure/*.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
@@ -88,14 +97,14 @@
     "vitest": "^5.0.3",
     "radix-ui": "^1.6.7"
   },
-  "description": "React components, tokens, and patterns for applications, dashboards, and developer tools.",
+  "description": "Experimental design-system infrastructure: versioned design profiles, agent contracts, configuration inventory, usage evidence and bounded maintenance on Aegis.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dimitriszoitas/aegis-ui.git"
+    "url": "git+https://github.com/dimitriszoitas/aegis-agentic.git"
   },
-  "homepage": "https://dimitriszoitas.github.io/aegis-ui/",
+  "homepage": "https://github.com/dimitriszoitas/aegis-agentic",
   "bugs": {
-    "url": "https://github.com/dimitriszoitas/aegis-ui/issues"
+    "url": "https://github.com/dimitriszoitas/aegis-agentic/issues"
   },
   "keywords": [
     "react",
@@ -110,7 +119,8 @@
     "lib-dist",
     "LICENSE",
     "README.md",
-    "THIRD_PARTY_NOTICES.md"
+    "THIRD_PARTY_NOTICES.md",
+    "agent-kit"
   ],
   "sideEffects": [
     "**/*.css"
@@ -120,7 +130,7 @@
   "types": "./lib-dist/types/index.d.ts",
   "style": "./lib-dist/styles.css",
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   },
   "exports": {
     ".": {
@@ -623,7 +633,13 @@
       "import": "./lib-dist/primitives.js",
       "default": "./lib-dist/primitives.js"
     },
-    "./token-manifest.json": "./lib-dist/token-manifest.json"
+    "./token-manifest.json": "./lib-dist/token-manifest.json",
+    "./agentic": {
+      "types": "./lib-dist/types/package/agentic.d.ts",
+      "import": "./lib-dist/agentic.js",
+      "default": "./lib-dist/agentic.js"
+    },
+    "./agent-kit/kit.json": "./agent-kit/kit.json"
   },
   "peerDependencies": {
     "react": "^19.0.0",

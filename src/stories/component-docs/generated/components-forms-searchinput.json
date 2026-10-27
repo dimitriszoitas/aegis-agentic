@@ -55,7 +55,7 @@
   "imports": [
     {
       "name": "SearchInput",
-      "path": "@dimitriszoitas/aegis-ui/search-input"
+      "path": "@dimitriszoitas/aegis-agentic/search-input"
     }
   ],
   "stories": [

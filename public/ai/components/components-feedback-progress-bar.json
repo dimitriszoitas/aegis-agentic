@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-feedback-progress-bar",
   "name": "Progress bar",
@@ -17,7 +17,7 @@
   ],
   "purpose": "Determinate or indeterminate progress with a required accessible task label.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/progress-bar"
+    "@dimitriszoitas/aegis-agentic/progress-bar"
   ],
   "links": {
     "contract": "./components-feedback-progress-bar.json",
@@ -31,9 +31,9 @@
     "ProgressBar"
   ],
   "importStatements": [
-    "import { ProgressBar } from '@dimitriszoitas/aegis-ui/progress-bar';"
+    "import { ProgressBar } from '@dimitriszoitas/aegis-agentic/progress-bar';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "ProgressBar",

@@ -67,7 +67,7 @@
   "imports": [
     {
       "name": "BulkActionsBar",
-      "path": "@dimitriszoitas/aegis-ui/bulk-actions-bar"
+      "path": "@dimitriszoitas/aegis-agentic/bulk-actions-bar"
     }
   ],
   "stories": [

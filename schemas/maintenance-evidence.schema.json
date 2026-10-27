@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/maintenance-evidence.schema.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kind": {
+      "enum": ["derived-drift", "behavior-defect", "new-capability", "test-failure"]
+    },
+    "origin": {
+      "enum": ["illustrative-fixture", "local-check"]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact": {
+      "enum": ["registry-index", "profile-tokens", "contract-docs"]
+    },
+    "sourceRevision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "observedRevision": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": ["id", "kind", "origin", "summary", "sourceRevision"],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "derived-drift"
+          },
+          "origin": {
+            "const": "local-check"
+          }
+        }
+      },
+      "then": {
+        "required": ["artifact", "observedRevision"]
+      }
+    }
+  ]
+}

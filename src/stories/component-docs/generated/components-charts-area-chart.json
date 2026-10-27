@@ -57,7 +57,7 @@
   "imports": [
     {
       "name": "AreaChart",
-      "path": "@dimitriszoitas/aegis-ui/charts"
+      "path": "@dimitriszoitas/aegis-agentic/charts"
     }
   ],
   "stories": [

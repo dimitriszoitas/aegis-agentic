@@ -38,7 +38,7 @@
   "imports": [
     {
       "name": "Skeleton",
-      "path": "@dimitriszoitas/aegis-ui/skeleton"
+      "path": "@dimitriszoitas/aegis-agentic/skeleton"
     }
   ],
   "stories": [

@@ -3,6 +3,10 @@ import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import {
+  productionConsumerDirectories,
+  productionConsumerEntries,
+} from './token-source-inventory.mjs';
 
 // Use the CSS parser supplied by the build tool, keeping this audit aligned with Vite.
 const require = createRequire(import.meta.url);
@@ -28,9 +32,14 @@ export async function componentCssFiles() {
       else if (entry.name.endsWith('.css')) files.push(path);
     }
   }
-  await visit('src/components');
-  await visit('src/patterns');
-  return [...files, ...sharedFiles].sort();
+  await Promise.all(productionConsumerDirectories.map(visit));
+  return [
+    ...new Set([
+      ...files,
+      ...sharedFiles,
+      ...productionConsumerEntries.filter((file) => file.endsWith('.css')),
+    ]),
+  ].sort();
 }
 
 // Read declaration values only. Selector indices and keyframe percentages describe

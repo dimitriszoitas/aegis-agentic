@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/registry.schema.json",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "component",
+              "pattern"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "contract": {
+            "type": "string",
+            "minLength": 1
+          },
+          "importPath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "origin": {
+                "enum": [
+                  "existing-aegis",
+                  "experimental-composition",
+                  "owner-reviewed-proposal"
+                ]
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reviewedBy": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "origin",
+              "source",
+              "reviewedBy"
+            ],
+            "additionalProperties": false
+          },
+          "behavior": {
+            "type": "object",
+            "properties": {
+              "freeText": {
+                "const": true
+              },
+              "commitKeys": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "Enter",
+                    ","
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 2,
+                "uniqueItems": true,
+                "contains": {
+                  "const": "Enter"
+                }
+              },
+              "duplicatePolicy": {
+                "enum": [
+                  "reject",
+                  "ignore"
+                ]
+              },
+              "commitOnBlur": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "freeText",
+              "commitKeys",
+              "duplicatePolicy",
+              "commitOnBlur"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "version",
+          "aliases",
+          "capabilities",
+          "contract",
+          "importPath",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "revision",
+    "entries"
+  ],
+  "additionalProperties": false
+}

@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-charts-area-chart",
   "name": "Area chart",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "An ordered series chart that emphasizes magnitude with a filled area beneath the line.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/charts"
+    "@dimitriszoitas/aegis-agentic/charts"
   ],
   "links": {
     "contract": "./components-charts-area-chart.json",
@@ -28,9 +28,9 @@
     "AreaChart"
   ],
   "importStatements": [
-    "import { AreaChart } from '@dimitriszoitas/aegis-ui/charts';"
+    "import { AreaChart } from '@dimitriszoitas/aegis-agentic/charts';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "AreaChart",

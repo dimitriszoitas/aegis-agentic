@@ -60,7 +60,7 @@
   "imports": [
     {
       "name": "Sheet",
-      "path": "@dimitriszoitas/aegis-ui/sheet"
+      "path": "@dimitriszoitas/aegis-agentic/sheet"
     }
   ],
   "stories": [

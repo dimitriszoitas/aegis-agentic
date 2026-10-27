@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "candidate-a-token-input",
+  "proposedId": "token-input",
+  "name": "TokenInput",
+  "baseRegistryRevision": 1,
+  "evidence": "independent-agent-proposal",
+  "author": "Independent agent A",
+  "capabilities": [
+    "multi-value-entry",
+    "free-text-entry",
+    "value-validation",
+    "value-removal",
+    "atomic-multi-value-paste",
+    "optional-suggestions",
+    "controlled-value",
+    "disabled-state",
+    "keyboard-operation",
+    "accessible-names"
+  ],
+  "aliases": ["project labels", "tag input", "chip input", "token entry"],
+  "behavior": {
+    "freeText": true,
+    "commitKeys": ["Enter"],
+    "duplicatePolicy": "reject",
+    "commitOnBlur": false
+  },
+  "anatomy": ["label", "input", "tokens", "error", "description", "add-control", "remove-controls", "suggestions", "status"],
+  "requiredStates": ["empty", "populated", "invalid", "disabled", "focus-visible", "pending-controlled-change", "composing"],
+  "tokenGroup": "input",
+  "implementation": "experiments/token-input/candidate-a/model.mjs"
+}

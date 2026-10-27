@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "id": "solstice",
+  "name": "Solstice Studio",
+  "brand": "#9c426b",
+  "neutral": "warm",
+  "semantic": {
+    "success": "#657635",
+    "warning": "#b86b10",
+    "danger": "#b83d38",
+    "info": "#6861a9"
+  },
+  "radius": "round",
+  "font": "serif",
+  "density": "comfortable"
+}

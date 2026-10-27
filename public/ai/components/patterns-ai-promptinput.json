@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "patterns-ai-promptinput",
   "name": "PromptInput",
@@ -18,7 +18,7 @@
   ],
   "purpose": "An AI message composer with removable context, slash commands, and send or stop controls.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/patterns"
+    "@dimitriszoitas/aegis-agentic/patterns"
   ],
   "links": {
     "contract": "./patterns-ai-promptinput.json",
@@ -32,9 +32,9 @@
     "PromptInput"
   ],
   "importStatements": [
-    "import { PromptInput } from '@dimitriszoitas/aegis-ui/patterns';"
+    "import { PromptInput } from '@dimitriszoitas/aegis-agentic/patterns';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "PromptInput",

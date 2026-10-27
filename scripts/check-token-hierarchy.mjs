@@ -4,6 +4,10 @@ import { resolve, relative, isAbsolute } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import ts from 'typescript';
 import { postcss, numericFragments } from './check-component-css-tokens.mjs';
+import {
+  productionConsumerDirectories,
+  productionConsumerEntries,
+} from './token-source-inventory.mjs';
 
 export const configurations = [
   'fundamental.light',
@@ -472,8 +476,8 @@ export async function productionConsumerFiles(rootDir, categoryMap) {
       else if (/\.(?:css|tsx?)$/.test(file) && !/\.(?:stories|test)\./.test(file)) files.add(file);
     }
   }
-  await Promise.all([visit('src/components'), visit('src/patterns')]);
-  for (const file of categoryMap.sharedFiles) {
+  await Promise.all(productionConsumerDirectories.map(visit));
+  for (const file of [...categoryMap.sharedFiles, ...productionConsumerEntries]) {
     try {
       if ((await stat(resolve(rootDir, file))).isFile()) files.add(file);
     } catch (error) {

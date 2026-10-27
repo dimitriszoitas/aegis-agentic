@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-data-jsonviewer",
   "name": "JsonViewer",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A bounded, expandable JSON tree with type-aware values and path or value copying.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/json-viewer"
+    "@dimitriszoitas/aegis-agentic/json-viewer"
   ],
   "links": {
     "contract": "./components-data-jsonviewer.json",
@@ -31,9 +31,9 @@
     "JsonViewer"
   ],
   "importStatements": [
-    "import { JsonViewer } from '@dimitriszoitas/aegis-ui/json-viewer';"
+    "import { JsonViewer } from '@dimitriszoitas/aegis-agentic/json-viewer';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "JsonViewer",

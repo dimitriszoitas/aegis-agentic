@@ -70,7 +70,7 @@
   "imports": [
     {
       "name": "AiInlineSuggestion",
-      "path": "@dimitriszoitas/aegis-ui/ai-inline-suggestion"
+      "path": "@dimitriszoitas/aegis-agentic/ai-inline-suggestion"
     }
   ],
   "stories": [

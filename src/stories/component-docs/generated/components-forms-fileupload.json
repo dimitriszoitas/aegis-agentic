@@ -65,7 +65,7 @@
   "imports": [
     {
       "name": "FileUpload",
-      "path": "@dimitriszoitas/aegis-ui/file-upload"
+      "path": "@dimitriszoitas/aegis-agentic/file-upload"
     }
   ],
   "stories": [

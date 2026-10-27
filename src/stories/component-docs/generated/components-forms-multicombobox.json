@@ -63,7 +63,7 @@
   "imports": [
     {
       "name": "MultiCombobox",
-      "path": "@dimitriszoitas/aegis-ui/multi-combobox"
+      "path": "@dimitriszoitas/aegis-agentic/multi-combobox"
     }
   ],
   "stories": [

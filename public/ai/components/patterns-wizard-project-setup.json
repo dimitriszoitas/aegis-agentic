@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "patterns-wizard-project-setup",
   "name": "Project setup wizard",
@@ -18,7 +18,7 @@
   ],
   "purpose": "",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/patterns"
+    "@dimitriszoitas/aegis-agentic/patterns"
   ],
   "links": {
     "contract": "./patterns-wizard-project-setup.json",
@@ -32,9 +32,9 @@
     "Wizard"
   ],
   "importStatements": [
-    "import { Wizard } from '@dimitriszoitas/aegis-ui/patterns';"
+    "import { Wizard } from '@dimitriszoitas/aegis-agentic/patterns';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Wizard",

@@ -39,7 +39,7 @@
   "imports": [
     {
       "name": "Tabs",
-      "path": "@dimitriszoitas/aegis-ui/tabs"
+      "path": "@dimitriszoitas/aegis-agentic/tabs"
     }
   ],
   "stories": [

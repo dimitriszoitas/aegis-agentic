@@ -48,7 +48,7 @@
   "imports": [
     {
       "name": "CodeEditor",
-      "path": "@dimitriszoitas/aegis-ui/code-editor"
+      "path": "@dimitriszoitas/aegis-agentic/code-editor"
     }
   ],
   "stories": [

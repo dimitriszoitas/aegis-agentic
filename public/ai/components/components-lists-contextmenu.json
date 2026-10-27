@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-lists-contextmenu",
   "name": "ContextMenu",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A menu attached to a content region, opened through a context gesture or keyboard command.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/context-menu"
+    "@dimitriszoitas/aegis-agentic/context-menu"
   ],
   "links": {
     "contract": "./components-lists-contextmenu.json",
@@ -31,9 +31,9 @@
     "ContextMenu"
   ],
   "importStatements": [
-    "import { ContextMenu } from '@dimitriszoitas/aegis-ui/context-menu';"
+    "import { ContextMenu } from '@dimitriszoitas/aegis-agentic/context-menu';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "ContextMenu",

@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-actions-link",
   "name": "Link",
@@ -18,7 +18,7 @@
   ],
   "purpose": "A native anchor for navigation, with optional icons and explicit external-link behavior.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/link"
+    "@dimitriszoitas/aegis-agentic/link"
   ],
   "links": {
     "contract": "./components-actions-link.json",
@@ -32,9 +32,9 @@
     "Link"
   ],
   "importStatements": [
-    "import { Link } from '@dimitriszoitas/aegis-ui/link';"
+    "import { Link } from '@dimitriszoitas/aegis-agentic/link';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Link",

@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-textarea",
   "name": "Textarea",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A multiline native text control with optional measured growth and a character count.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/textarea"
+    "@dimitriszoitas/aegis-agentic/textarea"
   ],
   "links": {
     "contract": "./components-forms-textarea.json",
@@ -31,9 +31,9 @@
     "Textarea"
   ],
   "importStatements": [
-    "import { Textarea } from '@dimitriszoitas/aegis-ui/textarea';"
+    "import { Textarea } from '@dimitriszoitas/aegis-agentic/textarea';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Textarea",

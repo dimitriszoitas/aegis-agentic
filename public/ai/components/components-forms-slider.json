@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-slider",
   "name": "Slider",
@@ -16,7 +16,7 @@
   ],
   "purpose": "One or more keyboard-operable thumbs for a numeric value or bounded range.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/slider"
+    "@dimitriszoitas/aegis-agentic/slider"
   ],
   "links": {
     "contract": "./components-forms-slider.json",
@@ -30,9 +30,9 @@
     "Slider"
   ],
   "importStatements": [
-    "import { Slider } from '@dimitriszoitas/aegis-ui/slider';"
+    "import { Slider } from '@dimitriszoitas/aegis-agentic/slider';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Slider",

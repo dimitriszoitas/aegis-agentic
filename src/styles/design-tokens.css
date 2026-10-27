@@ -2662,6 +2662,7 @@
   --semantic-status-fill-emphasis: var(--primitive-ratio-0percent);
 }
 :root, [data-layout-theme], .dark, .aegis-theme-light {
+  --group-application-icon-stroke-thin: var(--semantic-measurement-icon-stroke-thin);
   --group-ai-angle-115deg: var(--semantic-angle-115deg);
   --group-ai-angle-180deg: var(--semantic-angle-180deg);
   --group-ai-angle-360deg: var(--semantic-angle-360deg);

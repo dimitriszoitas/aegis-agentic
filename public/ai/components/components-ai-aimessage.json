@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-ai-aimessage",
   "name": "AiMessage",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "A user or assistant conversation entry with source context, progress, citations, and optional result actions.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/ai-message"
+    "@dimitriszoitas/aegis-agentic/ai-message"
   ],
   "links": {
     "contract": "./components-ai-aimessage.json",
@@ -28,9 +28,9 @@
     "AiMessage"
   ],
   "importStatements": [
-    "import { AiMessage } from '@dimitriszoitas/aegis-ui/ai-message';"
+    "import { AiMessage } from '@dimitriszoitas/aegis-agentic/ai-message';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "AiMessage",

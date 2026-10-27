@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-actions-buttongroup",
   "name": "ButtonGroup",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A visual and semantic group of related buttons without adding selection behavior.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/button-group"
+    "@dimitriszoitas/aegis-agentic/button-group"
   ],
   "links": {
     "contract": "./components-actions-buttongroup.json",
@@ -31,9 +31,9 @@
     "ButtonGroup"
   ],
   "importStatements": [
-    "import { ButtonGroup } from '@dimitriszoitas/aegis-ui/button-group';"
+    "import { ButtonGroup } from '@dimitriszoitas/aegis-agentic/button-group';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "ButtonGroup",

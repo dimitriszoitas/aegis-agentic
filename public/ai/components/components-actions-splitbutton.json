@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-actions-splitbutton",
   "name": "SplitButton",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A frequent primary action paired with a menu of related alternatives.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/split-button"
+    "@dimitriszoitas/aegis-agentic/split-button"
   ],
   "links": {
     "contract": "./components-actions-splitbutton.json",
@@ -31,9 +31,9 @@
     "SplitButton"
   ],
   "importStatements": [
-    "import { SplitButton } from '@dimitriszoitas/aegis-ui/split-button';"
+    "import { SplitButton } from '@dimitriszoitas/aegis-agentic/split-button';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "SplitButton",

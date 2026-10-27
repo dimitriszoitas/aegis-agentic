@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "candidateId": "candidate-a-token-input",
+  "evidence": "independent-agent-proposal",
+  "author": "Independent agent A",
+  "status": "experimental-candidate-not-approved",
+  "recordedAt": "2026-10-27T19:01:46.773Z",
+  "isolation": {
+    "inputRoot": "/private/tmp/aegis-agentic-experiment/agent-kit",
+    "outputRoot": "/private/tmp/aegis-agentic-experiment/experiments/token-input/candidate-a/",
+    "originalRepositoryInspected": false,
+    "otherCandidatesInspected": false,
+    "sharedRegistryMutated": false
+  },
+  "kit": {
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0",
+    "baseline": "12e4f6b218c6cc68aba303feec211ba91aaeb20a",
+    "registryRevision": 1,
+    "compilerVersion": "1"
+  },
+  "profile": {
+    "id": "aegis",
+    "version": 1,
+    "compiledHash": "v1-638d0fd6",
+    "manifestHash": "v1-638d0fd6"
+  },
+  "inputSha256": {
+    "kit.json": "e6acff180298b13eccfa638326dbfdc24a379261eb495787300e6a495dc35617",
+    "runtime/core.mjs": "8ce98f07ab3f0acb5092149416679a825569a60f1a658accc55b664fc0da6d6e",
+    "schemas/proposal.schema.json": "2ab5b7241bff70553d0251223f4c97fc087956313e1c6d388889b064335df189",
+    "registry/canonical.json": "e7585c06190436661ada747a9488618e21d9191ca487368e80d02fea9b7472b2",
+    "profiles/aegis.json": "a3926a0ec7a05f764c4176819d05d902ea2e1594044fa1d4d28550e6eba84852"
+  },
+  "outputSha256": {
+    "proposal.json": "815e303f7131e296c5fbd3df2bc0f51b02daeaa309e9601b1d809e425e03b946",
+    "acceptance.md": "6ca48f9adf71cf56b9c895a445a14b02edd4df3312b0200978cf456c99cacb76",
+    "model.mjs": "17551bcd8fc267ef4e8c06e3775de8207d23b5fd4ff0fc5a212375ed75d6968b",
+    "model.test.mjs": "aeeb0dd478c13a5e270bd23cb4401dd88f946084b18bc06f05fcc633dced4cfc",
+    "validate-proposal.mjs": "1fddcf6f2c7a02558522531b0517c827211b0e3a72f4182ef0b7f8c7ff8d8dbe",
+    "verify.mjs": "2d386e1d85c387cb64a77b7093ed403721f522b38638f858cef2cb59e91d132b"
+  },
+  "commands": [
+    {
+      "command": [
+        "/opt/homebrew/Cellar/node/24.1.0/bin/node",
+        "--version"
+      ],
+      "cwd": "/private/tmp/aegis-agentic-experiment/experiments/token-input/candidate-a/",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutFile": "node-version.txt",
+      "stderr": "",
+      "spawnError": null
+    },
+    {
+      "command": [
+        "/opt/homebrew/Cellar/node/24.1.0/bin/node",
+        "--test",
+        "--test-reporter=tap",
+        "model.test.mjs"
+      ],
+      "cwd": "/private/tmp/aegis-agentic-experiment/experiments/token-input/candidate-a/",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutFile": "model-tests.tap",
+      "stderr": "",
+      "spawnError": null
+    },
+    {
+      "command": [
+        "/opt/homebrew/Cellar/node/24.1.0/bin/node",
+        "validate-proposal.mjs"
+      ],
+      "cwd": "/private/tmp/aegis-agentic-experiment/experiments/token-input/candidate-a/",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutFile": "proposal-validation.json",
+      "stderr": "",
+      "spawnError": null
+    },
+    {
+      "command": [
+        "/opt/homebrew/Cellar/node/24.1.0/bin/node",
+        "/private/tmp/aegis-agentic-experiment/agent-kit/bin/aegis.mjs",
+        "profile",
+        "validate",
+        "/private/tmp/aegis-agentic-experiment/agent-kit/profiles/aegis.json"
+      ],
+      "cwd": "/private/tmp/aegis-agentic-experiment/experiments/token-input/candidate-a/",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutFile": "profile-validation.json",
+      "stderr": "",
+      "spawnError": null
+    },
+    {
+      "command": [
+        "/opt/homebrew/Cellar/node/24.1.0/bin/node",
+        "/private/tmp/aegis-agentic-experiment/agent-kit/bin/aegis.mjs",
+        "registry",
+        "search",
+        "token"
+      ],
+      "cwd": "/private/tmp/aegis-agentic-experiment/experiments/token-input/candidate-a/",
+      "exitCode": 0,
+      "signal": null,
+      "stdoutFile": "registry-search.json",
+      "stderr": "",
+      "spawnError": null
+    }
+  ],
+  "automated": {
+    "tests": 40,
+    "passed": 40,
+    "failed": 0,
+    "skipped": 0,
+    "proposalValid": true,
+    "proposalIssues": [],
+    "invalidProposalControlsRejected": true
+  },
+  "executionNotes": [
+    "Initial node --test run exited 0 with 40 passing tests, 0 failing; its default spec reporter was not recognized by the first summary parser. Raw output is retained in initial-model-tests.txt. The recorder was corrected to explicitly request TAP and fail on missing counts; model code and acceptance tests were unchanged."
+  ],
+  "manualReview": {
+    "behaviorAndDocumentationSelfReviewed": true,
+    "independentHumanReview": false
+  },
+  "visualVerification": {
+    "performed": false,
+    "reason": "Pure JavaScript behavior model; no rendered component or browser was created."
+  },
+  "unverified": [
+    "Production React adapter",
+    "DOM and screen-reader accessibility",
+    "Real clipboard and IME events",
+    "Native focus and keyboard integration",
+    "Responsive layout and long-label rendering",
+    "Light/dark and fundamental/floating visual states",
+    "Density and profile-switch preservation",
+    "Owner acceptance"
+  ],
+  "scope": "Candidate evidence only. Runtime validation checks proposal shape and registry compatibility, not implementation correctness or accessibility certification."
+}

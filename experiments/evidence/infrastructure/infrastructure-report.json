@@ -1,0 +1,31 @@
+{
+  "base": "http://127.0.0.1:4176",
+  "evidence": "mocked-api-browser-verification",
+  "checks": [
+    "Disconnected, HTML fallback, and malformed API responses show honest unavailable states without invented metrics or mutations.",
+    "Live-shaped status and searchable inventory distinguish estimated combinations from zero verified configurations; inspection causes no writes.",
+    "Usage collection changes only after explicit opt-in; maintenance defaults to local rules and renders evidence as proposal-only.",
+    "AI runs only after explicit configured opt-in, failures do not display stale plans, and bounded repair appears only for drift.",
+    "Mobile layout stays within the viewport; connection loss labels the retained snapshot stale and blocks new actions."
+  ],
+  "accessibility": [
+    {
+      "label": "Disconnected service",
+      "violations": []
+    },
+    {
+      "label": "Connected local service",
+      "violations": []
+    },
+    {
+      "label": "Mobile connected local service",
+      "violations": []
+    }
+  ],
+  "browserErrors": [],
+  "screenshots": [
+    "artifacts/agentic-ui/infrastructure-disconnected.png",
+    "artifacts/agentic-ui/infrastructure-connected-mocked.png",
+    "artifacts/agentic-ui/infrastructure-mobile-mocked.png"
+  ]
+}

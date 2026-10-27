@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-ai-aiinlinesuggestion",
   "name": "AiInlineSuggestion",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "An input or textarea with an optional proposed suffix that the user explicitly accepts or dismisses.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/ai-inline-suggestion"
+    "@dimitriszoitas/aegis-agentic/ai-inline-suggestion"
   ],
   "links": {
     "contract": "./components-ai-aiinlinesuggestion.json",
@@ -28,9 +28,9 @@
     "AiInlineSuggestion"
   ],
   "importStatements": [
-    "import { AiInlineSuggestion } from '@dimitriszoitas/aegis-ui/ai-inline-suggestion';"
+    "import { AiInlineSuggestion } from '@dimitriszoitas/aegis-agentic/ai-inline-suggestion';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "AiInlineSuggestion",

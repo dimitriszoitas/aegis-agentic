@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/usage-event.schema.json",
+  "title": "Aegis explicit usage event, version 1",
+  "description": "Structural schema only. validateUsageEvent must additionally enforce the explicit per-component UsagePolicy allowlist. Never send user text, labels, URLs, DOM, credentials, arbitrary metadata or freeform error details. Timestamps use integer epoch milliseconds. No transport or collection is enabled by this schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "timestamp",
+    "registryId",
+    "registryRevision",
+    "componentId",
+    "profileId",
+    "kind",
+    "mode",
+    "presentation"
+  ],
+  "properties": {
+    "version": { "const": 1 },
+    "timestamp": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "registryId": { "$ref": "#/$defs/identifier" },
+    "registryRevision": { "type": "integer", "minimum": 1, "maximum": 9007199254740991 },
+    "componentId": { "$ref": "#/$defs/identifier" },
+    "profileId": { "$ref": "#/$defs/identifier" },
+    "kind": { "enum": ["render", "action", "configuration", "error"] },
+    "mode": { "enum": ["light", "dark"] },
+    "presentation": { "enum": ["fundamental", "fundamental-floating"] },
+    "props": {
+      "type": "object",
+      "maxProperties": 16,
+      "propertyNames": { "$ref": "#/$defs/technicalToken" },
+      "additionalProperties": {
+        "oneOf": [{ "type": "boolean" }, { "$ref": "#/$defs/technicalToken" }]
+      },
+      "description": "Only prop names explicitly approved by the component's policy and boolean or policy-enumerated technical values are accepted. This generic schema alone does not grant permission to collect any prop."
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{0,63}$",
+      "not": { "enum": ["__proto__", "prototype", "constructor"] }
+    },
+    "technicalToken": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,47}$",
+      "not": { "enum": ["__proto__", "prototype", "constructor"] }
+    }
+  }
+}

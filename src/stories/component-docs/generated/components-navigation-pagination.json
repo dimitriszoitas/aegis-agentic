@@ -44,7 +44,7 @@
   "imports": [
     {
       "name": "Pagination",
-      "path": "@dimitriszoitas/aegis-ui/pagination"
+      "path": "@dimitriszoitas/aegis-agentic/pagination"
     }
   ],
   "stories": [

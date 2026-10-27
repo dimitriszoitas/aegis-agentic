@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "dialog",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Run a focused modal task with predictable dismissal and focus return.",
+  "anatomy": ["trigger", "backdrop", "popup", "title", "description?", "close"],
+  "states": ["closed", "open", "opening", "closing"],
+  "invariants": [
+    "An accessible title is required.",
+    "Focus enters the dialog and returns to the trigger.",
+    "Use Base UI dialog behavior."
+  ],
+  "tokenGroup": "surface",
+  "behaviorProvider": "base-ui-dialog"
+}

@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-agentic-consumer-CdP5xy",
+  "checks": [
+    "aegis: standalone compilation and clean scan",
+    "atlas: standalone compilation and clean scan",
+    "solstice: standalone compilation and clean scan",
+    "Invalid profile rejected",
+    "Custom team profile compiles with its own identity, brand, radius, typography and density",
+    "Deterministic composition, invalid variants and mismatched profile pin",
+    "Discovery, duplicate conflict detection, proposal reservation, stale write refusal",
+    "Real drift detected, repaired, backed up and independently rescanned",
+    "Changed approved source blocks automatic repair",
+    "Output symlink refused"
+  ],
+  "scope": "Standalone exported kit in a fresh directory with no source checkout or npm modules. Owner promotion is not performed by this test."
+}

@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-actions-copybutton",
   "name": "CopyButton",
@@ -17,7 +17,7 @@
   ],
   "purpose": "An explicit clipboard action with a temporary success icon and optional notification.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/copy-button"
+    "@dimitriszoitas/aegis-agentic/copy-button"
   ],
   "links": {
     "contract": "./components-actions-copybutton.json",
@@ -31,9 +31,9 @@
     "CopyButton"
   ],
   "importStatements": [
-    "import { CopyButton } from '@dimitriszoitas/aegis-ui/copy-button';"
+    "import { CopyButton } from '@dimitriszoitas/aegis-agentic/copy-button';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "CopyButton",

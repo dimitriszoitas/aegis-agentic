@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-data-grid-bulk-actions-bar",
   "name": "Bulk actions bar",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "Controlled batch actions for the current selected record set, with asynchronous operation feedback.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/bulk-actions-bar"
+    "@dimitriszoitas/aegis-agentic/bulk-actions-bar"
   ],
   "links": {
     "contract": "./components-data-grid-bulk-actions-bar.json",
@@ -28,9 +28,9 @@
     "BulkActionsBar"
   ],
   "importStatements": [
-    "import { BulkActionsBar } from '@dimitriszoitas/aegis-ui/bulk-actions-bar';"
+    "import { BulkActionsBar } from '@dimitriszoitas/aegis-agentic/bulk-actions-bar';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "BulkActionsBar",

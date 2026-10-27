@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-content-expandabletext",
   "name": "ExpandableText",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A plain-text preview that exposes a disclosure control only when its line limit is exceeded.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/expandable-text"
+    "@dimitriszoitas/aegis-agentic/expandable-text"
   ],
   "links": {
     "contract": "./components-content-expandabletext.json",
@@ -31,9 +31,9 @@
     "ExpandableText"
   ],
   "importStatements": [
-    "import { ExpandableText } from '@dimitriszoitas/aegis-ui/expandable-text';"
+    "import { ExpandableText } from '@dimitriszoitas/aegis-agentic/expandable-text';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "ExpandableText",

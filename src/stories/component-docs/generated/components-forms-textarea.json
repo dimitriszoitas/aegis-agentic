@@ -50,7 +50,7 @@
   "imports": [
     {
       "name": "Textarea",
-      "path": "@dimitriszoitas/aegis-ui/textarea"
+      "path": "@dimitriszoitas/aegis-agentic/textarea"
     }
   ],
   "stories": [

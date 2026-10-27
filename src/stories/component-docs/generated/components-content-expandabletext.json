@@ -49,7 +49,7 @@
   "imports": [
     {
       "name": "ExpandableText",
-      "path": "@dimitriszoitas/aegis-ui/expandable-text"
+      "path": "@dimitriszoitas/aegis-agentic/expandable-text"
     }
   ],
   "stories": [

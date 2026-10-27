@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-overlays-bottomsheet",
   "name": "BottomSheet",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A bottom-only nonmodal panel for an existing bounded flex-column workspace.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/bottom-sheet"
+    "@dimitriszoitas/aegis-agentic/bottom-sheet"
   ],
   "links": {
     "contract": "./components-overlays-bottomsheet.json",
@@ -31,9 +31,9 @@
     "BottomSheet"
   ],
   "importStatements": [
-    "import { BottomSheet } from '@dimitriszoitas/aegis-ui/bottom-sheet';"
+    "import { BottomSheet } from '@dimitriszoitas/aegis-agentic/bottom-sheet';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "BottomSheet",

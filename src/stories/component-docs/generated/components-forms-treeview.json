@@ -52,7 +52,7 @@
   "imports": [
     {
       "name": "TreeView",
-      "path": "@dimitriszoitas/aegis-ui/tree-view"
+      "path": "@dimitriszoitas/aegis-agentic/tree-view"
     }
   ],
   "stories": [

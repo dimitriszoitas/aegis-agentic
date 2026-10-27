@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-ai-streamingskeleton",
   "name": "StreamingSkeleton",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A named placeholder for an AI response that has not yet produced readable content.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/streaming-skeleton"
+    "@dimitriszoitas/aegis-agentic/streaming-skeleton"
   ],
   "links": {
     "contract": "./components-ai-streamingskeleton.json",
@@ -31,9 +31,9 @@
     "StreamingSkeleton"
   ],
   "importStatements": [
-    "import { StreamingSkeleton } from '@dimitriszoitas/aegis-ui/streaming-skeleton';"
+    "import { StreamingSkeleton } from '@dimitriszoitas/aegis-agentic/streaming-skeleton';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "StreamingSkeleton",

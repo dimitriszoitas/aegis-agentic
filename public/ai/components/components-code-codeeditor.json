@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-code-codeeditor",
   "name": "CodeEditor",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "A token-themed CodeMirror editor with controlled text, folding, line numbers, and bounded height.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/code-editor"
+    "@dimitriszoitas/aegis-agentic/code-editor"
   ],
   "links": {
     "contract": "./components-code-codeeditor.json",
@@ -28,9 +28,9 @@
     "CodeEditor"
   ],
   "importStatements": [
-    "import { CodeEditor } from '@dimitriszoitas/aegis-ui/code-editor';"
+    "import { CodeEditor } from '@dimitriszoitas/aegis-agentic/code-editor';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "CodeEditor",

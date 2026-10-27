@@ -40,7 +40,7 @@
   "imports": [
     {
       "name": "CountBadge",
-      "path": "@dimitriszoitas/aegis-ui/count-badge"
+      "path": "@dimitriszoitas/aegis-agentic/count-badge"
     }
   ],
   "stories": [

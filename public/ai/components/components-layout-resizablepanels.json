@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-layout-resizablepanels",
   "name": "ResizablePanels",
@@ -17,7 +17,7 @@
   ],
   "purpose": "Composable split panes backed by react-resizable-panels, with labeled resize handles.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/resizable-panels"
+    "@dimitriszoitas/aegis-agentic/resizable-panels"
   ],
   "links": {
     "contract": "./components-layout-resizablepanels.json",
@@ -33,9 +33,9 @@
     "ResizeHandle"
   ],
   "importStatements": [
-    "import { ResizablePanel, ResizablePanels, ResizeHandle } from '@dimitriszoitas/aegis-ui/resizable-panels';"
+    "import { ResizablePanel, ResizablePanels, ResizeHandle } from '@dimitriszoitas/aegis-agentic/resizable-panels';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [],
   "variants": [
     {

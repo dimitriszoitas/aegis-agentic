@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "description": "Primitive input seeds and generation policies for the design-profile compiler. Generated output must still pass the canonical three-tier graph validator.",
+  "neutralSeeds": { "warm": "#a87942", "cool": "#456f9b" },
+  "radiusFactors": { "compact": 0.5, "soft": 1, "round": 2 },
+  "fontFamilies": {
+    "system": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "serif": "Georgia, \"Times New Roman\", serif"
+  }
+}

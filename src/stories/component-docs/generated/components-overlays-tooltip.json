@@ -48,11 +48,11 @@
   "imports": [
     {
       "name": "Tooltip",
-      "path": "@dimitriszoitas/aegis-ui/tooltip"
+      "path": "@dimitriszoitas/aegis-agentic/tooltip"
     },
     {
       "name": "RichTooltip",
-      "path": "@dimitriszoitas/aegis-ui/tooltip"
+      "path": "@dimitriszoitas/aegis-agentic/tooltip"
     }
   ],
   "stories": [

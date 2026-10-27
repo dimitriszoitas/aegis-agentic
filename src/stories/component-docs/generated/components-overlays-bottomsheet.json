@@ -55,7 +55,7 @@
   "imports": [
     {
       "name": "BottomSheet",
-      "path": "@dimitriszoitas/aegis-ui/bottom-sheet"
+      "path": "@dimitriszoitas/aegis-agentic/bottom-sheet"
     }
   ],
   "stories": [

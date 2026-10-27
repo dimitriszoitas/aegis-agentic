@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-lists-list",
   "name": "List",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "A native list with one-line or two-line rows, optional selection controls, identity, tags, counters, and nested groups.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/list"
+    "@dimitriszoitas/aegis-agentic/list"
   ],
   "links": {
     "contract": "./components-lists-list.json",
@@ -29,9 +29,9 @@
     "ListItem"
   ],
   "importStatements": [
-    "import { List, ListItem } from '@dimitriszoitas/aegis-ui/list';"
+    "import { List, ListItem } from '@dimitriszoitas/aegis-agentic/list';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "List",

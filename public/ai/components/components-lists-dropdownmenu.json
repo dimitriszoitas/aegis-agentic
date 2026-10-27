@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-lists-dropdownmenu",
   "name": "DropdownMenu",
@@ -18,7 +18,7 @@
   ],
   "purpose": "A compact menu of actions, checkbox choices, radio choices, groups, and nested menus.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/dropdown-menu"
+    "@dimitriszoitas/aegis-agentic/dropdown-menu"
   ],
   "links": {
     "contract": "./components-lists-dropdownmenu.json",
@@ -32,9 +32,9 @@
     "DropdownMenu"
   ],
   "importStatements": [
-    "import { DropdownMenu } from '@dimitriszoitas/aegis-ui/dropdown-menu';"
+    "import { DropdownMenu } from '@dimitriszoitas/aegis-agentic/dropdown-menu';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "DropdownMenu",

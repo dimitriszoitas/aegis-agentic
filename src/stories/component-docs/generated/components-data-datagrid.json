@@ -80,7 +80,7 @@
   "imports": [
     {
       "name": "DataGrid",
-      "path": "@dimitriszoitas/aegis-ui/data-grid"
+      "path": "@dimitriszoitas/aegis-agentic/data-grid"
     }
   ],
   "stories": [

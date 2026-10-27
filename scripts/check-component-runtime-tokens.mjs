@@ -2,8 +2,41 @@
 import ts from 'typescript';
 import { readdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import assert from 'node:assert/strict';
+import {
+  productionConsumerDirectories,
+  productionConsumerEntries,
+} from './token-source-inventory.mjs';
 
 const root = new URL('../', import.meta.url);
+function isIntrinsicSvgDimension(node, source) {
+  return (
+    ts.isJsxAttribute(node) &&
+    ['width', 'height'].includes(node.name.getText(source)) &&
+    ts.isJsxAttributes(node.parent) &&
+    /^(?:rect|image|pattern|mask|foreignObject)$/.test(node.parent.parent.tagName.getText(source))
+  );
+}
+// Regression guard: only inner geometry is exempt; root/icon sizing and style
+// properties must remain audited even when they occur inside an SVG subtree.
+const geometryFixture = ts.createSourceFile(
+  'geometry.tsx',
+  '<><svg width="24"><rect width="7" height="7" strokeWidth="1.6" style={{width: 7}} /></svg><Icon width={24}/><div style={{width: 24}}/></>',
+  ts.ScriptTarget.Latest,
+  true,
+  ts.ScriptKind.TSX,
+);
+const geometryResults = [];
+function verifyGeometry(node) {
+  if (
+    ts.isJsxAttribute(node) &&
+    ['width', 'height', 'strokeWidth', 'style'].includes(node.name.getText(geometryFixture))
+  )
+    geometryResults.push(isIntrinsicSvgDimension(node, geometryFixture));
+  ts.forEachChild(node, verifyGeometry);
+}
+verifyGeometry(geometryFixture);
+assert.deepEqual(geometryResults, [false, true, true, false, false, false, false]);
 async function files(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   return (
@@ -87,8 +120,14 @@ const visual = new Set([
 const findings = [];
 let checked = 0;
 const runtimeFiles = [
-  ...(await files(new URL('src/components/', root))),
-  ...(await files(new URL('src/patterns/', root))),
+  ...(
+    await Promise.all(
+      productionConsumerDirectories.map((directory) => files(new URL(`${directory}/`, root))),
+    )
+  ).flat(),
+  ...productionConsumerEntries
+    .filter((file) => /\.tsx?$/.test(file))
+    .map((file) => new URL(file, root)),
 ];
 for (const url of runtimeFiles) {
   if (!/\.tsx?$/.test(url.pathname) || /\.(stories|test)\./.test(url.pathname)) continue;
@@ -116,6 +155,9 @@ for (const url of runtimeFiles) {
       value = node.initializer;
     }
     if (visual.has(name) && value) {
+      // Width/height on inner SVG shapes describe viewBox geometry. Outer <svg>
+      // dimensions, icon sizes, stroke styling and CSS styles remain design values.
+      const shapeGeometry = isIntrinsicSvgDimension(node, source);
       // Zero removes a dimension/decoration. Percent-full is structural sizing, not a preset.
       const text = value.getText(source);
       const literal = ts.isNumericLiteral(value) || ts.isStringLiteral(value);
@@ -130,7 +172,7 @@ for (const url of runtimeFiles) {
           ts.isNoSubstitutionTemplateLiteral(value) ||
           ts.isTemplateExpression(value)) &&
         /(?:^|[^\w.-])[1-9]\d*(?:\.\d+)?(?:px|rem|em)\b/.test(text);
-      if (((fixed && !structural) || embeddedLength) && !lineCount) {
+      if (((fixed && !structural) || embeddedLength) && !lineCount && !shapeGeometry) {
         const position = source.getLineAndCharacterOfPosition(value.getStart(source));
         findings.push(
           `${fileURLToPath(url).slice(fileURLToPath(root).length)}:${position.line + 1} ${name}=${text}`,

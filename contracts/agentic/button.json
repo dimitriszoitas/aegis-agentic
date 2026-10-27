@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "button",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Activate an action, with intent independent of emphasis.",
+  "anatomy": ["root", "label", "leading-icon?", "trailing-icon?", "loading-indicator?"],
+  "states": ["idle", "hover", "pressed", "focus-visible", "disabled", "loading"],
+  "invariants": [
+    "Use a native action element. Navigation belongs to Link.",
+    "Loading prevents duplicate activation and preserves the accessible name.",
+    "Keyboard focus remains visible in both modes."
+  ],
+  "tokenGroup": "trigger",
+  "behaviorProvider": "native-button"
+}

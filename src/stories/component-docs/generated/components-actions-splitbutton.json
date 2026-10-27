@@ -53,7 +53,7 @@
   "imports": [
     {
       "name": "SplitButton",
-      "path": "@dimitriszoitas/aegis-ui/split-button"
+      "path": "@dimitriszoitas/aegis-agentic/split-button"
     }
   ],
   "stories": [

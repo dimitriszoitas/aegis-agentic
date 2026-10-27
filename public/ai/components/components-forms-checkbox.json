@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-checkbox",
   "name": "Checkbox",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "An independent boolean or mixed selection control with an optional label and description.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/checkbox"
+    "@dimitriszoitas/aegis-agentic/checkbox"
   ],
   "links": {
     "contract": "./components-forms-checkbox.json",
@@ -28,9 +28,9 @@
     "Checkbox"
   ],
   "importStatements": [
-    "import { Checkbox } from '@dimitriszoitas/aegis-ui/checkbox';"
+    "import { Checkbox } from '@dimitriszoitas/aegis-agentic/checkbox';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Checkbox",

@@ -1,0 +1,13 @@
+{
+  "module": "agent-kit/runtime/core.mjs",
+  "registryRevision": 1,
+  "proposal": "candidate-b-token-input",
+  "validation": {
+    "valid": true,
+    "issues": []
+  },
+  "rejectionChecks": {
+    "staleRevisionRejected": true,
+    "missingValidationCapabilityRejected": true
+  }
+}

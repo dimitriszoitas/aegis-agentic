@@ -45,7 +45,7 @@
   "imports": [
     {
       "name": "Stepper",
-      "path": "@dimitriszoitas/aegis-ui/stepper"
+      "path": "@dimitriszoitas/aegis-agentic/stepper"
     }
   ],
   "stories": [

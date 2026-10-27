@@ -56,7 +56,7 @@
   "imports": [
     {
       "name": "ThinkingIndicator",
-      "path": "@dimitriszoitas/aegis-ui/thinking-indicator"
+      "path": "@dimitriszoitas/aegis-agentic/thinking-indicator"
     }
   ],
   "stories": [

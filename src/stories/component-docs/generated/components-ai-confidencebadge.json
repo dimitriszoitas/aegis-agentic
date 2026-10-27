@@ -37,7 +37,7 @@
   "imports": [
     {
       "name": "ConfidenceBadge",
-      "path": "@dimitriszoitas/aegis-ui/confidence-badge"
+      "path": "@dimitriszoitas/aegis-agentic/confidence-badge"
     }
   ],
   "stories": [

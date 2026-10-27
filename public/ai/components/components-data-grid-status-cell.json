@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-data-grid-status-cell",
   "name": "Status cell",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "A data-grid adapter to the standard record lifecycle badge.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/data-grid-cells"
+    "@dimitriszoitas/aegis-agentic/data-grid-cells"
   ],
   "links": {
     "contract": "./components-data-grid-status-cell.json",
@@ -28,9 +28,9 @@
     "StatusCell"
   ],
   "importStatements": [
-    "import { StatusCell } from '@dimitriszoitas/aegis-ui/data-grid-cells';"
+    "import { StatusCell } from '@dimitriszoitas/aegis-agentic/data-grid-cells';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "StatusCell",

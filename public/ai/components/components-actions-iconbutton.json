@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-actions-iconbutton",
   "name": "IconButton",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A compact Button with a required accessible label and an optional label tooltip.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/icon-button"
+    "@dimitriszoitas/aegis-agentic/icon-button"
   ],
   "links": {
     "contract": "./components-actions-iconbutton.json",
@@ -31,9 +31,9 @@
     "IconButton"
   ],
   "importStatements": [
-    "import { IconButton } from '@dimitriszoitas/aegis-ui/icon-button';"
+    "import { IconButton } from '@dimitriszoitas/aegis-agentic/icon-button';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "IconButton",

@@ -1,4 +1,4 @@
-# @dimitriszoitas/aegis-ui
+# @dimitriszoitas/aegis-agentic
 
 > React components and patterns for applications. Use the public contracts to discover supported APIs and guidance.
 
@@ -22,7 +22,7 @@ Agentic Skills: [Agentic Skills](./?path=/docs/agentic-skills-component-creation
 
 ## Usage
 
-Choose a component from the index, read its contract, and import its exported name from the listed package path. Import the optional `@dimitriszoitas/aegis-ui/styles.css` once for the supplied visual language. Without it, styled components require consumer styling. For headless composition, import Base UI primitives from `@dimitriszoitas/aegis-ui/primitives`, which includes no CSS and uses Base UI APIs instead of the styled component APIs. Use the published TypeScript declarations for inherited HTML props and complex types. Preserve existing component names and choose categories by task, without atomic design grouping.
+Choose a component from the index, read its contract, and import its exported name from the listed package path. Import the optional `@dimitriszoitas/aegis-agentic/styles.css` once for the supplied visual language. Without it, styled components require consumer styling. For headless composition, import Base UI primitives from `@dimitriszoitas/aegis-agentic/primitives`, which includes no CSS and uses Base UI APIs instead of the styled component APIs. Use the published TypeScript declarations for inherited HTML props and complex types. Preserve existing component names and choose categories by task, without atomic design grouping.
 
 Each component has one documentation hub with Overview, Guidelines, Tokens Used and Examples tabs. Contract documentation links select the matching hub tab; legacy section routes and individual story URLs remain accessible.
 

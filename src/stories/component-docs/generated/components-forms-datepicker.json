@@ -61,7 +61,7 @@
   "imports": [
     {
       "name": "DatePicker",
-      "path": "@dimitriszoitas/aegis-ui/date-picker"
+      "path": "@dimitriszoitas/aegis-agentic/date-picker"
     }
   ],
   "stories": [

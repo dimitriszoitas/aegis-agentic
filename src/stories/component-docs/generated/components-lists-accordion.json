@@ -45,7 +45,7 @@
   "imports": [
     {
       "name": "Accordion",
-      "path": "@dimitriszoitas/aegis-ui/accordion"
+      "path": "@dimitriszoitas/aegis-agentic/accordion"
     }
   ],
   "stories": [

@@ -58,7 +58,7 @@
   "imports": [
     {
       "name": "DiffView",
-      "path": "@dimitriszoitas/aegis-ui/diff-view"
+      "path": "@dimitriszoitas/aegis-agentic/diff-view"
     }
   ],
   "stories": [

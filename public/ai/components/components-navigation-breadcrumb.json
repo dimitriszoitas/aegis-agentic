@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-navigation-breadcrumb",
   "name": "Breadcrumb",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A navigation trail ending in a noninteractive current-page label.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/breadcrumb"
+    "@dimitriszoitas/aegis-agentic/breadcrumb"
   ],
   "links": {
     "contract": "./components-navigation-breadcrumb.json",
@@ -31,9 +31,9 @@
     "Breadcrumb"
   ],
   "importStatements": [
-    "import { Breadcrumb } from '@dimitriszoitas/aegis-ui/breadcrumb';"
+    "import { Breadcrumb } from '@dimitriszoitas/aegis-agentic/breadcrumb';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Breadcrumb",

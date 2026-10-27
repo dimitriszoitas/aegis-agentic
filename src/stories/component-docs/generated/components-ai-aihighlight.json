@@ -55,7 +55,7 @@
   "imports": [
     {
       "name": "AiHighlight",
-      "path": "@dimitriszoitas/aegis-ui/ai-card"
+      "path": "@dimitriszoitas/aegis-agentic/ai-card"
     }
   ],
   "stories": [

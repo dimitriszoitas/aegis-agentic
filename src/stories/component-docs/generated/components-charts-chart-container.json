@@ -59,19 +59,19 @@
   "imports": [
     {
       "name": "ChartContainer",
-      "path": "@dimitriszoitas/aegis-ui/charts"
+      "path": "@dimitriszoitas/aegis-agentic/charts"
     },
     {
       "name": "ChartTooltip",
-      "path": "@dimitriszoitas/aegis-ui/charts"
+      "path": "@dimitriszoitas/aegis-agentic/charts"
     },
     {
       "name": "ChartLegend",
-      "path": "@dimitriszoitas/aegis-ui/charts"
+      "path": "@dimitriszoitas/aegis-agentic/charts"
     },
     {
       "name": "ChartDataTable",
-      "path": "@dimitriszoitas/aegis-ui/charts"
+      "path": "@dimitriszoitas/aegis-agentic/charts"
     }
   ],
   "stories": [

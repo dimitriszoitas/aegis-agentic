@@ -59,15 +59,15 @@
   "imports": [
     {
       "name": "AiCard",
-      "path": "@dimitriszoitas/aegis-ui/ai-card"
+      "path": "@dimitriszoitas/aegis-agentic/ai-card"
     },
     {
       "name": "AiLabel",
-      "path": "@dimitriszoitas/aegis-ui/ai-card"
+      "path": "@dimitriszoitas/aegis-agentic/ai-card"
     },
     {
       "name": "AiFeedback",
-      "path": "@dimitriszoitas/aegis-ui/ai-card"
+      "path": "@dimitriszoitas/aegis-agentic/ai-card"
     }
   ],
   "stories": [

@@ -52,7 +52,7 @@
   "imports": [
     {
       "name": "DropdownMenu",
-      "path": "@dimitriszoitas/aegis-ui/dropdown-menu"
+      "path": "@dimitriszoitas/aegis-agentic/dropdown-menu"
     }
   ],
   "stories": [

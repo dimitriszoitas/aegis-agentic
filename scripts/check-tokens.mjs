@@ -9,6 +9,9 @@ async function walk(dir) {
     if (entry.isDirectory()) await walk(path);
     else if (
       /\.(css|tsx?|mdx)$/.test(path) &&
+      // Test literals are deliberately invalid inputs, contrast fixtures and expected
+      // output values; they never become production presentation declarations.
+      !/\.(?:test|spec)\.[cm]?[jt]sx?$/.test(path) &&
       !path.endsWith('/tokens.css') &&
       path !== 'src/styles/minimalistic-tokens.css' &&
       path !== 'src/styles/v0-simple-tokens.css' &&
@@ -19,7 +22,7 @@ async function walk(dir) {
     ) {
       const source = await readFile(path, 'utf8');
       if (/#[\da-fA-F]{3,8}\b/.test(source))
-        throw new Error(`Raw hex color outside tokens.css: ${path}`);
+        throw new Error(`Raw hex color outside an authoritative token source: ${path}`);
     }
   }
 }

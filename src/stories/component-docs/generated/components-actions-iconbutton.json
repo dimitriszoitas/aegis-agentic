@@ -50,7 +50,7 @@
   "imports": [
     {
       "name": "IconButton",
-      "path": "@dimitriszoitas/aegis-ui/icon-button"
+      "path": "@dimitriszoitas/aegis-agentic/icon-button"
     }
   ],
   "stories": [

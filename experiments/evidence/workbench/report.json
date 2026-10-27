@@ -1,0 +1,53 @@
+{
+  "base": "http://127.0.0.1:4176",
+  "checks": [
+    "Three profile swatches show their source colors; all 12 profile/presentation/mode combinations preserve control geometry and content.",
+    "Profile and mode changes preserve drafts; dark dialogs and menus inherit the active document profile with Escape/focus return.",
+    "Canonical filtering renderer: immediate/explicit apply, reset, empty state, mode draft preservation and contradictory spec rejection.",
+    "Two TokenInput proposals follow their declared keys and duplicate policies; rejected paste is atomic and preserves the full draft; consolidation remains owner-gated.",
+    "Illustrative maintenance evidence yields review-only plans and a bounded attempt budget.",
+    "Profile and JSON exports download real files; bundle preserves the edited composition and pins its active profile.",
+    "390px workbench and filtering preview have no document overflow; the result table owns horizontal scrolling.",
+    "TokenInput validates batches atomically, preserves rejected/throwing/host-refused drafts, waits for controlled acceptance, guards IME, requires two-step Backspace, preserves newer drafts and focus on delayed acknowledgement, supports explicit blur commit, and keeps disabled state inert."
+  ],
+  "accessibility": [
+    {
+      "label": "Default configuration",
+      "violations": []
+    },
+    {
+      "label": "Atlas dark preview and light shell",
+      "violations": []
+    },
+    {
+      "label": "Filtered dataset pattern",
+      "violations": []
+    },
+    {
+      "label": "Registry proposals",
+      "violations": []
+    },
+    {
+      "label": "Maintenance planner",
+      "violations": []
+    },
+    {
+      "label": "Agent kit export",
+      "violations": []
+    },
+    {
+      "label": "Mobile composition",
+      "violations": []
+    }
+  ],
+  "browserErrors": [],
+  "screenshots": [
+    "artifacts/agentic-ui/design-language-desktop.png",
+    "artifacts/agentic-ui/atlas-dark-preview.png",
+    "artifacts/agentic-ui/composition-desktop.png",
+    "artifacts/agentic-ui/registry-proposals.png",
+    "artifacts/agentic-ui/design-language-mobile.png",
+    "artifacts/agentic-ui/design-preview-mobile.png",
+    "artifacts/agentic-ui/composition-mobile.png"
+  ]
+}

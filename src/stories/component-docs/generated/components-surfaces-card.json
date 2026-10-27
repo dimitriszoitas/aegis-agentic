@@ -48,27 +48,27 @@
   "imports": [
     {
       "name": "Card",
-      "path": "@dimitriszoitas/aegis-ui/card"
+      "path": "@dimitriszoitas/aegis-agentic/card"
     },
     {
       "name": "CardHeader",
-      "path": "@dimitriszoitas/aegis-ui/card"
+      "path": "@dimitriszoitas/aegis-agentic/card"
     },
     {
       "name": "CardTitle",
-      "path": "@dimitriszoitas/aegis-ui/card"
+      "path": "@dimitriszoitas/aegis-agentic/card"
     },
     {
       "name": "CardDescription",
-      "path": "@dimitriszoitas/aegis-ui/card"
+      "path": "@dimitriszoitas/aegis-agentic/card"
     },
     {
       "name": "CardContent",
-      "path": "@dimitriszoitas/aegis-ui/card"
+      "path": "@dimitriszoitas/aegis-agentic/card"
     },
     {
       "name": "CardFooter",
-      "path": "@dimitriszoitas/aegis-ui/card"
+      "path": "@dimitriszoitas/aegis-agentic/card"
     }
   ],
   "stories": [

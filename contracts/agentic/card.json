@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "card",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Group meaningfully related content on a surface.",
+  "anatomy": ["root", "header?", "body", "footer?"],
+  "states": ["idle"],
+  "invariants": [
+    "A normal content group may remain transparent.",
+    "Nested controls retain their own token category."
+  ],
+  "tokenGroup": "surface",
+  "behaviorProvider": "native-content"
+}

@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 1,
+  "status": "comparison-and-review-recommendation-only",
+  "recordedAt": "2026-10-27T19:06:28.202Z",
+  "authorship": "Post-independence comparison by the evaluation agent; original candidates unchanged.",
+  "inputs": {
+    "kitVersion": "0.1.0-experiment.0",
+    "baseline": "12e4f6b218c6cc68aba303feec211ba91aaeb20a",
+    "compilerVersion": "1",
+    "registryRevision": 1,
+    "runtimeSha256": "ff6ef16357231e6b939f8fc682ae8944540def3084c153abc1e161ffb39d30f6",
+    "candidateSha256": {
+      "candidate-a": {
+        "proposal.json": "815e303f7131e296c5fbd3df2bc0f51b02daeaa309e9601b1d809e425e03b946",
+        "acceptance.md": "6ca48f9adf71cf56b9c895a445a14b02edd4df3312b0200978cf456c99cacb76",
+        "model.mjs": "17551bcd8fc267ef4e8c06e3775de8207d23b5fd4ff0fc5a212375ed75d6968b",
+        "model.test.mjs": "aeeb0dd478c13a5e270bd23cb4401dd88f946084b18bc06f05fcc633dced4cfc",
+        "evidence.json": "207fdf847b9bdf9a252f77a298024df3949f2250f019378beed153c692224382"
+      },
+      "candidate-b": {
+        "proposal.json": "6b4d344bc83f423524b2c52bf4a651465fc9721d29c8648ce5b4aa34737ba4c9",
+        "acceptance.md": "a955eef8d82d67f5451c03d5a5efc86c68c93502d8384b798226bbb2592dcac8",
+        "model.mjs": "29fc96518e9b907a7c733372eaced657d719117da1d77ab5b2de4a5f98b7a6f2",
+        "model.test.mjs": "bb023e2d11785299946dd63a0c414cf5aa9233e24289768df42bac8f5c1b145f",
+        "evidence.json": "3181fc35683c75b0a132514c7f7870927795114553bfc0d8bb4f90b36dd5fad4"
+      }
+    }
+  },
+  "execution": {
+    "runtime": "agent-kit/runtime/core.mjs",
+    "functions": [
+      "validateProposal",
+      "compareProposals",
+      "planConsolidation"
+    ],
+    "command": "node --input-type=module (import exported runtime; read the two real proposal files; compareProposals(A, B, registry); planConsolidation(ids, {expectedRevision: 1}, registry, [A, B]))",
+    "registryUnchanged": true,
+    "promotionAttempted": false,
+    "ownerApproval": null
+  },
+  "validations": [
+    {
+      "id": "candidate-a-token-input",
+      "valid": true,
+      "issues": []
+    },
+    {
+      "id": "candidate-b-token-input",
+      "valid": true,
+      "issues": []
+    }
+  ],
+  "runtimeComparison": {
+    "duplicate": true,
+    "conflicts": [
+      {
+        "field": "behavior.duplicatePolicy",
+        "left": "reject",
+        "right": "ignore"
+      }
+    ],
+    "recommendation": "consolidate-after-owner-review"
+  },
+  "runtimeConsolidationPlan": {
+    "kind": "consolidate-proposals",
+    "expectedRevision": 1,
+    "nextRevision": 2,
+    "targetId": "token-input",
+    "proposalIds": [
+      "candidate-a-token-input",
+      "candidate-b-token-input"
+    ],
+    "candidate": {
+      "schemaVersion": 1,
+      "id": "candidate-a-token-input",
+      "proposedId": "token-input",
+      "name": "TokenInput",
+      "baseRegistryRevision": 1,
+      "evidence": "independent-agent-proposal",
+      "author": "Independent agent A",
+      "capabilities": [
+        "multi-value-entry",
+        "free-text-entry",
+        "value-validation",
+        "value-removal",
+        "atomic-multi-value-paste",
+        "optional-suggestions",
+        "controlled-value",
+        "disabled-state",
+        "keyboard-operation",
+        "accessible-names"
+      ],
+      "aliases": [
+        "project labels",
+        "tag input",
+        "chip input",
+        "token entry"
+      ],
+      "behavior": {
+        "freeText": true,
+        "commitKeys": [
+          "Enter"
+        ],
+        "duplicatePolicy": "reject",
+        "commitOnBlur": false
+      },
+      "anatomy": [
+        "label",
+        "input",
+        "tokens",
+        "error",
+        "description",
+        "add-control",
+        "remove-controls",
+        "suggestions",
+        "status"
+      ],
+      "requiredStates": [
+        "empty",
+        "populated",
+        "invalid",
+        "disabled",
+        "focus-visible",
+        "pending-controlled-change",
+        "composing"
+      ],
+      "tokenGroup": "input",
+      "implementation": "experiments/token-input/candidate-a/model.mjs"
+    },
+    "conflicts": [
+      {
+        "field": "behavior.duplicatePolicy",
+        "left": "reject",
+        "right": "ignore"
+      }
+    ],
+    "requiresOwnerReview": true,
+    "actions": [
+      "Owner selects the behavioral policy and records its rationale.",
+      "Implement and verify the chosen behavior against unchanged acceptance tests.",
+      "Add one canonical entry, preserve proposal provenance, then regenerate derived discovery files."
+    ]
+  },
+  "runtimePlanLimit": "The runtime plan copies the first proposal as its candidate and compares only duplicatePolicy, commitKeys and commitOnBlur. It does not merge APIs, tests, implementations or the richer behavior described below. The copied candidate and nextRevision are proposals, not accepted decisions or a changed registry.",
+  "evidence": [
+    {
+      "candidate": "candidate-a-token-input",
+      "tests": 40,
+      "passed": 40,
+      "failed": 0,
+      "source": "candidate-a/evidence.json",
+      "kind": "author-run pure JavaScript model tests",
+      "productionComponent": false,
+      "visualReviewed": false
+    },
+    {
+      "candidate": "candidate-b-token-input",
+      "tests": 28,
+      "passed": 28,
+      "failed": 0,
+      "source": "candidate-b/evidence.json",
+      "kind": "author-run pure JavaScript model tests",
+      "productionComponent": false,
+      "visualReviewed": false
+    }
+  ],
+  "observedModelProbes": [
+    {
+      "scenario": "Enter Alpha, Beta into an empty controlled field",
+      "candidateARequestedValue": [
+        "Alpha, Beta"
+      ],
+      "candidateBRequestedValue": [
+        "Alpha",
+        "Beta"
+      ]
+    },
+    {
+      "scenario": "Existing Alpha; paste alpha followed by newline then Beta",
+      "candidateA": {
+        "requestedChange": false,
+        "errors": [
+          "duplicate"
+        ],
+        "draft": "alpha\nBeta"
+      },
+      "candidateB": {
+        "requestedValue": [
+          "Alpha",
+          "Beta"
+        ],
+        "pendingStatus": "1 label added; 1 duplicate skipped."
+      }
+    },
+    {
+      "scenario": "Paste a single Alpha without separators",
+      "candidateARequestsChange": false,
+      "candidateBRequestsChange": true
+    }
+  ],
+  "sharedDecisions": [
+    "Free text remains available with suggestions",
+    "Enter commits; comma key alone does not commit",
+    "Blur preserves draft",
+    "Trim and Unicode NFC normalization; JavaScript lowercase duplicate identity",
+    "Invalid batch is atomic and retains exact submitted draft",
+    "Synchronous validation and IME guards",
+    "Controlled value changes wait for parent synchronization",
+    "First empty-input Backspace focuses removal before deletion",
+    "Disabled user actions do not mutate value",
+    "Input token-group ownership; nested components retain their own ownership"
+  ],
+  "richerDifferences": [
+    {
+      "field": "duplicate handling",
+      "candidateA": "Reject and retain entire draft; duplicate causes whole batch failure.",
+      "candidateB": "Skip with count feedback; add novel siblings. Duplicate-only submission clears draft without requesting change.",
+      "schemaCompared": true
+    },
+    {
+      "field": "batch delimiters",
+      "candidateA": "Line breaks and tabs; commas are label content.",
+      "candidateB": "Comma, line breaks and tabs; commas are forbidden in committed values.",
+      "schemaCompared": false
+    },
+    {
+      "field": "paste trigger",
+      "candidateA": "Single-line paste edits draft; separator-containing paste submits resulting batch.",
+      "candidateB": "Any paste attempts submission of resulting draft.",
+      "schemaCompared": false
+    },
+    {
+      "field": "editable input",
+      "candidateA": "Native textarea to preserve failed multiline batches; Shift+Enter inserts line.",
+      "candidateB": "Future native input adapter; raw multiline paste retained in model but DOM integration is unverified.",
+      "schemaCompared": false
+    },
+    {
+      "field": "suggestions",
+      "candidateA": "Ordinary labelled buttons; selection preserves unrelated draft.",
+      "candidateB": "Filtered combobox/listbox, ArrowUp/Down and Escape; successful accepted suggestion clears unedited query draft.",
+      "schemaCompared": false
+    },
+    {
+      "field": "controlled request identity",
+      "candidateA": "sync/reject correlate requestId and ignore stale responses.",
+      "candidateB": "sync-value accepts authoritative arrays by equality without checking the emitted requestId; stale response correlation remains an adapter gap.",
+      "schemaCompared": false
+    },
+    {
+      "field": "draft change detection",
+      "candidateA": "String equality to submitted draft.",
+      "candidateB": "Monotonic draftRevision; even edit-and-restore counts as a newer draft.",
+      "schemaCompared": false
+    },
+    {
+      "field": "public value mode",
+      "candidateA": "Controlled and uncontrolled model branches.",
+      "candidateB": "Controlled only.",
+      "schemaCompared": false
+    },
+    {
+      "field": "empty submit",
+      "candidateA": "Validation error; raw empty/whitespace draft retained.",
+      "candidateB": "No-op without an empty-token error.",
+      "schemaCompared": false
+    },
+    {
+      "field": "keyboard details",
+      "candidateA": "Native Tab between removal controls; composition state/isComposing guard.",
+      "candidateB": "Also ArrowLeft/Right between removal controls and keyCode 229 guard.",
+      "schemaCompared": false
+    },
+    {
+      "field": "validator return contract",
+      "candidateA": "null/undefined/empty string accept; other non-string results fail.",
+      "candidateB": "null/undefined/true accept; empty string becomes invalid.",
+      "schemaCompared": false
+    },
+    {
+      "field": "pending UI metadata",
+      "candidateA": "Mutation buttons disabled while pending; draft editable.",
+      "candidateB": "Reducer blocks duplicate mutations but removal metadata is disabled only for disabled state.",
+      "schemaCompared": false
+    }
+  ],
+  "proposedConsolidation": {
+    "status": "recommendation-awaiting-owner-review-and-implementation",
+    "accepted": false,
+    "recommendedBehavior": {
+      "freeText": true,
+      "commitKeys": [
+        "Enter"
+      ],
+      "duplicatePolicy": "reject",
+      "commitOnBlur": false
+    },
+    "decisions": [
+      {
+        "decision": "Default to duplicate rejection with per-value errors and an atomic batch.",
+        "rationale": "For free-text project labels, explicit correction keeps the requested input reviewable. If idempotent bulk import becomes a requirement, offer ignore only as an explicitly documented alternate policy with skipped-count tests."
+      },
+      {
+        "decision": "Use newline/tab batch delimiters and preserve comma as ordinary label content; retain a multiline draft on failure.",
+        "rationale": "The request is free text. Reserving commas unnecessarily narrows project label content. Require delimiter-free committed values and validate this boundary explicitly."
+      },
+      {
+        "decision": "Enter or visible Add submits; blur and single-line paste do not submit. Blank submit is a no-op.",
+        "rationale": "Explicit acceptance and a visible action work across keyboard and touch; blank activation need not create a new error."
+      },
+      {
+        "decision": "Keep the baseline suggestion UI as labelled ordinary buttons; review a Base UI combobox as a separate enhancement.",
+        "rationale": "The current requirement asks for optional suggestions. Avoid claiming a complete composite widget from metadata alone."
+      },
+      {
+        "decision": "Combine correlated request/response IDs with monotonic draft revisions; controlled-only v1 and explicit refusal acknowledgment.",
+        "rationale": "A supplies stale-response protection; B supplies stronger edit preservation. Implement their combined contract before clearing draft or announcing success."
+      },
+      {
+        "decision": "Require validateValue to return string or null; catch exceptions; async results fail safely; trim/NFC/lowercase identity is documented.",
+        "rationale": "Remove incompatible true/empty-string validator conventions rather than mechanically uniting the APIs."
+      },
+      {
+        "decision": "Preserve two-step Backspace removal, explicit focus restoration, composition/isComposing/229 guards, and disabled/pending mutation controls.",
+        "rationale": "These are meaningful protections present across the candidates, but must be tested in the actual view."
+      }
+    ],
+    "requiredNextWork": [
+      "Write the consolidated contract, including delimiters, transaction semantics, validator returns, suggestion mode and acknowledgment protocol that schema v1 cannot express.",
+      "Retain both original candidates and their tests as immutable evidence; write a shared acceptance suite for the reviewed contract and explicitly record superseded expectations.",
+      "Implement one production candidate and test host rejection, stale responses, edit-and-restore, multiline error recovery, IME, real focus and pointer/touch actions.",
+      "Normalize capability names such as bulk-paste versus atomic-multi-value-paste and remove-values versus value-removal before any canonical entry.",
+      "Review all four presentation/mode combinations and both densities, accessible naming/announcements, narrow layouts and profile-switch state preservation.",
+      "Define migration/version impact from current demo defaults before owner review, canonical registry promotion or release."
+    ],
+    "migrationRisks": [
+      "Current demo uses comma commits and comma/newline separators.",
+      "Current demo adds valid batch siblings even if others fail.",
+      "Current demo clears accepted input immediately on callback, rather than waiting for host acknowledgment.",
+      "Current demo deletes last token immediately on empty-input Backspace.",
+      "Current demo API, suggestion datalist and locale-based identity differ from both candidates."
+    ],
+    "migrationRisksBasis": "Observed pre-alignment reference implementation; UI agent is changing TokenInput after this comparison. These points require final recheck and are not claims that the final implementation still has these behaviors."
+  },
+  "limitations": [
+    "One seeded task, two agents and author-written model tests do not establish general agent reliability.",
+    "Both agents had the same portable kit, including candidate contract and illustrative fixtures; this was independent execution, not a blind invention study.",
+    "Passing tests validate each divergent model against its own assertions, not mutual equivalence or production UI correctness.",
+    "No owner approval, canonical merge, release or visual evidence is present.",
+    "Schema/runtime comparison omits important behavioral dimensions and must be supplemented by contract/model review."
+  ]
+}

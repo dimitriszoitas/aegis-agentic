@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-ai-aicard",
   "name": "AiCard",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "A labeled AI-generated result with optional confidence, provenance, feedback, and regeneration.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/ai-card"
+    "@dimitriszoitas/aegis-agentic/ai-card"
   ],
   "links": {
     "contract": "./components-ai-aicard.json",
@@ -30,9 +30,9 @@
     "AiLabel"
   ],
   "importStatements": [
-    "import { AiCard, AiFeedback, AiLabel } from '@dimitriszoitas/aegis-ui/ai-card';"
+    "import { AiCard, AiFeedback, AiLabel } from '@dimitriszoitas/aegis-agentic/ai-card';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "AiCard",

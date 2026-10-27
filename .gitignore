@@ -12,3 +12,11 @@ playwright-report/
 *.tsbuildinfo
 .DS_Store
 .env*
+
+agent-kit/
+agentic-dist/
+.aegis-maintenance/
+
+.aegis-workspace/
+
+!experiments/evidence/*.log

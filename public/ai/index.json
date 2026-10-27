@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "index",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "provenance": {
     "generator": "scripts/generate-ai-contracts.mjs",
@@ -18,7 +18,7 @@
       "src/styles/primitive-color-tokens.css"
     ],
     "tokenManifest": "tokens/design-tokens.json",
-    "sourceDigest": "21fd52bbc176b1e25594f296044b985d1204c39a53282b86ae21a666efef4382"
+    "sourceDigest": "5a99e9f8bdfd4479eb2ebedee3fc2107da19279c466f562375c281ab9b34a513"
   },
   "description": "Task-based discovery of component APIs, usage guidance, examples and token references.",
   "limitations": [
@@ -39,12 +39,12 @@
   },
   "consumption": {
     "styled": {
-      "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+      "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
       "guidance": "Styled components use the optional shared stylesheet. Import it once to use the supplied visual language; omitting it requires consumer styling."
     },
     "headless": {
-      "importPath": "@dimitriszoitas/aegis-ui/primitives",
-      "importStatement": "import { Button } from '@dimitriszoitas/aegis-ui/primitives';",
+      "importPath": "@dimitriszoitas/aegis-agentic/primitives",
+      "importStatement": "import { Button } from '@dimitriszoitas/aegis-agentic/primitives';",
       "guidance": "This entry re-exports Base UI primitives without CSS. Its APIs are Base UI APIs, distinct from the styled component contracts in this index."
     }
   },
@@ -141,7 +141,7 @@
       ],
       "purpose": "A native button for an action, with independent size, intent, emphasis, and loading state.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/button"
+        "@dimitriszoitas/aegis-agentic/button"
       ],
       "links": {
         "contract": "./components/components-actions-button.json",
@@ -163,7 +163,7 @@
       ],
       "purpose": "A visual and semantic group of related buttons without adding selection behavior.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/button-group"
+        "@dimitriszoitas/aegis-agentic/button-group"
       ],
       "links": {
         "contract": "./components/components-actions-buttongroup.json",
@@ -185,7 +185,7 @@
       ],
       "purpose": "An explicit clipboard action with a temporary success icon and optional notification.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/copy-button"
+        "@dimitriszoitas/aegis-agentic/copy-button"
       ],
       "links": {
         "contract": "./components/components-actions-copybutton.json",
@@ -207,7 +207,7 @@
       ],
       "purpose": "A compact Button with a required accessible label and an optional label tooltip.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/icon-button"
+        "@dimitriszoitas/aegis-agentic/icon-button"
       ],
       "links": {
         "contract": "./components/components-actions-iconbutton.json",
@@ -230,7 +230,7 @@
       ],
       "purpose": "A native anchor for navigation, with optional icons and explicit external-link behavior.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/link"
+        "@dimitriszoitas/aegis-agentic/link"
       ],
       "links": {
         "contract": "./components/components-actions-link.json",
@@ -252,7 +252,7 @@
       ],
       "purpose": "A frequent primary action paired with a menu of related alternatives.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/split-button"
+        "@dimitriszoitas/aegis-agentic/split-button"
       ],
       "links": {
         "contract": "./components/components-actions-splitbutton.json",
@@ -271,7 +271,7 @@
       "aliases": [],
       "purpose": "A labeled AI-generated result with optional confidence, provenance, feedback, and regeneration.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/ai-card"
+        "@dimitriszoitas/aegis-agentic/ai-card"
       ],
       "links": {
         "contract": "./components/components-ai-aicard.json",
@@ -290,7 +290,7 @@
       "aliases": [],
       "purpose": "A compact complementary AI result with optional confidence and provenance.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/ai-card"
+        "@dimitriszoitas/aegis-agentic/ai-card"
       ],
       "links": {
         "contract": "./components/components-ai-aihighlight.json",
@@ -309,7 +309,7 @@
       "aliases": [],
       "purpose": "An input or textarea with an optional proposed suffix that the user explicitly accepts or dismisses.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/ai-inline-suggestion"
+        "@dimitriszoitas/aegis-agentic/ai-inline-suggestion"
       ],
       "links": {
         "contract": "./components/components-ai-aiinlinesuggestion.json",
@@ -328,7 +328,7 @@
       "aliases": [],
       "purpose": "A user or assistant conversation entry with source context, progress, citations, and optional result actions.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/ai-message"
+        "@dimitriszoitas/aegis-agentic/ai-message"
       ],
       "links": {
         "contract": "./components/components-ai-aimessage.json",
@@ -347,7 +347,7 @@
       "aliases": [],
       "purpose": "A textual high, medium, or low confidence indicator with a supplementary bar motif.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/confidence-badge"
+        "@dimitriszoitas/aegis-agentic/confidence-badge"
       ],
       "links": {
         "contract": "./components/components-ai-confidencebadge.json",
@@ -369,7 +369,7 @@
       ],
       "purpose": "A named placeholder for an AI response that has not yet produced readable content.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/streaming-skeleton"
+        "@dimitriszoitas/aegis-agentic/streaming-skeleton"
       ],
       "links": {
         "contract": "./components/components-ai-streamingskeleton.json",
@@ -388,7 +388,7 @@
       "aliases": [],
       "purpose": "An AI working status with optional rotating messages and a compact presentation.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/thinking-indicator"
+        "@dimitriszoitas/aegis-agentic/thinking-indicator"
       ],
       "links": {
         "contract": "./components/components-ai-thinkingindicator.json",
@@ -407,7 +407,7 @@
       "aliases": [],
       "purpose": "An ordered series chart that emphasizes magnitude with a filled area beneath the line.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/charts"
+        "@dimitriszoitas/aegis-agentic/charts"
       ],
       "links": {
         "contract": "./components/components-charts-area-chart.json",
@@ -426,7 +426,7 @@
       "aliases": [],
       "purpose": "A categorical or interval comparison with grouped or stacked bars and active-bar feedback.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/charts"
+        "@dimitriszoitas/aegis-agentic/charts"
       ],
       "links": {
         "contract": "./components/components-charts-bar-chart.json",
@@ -445,7 +445,7 @@
       "aliases": [],
       "purpose": "A named chart figure that coordinates the title, description, plot area, loading, error, legend, and footer.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/charts"
+        "@dimitriszoitas/aegis-agentic/charts"
       ],
       "links": {
         "contract": "./components/components-charts-chart-container.json",
@@ -467,7 +467,7 @@
       ],
       "purpose": "A summary metric, explicit comparison, latest readout, and underlying bar, area, or compact-bar series.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/metric-card"
+        "@dimitriszoitas/aegis-agentic/metric-card"
       ],
       "links": {
         "contract": "./components/components-charts-chart-metric-card.json",
@@ -490,7 +490,7 @@
       ],
       "purpose": "A part-to-whole summary with a visible total, category legend, and optional exact data table.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/charts"
+        "@dimitriszoitas/aegis-agentic/charts"
       ],
       "links": {
         "contract": "./components/components-charts-donut-chart.json",
@@ -512,7 +512,7 @@
       ],
       "purpose": "Stacked severity counts over time, composed from BarChart and a shared TimeRange value.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/event-histogram"
+        "@dimitriszoitas/aegis-agentic/event-histogram"
       ],
       "links": {
         "contract": "./components/components-charts-event-histogram.json",
@@ -536,7 +536,7 @@
       ],
       "purpose": "A schedule view of tasks, milestones, progress, and dependencies across a day, week, or month scale.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/gantt-chart"
+        "@dimitriszoitas/aegis-agentic/gantt-chart"
       ],
       "links": {
         "contract": "./components/components-charts-ganttchart.json",
@@ -555,7 +555,7 @@
       "aliases": [],
       "purpose": "An ordered series chart for comparing change over time without filling the area below each line.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/charts"
+        "@dimitriszoitas/aegis-agentic/charts"
       ],
       "links": {
         "contract": "./components/components-charts-line-chart.json",
@@ -579,7 +579,7 @@
       ],
       "purpose": "A summary value with an optional unit, percentage comparison, and compact supporting trend.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/metric-card"
+        "@dimitriszoitas/aegis-agentic/metric-card"
       ],
       "links": {
         "contract": "./components/components-charts-metric-card.json",
@@ -598,7 +598,7 @@
       "aliases": [],
       "purpose": "The compact zero-based bar form of Sparkline for non-negative interval values.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/mini-bar-chart"
+        "@dimitriszoitas/aegis-agentic/mini-bar-chart"
       ],
       "links": {
         "contract": "./components/components-charts-mini-bar-chart.json",
@@ -620,7 +620,7 @@
       ],
       "purpose": "A lightweight SVG trend designed for compact summaries without animation or interactive focus.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/sparkline"
+        "@dimitriszoitas/aegis-agentic/sparkline"
       ],
       "links": {
         "contract": "./components/components-charts-sparkline.json",
@@ -639,7 +639,7 @@
       "aliases": [],
       "purpose": "A token-themed CodeMirror editor with controlled text, folding, line numbers, and bounded height.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/code-editor"
+        "@dimitriszoitas/aegis-agentic/code-editor"
       ],
       "links": {
         "contract": "./components/components-code-codeeditor.json",
@@ -658,7 +658,7 @@
       "aliases": [],
       "purpose": "A split or unified source comparison with exact change counts and change navigation.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/diff-view"
+        "@dimitriszoitas/aegis-agentic/diff-view"
       ],
       "links": {
         "contract": "./components/components-code-diffview.json",
@@ -677,7 +677,7 @@
       "aliases": [],
       "purpose": "A readonly YAML source panel with filename, copy, fold, and unfold controls.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/yaml-presenter"
+        "@dimitriszoitas/aegis-agentic/yaml-presenter"
       ],
       "links": {
         "contract": "./components/components-code-yamlpresenter.json",
@@ -699,7 +699,7 @@
       ],
       "purpose": "A plain-text preview that exposes a disclosure control only when its line limit is exceeded.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/expandable-text"
+        "@dimitriszoitas/aegis-agentic/expandable-text"
       ],
       "links": {
         "contract": "./components/components-content-expandabletext.json",
@@ -723,7 +723,7 @@
       ],
       "purpose": "A typed record grid with sorting, selection, column controls, expansion, grouping, pagination, and virtualization.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/data-grid"
+        "@dimitriszoitas/aegis-agentic/data-grid"
       ],
       "links": {
         "contract": "./components/components-data-datagrid.json",
@@ -746,7 +746,7 @@
       ],
       "purpose": "A semantic set of labels and values for inspecting record or configuration details.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/description-list"
+        "@dimitriszoitas/aegis-agentic/description-list"
       ],
       "links": {
         "contract": "./components/components-data-display-descriptionlist.json",
@@ -765,7 +765,7 @@
       "aliases": [],
       "purpose": "A row-action group with a limited number of visible icon buttons and an overflow menu.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/data-grid-cells"
+        "@dimitriszoitas/aegis-agentic/data-grid-cells"
       ],
       "links": {
         "contract": "./components/components-data-grid-actions-cell.json",
@@ -784,7 +784,7 @@
       "aliases": [],
       "purpose": "A compact AI suggestion with a normalized confidence score and an explicit review reminder.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/data-grid-cells"
+        "@dimitriszoitas/aegis-agentic/data-grid-cells"
       ],
       "links": {
         "contract": "./components/components-data-grid-ai-verdict-cell.json",
@@ -803,7 +803,7 @@
       "aliases": [],
       "purpose": "Controlled batch actions for the current selected record set, with asynchronous operation feedback.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/bulk-actions-bar"
+        "@dimitriszoitas/aegis-agentic/bulk-actions-bar"
       ],
       "links": {
         "contract": "./components/components-data-grid-bulk-actions-bar.json",
@@ -822,7 +822,7 @@
       "aliases": [],
       "purpose": "A compact user, project, or account identity with a primary name and optional supporting detail.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/data-grid-cells"
+        "@dimitriszoitas/aegis-agentic/data-grid-cells"
       ],
       "links": {
         "contract": "./components/components-data-grid-cells.json",
@@ -841,7 +841,7 @@
       "aliases": [],
       "purpose": "A row disclosure button with optional nested-item count.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/data-grid-cells"
+        "@dimitriszoitas/aegis-agentic/data-grid-cells"
       ],
       "links": {
         "contract": "./components/components-data-grid-expand-cell.json",
@@ -860,7 +860,7 @@
       "aliases": [],
       "purpose": "A consistently formatted numeric table value using Intl.NumberFormat.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/data-grid-cells"
+        "@dimitriszoitas/aegis-agentic/data-grid-cells"
       ],
       "links": {
         "contract": "./components/components-data-grid-number-cell.json",
@@ -879,7 +879,7 @@
       "aliases": [],
       "purpose": "A table adapter to the shared SeverityBadge scale.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/data-grid-cells"
+        "@dimitriszoitas/aegis-agentic/data-grid-cells"
       ],
       "links": {
         "contract": "./components/components-data-grid-severity-cell.json",
@@ -898,7 +898,7 @@
       "aliases": [],
       "purpose": "A lightweight, noninteractive trend graphic inside a dense table cell.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/data-grid-cells"
+        "@dimitriszoitas/aegis-agentic/data-grid-cells"
       ],
       "links": {
         "contract": "./components/components-data-grid-sparkline-cell.json",
@@ -917,7 +917,7 @@
       "aliases": [],
       "purpose": "A data-grid adapter to the standard record lifecycle badge.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/data-grid-cells"
+        "@dimitriszoitas/aegis-agentic/data-grid-cells"
       ],
       "links": {
         "contract": "./components/components-data-grid-status-cell.json",
@@ -936,7 +936,7 @@
       "aliases": [],
       "purpose": "A bounded row of static tags with a named overflow summary.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/data-grid-cells"
+        "@dimitriszoitas/aegis-agentic/data-grid-cells"
       ],
       "links": {
         "contract": "./components/components-data-grid-tags-cell.json",
@@ -955,7 +955,7 @@
       "aliases": [],
       "purpose": "The compact RelativeTime presentation for a data-grid timestamp.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/data-grid-cells"
+        "@dimitriszoitas/aegis-agentic/data-grid-cells"
       ],
       "links": {
         "contract": "./components/components-data-grid-time-cell.json",
@@ -977,7 +977,7 @@
       ],
       "purpose": "A bounded, expandable JSON tree with type-aware values and path or value copying.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/json-viewer"
+        "@dimitriszoitas/aegis-agentic/json-viewer"
       ],
       "links": {
         "contract": "./components/components-data-jsonviewer.json",
@@ -999,7 +999,7 @@
       ],
       "purpose": "A relative timestamp with an absolute date and timezone available on focus and hover.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/relative-time"
+        "@dimitriszoitas/aegis-agentic/relative-time"
       ],
       "links": {
         "contract": "./components/components-data-relativetime.json",
@@ -1021,7 +1021,7 @@
       ],
       "purpose": "An ordered activity list with timestamps, event types, optional actors, and actions.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/timeline"
+        "@dimitriszoitas/aegis-agentic/timeline"
       ],
       "links": {
         "contract": "./components/components-data-timeline.json",
@@ -1043,7 +1043,7 @@
       ],
       "purpose": "A named explanation of no results, no data, or a loading failure, with optional recovery actions.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/empty-state"
+        "@dimitriszoitas/aegis-agentic/empty-state"
       ],
       "links": {
         "contract": "./components/components-feedback-empty-state.json",
@@ -1066,7 +1066,7 @@
       ],
       "purpose": "One notification presentation for inline messages and floating lifecycle-managed feedback.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/notification"
+        "@dimitriszoitas/aegis-agentic/notification"
       ],
       "links": {
         "contract": "./components/components-feedback-notification.json",
@@ -1088,7 +1088,7 @@
       ],
       "purpose": "Determinate or indeterminate progress with a required accessible task label.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/progress-bar"
+        "@dimitriszoitas/aegis-agentic/progress-bar"
       ],
       "links": {
         "contract": "./components/components-feedback-progress-bar.json",
@@ -1110,7 +1110,7 @@
       ],
       "purpose": "A decorative placeholder that reserves the approximate shape of pending content.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/skeleton"
+        "@dimitriszoitas/aegis-agentic/skeleton"
       ],
       "links": {
         "contract": "./components/components-feedback-skeleton.json",
@@ -1132,7 +1132,7 @@
       ],
       "purpose": "A small activity indicator that can be either decorative or a named loading status.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/spinner"
+        "@dimitriszoitas/aegis-agentic/spinner"
       ],
       "links": {
         "contract": "./components/components-feedback-spinner.json",
@@ -1151,7 +1151,7 @@
       "aliases": [],
       "purpose": "An independent boolean or mixed selection control with an optional label and description.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/checkbox"
+        "@dimitriszoitas/aegis-agentic/checkbox"
       ],
       "links": {
         "contract": "./components/components-forms-checkbox.json",
@@ -1173,7 +1173,7 @@
       ],
       "purpose": "A readonly, selectable value paired with a clearly labeled copy action.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/copyable-field"
+        "@dimitriszoitas/aegis-agentic/copyable-field"
       ],
       "links": {
         "contract": "./components/components-forms-copyablefield.json",
@@ -1195,7 +1195,7 @@
       ],
       "purpose": "A single-date calendar inside a focus-managed popover.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/date-picker"
+        "@dimitriszoitas/aegis-agentic/date-picker"
       ],
       "links": {
         "contract": "./components/components-forms-datepicker.json",
@@ -1219,7 +1219,7 @@
       ],
       "purpose": "A label, helper text, and validation boundary that shares accessible metadata with one compatible control.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/field"
+        "@dimitriszoitas/aegis-agentic/field"
       ],
       "links": {
         "contract": "./components/components-forms-field.json",
@@ -1242,7 +1242,7 @@
       ],
       "purpose": "A file-selection and upload list with validation, progress, cancellation, and retry.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/file-upload"
+        "@dimitriszoitas/aegis-agentic/file-upload"
       ],
       "links": {
         "contract": "./components/components-forms-fileupload.json",
@@ -1265,7 +1265,7 @@
       ],
       "purpose": "A searchable multiple-choice picker with removable chips and explicit selection controls.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/multi-combobox"
+        "@dimitriszoitas/aegis-agentic/multi-combobox"
       ],
       "links": {
         "contract": "./components/components-forms-multicombobox.json",
@@ -1287,7 +1287,7 @@
       ],
       "purpose": "A labeled set of mutually exclusive options with optional per-option descriptions.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/radio-group"
+        "@dimitriszoitas/aegis-agentic/radio-group"
       ],
       "links": {
         "contract": "./components/components-forms-radiogroup.json",
@@ -1309,7 +1309,7 @@
       ],
       "purpose": "A searchable text field that separates immediate draft changes from debounced search requests.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/search-input"
+        "@dimitriszoitas/aegis-agentic/search-input"
       ],
       "links": {
         "contract": "./components/components-forms-searchinput.json",
@@ -1331,7 +1331,7 @@
       ],
       "purpose": "A compact, mutually exclusive choice implemented with native radio inputs.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/segmented-control"
+        "@dimitriszoitas/aegis-agentic/segmented-control"
       ],
       "links": {
         "contract": "./components/components-forms-segmentedcontrol.json",
@@ -1353,7 +1353,7 @@
       ],
       "purpose": "A single-value picker with grouped options, optional icons, descriptions, and native form integration.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/select"
+        "@dimitriszoitas/aegis-agentic/select"
       ],
       "links": {
         "contract": "./components/components-forms-select.json",
@@ -1374,7 +1374,7 @@
       ],
       "purpose": "One or more keyboard-operable thumbs for a numeric value or bounded range.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/slider"
+        "@dimitriszoitas/aegis-agentic/slider"
       ],
       "links": {
         "contract": "./components/components-forms-slider.json",
@@ -1396,7 +1396,7 @@
       ],
       "purpose": "A binary on/off control for a setting, with a label that remains stable across states.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/switch"
+        "@dimitriszoitas/aegis-agentic/switch"
       ],
       "links": {
         "contract": "./components/components-forms-switch.json",
@@ -1418,7 +1418,7 @@
       ],
       "purpose": "A multiline native text control with optional measured growth and a character count.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/textarea"
+        "@dimitriszoitas/aegis-agentic/textarea"
       ],
       "links": {
         "contract": "./components/components-forms-textarea.json",
@@ -1442,7 +1442,7 @@
       ],
       "purpose": "A single-line native input with optional prefix, suffix, clear control, and Field integration.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/text-input"
+        "@dimitriszoitas/aegis-agentic/text-input"
       ],
       "links": {
         "contract": "./components/components-forms-textinput.json",
@@ -1464,7 +1464,7 @@
       ],
       "purpose": "A period selector that commits a relative preset or a validated absolute UTC interval.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/time-range-picker"
+        "@dimitriszoitas/aegis-agentic/time-range-picker"
       ],
       "links": {
         "contract": "./components/components-forms-timerangepicker.json",
@@ -1486,7 +1486,7 @@
       ],
       "purpose": "A hierarchical multi-selection tree whose branch check states are derived from selectable leaves.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/tree-view"
+        "@dimitriszoitas/aegis-agentic/tree-view"
       ],
       "links": {
         "contract": "./components/components-forms-treeview.json",
@@ -1508,7 +1508,7 @@
       ],
       "purpose": "Composable split panes backed by react-resizable-panels, with labeled resize handles.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/resizable-panels"
+        "@dimitriszoitas/aegis-agentic/resizable-panels"
       ],
       "links": {
         "contract": "./components/components-layout-resizablepanels.json",
@@ -1530,7 +1530,7 @@
       ],
       "purpose": "A set of labeled disclosure rows for content that can be explored independently.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/accordion"
+        "@dimitriszoitas/aegis-agentic/accordion"
       ],
       "links": {
         "contract": "./components/components-lists-accordion.json",
@@ -1552,7 +1552,7 @@
       ],
       "purpose": "A menu attached to a content region, opened through a context gesture or keyboard command.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/context-menu"
+        "@dimitriszoitas/aegis-agentic/context-menu"
       ],
       "links": {
         "contract": "./components/components-lists-contextmenu.json",
@@ -1575,7 +1575,7 @@
       ],
       "purpose": "A compact menu of actions, checkbox choices, radio choices, groups, and nested menus.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/dropdown-menu"
+        "@dimitriszoitas/aegis-agentic/dropdown-menu"
       ],
       "links": {
         "contract": "./components/components-lists-dropdownmenu.json",
@@ -1594,7 +1594,7 @@
       "aliases": [],
       "purpose": "A native list with one-line or two-line rows, optional selection controls, identity, tags, counters, and nested groups.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/list"
+        "@dimitriszoitas/aegis-agentic/list"
       ],
       "links": {
         "contract": "./components/components-lists-list.json",
@@ -1616,7 +1616,7 @@
       ],
       "purpose": "A navigation trail ending in a noninteractive current-page label.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/breadcrumb"
+        "@dimitriszoitas/aegis-agentic/breadcrumb"
       ],
       "links": {
         "contract": "./components/components-navigation-breadcrumb.json",
@@ -1638,7 +1638,7 @@
       ],
       "purpose": "A searchable modal command list with grouped actions and optional global shortcut registration.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/command-palette"
+        "@dimitriszoitas/aegis-agentic/command-palette"
       ],
       "links": {
         "contract": "./components/components-navigation-commandpalette.json",
@@ -1657,7 +1657,7 @@
       "aliases": [],
       "purpose": "Controlled navigation through result pages, with an optional page-size selector.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/pagination"
+        "@dimitriszoitas/aegis-agentic/pagination"
       ],
       "links": {
         "contract": "./components/components-navigation-pagination.json",
@@ -1679,7 +1679,7 @@
       ],
       "purpose": "A collapsible application navigation rail with groups, counts, search, workspace content, and a footer.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/side-nav"
+        "@dimitriszoitas/aegis-agentic/side-nav"
       ],
       "links": {
         "contract": "./components/components-navigation-sidenav.json",
@@ -1701,7 +1701,7 @@
       ],
       "purpose": "An ordered progress indicator that can allow return navigation to completed steps.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/stepper"
+        "@dimitriszoitas/aegis-agentic/stepper"
       ],
       "links": {
         "contract": "./components/components-navigation-stepper.json",
@@ -1720,7 +1720,7 @@
       "aliases": [],
       "purpose": "A labeled set of peer views using Base UI tabs and associated content panels.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/tabs"
+        "@dimitriszoitas/aegis-agentic/tabs"
       ],
       "links": {
         "contract": "./components/components-navigation-tabs.json",
@@ -1742,7 +1742,7 @@
       ],
       "purpose": "A bottom-only nonmodal panel for an existing bounded flex-column workspace.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/bottom-sheet"
+        "@dimitriszoitas/aegis-agentic/bottom-sheet"
       ],
       "links": {
         "contract": "./components/components-overlays-bottomsheet.json",
@@ -1764,7 +1764,7 @@
       ],
       "purpose": "A blocking dialog for a focused task, with a required title and independently scrollable content.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/modal"
+        "@dimitriszoitas/aegis-agentic/modal"
       ],
       "links": {
         "contract": "./components/components-overlays-modal.json",
@@ -1786,7 +1786,7 @@
       ],
       "purpose": "Anchored interactive content with optional header and footer outside the scrollable body.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/popover"
+        "@dimitriszoitas/aegis-agentic/popover"
       ],
       "links": {
         "contract": "./components/components-overlays-popover.json",
@@ -1809,7 +1809,7 @@
       ],
       "purpose": "A nonmodal, resizable panel that pushes content within its own bounded workspace.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/sheet"
+        "@dimitriszoitas/aegis-agentic/sheet"
       ],
       "links": {
         "contract": "./components/components-overlays-sheet.json",
@@ -1831,7 +1831,7 @@
       ],
       "purpose": "A right-side detail panel that can be modal or docked beside the workspace.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/side-sheet"
+        "@dimitriszoitas/aegis-agentic/side-sheet"
       ],
       "links": {
         "contract": "./components/components-overlays-sidesheet.json",
@@ -1853,7 +1853,7 @@
       ],
       "purpose": "Brief supplementary information associated with a hoverable and keyboard-focusable trigger.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/tooltip"
+        "@dimitriszoitas/aegis-agentic/tooltip"
       ],
       "links": {
         "contract": "./components/components-overlays-tooltip.json",
@@ -1876,7 +1876,7 @@
       ],
       "purpose": "A person or entity image with initials fallback and optional presence status.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/avatar"
+        "@dimitriszoitas/aegis-agentic/avatar"
       ],
       "links": {
         "contract": "./components/components-people-avatar.json",
@@ -1899,7 +1899,7 @@
       ],
       "purpose": "A composable section surface with header, title, description, content, and footer slots.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/card"
+        "@dimitriszoitas/aegis-agentic/card"
       ],
       "links": {
         "contract": "./components/components-surfaces-card.json",
@@ -1921,7 +1921,7 @@
       ],
       "purpose": "A horizontal or vertical divider for a meaningful boundary between adjacent content.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/separator"
+        "@dimitriszoitas/aegis-agentic/separator"
       ],
       "links": {
         "contract": "./components/components-surfaces-separator.json",
@@ -1944,7 +1944,7 @@
       ],
       "purpose": "A compact count that can visually cap large values while preserving their full meaning.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/count-badge"
+        "@dimitriszoitas/aegis-agentic/count-badge"
       ],
       "links": {
         "contract": "./components/components-tags-countbadge.json",
@@ -1966,7 +1966,7 @@
       ],
       "purpose": "A visual keyboard-key label with native kbd semantics.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/kbd"
+        "@dimitriszoitas/aegis-agentic/kbd"
       ],
       "links": {
         "contract": "./components/components-tags-kbd.json",
@@ -1989,7 +1989,7 @@
       ],
       "purpose": "A severity label using the shared critical, high, medium, low, and info scale.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/severity-badge"
+        "@dimitriszoitas/aegis-agentic/severity-badge"
       ],
       "links": {
         "contract": "./components/components-tags-severitybadge.json",
@@ -2012,7 +2012,7 @@
       ],
       "purpose": "A textual lifecycle status for new, in-review, in-progress, completed, or cancelled records.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/status-badge"
+        "@dimitriszoitas/aegis-agentic/status-badge"
       ],
       "links": {
         "contract": "./components/components-tags-statusbadge.json",
@@ -2037,7 +2037,7 @@
       ],
       "purpose": "A compact label with distinct static, removable, interactive, counter, and status behaviors.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/tag"
+        "@dimitriszoitas/aegis-agentic/tag"
       ],
       "links": {
         "contract": "./components/components-tags-tag.json",
@@ -2059,7 +2059,7 @@
       ],
       "purpose": "A named, keyboard-focusable native scrolling region with a configurable maximum height.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/scroll-area"
+        "@dimitriszoitas/aegis-agentic/scroll-area"
       ],
       "links": {
         "contract": "./components/components-utilities-scrollarea.json",
@@ -2078,7 +2078,7 @@
       "aliases": [],
       "purpose": "A shared named icon adapter for consistent stroke-based interface artwork.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/icons"
+        "@dimitriszoitas/aegis-agentic/icons"
       ],
       "links": {
         "contract": "./components/foundations-icons.json",
@@ -2101,7 +2101,7 @@
       ],
       "purpose": "An explicit approve or reject boundary around an AI-proposed document change.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/patterns"
+        "@dimitriszoitas/aegis-agentic/patterns"
       ],
       "links": {
         "contract": "./components/patterns-ai-aidiffreview.json",
@@ -2124,7 +2124,7 @@
       ],
       "purpose": "A docked or overlay assistant workspace with a conversation, context-aware composer, and cancellable streaming.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/patterns"
+        "@dimitriszoitas/aegis-agentic/patterns"
       ],
       "links": {
         "contract": "./components/patterns-ai-aipanel.json",
@@ -2147,7 +2147,7 @@
       ],
       "purpose": "An AI message composer with removable context, slash commands, and send or stop controls.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/patterns"
+        "@dimitriszoitas/aegis-agentic/patterns"
       ],
       "links": {
         "contract": "./components/patterns-ai-promptinput.json",
@@ -2169,7 +2169,7 @@
       ],
       "purpose": "A controlled search and table toolbar with mutually exclusive inline or sidebar filter editing.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/patterns"
+        "@dimitriszoitas/aegis-agentic/patterns"
       ],
       "links": {
         "contract": "./components/patterns-filterbar.json",
@@ -2191,7 +2191,7 @@
       ],
       "purpose": "A record-filter sidebar with searchable checkbox facets, contextual counts, and collapsible groups.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/patterns"
+        "@dimitriszoitas/aegis-agentic/patterns"
       ],
       "links": {
         "contract": "./components/patterns-filterpanel.json",
@@ -2213,7 +2213,7 @@
       ],
       "purpose": "A right-side notification panel with search, all/unread views, read state, and optional item actions.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/patterns"
+        "@dimitriszoitas/aegis-agentic/patterns"
       ],
       "links": {
         "contract": "./components/patterns-notificationcenter.json",
@@ -2235,7 +2235,7 @@
       ],
       "purpose": "A host-controlled setup checklist with measurable progress and optional actions per step.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/patterns"
+        "@dimitriszoitas/aegis-agentic/patterns"
       ],
       "links": {
         "contract": "./components/patterns-onboardingchecklist.json",
@@ -2257,7 +2257,7 @@
       ],
       "purpose": "A consistent page title hierarchy with optional back navigation, breadcrumbs, metadata, actions, and secondary content.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/patterns"
+        "@dimitriszoitas/aegis-agentic/patterns"
       ],
       "links": {
         "contract": "./components/patterns-pageheader.json",
@@ -2279,7 +2279,7 @@
       ],
       "purpose": "An inline save/discard boundary for host-owned edited data.",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/patterns"
+        "@dimitriszoitas/aegis-agentic/patterns"
       ],
       "links": {
         "contract": "./components/patterns-unsavedchangesbar.json",
@@ -2302,7 +2302,7 @@
       ],
       "purpose": "",
       "importPaths": [
-        "@dimitriszoitas/aegis-ui/patterns"
+        "@dimitriszoitas/aegis-agentic/patterns"
       ],
       "links": {
         "contract": "./components/patterns-wizard-project-setup.json",

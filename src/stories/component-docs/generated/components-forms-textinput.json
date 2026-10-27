@@ -55,7 +55,7 @@
   "imports": [
     {
       "name": "TextInput",
-      "path": "@dimitriszoitas/aegis-ui/text-input"
+      "path": "@dimitriszoitas/aegis-agentic/text-input"
     }
   ],
   "stories": [

@@ -51,11 +51,11 @@
   "imports": [
     {
       "name": "Notification",
-      "path": "@dimitriszoitas/aegis-ui/notification"
+      "path": "@dimitriszoitas/aegis-agentic/notification"
     },
     {
       "name": "NotificationViewport",
-      "path": "@dimitriszoitas/aegis-ui/notification"
+      "path": "@dimitriszoitas/aegis-agentic/notification"
     }
   ],
   "stories": [

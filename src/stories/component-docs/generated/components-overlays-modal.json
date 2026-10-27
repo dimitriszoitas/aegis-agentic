@@ -66,19 +66,19 @@
   "imports": [
     {
       "name": "Modal",
-      "path": "@dimitriszoitas/aegis-ui/modal"
+      "path": "@dimitriszoitas/aegis-agentic/modal"
     },
     {
       "name": "Dialog",
-      "path": "@dimitriszoitas/aegis-ui/modal"
+      "path": "@dimitriszoitas/aegis-agentic/modal"
     },
     {
       "name": "ConfirmDialog",
-      "path": "@dimitriszoitas/aegis-ui/modal"
+      "path": "@dimitriszoitas/aegis-agentic/modal"
     },
     {
       "name": "ModalClose",
-      "path": "@dimitriszoitas/aegis-ui/modal"
+      "path": "@dimitriszoitas/aegis-agentic/modal"
     }
   ],
   "stories": [

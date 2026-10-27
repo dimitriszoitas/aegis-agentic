@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-actions-button",
   "name": "Button",
@@ -18,7 +18,7 @@
   ],
   "purpose": "A native button for an action, with independent size, intent, emphasis, and loading state.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/button"
+    "@dimitriszoitas/aegis-agentic/button"
   ],
   "links": {
     "contract": "./components-actions-button.json",
@@ -32,9 +32,9 @@
     "Button"
   ],
   "importStatements": [
-    "import { Button } from '@dimitriszoitas/aegis-ui/button';"
+    "import { Button } from '@dimitriszoitas/aegis-agentic/button';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Button",

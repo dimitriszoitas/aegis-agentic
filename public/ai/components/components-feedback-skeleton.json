@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-feedback-skeleton",
   "name": "Skeleton",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A decorative placeholder that reserves the approximate shape of pending content.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/skeleton"
+    "@dimitriszoitas/aegis-agentic/skeleton"
   ],
   "links": {
     "contract": "./components-feedback-skeleton.json",
@@ -31,9 +31,9 @@
     "Skeleton"
   ],
   "importStatements": [
-    "import { Skeleton } from '@dimitriszoitas/aegis-ui/skeleton';"
+    "import { Skeleton } from '@dimitriszoitas/aegis-agentic/skeleton';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Skeleton",

@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-people-avatar",
   "name": "Avatar",
@@ -18,7 +18,7 @@
   ],
   "purpose": "A person or entity image with initials fallback and optional presence status.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/avatar"
+    "@dimitriszoitas/aegis-agentic/avatar"
   ],
   "links": {
     "contract": "./components-people-avatar.json",
@@ -33,9 +33,9 @@
     "AvatarGroup"
   ],
   "importStatements": [
-    "import { Avatar, AvatarGroup } from '@dimitriszoitas/aegis-ui/avatar';"
+    "import { Avatar, AvatarGroup } from '@dimitriszoitas/aegis-agentic/avatar';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Avatar",

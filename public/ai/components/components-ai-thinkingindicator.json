@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-ai-thinkingindicator",
   "name": "ThinkingIndicator",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "An AI working status with optional rotating messages and a compact presentation.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/thinking-indicator"
+    "@dimitriszoitas/aegis-agentic/thinking-indicator"
   ],
   "links": {
     "contract": "./components-ai-thinkingindicator.json",
@@ -28,9 +28,9 @@
     "ThinkingIndicator"
   ],
   "importStatements": [
-    "import { ThinkingIndicator } from '@dimitriszoitas/aegis-ui/thinking-indicator';"
+    "import { ThinkingIndicator } from '@dimitriszoitas/aegis-agentic/thinking-indicator';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "ThinkingIndicator",

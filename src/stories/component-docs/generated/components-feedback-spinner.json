@@ -41,7 +41,7 @@
   "imports": [
     {
       "name": "Spinner",
-      "path": "@dimitriszoitas/aegis-ui/spinner"
+      "path": "@dimitriszoitas/aegis-agentic/spinner"
     }
   ],
   "stories": [

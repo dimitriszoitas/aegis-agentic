@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-overlays-tooltip",
   "name": "Tooltip",
@@ -17,7 +17,7 @@
   ],
   "purpose": "Brief supplementary information associated with a hoverable and keyboard-focusable trigger.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/tooltip"
+    "@dimitriszoitas/aegis-agentic/tooltip"
   ],
   "links": {
     "contract": "./components-overlays-tooltip.json",
@@ -32,9 +32,9 @@
     "Tooltip"
   ],
   "importStatements": [
-    "import { RichTooltip, Tooltip } from '@dimitriszoitas/aegis-ui/tooltip';"
+    "import { RichTooltip, Tooltip } from '@dimitriszoitas/aegis-agentic/tooltip';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Tooltip",

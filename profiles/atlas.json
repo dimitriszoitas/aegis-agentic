@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "id": "atlas",
+  "name": "Atlas Precision",
+  "brand": "#006c67",
+  "neutral": "cool",
+  "semantic": {
+    "success": "#13844b",
+    "warning": "#ac6500",
+    "danger": "#c63853",
+    "info": "#2364b4"
+  },
+  "radius": "compact",
+  "font": "system",
+  "density": "compact"
+}

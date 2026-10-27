@@ -39,7 +39,7 @@
   "imports": [
     {
       "name": "SeverityBadge",
-      "path": "@dimitriszoitas/aegis-ui/severity-badge"
+      "path": "@dimitriszoitas/aegis-agentic/severity-badge"
     }
   ],
   "stories": [

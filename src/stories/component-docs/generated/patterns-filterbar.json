@@ -94,7 +94,7 @@
   "imports": [
     {
       "name": "FilterBar",
-      "path": "@dimitriszoitas/aegis-ui/patterns"
+      "path": "@dimitriszoitas/aegis-agentic/patterns"
     }
   ],
   "stories": [

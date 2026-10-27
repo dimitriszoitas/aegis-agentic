@@ -39,7 +39,7 @@
   "imports": [
     {
       "name": "SegmentedControl",
-      "path": "@dimitriszoitas/aegis-ui/segmented-control"
+      "path": "@dimitriszoitas/aegis-agentic/segmented-control"
     }
   ],
   "stories": [

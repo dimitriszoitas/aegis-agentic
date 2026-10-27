@@ -64,7 +64,7 @@
   "imports": [
     {
       "name": "TimeRangePicker",
-      "path": "@dimitriszoitas/aegis-ui/time-range-picker"
+      "path": "@dimitriszoitas/aegis-agentic/time-range-picker"
     }
   ],
   "stories": [

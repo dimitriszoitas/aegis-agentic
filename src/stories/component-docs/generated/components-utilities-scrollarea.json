@@ -42,7 +42,7 @@
   "imports": [
     {
       "name": "ScrollArea",
-      "path": "@dimitriszoitas/aegis-ui/scroll-area"
+      "path": "@dimitriszoitas/aegis-agentic/scroll-area"
     }
   ],
   "stories": [

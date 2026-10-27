@@ -77,7 +77,7 @@
   "imports": [
     {
       "name": "AiDiffReview",
-      "path": "@dimitriszoitas/aegis-ui/patterns"
+      "path": "@dimitriszoitas/aegis-agentic/patterns"
     }
   ],
   "stories": [

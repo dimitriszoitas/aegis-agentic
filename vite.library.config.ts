@@ -16,6 +16,7 @@ const entry: Record<string, string> = {
   'time-range': 'src/lib/time-range.ts',
   utils: 'src/lib/utils.ts',
   primitives: 'src/package/primitives.ts',
+  agentic: 'src/package/agentic.ts',
 };
 for (const directory of readdirSync('src/components')) {
   const path = `src/components/${directory}/index.ts`;
@@ -79,11 +80,11 @@ export default defineConfig({
             ? '[name][extname]'
             : 'assets/[name]-[hash][extname]',
         banner: (chunk) =>
-          /\/src\/(?:components|patterns|package\/(?:theme|patterns))\//.test(
+          /\/src\/(?:components|patterns|package\/(?:theme|patterns|agentic))\//.test(
             chunk.facadeModuleId ?? '',
           ) ||
           chunk.facadeModuleId?.endsWith('/src/index.ts') ||
-          /\/src\/package\/(?:theme|patterns)\.ts$/.test(chunk.facadeModuleId ?? '')
+          /\/src\/package\/(?:theme|patterns|agentic)\.ts$/.test(chunk.facadeModuleId ?? '')
             ? '"use client";'
             : '',
       },

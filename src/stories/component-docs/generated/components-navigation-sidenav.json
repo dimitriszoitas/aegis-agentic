@@ -71,7 +71,7 @@
   "imports": [
     {
       "name": "SideNav",
-      "path": "@dimitriszoitas/aegis-ui/side-nav"
+      "path": "@dimitriszoitas/aegis-agentic/side-nav"
     }
   ],
   "stories": [

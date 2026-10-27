@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-27T19:45:56.260645+00:00",
+  "status": "passed",
+  "sourceBaseline": "12e4f6b218c6cc68aba303feec211ba91aaeb20a",
+  "commands": {
+    "npm run check": "passed",
+    "npm run test:package": "passed",
+    "npm run build-storybook": "passed",
+    "npm run agentic:browser": "passed",
+    "node scripts/verify-infrastructure-live.mjs": "passed-read-only"
+  },
+  "unitTests": {
+    "files": 29,
+    "passed": 283
+  },
+  "infrastructureTests": {
+    "passed": 34,
+    "provider": "mocked",
+    "transportIntegration": "real-loopback"
+  },
+  "browser": {
+    "workbenchFlows": 8,
+    "workbenchAxeScans": 7,
+    "consoleSimulatedFlows": 5,
+    "consoleAxeScans": 3,
+    "violations": 0,
+    "realServiceReport": "infrastructure/infrastructure-live-report.json"
+  },
+  "inventory": {
+    "components": 102,
+    "dimensions": 917,
+    "constrainedProps": 291,
+    "unconstrainedProps": 626,
+    "verifiedConfigurations": 0
+  },
+  "deployment": {
+    "scope": "local-single-project",
+    "telemetryEnabled": false,
+    "remoteAIEnabled": false,
+    "automaticDerivedRepairIntervalSeconds": 60,
+    "liveProviderCallVerified": false
+  },
+  "kitRuntimeSha256": "8fe613ae182336a5ff02bddffdbb6989e63b5a9a7b6d4c48cf7cf0931278e729",
+  "notes": [
+    "Tests do not establish universal accessibility or semantic correctness.",
+    "Canonical candidate promotion was not performed; registry remains revision1.",
+    "Service-loop repair remains limited to unchanged-input generated artifacts."
+  ]
+}

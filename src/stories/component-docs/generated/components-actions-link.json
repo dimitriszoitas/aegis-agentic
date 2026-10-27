@@ -43,7 +43,7 @@
   "imports": [
     {
       "name": "Link",
-      "path": "@dimitriszoitas/aegis-ui/link"
+      "path": "@dimitriszoitas/aegis-agentic/link"
     }
   ],
   "stories": [

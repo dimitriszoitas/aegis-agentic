@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-data-datagrid",
   "name": "DataGrid",
@@ -19,7 +19,7 @@
   ],
   "purpose": "A typed record grid with sorting, selection, column controls, expansion, grouping, pagination, and virtualization.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/data-grid"
+    "@dimitriszoitas/aegis-agentic/data-grid"
   ],
   "links": {
     "contract": "./components-data-datagrid.json",
@@ -33,9 +33,9 @@
     "DataGrid"
   ],
   "importStatements": [
-    "import { DataGrid } from '@dimitriszoitas/aegis-ui/data-grid';"
+    "import { DataGrid } from '@dimitriszoitas/aegis-agentic/data-grid';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "DataGrid",

@@ -1,0 +1,250 @@
+TAP version 13
+# Subtest: Enter trims and commits new free text, preserving display case
+ok 1 - Enter trims and commits new free text, preserving display case
+  ---
+  duration_ms: 1.080125
+  type: 'test'
+  ...
+# Subtest: empty or whitespace-only submission does not create a value
+ok 2 - empty or whitespace-only submission does not create a value
+  ---
+  duration_ms: 0.111375
+  type: 'test'
+  ...
+# Subtest: validation error preserves exact draft and existing values
+ok 3 - validation error preserves exact draft and existing values
+  ---
+  duration_ms: 0.078583
+  type: 'test'
+  ...
+# Subtest: correcting a validation error permits retry
+ok 4 - correcting a validation error permits retry
+  ---
+  duration_ms: 0.136417
+  type: 'test'
+  ...
+# Subtest: case and surrounding whitespace do not bypass duplicate rejection
+ok 5 - case and surrounding whitespace do not bypass duplicate rejection
+  ---
+  duration_ms: 0.088208
+  type: 'test'
+  ...
+# Subtest: canonically equivalent Unicode strings count as duplicates
+ok 6 - canonically equivalent Unicode strings count as duplicates
+  ---
+  duration_ms: 0.108167
+  type: 'test'
+  ...
+# Subtest: comma is literal label text, not a commit key or paste separator
+ok 7 - comma is literal label text, not a commit key or paste separator
+  ---
+  duration_ms: 0.1105
+  type: 'test'
+  ...
+# Subtest: blur preserves both a valid draft and an invalid draft without a change
+ok 8 - blur preserves both a valid draft and an invalid draft without a change
+  ---
+  duration_ms: 0.1215
+  type: 'test'
+  ...
+# Subtest: multi-value paste commits lines and tabs in order, skipping empty segments
+ok 9 - multi-value paste commits lines and tabs in order, skipping empty segments
+  ---
+  duration_ms: 0.11725
+  type: 'test'
+  ...
+# Subtest: paste replaces only the selected draft substring before parsing
+ok 10 - paste replaces only the selected draft substring before parsing
+  ---
+  duration_ms: 0.088875
+  type: 'test'
+  ...
+# Subtest: one invalid pasted value rejects entire batch and retains exact pasted input
+ok 11 - one invalid pasted value rejects entire batch and retains exact pasted input
+  ---
+  duration_ms: 0.0815
+  type: 'test'
+  ...
+# Subtest: duplicates inside a pasted batch reject all values
+ok 12 - duplicates inside a pasted batch reject all values
+  ---
+  duration_ms: 0.049666
+  type: 'test'
+  ...
+# Subtest: duplicates against committed values reject the entire pasted batch
+ok 13 - duplicates against committed values reject the entire pasted batch
+  ---
+  duration_ms: 0.04625
+  type: 'test'
+  ...
+# Subtest: all validation errors are returned with their positions
+ok 14 - all validation errors are returned with their positions
+  ---
+  duration_ms: 0.062459
+  type: 'test'
+  ...
+# Subtest: failed batch can be corrected and resubmitted without duplicating valid siblings
+ok 15 - failed batch can be corrected and resubmitted without duplicating valid siblings
+  ---
+  duration_ms: 0.054458
+  type: 'test'
+  ...
+# Subtest: single pasted text stays in the draft until explicit submission
+ok 16 - single pasted text stays in the draft until explicit submission
+  ---
+  duration_ms: 0.040875
+  type: 'test'
+  ...
+# Subtest: editing Backspace never removes a token
+ok 17 - editing Backspace never removes a token
+  ---
+  duration_ms: 0.029541
+  type: 'test'
+  ...
+# Subtest: empty Backspace first focuses last remove control; second explicit key removes it
+ok 18 - empty Backspace first focuses last remove control; second explicit key removes it
+  ---
+  duration_ms: 0.057333
+  type: 'test'
+  ...
+# Subtest: Enter and Space activate a focused remove button and return focus when empty
+ok 19 - Enter and Space activate a focused remove button and return focus when empty
+  ---
+  duration_ms: 0.050875
+  type: 'test'
+  ...
+# Subtest: removal focuses the next value at that position and preserves draft
+ok 20 - removal focuses the next value at that position and preserves draft
+  ---
+  duration_ms: 0.029916
+  type: 'test'
+  ...
+# Subtest: invalid removal targets are no-ops
+ok 21 - invalid removal targets are no-ops
+  ---
+  duration_ms: 0.032708
+  type: 'test'
+  ...
+# Subtest: IME Enter and Shift+Enter do not accidentally commit
+ok 22 - IME Enter and Shift+Enter do not accidentally commit
+  ---
+  duration_ms: 0.047084
+  type: 'test'
+  ...
+# Subtest: paste during IME composition preserves text without committing
+ok 23 - paste during IME composition preserves text without committing
+  ---
+  duration_ms: 0.024541
+  type: 'test'
+  ...
+# Subtest: optional suggestion adds a validated value without destroying unrelated free-text draft
+ok 24 - optional suggestion adds a validated value without destroying unrelated free-text draft
+  ---
+  duration_ms: 0.032917
+  type: 'test'
+  ...
+# Subtest: suggestions obey validation and duplicate rules
+ok 25 - suggestions obey validation and duplicate rules
+  ---
+  duration_ms: 0.038542
+  type: 'test'
+  ...
+# Subtest: disabled state blocks input, keyboard, paste, removal, suggestion and commit
+ok 26 - disabled state blocks input, keyboard, paste, removal, suggestion and commit
+  ---
+  duration_ms: 0.048333
+  type: 'test'
+  ...
+# Subtest: controlled request does not mutate value or clear draft before acknowledgment
+ok 27 - controlled request does not mutate value or clear draft before acknowledgment
+  ---
+  duration_ms: 0.061958
+  type: 'test'
+  ...
+# Subtest: controlled rejection preserves submitted draft and allows retry
+ok 28 - controlled rejection preserves submitted draft and allows retry
+  ---
+  duration_ms: 0.044083
+  type: 'test'
+  ...
+# Subtest: draft edits made while a controlled request is pending survive acceptance
+ok 29 - draft edits made while a controlled request is pending survive acceptance
+  ---
+  duration_ms: 0.031791
+  type: 'test'
+  ...
+# Subtest: pending requests block duplicate commits and removal but keep the draft editable
+ok 30 - pending requests block duplicate commits and removal but keep the draft editable
+  ---
+  duration_ms: 0.038458
+  type: 'test'
+  ...
+# Subtest: unrelated external value update cancels pending request and preserves draft
+ok 31 - unrelated external value update cancels pending request and preserves draft
+  ---
+  duration_ms: 0.039833
+  type: 'test'
+  ...
+# Subtest: stale acknowledgments and rejections cannot roll back state
+ok 32 - stale acknowledgments and rejections cannot roll back state
+  ---
+  duration_ms: 0.038083
+  type: 'test'
+  ...
+# Subtest: controlled removal awaits acceptance and preserves input
+ok 33 - controlled removal awaits acceptance and preserves input
+  ---
+  duration_ms: 0.050667
+  type: 'test'
+  ...
+# Subtest: external controlled updates work while disabled without requesting focus
+ok 34 - external controlled updates work while disabled without requesting focus
+  ---
+  duration_ms: 0.041458
+  type: 'test'
+  ...
+# Subtest: late acceptance does not steal focus after blur
+ok 35 - late acceptance does not steal focus after blur
+  ---
+  duration_ms: 0.032542
+  type: 'test'
+  ...
+# Subtest: accessibility descriptors provide visible label, error association and named non-submit buttons
+ok 36 - accessibility descriptors provide visible label, error association and named non-submit buttons
+  ---
+  duration_ms: 0.159042
+  type: 'test'
+  ...
+# Subtest: disabled and pending accessibility descriptors disable all mutation buttons
+ok 37 - disabled and pending accessibility descriptors disable all mutation buttons
+  ---
+  duration_ms: 0.063667
+  type: 'test'
+  ...
+# Subtest: validation exceptions or asynchronous results fail safely without data loss
+ok 38 - validation exceptions or asynchronous results fail safely without data loss
+  ---
+  duration_ms: 0.08475
+  type: 'test'
+  ...
+# Subtest: invalid host values and missing accessible names fail explicitly
+ok 39 - invalid host values and missing accessible names fail explicitly
+  ---
+  duration_ms: 0.204041
+  type: 'test'
+  ...
+# Subtest: transitions do not mutate the input state or event data
+ok 40 - transitions do not mutate the input state or event data
+  ---
+  duration_ms: 0.074125
+  type: 'test'
+  ...
+1..40
+# tests 40
+# suites 0
+# pass 40
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 47.576417

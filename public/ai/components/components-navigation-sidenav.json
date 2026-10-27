@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-navigation-sidenav",
   "name": "SideNav",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A collapsible application navigation rail with groups, counts, search, workspace content, and a footer.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/side-nav"
+    "@dimitriszoitas/aegis-agentic/side-nav"
   ],
   "links": {
     "contract": "./components-navigation-sidenav.json",
@@ -31,9 +31,9 @@
     "SideNav"
   ],
   "importStatements": [
-    "import { SideNav } from '@dimitriszoitas/aegis-ui/side-nav';"
+    "import { SideNav } from '@dimitriszoitas/aegis-agentic/side-nav';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "SideNav",

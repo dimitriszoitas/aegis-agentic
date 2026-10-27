@@ -36,7 +36,7 @@
   "imports": [
     {
       "name": "DescriptionList",
-      "path": "@dimitriszoitas/aegis-ui/description-list"
+      "path": "@dimitriszoitas/aegis-agentic/description-list"
     }
   ],
   "stories": [

@@ -55,7 +55,7 @@
   "imports": [
     {
       "name": "Select",
-      "path": "@dimitriszoitas/aegis-ui/select"
+      "path": "@dimitriszoitas/aegis-agentic/select"
     }
   ],
   "stories": [

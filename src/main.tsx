@@ -5,6 +5,7 @@ import { useTheme } from '@/lib/theme';
 import { useLayoutTheme } from '@/lib/layout-theme';
 import { useAutoHideScrollbars } from '@/lib/scrollbars';
 import './styles/globals.css';
+import { AgenticWorkbench } from './agentic/workbench';
 const BusinessApp = lazy(() =>
   import('@/patterns/business-app').then((module) => ({ default: module.BusinessApp })),
 );
@@ -30,6 +31,7 @@ function ConsoleApp() {
 function App() {
   useAutoHideScrollbars();
   const view = new URLSearchParams(window.location.search).get('view');
+  if (!view || view === 'agentic') return <AgenticWorkbench />;
   return view === 'console' || view === 'components' ? (
     <Suspense
       fallback={
@@ -38,11 +40,7 @@ function App() {
         </div>
       }
     >
-      {view === 'console' ? (
-        <ConsoleApp />
-      ) : (
-        <ComponentsPage />
-      )}
+      {view === 'console' ? <ConsoleApp /> : <ComponentsPage />}
     </Suspense>
   ) : (
     <MarketingSite />

@@ -45,7 +45,7 @@
   "imports": [
     {
       "name": "Sparkline",
-      "path": "@dimitriszoitas/aegis-ui/sparkline"
+      "path": "@dimitriszoitas/aegis-agentic/sparkline"
     }
   ],
   "stories": [

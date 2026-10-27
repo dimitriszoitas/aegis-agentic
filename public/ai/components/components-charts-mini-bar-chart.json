@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-charts-mini-bar-chart",
   "name": "Mini bar chart",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "The compact zero-based bar form of Sparkline for non-negative interval values.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/mini-bar-chart"
+    "@dimitriszoitas/aegis-agentic/mini-bar-chart"
   ],
   "links": {
     "contract": "./components-charts-mini-bar-chart.json",
@@ -28,9 +28,9 @@
     "MiniBarChart"
   ],
   "importStatements": [
-    "import { MiniBarChart } from '@dimitriszoitas/aegis-ui/mini-bar-chart';"
+    "import { MiniBarChart } from '@dimitriszoitas/aegis-agentic/mini-bar-chart';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [],
   "variants": [
     {

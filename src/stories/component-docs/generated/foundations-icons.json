@@ -40,7 +40,7 @@
   "imports": [
     {
       "name": "Search",
-      "path": "@dimitriszoitas/aegis-ui/icons"
+      "path": "@dimitriszoitas/aegis-agentic/icons"
     }
   ],
   "stories": [

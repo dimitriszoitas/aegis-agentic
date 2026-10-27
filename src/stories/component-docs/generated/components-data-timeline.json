@@ -59,7 +59,7 @@
   "imports": [
     {
       "name": "Timeline",
-      "path": "@dimitriszoitas/aegis-ui/timeline"
+      "path": "@dimitriszoitas/aegis-agentic/timeline"
     }
   ],
   "stories": [

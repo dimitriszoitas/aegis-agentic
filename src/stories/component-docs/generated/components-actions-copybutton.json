@@ -56,7 +56,7 @@
   "imports": [
     {
       "name": "CopyButton",
-      "path": "@dimitriszoitas/aegis-ui/copy-button"
+      "path": "@dimitriszoitas/aegis-agentic/copy-button"
     }
   ],
   "stories": [

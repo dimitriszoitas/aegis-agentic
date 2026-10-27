@@ -48,7 +48,7 @@
   "imports": [
     {
       "name": "RadioGroup",
-      "path": "@dimitriszoitas/aegis-ui/radio-group"
+      "path": "@dimitriszoitas/aegis-agentic/radio-group"
     }
   ],
   "stories": [

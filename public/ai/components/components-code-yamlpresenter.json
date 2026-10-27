@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-code-yamlpresenter",
   "name": "YamlPresenter",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "A readonly YAML source panel with filename, copy, fold, and unfold controls.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/yaml-presenter"
+    "@dimitriszoitas/aegis-agentic/yaml-presenter"
   ],
   "links": {
     "contract": "./components-code-yamlpresenter.json",
@@ -28,9 +28,9 @@
     "YamlPresenter"
   ],
   "importStatements": [
-    "import { YamlPresenter } from '@dimitriszoitas/aegis-ui/yaml-presenter';"
+    "import { YamlPresenter } from '@dimitriszoitas/aegis-agentic/yaml-presenter';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "YamlPresenter",

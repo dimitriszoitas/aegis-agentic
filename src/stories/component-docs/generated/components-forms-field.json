@@ -44,7 +44,7 @@
   "imports": [
     {
       "name": "Field",
-      "path": "@dimitriszoitas/aegis-ui/field"
+      "path": "@dimitriszoitas/aegis-agentic/field"
     }
   ],
   "stories": [

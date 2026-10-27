@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-switch",
   "name": "Switch",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A binary on/off control for a setting, with a label that remains stable across states.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/switch"
+    "@dimitriszoitas/aegis-agentic/switch"
   ],
   "links": {
     "contract": "./components-forms-switch.json",
@@ -31,9 +31,9 @@
     "Switch"
   ],
   "importStatements": [
-    "import { Switch } from '@dimitriszoitas/aegis-ui/switch';"
+    "import { Switch } from '@dimitriszoitas/aegis-agentic/switch';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Switch",

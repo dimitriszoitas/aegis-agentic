@@ -1,0 +1,1328 @@
+.agentic-workbench,
+.aw-preview-scene,
+.aw-pattern-preview {
+  color: var(--group-application-business-app-color-content-primary);
+  font-family: var(--group-application-surface-font-family-ui);
+  font-size: var(--group-application-business-app-font-size-body);
+  line-height: var(--group-application-business-app-font-leading-relaxed);
+}
+.agentic-workbench {
+  display: grid;
+  grid-template-columns:
+    var(--group-application-business-app-size-grid-template-columns-wide-panel-large)
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  min-height: var(--group-application-business-app-size-height-100dvh);
+  background: var(--group-application-business-app-color-surface-canvas);
+}
+:where(.agentic-workbench) h1,
+:where(.agentic-workbench) h2,
+:where(.agentic-workbench) h3,
+:where(.agentic-workbench) h4,
+:where(.agentic-workbench) p {
+  margin: var(--group-application-business-app-number-0);
+}
+:where(.agentic-workbench) h1,
+:where(.agentic-workbench) h2,
+:where(.agentic-workbench) h3 {
+  letter-spacing: var(--group-application-surface-font-tracking-heading);
+}
+.agentic-workbench button:focus-visible,
+.agentic-workbench a:focus-visible,
+.agentic-workbench summary:focus-visible {
+  outline: var(--group-application-business-app-border-width-regular) solid
+    var(--group-application-business-app-color-action-foreground);
+  outline-offset: var(--group-application-surface-focus-offset);
+}
+.aw-skip {
+  position: fixed;
+  z-index: var(--group-application-business-app-z-toast);
+  top: var(--group-application-business-app-size-top-negative-100);
+  left: var(--group-application-business-app-space-padding-comfortable);
+  background: var(--group-application-business-app-color-surface-surface);
+  color: var(--group-application-business-app-color-content-primary);
+  padding: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-skip:focus {
+  top: var(--group-application-business-app-space-padding-comfortable);
+  width: auto;
+  height: auto;
+  clip: auto;
+  clip-path: none;
+  overflow: visible;
+  white-space: normal;
+}
+.aw-icon {
+  stroke-width: var(--group-application-icon-stroke-thin);
+  width: var(--group-application-measurement-icon-navigation);
+  height: var(--group-application-measurement-icon-navigation);
+  flex-shrink: var(--group-application-business-app-number-0);
+}
+.aw-preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--group-application-business-app-space-padding-regular);
+  align-items: center;
+  width: var(--group-application-business-app-size-width-full);
+}
+.aw-rail {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: var(--group-application-business-app-number-0);
+  height: var(--group-application-business-app-size-height-100dvh);
+  padding: var(--group-application-business-app-space-padding-roomy)
+    var(--group-application-business-app-space-padding-comfortable);
+  background: var(--group-application-business-app-color-content-primary);
+  color: var(--group-application-business-app-color-surface-surface);
+}
+.aw-brand {
+  display: flex;
+  gap: var(--group-application-business-app-space-padding-regular);
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: var(--group-application-business-app-space-padding-snug)
+    var(--group-application-business-app-space-padding-compact)
+    var(--group-application-business-app-space-padding-spacious);
+  font-size: var(--group-application-business-app-font-size-heading-l);
+  font-weight: var(--group-application-business-app-title-weight);
+}
+.aw-mark {
+  display: grid;
+  place-items: center;
+  width: var(--group-application-business-app-sidebar-collapsed);
+  height: var(--group-application-business-app-sidebar-collapsed);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-content-secondary);
+  border-radius: var(--group-application-business-app-radius-border-radius-strong);
+  font-size: var(--group-application-business-app-font-size-display);
+  font-style: italic;
+}
+.aw-brand-sub {
+  display: block;
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+  letter-spacing: var(--group-application-business-app-font-tracking-heading);
+}
+.aw-project {
+  display: flex;
+  gap: var(--group-application-business-app-space-padding-compact);
+  align-items: center;
+  padding: var(--group-application-business-app-space-padding-regular);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-content-secondary);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  margin-bottom: var(--group-application-business-app-space-padding-spacious);
+}
+.aw-project-mark,
+.aw-company-avatar {
+  display: grid;
+  place-items: center;
+  width: var(--group-application-business-app-size-grid-template-columns-compact-content-small);
+  height: var(--group-application-business-app-size-grid-template-columns-compact-content-small);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  background: var(--group-application-surface-color-action-soft);
+  color: var(--group-application-business-app-color-action-foreground);
+  font-weight: var(--group-application-business-app-title-weight);
+  flex-shrink: var(--group-application-business-app-number-0);
+}
+.aw-project strong,
+.aw-project small {
+  display: block;
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-project small {
+  margin-top: var(--group-application-business-app-space-padding-snug);
+  font-weight: normal;
+}
+.aw-project-dot,
+.aw-live-dot {
+  width: var(--group-application-business-app-space-padding-compact);
+  height: var(--group-application-business-app-space-padding-compact);
+  border-radius: var(--group-application-business-app-radius-border-radius-strong);
+  background: currentColor;
+  flex-shrink: var(--group-application-business-app-number-0);
+}
+.aw-project > .aw-project-dot {
+  margin-left: auto;
+}
+.aw-nav-label {
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+  padding: var(--group-application-business-app-space-padding-compact)
+    var(--group-application-business-app-space-padding-regular);
+}
+.aw-rail nav {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-snug);
+}
+.aw-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-padding-regular);
+  border: none;
+  background: transparent;
+  color: inherit;
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  padding: var(--group-application-business-app-space-padding-regular);
+  text-align: left;
+  cursor: pointer;
+  font-size: var(--group-application-business-app-font-size-label);
+}
+.aw-nav-item small {
+  margin-left: auto;
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+}
+.aw-nav-item:hover {
+  text-decoration: underline;
+  text-underline-offset: var(--group-application-surface-link-underline-offset);
+}
+.aw-nav-item[data-active='true'] {
+  background: var(--group-application-business-app-color-action-foreground);
+  color: var(--group-application-business-app-color-surface-surface);
+}
+.aw-rail-bottom {
+  margin-top: auto;
+  padding-top: var(--group-application-business-app-space-padding-spacious);
+}
+.aw-agent-note {
+  padding: var(--group-application-business-app-space-padding-comfortable)
+    var(--group-application-business-app-space-padding-regular)
+    var(--group-application-business-app-space-padding-roomy);
+}
+.aw-orbit {
+  display: block;
+  font-size: var(--group-application-business-app-font-size-display);
+  margin-bottom: var(--group-application-business-app-space-padding-regular);
+}
+.aw-agent-note strong {
+  display: block;
+  font-size: var(--group-application-business-app-font-size-label);
+  margin-bottom: var(--group-application-business-app-space-padding-compact);
+}
+.aw-agent-note p {
+  font-size: var(--group-application-business-app-font-size-caption);
+  line-height: var(--group-application-business-app-font-leading-spacious);
+}
+.aw-version {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-padding-compact);
+  padding: var(--group-application-business-app-space-padding-comfortable)
+    var(--group-application-business-app-space-padding-snug)
+    var(--group-application-business-app-number-0);
+  border-top: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+}
+.aw-version > span:last-child {
+  margin-left: auto;
+}
+.aw-workspace {
+  min-width: var(--group-application-business-app-number-0);
+  display: flex;
+  flex-direction: column;
+}
+.aw-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--group-application-business-app-space-padding-comfortable)
+    var(--group-application-business-app-space-padding-spacious);
+  border-bottom: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  background: var(--group-application-business-app-color-surface-surface);
+}
+.aw-topbar > div,
+.aw-topbar-actions {
+  display: flex;
+  gap: var(--group-application-business-app-space-padding-comfortable);
+  align-items: center;
+}
+.aw-topbar strong {
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.aw-topbar span,
+.aw-local {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-main {
+  flex: var(--group-application-business-app-flex-fill);
+  padding: var(--group-application-business-app-space-padding-spacious);
+  min-width: var(--group-application-business-app-number-0);
+}
+.aw-section-intro {
+  margin-bottom: var(--group-application-business-app-space-padding-spacious);
+}
+.aw-eyebrow {
+  display: block;
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+  font-weight: var(--group-application-business-app-title-weight);
+  margin-bottom: var(--group-application-business-app-space-padding-compact);
+}
+.aw-section-intro h1 {
+  font-size: var(--group-application-business-app-font-size-display);
+  line-height: var(--group-application-business-app-font-leading-heading);
+  font-weight: var(--group-application-business-app-title-weight);
+  margin-bottom: var(--group-application-business-app-space-padding-regular);
+}
+.aw-section-intro > p {
+  max-width: var(--group-application-business-app-size-max-width-canvas-large);
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-body);
+}
+.aw-foundation-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-size-grid-template-columns-canvas-tiny)
+    )
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  gap: var(--group-application-business-app-space-padding-roomy);
+  align-items: start;
+}
+.aw-settings,
+.aw-compose-controls {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-roomy);
+  background: var(--group-application-business-app-color-surface-surface);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-radius: var(--group-application-business-app-radius-border-radius-strong);
+  padding: var(--group-application-business-app-space-padding-roomy);
+  min-width: var(--group-application-business-app-number-0);
+}
+.aw-panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-padding-compact);
+  align-items: baseline;
+}
+.aw-panel-heading h2 {
+  font-size: var(--group-application-business-app-font-size-subheading);
+}
+.aw-subtle,
+.aw-panel-heading > span {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-presets {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--group-application-business-app-columns-three),
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    )
+  );
+  gap: var(--group-application-business-app-space-padding-compact);
+}
+.aw-preset {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--group-application-business-app-space-padding-snug);
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-primary);
+  cursor: pointer;
+  min-width: var(--group-application-business-app-number-0);
+}
+.aw-preset strong {
+  font-size: var(--group-application-business-app-font-size-caption);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.aw-preset small {
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.aw-preset-art {
+  display: grid;
+  grid-template-columns: var(--group-application-business-app-track-flex) var(
+      --group-application-business-app-track-wide
+    );
+  width: var(--group-application-business-app-size-width-full);
+  gap: var(--group-application-business-app-space-padding-snug);
+  padding: var(--group-application-business-app-space-padding-regular);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  background: var(--group-application-business-app-color-surface-canvas);
+  margin-bottom: var(--group-application-business-app-space-padding-snug);
+}
+.aw-preset-art i {
+  display: block;
+  height: var(--group-application-business-app-space-padding-roomy);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  background: var(--group-application-surface-color-action-soft);
+}
+.aw-preset-art i:first-child {
+  grid-row: span var(--group-application-business-app-columns-two);
+  height: var(--group-application-business-app-size-width-full);
+  background: var(--group-application-business-app-color-content-primary);
+}
+.aw-preset-art i:last-child {
+  height: var(--group-application-business-app-space-padding-compact);
+  background: var(--group-application-business-app-color-action-foreground);
+}
+.aw-preset-color {
+  display: block;
+  width: var(--group-application-business-app-size-width-full);
+  height: var(--group-application-business-app-space-padding-compact);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+}
+.aw-preset[data-selected='true'] .aw-preset-art {
+  border-color: var(--group-application-business-app-color-action-foreground);
+  box-shadow: var(--group-application-business-app-number-0)
+    var(--group-application-business-app-number-0) var(--group-application-business-app-number-0)
+    var(--group-application-business-app-border-width-hairline)
+    var(--group-application-business-app-color-action-foreground);
+}
+.aw-settings-group {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-comfortable);
+  padding-top: var(--group-application-business-app-space-padding-roomy);
+  border-top: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.aw-group-label {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-padding-compact);
+}
+.aw-group-label span {
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.aw-group-label h3 {
+  font-size: var(--group-application-business-app-font-size-label);
+}
+.aw-choice {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-compact);
+}
+.aw-choice > span {
+  font-size: var(--group-application-business-app-font-size-label);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.aw-choice small {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-color-field {
+  display: flex;
+  align-items: end;
+  gap: var(--group-application-business-app-space-padding-compact);
+}
+.aw-color-field > .aegis-input {
+  flex: var(--group-application-business-app-flex-fill);
+  min-width: var(--group-application-business-app-number-0);
+}
+.aw-color-field > input[type='color'] {
+  appearance: none;
+  width: var(--group-application-business-app-size-grid-template-columns-compact-content-small);
+  height: var(--group-application-business-app-size-grid-template-columns-compact-content-small);
+  flex-shrink: var(--group-application-business-app-number-0);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  padding: var(--group-application-business-app-space-padding-snug);
+  background: var(--group-application-business-app-color-surface-surface);
+  cursor: pointer;
+}
+.aw-color-field > input[type='color']::-webkit-color-swatch-wrapper {
+  padding: var(--group-application-business-app-number-0);
+}
+.aw-color-field > input[type='color']::-webkit-color-swatch {
+  border: none;
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+}
+.aw-details {
+  border-top: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  padding-top: var(--group-application-business-app-space-padding-comfortable);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-details summary {
+  cursor: pointer;
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.aw-details summary > span {
+  float: right;
+  color: var(--group-application-business-app-color-content-secondary);
+  font-weight: normal;
+}
+.aw-details > p {
+  color: var(--group-application-business-app-color-content-secondary);
+  margin: var(--group-application-business-app-space-padding-regular)
+    var(--group-application-business-app-number-0);
+}
+.aw-semantic-fields {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-regular);
+  margin-top: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-settings-footer {
+  display: flex;
+  gap: var(--group-application-business-app-space-padding-compact);
+  justify-content: space-between;
+}
+.aw-preview-column {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-comfortable);
+  min-width: var(--group-application-business-app-number-0);
+}
+.aw-preview {
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-radius: var(--group-application-business-app-radius-border-radius-strong);
+  overflow: hidden;
+}
+.aw-preview-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--group-application-business-app-space-padding-regular);
+  background: var(--group-application-business-app-color-surface-surface);
+  padding: var(--group-application-business-app-space-padding-regular)
+    var(--group-application-business-app-space-padding-comfortable);
+  border-bottom: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.aw-preview-toolbar > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-padding-compact);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-live-dot {
+  color: var(--group-application-business-app-color-action-foreground);
+}
+.aw-preview-scene {
+  background: var(--group-application-business-app-color-surface-canvas);
+  padding: var(--group-application-business-app-space-padding-roomy);
+}
+.aw-specimen {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-roomy);
+}
+.aw-specimen-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--group-application-business-app-space-padding-comfortable);
+  border-bottom: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.aw-specimen-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-padding-compact);
+  font-size: var(--group-application-business-app-font-size-heading-l);
+  font-weight: var(--group-application-business-app-title-weight);
+  font-style: italic;
+}
+.aw-specimen-logo span {
+  font-size: var(--group-application-business-app-font-size-subheading);
+  font-style: normal;
+}
+.aw-specimen-account {
+  display: grid;
+  place-items: center;
+  width: var(--group-application-business-app-size-grid-template-columns-compact-content-small);
+  height: var(--group-application-business-app-size-grid-template-columns-compact-content-small);
+  border-radius: var(--group-application-business-app-radius-border-radius-strong);
+  background: var(--group-application-surface-color-action-soft);
+  color: var(--group-application-business-app-color-action-foreground);
+  font-size: var(--group-application-business-app-font-size-caption);
+  font-weight: var(--group-application-business-app-title-weight);
+}
+.aw-specimen-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-specimen-title h2,
+.aw-pattern-heading h2 {
+  font-size: var(--group-application-business-app-font-size-heading-m);
+  margin-bottom: var(--group-application-business-app-space-padding-snug);
+}
+.aw-specimen-title h2 span {
+  color: var(--group-application-business-app-color-action-foreground);
+}
+.aw-specimen-title p,
+.aw-pattern-heading p {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--group-application-business-app-columns-two),
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    )
+  );
+  gap: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-stat-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-padding-compact);
+  padding: var(--group-application-business-app-space-padding-comfortable);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  background: var(--group-application-business-app-color-surface-surface);
+}
+.aw-stat-grid > div > span {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-stat-grid strong {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--group-application-business-app-space-padding-regular);
+  font-size: var(--group-application-business-app-font-size-heading-l);
+  letter-spacing: var(--group-application-surface-font-tracking-heading);
+}
+.aw-stat-grid strong span {
+  color: var(--group-application-business-app-color-action-foreground);
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.aw-mini-bars {
+  display: flex;
+  align-items: end;
+  gap: var(--group-application-business-app-space-padding-snug);
+  height: var(--group-application-business-app-sidebar-collapsed);
+  padding-top: var(--group-application-business-app-space-padding-compact);
+}
+.aw-mini-bars i {
+  flex: var(--group-application-business-app-flex-fill);
+  background: var(--group-application-business-app-color-action-foreground);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded)
+    var(--group-application-business-app-space-padding-snug)
+    var(--group-application-business-app-number-0) var(--group-application-business-app-number-0);
+}
+.aw-mini-chart {
+  height: var(--group-application-business-app-sidebar-collapsed);
+  padding-top: var(--group-application-business-app-space-padding-compact);
+  display: flex;
+  align-items: end;
+}
+.aw-mini-chart svg {
+  height: var(--group-application-business-app-size-width-full);
+  width: var(--group-application-business-app-size-width-full);
+  overflow: visible;
+}
+.aw-mini-chart path {
+  stroke: var(--group-application-business-app-color-action-foreground);
+  stroke-width: var(--group-application-business-app-border-width-regular);
+  fill: none;
+}
+.aw-preview-fields {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--group-application-business-app-columns-two),
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    )
+  );
+  gap: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-table-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-padding-regular);
+  align-items: baseline;
+}
+.aw-table-heading h3 {
+  font-size: var(--group-application-business-app-font-size-label);
+}
+.aw-table-heading > span {
+  font-size: var(--group-application-business-app-font-size-caption);
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.aw-table-scroll {
+  overflow-x: auto;
+  min-width: var(--group-application-business-app-number-0);
+}
+.aw-data-table {
+  width: var(--group-application-business-app-size-width-full);
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-data-table th {
+  font-weight: var(--group-application-business-app-font-weight-medium);
+  color: var(--group-application-business-app-color-content-secondary);
+  background: var(--group-application-business-app-color-surface-hover);
+  white-space: nowrap;
+}
+.aw-data-table th,
+.aw-data-table td {
+  padding: var(--group-application-business-app-space-padding-regular);
+  border-bottom: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.aw-data-table td {
+  white-space: nowrap;
+}
+.aw-data-table[data-density='compact'] th,
+.aw-data-table[data-density='compact'] td {
+  padding: var(--group-application-business-app-space-padding-compact)
+    var(--group-application-business-app-space-padding-regular);
+}
+.aw-data-table strong {
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.aw-preview-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--group-application-business-app-space-padding-regular);
+  margin-top: var(--group-application-business-app-space-padding-roomy);
+  padding-top: var(--group-application-business-app-space-padding-comfortable);
+  border-top: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.aw-compile-strip {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-padding-regular);
+  padding: var(--group-application-business-app-space-padding-regular)
+    var(--group-application-business-app-space-padding-comfortable);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  background: var(--group-application-business-app-color-surface-surface);
+}
+.aw-check-icon {
+  display: grid;
+  place-items: center;
+  background: var(--group-application-surface-color-action-soft);
+  color: var(--group-application-business-app-color-action-foreground);
+  padding: var(--group-application-business-app-space-padding-compact);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+}
+.aw-compile-strip strong {
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-compile-strip p,
+.aw-compile-strip code {
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.aw-compile-strip > code {
+  margin-left: auto;
+}
+.aw-language-note {
+  display: flex;
+  align-items: start;
+  gap: var(--group-application-business-app-space-padding-comfortable);
+  padding: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-language-note > div {
+  padding-top: var(--group-application-business-app-space-padding-snug);
+  color: var(--group-application-business-app-color-action-foreground);
+}
+.aw-language-note h3 {
+  font-size: var(--group-application-business-app-font-size-label);
+  margin-bottom: var(--group-application-business-app-space-padding-compact);
+}
+.aw-language-note p {
+  font-size: var(--group-application-business-app-font-size-caption);
+  color: var(--group-application-business-app-color-content-secondary);
+  max-width: var(--group-application-business-app-size-max-width-canvas-large);
+}
+.aw-language-note button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-padding-compact);
+  color: var(--group-application-business-app-color-action-foreground);
+  background: transparent;
+  padding: var(--group-application-business-app-number-0);
+  border: none;
+  cursor: pointer;
+  margin-top: var(--group-application-business-app-space-padding-regular);
+  font-size: var(--group-application-business-app-font-size-caption);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.aw-diagnostics {
+  margin: var(--group-application-business-app-number-0)
+    var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-evidence-list {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-compact);
+  max-height: var(--group-application-business-app-size-max-height-canvas-huge);
+  overflow-y: auto;
+}
+.aw-evidence-list > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-padding-regular);
+}
+.aw-evidence-list strong {
+  white-space: nowrap;
+}
+.aw-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-padding-regular);
+  padding: var(--group-application-business-app-space-padding-roomy)
+    var(--group-application-business-app-space-padding-spacious);
+  border-top: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+}
+.aw-footer > span:first-child {
+  font-weight: var(--group-application-business-app-title-weight);
+  color: var(--group-application-business-app-color-content-primary);
+}
+.aw-compose-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-size-grid-template-columns-canvas-tiny)
+    )
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  gap: var(--group-application-business-app-space-padding-roomy);
+  align-items: start;
+}
+.aw-compose-layout > div {
+  min-width: var(--group-application-business-app-number-0);
+}
+.aw-compose-controls {
+  gap: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-contract-note {
+  padding-top: var(--group-application-business-app-space-padding-comfortable);
+  border-top: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.aw-contract-note > svg {
+  color: var(--group-application-business-app-color-action-foreground);
+  margin-bottom: var(--group-application-business-app-space-padding-compact);
+}
+.aw-contract-note h3 {
+  font-size: var(--group-application-business-app-font-size-label);
+  margin-bottom: var(--group-application-business-app-space-padding-compact);
+}
+.aw-contract-note p,
+.aw-contract-note code {
+  font-size: var(--group-application-business-app-font-size-caption);
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.aw-contract-note code {
+  display: block;
+  margin-top: var(--group-application-business-app-space-padding-regular);
+}
+.aw-pattern-preview {
+  background: var(--group-application-business-app-color-surface-surface);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-top: none;
+  border-radius: var(--group-application-business-app-number-0)
+    var(--group-application-business-app-number-0)
+    var(--group-application-business-app-radius-border-radius-rounded)
+    var(--group-application-business-app-radius-border-radius-rounded);
+  padding: var(--group-application-business-app-space-padding-roomy);
+}
+.aw-pattern-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-padding-comfortable);
+  margin-bottom: var(--group-application-business-app-space-padding-roomy);
+}
+.aw-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--group-application-business-app-space-padding-compact);
+  align-items: center;
+  margin-bottom: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-filter-row > .aegis-input {
+  flex: var(--group-application-business-app-flex-fill);
+  min-width: var(--group-application-business-app-size-min-width-panel-roomy);
+}
+.aw-results-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-padding-regular);
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+  margin-bottom: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-company {
+  display: flex;
+  gap: var(--group-application-business-app-space-padding-regular);
+  align-items: center;
+}
+.aw-company strong,
+.aw-company small {
+  display: block;
+}
+.aw-company small {
+  color: var(--group-application-business-app-color-content-secondary);
+  margin-top: var(--group-application-business-app-space-padding-snug);
+}
+.aw-empty {
+  display: grid;
+  place-items: center;
+  gap: var(--group-application-business-app-space-padding-regular);
+  text-align: center;
+  padding: var(--group-application-business-app-space-padding-spacious);
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.aw-empty h3 {
+  font-size: var(--group-application-business-app-font-size-subheading);
+  color: var(--group-application-business-app-color-content-primary);
+}
+.aw-sample-note {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+  padding-top: var(--group-application-business-app-space-padding-roomy);
+}
+.aw-recipe {
+  margin-top: var(--group-application-business-app-space-padding-roomy);
+}
+.agentic-workbench pre {
+  max-width: var(--group-application-business-app-size-width-full);
+  overflow-x: auto;
+  background: var(--group-application-business-app-color-surface-hover);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  padding: var(--group-application-business-app-space-padding-comfortable);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  font-family: var(--group-application-surface-font-family-code);
+  font-size: var(--group-application-business-app-font-size-caption);
+  margin: var(--group-application-business-app-space-padding-comfortable)
+    var(--group-application-business-app-number-0);
+}
+.aw-registry-summary {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-padding-comfortable);
+  margin-bottom: var(--group-application-business-app-space-padding-roomy);
+}
+.aw-registry-summary > .aegis-input {
+  width: var(--group-application-business-app-size-grid-template-columns-canvas-tiny);
+}
+.aw-registry-summary > span {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+  padding-bottom: var(--group-application-business-app-space-padding-compact);
+}
+.aw-registry-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--group-application-business-app-columns-three),
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    )
+  );
+  gap: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-registry-card {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-regular);
+  padding: var(--group-application-business-app-space-padding-roomy);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  background: var(--group-application-business-app-color-surface-surface);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+}
+.aw-registry-card > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--group-application-business-app-color-action-foreground);
+}
+.aw-registry-card h3 {
+  font-size: var(--group-application-business-app-font-size-subheading);
+}
+.aw-registry-card p,
+.aw-registry-card small {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-registry-card code {
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+  overflow-wrap: anywhere;
+}
+.aw-section-divider {
+  display: flex;
+  gap: var(--group-application-business-app-space-padding-roomy);
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--group-application-business-app-space-padding-spacious)
+    var(--group-application-business-app-number-0)
+    var(--group-application-business-app-space-padding-roomy);
+  padding-top: var(--group-application-business-app-space-padding-roomy);
+  border-top: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.aw-section-divider h2 {
+  font-size: var(--group-application-business-app-font-size-heading-l);
+  margin-bottom: var(--group-application-business-app-space-padding-compact);
+}
+.aw-section-divider p {
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.aw-proposal-grid,
+.aw-export-grid,
+.aw-maintenance-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--group-application-business-app-columns-two),
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    )
+  );
+  gap: var(--group-application-business-app-space-padding-roomy);
+}
+.aw-proposal-contract {
+  display: grid;
+  grid-template-columns: var(--group-application-business-app-track-flex) var(
+      --group-application-business-app-track-flex
+    );
+  gap: var(--group-application-business-app-space-padding-compact);
+  margin-top: var(--group-application-business-app-space-padding-roomy);
+  border-top: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  padding-top: var(--group-application-business-app-space-padding-comfortable);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-proposal-contract span {
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.aw-conflict-panel {
+  margin-top: var(--group-application-business-app-space-padding-roomy);
+  padding: var(--group-application-business-app-space-padding-roomy);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  background: var(--group-application-business-app-color-surface-surface);
+}
+.aw-conflict-panel > div:first-child > svg {
+  color: var(--group-application-business-app-color-action-foreground);
+  margin-bottom: var(--group-application-business-app-space-padding-compact);
+}
+.aw-conflict-panel h3 {
+  font-size: var(--group-application-business-app-font-size-subheading);
+  margin-bottom: var(--group-application-business-app-space-padding-compact);
+}
+.aw-conflict-panel p {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-conflicts {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-compact);
+  margin: var(--group-application-business-app-space-padding-comfortable)
+    var(--group-application-business-app-number-0);
+}
+.aw-conflicts > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-padding-comfortable);
+  padding: var(--group-application-business-app-space-padding-regular);
+  background: var(--group-application-business-app-color-surface-hover);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-plan {
+  margin-top: var(--group-application-business-app-space-padding-roomy);
+  border-top: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  padding-top: var(--group-application-business-app-space-padding-roomy);
+}
+.aw-plan h4 {
+  margin-bottom: var(--group-application-business-app-space-padding-compact);
+}
+.aw-export-grid {
+  margin-bottom: var(--group-application-business-app-space-padding-spacious);
+}
+.aw-export-facts {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-regular);
+  margin: var(--group-application-business-app-number-0);
+}
+.aw-export-facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-export-facts dt {
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.aw-export-facts dd {
+  margin: var(--group-application-business-app-number-0);
+}
+.aw-handoff {
+  border-top: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  padding-top: var(--group-application-business-app-space-padding-roomy);
+}
+.aw-handoff h2 {
+  font-size: var(--group-application-business-app-font-size-heading-l);
+  margin-bottom: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-handoff p {
+  max-width: var(--group-application-business-app-size-max-width-canvas-large);
+  margin-bottom: var(--group-application-business-app-space-padding-comfortable);
+}
+.aw-notice,
+.aw-error {
+  padding: var(--group-application-business-app-space-padding-comfortable);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  background: var(--group-application-surface-color-action-soft);
+  margin-bottom: var(--group-application-business-app-space-padding-comfortable);
+  color: var(--group-application-business-app-color-content-primary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.aw-maintenance-placeholder {
+  padding: var(--group-application-business-app-space-padding-spacious);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  background: var(--group-application-business-app-color-surface-surface);
+  margin-bottom: var(--group-application-business-app-space-padding-roomy);
+}
+.aw-maintenance-placeholder h2 {
+  margin: var(--group-application-business-app-space-padding-comfortable)
+    var(--group-application-business-app-number-0);
+}
+.aw-maintenance-placeholder p {
+  margin-bottom: var(--group-application-business-app-space-padding-regular);
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.aw-maintenance-card {
+  padding: var(--group-application-business-app-space-padding-roomy);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  background: var(--group-application-business-app-color-surface-surface);
+}
+.aw-maintenance-card > h2 {
+  font-size: var(--group-application-business-app-font-size-subheading);
+  margin-bottom: var(--group-application-business-app-space-padding-regular);
+}
+.aw-maintenance-card > p {
+  color: var(--group-application-business-app-color-content-secondary);
+  margin-bottom: var(--group-application-business-app-space-padding-roomy);
+}
+.aw-maintenance-evidence {
+  padding: var(--group-application-business-app-space-padding-comfortable)
+    var(--group-application-business-app-number-0);
+  border-top: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.aw-maintenance-evidence p {
+  margin: var(--group-application-business-app-space-padding-compact)
+    var(--group-application-business-app-number-0);
+}
+.aw-maintenance-evidence small {
+  color: var(--group-application-business-app-color-content-secondary);
+}
+@media (max-width: 1200px) {
+  .agentic-workbench {
+    grid-template-columns: var(--group-application-business-app-size-width-wide-panel-small) minmax(
+        var(--group-application-business-app-number-0),
+        var(--group-application-business-app-track-flex)
+      );
+  }
+  .aw-rail {
+    padding-inline: var(--group-application-business-app-space-padding-regular);
+  }
+  .aw-main {
+    padding: var(--group-application-business-app-space-padding-roomy);
+  }
+  .aw-foundation-grid,
+  .aw-compose-layout {
+    grid-template-columns:
+      minmax(
+        var(--group-application-business-app-number-0),
+        var(--group-application-business-app-size-grid-template-columns-wide-panel-large)
+      )
+      minmax(
+        var(--group-application-business-app-number-0),
+        var(--group-application-business-app-track-flex)
+      );
+    gap: var(--group-application-business-app-space-padding-comfortable);
+  }
+  .aw-settings,
+  .aw-compose-controls {
+    padding: var(--group-application-business-app-space-padding-comfortable);
+  }
+  .aw-preview-scene {
+    padding: var(--group-application-business-app-space-padding-comfortable);
+  }
+  .aw-preset small,
+  .aw-local {
+    display: none;
+  }
+  .aw-preview-fields {
+    grid-template-columns: minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  }
+}
+@media (max-width: 960px) {
+  .agentic-workbench {
+    grid-template-columns: minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  }
+  .aw-rail {
+    position: static;
+    height: auto;
+    padding: var(--group-application-business-app-space-padding-comfortable);
+  }
+  .aw-brand {
+    padding: var(--group-application-business-app-number-0)
+      var(--group-application-business-app-space-padding-snug)
+      var(--group-application-business-app-space-padding-comfortable);
+  }
+  .aw-brand-sub {
+    display: inline;
+    margin-left: var(--group-application-business-app-space-padding-regular);
+  }
+  .aw-rail nav {
+    display: flex;
+    overflow-x: auto;
+    gap: var(--group-application-business-app-space-padding-snug);
+  }
+  .aw-nav-item {
+    white-space: nowrap;
+  }
+  .aw-nav-item > small,
+  .aw-project,
+  .aw-nav-label,
+  .aw-rail-bottom {
+    display: none;
+  }
+  .aw-foundation-grid,
+  .aw-compose-layout {
+    grid-template-columns:
+      minmax(
+        var(--group-application-business-app-number-0),
+        var(--group-application-business-app-size-grid-template-columns-canvas-tiny)
+      )
+      minmax(
+        var(--group-application-business-app-number-0),
+        var(--group-application-business-app-track-flex)
+      );
+  }
+  .aw-registry-grid {
+    grid-template-columns: repeat(
+      var(--group-application-business-app-columns-two),
+      minmax(
+        var(--group-application-business-app-number-0),
+        var(--group-application-business-app-track-flex)
+      )
+    );
+  }
+}
+@media (max-width: 720px) {
+  .aw-foundation-grid,
+  .aw-compose-layout,
+  .aw-proposal-grid,
+  .aw-export-grid,
+  .aw-maintenance-grid {
+    grid-template-columns: minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  }
+  .aw-main,
+  .aw-topbar {
+    padding: var(--group-application-business-app-space-padding-comfortable);
+  }
+  .aw-section-intro h1 {
+    font-size: var(--group-application-business-app-font-size-heading-l);
+  }
+  .aw-topbar > div:first-child > span:first-child,
+  .aw-breadcrumb {
+    display: none;
+  }
+  .aw-topbar > div,
+  .aw-topbar-actions {
+    gap: var(--group-application-business-app-space-padding-compact);
+  }
+  .aw-footer {
+    flex-wrap: wrap;
+    padding: var(--group-application-business-app-space-padding-comfortable);
+  }
+  .aw-footer > span:nth-child(2) {
+    display: none;
+  }
+  .aw-preset small {
+    display: block;
+  }
+  .aw-section-divider {
+    flex-wrap: wrap;
+  }
+  .aw-registry-summary {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .aw-registry-summary > .aegis-input {
+    width: var(--group-application-business-app-size-width-full);
+  }
+  .aw-registry-grid {
+    grid-template-columns: minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  }
+  .aw-preview-caption {
+    flex-wrap: wrap;
+  }
+  .aw-preview-caption > span {
+    display: none;
+  }
+  .aw-pattern-heading {
+    align-items: start;
+  }
+}
+@media (forced-colors: active) {
+  .aw-nav-item[data-active='true'],
+  .aw-preset[data-selected='true'] .aw-preset-art {
+    border: var(--group-application-business-app-border-width-hairline) solid Highlight;
+  }
+  .aw-rail {
+    border-right: var(--group-application-business-app-border-width-hairline) solid CanvasText;
+  }
+}

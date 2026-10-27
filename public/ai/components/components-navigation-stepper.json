@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-navigation-stepper",
   "name": "Stepper",
@@ -17,7 +17,7 @@
   ],
   "purpose": "An ordered progress indicator that can allow return navigation to completed steps.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/stepper"
+    "@dimitriszoitas/aegis-agentic/stepper"
   ],
   "links": {
     "contract": "./components-navigation-stepper.json",
@@ -31,9 +31,9 @@
     "Stepper"
   ],
   "importStatements": [
-    "import { Stepper } from '@dimitriszoitas/aegis-ui/stepper';"
+    "import { Stepper } from '@dimitriszoitas/aegis-agentic/stepper';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Stepper",

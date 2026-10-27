@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-lists-accordion",
   "name": "Accordion",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A set of labeled disclosure rows for content that can be explored independently.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/accordion"
+    "@dimitriszoitas/aegis-agentic/accordion"
   ],
   "links": {
     "contract": "./components-lists-accordion.json",
@@ -31,9 +31,9 @@
     "Accordion"
   ],
   "importStatements": [
-    "import { Accordion } from '@dimitriszoitas/aegis-ui/accordion';"
+    "import { Accordion } from '@dimitriszoitas/aegis-agentic/accordion';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Accordion",

@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "name": "Aegis local infrastructure HTTP protocol",
+  "basePath": "/api/aegis",
+  "deployment": "loopback-single-project",
+  "authentication": "No multi-user authentication. Host/origin/custom-header guards restrict browser access; local programs with host access are trusted. Do not expose this service publicly.",
+  "requestRules": {
+    "methods": [
+      "GET",
+      "POST",
+      "OPTIONS"
+    ],
+    "postHeaders": {
+      "Content-Type": "application/json",
+      "X-Aegis-Client": [
+        "console",
+        "sdk"
+      ]
+    },
+    "maximumBodyBytes": 65536,
+    "sdkTargetBatchBytes": 61440,
+    "unknownFields": "reject",
+    "allowedOrigins": [
+      "http://127.0.0.1:4175",
+      "http://127.0.0.1:4176",
+      "http://127.0.0.1:5173",
+      "http://localhost:4175",
+      "http://localhost:5173"
+    ]
+  },
+  "responseRules": {
+    "contentType": "application/json",
+    "cacheControl": "no-store",
+    "errors": {
+      "400": "Malformed path/JSON or unsupported request fields",
+      "403": "Unrecognized host/origin or missing client marker",
+      "404": "Unknown non-POST endpoint",
+      "409": "Service validation, integrity, locking or operation failure",
+      "413": "Body exceeds limit",
+      "415": "Expected JSON content type"
+    }
+  },
+  "telemetry": {
+    "enabledByDefault": false,
+    "retentionDays": 30,
+    "maximumRetainedEvents": 10000,
+    "maximumBatchEvents": 100,
+    "deduplicationReceipts": 1000,
+    "guarantee": "A retry with the same batch ID and identical payload is ignored while its receipt is retained. No global exactly-once guarantee.",
+    "defaultPropPolicy": "No prop values. Explicit per-component policy required."
+  },
+  "AI": {
+    "enabledByDefault": false,
+    "provider": "openai",
+    "mode": "server-only-proposal-only",
+    "requires": [
+      "Explicit project opt-in",
+      "Explicit compatible model",
+      "Server OPENAI_API_KEY",
+      "Passing pinned-source integrity",
+      "Available daily request budget"
+    ],
+    "defaultDailyRequestBudget": 5,
+    "sends": "Allowlisted aggregate counts, technical component IDs and health findings. No raw events, arbitrary prop values, project display names or user data.",
+    "store": false
+  },
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/aegis/status",
+      "purpose": "Pinned release, health, aggregate usage, configuration inventory summary and last20 operation records.",
+      "responseVersion": 1
+    },
+    {
+      "method": "GET",
+      "path": "/api/aegis/configurability",
+      "purpose": "Source-derived API dimensions and explicitly evidenced verification records. Cartesian estimates are not coverage.",
+      "responseVersion": 1
+    },
+    {
+      "method": "POST",
+      "path": "/api/aegis/plan",
+      "purpose": "Persist reviewable rule-based or explicitly requested AI advisory. Does not execute proposals.",
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [],
+        "properties": {
+          "useAI": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/aegis/reconcile",
+      "purpose": "Repair only derived drift from unchanged approved source, keep evidence, independently rescan.",
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [],
+        "properties": {}
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/aegis/usage/settings",
+      "purpose": "Enable local usage or disable and clear retained events and receipts.",
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "enabled"
+        ],
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/aegis/usage",
+      "purpose": "Atomically accept at most100 allowlisted events with bounded retry deduplication.",
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "events"
+        ],
+        "properties": {
+          "events": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "$ref": "../schemas/usage-event.schema.json"
+            }
+          },
+          "batchId": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-]{1,64}$"
+          }
+        }
+      },
+      "results": [
+        "recorded",
+        "duplicate",
+        "disabled"
+      ]
+    }
+  ]
+}

@@ -44,7 +44,7 @@
   "imports": [
     {
       "name": "EmptyState",
-      "path": "@dimitriszoitas/aegis-ui/empty-state"
+      "path": "@dimitriszoitas/aegis-agentic/empty-state"
     }
   ],
   "stories": [

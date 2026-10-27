@@ -65,7 +65,7 @@
   "imports": [
     {
       "name": "YamlPresenter",
-      "path": "@dimitriszoitas/aegis-ui/yaml-presenter"
+      "path": "@dimitriszoitas/aegis-agentic/yaml-presenter"
     }
   ],
   "stories": [

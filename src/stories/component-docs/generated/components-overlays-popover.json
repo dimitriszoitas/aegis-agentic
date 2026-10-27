@@ -52,11 +52,11 @@
   "imports": [
     {
       "name": "Popover",
-      "path": "@dimitriszoitas/aegis-ui/popover"
+      "path": "@dimitriszoitas/aegis-agentic/popover"
     },
     {
       "name": "PopoverClose",
-      "path": "@dimitriszoitas/aegis-ui/popover"
+      "path": "@dimitriszoitas/aegis-agentic/popover"
     }
   ],
   "stories": [

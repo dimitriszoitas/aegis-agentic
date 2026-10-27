@@ -44,11 +44,11 @@
   "imports": [
     {
       "name": "StatusBadge",
-      "path": "@dimitriszoitas/aegis-ui/status-badge"
+      "path": "@dimitriszoitas/aegis-agentic/status-badge"
     },
     {
       "name": "StatusDot",
-      "path": "@dimitriszoitas/aegis-ui/status-badge"
+      "path": "@dimitriszoitas/aegis-agentic/status-badge"
     }
   ],
   "stories": [

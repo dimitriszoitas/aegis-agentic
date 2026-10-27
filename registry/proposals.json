@@ -1,0 +1,44 @@
+[
+  {
+    "schemaVersion": 1,
+    "id": "token-input-alpha",
+    "proposedId": "token-input",
+    "name": "TokenInput",
+    "baseRegistryRevision": 1,
+    "evidence": "illustrative-fixture",
+    "author": "Example proposal A",
+    "capabilities": ["multi-value-entry", "free-text-entry", "value-validation"],
+    "aliases": ["tag input", "chip input", "token entry"],
+    "behavior": {
+      "freeText": true,
+      "commitKeys": ["Enter", ","],
+      "duplicatePolicy": "reject",
+      "commitOnBlur": false
+    },
+    "anatomy": ["label", "input", "tokens", "error"],
+    "requiredStates": ["empty", "populated", "invalid", "disabled", "focus-visible"],
+    "tokenGroup": "input",
+    "implementation": "src/agentic/components/TokenInput.tsx"
+  },
+  {
+    "schemaVersion": 1,
+    "id": "tag-entry-beta",
+    "proposedId": "token-input",
+    "name": "TokenInput",
+    "baseRegistryRevision": 1,
+    "evidence": "illustrative-fixture",
+    "author": "Example proposal B",
+    "capabilities": ["multi-value-entry", "free-text-entry", "value-validation"],
+    "aliases": ["tag input", "chip input", "token entry"],
+    "behavior": {
+      "freeText": true,
+      "commitKeys": ["Enter"],
+      "duplicatePolicy": "ignore",
+      "commitOnBlur": false
+    },
+    "anatomy": ["label", "input", "tokens", "error"],
+    "requiredStates": ["empty", "populated", "invalid", "disabled", "focus-visible"],
+    "tokenGroup": "input",
+    "implementation": "src/agentic/components/TokenInput.tsx"
+  }
+]

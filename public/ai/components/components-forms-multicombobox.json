@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-multicombobox",
   "name": "MultiCombobox",
@@ -18,7 +18,7 @@
   ],
   "purpose": "A searchable multiple-choice picker with removable chips and explicit selection controls.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/multi-combobox"
+    "@dimitriszoitas/aegis-agentic/multi-combobox"
   ],
   "links": {
     "contract": "./components-forms-multicombobox.json",
@@ -32,9 +32,9 @@
     "MultiCombobox"
   ],
   "importStatements": [
-    "import { MultiCombobox } from '@dimitriszoitas/aegis-ui/multi-combobox';"
+    "import { MultiCombobox } from '@dimitriszoitas/aegis-agentic/multi-combobox';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "MultiCombobox",

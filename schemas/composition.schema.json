@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/composition.schema.json",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "pattern": {
+      "const": "dataset-filtering"
+    },
+    "profileId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "profileRevision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "registryRevision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "mode": {
+      "enum": ["light", "dark"]
+    },
+    "presentation": {
+      "enum": ["fundamental", "fundamental-floating"]
+    },
+    "density": {
+      "enum": ["compact", "comfortable"]
+    },
+    "filters": {
+      "type": "object",
+      "properties": {
+        "application": {
+          "enum": ["immediate", "explicit"]
+        },
+        "showApplyButton": {
+          "type": "boolean"
+        },
+        "controls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "enum": ["query", "status"]
+              },
+              "kind": {
+                "enum": ["text", "select"]
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "enum": ["all", "Active", "Trial", "Paused"]
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": ["value", "label"],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              }
+            },
+            "required": ["id", "kind", "label"],
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "kind": {
+                      "const": "select"
+                    }
+                  }
+                },
+                "then": {
+                  "required": ["options"]
+                },
+                "else": {
+                  "not": {
+                    "required": ["options"]
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "id": {
+                      "const": "query"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "kind": {
+                      "const": "text"
+                    }
+                  }
+                },
+                "else": {
+                  "properties": {
+                    "kind": {
+                      "const": "select"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 2
+        }
+      },
+      "required": ["application", "showApplyButton", "controls"],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "application": {
+                "const": "explicit"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "showApplyButton": {
+                "const": true
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "showApplyButton": {
+                "const": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    "content": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "emptyMessage": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": ["title", "emptyMessage"],
+      "additionalProperties": false
+    },
+    "profileHash": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]{8,80}$"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "pattern",
+    "profileId",
+    "profileRevision",
+    "registryRevision",
+    "mode",
+    "presentation",
+    "density",
+    "filters",
+    "content"
+  ],
+  "additionalProperties": false
+}

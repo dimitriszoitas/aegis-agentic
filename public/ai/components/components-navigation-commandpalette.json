@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-navigation-commandpalette",
   "name": "CommandPalette",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A searchable modal command list with grouped actions and optional global shortcut registration.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/command-palette"
+    "@dimitriszoitas/aegis-agentic/command-palette"
   ],
   "links": {
     "contract": "./components-navigation-commandpalette.json",
@@ -31,9 +31,9 @@
     "CommandPalette"
   ],
   "importStatements": [
-    "import { CommandPalette } from '@dimitriszoitas/aegis-ui/command-palette';"
+    "import { CommandPalette } from '@dimitriszoitas/aegis-agentic/command-palette';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "CommandPalette",

@@ -43,7 +43,7 @@
   "imports": [
     {
       "name": "ProgressBar",
-      "path": "@dimitriszoitas/aegis-ui/progress-bar"
+      "path": "@dimitriszoitas/aegis-agentic/progress-bar"
     }
   ],
   "stories": [

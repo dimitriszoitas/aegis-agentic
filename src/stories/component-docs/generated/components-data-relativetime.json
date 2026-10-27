@@ -50,7 +50,7 @@
   "imports": [
     {
       "name": "RelativeTime",
-      "path": "@dimitriszoitas/aegis-ui/relative-time"
+      "path": "@dimitriszoitas/aegis-agentic/relative-time"
     }
   ],
   "stories": [

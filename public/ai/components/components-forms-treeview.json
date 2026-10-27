@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-treeview",
   "name": "TreeView",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A hierarchical multi-selection tree whose branch check states are derived from selectable leaves.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/tree-view"
+    "@dimitriszoitas/aegis-agentic/tree-view"
   ],
   "links": {
     "contract": "./components-forms-treeview.json",
@@ -31,9 +31,9 @@
     "TreeView"
   ],
   "importStatements": [
-    "import { TreeView } from '@dimitriszoitas/aegis-ui/tree-view';"
+    "import { TreeView } from '@dimitriszoitas/aegis-agentic/tree-view';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "TreeView",

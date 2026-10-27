@@ -61,7 +61,7 @@
   "imports": [
     {
       "name": "CommandPalette",
-      "path": "@dimitriszoitas/aegis-ui/command-palette"
+      "path": "@dimitriszoitas/aegis-agentic/command-palette"
     }
   ],
   "stories": [

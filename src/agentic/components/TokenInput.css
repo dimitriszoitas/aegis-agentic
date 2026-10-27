@@ -1,0 +1,21 @@
+.agentic-token-input {
+  display: grid;
+  gap: var(--group-input-field-gap-compact);
+}
+.agentic-token-entry {
+  display: flex;
+  gap: var(--group-input-field-gap-compact);
+  align-items: start;
+}
+.agentic-token-entry > .aegis-input {
+  flex: var(--group-input-field-flex-fill);
+  min-width: var(--group-input-field-number-0);
+}
+.agentic-token-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--group-input-field-gap-compact);
+  list-style: none;
+  padding: var(--group-input-field-number-0);
+  margin: var(--group-input-field-number-0);
+}

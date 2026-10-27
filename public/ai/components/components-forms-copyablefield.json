@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-copyablefield",
   "name": "CopyableField",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A readonly, selectable value paired with a clearly labeled copy action.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/copyable-field"
+    "@dimitriszoitas/aegis-agentic/copyable-field"
   ],
   "links": {
     "contract": "./components-forms-copyablefield.json",
@@ -31,9 +31,9 @@
     "CopyableField"
   ],
   "importStatements": [
-    "import { CopyableField } from '@dimitriszoitas/aegis-ui/copyable-field';"
+    "import { CopyableField } from '@dimitriszoitas/aegis-agentic/copyable-field';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "CopyableField",

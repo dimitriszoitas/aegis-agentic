@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-agentic.local/schemas/design-profile.schema.json",
+  "title": "Aegis design profile",
+  "description": "Build-time identity configuration. Both color modes and both presentations are always compiled; density is an independent host default.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "id",
+    "name",
+    "brand",
+    "neutral",
+    "semantic",
+    "radius",
+    "font",
+    "density"
+  ],
+  "properties": {
+    "version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,47}$" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 80, "pattern": "\\S" },
+    "brand": { "$ref": "#/$defs/hex" },
+    "neutral": { "enum": ["neutral", "warm", "cool"] },
+    "semantic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["success", "warning", "danger", "info"],
+      "properties": {
+        "success": { "$ref": "#/$defs/hex" },
+        "warning": { "$ref": "#/$defs/hex" },
+        "danger": { "$ref": "#/$defs/hex" },
+        "info": { "$ref": "#/$defs/hex" }
+      }
+    },
+    "radius": { "enum": ["compact", "soft", "round"] },
+    "font": { "enum": ["figtree", "system", "serif"] },
+    "density": { "enum": ["compact", "comfortable"] }
+  },
+  "$defs": { "hex": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" } }
+}

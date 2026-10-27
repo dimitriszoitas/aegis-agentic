@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "patterns-onboardingchecklist",
   "name": "OnboardingChecklist",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A host-controlled setup checklist with measurable progress and optional actions per step.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/patterns"
+    "@dimitriszoitas/aegis-agentic/patterns"
   ],
   "links": {
     "contract": "./patterns-onboardingchecklist.json",
@@ -31,9 +31,9 @@
     "OnboardingChecklist"
   ],
   "importStatements": [
-    "import { OnboardingChecklist } from '@dimitriszoitas/aegis-ui/patterns';"
+    "import { OnboardingChecklist } from '@dimitriszoitas/aegis-agentic/patterns';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "OnboardingChecklist",

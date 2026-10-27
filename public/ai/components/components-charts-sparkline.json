@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-charts-sparkline",
   "name": "Sparkline",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A lightweight SVG trend designed for compact summaries without animation or interactive focus.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/sparkline"
+    "@dimitriszoitas/aegis-agentic/sparkline"
   ],
   "links": {
     "contract": "./components-charts-sparkline.json",
@@ -31,9 +31,9 @@
     "Sparkline"
   ],
   "importStatements": [
-    "import { Sparkline } from '@dimitriszoitas/aegis-ui/sparkline';"
+    "import { Sparkline } from '@dimitriszoitas/aegis-agentic/sparkline';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Sparkline",

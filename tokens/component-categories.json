@@ -32,7 +32,8 @@
         "src/components/textarea/",
         "src/components/text-input/",
         "src/components/time-range-picker/",
-        "src/components/tree-view/"
+        "src/components/tree-view/",
+        "src/agentic/components/"
       ]
     },
     "navigation": {
@@ -147,7 +148,12 @@
     },
     "filtering": {
       "title": "Patterns/Filtering",
-      "prefixes": ["src/patterns/filter-bar/", "src/patterns/filter-panel/"]
+      "prefixes": [
+        "src/patterns/filter-bar/",
+        "src/patterns/filter-panel/",
+        "src/agentic/components/FilteredDataset.tsx",
+        "src/agentic/components/FilteredDataset.css"
+      ]
     },
     "page-structure": {
       "title": "Patterns/Page Structure",
@@ -167,7 +173,13 @@
     },
     "application": {
       "title": "Console/Application Demo",
-      "prefixes": ["src/patterns/business-app/"]
+      "prefixes": [
+        "src/patterns/business-app/",
+        "src/agentic/workbench.tsx",
+        "src/agentic/workbench.css",
+        "src/agentic/infrastructure-panel.tsx",
+        "src/agentic/infrastructure-panel.css"
+      ]
     }
   },
   "sharedFiles": [

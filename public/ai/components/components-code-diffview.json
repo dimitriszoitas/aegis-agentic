@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-code-diffview",
   "name": "DiffView",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "A split or unified source comparison with exact change counts and change navigation.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/diff-view"
+    "@dimitriszoitas/aegis-agentic/diff-view"
   ],
   "links": {
     "contract": "./components-code-diffview.json",
@@ -28,9 +28,9 @@
     "DiffView"
   ],
   "importStatements": [
-    "import { DiffView } from '@dimitriszoitas/aegis-ui/diff-view';"
+    "import { DiffView } from '@dimitriszoitas/aegis-agentic/diff-view';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "DiffView",

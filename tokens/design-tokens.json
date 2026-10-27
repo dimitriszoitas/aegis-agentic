@@ -7,6 +7,13 @@
     "fundamental-floating.dark"
   ],
   "tokens": {
+    "--group-application-icon-stroke-thin": {
+      "path": "application.icon.stroke.thin",
+      "tier": "group",
+      "family": "application",
+      "type": "number",
+      "value": "var(--semantic-measurement-icon-stroke-thin)"
+    },
     "--color-amber-100": {
       "path": "color.amber.100",
       "tier": "primitive",
@@ -42571,6 +42578,14 @@
     }
   },
   "consumers": [
+    { "file": "src/agentic/workbench.tsx", "family": "application" },
+    { "file": "src/agentic/workbench.css", "family": "application" },
+    { "file": "src/agentic/infrastructure-panel.tsx", "family": "application" },
+    { "file": "src/agentic/infrastructure-panel.css", "family": "application" },
+    { "file": "src/agentic/components/TokenInput.tsx", "family": "input" },
+    { "file": "src/agentic/components/TokenInput.css", "family": "input" },
+    { "file": "src/agentic/components/FilteredDataset.tsx", "family": "filtering" },
+    { "file": "src/agentic/components/FilteredDataset.css", "family": "filtering" },
     {
       "file": "src/components/accordion/accordion.css",
       "family": "surface"

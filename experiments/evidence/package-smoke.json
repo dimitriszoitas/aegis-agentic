@@ -1,0 +1,48 @@
+{
+  "package": "@dimitriszoitas/aegis-agentic",
+  "version": "0.1.0-experiment.0",
+  "checks": [
+    "Tarball installs with React peers and all public export files",
+    "Token-only export includes all primitive/alpha colors, opacity stops and elevation aliases",
+    "Canonical token manifest and four-configuration token CSS are packaged together",
+    "Strict consumer TypeScript resolves 100 public entry points",
+    "Direct Button entry renders on the server without DOM globals",
+    "Production Vite bundle uses only published package imports and CSS",
+    "Light/dark behavior, Field semantics, Select keyboard, Modal focus trap, SVG/fonts, and accessibility",
+    "Headless Button/Checkbox production graph contains no styled package modules or CSS assets",
+    "Unstyled primitives retain keyboard, label, controlled state, native form and accessibility behavior without styles or tokens"
+  ],
+  "themes": [
+    {
+      "theme": "light",
+      "violations": 0,
+      "modalViolations": 0
+    },
+    {
+      "theme": "dark",
+      "violations": 0,
+      "modalViolations": 0
+    }
+  ],
+  "browserErrors": [],
+  "failedResponses": [],
+  "headless": {
+    "assets": [
+      "assets/index-BqMzGe-A.js",
+      "index.html"
+    ],
+    "packageModules": [],
+    "presentation": {
+      "stylesheets": 0,
+      "styleElements": 0,
+      "designTokens": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "stylesheetRequests": [],
+    "browserErrors": [],
+    "violations": 0
+  }
+}

@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "patterns-filterbar",
   "name": "FilterBar",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A controlled search and table toolbar with mutually exclusive inline or sidebar filter editing.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/patterns"
+    "@dimitriszoitas/aegis-agentic/patterns"
   ],
   "links": {
     "contract": "./patterns-filterbar.json",
@@ -31,9 +31,9 @@
     "FilterBar"
   ],
   "importStatements": [
-    "import { FilterBar } from '@dimitriszoitas/aegis-ui/patterns';"
+    "import { FilterBar } from '@dimitriszoitas/aegis-agentic/patterns';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "FilterBar",

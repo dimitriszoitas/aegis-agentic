@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "candidateId": "candidate-b-token-input",
+  "author": "Independent agent B",
+  "evidence": "independent-agent-proposal",
+  "status": "experimental-not-approved",
+  "recordedAt": "2026-10-27T19:01:14.863Z",
+  "environment": {
+    "node": "v24.1.0",
+    "platform": "darwin",
+    "architecture": "arm64"
+  },
+  "inputLock": {
+    "kitVersion": "0.1.0-experiment.0",
+    "kitBaseline": "12e4f6b218c6cc68aba303feec211ba91aaeb20a",
+    "registryRevision": 1,
+    "compilerVersion": "1",
+    "profile": {
+      "id": "aegis",
+      "name": "Aegis Original",
+      "hash": "v1-638d0fd6",
+      "version": 1,
+      "usage": "Declared target; no visual implementation or compiled profile generated."
+    },
+    "runtimeSha256": "8ce98f07ab3f0acb5092149416679a825569a60f1a658accc55b664fc0da6d6e",
+    "proposalSchemaSha256": "2ab5b7241bff70553d0251223f4c97fc087956313e1c6d388889b064335df189",
+    "registrySha256": "e7585c06190436661ada747a9488618e21d9191ca487368e80d02fea9b7472b2"
+  },
+  "isolation": {
+    "permittedInput": "/private/tmp/aegis-agentic-experiment/agent-kit",
+    "outputDirectory": "/private/tmp/aegis-agentic-experiment/experiments/token-input/candidate-b",
+    "inspectedOriginalRepository": false,
+    "inspectedOtherIndependentCandidates": false,
+    "note": "Read portable-kit instructions, contracts, registry, fixtures, profile, CLI, and relevant runtime validator. The initial validator import miscounted parent directories and failed before reading a module; it was corrected to the kit path."
+  },
+  "verification": [
+    {
+      "command": "node bin/aegis.mjs help",
+      "cwd": "/private/tmp/aegis-agentic-experiment/agent-kit",
+      "exitCode": 0,
+      "result": "Read actual portable CLI command surface; no standalone proposal-validate CLI command exists, so used exported validateProposal module."
+    },
+    {
+      "command": "node bin/aegis.mjs registry search 'multi-value-entry free-text-entry value-validation'",
+      "cwd": "/private/tmp/aegis-agentic-experiment/agent-kit",
+      "exitCode": 0,
+      "result": "Search returned Field; full kit registry inspection found no approved multi-value free-text control. Kit illustrative proposals were explicitly recognized as fixtures."
+    },
+    {
+      "command": "node --test model.test.mjs",
+      "cwd": "/private/tmp/aegis-agentic-experiment/experiments/token-input/candidate-b",
+      "exitCode": 0,
+      "result": {
+        "tests": 28,
+        "suites": 0,
+        "passed": 28,
+        "failed": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "durationMs": 46.60575
+      },
+      "evidenceBasis": "Actual tool execution output. The model and test files were not modified after this passing run."
+    },
+    {
+      "command": "node validate-proposal.mjs",
+      "cwd": "/private/tmp/aegis-agentic-experiment/experiments/token-input/candidate-b",
+      "exitCode": 1,
+      "attempt": 1,
+      "result": "ERR_MODULE_NOT_FOUND for /private/tmp/agent-kit/runtime/core.mjs. The validator harness relative import had one extra parent directory; no proposal validation occurred on this attempt.",
+      "correction": "Changed only the harness import to ../../../agent-kit/runtime/core.mjs; model, tests, and proposal unchanged."
+    },
+    {
+      "command": "node validate-proposal.mjs",
+      "cwd": "/private/tmp/aegis-agentic-experiment/experiments/token-input/candidate-b",
+      "exitCode": 0,
+      "attempt": 2,
+      "result": {
+        "module": "agent-kit/runtime/core.mjs",
+        "registryRevision": 1,
+        "proposal": "candidate-b-token-input",
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "rejectionChecks": {
+          "staleRevisionRejected": true,
+          "missingValidationCapabilityRejected": true
+        }
+      }
+    }
+  ],
+  "automated": {
+    "behaviorModel": "28/28 tests pass",
+    "proposalValidation": "valid, zero issues",
+    "negativeValidatorChecks": "stale revision and missing validation capability both rejected"
+  },
+  "manualReview": {
+    "status": "Not performed",
+    "browser": false,
+    "screenReader": false,
+    "visual": false,
+    "accessibilityCertification": false
+  },
+  "limitations": [
+    "Pure JavaScript state model only; no production component, renderer, or React dependency.",
+    "No registry submission, promotion, release, or owner approval.",
+    "DOM focus, clipboard selection adapter, native form behavior, pointer/touch behavior, and screen-reader operation are unverified.",
+    "Both themes and presentations, responsive wrapping, focus-visible rendering, contrast, and theme-change preservation remain unverified.",
+    "Synchronous validation only; comma/tab/newline cannot occur inside an individual label.",
+    "Proposal schema validity and model metadata do not establish browser behavior or complete accessibility."
+  ],
+  "files": {
+    "proposal.json": {
+      "sha256": "6b4d344bc83f423524b2c52bf4a651465fc9721d29c8648ce5b4aa34737ba4c9"
+    },
+    "acceptance.md": {
+      "sha256": "a955eef8d82d67f5451c03d5a5efc86c68c93502d8384b798226bbb2592dcac8"
+    },
+    "model.mjs": {
+      "sha256": "29fc96518e9b907a7c733372eaced657d719117da1d77ab5b2de4a5f98b7a6f2"
+    },
+    "model.test.mjs": {
+      "sha256": "bb023e2d11785299946dd63a0c414cf5aa9233e24289768df42bac8f5c1b145f"
+    },
+    "validate-proposal.mjs": {
+      "sha256": "4fe0f79330069534cc75ca669648897a8b67c5b91215c8e3e33c4ec1565d08b3"
+    },
+    "proposal-validation.json": {
+      "sha256": "51dd5a55b377da36ae2d0a1a044a498d51794d38ec0d9bfce3bf64a05ad30fe0"
+    }
+  }
+}

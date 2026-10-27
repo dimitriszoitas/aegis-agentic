@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-feedback-empty-state",
   "name": "Empty state",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A named explanation of no results, no data, or a loading failure, with optional recovery actions.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/empty-state"
+    "@dimitriszoitas/aegis-agentic/empty-state"
   ],
   "links": {
     "contract": "./components-feedback-empty-state.json",
@@ -31,9 +31,9 @@
     "EmptyState"
   ],
   "importStatements": [
-    "import { EmptyState } from '@dimitriszoitas/aegis-ui/empty-state';"
+    "import { EmptyState } from '@dimitriszoitas/aegis-agentic/empty-state';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "EmptyState",

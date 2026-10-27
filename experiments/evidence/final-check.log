@@ -1,0 +1,288 @@
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 check
+> npm run agentic:check
+
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 agentic:check
+> npm run typecheck && npm run lint && npm test && npm run ai:check && npm run agentic:kit && npm run agentic:consumer && npm run infrastructure:test && npm run build && npm run build:package
+
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 typecheck
+> tsc --noEmit
+
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 lint
+> eslint . && npm run tokens:check && npm run headless:check
+
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 tokens:check
+> node scripts/generate-token-hierarchy.mjs --check && node scripts/check-token-hierarchy.mjs && node --test scripts/check-token-hierarchy.test.mjs && node scripts/check-tokens.mjs && node scripts/check-component-css-tokens.mjs --self-test && node scripts/check-component-runtime-tokens.mjs
+
+Token hierarchy: 1216 primitives, 715 semantics, 3805 group tokens.
+Token hierarchy: 5736 tokens, 7031 references, 301 consumer files; 0 violations, 0 unresolved source expressions.
+✔ valid four-configuration three-tier graph passes (1.903208ms)
+✔ nested fallbacks are dependencies while comments and quoted content are ignored (0.309833ms)
+✔ primitive aliases, semantic aliases and group aliases are forbidden (0.315875ms)
+✔ unknown references and graph cycles are reported (0.188625ms)
+✔ all four mappings are required and extra configurations rejected (0.20675ms)
+✔ invariant typography, spacing and sizing cannot vary by mode (0.442292ms)
+✔ styling roles can vary across the four configurations (0.0965ms)
+✔ semantic and group values reject literals and hidden raw fallbacks (0.570792ms)
+✔ CSS color composition and structural token arithmetic remain valid (0.3775ms)
+✔ duplicate paths and design/runtime name collisions fail (0.196208ms)
+✔ paths may repeat across tiers because the tier provides their namespace (0.129292ms)
+✔ consumer properties accept only their group and explicit runtime geometry (0.253959ms)
+✔ consumer group declarations may reference semantics but not runtime or primitives (0.137041ms)
+✔ category ownership rejects borrowing, including shared icon tokens (0.103ms)
+✔ group prefixes must match their sidebar category (0.171125ms)
+✔ CSS and runtime helper source auditing uses actual CSS names and reports unresolved expressions (12.627792ms)
+✔ runtime template exceptions require an exact expression and owning source path (3.802833ms)
+✔ the central category map uses longest prefixes and exact file matches (0.240333ms)
+✔ consumer categories cannot be relabeled or overridden to borrow tokens (1.580292ms)
+✔ shared CSS requires exact per-rule owners without a file-wide family fallback (2.677875ms)
+✔ shared CSS owner metadata rejects duplicate, stale, and unknown category entries (1.197291ms)
+✔ shared helper selectors retain independent owners in exact scoped contexts (1.823ms)
+✔ shared context must match the complete ordered ancestry and rejects malformed metadata (3.011584ms)
+✔ shared keyframes are owned by exact name, not generic from/to selectors (1.72425ms)
+✔ new production CSS and TS files cannot bypass ownership by omitting manifest registration (5.733542ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 259.850375
+Checked 21 palettes, 294 opaque colors, 588 alpha colors, 16 opacity constants, 3 absolute endpoints and the exact semantic color map.
+Semantic color token check passed.
+Component CSS audit: 22 parser and exception checks passed.
+Component CSS tokens: 103 files, 9306 declarations, 0 fixed-value violations.
+Constrained structural exceptions: {
+  'runtime arithmetic coefficient': 24,
+  'one-based runtime tree depth': 1
+}
+Checked 199 runtime component/pattern files; no fixed values found in audited visual attributes, properties, defaults, or CSS-in-JS lengths. Dynamic/data math and intrinsic SVG path/viewBox coordinates are excluded. Generated CSS matches 267 tokens.
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 headless:check
+> node scripts/check-headless-boundary.mjs
+
+Headless boundary passed for 215 files and 883 imports. Unrelated local review prototypes are outside the production boundary.
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 test
+> vitest run src
+
+
+ RUN  v5.0.3 /private/tmp/aegis-agentic-experiment
+
+
+ Test Files  29 passed (29)
+      Tests  283 passed (283)
+   Start at  21:43:37
+   Duration  1.71s (transform 50%, tests 34%, import 13%, worker 2%)
+
+  Transform  transforming modules took 2.30s · 50% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 ai:check
+> node scripts/generate-ai-contracts.mjs --check && node --test scripts/generate-ai-contracts.test.mjs
+
+Checked 102 compact component contracts, shared token graph, schema, index and llms.txt.
+✔ contracts include own API and authored guidance without inventing verification (9.721542ms)
+✔ token graph deduplicates declarations and retains unresolved references and source context (0.767959ms)
+✔ legacy-only theme declarations and sources are excluded while common tokens remain (0.744042ms)
+✔ output is deterministic and deployment-safe under a nested public path (1.228541ms)
+✔ unknown aliases and unpublished package import paths are rejected (0.252917ms)
+✔ missing graph references and broken artifact links cannot pass validation (1.52925ms)
+✔ documentation links target one canonical hub while direct stories retain stable routes (0.572542ms)
+✔ renamed Icons family preserves its canonical and legacy documentation routes (0.804916ms)
+✔ contract validation rejects unknown tabs and section-only navigation links (2.3415ms)
+✔ machine navigation matches the visible foundation structure and retains public destinations (1.089209ms)
+✔ unused foundation primitives and alpha aliases stay in the public token graph (0.59ms)
+✔ canonical manifest supplies explicit tiers, paths, groups and four mappings without classifying compatibility aliases (0.775667ms)
+✔ category bindings distinguish real nested components from registry definitions (0.897041ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 317.045583
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 agentic:kit
+> node scripts/build-agent-kit.mjs
+
+{
+  "kit": "/private/tmp/aegis-agentic-experiment/agent-kit",
+  "version": "0.1.0-experiment.0",
+  "files": 145,
+  "profiles": [
+    {
+      "id": "aegis",
+      "name": "Aegis Original",
+      "hash": "v1-00d0086d"
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas Precision",
+      "hash": "v1-fd94ef94"
+    },
+    {
+      "id": "solstice",
+      "name": "Solstice Studio",
+      "hash": "v1-6a5bfe6f"
+    }
+  ],
+  "registryRevision": 1
+}
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 agentic:consumer
+> node scripts/verify-agent-kit.mjs
+
+{
+  "status": "passed",
+  "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-agentic-consumer-CdP5xy",
+  "checks": [
+    "aegis: standalone compilation and clean scan",
+    "atlas: standalone compilation and clean scan",
+    "solstice: standalone compilation and clean scan",
+    "Invalid profile rejected",
+    "Custom team profile compiles with its own identity, brand, radius, typography and density",
+    "Deterministic composition, invalid variants and mismatched profile pin",
+    "Discovery, duplicate conflict detection, proposal reservation, stale write refusal",
+    "Real drift detected, repaired, backed up and independently rescanned",
+    "Changed approved source blocks automatic repair",
+    "Output symlink refused"
+  ],
+  "scope": "Standalone exported kit in a fresh directory with no source checkout or npm modules. Owner promotion is not performed by this test."
+}
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 infrastructure:test
+> node --test scripts/infrastructure/*.test.mjs
+
+✔ provider uses stateless structured output and returns evidence-bound proposals only (1.029042ms)
+✔ unknown components, invented evidence and executable extra fields are rejected (0.566208ms)
+✔ refusal, truncation, non-JSON and provider failures do not become successful plans (0.411292ms)
+✔ no implicit model or missing credential can initiate a request (0.06825ms)
+✔ HTTP status and configurability return service data with non-cacheable JSON headers (12.622208ms)
+✔ HTTP allowed origins receive exact CORS headers; forbidden and opaque origins cannot call services (4.508041ms)
+✔ HTTP origin allowlists can be explicitly replaced (1.229458ms)
+✔ HTTP Host must name localhost or 127.0.0.1 with the actual bound port (2.761875ms)
+✔ HTTP preflight requires an allowed origin and only advertises supported headers and methods (1.192709ms)
+✔ HTTP rejects non-local URL forms and handles malformed percent paths without crashing (2.317ms)
+✔ HTTP mutations require an explicit sdk or console client marker (1.78ms)
+✔ HTTP mutations accept the JSON media type with parameters and reject lookalikes (2.387167ms)
+✔ HTTP malformed JSON and non-object envelopes never reach service methods (2.726625ms)
+✔ HTTP unsupported fields and incorrect top-level field types are rejected atomically (3.382458ms)
+✔ HTTP approved routes forward only their explicit arguments to stub services (1.872333ms)
+✔ HTTP body cap accepts exactly 65536 bytes and rejects 65537 bytes before ingestion (1.472959ms)
+✔ HTTP body limit counts encoded bytes rather than JavaScript string length (0.897333ms)
+✔ HTTP unknown endpoints and unsupported methods cannot trigger service operations (1.4305ms)
+✔ HTTP rejected service operations return a controlled conflict and do not kill the listener (0.991333ms)
+✔ HTTP SDK and persisted service preserve batch identity across lost acknowledgments and honor opt-out (1299.423875ms)
+✔ initialization pins a healthy release, disables collection and AI, and never overwrites an existing project (609.906708ms)
+✔ usage needs opt-in, rejects a whole invalid batch, persists dedup receipts across restart, and clears on opt-out (1321.803291ms)
+✔ pin disagreement blocks ingestion and update planning before persistent usage changes (561.395709ms)
+✔ repair restores only known derived drift and missing outputs while preserving all approved inputs (1265.870375ms)
+✔ changed approved profile source requires review and cannot be silently repaired or sent to AI (552.97825ms)
+✔ a separately recompiled generated profile cannot replace the project approved profile (605.818208ms)
+✔ changed release metadata is filtered from summaries and blocks remote evidence before budget consumption (508.868875ms)
+✔ a generated directory symlink cannot redirect repair outside its project (475.658375ms)
+✔ a plans directory symlink cannot redirect a plan write or consume an AI request (365.592417ms)
+✔ an evidence directory symlink cannot redirect repair backups outside its project (413.362125ms)
+✔ corrupt, future and exhausted budgets fail closed, while a valid earlier day rolls over (1784.925875ms)
+✔ provider failures consume budget, leave no plan, and cannot exceed the daily request limit (1488.162833ms)
+✔ AI receives selected aggregates without project text, raw events, profile IDs or configurable prop values (688.744209ms)
+✔ malformed paths are handled as requests and local cross-origin guards run before service calls (0.724875ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10709.972042
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 7868 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                     1.64 kB │ gzip:   0.66 kB
+dist/assets/jetbrains-mono-greek-400-normal-C190GLew.woff2          4.22 kB
+dist/assets/jetbrains-mono-cyrillic-400-normal-BEIGL1Tu.woff2       5.32 kB
+dist/assets/jetbrains-mono-vietnamese-400-normal-CqNFfHCs.woff      5.37 kB
+dist/assets/jetbrains-mono-greek-400-normal-B9oWc5Lo.woff           5.66 kB
+dist/assets/figtree-latin-ext-500-normal-Du0rIuHj.woff2             6.15 kB
+dist/assets/figtree-latin-ext-700-normal-CS4sQkGV.woff2             6.17 kB
+dist/assets/figtree-latin-ext-400-normal-CXAzuTZb.woff2             6.18 kB
+dist/assets/figtree-latin-ext-600-normal-DJlfifZj.woff2             6.24 kB
+dist/assets/jetbrains-mono-cyrillic-400-normal-ugxPyKxw.woff        6.97 kB
+dist/assets/jetbrains-mono-latin-ext-400-normal-Bc8Ftmh3.woff2      7.33 kB
+dist/assets/figtree-latin-ext-500-normal-BOEJvrb_.woff              8.32 kB
+dist/assets/figtree-latin-ext-400-normal-Gbh-3PTk.woff              8.33 kB
+dist/assets/figtree-latin-ext-700-normal-BoDi4KL2.woff              8.35 kB
+dist/assets/figtree-latin-ext-600-normal-CQqsimlV.woff              8.36 kB
+dist/assets/jetbrains-mono-latin-ext-400-normal-fXTG6kC5.woff      10.12 kB
+dist/assets/figtree-latin-700-normal-th6qEP7c.woff2                11.37 kB
+dist/assets/figtree-latin-400-normal-g7Dtegnw.woff2                11.38 kB
+dist/assets/figtree-latin-500-normal-BWnGEVsr.woff2                11.43 kB
+dist/assets/figtree-latin-600-normal-Cv_xCTDl.woff2                11.54 kB
+dist/assets/figtree-latin-400-normal-BD4aNku5.woff                 15.03 kB
+dist/assets/figtree-latin-500-normal-B_yy1phn.woff                 15.04 kB
+dist/assets/figtree-latin-700-normal-BCCt2T1q.woff                 15.16 kB
+dist/assets/figtree-latin-600-normal-BM_oTo4n.woff                 15.21 kB
+dist/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2         21.16 kB
+dist/assets/inter-latin-400-C38fXH4l.woff2                         23.66 kB
+dist/assets/inter-latin-500-Cerq10X2.woff2                         24.27 kB
+dist/assets/inter-latin-700-Yt3aPRUw.woff2                         24.35 kB
+dist/assets/inter-latin-600-LgqL8muc.woff2                         24.45 kB
+dist/assets/jetbrains-mono-latin-400-normal-6-qcROiO.woff          27.49 kB
+dist/assets/code-editor-BAVcSd_6.css                                1.76 kB │ gzip:   0.47 kB
+dist/assets/yaml-presenter-BUqAObNv.css                             2.08 kB │ gzip:   0.46 kB
+dist/assets/diff-view-BZw1Up8W.css                                  7.45 kB │ gzip:   1.22 kB
+dist/assets/ai-message-1G2his3Z.css                                 7.52 kB │ gzip:   1.45 kB
+dist/assets/with-selector-Djfl6wxY.css                              8.58 kB │ gzip:   1.32 kB
+dist/assets/side-sheet-ChfWur2y.css                                 9.35 kB │ gzip:   1.62 kB
+dist/assets/components-page-DNU8PuyW.css                           16.40 kB │ gzip:   3.24 kB
+dist/assets/data-grid-DzEqvCSc.css                                 22.09 kB │ gzip:   2.88 kB
+dist/assets/timeline-01G1KCtZ.css                                  57.88 kB │ gzip:   7.48 kB
+dist/assets/business-app-DCbfpunh.css                              81.46 kB │ gzip:   8.73 kB
+dist/assets/catalogue-previews-C_YRZs8O.css                        87.60 kB │ gzip:  11.32 kB
+dist/assets/index-qpUnmkAz.css                                  1,132.30 kB │ gzip: 128.30 kB
+dist/assets/event-histogram-Cb6mwBbd.js                             1.36 kB │ gzip:   0.74 kB
+dist/assets/yaml-presenter-Nr9zfYRA.js                              1.73 kB │ gzip:   0.80 kB
+dist/assets/code-editor-CMXa8Jja.js                                 2.29 kB │ gzip:   1.20 kB
+dist/assets/side-sheet-DZoaIwX5.js                                  7.42 kB │ gzip:   2.59 kB
+dist/assets/useScrollLock-OujtI562.js                              23.58 kB │ gzip:   8.72 kB
+dist/assets/diff-view-B-kfOWds.js                                  35.18 kB │ gzip:  12.25 kB
+dist/assets/usePositioner-sHmbNyJq.js                              36.47 kB │ gzip:  13.54 kB
+dist/assets/DirectionContext-DY0-4BHQ.js                           45.31 kB │ gzip:  16.27 kB
+dist/assets/components-page-DM9sTEpQ.js                            65.10 kB │ gzip:  21.57 kB
+dist/assets/with-selector-CJ8YrghF.js                              65.95 kB │ gzip:  19.43 kB
+dist/assets/utils-BXr91y5p.js                                      67.04 kB │ gzip:  16.55 kB
+dist/assets/data-grid-CNjMgs88.js                                  99.07 kB │ gzip:  27.79 kB
+dist/assets/business-app-D-xZ2VTA.js                               99.83 kB │ gzip:  28.06 kB
+dist/assets/ai-message-D5-pJmJn.js                                122.25 kB │ gzip:  37.14 kB
+dist/assets/catalogue-previews-CdwmCP3V.js                        223.14 kB │ gzip:  69.14 kB
+dist/assets/code-theme-5IhyG2MD.js                                449.67 kB │ gzip: 146.67 kB
+dist/assets/timeline-Cp6wvuaD.js                                  524.33 kB │ gzip: 150.57 kB
+dist/assets/index-BCy-QrPV.js                                   3,490.03 kB │ gzip: 294.40 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 851ms
+
+> @dimitriszoitas/aegis-agentic@0.1.0-experiment.0 build:package
+> node scripts/build-package.mjs
+
+Checked 102 compact component contracts, shared token graph, schema, index and llms.txt.
+Built @dimitriszoitas/aegis-agentic@0.1.0-experiment.0: 107 public entries, 1426 files.

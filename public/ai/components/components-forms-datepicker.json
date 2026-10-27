@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-datepicker",
   "name": "DatePicker",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A single-date calendar inside a focus-managed popover.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/date-picker"
+    "@dimitriszoitas/aegis-agentic/date-picker"
   ],
   "links": {
     "contract": "./components-forms-datepicker.json",
@@ -31,9 +31,9 @@
     "DatePicker"
   ],
   "importStatements": [
-    "import { DatePicker } from '@dimitriszoitas/aegis-ui/date-picker';"
+    "import { DatePicker } from '@dimitriszoitas/aegis-agentic/date-picker';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "DatePicker",

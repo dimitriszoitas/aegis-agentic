@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-textinput",
   "name": "TextInput",
@@ -19,7 +19,7 @@
   ],
   "purpose": "A single-line native input with optional prefix, suffix, clear control, and Field integration.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/text-input"
+    "@dimitriszoitas/aegis-agentic/text-input"
   ],
   "links": {
     "contract": "./components-forms-textinput.json",
@@ -33,9 +33,9 @@
     "TextInput"
   ],
   "importStatements": [
-    "import { TextInput } from '@dimitriszoitas/aegis-ui/text-input';"
+    "import { TextInput } from '@dimitriszoitas/aegis-agentic/text-input';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "TextInput",

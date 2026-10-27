@@ -49,7 +49,7 @@
   "imports": [
     {
       "name": "MiniBarChart",
-      "path": "@dimitriszoitas/aegis-ui/mini-bar-chart"
+      "path": "@dimitriszoitas/aegis-agentic/mini-bar-chart"
     }
   ],
   "stories": [

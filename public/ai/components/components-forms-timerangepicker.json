@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-timerangepicker",
   "name": "TimeRangePicker",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A period selector that commits a relative preset or a validated absolute UTC interval.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/time-range-picker"
+    "@dimitriszoitas/aegis-agentic/time-range-picker"
   ],
   "links": {
     "contract": "./components-forms-timerangepicker.json",
@@ -31,9 +31,9 @@
     "TimeRangePicker"
   ],
   "importStatements": [
-    "import { TimeRangePicker } from '@dimitriszoitas/aegis-ui/time-range-picker';"
+    "import { TimeRangePicker } from '@dimitriszoitas/aegis-agentic/time-range-picker';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "TimeRangePicker",

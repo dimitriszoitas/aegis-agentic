@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-fileupload",
   "name": "FileUpload",
@@ -18,7 +18,7 @@
   ],
   "purpose": "A file-selection and upload list with validation, progress, cancellation, and retry.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/file-upload"
+    "@dimitriszoitas/aegis-agentic/file-upload"
   ],
   "links": {
     "contract": "./components-forms-fileupload.json",
@@ -32,9 +32,9 @@
     "FileUpload"
   ],
   "importStatements": [
-    "import { FileUpload } from '@dimitriszoitas/aegis-ui/file-upload';"
+    "import { FileUpload } from '@dimitriszoitas/aegis-agentic/file-upload';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "FileUpload",

@@ -56,7 +56,7 @@
   "imports": [
     {
       "name": "CopyableField",
-      "path": "@dimitriszoitas/aegis-ui/copyable-field"
+      "path": "@dimitriszoitas/aegis-agentic/copyable-field"
     }
   ],
   "stories": [

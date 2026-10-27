@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-ai-confidencebadge",
   "name": "ConfidenceBadge",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "A textual high, medium, or low confidence indicator with a supplementary bar motif.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/confidence-badge"
+    "@dimitriszoitas/aegis-agentic/confidence-badge"
   ],
   "links": {
     "contract": "./components-ai-confidencebadge.json",
@@ -28,9 +28,9 @@
     "ConfidenceBadge"
   ],
   "importStatements": [
-    "import { ConfidenceBadge } from '@dimitriszoitas/aegis-ui/confidence-badge';"
+    "import { ConfidenceBadge } from '@dimitriszoitas/aegis-agentic/confidence-badge';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "ConfidenceBadge",

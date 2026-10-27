@@ -45,7 +45,7 @@
   "imports": [
     {
       "name": "Slider",
-      "path": "@dimitriszoitas/aegis-ui/slider"
+      "path": "@dimitriszoitas/aegis-agentic/slider"
     }
   ],
   "stories": [

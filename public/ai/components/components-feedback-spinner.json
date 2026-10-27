@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-feedback-spinner",
   "name": "Spinner",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A small activity indicator that can be either decorative or a named loading status.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/spinner"
+    "@dimitriszoitas/aegis-agentic/spinner"
   ],
   "links": {
     "contract": "./components-feedback-spinner.json",
@@ -31,9 +31,9 @@
     "Spinner"
   ],
   "importStatements": [
-    "import { Spinner } from '@dimitriszoitas/aegis-ui/spinner';"
+    "import { Spinner } from '@dimitriszoitas/aegis-agentic/spinner';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Spinner",

@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "patterns-pageheader",
   "name": "PageHeader",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A consistent page title hierarchy with optional back navigation, breadcrumbs, metadata, actions, and secondary content.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/patterns"
+    "@dimitriszoitas/aegis-agentic/patterns"
   ],
   "links": {
     "contract": "./patterns-pageheader.json",
@@ -31,9 +31,9 @@
     "PageHeader"
   ],
   "importStatements": [
-    "import { PageHeader } from '@dimitriszoitas/aegis-ui/patterns';"
+    "import { PageHeader } from '@dimitriszoitas/aegis-agentic/patterns';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "PageHeader",

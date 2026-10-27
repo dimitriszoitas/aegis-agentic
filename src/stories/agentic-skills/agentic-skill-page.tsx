@@ -5,8 +5,27 @@ import { CopyButton } from '@/components/copy-button';
 import componentSource from '../../../skills/create-component/SKILL.md?raw';
 import tokenSource from '../../../skills/create-token/SKILL.md?raw';
 import layoutSource from '../../../skills/create-layout/SKILL.md?raw';
-import contractSource from '../../../skills/references/design-contract.md?raw';
+import buildUiSource from '../../../skills/build-ui/SKILL.md?raw';
+import composePatternSource from '../../../skills/compose-pattern/SKILL.md?raw';
+import extendDesignLanguageSource from '../../../skills/extend-design-language/SKILL.md?raw';
+import auditUiSource from '../../../skills/audit-ui/SKILL.md?raw';
+import designContractSource from '../../../skills/references/design-contract.md?raw';
+import agenticContractSource from '../../../skills/references/agentic-contract.md?raw';
 import './agentic-skill-page.css';
+
+const designContract = {
+  id: 'shared-design-contract',
+  title: 'Shared design contract',
+  path: 'skills/references/design-contract.md',
+  source: designContractSource,
+} as const;
+
+const agenticContract = {
+  id: 'shared-agentic-contract',
+  title: 'Shared Agentic contract',
+  path: 'skills/references/agentic-contract.md',
+  source: agenticContractSource,
+} as const;
 
 const skills = {
   component: {
@@ -18,6 +37,7 @@ const skills = {
     result: 'A typed component, focused stories, real anatomy, and verified interactions.',
     request: 'Build or extend a reusable component for the requested interaction.',
     source: componentSource,
+    contracts: [designContract],
   },
   token: {
     name: 'create-token',
@@ -28,6 +48,7 @@ const skills = {
     result: 'A complete reference chain, four explicit mappings, and verified consumers.',
     request: 'Add or refine the requested token and migrate every affected reference.',
     source: tokenSource,
+    contracts: [designContract],
   },
   layout: {
     name: 'create-layout',
@@ -38,6 +59,57 @@ const skills = {
     result: 'A responsive composition with useful actions and consistent theme geometry.',
     request: 'Compose the requested responsive application layout from the existing system.',
     source: layoutSource,
+    contracts: [designContract],
+  },
+  'build-ui': {
+    name: 'build-ui',
+    title: 'Build UI',
+    description:
+      'Build a React interface from an installed Agentic kit using a locked profile, canonical contracts, and existing behavior primitives.',
+    useFor: 'An application interface that should reuse a project’s approved design language.',
+    result:
+      'Application code with pinned inputs, validated composition, and explicit verification limits.',
+    request: 'Build the requested interface using the installed kit and its canonical components.',
+    source: buildUiSource,
+    contracts: [agenticContract, designContract],
+  },
+  'compose-pattern': {
+    name: 'compose-pattern',
+    title: 'Compose Pattern',
+    description:
+      'Select and configure a canonical pattern while preserving its structural and behavioral invariants.',
+    useFor:
+      'A supported pattern with explicit variants, state ownership, and a reusable specification.',
+    result: 'A validated, versioned specification backed by the canonical implementation.',
+    request:
+      'Configure the requested pattern using approved variants and validate its specification.',
+    source: composePatternSource,
+    contracts: [agenticContract, designContract],
+  },
+  'extend-design-language': {
+    name: 'extend-design-language',
+    title: 'Extend Design Language',
+    description:
+      'Propose missing capabilities and reconcile overlapping contributions through the shared registry.',
+    useFor: 'A component or capability that approved entries do not cover.',
+    result:
+      'An experimental proposal, supporting evidence, and a consolidation plan for owner review.',
+    request: 'Discover existing capabilities, then propose and reconcile the requested extension.',
+    source: extendDesignLanguageSource,
+    contracts: [agenticContract, designContract],
+  },
+  'audit-ui': {
+    name: 'audit-ui',
+    title: 'Audit UI',
+    description:
+      'Audit an interface using reproducible evidence and distinguish bounded derived-file repair from changes requiring review.',
+    useFor:
+      'Observed drift, behavioral defects, missing capabilities, or uncertain interface findings.',
+    result:
+      'Verified findings, permitted repair evidence, and explicit review needs for other changes.',
+    request: 'Audit the requested interface and remediate only within the kit’s repair authority.',
+    source: auditUiSource,
+    contracts: [agenticContract, designContract],
   },
 } as const;
 
@@ -48,7 +120,20 @@ function markdownBody(source: string) {
 }
 
 function skillLink(href?: string) {
-  if (href === '../references/design-contract.md') return '#shared-design-contract';
+  if (
+    href &&
+    ['../references/design-contract.md', './design-contract.md', 'design-contract.md'].includes(
+      href,
+    )
+  )
+    return '#shared-design-contract';
+  if (
+    href &&
+    ['../references/agentic-contract.md', './agentic-contract.md', 'agentic-contract.md'].includes(
+      href,
+    )
+  )
+    return '#shared-agentic-contract';
   return href;
 }
 
@@ -56,7 +141,9 @@ function SkillContent({ skillId }: { skillId: SkillId }) {
   const skill = skills[skillId];
   const path = `skills/${skill.name}/SKILL.md`;
   const invocation = `Use $${skill.name} from ${path}. ${skill.request}`;
-  const instructions = `${skill.source.trim()}\n\n${contractSource.trim()}\n`;
+  const instructions = `${[skill.source, ...skill.contracts.map((contract) => contract.source)]
+    .map((source) => source.trim())
+    .join('\n\n')}\n`;
   return (
     <>
       <header className="agentic-skill-header agentic-skill-selected-header">
@@ -85,7 +172,7 @@ function SkillContent({ skillId }: { skillId: SkillId }) {
         </div>
         <p>
           Open <code>{path}</code> in the repository, or copy the instructions together with the
-          shared design contract below. Skill discovery depends on the agent environment; an
+          applicable shared contracts below. Skill discovery depends on the agent environment; an
           explicit file path also works when repository skills are not listed automatically.
         </p>
         <pre>
@@ -104,19 +191,28 @@ function SkillContent({ skillId }: { skillId: SkillId }) {
         </Markdown>
       </div>
 
-      <section
-        className="agentic-skill-contract agentic-skill-prose"
-        id="shared-design-contract"
-        aria-labelledby="shared-design-contract-title"
-      >
-        <h2 id="shared-design-contract-title">Shared design contract</h2>
-        <p className="agentic-skill-source-path">
-          Source: <code>skills/references/design-contract.md</code>
-        </p>
-        <Markdown skipHtml components={{ h2: ({ children }) => <h3>{children}</h3> }}>
-          {markdownBody(contractSource)}
-        </Markdown>
-      </section>
+      {skill.contracts.map((contract) => (
+        <section
+          key={contract.id}
+          className="agentic-skill-contract agentic-skill-prose"
+          id={contract.id}
+          aria-labelledby={`${contract.id}-title`}
+        >
+          <h2 id={`${contract.id}-title`}>{contract.title}</h2>
+          <p className="agentic-skill-source-path">
+            Source: <code>{contract.path}</code>
+          </p>
+          <Markdown
+            skipHtml
+            components={{
+              h2: ({ children }) => <h3>{children}</h3>,
+              a: ({ href, children }) => <a href={skillLink(href)}>{children}</a>,
+            }}
+          >
+            {markdownBody(contract.source)}
+          </Markdown>
+        </section>
+      ))}
     </>
   );
 }
@@ -151,8 +247,9 @@ export function AgenticSkillPage({ skillId = 'component' }: { skillId?: SkillId 
       <header className="agentic-skill-header">
         <h1>Agentic Skills</h1>
         <p>
-          Repository instructions for creating components, tokens, and layouts. Each skill includes
-          the shared design contract and can be copied with its complete instructions.
+          Repository instructions for creating components, tokens, and layouts, plus building,
+          composing, extending, and auditing interfaces with the portable Agentic kit. Each tab
+          renders the source skill and its applicable shared contracts, together with a copy action.
         </p>
       </header>
       <Tabs.Root

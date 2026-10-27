@@ -59,11 +59,11 @@
   "imports": [
     {
       "name": "List",
-      "path": "@dimitriszoitas/aegis-ui/list"
+      "path": "@dimitriszoitas/aegis-agentic/list"
     },
     {
       "name": "ListItem",
-      "path": "@dimitriszoitas/aegis-ui/list"
+      "path": "@dimitriszoitas/aegis-agentic/list"
     }
   ],
   "stories": [

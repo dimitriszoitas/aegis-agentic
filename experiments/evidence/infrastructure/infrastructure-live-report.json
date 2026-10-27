@@ -1,0 +1,73 @@
+{
+  "base": "http://127.0.0.1:4175",
+  "evidence": "real-local-service-browser-verification",
+  "checks": [
+    "Actual service status and configuration inventory render through the same-origin proxy; AI starts unchecked.",
+    "Actual service console passes accessibility and 390px overflow checks without browser errors."
+  ],
+  "screenshots": [
+    "artifacts/agentic-ui/infrastructure-connected-live.png",
+    "artifacts/agentic-ui/infrastructure-mobile-live.png"
+  ],
+  "browserErrors": [],
+  "snapshot": {
+    "project": {
+      "id": "aegis-local",
+      "name": "Aegis design-system infrastructure"
+    },
+    "health": {
+      "status": "healthy",
+      "issues": []
+    },
+    "release": {
+      "version": "0.1.0-experiment.0",
+      "registryRevision": 1,
+      "releaseId": "@dimitriszoitas/aegis-agentic@0.1.0-experiment.0+205aa0fe9c88"
+    },
+    "capabilities": {
+      "components": 102,
+      "configurableDimensions": 917,
+      "constrainedProps": 291,
+      "unconstrainedProps": 626,
+      "verifiedConfigurations": 0,
+      "plannedRecords": 0
+    },
+    "usage": {
+      "version": 1,
+      "eventCount": 0,
+      "rejectedEvents": 0,
+      "firstTimestamp": null,
+      "lastTimestamp": null,
+      "byKind": {
+        "render": 0,
+        "action": 0,
+        "configuration": 0,
+        "error": 0
+      },
+      "byComponent": {},
+      "byProfile": {},
+      "byMode": {
+        "light": 0,
+        "dark": 0
+      },
+      "byPresentation": {
+        "fundamental": 0,
+        "fundamental-floating": 0
+      },
+      "byRegistry": {},
+      "byRegistryRevision": {},
+      "byPropValue": {},
+      "telemetryEnabled": false,
+      "rejectedStoredEvents": 0,
+      "retentionDays": 30,
+      "maximumEvents": 10000
+    },
+    "ai": {
+      "configured": false,
+      "provider": "none",
+      "model": null,
+      "dailyRequestLimit": 5
+    }
+  },
+  "accessibilityViolations": []
+}

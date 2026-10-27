@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-charts-donut-chart",
   "name": "Donut chart",
@@ -18,7 +18,7 @@
   ],
   "purpose": "A part-to-whole summary with a visible total, category legend, and optional exact data table.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/charts"
+    "@dimitriszoitas/aegis-agentic/charts"
   ],
   "links": {
     "contract": "./components-charts-donut-chart.json",
@@ -32,9 +32,9 @@
     "DonutChart"
   ],
   "importStatements": [
-    "import { DonutChart } from '@dimitriszoitas/aegis-ui/charts';"
+    "import { DonutChart } from '@dimitriszoitas/aegis-agentic/charts';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "DonutChart",

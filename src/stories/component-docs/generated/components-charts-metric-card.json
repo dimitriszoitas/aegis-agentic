@@ -58,7 +58,7 @@
   "imports": [
     {
       "name": "MetricCard",
-      "path": "@dimitriszoitas/aegis-ui/metric-card"
+      "path": "@dimitriszoitas/aegis-agentic/metric-card"
     }
   ],
   "stories": [

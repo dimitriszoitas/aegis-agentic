@@ -78,7 +78,7 @@
   "imports": [
     {
       "name": "AiVerdictCell",
-      "path": "@dimitriszoitas/aegis-ui/data-grid-cells"
+      "path": "@dimitriszoitas/aegis-agentic/data-grid-cells"
     }
   ],
   "stories": [

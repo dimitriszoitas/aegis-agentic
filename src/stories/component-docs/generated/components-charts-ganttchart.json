@@ -65,7 +65,7 @@
   "imports": [
     {
       "name": "GanttChart",
-      "path": "@dimitriszoitas/aegis-ui/gantt-chart"
+      "path": "@dimitriszoitas/aegis-agentic/gantt-chart"
     }
   ],
   "stories": [

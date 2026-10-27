@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-navigation-tabs",
   "name": "Tabs",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "A labeled set of peer views using Base UI tabs and associated content panels.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/tabs"
+    "@dimitriszoitas/aegis-agentic/tabs"
   ],
   "links": {
     "contract": "./components-navigation-tabs.json",
@@ -28,9 +28,9 @@
     "Tabs"
   ],
   "importStatements": [
-    "import { Tabs } from '@dimitriszoitas/aegis-ui/tabs';"
+    "import { Tabs } from '@dimitriszoitas/aegis-agentic/tabs';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Tabs",

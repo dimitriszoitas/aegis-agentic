@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-navigation-pagination",
   "name": "Pagination",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "Controlled navigation through result pages, with an optional page-size selector.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/pagination"
+    "@dimitriszoitas/aegis-agentic/pagination"
   ],
   "links": {
     "contract": "./components-navigation-pagination.json",
@@ -28,9 +28,9 @@
     "Pagination"
   ],
   "importStatements": [
-    "import { Pagination } from '@dimitriszoitas/aegis-ui/pagination';"
+    "import { Pagination } from '@dimitriszoitas/aegis-agentic/pagination';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "Pagination",

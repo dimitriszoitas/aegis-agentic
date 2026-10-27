@@ -48,7 +48,7 @@
   "imports": [
     {
       "name": "Button",
-      "path": "@dimitriszoitas/aegis-ui/button"
+      "path": "@dimitriszoitas/aegis-agentic/button"
     }
   ],
   "stories": [

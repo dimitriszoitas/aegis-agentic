@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-data-relativetime",
   "name": "RelativeTime",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A relative timestamp with an absolute date and timezone available on focus and hover.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/relative-time"
+    "@dimitriszoitas/aegis-agentic/relative-time"
   ],
   "links": {
     "contract": "./components-data-relativetime.json",
@@ -31,9 +31,9 @@
     "RelativeTime"
   ],
   "importStatements": [
-    "import { RelativeTime } from '@dimitriszoitas/aegis-ui/relative-time';"
+    "import { RelativeTime } from '@dimitriszoitas/aegis-agentic/relative-time';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "RelativeTime",

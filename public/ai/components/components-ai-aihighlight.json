@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-ai-aihighlight",
   "name": "AiHighlight",
@@ -14,7 +14,7 @@
   "aliases": [],
   "purpose": "A compact complementary AI result with optional confidence and provenance.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/ai-card"
+    "@dimitriszoitas/aegis-agentic/ai-card"
   ],
   "links": {
     "contract": "./components-ai-aihighlight.json",
@@ -28,9 +28,9 @@
     "AiHighlight"
   ],
   "importStatements": [
-    "import { AiHighlight } from '@dimitriszoitas/aegis-ui/ai-card';"
+    "import { AiHighlight } from '@dimitriszoitas/aegis-agentic/ai-card';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "AiHighlight",

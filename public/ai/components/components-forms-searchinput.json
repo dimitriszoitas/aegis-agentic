@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-forms-searchinput",
   "name": "SearchInput",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A searchable text field that separates immediate draft changes from debounced search requests.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/search-input"
+    "@dimitriszoitas/aegis-agentic/search-input"
   ],
   "links": {
     "contract": "./components-forms-searchinput.json",
@@ -31,9 +31,9 @@
     "SearchInput"
   ],
   "importStatements": [
-    "import { SearchInput } from '@dimitriszoitas/aegis-ui/search-input';"
+    "import { SearchInput } from '@dimitriszoitas/aegis-agentic/search-input';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "SearchInput",

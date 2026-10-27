@@ -60,7 +60,7 @@
   "imports": [
     {
       "name": "EventHistogram",
-      "path": "@dimitriszoitas/aegis-ui/event-histogram"
+      "path": "@dimitriszoitas/aegis-agentic/event-histogram"
     }
   ],
   "stories": [

@@ -49,7 +49,7 @@
   "imports": [
     {
       "name": "Checkbox",
-      "path": "@dimitriszoitas/aegis-ui/checkbox"
+      "path": "@dimitriszoitas/aegis-agentic/checkbox"
     }
   ],
   "stories": [

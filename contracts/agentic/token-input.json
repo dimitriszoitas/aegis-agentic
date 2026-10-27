@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "token-input",
+  "version": 1,
+  "status": "candidate",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Enter and remove multiple free-text values with per-value validation.",
+  "anatomy": ["label", "input", "tokens", "error"],
+  "states": ["empty", "populated", "invalid", "disabled", "focus-visible"],
+  "invariants": [
+    "A committed value is trimmed and nonempty.",
+    "Duplicate behavior is explicitly reject or ignore.",
+    "Backspace never silently deletes a value while editing input.",
+    "Removal controls have accessible names.",
+    "Suggestions do not prevent new free-text values."
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "native-input-plus-existing-components"
+}

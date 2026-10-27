@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-overlays-sidesheet",
   "name": "SideSheet",
@@ -17,7 +17,7 @@
   ],
   "purpose": "A right-side detail panel that can be modal or docked beside the workspace.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/side-sheet"
+    "@dimitriszoitas/aegis-agentic/side-sheet"
   ],
   "links": {
     "contract": "./components-overlays-sidesheet.json",
@@ -33,9 +33,9 @@
     "SideSheetSection"
   ],
   "importStatements": [
-    "import { SideSheet, SideSheetField, SideSheetSection } from '@dimitriszoitas/aegis-ui/side-sheet';"
+    "import { SideSheet, SideSheetField, SideSheetSection } from '@dimitriszoitas/aegis-agentic/side-sheet';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "SideSheet",

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "id": "aegis",
+  "name": "Aegis Original",
+  "brand": "#356ac3",
+  "neutral": "neutral",
+  "semantic": {
+    "success": "#117e50",
+    "warning": "#986000",
+    "danger": "#c72b2b",
+    "info": "#008a99"
+  },
+  "radius": "soft",
+  "font": "figtree",
+  "density": "comfortable"
+}

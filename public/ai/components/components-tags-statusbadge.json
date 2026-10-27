@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "components-tags-statusbadge",
   "name": "StatusBadge",
@@ -18,7 +18,7 @@
   ],
   "purpose": "A textual lifecycle status for new, in-review, in-progress, completed, or cancelled records.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/status-badge"
+    "@dimitriszoitas/aegis-agentic/status-badge"
   ],
   "links": {
     "contract": "./components-tags-statusbadge.json",
@@ -33,9 +33,9 @@
     "StatusDot"
   ],
   "importStatements": [
-    "import { StatusBadge, StatusDot } from '@dimitriszoitas/aegis-ui/status-badge';"
+    "import { StatusBadge, StatusDot } from '@dimitriszoitas/aegis-agentic/status-badge';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "StatusBadge",

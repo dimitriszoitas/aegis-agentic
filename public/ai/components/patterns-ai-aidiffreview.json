@@ -3,8 +3,8 @@
   "schemaVersion": 1,
   "documentType": "component",
   "package": {
-    "name": "@dimitriszoitas/aegis-ui",
-    "version": "0.1.0"
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.1.0-experiment.0"
   },
   "id": "patterns-ai-aidiffreview",
   "name": "AiDiffReview",
@@ -18,7 +18,7 @@
   ],
   "purpose": "An explicit approve or reject boundary around an AI-proposed document change.",
   "importPaths": [
-    "@dimitriszoitas/aegis-ui/patterns"
+    "@dimitriszoitas/aegis-agentic/patterns"
   ],
   "links": {
     "contract": "./patterns-ai-aidiffreview.json",
@@ -32,9 +32,9 @@
     "AiDiffReview"
   ],
   "importStatements": [
-    "import { AiDiffReview } from '@dimitriszoitas/aegis-ui/patterns';"
+    "import { AiDiffReview } from '@dimitriszoitas/aegis-agentic/patterns';"
   ],
-  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
   "props": [
     {
       "component": "AiDiffReview",

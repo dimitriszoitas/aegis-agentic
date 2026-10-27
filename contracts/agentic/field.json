@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "field",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Associate a label, description and validation message with a control.",
+  "anatomy": ["label", "control", "description?", "error?"],
+  "states": ["idle", "invalid", "disabled"],
+  "invariants": [
+    "Every control has a programmatic name.",
+    "Invalid state is associated with its message.",
+    "Field does not replace the input behavior."
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "label-association"
+}

@@ -44,7 +44,7 @@
   "imports": [
     {
       "name": "Breadcrumb",
-      "path": "@dimitriszoitas/aegis-ui/breadcrumb"
+      "path": "@dimitriszoitas/aegis-agentic/breadcrumb"
     }
   ],
   "stories": [
