@@ -1,0 +1,123 @@
+.aegis-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-field-gap-compact);
+  min-width: var(--group-input-field-number-0);
+  width: var(--group-input-field-width-available);
+}
+.aegis-input-shell {
+  display: flex;
+  align-items: center;
+  gap: var(--group-input-field-gap-compact);
+  height: var(--group-input-field-height-regular);
+  padding: var(--group-input-field-number-0) var(--group-input-field-padding-regular);
+  color: var(--group-input-field-color-content-primary);
+  background: var(--group-input-field-color-surface-surface);
+  border: var(--group-input-field-border-width-hairline) solid
+    var(--group-input-field-color-border-strong);
+  border-radius: var(--group-input-field-radius-bold);
+  transition:
+    border-color var(--group-input-field-motion-fast) var(--group-input-field-ease-out),
+    background var(--group-input-field-motion-fast) var(--group-input-field-ease-out);
+}
+.aegis-input-shell[data-size='sm'] {
+  height: var(--group-input-field-height-compact);
+  padding-inline: var(--group-input-field-padding-compact);
+  font-size: var(--group-input-field-font-size-body);
+}
+.aegis-input-shell[data-size='lg'] {
+  height: var(--group-input-field-height-large);
+}
+.aegis-input-shell:hover:not([data-disabled]):not([data-readonly]) {
+  border-color: var(--group-input-field-color-content-secondary);
+}
+.aegis-input-shell:focus-within {
+  outline: var(--group-input-field-border-width-regular) solid var(--group-input-field-ring-focus);
+  outline-offset: var(--group-input-field-focus-offset);
+  border-color: var(--group-input-field-color-action-fill);
+}
+.aegis-input-shell[data-invalid] {
+  border-color: var(--group-input-field-color-danger-foreground);
+}
+.aegis-input-shell[data-readonly] {
+  background: var(--group-input-field-color-surface-hover);
+}
+.aegis-input-shell[data-disabled] {
+  opacity: var(--group-input-field-opacity-disabled);
+  cursor: not-allowed;
+  background: var(--group-input-field-color-surface-hover);
+}
+.aegis-input-native {
+  border: var(--group-input-field-number-0);
+  outline: none;
+  background: var(--group-input-field-color-transparent);
+  color: inherit;
+  width: var(--group-input-field-width-available);
+  min-width: var(--group-input-field-number-0);
+  height: var(--group-input-field-height-available);
+  padding: var(--group-input-field-number-0);
+  font: inherit;
+}
+.aegis-input-native:focus-visible {
+  outline: none;
+}
+.aegis-input-native:disabled {
+  cursor: not-allowed;
+}
+.aegis-input-native::placeholder {
+  color: var(--group-input-field-color-content-tertiary);
+  opacity: var(--group-input-field-opacity-visible);
+}
+.aegis-input-native::-webkit-search-cancel-button,
+.aegis-input-native::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+.aegis-input-prefix,
+.aegis-input-suffix {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  color: var(--group-input-field-color-content-secondary);
+  font-size: var(--group-input-field-font-size-body);
+  white-space: nowrap;
+}
+.aegis-input-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--group-input-field-clear-size);
+  height: var(--group-input-field-clear-size);
+  border: var(--group-input-field-number-0);
+  padding: var(--group-input-field-number-0);
+  border-radius: var(--group-input-field-radius-soft);
+  color: var(--group-input-field-color-content-secondary);
+  background: var(--group-input-field-color-transparent);
+}
+.aegis-input-clear:hover {
+  color: var(--group-input-field-color-content-primary);
+  background: var(--group-input-field-color-surface-hover);
+}
+
+.aegis-input-shell {
+  border-radius: var(--group-input-field-radius-bold);
+}
+.aegis-input-shell[data-size='sm'] {
+  border-radius: var(--group-input-field-radius-rounded);
+}
+.aegis-input-shell[data-size='lg'] {
+  border-radius: var(--group-input-field-radius-bold);
+}
+
+/* Business list composition keeps child styling in its owning category. */
+.aegis-business-list-toolbar > .aegis-input {
+  flex: var(--group-input-field-flex-none) var(--group-input-field-flex-fill)
+    var(--group-input-field-size-flex-wide-panel-huge);
+  min-width: var(--group-input-field-size-min-width-panel-roomy);
+}
+@media (max-width: 740px) {
+  .aegis-business-list-toolbar > .aegis-input {
+    flex: var(--group-input-field-flex-fill) var(--group-input-field-flex-fill)
+      var(--group-input-field-size-flex-panel-roomy);
+  }
+}

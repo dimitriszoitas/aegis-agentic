@@ -1,0 +1,540 @@
+/* Aegis: primitive → semantic → component tokens. Raw colors stay in token stylesheets. */
+:root,
+.aegis-theme-light {
+  --slate-50: oklch(0.98 0.0037 255);
+  --slate-100: oklch(0.95 0.0063 255);
+  --slate-200: oklch(0.9 0.01 255);
+  --slate-300: oklch(0.82 0.015 255);
+  --slate-400: oklch(0.72 0.02 255);
+  --slate-500: oklch(0.62 0.025 255);
+  --slate-600: oklch(0.53 0.025 255);
+  --slate-700: oklch(0.45 0.0225 255);
+  --slate-800: oklch(0.36 0.0175 255);
+  --slate-900: oklch(0.28 0.0138 255);
+  --slate-950: oklch(0.2 0.01 255);
+  --ink-50: oklch(0.98 0.0018 228);
+  --ink-100: oklch(0.95 0.003 228);
+  --ink-200: oklch(0.9 0.0048 228);
+  --ink-300: oklch(0.82 0.0072 228);
+  --ink-400: oklch(0.72 0.0096 228);
+  --ink-500: oklch(0.62 0.012 228);
+  --ink-600: oklch(0.53 0.012 228);
+  --ink-700: oklch(0.45 0.0108 228);
+  --ink-800: oklch(0.36 0.0084 228);
+  --ink-900: oklch(0.28 0.0066 228);
+  --ink-950: oklch(0.2 0.0048 228);
+  --blue-50: oklch(0.98 0.0285 267);
+  --blue-100: oklch(0.95 0.0475 267);
+  --blue-200: oklch(0.9 0.076 267);
+  --blue-300: oklch(0.82 0.114 267);
+  --blue-400: oklch(0.72 0.152 267);
+  --blue-500: oklch(0.62 0.19 267);
+  --blue-600: oklch(0.53 0.19 267);
+  --blue-700: oklch(0.45 0.171 267);
+  --blue-800: oklch(0.36 0.133 267);
+  --blue-900: oklch(0.28 0.1045 267);
+  --blue-950: oklch(0.2 0.076 267);
+  --violet-50: oklch(0.98 0.03 295);
+  --violet-100: oklch(0.95 0.05 295);
+  --violet-200: oklch(0.9 0.08 295);
+  --violet-300: oklch(0.82 0.12 295);
+  --violet-400: oklch(0.72 0.16 295);
+  --violet-500: oklch(0.62 0.2 295);
+  --violet-600: oklch(0.53 0.2 295);
+  --violet-700: oklch(0.45 0.18 295);
+  --violet-800: oklch(0.36 0.14 295);
+  --violet-900: oklch(0.28 0.11 295);
+  --violet-950: oklch(0.2 0.08 295);
+  --red-50: oklch(0.98 0.03 25);
+  --red-100: oklch(0.95 0.05 25);
+  --red-200: oklch(0.9 0.08 25);
+  --red-300: oklch(0.82 0.12 25);
+  --red-400: oklch(0.72 0.16 25);
+  --red-500: oklch(0.62 0.2 25);
+  --red-600: oklch(0.53 0.2 25);
+  --red-700: oklch(0.45 0.18 25);
+  --red-800: oklch(0.36 0.14 25);
+  --red-900: oklch(0.28 0.11 25);
+  --red-950: oklch(0.2 0.08 25);
+  --green-50: oklch(0.98 0.0225 145);
+  --green-100: oklch(0.95 0.0375 145);
+  --green-200: oklch(0.9 0.06 145);
+  --green-300: oklch(0.82 0.09 145);
+  --green-400: oklch(0.72 0.12 145);
+  --green-500: oklch(0.62 0.15 145);
+  --green-600: oklch(0.53 0.15 145);
+  --green-700: oklch(0.45 0.135 145);
+  --green-800: oklch(0.36 0.105 145);
+  --green-900: oklch(0.28 0.0825 145);
+  --green-950: oklch(0.2 0.06 145);
+  --amber-50: oklch(0.98 0.0255 85);
+  --amber-100: oklch(0.95 0.0425 85);
+  --amber-200: oklch(0.9 0.068 85);
+  --amber-300: oklch(0.82 0.102 85);
+  --amber-400: oklch(0.72 0.136 85);
+  --amber-500: oklch(0.62 0.17 85);
+  --amber-600: oklch(0.53 0.17 85);
+  --amber-700: oklch(0.45 0.153 85);
+  --amber-800: oklch(0.36 0.119 85);
+  --amber-900: oklch(0.28 0.0935 85);
+  --amber-950: oklch(0.2 0.068 85);
+  --orange-50: oklch(0.98 0.0285 48);
+  --orange-100: oklch(0.95 0.0475 48);
+  --orange-200: oklch(0.9 0.076 48);
+  --orange-300: oklch(0.82 0.114 48);
+  --orange-400: oklch(0.72 0.152 48);
+  --orange-500: oklch(0.62 0.19 48);
+  --orange-600: oklch(0.53 0.19 48);
+  --orange-700: oklch(0.45 0.171 48);
+  --orange-800: oklch(0.36 0.133 48);
+  --orange-900: oklch(0.28 0.1045 48);
+  --orange-950: oklch(0.2 0.076 48);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
+  --space-11: 44px;
+  --space-12: 48px;
+  --space-13: 52px;
+  --space-14: 56px;
+  --space-15: 60px;
+  --space-16: 64px;
+  --space-17: 68px;
+  --space-18: 72px;
+  --space-19: 76px;
+  --space-20: 80px;
+  --space-21: 84px;
+  --space-22: 88px;
+  --space-23: 92px;
+  --space-24: 96px;
+  --radius-xs: 6px;
+  --radius-sm: 6px;
+  --radius-md: 7px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
+  --radius-2xl: 8px;
+  --radius-full: 8px;
+  --surface-radius: 10px;
+  --surface-radius-floating: 12px;
+  --surface-radius-nested: calc(var(--surface-radius-floating) - var(--space-1));
+  --chrome-inset: var(--space-3);
+  --chrome-gap: var(--space-3);
+  --chrome-radius: var(--surface-radius-floating);
+  --chrome-shadow: var(--shadow-floating);
+  --chrome-overlay-shadow: var(--shadow-overlay);
+  --chrome-nav-border-width: 1px;
+  --chrome-sheet-border-width: 1px;
+  --font-ui: Figtree, system-ui, sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+  --font-mono: var(--font-code);
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --title-page-size: var(--text-2xl);
+  --title-section-size: 15px;
+  --title-panel-size: var(--text-md);
+  --title-weight: 500;
+  --metric-value-size: 28px;
+  --layout-card-padding: var(--space-3);
+  --layout-panel-padding: var(--space-4);
+  --layout-section-gap: var(--space-4);
+  --layout-page-padding: var(--space-5);
+  --motion-fast: 120ms;
+  --motion-base: 180ms;
+  --motion-slide: 260ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --z-sticky: 40;
+  --z-dropdown: 50;
+  --z-sheet: 60;
+  --z-modal: 70;
+  --z-popover: 80;
+  --z-toast: 90;
+  --z-tooltip: 100;
+  --group-data-display-measurement-grid-row-compact: 36px;
+  --group-data-display-measurement-grid-row-default: 48px;
+  --group-data-display-measurement-grid-row-comfortable: 60px;
+  --button-radius-sm: 4px;
+  --button-radius-md: 5px;
+  --button-radius-lg: 6px;
+  --badge-border-strength: 40%;
+  --badge-text-highlight: 0%;
+  --status-bg-emphasis: 5%;
+  --control-radius-xs: 4px;
+  --control-radius-sm: var(--radius-xs);
+  --control-radius-md: var(--radius-md);
+  --control-radius-lg: var(--radius-lg);
+  --chip-radius: var(--radius-xs);
+  --scrollbar-size: 8px;
+  --scrollbar-inset: 1px;
+  --scrollbar-radius: var(--control-radius-xs);
+  --scrollbar-thumb: var(--color-border-strong);
+  --scrollbar-thumb-hover: var(--color-text-secondary);
+  --scrollbar-thumb-active: var(--color-text-primary);
+  --sidebar-radius-expanded: var(--chrome-radius);
+  --sidebar-radius-collapsed: max(0px, calc(var(--chrome-radius) - var(--space-1)));
+  --sidebar-expanded: 240px;
+  --sidebar-collapsed: 48px;
+  --sidebar-item-size: 34px;
+  --nested-inset: 12px;
+  --color-bg-canvas: #f4f5f8;
+  --color-bg-surface: #ffffff;
+  --color-bg-surface-raised: #ffffff;
+  --color-bg-hover: #f1f3f6;
+  --color-bg-selected: #edf0f5;
+  --color-text-primary: #171a20;
+  --color-text-secondary: #5b6271;
+  --color-text-tertiary: #626b7c;
+  --color-border-subtle: #e6e8ee;
+  --color-border-default: #d6dae3;
+  --color-border-strong: #8590a3;
+  --color-on-intent: #ffffff;
+  --color-scrim: rgba(13, 14, 18, 0.48);
+  --color-function-bg: #4565ed;
+  --color-function-fg: #3250cc;
+  --color-function-soft: color-mix(in srgb, var(--color-function-bg) 10%, var(--color-bg-surface));
+  --color-function-border: color-mix(
+    in srgb,
+    var(--color-function-bg) 28%,
+    var(--color-border-subtle)
+  );
+  --color-ai-bg: #b32acb;
+  --color-ai-fg: #9f1fba;
+  --color-status-review-fg: #901aaa;
+  --color-ai-pink-bg: #c92572;
+  --color-ai-pink-fg: #b21863;
+  --color-ai-blue-bg: #315de5;
+  --color-ai-blue-fg: #214bc0;
+  --color-ai-soft: color-mix(in srgb, var(--color-ai-bg) 18%, var(--color-bg-surface));
+  --color-ai-pink-soft: color-mix(in srgb, var(--color-ai-pink-bg) 18%, var(--color-bg-surface));
+  --color-ai-blue-soft: color-mix(in srgb, var(--color-ai-blue-bg) 18%, var(--color-bg-surface));
+  --color-ai-border: color-mix(in srgb, var(--color-ai-bg) 36%, var(--color-border-subtle));
+  --color-destroy-bg: #ce343b;
+  --color-destroy-fg: #be2730;
+  --color-destroy-soft: color-mix(in srgb, var(--color-destroy-bg) 10%, var(--color-bg-surface));
+  --color-destroy-border: color-mix(
+    in srgb,
+    var(--color-destroy-bg) 28%,
+    var(--color-border-subtle)
+  );
+  --color-success-bg: #2b7a3a;
+  --color-success-fg: #267334;
+  --color-success-soft: color-mix(in srgb, var(--color-success-bg) 10%, var(--color-bg-surface));
+  --color-success-border: color-mix(
+    in srgb,
+    var(--color-success-bg) 28%,
+    var(--color-border-subtle)
+  );
+  --color-warning-bg: #9b6b00;
+  --color-warning-fg: #8c6100;
+  --color-warning-soft: color-mix(in srgb, var(--amber-300) 18%, var(--color-bg-surface));
+  --color-warning-border: color-mix(
+    in srgb,
+    var(--color-warning-bg) 28%,
+    var(--color-border-subtle)
+  );
+  --color-severity-critical-fg: #b91c1c;
+  --color-severity-critical-bg: color-mix(
+    in srgb,
+    var(--color-severity-critical-fg) 9%,
+    var(--color-bg-surface)
+  );
+  --color-severity-critical-border: color-mix(
+    in srgb,
+    var(--color-severity-critical-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-high-fg: #b23e08;
+  --color-severity-high-bg: color-mix(
+    in srgb,
+    var(--color-severity-high-fg) 9%,
+    var(--color-bg-surface)
+  );
+  --color-severity-high-border: color-mix(
+    in srgb,
+    var(--color-severity-high-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-medium-fg: var(--color-warning-fg);
+  --color-severity-medium-bg: var(--color-warning-soft);
+  --color-severity-medium-border: color-mix(
+    in srgb,
+    var(--color-severity-medium-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-low-fg: #1d4ed8;
+  --color-severity-low-bg: color-mix(
+    in srgb,
+    var(--color-severity-low-fg) 9%,
+    var(--color-bg-surface)
+  );
+  --color-severity-low-border: color-mix(
+    in srgb,
+    var(--color-severity-low-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-info-fg: #475569;
+  --color-severity-info-bg: color-mix(
+    in srgb,
+    var(--color-severity-info-fg) 9%,
+    var(--color-bg-surface)
+  );
+  --color-severity-info-border: color-mix(
+    in srgb,
+    var(--color-severity-info-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --elevation-raised: 0 1px 2px rgba(16, 24, 40, 0.05), 0 1px 3px rgba(16, 24, 40, 0.08);
+  --elevation-floating:
+    0 2px 8px -2px rgba(16, 24, 40, 0.08), 0 12px 32px -8px rgba(16, 24, 40, 0.14);
+  --elevation-overlay:
+    0 8px 16px -6px rgba(16, 24, 40, 0.12), 0 28px 64px -12px rgba(16, 24, 40, 0.28);
+  --shadow-raised: var(--elevation-raised);
+  --shadow-floating: var(--elevation-floating);
+  --shadow-overlay: var(--elevation-overlay);
+  --ring-focus: var(--color-function-bg);
+  --gradient-ai: linear-gradient(
+    135deg,
+    var(--color-ai-bg) 0%,
+    var(--color-ai-pink-bg) 50%,
+    var(--color-ai-blue-bg) 100%
+  );
+  --gradient-ai-border: linear-gradient(
+    135deg,
+    var(--color-ai-fg) 0%,
+    var(--color-ai-pink-fg) 50%,
+    var(--color-ai-blue-fg) 100%
+  );
+  --gradient-ai-text: linear-gradient(
+    110deg,
+    var(--color-ai-fg) 0%,
+    var(--color-ai-pink-fg) 50%,
+    var(--color-ai-blue-fg) 100%
+  );
+  --gradient-ai-soft: linear-gradient(
+    135deg,
+    var(--color-ai-soft) 0%,
+    var(--color-ai-pink-soft) 50%,
+    var(--color-ai-blue-soft) 100%
+  );
+  --gradient-ai-surface: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-ai-bg) 10%, var(--color-bg-surface)) 0%,
+    color-mix(in srgb, var(--color-ai-pink-bg) 10%, var(--color-bg-surface)) 50%,
+    color-mix(in srgb, var(--color-ai-blue-bg) 10%, var(--color-bg-surface)) 100%
+  );
+  --color-ai-surface: color-mix(in srgb, var(--color-ai-bg) 10%, var(--color-bg-surface));
+  --color-syntax-key: var(--color-function-fg);
+  --color-syntax-string: var(--color-success-fg);
+  --color-syntax-number: var(--color-warning-fg);
+  --color-syntax-keyword: var(--color-ai-fg);
+  --color-syntax-comment: var(--color-text-tertiary);
+  /* Plot fills are independent from the darker foregrounds required for small text. */
+  --color-chart-1: #4b7bec;
+  --color-chart-2: #12a7b9;
+  --color-chart-3: #9672e5;
+  --color-chart-4: #ec6e73;
+  --color-chart-5: #e5b447;
+  --color-chart-6: #58ad79;
+  --color-chart-severity-critical: #e95466;
+  --color-chart-severity-high: #f28b35;
+  --color-chart-severity-medium: #e9b83d;
+  --color-chart-severity-low: #4c8de8;
+  --color-chart-severity-info: #93a4bc;
+  --color-chart-function: var(--color-chart-1);
+  --color-chart-ai: var(--color-ai-bg);
+  --color-chart-success: var(--color-chart-6);
+  --color-chart-warning: var(--color-chart-5);
+  --color-chart-destroy: var(--color-chart-4);
+}
+.dark {
+  --badge-border-strength: 48%;
+  --badge-text-highlight: 10%;
+  --status-bg-emphasis: 0%;
+  --color-bg-canvas: #0d0e12;
+  --color-bg-surface: #17181d;
+  --color-bg-surface-raised: #1c1e24;
+  --color-bg-hover: #22242b;
+  --color-bg-selected: #262933;
+  --color-text-primary: #f2f3f6;
+  --color-text-secondary: #a7acb9;
+  --color-text-tertiary: #959cab;
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-border-strong: #626b7c;
+  --scrollbar-thumb: var(--color-border-strong);
+  --scrollbar-thumb-hover: var(--color-text-secondary);
+  --scrollbar-thumb-active: var(--color-text-primary);
+  --color-on-intent: #101116;
+  --color-scrim: rgba(0, 0, 0, 0.65);
+  --color-function-bg: #6b8bff;
+  --color-function-fg: #a6b7ff;
+  --color-function-soft: color-mix(in srgb, var(--color-function-bg) 10%, var(--color-bg-surface));
+  --color-function-border: color-mix(
+    in srgb,
+    var(--color-function-bg) 28%,
+    var(--color-border-subtle)
+  );
+  --color-ai-bg: #df7cf2;
+  --color-ai-fg: #e99df7;
+  --color-status-review-fg: var(--color-ai-fg);
+  --color-ai-pink-bg: #ff83b4;
+  --color-ai-pink-fg: #ffa7cb;
+  --color-ai-blue-bg: #79a2ff;
+  --color-ai-blue-fg: #a0baff;
+  --color-ai-soft: color-mix(in srgb, var(--color-ai-bg) 18%, var(--color-bg-surface));
+  --color-ai-pink-soft: color-mix(in srgb, var(--color-ai-pink-bg) 18%, var(--color-bg-surface));
+  --color-ai-blue-soft: color-mix(in srgb, var(--color-ai-blue-bg) 18%, var(--color-bg-surface));
+  --color-ai-border: color-mix(in srgb, var(--color-ai-bg) 36%, var(--color-border-subtle));
+  --color-destroy-bg: #ff6369;
+  --color-destroy-fg: #ff9599;
+  --color-destroy-soft: color-mix(in srgb, var(--color-destroy-bg) 10%, var(--color-bg-surface));
+  --color-destroy-border: color-mix(
+    in srgb,
+    var(--color-destroy-bg) 28%,
+    var(--color-border-subtle)
+  );
+  --color-success-bg: #61c56d;
+  --color-success-fg: #92dc9c;
+  --color-success-soft: color-mix(in srgb, var(--color-success-bg) 10%, var(--color-bg-surface));
+  --color-success-border: color-mix(
+    in srgb,
+    var(--color-success-bg) 28%,
+    var(--color-border-subtle)
+  );
+  --color-warning-bg: #ffc247;
+  --color-warning-fg: #ffd16b;
+  --color-warning-soft: color-mix(in srgb, var(--color-warning-bg) 10%, var(--color-bg-surface));
+  --color-warning-border: color-mix(
+    in srgb,
+    var(--color-warning-bg) 28%,
+    var(--color-border-subtle)
+  );
+  --color-severity-critical-fg: #ff8585;
+  --color-severity-critical-bg: color-mix(
+    in srgb,
+    var(--color-severity-critical-fg) 9%,
+    var(--color-bg-surface)
+  );
+  --color-severity-critical-border: color-mix(
+    in srgb,
+    var(--color-severity-critical-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-high-fg: #ffaa75;
+  --color-severity-high-bg: color-mix(
+    in srgb,
+    var(--color-severity-high-fg) 9%,
+    var(--color-bg-surface)
+  );
+  --color-severity-high-border: color-mix(
+    in srgb,
+    var(--color-severity-high-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-medium-fg: var(--color-warning-fg);
+  --color-severity-medium-bg: var(--color-warning-soft);
+  --color-severity-medium-border: color-mix(
+    in srgb,
+    var(--color-severity-medium-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-low-fg: #93b4ff;
+  --color-severity-low-bg: color-mix(
+    in srgb,
+    var(--color-severity-low-fg) 9%,
+    var(--color-bg-surface)
+  );
+  --color-severity-low-border: color-mix(
+    in srgb,
+    var(--color-severity-low-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-info-fg: #aab8cc;
+  --color-severity-info-bg: color-mix(
+    in srgb,
+    var(--color-severity-info-fg) 9%,
+    var(--color-bg-surface)
+  );
+  --color-severity-info-border: color-mix(
+    in srgb,
+    var(--color-severity-info-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --elevation-raised: 0 1px 3px rgba(0, 0, 0, 0.16);
+  --elevation-floating: 0 4px 24px rgba(0, 0, 0, 0.24);
+  --elevation-overlay: 0 16px 48px rgba(0, 0, 0, 0.4);
+  --shadow-raised: var(--elevation-raised);
+  --shadow-floating: var(--elevation-floating);
+  --shadow-overlay: var(--elevation-overlay);
+  --ring-focus: var(--color-function-bg);
+  --gradient-ai: linear-gradient(
+    135deg,
+    var(--color-ai-bg) 0%,
+    var(--color-ai-pink-bg) 50%,
+    var(--color-ai-blue-bg) 100%
+  );
+  --gradient-ai-border: linear-gradient(
+    135deg,
+    var(--color-ai-fg) 0%,
+    var(--color-ai-pink-fg) 50%,
+    var(--color-ai-blue-fg) 100%
+  );
+  --gradient-ai-text: linear-gradient(
+    110deg,
+    var(--color-ai-fg) 0%,
+    var(--color-ai-pink-fg) 50%,
+    var(--color-ai-blue-fg) 100%
+  );
+  --gradient-ai-soft: linear-gradient(
+    135deg,
+    var(--color-ai-soft) 0%,
+    var(--color-ai-pink-soft) 50%,
+    var(--color-ai-blue-soft) 100%
+  );
+  --gradient-ai-surface: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-ai-bg) 10%, var(--color-bg-surface)) 0%,
+    color-mix(in srgb, var(--color-ai-pink-bg) 10%, var(--color-bg-surface)) 50%,
+    color-mix(in srgb, var(--color-ai-blue-bg) 10%, var(--color-bg-surface)) 100%
+  );
+  --color-ai-surface: color-mix(in srgb, var(--color-ai-bg) 10%, var(--color-bg-surface));
+  --color-syntax-key: var(--color-function-fg);
+  --color-syntax-string: var(--color-success-fg);
+  --color-syntax-number: var(--color-warning-fg);
+  --color-syntax-keyword: var(--color-ai-fg);
+  --color-syntax-comment: var(--color-text-tertiary);
+  --color-chart-1: #7297ff;
+  --color-chart-2: #51c9dc;
+  --color-chart-3: #b49afb;
+  --color-chart-4: #ff9194;
+  --color-chart-5: #f1cd65;
+  --color-chart-6: #83d4a1;
+  --color-chart-severity-critical: #ff7c8b;
+  --color-chart-severity-high: #ffa657;
+  --color-chart-severity-medium: #f2cb60;
+  --color-chart-severity-low: #78aaff;
+  --color-chart-severity-info: #aabbd2;
+  --color-chart-function: var(--color-chart-1);
+  --color-chart-ai: var(--color-ai-bg);
+  --color-chart-success: var(--color-chart-6);
+  --color-chart-warning: var(--color-chart-5);
+  --color-chart-destroy: var(--color-chart-4);
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+    --motion-slide: 0ms;
+  }
+}

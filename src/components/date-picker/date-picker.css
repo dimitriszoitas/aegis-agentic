@@ -1,0 +1,199 @@
+.rdp-root {
+  --group-input-date-picker-calendar-accent: var(
+    --semantic-part-date-picker-calendar-accent-default
+  );
+  --group-input-date-picker-calendar-accent-text: var(
+    --semantic-part-date-picker-calendar-accent-text-default
+  );
+  --group-input-date-picker-calendar-accent-soft: var(
+    --semantic-part-date-picker-calendar-accent-soft-default
+  );
+  --group-input-measurement-rdp-accent-color: var(
+    --semantic-part-date-picker-rdp-accent-color-default
+  );
+  --group-input-measurement-rdp-accent-background-color: var(
+    --semantic-part-date-picker-rdp-accent-background-color-default
+  );
+  --group-input-measurement-rdp-today-color: var(
+    --semantic-part-date-picker-rdp-today-color-default
+  );
+  --group-input-measurement-rdp-range_start-color: var(
+    --semantic-part-date-picker-rdp-range_start-color-default
+  );
+  --group-input-measurement-rdp-range_start-background: var(
+    --semantic-part-date-picker-rdp-range_start-background-default
+  );
+  --group-input-measurement-rdp-range_middle-background-color: var(
+    --semantic-part-date-picker-rdp-range_middle-background-color-default
+  );
+  --group-input-measurement-rdp-range_middle-color: var(
+    --semantic-part-date-picker-rdp-range_middle-color-default
+  );
+  --group-input-measurement-rdp-range_end-color: var(
+    --semantic-part-date-picker-rdp-range_end-color-default
+  );
+  --group-input-measurement-rdp-range_end-background: var(
+    --semantic-part-date-picker-rdp-range_end-background-default
+  );
+  --group-input-measurement-rdp-selected-border: var(
+    --semantic-part-date-picker-rdp-selected-border-default
+  );
+  --group-input-measurement-rdp-day-height: var(--semantic-part-date-picker-rdp-day-height-default);
+  --group-input-measurement-rdp-day-width: var(--semantic-part-date-picker-rdp-day-width-default);
+  --group-input-measurement-rdp-day_button-height: var(
+    --semantic-part-date-picker-rdp-day_button-height-default
+  );
+  --group-input-measurement-rdp-day_button-width: var(
+    --semantic-part-date-picker-rdp-day_button-width-default
+  );
+  --group-input-measurement-rdp-nav_button-height: var(
+    --semantic-part-date-picker-rdp-nav_button-height-default
+  );
+  --group-input-measurement-rdp-nav_button-width: var(
+    --semantic-part-date-picker-rdp-nav_button-width-default
+  );
+  --group-input-measurement-rdp-nav-height: var(--semantic-part-date-picker-rdp-nav-height-default);
+  --group-input-measurement-rdp-day_button-border-radius: var(
+    --semantic-part-date-picker-rdp-day_button-border-radius-default
+  );
+  --group-input-measurement-rdp-selected-font: var(
+    --semantic-part-date-picker-rdp-selected-font-default
+  );
+  font-family: var(--group-input-date-picker-font-family-ui);
+  font-size: var(--group-input-date-picker-font-size-body);
+  color: var(--group-input-date-picker-color-content-primary);
+}
+.rdp-day_button:hover {
+  background: var(--group-input-date-picker-color-surface-hover);
+}
+.rdp-selected .rdp-day_button {
+  background: var(--group-input-date-picker-calendar-accent);
+  color: var(--group-input-date-picker-color-on-intent);
+}
+.rdp-selected {
+  font-size: inherit;
+  font-weight: var(--group-input-date-picker-font-weight-semibold);
+}
+.rdp-caption_label {
+  font-size: var(--group-input-date-picker-font-size-body);
+  font-weight: var(--group-input-date-picker-font-weight-semibold);
+}
+.rdp-chevron {
+  width: var(--group-input-date-picker-size-width-small);
+  height: var(--group-input-date-picker-size-height-small);
+  fill: var(--group-input-date-picker-color-content-secondary);
+}
+.rdp-button_previous,
+.rdp-button_next {
+  border-radius: var(--group-input-date-picker-radius-border-radius-bold);
+}
+.rdp-button_previous:hover,
+.rdp-button_next:hover {
+  background: var(--group-input-date-picker-color-surface-hover);
+}
+.rdp-range_middle .rdp-day_button {
+  background: var(--group-input-date-picker-color-transparent);
+  border-color: var(--group-input-date-picker-color-transparent);
+  color: var(--group-input-date-picker-color-content-primary);
+  font-weight: var(--group-input-date-picker-font-weight-regular);
+}
+.rdp-day_button:focus-visible,
+.rdp-button_previous:focus-visible,
+.rdp-button_next:focus-visible {
+  outline: var(--group-input-date-picker-border-width-regular) solid
+    var(--group-input-date-picker-calendar-accent);
+  outline-offset: var(--group-input-date-picker-size-outline-offset-micro-small);
+}
+.rdp-weekday {
+  color: var(--group-input-date-picker-color-content-secondary);
+  opacity: var(--group-input-date-picker-opacity-visible);
+}
+.time-range-content {
+  display: flex;
+  gap: var(--group-input-date-picker-space-gap-comfortable);
+  max-width: calc(
+    var(--group-input-date-picker-size-max-width-100vw) -
+      var(--group-input-date-picker-size-max-width-huge)
+  );
+}
+.time-range-presets {
+  flex: var(--group-input-date-picker-flex-fill);
+  min-width: var(--group-input-date-picker-number-0);
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-date-picker-space-gap-snug);
+}
+.time-range-content[data-custom='true'] .time-range-presets {
+  flex: var(--group-input-date-picker-flex-none) var(--group-input-date-picker-flex-none)
+    var(--group-input-date-picker-size-flex-panel-comfortable);
+  border-right: var(--group-input-date-picker-border-width-hairline) solid
+    var(--group-input-date-picker-color-border-subtle);
+  padding-right: var(--group-input-date-picker-space-padding-right-regular);
+}
+.time-range-presets > p,
+.time-range-custom > p {
+  margin: var(--group-input-date-picker-number-0) var(--group-input-date-picker-number-0)
+    var(--group-input-date-picker-space-margin-snug);
+  font-size: var(--group-input-date-picker-font-size-label);
+}
+.time-range-presets button {
+  justify-content: flex-start;
+}
+.time-range-custom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-date-picker-space-gap-regular);
+  min-width: var(--group-input-date-picker-size-min-width-wide-panel-comfortable);
+  flex: var(--group-input-date-picker-flex-fill);
+}
+.time-range-clock {
+  display: grid;
+  grid-template-columns: var(--group-input-date-picker-track-flex) var(
+      --group-input-date-picker-track-flex
+    );
+  gap: var(--group-input-date-picker-space-gap-regular);
+}
+.time-range-clock input {
+  width: var(--group-input-date-picker-size-width-full);
+  min-width: var(--group-input-date-picker-number-0);
+  height: var(--group-input-date-picker-space-height-spacious);
+  border: var(--group-input-date-picker-border-width-hairline) solid
+    var(--group-input-date-picker-color-border-default);
+  background: var(--group-input-date-picker-color-surface-surface);
+  border-radius: var(--group-input-date-picker-radius-border-radius-bold);
+  padding: var(--group-input-date-picker-space-padding-compact);
+  color: var(--group-input-date-picker-color-content-primary);
+}
+.time-range-clock label {
+  font-size: var(--group-input-date-picker-font-size-label);
+  color: var(--group-input-date-picker-color-content-secondary);
+  display: grid;
+  gap: var(--group-input-date-picker-space-gap-snug);
+}
+@media (max-width: 600px) {
+  .time-range-content {
+    flex-direction: column;
+  }
+  .time-range-presets {
+    width: var(--group-input-date-picker-size-width-full);
+  }
+  .time-range-content[data-custom='true'] .time-range-presets {
+    flex-basis: auto;
+    border-right: var(--group-input-date-picker-number-0);
+    border-bottom: var(--group-input-date-picker-border-width-hairline) solid
+      var(--group-input-date-picker-color-border-subtle);
+    padding: var(--group-input-date-picker-number-0) var(--group-input-date-picker-number-0)
+      var(--group-input-date-picker-space-padding-regular);
+    display: grid;
+    grid-template-columns: var(--group-input-date-picker-track-flex) var(
+        --group-input-date-picker-track-flex
+      );
+  }
+  .time-range-content[data-custom='true'] .time-range-presets > p {
+    grid-column: var(--group-input-date-picker-grid-line-start) /
+      var(--group-input-date-picker-grid-line-end);
+  }
+  .time-range-custom {
+    min-width: var(--group-input-date-picker-number-0);
+  }
+}

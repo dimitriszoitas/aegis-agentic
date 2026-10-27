@@ -1,0 +1,37 @@
+.aegis-copyable-field {
+  display: grid;
+  gap: var(--group-data-display-copyable-field-space-gap-compact);
+  min-width: var(--group-data-display-copyable-field-number-0);
+}
+.aegis-copyable-field > label {
+  color: var(--group-data-display-copyable-field-color-content-primary);
+  font-size: var(--group-data-display-copyable-field-font-size-body);
+  font-weight: var(--group-data-display-copyable-field-title-weight);
+}
+.aegis-copyable-field-control {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--group-data-display-copyable-field-space-gap-compact);
+  border: var(--group-data-display-copyable-field-border-width-hairline) solid
+    var(--group-data-display-copyable-field-color-border-default);
+  border-radius: var(--group-data-display-copyable-field-radius-border-radius-bold);
+  background: var(--group-data-display-copyable-field-color-surface-surface);
+  padding: var(--group-data-display-copyable-field-space-padding-compact);
+}
+.aegis-copyable-field-control :is(input, textarea) {
+  width: var(--group-data-display-copyable-field-size-width-full);
+  min-width: var(--group-data-display-copyable-field-number-0);
+  flex: var(--group-data-display-copyable-field-flex-fill);
+  border: var(--group-data-display-copyable-field-number-0);
+  padding: var(--group-data-display-copyable-field-space-padding-snug);
+  background: var(--group-data-display-copyable-field-color-transparent);
+  color: var(--group-data-display-copyable-field-color-content-primary);
+  font-family: var(--group-data-display-copyable-field-font-family-code);
+  font-size: var(--group-data-display-copyable-field-font-size-body);
+  resize: vertical;
+}
+.aegis-copyable-field > p {
+  margin: var(--group-data-display-copyable-field-number-0);
+  color: var(--group-data-display-copyable-field-color-content-secondary);
+  font-size: var(--group-data-display-copyable-field-font-size-label);
+}

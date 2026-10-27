@@ -1,0 +1,35 @@
+<script>
+  // Register before Storybook's PostMessageTransport. A nested specimen has its own
+  // Story Store; its native events must not update the surrounding docs preview.
+  // Custom specimen messages and manager-origin globals remain unaffected.
+  window.addEventListener(
+    'message',
+    function isolateNestedSpecimen(event) {
+      if (event.origin !== window.location.origin || !event.source) return;
+      var frames = document.querySelectorAll('iframe.component-docs-frame');
+      var ownsSource = Array.from(frames).some(function (frame) {
+        return frame.contentWindow === event.source;
+      });
+      if (!ownsSource) return;
+      var envelope = event.data;
+      if (typeof envelope === 'string') {
+        try {
+          envelope = JSON.parse(envelope);
+        } catch {
+          return;
+        }
+      }
+      if (
+        envelope &&
+        typeof envelope === 'object' &&
+        envelope.key === 'storybook-channel' &&
+        envelope.event &&
+        typeof envelope.event.type === 'string' &&
+        Array.isArray(envelope.event.args)
+      ) {
+        event.stopImmediatePropagation();
+      }
+    },
+    true,
+  );
+</script>

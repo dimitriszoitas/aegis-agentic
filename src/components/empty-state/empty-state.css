@@ -1,0 +1,56 @@
+.aegis-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--group-feedback-empty-state-space-gap-comfortable);
+  padding: var(--group-feedback-empty-state-space-padding-expansive)
+    var(--group-feedback-empty-state-space-padding-roomy);
+  min-height: var(--group-feedback-empty-state-size-min-height-wide-panel-large);
+  text-align: center;
+}
+.aegis-empty-state[data-compact='true'] {
+  padding: var(--group-feedback-empty-state-space-padding-roomy)
+    var(--group-feedback-empty-state-space-padding-comfortable);
+  min-height: var(--group-feedback-empty-state-size-min-height-panel-huge);
+}
+.aegis-empty-state-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--group-feedback-empty-state-space-width-14);
+  height: var(--group-feedback-empty-state-space-height-14);
+  color: var(--group-feedback-empty-state-color-content-secondary);
+  border: var(--group-feedback-empty-state-border-width-hairline) solid
+    var(--group-feedback-empty-state-color-border-subtle);
+  border-radius: var(--group-feedback-empty-state-radius-border-radius-strong);
+  background: var(--group-feedback-empty-state-color-surface-surface-raised);
+  box-shadow: var(--group-feedback-empty-state-shadow-raised);
+}
+.aegis-empty-state[data-preset='error'] .aegis-empty-state-icon {
+  color: var(--group-feedback-empty-state-color-danger-foreground);
+  background: var(--group-feedback-empty-state-color-danger-soft);
+  border-color: var(--group-feedback-empty-state-color-danger-border);
+}
+.aegis-empty-state-copy {
+  max-width: var(--group-feedback-empty-state-size-max-width-canvas-compact);
+}
+.aegis-empty-state-copy h3 {
+  margin: var(--group-feedback-empty-state-number-0) var(--group-feedback-empty-state-number-0)
+    var(--group-feedback-empty-state-space-margin-compact);
+  font-size: var(--group-feedback-empty-state-font-size-subheading);
+  color: var(--group-feedback-empty-state-color-content-primary);
+}
+.aegis-empty-state-copy p {
+  margin: var(--group-feedback-empty-state-number-0);
+  font-size: var(--group-feedback-empty-state-font-size-body);
+  color: var(--group-feedback-empty-state-color-content-secondary);
+  line-height: var(--group-feedback-empty-state-font-leading-prose);
+}
+.aegis-empty-state-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--group-feedback-empty-state-space-gap-compact);
+  flex-wrap: wrap;
+}

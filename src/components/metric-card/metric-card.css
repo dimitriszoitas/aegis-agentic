@@ -1,0 +1,99 @@
+.aegis-metric-card {
+  padding: var(--group-data-display-metric-card-layout-card-padding);
+  min-width: var(--group-data-display-metric-card-number-0);
+}
+.aegis-metric-card[data-intent='function'] {
+  --group-data-display-metric-card-metric-accent: var(
+    --semantic-part-metric-card-metric-accent-function
+  );
+}
+.aegis-metric-card[data-intent='success'] {
+  --group-data-display-metric-card-metric-accent: var(
+    --semantic-part-metric-card-metric-accent-success
+  );
+}
+.aegis-metric-card[data-intent='warning'] {
+  --group-data-display-metric-card-metric-accent: var(
+    --semantic-part-metric-card-metric-accent-warning
+  );
+}
+.aegis-metric-card[data-intent='destroy'] {
+  --group-data-display-metric-card-metric-accent: var(
+    --semantic-part-metric-card-metric-accent-destroy
+  );
+}
+.aegis-metric-card[data-intent='ai'] {
+  --group-data-display-metric-card-metric-accent: var(--semantic-part-metric-card-metric-accent-ai);
+}
+.aegis-metric-label {
+  font-size: var(--group-data-display-metric-card-font-size-body);
+  font-weight: var(--group-data-display-metric-card-font-weight-medium);
+  color: var(--group-data-display-metric-card-color-content-secondary);
+  margin-bottom: var(--group-data-display-metric-card-space-margin-bottom-compact);
+}
+.aegis-metric-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-data-display-metric-card-space-gap-comfortable);
+}
+.aegis-metric-value {
+  flex: var(--group-data-display-metric-card-flex-none)
+    var(--group-data-display-metric-card-flex-none) auto;
+  max-width: var(--group-data-display-metric-card-size-max-width-full);
+  color: var(
+    --group-data-display-metric-card-metric-accent,
+    var(--group-data-display-metric-card-color-content-primary)
+  );
+  font-weight: var(--group-data-display-metric-card-font-weight-bold);
+  letter-spacing: var(--group-data-display-metric-card-font-tracking-display);
+  line-height: var(--group-data-display-metric-card-font-leading-display);
+  font-size: var(--group-data-display-metric-card-metric-value-size);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.aegis-metric-main > :is(.aegis-sparkline, .aegis-sparkline-empty) {
+  flex: var(--group-data-display-metric-card-flex-fill)
+    var(--group-data-display-metric-card-flex-fill)
+    var(--group-data-display-metric-card-size-flex-content-snug);
+  min-width: var(--group-data-display-metric-card-number-0);
+  max-width: var(--group-data-display-metric-card-size-max-width-wide-content-regular);
+  margin-inline-start: auto;
+}
+.aegis-metric-main > .aegis-sparkline {
+  height: auto;
+}
+.aegis-metric-value > span {
+  margin-left: var(--group-data-display-metric-card-space-margin-left-snug);
+  font-size: var(--group-data-display-metric-card-font-size-subheading);
+  font-weight: var(--group-data-display-metric-card-font-weight-regular);
+  letter-spacing: var(--group-data-display-metric-card-font-tracking-normal);
+  color: var(--group-data-display-metric-card-color-content-secondary);
+}
+.aegis-metric-comparison {
+  display: flex;
+  align-items: center;
+  gap: var(--group-data-display-metric-card-space-gap-compact);
+  font-size: var(--group-data-display-metric-card-font-size-label);
+  color: var(--group-data-display-metric-card-color-content-secondary);
+  margin-top: var(--group-data-display-metric-card-space-margin-top-compact);
+  flex-wrap: wrap;
+}
+.aegis-metric-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--group-data-display-metric-card-size-gap-micro-compact);
+  font-variant-numeric: tabular-nums;
+}
+.aegis-metric-delta[data-trend='success'] {
+  color: var(--group-data-display-metric-card-color-success-foreground);
+}
+.aegis-metric-delta[data-trend='destroy'] {
+  color: var(--group-data-display-metric-card-color-danger-foreground);
+}
+.aegis-metric-loading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-data-display-metric-card-space-gap-comfortable);
+}

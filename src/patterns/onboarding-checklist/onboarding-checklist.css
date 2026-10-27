@@ -1,0 +1,130 @@
+.aegis-onboarding-checklist {
+  min-width: var(--group-workflow-onboarding-checklist-number-0);
+  display: grid;
+  gap: var(--group-workflow-onboarding-checklist-space-gap-5);
+  padding: var(--group-workflow-onboarding-checklist-space-padding-5);
+  background: var(--group-workflow-onboarding-checklist-color-surface-surface);
+  border: var(--group-workflow-onboarding-checklist-border-width-hairline) solid
+    var(--group-workflow-onboarding-checklist-color-border-subtle);
+  border-radius: var(--group-workflow-onboarding-checklist-radius-border-radius-strong);
+}
+.aegis-onboarding-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--group-workflow-onboarding-checklist-space-gap-regular);
+}
+.aegis-onboarding-heading h3 {
+  margin: var(--group-workflow-onboarding-checklist-number-0);
+  font-size: var(--group-workflow-onboarding-checklist-font-size-body);
+  font-weight: var(--group-workflow-onboarding-checklist-title-weight);
+  line-height: var(--group-workflow-onboarding-checklist-font-leading-heading);
+}
+.aegis-onboarding-heading p {
+  margin: var(--group-workflow-onboarding-checklist-space-margin-compact)
+    var(--group-workflow-onboarding-checklist-number-0)
+    var(--group-workflow-onboarding-checklist-number-0);
+  color: var(--group-workflow-onboarding-checklist-color-content-secondary);
+  font-size: var(--group-workflow-onboarding-checklist-font-size-body);
+  line-height: var(--group-workflow-onboarding-checklist-font-leading-body);
+}
+.aegis-onboarding-header-actions {
+  display: flex;
+  flex: none;
+}
+.aegis-onboarding-progress {
+  display: grid;
+  gap: var(--group-workflow-onboarding-checklist-space-gap-compact);
+}
+.aegis-onboarding-progress > span {
+  display: flex;
+  align-items: center;
+  gap: var(--group-workflow-onboarding-checklist-space-gap-compact);
+  color: var(--group-workflow-onboarding-checklist-color-content-secondary);
+  font-size: var(--group-workflow-onboarding-checklist-font-size-label);
+}
+.aegis-onboarding-steps {
+  list-style: none;
+  margin: var(--group-workflow-onboarding-checklist-number-0);
+  padding: var(--group-workflow-onboarding-checklist-number-0);
+}
+.aegis-onboarding-steps > li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--group-workflow-onboarding-checklist-space-gap-comfortable);
+  padding: var(--group-workflow-onboarding-checklist-space-padding-comfortable)
+    var(--group-workflow-onboarding-checklist-number-0);
+  border-bottom: var(--group-workflow-onboarding-checklist-border-width-hairline) solid
+    var(--group-workflow-onboarding-checklist-color-border-subtle);
+}
+.aegis-onboarding-steps > li:first-child {
+  padding-top: var(--group-workflow-onboarding-checklist-number-0);
+}
+.aegis-onboarding-steps > li:last-child {
+  padding-bottom: var(--group-workflow-onboarding-checklist-number-0);
+  border-bottom: var(--group-workflow-onboarding-checklist-number-0);
+}
+.aegis-onboarding-steps .aegis-checkbox-field {
+  flex: var(--group-workflow-onboarding-checklist-flex-fill);
+  min-width: var(--group-workflow-onboarding-checklist-number-0);
+}
+.aegis-onboarding-steps .aegis-checkbox-label > span {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--group-workflow-onboarding-checklist-space-gap-compact);
+}
+.aegis-onboarding-steps .aegis-checkbox-label small {
+  font-size: var(--group-workflow-onboarding-checklist-font-size-label);
+  font-weight: var(--group-workflow-onboarding-checklist-font-weight-regular);
+  color: var(--group-workflow-onboarding-checklist-color-content-secondary);
+}
+.aegis-onboarding-steps > li[data-completed='true'] .aegis-checkbox-label {
+  color: var(--group-workflow-onboarding-checklist-color-content-secondary);
+}
+.aegis-onboarding-steps > li > .aegis-button {
+  flex: none;
+}
+.aegis-onboarding-complete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--group-workflow-onboarding-checklist-space-gap-regular);
+  margin-top: var(--group-workflow-onboarding-checklist-space-margin-top-comfortable);
+  padding-top: var(--group-workflow-onboarding-checklist-space-padding-top-comfortable);
+  border-top: var(--group-workflow-onboarding-checklist-border-width-hairline) solid
+    var(--group-workflow-onboarding-checklist-color-border-subtle);
+}
+.aegis-onboarding-complete p {
+  color: var(--group-workflow-onboarding-checklist-color-success-foreground);
+  font-size: var(--group-workflow-onboarding-checklist-font-size-body);
+  margin: var(--group-workflow-onboarding-checklist-number-0);
+}
+.aegis-onboarding-loading {
+  display: grid;
+  gap: var(--group-workflow-onboarding-checklist-space-gap-5);
+}
+.aegis-onboarding-loading > div {
+  display: grid;
+  gap: var(--group-workflow-onboarding-checklist-space-gap-compact);
+}
+.aegis-onboarding-checklist .aegis-notification {
+  margin-bottom: var(--group-workflow-onboarding-checklist-space-margin-bottom-comfortable);
+}
+@media (max-width: 480px) {
+  .aegis-onboarding-checklist {
+    padding: var(--group-workflow-onboarding-checklist-space-padding-comfortable);
+  }
+  .aegis-onboarding-steps > li {
+    flex-wrap: wrap;
+    gap: var(--group-workflow-onboarding-checklist-space-gap-compact);
+  }
+  .aegis-onboarding-steps > li > .aegis-button {
+    margin-left: calc(
+      var(--group-workflow-onboarding-checklist-size-margin-left-glyph-vast) +
+        var(--group-workflow-onboarding-checklist-space-margin-left-regular)
+    );
+  }
+}

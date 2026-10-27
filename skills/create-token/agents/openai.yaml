@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Token creation'
+  short_description: 'Create and migrate tokens across the three tiers'
+  default_prompt: 'Use $create-token to add or refine a token without bypassing the approved tiers.'

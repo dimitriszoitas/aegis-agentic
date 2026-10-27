@@ -1,0 +1,214 @@
+:where(:root, .light, [data-theme='light']) {
+  --group-iconography-aws-logo-aws-logo-light-display: var(
+    --semantic-part-aws-logo-aws-logo-light-display-light
+  );
+  --group-iconography-aws-logo-aws-logo-dark-display: var(
+    --semantic-part-aws-logo-aws-logo-dark-display-light
+  );
+}
+:where(.dark, [data-theme='dark']) {
+  --group-iconography-aws-logo-aws-logo-light-display: var(
+    --semantic-part-aws-logo-aws-logo-light-display-dark
+  );
+  --group-iconography-aws-logo-aws-logo-dark-display: var(
+    --semantic-part-aws-logo-aws-logo-dark-display-dark
+  );
+}
+.aegis-aws-logo {
+  display: inline-flex;
+  flex: var(--group-iconography-aws-logo-flex-none) var(--group-iconography-aws-logo-flex-none) auto;
+  width: var(--aws-logo-size);
+  height: var(--aws-logo-size);
+  overflow: hidden;
+  border-radius: var(--group-iconography-aws-logo-radius-border-radius-strong);
+  background: var(--group-iconography-aws-logo-color-surface-surface);
+  vertical-align: middle;
+}
+.aegis-aws-logo img {
+  width: var(--group-iconography-aws-logo-size-width-full);
+  height: var(--group-iconography-aws-logo-size-height-full);
+  object-fit: contain;
+}
+.aegis-aws-logo .aegis-aws-logo-light {
+  display: var(--group-iconography-aws-logo-aws-logo-light-display);
+}
+.aegis-aws-logo .aegis-aws-logo-dark {
+  display: var(--group-iconography-aws-logo-aws-logo-dark-display);
+}
+.aegis-aws-catalog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-iconography-aws-logo-space-gap-comfortable);
+  min-width: var(--group-iconography-aws-logo-number-0);
+}
+.aegis-aws-catalog-heading h2 {
+  margin: var(--group-iconography-aws-logo-number-0) var(--group-iconography-aws-logo-number-0)
+    var(--group-iconography-aws-logo-space-margin-compact);
+  font-size: var(--group-iconography-aws-logo-font-size-title-page);
+  font-weight: var(--group-iconography-aws-logo-font-weight-medium);
+}
+.aegis-aws-catalog-heading p {
+  margin: var(--group-iconography-aws-logo-space-margin-snug)
+    var(--group-iconography-aws-logo-number-0);
+  color: var(--group-iconography-aws-logo-color-content-secondary);
+  font-size: var(--group-iconography-aws-logo-font-size-body);
+}
+.aegis-aws-catalog-toolbar {
+  display: grid;
+  grid-template-columns: minmax(
+      var(--group-iconography-aws-logo-size-grid-template-columns-wide-panel-tiny),
+      var(--group-iconography-aws-logo-track-flex)
+    ) var(--group-iconography-aws-logo-size-grid-template-columns-panel-huge) var(
+      --group-iconography-aws-logo-size-grid-template-columns-wide-panel-regular
+    );
+  gap: var(--group-iconography-aws-logo-space-gap-regular);
+}
+.aegis-aws-catalog-selection {
+  display: flex;
+  align-items: center;
+  gap: var(--group-iconography-aws-logo-space-gap-comfortable);
+  padding: var(--group-iconography-aws-logo-space-padding-comfortable);
+  border: var(--group-iconography-aws-logo-border-width-hairline) solid transparent;
+  border-radius: var(--group-iconography-aws-logo-radius-border-radius-strong);
+  background: var(--group-iconography-aws-logo-color-transparent);
+}
+.aegis-aws-catalog-selected-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-iconography-aws-logo-space-gap-snug);
+  min-width: var(--group-iconography-aws-logo-number-0);
+  flex: var(--group-iconography-aws-logo-flex-fill);
+}
+.aegis-aws-catalog-selected-copy strong {
+  font-size: var(--group-iconography-aws-logo-font-size-body);
+  font-weight: var(--group-iconography-aws-logo-font-weight-medium);
+}
+.aegis-aws-catalog-selected-copy span,
+.aegis-aws-catalog-selected-copy code {
+  font-size: var(--group-iconography-aws-logo-font-size-label);
+  overflow-wrap: anywhere;
+}
+.aegis-aws-catalog-selected-copy span {
+  color: var(--group-iconography-aws-logo-color-content-secondary);
+}
+.aegis-aws-catalog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--group-iconography-aws-logo-space-gap-regular);
+}
+.aegis-aws-catalog a {
+  color: var(--group-iconography-aws-logo-color-action-foreground);
+  text-decoration: underline;
+  text-underline-offset: var(--group-iconography-aws-logo-size-text-underline-offset-micro-snug);
+  font-size: var(--group-iconography-aws-logo-font-size-label);
+}
+.aegis-aws-catalog-count {
+  margin: var(--group-iconography-aws-logo-number-0);
+  color: var(--group-iconography-aws-logo-color-content-secondary);
+  font-size: var(--group-iconography-aws-logo-font-size-label);
+}
+.aegis-aws-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(
+      var(--group-iconography-aws-logo-size-grid-template-columns-panel-regular),
+      var(--group-iconography-aws-logo-track-flex)
+    )
+  );
+  gap: var(--group-iconography-aws-logo-space-gap-regular);
+  list-style: none;
+  padding: var(--group-iconography-aws-logo-number-0);
+  margin: var(--group-iconography-aws-logo-number-0);
+}
+.aegis-aws-catalog-grid li {
+  display: flex;
+  min-width: var(--group-iconography-aws-logo-number-0);
+}
+.aegis-aws-catalog-grid button {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: var(--group-iconography-aws-logo-space-gap-compact);
+  width: var(--group-iconography-aws-logo-size-width-full);
+  text-align: left;
+  padding: var(--group-iconography-aws-logo-space-padding-regular);
+  color: var(--group-iconography-aws-logo-color-content-primary);
+  background: var(--group-iconography-aws-logo-color-transparent);
+  border: var(--group-iconography-aws-logo-border-width-hairline) solid transparent;
+  border-radius: var(--group-iconography-aws-logo-radius-border-radius-strong);
+  cursor: pointer;
+}
+.aegis-aws-catalog-grid button:hover {
+  background: color-mix(
+    in srgb,
+    var(--group-iconography-aws-logo-color-content-primary) var(--group-iconography-aws-logo-mix-4),
+    transparent
+  );
+}
+.aegis-aws-catalog-grid button[aria-pressed='true'] strong {
+  color: var(--group-iconography-aws-logo-color-action-foreground);
+}
+.aegis-aws-catalog-check {
+  position: absolute;
+  top: var(--group-iconography-aws-logo-space-top-regular);
+  right: var(--group-iconography-aws-logo-space-right-regular);
+  color: var(--group-iconography-aws-logo-color-action-foreground);
+}
+.aegis-aws-catalog-grid strong {
+  font-size: var(--group-iconography-aws-logo-font-size-body);
+  font-weight: var(--group-iconography-aws-logo-font-weight-medium);
+  overflow-wrap: anywhere;
+}
+.aegis-aws-catalog-grid span:not(.aegis-aws-logo),
+.aegis-aws-catalog-grid small {
+  color: var(--group-iconography-aws-logo-color-content-secondary);
+  font-size: var(--group-iconography-aws-logo-font-size-label);
+}
+.aegis-aws-catalog-grid small {
+  margin-top: auto;
+}
+.aegis-aws-catalog-empty {
+  padding: var(--group-iconography-aws-logo-space-padding-spacious);
+  text-align: center;
+  border: var(--group-iconography-aws-logo-border-width-hairline) solid transparent;
+  border-radius: var(--group-iconography-aws-logo-radius-border-radius-strong);
+}
+.aegis-aws-catalog-empty h3 {
+  margin: var(--group-iconography-aws-logo-number-0);
+  font-size: var(--group-iconography-aws-logo-font-size-body);
+  font-weight: var(--group-iconography-aws-logo-font-weight-medium);
+}
+.aegis-aws-catalog-empty p {
+  font-size: var(--group-iconography-aws-logo-font-size-body);
+  color: var(--group-iconography-aws-logo-color-content-secondary);
+}
+.aegis-aws-catalog-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--group-iconography-aws-logo-space-gap-compact);
+}
+.aegis-aws-catalog-pagination > span {
+  margin-right: auto;
+  font-size: var(--group-iconography-aws-logo-font-size-label);
+  color: var(--group-iconography-aws-logo-color-content-secondary);
+}
+.aegis-aws-catalog-attribution {
+  font-size: var(--group-iconography-aws-logo-font-size-label);
+  color: var(--group-iconography-aws-logo-color-content-secondary);
+  line-height: var(--group-iconography-aws-logo-font-leading-relaxed);
+}
+@media (max-width: 700px) {
+  .aegis-aws-catalog-toolbar {
+    grid-template-columns: var(--group-iconography-aws-logo-track-flex);
+  }
+  .aegis-aws-catalog-selection {
+    flex-wrap: wrap;
+  }
+  .aegis-aws-catalog-actions {
+    width: var(--group-iconography-aws-logo-size-width-full);
+  }
+}

@@ -1,0 +1,153 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SpacingExamples, DensityExamples } from './foundation-examples';
+import { Button } from '../../components/button';
+
+<Meta title="Foundations/Spacing & Sizing" id="foundations-space-and-surfaces" />
+
+# Spacing & Sizing
+
+Use a shared rhythm from the inside of a control to the complete workspace. Choose a spacing role or a component size before creating a custom measurement.
+
+## Spacing scale
+
+Primitive dimensions supply the raw measurements. Semantic spacing roles form an ordered ramp from `--semantic-space-xxxs` through `--semantic-space-xxxxl`, with smaller optical and larger section roles where needed. The specimens inspect that semantic ramp. Production consumers use family group tokens, such as `--group-trigger-button-padding-snug`, rather than bypassing the group layer.
+
+<SpacingExamples />
+
+## Layout roles
+
+Fundamental and Fundamental Floating share interior spacing. Layout roles adapt at narrow widths so pages remain comfortable without changing the size of their controls.
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Role</th>
+      <th scope="col">Canonical role or consumer token</th>
+      <th scope="col">Default desktop value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Page padding</td>
+      <td>
+        <code>--group-surface-page-padding</code>
+      </td>
+      <td>28px</td>
+    </tr>
+    <tr>
+      <td>Section spacing</td>
+      <td>
+        <code>--semantic-space-xxl</code>, selected through the owning family group
+      </td>
+      <td>24px</td>
+    </tr>
+    <tr>
+      <td>Card padding</td>
+      <td>
+        <code>--group-surface-card-padding</code>
+      </td>
+      <td>20px</td>
+    </tr>
+    <tr>
+      <td>Panel padding</td>
+      <td>
+        <code>--group-surface-overlay-padding-regular</code>
+      </td>
+      <td>24px</td>
+    </tr>
+    <tr>
+      <td>Nested content inset</td>
+      <td>
+        <code>--group-navigation-nested-inset</code>
+      </td>
+      <td>12px</td>
+    </tr>
+  </tbody>
+</table>
+
+Responsive rules may select a smaller group role for the available space. They do not change the invariant meaning of the semantic spacing ramp. Inspect Tokens Used for the exact role selected by a component.
+
+Use the nested inset for accordion bodies, navigation children, tree levels, JSON branches, and expanded table content. Keep page and section spacing separate from the compact spacing inside a control.
+
+## Control sizing
+
+Use the component's `size` property to change its full geometry together. Buttons and fields share small, medium, and large heights. Their CSS consumes family-owned height tokens. The public size names remain `sm`, `md`, and `lg`.
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Size</th>
+      <th scope="col">Button group token</th>
+      <th scope="col">Field group token</th>
+      <th scope="col">Height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Small</td>
+      <td>
+        <code>--group-trigger-button-height-compact</code>
+      </td>
+      <td>
+        <code>--group-input-field-height-compact</code>
+      </td>
+      <td>28px</td>
+    </tr>
+    <tr>
+      <td>Medium</td>
+      <td>
+        <code>--group-trigger-button-height-regular</code>
+      </td>
+      <td>
+        <code>--group-input-field-height-regular</code>
+      </td>
+      <td>34px</td>
+    </tr>
+    <tr>
+      <td>Large</td>
+      <td>
+        <code>--group-trigger-button-height-large</code>
+      </td>
+      <td>
+        <code>--group-input-field-height-large</code>
+      </td>
+      <td>40px</td>
+    </tr>
+  </tbody>
+</table>
+
+Relative ramps are family-specific. For example, `--group-trigger-button-size-regular` is 28px while `--group-surface-size-regular` is 96px. Choose the role for the property and family; a generic size ramp is not a substitute for a component's complete size variant.
+
+<div className="foundation-example row" aria-label="Control size examples">
+  <Button size="sm" emphasis="secondary">
+    Small
+  </Button>
+  <Button size="md" emphasis="secondary">
+    Medium
+  </Button>
+  <Button size="lg" emphasis="secondary">
+    Large
+  </Button>
+</div>
+
+Avoid resizing a control through its height alone. Its typography, icon size, padding, and corner radius need to stay coordinated. Use the component's Tokens Used tab to inspect the complete mapping.
+
+## Data density
+
+DataGrid consumes the canonical group tokens `--group-data-display-measurement-grid-row-compact` (36px), `--group-data-display-measurement-grid-row-default` (48px), and `--group-data-display-measurement-grid-row-comfortable` (60px). These established public CSS names are retained; their manifest tier is group even though they do not use the `--group-` prefix. Expanded content is measured separately, so a density change does not clip nested content.
+
+<DensityExamples />
+
+Truncate long primary labels within the row and keep the complete value available through the component's supported accessible treatment.
+
+## Responsive composition
+
+A wizard can separate progress and form content into top-aligned regions, with progress stacking above the form at narrow widths. Keep navigation and explicit approval within reach in its footer.
+
+Application examples fill the available width up to 2160px and remain centered on wider screens. Smaller previews use responsive layouts. Fundamental Floating adds exterior container insets while keeping the same interior spacing roles.
+
+## Overflow and scrollbars
+
+Overflowing pages and nested regions share native scrollbar styling in both modes. Where supported, an 8px transparent track contains a 6px thumb with a 1px inset and 4px corners. The activity helper reveals thumbs while scrolling or using keyboard focus. The standards fallback uses a thin scrollbar, and forced-colors mode retains native styling.
+
+Keep keyboard, wheel, touch, and native scrolling available. Avoid shrinking text or controls to make an overflowing composition fit.

@@ -1,0 +1,14 @@
+.icon-button-tooltip-positioner {
+  z-index: var(--group-trigger-button-z-tooltip);
+}
+.icon-button-tooltip {
+  z-index: var(--group-trigger-button-z-tooltip);
+  font-size: var(--group-trigger-button-font-size-label);
+  padding: var(--group-trigger-button-padding-compact) var(--group-trigger-button-padding-regular);
+  background: var(--group-trigger-button-color-surface-surface-raised);
+  color: var(--group-trigger-button-color-content-primary);
+  border: var(--group-trigger-button-border-width-hairline) solid
+    var(--group-trigger-button-color-border-default);
+  border-radius: var(--group-trigger-button-radius-bold);
+  box-shadow: var(--group-trigger-button-shadow-overlay);
+}

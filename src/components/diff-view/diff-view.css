@@ -1,0 +1,212 @@
+.aegis-diff-view {
+  min-width: var(--group-code-diff-view-number-0);
+  overflow: hidden;
+  border: var(--group-code-diff-view-border-width-hairline) solid
+    var(--group-code-diff-view-color-border-default);
+  border-radius: var(--group-code-diff-view-radius-border-radius-bold);
+  background: var(--group-code-diff-view-color-surface-surface);
+  color: var(--group-code-diff-view-color-content-primary);
+}
+.aegis-diff-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--group-code-diff-view-space-gap-regular);
+  padding: var(--group-code-diff-view-space-padding-regular);
+  border-bottom: var(--group-code-diff-view-border-width-hairline) solid
+    var(--group-code-diff-view-color-border-subtle);
+}
+.aegis-diff-title,
+.aegis-diff-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-code-diff-view-space-gap-regular);
+}
+.aegis-diff-title h3 {
+  margin: var(--group-code-diff-view-number-0);
+  font-size: var(--group-code-diff-view-font-size-body);
+  font-weight: var(--group-code-diff-view-title-weight);
+}
+.aegis-diff-title > span {
+  font-size: var(--group-code-diff-view-font-size-label);
+  color: var(--group-code-diff-view-color-content-secondary);
+}
+.aegis-diff-legend {
+  display: grid;
+  grid-template-columns: var(--group-code-diff-view-track-flex) var(
+      --group-code-diff-view-track-flex
+    );
+  border-bottom: var(--group-code-diff-view-border-width-hairline) solid
+    var(--group-code-diff-view-color-border-subtle);
+  background: var(--group-code-diff-view-color-surface-canvas);
+  font-size: var(--group-code-diff-view-font-size-label);
+}
+.aegis-diff-legend > div {
+  display: flex;
+  align-items: center;
+  gap: var(--group-code-diff-view-space-gap-compact);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: var(--group-code-diff-view-space-padding-compact)
+    var(--group-code-diff-view-space-padding-regular);
+}
+.aegis-diff-legend > div + div {
+  border-left: var(--group-code-diff-view-border-width-hairline) solid
+    var(--group-code-diff-view-color-border-subtle);
+}
+.aegis-diff-change-count {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--group-code-diff-view-font-weight-medium);
+}
+.aegis-diff-ai-label {
+  background: var(--group-code-diff-view-gradient-ai-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: var(--group-code-diff-view-color-transparent);
+  font-weight: var(--group-code-diff-view-font-weight-medium);
+}
+.aegis-diff-removed {
+  color: var(--group-code-diff-view-color-danger-foreground);
+}
+.aegis-diff-added {
+  color: var(--group-code-diff-view-color-success-foreground);
+}
+.aegis-diff-host {
+  min-height: var(--diff-min-height);
+}
+.aegis-diff-host .cm-mergeView,
+.aegis-diff-host > .cm-editor {
+  min-height: var(--diff-min-height);
+  max-height: var(--diff-max-height);
+  overflow: auto;
+}
+.aegis-diff-host .cm-mergeViewEditor + .cm-mergeViewEditor {
+  border-left: var(--group-code-diff-view-border-width-hairline) solid
+    var(--group-code-diff-view-color-border-default);
+}
+.aegis-diff-host .cm-mergeView:focus-visible {
+  outline: var(--group-code-diff-view-border-width-regular) solid
+    var(--group-code-diff-view-ring-focus);
+  outline-offset: var(--group-code-diff-view-size-outline-offset-negative-2);
+}
+.aegis-diff-host .cm-editor:focus-within {
+  box-shadow: inset var(--group-code-diff-view-number-0) var(--group-code-diff-view-number-0)
+    var(--group-code-diff-view-number-0) var(--group-code-diff-view-size-box-shadow-micro-compact)
+    var(--group-code-diff-view-ring-focus);
+}
+.aegis-diff-host .cm-merge-a .cm-changedLine,
+.aegis-diff-host .cm-deletedChunk {
+  background: color-mix(
+    in srgb,
+    var(--group-code-diff-view-color-danger-fill) var(--group-code-diff-view-mix-12),
+    var(--group-code-diff-view-color-surface-surface)
+  );
+}
+.aegis-diff-host .cm-merge-b .cm-changedLine,
+.aegis-diff-host .cm-inlineChangedLine {
+  background: color-mix(
+    in srgb,
+    var(--group-code-diff-view-color-success-fill) var(--group-code-diff-view-mix-12),
+    var(--group-code-diff-view-color-surface-surface)
+  );
+}
+.aegis-diff-host .cm-merge-a .cm-changedText,
+.aegis-diff-host .cm-deletedText {
+  background: color-mix(
+    in srgb,
+    var(--group-code-diff-view-color-danger-fill) var(--group-code-diff-view-mix-22),
+    transparent
+  ) !important;
+  text-decoration: underline var(--group-code-diff-view-color-danger-foreground)
+    var(--group-code-diff-view-size-text-decoration-micro-compact) !important;
+  text-underline-offset: var(--group-code-diff-view-size-text-underline-offset-micro-snug);
+}
+.aegis-diff-host .cm-merge-b .cm-changedText {
+  background: color-mix(
+    in srgb,
+    var(--group-code-diff-view-color-success-fill) var(--group-code-diff-view-mix-22),
+    transparent
+  ) !important;
+  text-decoration: underline var(--group-code-diff-view-color-success-foreground)
+    var(--group-code-diff-view-size-text-decoration-micro-compact) !important;
+  text-underline-offset: var(--group-code-diff-view-size-text-underline-offset-micro-snug);
+}
+.aegis-diff-host .cm-changedText,
+.aegis-diff-host .cm-changedText *,
+.aegis-diff-host .cm-deletedText,
+.aegis-diff-host .cm-deletedText * {
+  color: var(--group-code-diff-view-color-content-primary) !important;
+}
+.aegis-diff-host .cm-merge-a .cm-changedLineGutter,
+.aegis-diff-host .cm-deletedLineGutter {
+  background: var(--group-code-diff-view-color-danger-soft) !important;
+  color: var(--group-code-diff-view-color-danger-foreground);
+}
+.aegis-diff-host .cm-merge-b .cm-changedLineGutter {
+  background: var(--group-code-diff-view-color-success-soft) !important;
+  color: var(--group-code-diff-view-color-success-foreground);
+}
+.aegis-diff-host .cm-inlineChangedLineGutter {
+  background: var(--group-code-diff-view-color-success-soft) !important;
+  color: var(--group-code-diff-view-color-success-foreground);
+}
+.aegis-diff-host .cm-changeGutter {
+  width: var(--group-code-diff-view-size-width-small);
+  padding: var(--group-code-diff-view-number-0);
+}
+.aegis-diff-host .cm-changeGutter .cm-gutterElement {
+  padding: var(--group-code-diff-view-number-0);
+  text-align: center;
+}
+.aegis-diff-host .cm-merge-a .cm-changedLineGutter::before,
+.aegis-diff-host .cm-deletedLineGutter::before {
+  content: '−';
+}
+.aegis-diff-host .cm-merge-b .cm-changedLineGutter::before {
+  content: '+';
+}
+.aegis-diff-host .cm-inlineChangedLineGutter::before {
+  content: '±';
+}
+.aegis-diff-host .cm-deletedChunk {
+  border-inline-start: var(--group-code-diff-view-border-width-strong) solid
+    var(--group-code-diff-view-color-danger-foreground);
+}
+.aegis-diff-host .cm-collapsedLines {
+  color: var(--group-code-diff-view-color-content-secondary) !important;
+  background: var(--group-code-diff-view-color-surface-hover) !important;
+  border-block: var(--group-code-diff-view-border-width-hairline) solid
+    var(--group-code-diff-view-color-border-subtle);
+  font-family: var(--group-code-diff-view-font-family-ui);
+  font-size: var(--group-code-diff-view-font-size-label);
+}
+.aegis-diff-host .cm-collapsedLines:focus-visible {
+  outline: var(--group-code-diff-view-border-width-regular) solid
+    var(--group-code-diff-view-ring-focus);
+  outline-offset: var(--group-code-diff-view-size-outline-offset-negative-2);
+}
+.aegis-diff-view[data-mode='unified'] .aegis-diff-legend {
+  display: flex;
+  flex-wrap: wrap;
+}
+.aegis-diff-view[data-mode='unified'] .aegis-diff-legend > div {
+  flex: var(--group-code-diff-view-flex-fill);
+}
+@media (forced-colors: active) {
+  .aegis-diff-ai-label {
+    background: var(--group-code-diff-view-elevation-none);
+    color: CanvasText;
+  }
+}
+
+/* Changed-line fills carry the diff intent; preserve text contrast over both fills. */
+.aegis-diff-host .cm-changedLine,
+.aegis-diff-host .cm-changedLine *,
+.aegis-diff-host .cm-deletedChunk,
+.aegis-diff-host .cm-deletedChunk *,
+.aegis-diff-host .cm-inlineChangedLine,
+.aegis-diff-host .cm-inlineChangedLine * {
+  color: var(--group-code-diff-view-color-content-primary);
+}

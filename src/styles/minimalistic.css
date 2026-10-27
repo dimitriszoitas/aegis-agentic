@@ -1,0 +1,170 @@
+/* Scope visual simplification to Aegis UI, leaving the host/marketing identity intact.
+   Important declarations only enforce the mode contract over component state styles. */
+[data-layout-theme='minimalistic']
+  :is([class^='aegis-'], [class*=' aegis-']):not(.aegis-marketing, .aegis-theme-light),
+[data-layout-theme='minimalistic']
+  :is([class^='aegis-'], [class*=' aegis-']):not(.aegis-marketing, .aegis-theme-light)
+  *,
+[data-layout-theme='minimalistic']
+  :is([class^='aegis-'], [class*=' aegis-']):not(.aegis-marketing, .aegis-theme-light)::before,
+[data-layout-theme='minimalistic']
+  :is([class^='aegis-'], [class*=' aegis-']):not(.aegis-marketing, .aegis-theme-light)::after,
+[data-layout-theme='minimalistic']
+  :is([class^='aegis-'], [class*=' aegis-']):not(.aegis-marketing, .aegis-theme-light)
+  *::before,
+[data-layout-theme='minimalistic']
+  :is([class^='aegis-'], [class*=' aegis-']):not(.aegis-marketing, .aegis-theme-light)
+  *::after,
+[data-layout-theme='minimalistic']
+  :is(.surface, .floating, .side-nav, .tag, .status-badge, .severity-badge, .count-badge),
+[data-layout-theme='minimalistic'] .side-nav * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+[data-layout-theme='minimalistic'] .aegis-button:not([data-intent='destroy'], [data-intent='ai']) {
+  --intent-bg: var(--color-function-bg) !important;
+  --intent-fg: var(--color-text-primary) !important;
+  --intent-soft: var(--color-bg-canvas) !important;
+  --intent-on: var(--color-on-intent) !important;
+  --intent-border: var(--color-border-default) !important;
+}
+[data-layout-theme='minimalistic'] .aegis-button[data-emphasis='primary']:not([data-intent='ai']) {
+  background: var(--intent-bg);
+  color: var(--intent-on);
+}
+[data-layout-theme='minimalistic']
+  .aegis-button[data-emphasis='secondary']:not([data-intent='ai']) {
+  background: var(--intent-soft);
+  color: var(--intent-fg);
+  border-color: var(--color-border-default);
+}
+[data-layout-theme='minimalistic'] .aegis-button[data-emphasis='tertiary']:not([data-intent='ai']) {
+  border-color: var(--intent-border) !important;
+}
+/* Resting actions stay neutral; interaction feedback keeps the familiar function blue. */
+[data-layout-theme='minimalistic']
+  .aegis-button:not([data-intent='ai'], [data-intent='destroy']):not(:disabled):is(
+    :hover,
+    :focus-visible
+  ) {
+  color: var(--minimal-interaction-fg);
+  border-color: var(--minimal-interaction-border) !important;
+}
+[data-layout-theme='minimalistic']
+  .aegis-button[data-emphasis='primary']:not([data-intent='ai'], [data-intent='destroy']):not(
+    :disabled
+  ):is(:hover, :focus-visible) {
+  background: var(--minimal-interaction-bg);
+  color: var(--color-on-intent);
+}
+[data-layout-theme='minimalistic']
+  .aegis-button:not([data-intent='ai'], [data-intent='destroy']):focus-visible {
+  outline-color: var(--minimal-interaction-bg);
+}
+[data-layout-theme='minimalistic'] .recharts-surface linearGradient stop {
+  stop-opacity: 0.12;
+}
+[data-layout-theme='minimalistic'] :is(.status-badge, .status-dot) {
+  --color-function-fg: var(--minimal-status-new-fg);
+  --color-warning-fg: var(--minimal-status-progress-fg);
+  --color-success-fg: var(--minimal-status-resolved-fg);
+  --color-function-soft: var(--minimal-status-new-soft);
+  --color-ai-soft: var(--minimal-status-review-soft);
+}
+[data-layout-theme='minimalistic']
+  :is(
+    .aegis-avatar-status,
+    .severity-dot,
+    .status-dot,
+    .workspace-status,
+    .aegis-radio-control,
+    .aegis-radio-indicator,
+    .aegis-thinking-dots i
+  ) {
+  border-radius: 50%;
+}
+[data-layout-theme='minimalistic'] .aegis-avatar-group > .aegis-avatar {
+  outline: 2px solid var(--color-bg-surface);
+  outline-offset: 0;
+}
+[data-layout-theme='minimalistic'] .nav-item.is-active {
+  border-color: transparent;
+  font-weight: 600;
+}
+[data-layout-theme='minimalistic'] button.tag:hover {
+  border-color: var(--tag-fg);
+}
+[data-layout-theme='minimalistic']
+  :is(.aegis-input-shell, .aegis-multi-shell):not([data-invalid]):not(:focus-within),
+[data-layout-theme='minimalistic']
+  :is(.aegis-select-trigger, .aegis-textarea-native):not([aria-invalid='true']):not(:focus-visible),
+[data-layout-theme='minimalistic'] .time-range-clock input:not(:focus-visible) {
+  border-color: var(--color-border-default);
+}
+/* Replace structural shadow lines and focus rings with real outlines/borders. */
+[data-layout-theme='minimalistic']
+  :is(
+    .aegis-menu-item[data-highlighted],
+    .aegis-context-item[data-highlighted],
+    .aegis-select-option[data-highlighted],
+    .aegis-multi-option[data-active],
+    .aegis-diff-host .cm-editor:focus-within
+  ) {
+  outline: 2px solid var(--ring-focus);
+  outline-offset: -2px;
+}
+[data-layout-theme='minimalistic']
+  :is(.aegis-code-editor:focus-within, .aegis-prompt:focus-within) {
+  outline: 2px solid var(--ring-focus);
+  outline-offset: 2px;
+}
+[data-layout-theme='minimalistic'] .aegis-time-range-trigger[aria-invalid='true'] {
+  border-color: var(--color-destroy-fg);
+  outline: 1px solid var(--color-destroy-fg);
+  outline-offset: -1px;
+}
+[data-layout-theme='minimalistic'] .aegis-code-highlighted-line,
+[data-layout-theme='minimalistic'] .aegis-grid-row:focus-visible > td:not(.aegis-grid-pinned) {
+  position: relative;
+}
+[data-layout-theme='minimalistic'] .aegis-code-highlighted-line::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-left: 3px solid var(--color-function-fg);
+  pointer-events: none;
+}
+[data-layout-theme='minimalistic'] .aegis-grid-row:focus-visible > td::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-block: 2px solid var(--ring-focus);
+  pointer-events: none;
+  z-index: 3;
+}
+[data-layout-theme='minimalistic'] .aegis-grid-row:focus-visible > td:first-child::after {
+  border-left: 2px solid var(--ring-focus);
+}
+[data-layout-theme='minimalistic'] .aegis-grid-row:focus-visible > td:last-child::after {
+  border-right: 2px solid var(--ring-focus);
+}
+[data-layout-theme='minimalistic'] .aegis-grid-table > thead > tr > th.is-drag-target::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-left: 2px solid var(--ring-focus);
+  pointer-events: none;
+}
+[data-layout-theme='minimalistic'] .aegis-skeleton[data-animate='true']::after {
+  display: none;
+}
+@media (forced-colors: active) {
+  [data-layout-theme='minimalistic'] {
+    --ring-focus: Highlight;
+  }
+  [data-layout-theme='minimalistic'] .aegis-button {
+    border-color: ButtonText;
+  }
+}

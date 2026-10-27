@@ -1,0 +1,54 @@
+.aegis-split-button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: var(--group-trigger-button-width-available);
+  gap: var(--group-trigger-button-gap-compact);
+}
+.aegis-split-button-controls {
+  display: inline-flex;
+  align-items: stretch;
+  max-width: var(--group-trigger-button-width-available);
+  isolation: isolate;
+}
+.aegis-split-button-controls > [data-split-action='primary'] {
+  min-width: var(--group-trigger-button-number-0);
+  border-start-end-radius: var(--group-trigger-button-number-0);
+  border-end-end-radius: var(--group-trigger-button-number-0);
+}
+.aegis-split-button-controls > [data-split-action='primary'] .button-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.aegis-split-button-controls > .aegis-split-button-menu {
+  flex: none;
+  width: var(--group-trigger-button-icon-size-regular);
+  padding-inline: var(--group-trigger-button-number-0);
+  border-start-start-radius: var(--group-trigger-button-number-0);
+  border-end-start-radius: var(--group-trigger-button-number-0);
+  margin-inline-start: var(--group-trigger-button-group-overlap);
+  border-inline-start-color: var(--group-trigger-button-color-border-default);
+}
+.aegis-split-button-controls > .aegis-split-button-menu[data-emphasis='primary'] {
+  border-inline-start-color: color-mix(
+    in srgb,
+    currentColor var(--group-trigger-button-mix-28),
+    transparent
+  );
+}
+.aegis-split-button[data-size='sm'] .aegis-split-button-menu {
+  width: var(--group-trigger-button-icon-size-compact);
+}
+.aegis-split-button[data-size='lg'] .aegis-split-button-menu {
+  width: var(--group-trigger-button-icon-size-large);
+}
+.aegis-split-button-controls > .aegis-button:focus-visible {
+  z-index: var(--group-trigger-button-layer-local);
+}
+.aegis-split-button-error {
+  max-width: var(--group-trigger-button-label-max-width);
+  margin: var(--group-trigger-button-number-0);
+  color: var(--group-trigger-button-color-danger-foreground);
+  font-size: var(--group-trigger-button-font-size-label);
+  line-height: var(--group-trigger-button-font-leading-body);
+}

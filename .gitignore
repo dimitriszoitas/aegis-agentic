@@ -1,0 +1,14 @@
+node_modules
+dist/
+lib-dist/
+.pnpm-store/
+artifacts/
+*.tgz
+storybook-static/
+coverage/
+test-results/
+playwright-report/
+*.log
+*.tsbuildinfo
+.DS_Store
+.env*

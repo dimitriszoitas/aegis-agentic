@@ -1,0 +1,1535 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-overlays-bottomsheet",
+  "name": "BottomSheet",
+  "category": "Surfaces",
+  "tokenGroup": "surface",
+  "kind": "component",
+  "aliases": [
+    "bottom drawer",
+    "mobile sheet"
+  ],
+  "purpose": "A bottom-only nonmodal panel for an existing bounded flex-column workspace.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/bottom-sheet"
+  ],
+  "links": {
+    "contract": "./components-overlays-bottomsheet.json",
+    "overview": "../../?path=/docs/components-surfaces-bottomsheet-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-surfaces-bottomsheet-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-surfaces-bottomsheet-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-surfaces-bottomsheet-overview--docs&docsTab=tokens"
+  },
+  "description": "A nonmodal, vertically resizable panel inside a bounded flex-column workspace. Fundamental Floating uses an inset and rounded corners; Fundamental sits flush. Drag the top edge, or focus it and use Up/Down (Shift for larger steps), Home and End. Optional header actions and footer stay visible while the body scrolls. Escape closes without trapping workspace focus.",
+  "exports": [
+    "BottomSheet"
+  ],
+  "importStatements": [
+    "import { BottomSheet } from '@dimitriszoitas/aegis-ui/bottom-sheet';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "BottomSheet",
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "component": "BottomSheet",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "BottomSheet",
+      "name": "defaultHeight",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "280px (var(--group-surface-measurement-sheet-size))"
+    },
+    {
+      "component": "BottomSheet",
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "BottomSheet",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "BottomSheet",
+      "name": "footer",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "BottomSheet",
+      "name": "headerActions",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "BottomSheet",
+      "name": "height",
+      "type": "number | undefined",
+      "required": false
+    },
+    {
+      "component": "BottomSheet",
+      "name": "maxHeight",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "640px (var(--group-surface-measurement-sheet-max-size))"
+    },
+    {
+      "component": "BottomSheet",
+      "name": "minHeight",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "160px (var(--group-surface-measurement-sheet-min-size))"
+    },
+    {
+      "component": "BottomSheet",
+      "name": "onHeightChange",
+      "type": "((height: number) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "BottomSheet",
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "BottomSheet",
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "BottomSheet",
+      "name": "title",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "component": "BottomSheet",
+      "name": "workspaceMinHeight",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "120px (var(--group-surface-measurement-sheet-content-min-size))",
+      "description": "Space preserved for the workspace above the panel."
+    }
+  ],
+  "variants": [],
+  "composition": [
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon-button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A bottom-only nonmodal panel for an existing bounded flex-column workspace.",
+    "usage": [
+      "Place it as a sibling of the main flex content, within the available workspace between persistent rails.",
+      "Set workspaceMinHeight to preserve usable space above it. Requested height is clamped to the parent and min/max limits.",
+      "Use the more general Sheet component when the same feature must support left or right placement."
+    ],
+    "accessibility": [
+      "Arrow Up/Down resize by 20 px, Shift increases the step to 40 px, and Home/End reach the bounds.",
+      "Escape closes the panel. Closing while focus is inside restores the opener when it remains available."
+    ],
+    "context": [
+      "Use for an event log, output console, or secondary activity view below the main workspace."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "region",
+      "separator"
+    ],
+    "ariaAttributes": [
+      "aria-controls",
+      "aria-describedby",
+      "aria-label",
+      "aria-labelledby",
+      "aria-orientation",
+      "aria-valuemax",
+      "aria-valuemin",
+      "aria-valuenow",
+      "aria-valuetext"
+    ],
+    "nativeElements": [
+      "div",
+      "footer",
+      "h2",
+      "header",
+      "p",
+      "section",
+      "span"
+    ],
+    "keyboardKeys": [
+      "ArrowDown",
+      "ArrowUp",
+      "End",
+      "Escape",
+      "Home"
+    ],
+    "dependencies": [
+      "@base-ui/react/tooltip",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/bottom-sheet/bottom-sheet.css",
+    "src/components/bottom-sheet/bottom-sheet.stories.tsx",
+    "src/components/bottom-sheet/bottom-sheet.tsx",
+    "src/components/button/button.css",
+    "src/components/button/button.tsx",
+    "src/components/button/index.ts",
+    "src/components/icon-button/icon-button.css",
+    "src/components/icon-button/icon-button.tsx",
+    "src/components/icon-button/index.ts",
+    "src/components/icon/index.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-floating.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-overlays-bottomsheet--default",
+      "name": "Default",
+      "url": "../../?path=/story/components-overlays-bottomsheet--default",
+      "sourceFile": "src/components/bottom-sheet/bottom-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-bottomsheet--header-and-footer-actions",
+      "name": "Header And Footer Actions",
+      "url": "../../?path=/story/components-overlays-bottomsheet--header-and-footer-actions",
+      "sourceFile": "src/components/bottom-sheet/bottom-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-bottomsheet--fixed-workspace",
+      "name": "Fundamental workspace",
+      "url": "../../?path=/story/components-overlays-bottomsheet--fixed-workspace",
+      "sourceFile": "src/components/bottom-sheet/bottom-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-bottomsheet--floating-with-ai",
+      "name": "Fundamental Floating with AI",
+      "url": "../../?path=/story/components-overlays-bottomsheet--floating-with-ai",
+      "sourceFile": "src/components/bottom-sheet/bottom-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-bottomsheet--keyboard-resize",
+      "name": "Keyboard Resize",
+      "url": "../../?path=/story/components-overlays-bottomsheet--keyboard-resize",
+      "sourceFile": "src/components/bottom-sheet/bottom-sheet.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--bottom-sheet-height",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-surface-border-width-hairline",
+    "--group-surface-border-width-regular",
+    "--group-surface-chrome-radius",
+    "--group-surface-chrome-shadow",
+    "--group-surface-color-action-foreground",
+    "--group-surface-color-action-soft",
+    "--group-surface-color-border-default",
+    "--group-surface-color-border-subtle",
+    "--group-surface-color-content-primary",
+    "--group-surface-color-surface-surface",
+    "--group-surface-elevation-none",
+    "--group-surface-focus-offset",
+    "--group-surface-font-family-ui",
+    "--group-surface-font-leading-relaxed",
+    "--group-surface-font-leading-subheading",
+    "--group-surface-font-size-body",
+    "--group-surface-font-size-subheading",
+    "--group-surface-font-tracking-compact",
+    "--group-surface-measurement-icon-md",
+    "--group-surface-measurement-sheet-content-min-size",
+    "--group-surface-measurement-sheet-max-size",
+    "--group-surface-measurement-sheet-min-size",
+    "--group-surface-measurement-sheet-resize-step",
+    "--group-surface-measurement-sheet-resize-step-large",
+    "--group-surface-measurement-sheet-size",
+    "--group-surface-motion-count-1",
+    "--group-surface-motion-disabled-duration",
+    "--group-surface-motion-reduced-duration",
+    "--group-surface-number-0",
+    "--group-surface-overlay-border-width-hairline",
+    "--group-surface-overlay-chrome-inset",
+    "--group-surface-overlay-chrome-radius",
+    "--group-surface-overlay-chrome-shadow",
+    "--group-surface-overlay-color-action-foreground",
+    "--group-surface-overlay-color-border-default",
+    "--group-surface-overlay-color-border-strong",
+    "--group-surface-overlay-color-border-subtle",
+    "--group-surface-overlay-color-content-primary",
+    "--group-surface-overlay-color-content-secondary",
+    "--group-surface-overlay-color-surface-canvas",
+    "--group-surface-overlay-color-surface-surface",
+    "--group-surface-overlay-color-transparent",
+    "--group-surface-overlay-flex-fill",
+    "--group-surface-overlay-flex-none",
+    "--group-surface-overlay-font-line-box-xxl",
+    "--group-surface-overlay-font-size-label",
+    "--group-surface-overlay-font-size-subheading",
+    "--group-surface-overlay-layer-local",
+    "--group-surface-overlay-motion-fast",
+    "--group-surface-overlay-number-0",
+    "--group-surface-overlay-radius-border-radius-full",
+    "--group-surface-overlay-size-height-micro-compact",
+    "--group-surface-overlay-size-height-micro-vast",
+    "--group-surface-overlay-size-height-wide-canvas-compact",
+    "--group-surface-overlay-size-left-glyph-vast",
+    "--group-surface-overlay-size-left-half",
+    "--group-surface-overlay-size-outline-offset-negative-2",
+    "--group-surface-overlay-size-outline-offset-negative-3",
+    "--group-surface-overlay-size-top-micro-snug",
+    "--group-surface-overlay-size-width-roomy",
+    "--group-surface-overlay-space-gap-compact",
+    "--group-surface-overlay-space-gap-regular",
+    "--group-surface-overlay-space-margin-bottom-comfortable",
+    "--group-surface-overlay-space-margin-snug",
+    "--group-surface-overlay-space-padding-5",
+    "--group-surface-overlay-space-padding-comfortable",
+    "--group-surface-overlay-space-padding-regular",
+    "--group-surface-overlay-title-weight",
+    "--group-surface-ring-focus",
+    "--group-surface-stack-gap-regular",
+    "--group-surface-title-weight",
+    "--group-trigger-button-appearance-action-hover",
+    "--group-trigger-button-appearance-ai-hover",
+    "--group-trigger-button-border-width-hairline",
+    "--group-trigger-button-color-ai-blue-fg",
+    "--group-trigger-button-color-ai-fg",
+    "--group-trigger-button-color-ai-pink-fg",
+    "--group-trigger-button-color-ai-purple-fg",
+    "--group-trigger-button-color-border-default",
+    "--group-trigger-button-color-content-primary",
+    "--group-trigger-button-color-surface-surface",
+    "--group-trigger-button-color-surface-surface-raised",
+    "--group-trigger-button-color-transparent",
+    "--group-trigger-button-elevation-none",
+    "--group-trigger-button-font-leading-solid",
+    "--group-trigger-button-font-size-body",
+    "--group-trigger-button-font-size-label",
+    "--group-trigger-button-font-weight-medium",
+    "--group-trigger-button-gap-compact",
+    "--group-trigger-button-gradient-ai",
+    "--group-trigger-button-gradient-ai-border",
+    "--group-trigger-button-gradient-ai-soft",
+    "--group-trigger-button-gradient-ai-text",
+    "--group-trigger-button-height-compact",
+    "--group-trigger-button-height-large",
+    "--group-trigger-button-height-regular",
+    "--group-trigger-button-icon-size-compact",
+    "--group-trigger-button-icon-size-large",
+    "--group-trigger-button-icon-size-regular",
+    "--group-trigger-button-intent-bg",
+    "--group-trigger-button-intent-border",
+    "--group-trigger-button-intent-fg",
+    "--group-trigger-button-intent-on",
+    "--group-trigger-button-intent-soft",
+    "--group-trigger-button-loading-duration",
+    "--group-trigger-button-loading-rotation",
+    "--group-trigger-button-motion-fast",
+    "--group-trigger-button-number-0",
+    "--group-trigger-button-opacity-disabled",
+    "--group-trigger-button-opacity-hidden",
+    "--group-trigger-button-outline-overlap",
+    "--group-trigger-button-outline-width",
+    "--group-trigger-button-padding-compact",
+    "--group-trigger-button-padding-icon",
+    "--group-trigger-button-padding-inline",
+    "--group-trigger-button-padding-regular",
+    "--group-trigger-button-padding-snug",
+    "--group-trigger-button-press-offset",
+    "--group-trigger-button-primary-fill-pressed",
+    "--group-trigger-button-radius-bold",
+    "--group-trigger-button-radius-current",
+    "--group-trigger-button-radius-strong",
+    "--group-trigger-button-shadow-overlay",
+    "--group-trigger-button-state-overlay-hover",
+    "--group-trigger-button-state-overlay-pressed",
+    "--group-trigger-button-state-overlay-spread",
+    "--group-trigger-button-tertiary-fill-hover",
+    "--group-trigger-button-tertiary-foreground-hover",
+    "--group-trigger-button-z-tooltip",
+    "--group-trigger-measurement-icon-md",
+    "--group-trigger-measurement-icon-tooltip-delay",
+    "--group-trigger-measurement-overlay-offset",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-flex-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-surface-overlay-flex-none",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-number-0",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--bottom-sheet-height",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-chrome-inset",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-border-width-hairline",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-border-default",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-chrome-radius",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-surface-surface",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-content-primary",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-chrome-shadow",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-layer-local",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-height-micro-vast",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-outline-offset-negative-2",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-height-micro-compact",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-transparent",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-motion-fast",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-top-micro-snug",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-left-glyph-vast",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-left-half",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-width-roomy",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-radius-border-radius-full",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-border-strong",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-action-foreground",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-gap-regular",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-padding-comfortable",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-padding-regular",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-border-subtle",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-flex-fill",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-size-subheading",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-title-weight",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-line-box-xxl",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-margin-snug",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-size-label",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-content-secondary",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-gap-compact",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-outline-offset-negative-3",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-height-wide-canvas-compact",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-surface-canvas",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-padding-5",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-margin-bottom-comfortable",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-trigger-button-z-tooltip",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-compact",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-bold",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-shadow-overlay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gap-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-inline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-current",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-leading-solid",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-weight-medium",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-motion-fast",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-bg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-on",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-icon",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-transparent",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-overlap",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-width",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-spread",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-press-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-disabled",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-hidden",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-snug",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-strong",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-rotation",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-text",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-surface-color-surface-surface",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-border-width-hairline",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-border-subtle",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-chrome-radius",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-chrome-shadow",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-elevation-none",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-surface-number-0",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-fill-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-foreground-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-action-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-primary-fill-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-ai-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-flex-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-surface-color-border-default",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-ring-focus",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-focus-offset",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-size-subheading",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-title-weight",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-tracking-compact",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-leading-subheading",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-size-body",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-surface-measurement-sheet-size",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-sheet-min-size",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-sheet-max-size",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-sheet-content-min-size",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-sheet-resize-step",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-sheet-resize-step-large",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-icon-md",
+      "ownership": "owned",
+      "component": "BottomSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-tooltip-delay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-pink-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-blue-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-purple-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

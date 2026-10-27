@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { OpacityExamples } from './foundation-detail-examples';
+
+<Meta title="Foundations/Opacity" id="foundations-opacity" />
+
+# Opacity
+
+Opacity controls how much of an element is visible. Use it deliberately for a component's existing disabled or transition state, rather than as a substitute for semantic text and surface colors.
+
+## Alpha ramp
+
+The alpha ramp uses the explicit `--opacity-05` through `--opacity-95` primitive tokens recorded in `tokens/design-tokens.json`, sorted by numeric value. Each swatch places the same action color over a checkerboard. Labels remain fully opaque so the token and value are readable in both themes.
+
+<OpacityExamples />
+
+## Semantic opacity roles
+
+Semantic opacity roles map directly to primitive alpha values or numbers in all four configurations. Components consume their family group roles, such as `--group-trigger-button-opacity-disabled` and `--group-input-field-opacity-disabled`. The specimens below inspect the canonical semantic mappings.
+
+<OpacityExamples scale="component" />
+
+`--semantic-opacity-hidden` removes painted visibility; `--semantic-opacity-visible` preserves it. Intermediate strengths do not imply a universal state assignment. Button and Field select different disabled strengths through their own group roles.
+
+## Element opacity and color transparency
+
+The CSS `opacity` property affects the whole rendered element, including its text, icons, and children. A translucent background created with `color-mix()` affects only that color. Prefer semantic surface tokens when you need a quiet background with fully readable content.
+
+## Behavior and readability
+
+Opacity does not disable a control or remove it from keyboard navigation. Keep native disabled behavior and the component's accessibility state alongside the visual treatment. Likewise, a visually hidden element can remain focusable unless its visibility and interaction state are handled explicitly.
+
+Do not dim essential body text, errors, or instructions to create hierarchy. Use the appropriate text role and verify contrast against the actual surface, including hover and selection states. Opacity values shared by Fundamental and Fundamental Floating are the same; the final appearance still depends on the light or dark background beneath them.

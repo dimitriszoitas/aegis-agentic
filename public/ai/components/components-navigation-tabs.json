@@ -1,0 +1,674 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-navigation-tabs",
+  "name": "Tabs",
+  "category": "Navigation",
+  "tokenGroup": "navigation",
+  "kind": "component",
+  "aliases": [],
+  "purpose": "A labeled set of peer views using Base UI tabs and associated content panels.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/tabs"
+  ],
+  "links": {
+    "contract": "./components-navigation-tabs.json",
+    "overview": "../../?path=/docs/components-navigation-tabs-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-navigation-tabs-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-navigation-tabs-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-navigation-tabs-overview--docs&docsTab=tokens"
+  },
+  "description": "Switch related views without leaving the current task.",
+  "exports": [
+    "Tabs"
+  ],
+  "importStatements": [
+    "import { Tabs } from '@dimitriszoitas/aegis-ui/tabs';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Tabs",
+      "name": "activationMode",
+      "type": "\"manual\" | \"automatic\" | undefined",
+      "required": false,
+      "defaultValue": "\"automatic\""
+    },
+    {
+      "component": "Tabs",
+      "name": "contentClassName",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Tabs",
+      "name": "defaultValue",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Tabs",
+      "name": "items",
+      "type": "TabItem[]",
+      "required": true
+    },
+    {
+      "component": "Tabs",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Views\""
+    },
+    {
+      "component": "Tabs",
+      "name": "listClassName",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Tabs",
+      "name": "onValueChange",
+      "type": "((value: string) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "Tabs",
+      "name": "orientation",
+      "type": "\"horizontal\" | \"vertical\" | undefined",
+      "required": false
+    },
+    {
+      "component": "Tabs",
+      "name": "sharedContent",
+      "type": "ReactNode",
+      "required": false,
+      "description": "One persistent workspace whose data changes with the selected tab. Preserves its local state."
+    },
+    {
+      "component": "Tabs",
+      "name": "value",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Tabs",
+      "name": "variant",
+      "type": "\"line\" | \"pill\" | undefined",
+      "required": false,
+      "defaultValue": "\"line\""
+    }
+  ],
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "line",
+        "pill"
+      ],
+      "default": "line"
+    },
+    {
+      "name": "orientation",
+      "values": [
+        "horizontal",
+        "vertical"
+      ]
+    },
+    {
+      "name": "activationMode",
+      "values": [
+        "automatic",
+        "manual"
+      ],
+      "default": "automatic"
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "A labeled set of peer views using Base UI tabs and associated content panels.",
+    "usage": [
+      "Use stable values and concise labels. The first enabled item is selected by default unless value or defaultValue is supplied.",
+      "Use sharedContent for one persistent workspace whose data changes by tab; this preserves its local state instead of remounting separate panels.",
+      "Item counts describe items, with values above 99 visually shortened to 99+."
+    ],
+    "accessibility": [
+      "Base UI provides tablist, tab, and tabpanel relationships and arrow-key navigation. Give the tablist a label that explains the views.",
+      "Disabled tabs are skipped. Do not use disabled tabs to conceal essential information about a blocked task."
+    ],
+    "intent": [
+      "Line and pill are presentation choices. Selected state identifies the active view, not success or approval."
+    ],
+    "context": [
+      "Use for adjacent views of the same subject; use navigation links for unrelated destinations."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "div",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/direction-provider",
+      "@base-ui/react/tabs",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/tabs/tabs.css",
+    "src/components/tabs/tabs.stories.tsx",
+    "src/components/tabs/tabs.tsx",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-navigation-tabs--variant-matrix",
+      "name": "Variant Matrix",
+      "url": "../../?path=/story/components-navigation-tabs--variant-matrix",
+      "sourceFile": "src/components/tabs/tabs.stories.tsx"
+    },
+    {
+      "id": "components-navigation-tabs--disabled-and-overflow",
+      "name": "Disabled And Overflow",
+      "url": "../../?path=/story/components-navigation-tabs--disabled-and-overflow",
+      "sourceFile": "src/components/tabs/tabs.stories.tsx"
+    },
+    {
+      "id": "components-navigation-tabs--controlled",
+      "name": "Controlled",
+      "url": "../../?path=/story/components-navigation-tabs--controlled",
+      "sourceFile": "src/components/tabs/tabs.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-navigation-border-width-hairline",
+    "--group-navigation-border-width-regular",
+    "--group-navigation-color-action-fill",
+    "--group-navigation-color-action-foreground",
+    "--group-navigation-color-action-soft",
+    "--group-navigation-color-border-subtle",
+    "--group-navigation-color-content-primary",
+    "--group-navigation-color-content-secondary",
+    "--group-navigation-color-surface-hover",
+    "--group-navigation-color-surface-selected",
+    "--group-navigation-color-surface-surface-raised",
+    "--group-navigation-color-transparent",
+    "--group-navigation-ease-out",
+    "--group-navigation-flex-fill",
+    "--group-navigation-font-family-ui",
+    "--group-navigation-font-size-annotation-s",
+    "--group-navigation-font-size-body",
+    "--group-navigation-font-weight-medium",
+    "--group-navigation-measurement-icon-md",
+    "--group-navigation-motion-base",
+    "--group-navigation-motion-fast",
+    "--group-navigation-number-0",
+    "--group-navigation-opacity-strength-balanced",
+    "--group-navigation-radius-border-radius-bold",
+    "--group-navigation-radius-border-radius-full",
+    "--group-navigation-radius-border-radius-soft",
+    "--group-navigation-radius-border-radius-strong",
+    "--group-navigation-ring-focus",
+    "--group-navigation-scale-0",
+    "--group-navigation-scale-1",
+    "--group-navigation-shadow-raised",
+    "--group-navigation-size-bottom-negative-1",
+    "--group-navigation-size-height-glyph-vast",
+    "--group-navigation-size-height-micro-compact",
+    "--group-navigation-size-mask-image-full",
+    "--group-navigation-size-mask-image-micro-regular",
+    "--group-navigation-size-max-width-full",
+    "--group-navigation-size-min-width-compact",
+    "--group-navigation-size-min-width-full",
+    "--group-navigation-size-outline-offset-micro-compact",
+    "--group-navigation-size-padding-inline-micro-comfortable",
+    "--group-navigation-size-width-full",
+    "--group-navigation-space-gap-comfortable",
+    "--group-navigation-space-gap-compact",
+    "--group-navigation-space-gap-snug",
+    "--group-navigation-space-padding-block-comfortable",
+    "--group-navigation-space-padding-compact",
+    "--group-navigation-space-padding-regular",
+    "--group-navigation-space-padding-snug",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-color-action-foreground",
+    "--group-navigation-surface-color-action-soft",
+    "--group-navigation-surface-color-border-default",
+    "--group-navigation-surface-color-content-primary",
+    "--group-navigation-surface-color-surface-canvas",
+    "--group-navigation-surface-elevation-none",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-font-family-ui",
+    "--group-navigation-surface-font-size-body",
+    "--group-navigation-surface-motion-count-1",
+    "--group-navigation-surface-motion-disabled-duration",
+    "--group-navigation-surface-motion-reduced-duration",
+    "--group-navigation-surface-number-0",
+    "--group-navigation-surface-ring-focus",
+    "--group-navigation-table-color-transparent",
+    "--group-navigation-table-number-0"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-navigation-size-width-full",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-content-primary",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-font-family-ui",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-size-max-width-full",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-space-padding-snug",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-size-mask-image-full",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-size-mask-image-micro-regular",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-space-gap-comfortable",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-size-min-width-full",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-border-width-hairline",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-border-subtle",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-space-gap-compact",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-number-0",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-space-padding-regular",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-font-size-body",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-font-weight-medium",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-content-secondary",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-transparent",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-ease-out",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-motion-fast",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-size-bottom-negative-1",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-size-height-micro-compact",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-action-fill",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-radius-border-radius-full",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-scale-0",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-motion-base",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-action-foreground",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-scale-1",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-opacity-strength-balanced",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-border-width-regular",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-ring-focus",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-measurement-icon-md",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-size-min-width-compact",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-size-height-glyph-vast",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-size-padding-inline-micro-comfortable",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-surface-selected",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-font-size-annotation-s",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-action-soft",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-space-padding-block-comfortable",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-space-gap-snug",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-surface-hover",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-space-padding-compact",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-surface-surface-raised",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-shadow-raised",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-flex-fill",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-table-color-transparent",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-table-number-0",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-surface-canvas",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-number-0",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Tabs",
+      "group": "navigation"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

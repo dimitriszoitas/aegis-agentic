@@ -1,0 +1,259 @@
+/* Floating panels use the overlay surface and a soft shadow. These narrowly
+   scoped exceptions leave ordinary containers and inline notices shadow-free. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .aegis-tooltip,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-popover) {
+  background: var(--group-surface-overlay-appearance-overlay-surface);
+  border-width: var(--group-surface-overlay-number-0);
+  box-shadow: var(--group-surface-overlay-shadow-popover) !important;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .aegis-tooltip,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-menu-content, .aegis-context-content) {
+  background: var(--group-trigger-overlay-appearance-overlay-surface);
+  border-width: var(--group-trigger-overlay-number-0);
+  box-shadow: var(--group-trigger-overlay-shadow-popover) !important;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .aegis-tooltip,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-select-content, .aegis-multi-popover) {
+  background: var(--group-input-overlay-appearance-overlay-surface);
+  border-width: var(--group-input-overlay-number-0);
+  box-shadow: var(--group-input-overlay-shadow-popover) !important;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .aegis-tooltip,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-tooltip, .aegis-notification[data-variant='floating']) {
+  background: var(--group-feedback-overlay-appearance-overlay-surface);
+  border-width: var(--group-feedback-overlay-number-0);
+  box-shadow: var(--group-feedback-overlay-shadow-popover) !important;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-modal.aegis-modal, .command-dialog, .aegis-sheet:not(.aegis-sheet-docked)):where(
+    .aegis-modal.aegis-modal,
+    .aegis-sheet:not(.aegis-sheet-docked)
+  ) {
+  background: var(--group-surface-overlay-appearance-overlay-surface);
+  border-width: var(--group-surface-overlay-number-0);
+  box-shadow: var(--group-surface-overlay-shadow-dialog) !important;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-modal.aegis-modal, .command-dialog, .aegis-sheet:not(.aegis-sheet-docked)):where(
+    .command-dialog
+  ) {
+  background: var(--group-navigation-overlay-appearance-overlay-surface);
+  border-width: var(--group-navigation-overlay-number-0);
+  box-shadow: var(--group-navigation-overlay-shadow-dialog) !important;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-modal-footer, .aegis-sheet:not(.aegis-sheet-docked) .aegis-sheet-footer) {
+  background: var(--group-surface-appearance-overlay-surface);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-tooltip[data-variant='default'] {
+  --group-feedback-overlay-tooltip-bg: var(
+    --semantic-part-overlay-tooltip-bg-fundamental-fundamental-floating-default
+  );
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-tooltip[data-variant='inverted'] {
+  background: var(--group-feedback-overlay-tooltip-bg);
+}
+/* Toasts keep a quiet edge and a text action below the message. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-notification[data-variant='floating'] {
+  padding: var(--group-feedback-surface-content-padding-compact);
+  border: var(--group-feedback-surface-border-width-hairline) solid
+    var(--group-feedback-surface-color-border-default);
+  border-radius: var(--group-feedback-surface-space-border-radius-regular);
+  column-gap: var(--group-feedback-surface-column-gap-regular);
+  row-gap: var(--group-feedback-surface-row-gap-compact);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-notification[data-variant='floating']
+  .aegis-notification-icon
+  > svg {
+  width: var(--group-feedback-surface-icon-width);
+  height: var(--group-feedback-surface-icon-height);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-notification[data-variant='floating']
+  .aegis-notification-title {
+  overflow-wrap: anywhere;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-notification[data-variant='floating']
+  .aegis-notification-action {
+  min-height: var(--group-feedback-surface-label-min-height);
+  max-width: var(--group-feedback-surface-width-available);
+  padding: var(--group-feedback-surface-number-0);
+  border: var(--group-feedback-surface-number-0);
+  background: var(--group-feedback-surface-color-transparent);
+  color: var(--group-feedback-surface-color-content-primary);
+  font-size: var(--group-feedback-surface-font-size-label);
+  font-weight: var(--group-feedback-surface-font-weight-medium);
+  text-decoration: underline;
+  text-underline-offset: var(--group-feedback-surface-link-underline-offset);
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-notification[data-variant='floating']
+  .aegis-notification-action:hover {
+  color: var(--group-feedback-surface-color-action-foreground);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-modal-overlay, .command-scrim, .aegis-sheet-overlay):where(
+    .aegis-modal-overlay,
+    .aegis-sheet-overlay
+  ) {
+  background: color-mix(
+    in srgb,
+    var(--group-surface-color-scrim) var(--group-surface-mix-70),
+    transparent
+  );
+  backdrop-filter: blur(var(--group-surface-backdrop-blur));
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-modal-overlay, .command-scrim, .aegis-sheet-overlay):where(.command-scrim) {
+  background: color-mix(
+    in srgb,
+    var(--group-navigation-surface-color-scrim) var(--group-navigation-surface-mix-70),
+    transparent
+  );
+  backdrop-filter: blur(var(--group-navigation-surface-backdrop-blur));
+}
+/* Sheet is the contained/resizable component, distinct from portaled SideSheet. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-contained-sheet
+  .aegis-contained-sheet-panel.aegis-contained-sheet-panel {
+  border-width: var(--group-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-tooltip-arrow-outline {
+  stroke: var(--group-feedback-surface-elevation-none);
+}
+@media (forced-colors: active) {
+  :is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+    :is(
+      .aegis-popover,
+      .aegis-menu-content,
+      .aegis-context-content,
+      .aegis-select-content,
+      .aegis-multi-popover,
+      .aegis-tooltip,
+      .aegis-notification[data-variant='floating'],
+      .aegis-modal.aegis-modal,
+      .command-dialog,
+      .aegis-sheet:not(.aegis-sheet-docked)
+    ):where(.aegis-popover, .aegis-modal.aegis-modal, .aegis-sheet:not(.aegis-sheet-docked)) {
+    border: var(--group-surface-overlay-border-width-hairline) solid CanvasText;
+    box-shadow: var(--group-surface-overlay-elevation-none) !important;
+  }
+  :is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+    :is(
+      .aegis-popover,
+      .aegis-menu-content,
+      .aegis-context-content,
+      .aegis-select-content,
+      .aegis-multi-popover,
+      .aegis-tooltip,
+      .aegis-notification[data-variant='floating'],
+      .aegis-modal.aegis-modal,
+      .command-dialog,
+      .aegis-sheet:not(.aegis-sheet-docked)
+    ):where(.aegis-menu-content, .aegis-context-content) {
+    border: var(--group-trigger-overlay-border-width-hairline) solid CanvasText;
+    box-shadow: var(--group-trigger-overlay-elevation-none) !important;
+  }
+  :is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+    :is(
+      .aegis-popover,
+      .aegis-menu-content,
+      .aegis-context-content,
+      .aegis-select-content,
+      .aegis-multi-popover,
+      .aegis-tooltip,
+      .aegis-notification[data-variant='floating'],
+      .aegis-modal.aegis-modal,
+      .command-dialog,
+      .aegis-sheet:not(.aegis-sheet-docked)
+    ):where(.aegis-select-content, .aegis-multi-popover) {
+    border: var(--group-input-overlay-border-width-hairline) solid CanvasText;
+    box-shadow: var(--group-input-overlay-elevation-none) !important;
+  }
+  :is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+    :is(
+      .aegis-popover,
+      .aegis-menu-content,
+      .aegis-context-content,
+      .aegis-select-content,
+      .aegis-multi-popover,
+      .aegis-tooltip,
+      .aegis-notification[data-variant='floating'],
+      .aegis-modal.aegis-modal,
+      .command-dialog,
+      .aegis-sheet:not(.aegis-sheet-docked)
+    ):where(.aegis-tooltip, .aegis-notification[data-variant='floating']) {
+    border: var(--group-feedback-overlay-border-width-hairline) solid CanvasText;
+    box-shadow: var(--group-feedback-overlay-elevation-none) !important;
+  }
+  :is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+    :is(
+      .aegis-popover,
+      .aegis-menu-content,
+      .aegis-context-content,
+      .aegis-select-content,
+      .aegis-multi-popover,
+      .aegis-tooltip,
+      .aegis-notification[data-variant='floating'],
+      .aegis-modal.aegis-modal,
+      .command-dialog,
+      .aegis-sheet:not(.aegis-sheet-docked)
+    ):where(.command-dialog) {
+    border: var(--group-navigation-overlay-border-width-hairline) solid CanvasText;
+    box-shadow: var(--group-navigation-overlay-elevation-none) !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is( .aegis-popover, .aegis-menu-content, .aegis-context-content, .aegis-select-content, .aegis-multi-popover, .aegis-tooltip, .aegis-notification[data-variant='floating'] )) {
+  .aegis-data-grid.aegis-data-grid {
+    --group-data-display-surface-fundamental-grid-surface: var(
+      --semantic-part-overlay-fundamental-grid-surface-fundamental-fundamental-floating-floating
+    );
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-modal.aegis-modal, .command-dialog, .aegis-sheet:not(.aegis-sheet-docked))) {
+  .aegis-data-grid.aegis-data-grid {
+    --group-data-display-surface-fundamental-grid-surface: var(
+      --semantic-part-overlay-fundamental-grid-surface-fundamental-fundamental-floating
+    );
+  }
+}

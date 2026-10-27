@@ -1,0 +1,659 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-tags-tag",
+  "name": "Tag",
+  "category": "Data Display",
+  "tokenGroup": "data-display",
+  "kind": "component",
+  "aliases": [
+    "chip",
+    "chips",
+    "removable label",
+    "tag",
+    "tags"
+  ],
+  "purpose": "A compact label with distinct static, removable, interactive, counter, and status behaviors.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/tag"
+  ],
+  "links": {
+    "contract": "./components-tags-tag.json",
+    "overview": "../../?path=/docs/components-data-display-tag-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-display-tag-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-display-tag-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-display-tag-overview--docs&docsTab=tokens"
+  },
+  "description": "Represent a label, removable filter, or lightweight selection.",
+  "exports": [
+    "Chip",
+    "Tag"
+  ],
+  "importStatements": [
+    "import { Chip, Tag } from '@dimitriszoitas/aegis-ui/tag';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Tag",
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "component": "Tag",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Tag",
+      "name": "count",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "0"
+    },
+    {
+      "component": "Tag",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Tag",
+      "name": "dotColor",
+      "type": "Property.Color | undefined",
+      "required": false,
+      "description": "Optional semantic CSS color for a status dot, independent of action intent."
+    },
+    {
+      "component": "Tag",
+      "name": "intent",
+      "type": "Intent | \"success\" | \"warning\" | undefined",
+      "required": false,
+      "defaultValue": "\"default\""
+    },
+    {
+      "component": "Tag",
+      "name": "onRemove",
+      "type": "(() => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "Tag",
+      "name": "onSelectedChange",
+      "type": "((selected: boolean) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "Tag",
+      "name": "removeLabel",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Remove filter\""
+    },
+    {
+      "component": "Tag",
+      "name": "selected",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "Tag",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | undefined",
+      "required": false,
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "Tag",
+      "name": "variant",
+      "type": "\"status\" | \"interactive\" | \"static\" | \"removable\" | \"counter\" | undefined",
+      "required": false,
+      "defaultValue": "\"static\""
+    }
+  ],
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "counter",
+        "interactive",
+        "removable",
+        "static"
+      ],
+      "default": "static"
+    },
+    {
+      "name": "size",
+      "values": [
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    },
+    {
+      "name": "intent",
+      "values": [
+        "ai",
+        "default",
+        "destroy",
+        "function",
+        "success",
+        "warning"
+      ],
+      "default": "default"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A compact label with distinct static, removable, interactive, counter, and status behaviors.",
+    "usage": [
+      "Use static for metadata, removable for an applied value, interactive for a pressed toggle, and counter when a label has an attached count.",
+      "Use status for a pill with a colored dot; dotColor can specify a semantic status color independently of action intent.",
+      "Give each removable tag a specific removeLabel, especially in a group of applied filters."
+    ],
+    "accessibility": [
+      "Interactive tags are buttons with aria-pressed. Removable tags contain a separately named removal button supporting Delete and Backspace.",
+      "The host owns focus after removing a tag; move to a nearby remaining tag or the control that adds tags."
+    ],
+    "intent": [
+      "Keep the visible text meaningful without the dot color. Use intent to reinforce meaning already present in the label."
+    ],
+    "context": [
+      "Use for labels, active filters, and lightweight custom statuses; use StatusBadge for the standard record lifecycle."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "group",
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label",
+      "aria-pressed"
+    ],
+    "nativeElements": [
+      "button",
+      "div",
+      "p",
+      "span"
+    ],
+    "keyboardKeys": [
+      "Backspace",
+      "Delete"
+    ],
+    "dependencies": [
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/icon/index.tsx",
+    "src/components/tag/tag.css",
+    "src/components/tag/tag.stories.tsx",
+    "src/components/tag/tag.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-tags-tag--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-tags-tag--matrix",
+      "sourceFile": "src/components/tag/tag.stories.tsx"
+    },
+    {
+      "id": "components-tags-tag--status",
+      "name": "Status",
+      "url": "../../?path=/story/components-tags-tag--status",
+      "sourceFile": "src/components/tag/tag.stories.tsx"
+    },
+    {
+      "id": "components-tags-tag--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-tags-tag--playground",
+      "sourceFile": "src/components/tag/tag.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-display-measurement-icon-xs",
+    "--group-data-display-tag-badge-border-strength",
+    "--group-data-display-tag-border-width-hairline",
+    "--group-data-display-tag-color-border-default",
+    "--group-data-display-tag-color-content-primary",
+    "--group-data-display-tag-color-content-secondary",
+    "--group-data-display-tag-color-surface-selected",
+    "--group-data-display-tag-color-surface-surface",
+    "--group-data-display-tag-color-transparent",
+    "--group-data-display-tag-flex-none",
+    "--group-data-display-tag-font-leading-heading-tight",
+    "--group-data-display-tag-font-leading-solid",
+    "--group-data-display-tag-font-size-annotation-s",
+    "--group-data-display-tag-font-size-label",
+    "--group-data-display-tag-font-weight-medium",
+    "--group-data-display-tag-font-weight-semibold",
+    "--group-data-display-tag-mix-8",
+    "--group-data-display-tag-number-0",
+    "--group-data-display-tag-radius-border-radius-circle",
+    "--group-data-display-tag-radius-border-radius-full",
+    "--group-data-display-tag-radius-border-radius-soft",
+    "--group-data-display-tag-size-gap-micro-roomy",
+    "--group-data-display-tag-size-height-compact",
+    "--group-data-display-tag-size-height-micro-roomy",
+    "--group-data-display-tag-size-height-small",
+    "--group-data-display-tag-size-height-snug",
+    "--group-data-display-tag-size-min-width-compact",
+    "--group-data-display-tag-size-outline-offset-micro-small",
+    "--group-data-display-tag-size-padding-inline-start-micro-roomy",
+    "--group-data-display-tag-size-padding-micro-comfortable",
+    "--group-data-display-tag-size-padding-micro-large",
+    "--group-data-display-tag-size-padding-micro-roomy",
+    "--group-data-display-tag-size-padding-micro-snug",
+    "--group-data-display-tag-size-text-underline-offset-micro-compact",
+    "--group-data-display-tag-size-width-micro-roomy",
+    "--group-data-display-tag-size-width-small",
+    "--group-data-display-tag-space-padding-compact",
+    "--group-data-display-tag-tag-fg",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--severity-border",
+    "--severity-fg",
+    "--status-fg"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-display-tag-size-height-snug",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-gap-micro-roomy",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-badge-border-strength",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-border-width-hairline",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-surface-surface",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-tag-fg",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-number-0",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-space-padding-compact",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-size-label",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-weight-medium",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-leading-heading-tight",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-content-primary",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-transparent",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-height-compact",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-large",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-size-annotation-s",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-text-underline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-weight-semibold",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-width-micro-roomy",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-height-micro-roomy",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-radius-border-radius-circle",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-flex-none",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-border-default",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-inline-start-micro-roomy",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-width-small",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-height-small",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-outline-offset-micro-small",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-snug",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--severity-border",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-radius-border-radius-full",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-comfortable",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--severity-fg",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-mix-8",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--status-fg",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-leading-solid",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-min-width-compact",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-roomy",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-surface-selected",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-content-secondary",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-data-display-measurement-icon-xs",
+      "ownership": "owned",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

@@ -1,0 +1,1023 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-forms-textinput",
+  "name": "TextInput",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [
+    "input",
+    "text field",
+    "textbox",
+    "textfield"
+  ],
+  "purpose": "A single-line native input with optional prefix, suffix, clear control, and Field integration.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/text-input"
+  ],
+  "links": {
+    "contract": "./components-forms-textinput.json",
+    "overview": "../../?path=/docs/components-inputs-selection-textinput-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-textinput-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-textinput-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-textinput-overview--docs&docsTab=tokens"
+  },
+  "description": "Collect a short value with optional prefix, suffix, and clear action.",
+  "exports": [
+    "TextInput"
+  ],
+  "importStatements": [
+    "import { TextInput } from '@dimitriszoitas/aegis-ui/text-input';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "TextInput",
+      "name": "clearable",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "TextInput",
+      "name": "clearLabel",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Clear input\""
+    },
+    {
+      "component": "TextInput",
+      "name": "defaultValue",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"\""
+    },
+    {
+      "component": "TextInput",
+      "name": "inputClassName",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "TextInput",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "TextInput",
+      "name": "label",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Visible standalone label. Inside Field, its label is used automatically."
+    },
+    {
+      "component": "TextInput",
+      "name": "onClear",
+      "type": "(() => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "TextInput",
+      "name": "onValueChange",
+      "type": "((value: string) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "TextInput",
+      "name": "prefix",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "TextInput",
+      "name": "size",
+      "type": "TextInputSize | undefined",
+      "required": false,
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "TextInput",
+      "name": "suffix",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "TextInput",
+      "name": "value",
+      "type": "string | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    },
+    {
+      "name": "state",
+      "values": [
+        "default",
+        "disabled",
+        "invalid",
+        "readOnly"
+      ]
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/field",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A single-line native input with optional prefix, suffix, clear control, and Field integration.",
+    "usage": [
+      "Provide label, Field, or an explicit accessible label. A placeholder should illustrate a value rather than replace the label.",
+      "Use value with onValueChange for controlled input, or defaultValue for local state. Native onChange is also forwarded.",
+      "The clear action emits an ordinary input change, returns focus to the input, and is hidden for disabled or readonly values."
+    ],
+    "accessibility": [
+      "Native input attributes such as type, autoComplete, required, and readOnly are retained.",
+      "Pointer activation strengthens the boundary; keyboard navigation adds the keyboard focus treatment. Invalid state remains independently announced."
+    ],
+    "context": [
+      "Use for names, identifiers, email addresses, and other values that fit one line."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "button",
+      "div",
+      "input",
+      "label",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/field/field.css",
+    "src/components/field/field.tsx",
+    "src/components/field/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/text-input/text-input.css",
+    "src/components/text-input/text-input.stories.tsx",
+    "src/components/text-input/text-input.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-textinput--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-forms-textinput--matrix",
+      "sourceFile": "src/components/text-input/text-input.stories.tsx"
+    },
+    {
+      "id": "components-forms-textinput--prefix-and-suffix",
+      "name": "Prefix And Suffix",
+      "url": "../../?path=/story/components-forms-textinput--prefix-and-suffix",
+      "sourceFile": "src/components/text-input/text-input.stories.tsx"
+    },
+    {
+      "id": "components-forms-textinput--clearable",
+      "name": "Clearable",
+      "url": "../../?path=/story/components-forms-textinput--clearable",
+      "sourceFile": "src/components/text-input/text-input.stories.tsx"
+    },
+    {
+      "id": "components-forms-textinput--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-forms-textinput--playground",
+      "sourceFile": "src/components/text-input/text-input.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-input-field-border-width-hairline",
+    "--group-input-field-border-width-regular",
+    "--group-input-field-clear-size",
+    "--group-input-field-color-action-fill",
+    "--group-input-field-color-border-strong",
+    "--group-input-field-color-content-primary",
+    "--group-input-field-color-content-secondary",
+    "--group-input-field-color-content-tertiary",
+    "--group-input-field-color-danger-foreground",
+    "--group-input-field-color-surface-hover",
+    "--group-input-field-color-surface-surface",
+    "--group-input-field-color-transparent",
+    "--group-input-field-ease-out",
+    "--group-input-field-flex-fill",
+    "--group-input-field-flex-none",
+    "--group-input-field-focus-offset",
+    "--group-input-field-font-leading-body",
+    "--group-input-field-font-leading-compact",
+    "--group-input-field-font-size-body",
+    "--group-input-field-font-weight-medium",
+    "--group-input-field-font-weight-regular",
+    "--group-input-field-gap-compact",
+    "--group-input-field-gap-snug",
+    "--group-input-field-height-available",
+    "--group-input-field-height-compact",
+    "--group-input-field-height-large",
+    "--group-input-field-height-regular",
+    "--group-input-field-motion-fast",
+    "--group-input-field-number-0",
+    "--group-input-field-opacity-disabled",
+    "--group-input-field-opacity-visible",
+    "--group-input-field-padding-compact",
+    "--group-input-field-padding-regular",
+    "--group-input-field-radius-bold",
+    "--group-input-field-radius-rounded",
+    "--group-input-field-radius-soft",
+    "--group-input-field-required-gap",
+    "--group-input-field-ring-focus",
+    "--group-input-field-size-flex-panel-roomy",
+    "--group-input-field-size-flex-wide-panel-huge",
+    "--group-input-field-size-min-width-panel-roomy",
+    "--group-input-field-width-available",
+    "--group-input-measurement-icon-sm",
+    "--group-input-surface-appearance-control-border",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-appearance-control-fill",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-width-available",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-regular",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-regular",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-surface",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-hairline",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-border-strong",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-bold",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ease-out",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-motion-fast",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-compact",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-compact",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-large",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-regular",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ring-focus",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-focus-offset",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-action-fill",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-hover",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-disabled",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-transparent",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-available",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-visible",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-clear-size",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-soft",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-rounded",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-flex-fill",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-flex-none",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-size-flex-wide-panel-huge",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-size-min-width-panel-roomy",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-size-flex-panel-roomy",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-snug",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-medium",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-required-gap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-fill",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-measurement-icon-sm",
+      "ownership": "owned",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

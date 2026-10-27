@@ -1,0 +1,518 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-feedback-empty-state",
+  "name": "Empty state",
+  "category": "Feedback",
+  "tokenGroup": "feedback",
+  "kind": "component",
+  "aliases": [
+    "empty view",
+    "no results"
+  ],
+  "purpose": "A named explanation of no results, no data, or a loading failure, with optional recovery actions.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/empty-state"
+  ],
+  "links": {
+    "contract": "./components-feedback-empty-state.json",
+    "overview": "../../?path=/docs/components-feedback-empty-state-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-feedback-empty-state-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-feedback-empty-state-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-feedback-empty-state-overview--docs&docsTab=tokens"
+  },
+  "description": "Explain why a region is empty and provide a useful next step.",
+  "exports": [
+    "EmptyState"
+  ],
+  "importStatements": [
+    "import { EmptyState } from '@dimitriszoitas/aegis-ui/empty-state';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "EmptyState",
+      "name": "action",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "EmptyState",
+      "name": "compact",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "EmptyState",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "EmptyState",
+      "name": "icon",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "EmptyState",
+      "name": "preset",
+      "type": "\"error\" | \"no-results\" | \"no-data\" | undefined",
+      "required": false,
+      "defaultValue": "\"no-results\""
+    },
+    {
+      "component": "EmptyState",
+      "name": "secondaryAction",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "EmptyState",
+      "name": "title",
+      "type": "ReactNode",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "preset",
+      "values": [
+        "error",
+        "no-data",
+        "no-results"
+      ],
+      "default": "no-results"
+    },
+    {
+      "name": "compact",
+      "values": [
+        "false",
+        "true"
+      ],
+      "default": "false"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A named explanation of no results, no data, or a loading failure, with optional recovery actions.",
+    "usage": [
+      "Choose the preset that matches the cause. No results should suggest adjusting a query; no data should explain how content begins.",
+      "Override title and description with the actual subject and offer a working action when recovery is possible."
+    ],
+    "accessibility": [
+      "The section is associated with its heading and description; decorative illustrations are hidden from assistive technology.",
+      "The preset itself is not a live announcement. The host should announce changes when an asynchronous result replaces existing content."
+    ],
+    "context": [
+      "Use inside collections and panels; compact is intended for small containers rather than full pages."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-describedby",
+      "aria-hidden",
+      "aria-labelledby"
+    ],
+    "nativeElements": [
+      "div",
+      "h3",
+      "p",
+      "section"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/empty-state/empty-state.css",
+    "src/components/empty-state/empty-state.stories.tsx",
+    "src/components/empty-state/empty-state.tsx",
+    "src/components/icon/index.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-feedback-empty-state--presets",
+      "name": "Presets",
+      "url": "../../?path=/story/components-feedback-empty-state--presets",
+      "sourceFile": "src/components/empty-state/empty-state.stories.tsx"
+    },
+    {
+      "id": "components-feedback-empty-state--compact",
+      "name": "Compact",
+      "url": "../../?path=/story/components-feedback-empty-state--compact",
+      "sourceFile": "src/components/empty-state/empty-state.stories.tsx"
+    },
+    {
+      "id": "components-feedback-empty-state--custom-workspace",
+      "name": "Custom Workspace",
+      "url": "../../?path=/story/components-feedback-empty-state--custom-workspace",
+      "sourceFile": "src/components/empty-state/empty-state.stories.tsx"
+    },
+    {
+      "id": "components-feedback-empty-state--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-feedback-empty-state--playground",
+      "sourceFile": "src/components/empty-state/empty-state.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-feedback-empty-state-border-width-hairline",
+    "--group-feedback-empty-state-color-border-subtle",
+    "--group-feedback-empty-state-color-content-primary",
+    "--group-feedback-empty-state-color-content-secondary",
+    "--group-feedback-empty-state-color-danger-border",
+    "--group-feedback-empty-state-color-danger-foreground",
+    "--group-feedback-empty-state-color-danger-soft",
+    "--group-feedback-empty-state-color-surface-surface-raised",
+    "--group-feedback-empty-state-font-leading-prose",
+    "--group-feedback-empty-state-font-size-body",
+    "--group-feedback-empty-state-font-size-subheading",
+    "--group-feedback-empty-state-number-0",
+    "--group-feedback-empty-state-radius-border-radius-strong",
+    "--group-feedback-empty-state-shadow-raised",
+    "--group-feedback-empty-state-size-max-width-canvas-compact",
+    "--group-feedback-empty-state-size-min-height-panel-huge",
+    "--group-feedback-empty-state-size-min-height-wide-panel-large",
+    "--group-feedback-empty-state-space-gap-comfortable",
+    "--group-feedback-empty-state-space-gap-compact",
+    "--group-feedback-empty-state-space-height-14",
+    "--group-feedback-empty-state-space-margin-compact",
+    "--group-feedback-empty-state-space-padding-comfortable",
+    "--group-feedback-empty-state-space-padding-expansive",
+    "--group-feedback-empty-state-space-padding-roomy",
+    "--group-feedback-empty-state-space-width-14",
+    "--group-feedback-measurement-icon-empty",
+    "--group-feedback-measurement-icon-stroke-thin",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-leading-compact",
+    "--group-feedback-surface-font-leading-relaxed",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus",
+    "--group-feedback-surface-stack-gap-compact",
+    "--group-feedback-surface-stack-gap-regular",
+    "--group-feedback-surface-title-weight"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-feedback-empty-state-space-gap-comfortable",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-padding-expansive",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-padding-roomy",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-size-min-height-wide-panel-large",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-padding-comfortable",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-size-min-height-panel-huge",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-width-14",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-height-14",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-content-secondary",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-border-width-hairline",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-border-subtle",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-surface-surface-raised",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-shadow-raised",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-danger-foreground",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-danger-soft",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-danger-border",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-size-max-width-canvas-compact",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-number-0",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-margin-compact",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-font-size-subheading",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-content-primary",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-font-size-body",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-font-leading-prose",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-gap-compact",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-title-weight",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-leading-compact",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-stack-gap-compact",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-stroke-thin",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-empty",
+      "ownership": "owned",
+      "component": "Empty state",
+      "group": "feedback"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

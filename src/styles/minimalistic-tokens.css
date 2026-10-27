@@ -1,0 +1,171 @@
+/* Minimalistic is a visual approach, independent of the light/dark color theme.
+   light-dark() resolves at the consuming element, including nested preview themes. */
+[data-layout-theme='minimalistic'],
+[data-layout-theme='minimalistic'] :is(.dark, .aegis-theme-light) {
+  --color-bg-canvas: light-dark(#f5f5f5, #111111);
+  --color-bg-surface: light-dark(#ffffff, #1b1b1b);
+  --color-bg-surface-raised: var(--color-bg-surface);
+  --color-bg-hover: var(--color-bg-canvas);
+  --color-bg-selected: var(--color-bg-canvas);
+  --color-text-primary: light-dark(#171717, #f2f2f2);
+  --color-text-secondary: light-dark(#6b6b6b, #a3a3a3);
+  --color-text-tertiary: var(--color-text-secondary);
+  --color-border-subtle: light-dark(#dedede, #252525);
+  --color-border-default: light-dark(#cdcdcd, #2d2d2d);
+  --color-border-strong: light-dark(#777777, #8a8a8a);
+  --color-on-intent: light-dark(#ffffff, #111111);
+  --color-scrim: light-dark(rgb(0 0 0 / 36%), rgb(0 0 0 / 60%));
+  --color-function-bg: light-dark(#262626, #e5e5e5);
+  --color-function-fg: var(--color-text-primary);
+  --color-function-soft: var(--color-bg-canvas);
+  --color-function-border: var(--color-border-default);
+  --minimal-interaction-bg: light-dark(#4565ed, #6b8bff);
+  --minimal-interaction-fg: light-dark(#3250cc, #a6b7ff);
+  --minimal-interaction-border: color-mix(
+    in srgb,
+    var(--minimal-interaction-bg) 40%,
+    var(--color-border-default)
+  );
+  --color-ai-bg: light-dark(#b32acb, #df7cf2);
+  --color-ai-fg: light-dark(#9f1fba, #e99df7);
+  --color-ai-pink-bg: light-dark(#c92572, #ff83b4);
+  --color-ai-pink-fg: light-dark(#b21863, #ffa7cb);
+  --color-ai-blue-bg: light-dark(#315de5, #79a2ff);
+  --color-ai-blue-fg: light-dark(#214bc0, #a0baff);
+  --color-ai-soft: var(--color-bg-canvas);
+  --color-ai-pink-soft: var(--color-bg-canvas);
+  --color-ai-blue-soft: var(--color-bg-canvas);
+  --color-ai-surface: var(--color-bg-surface);
+  --color-ai-border: var(--color-border-default);
+  --gradient-ai: linear-gradient(
+    110deg,
+    var(--color-ai-bg) 0%,
+    var(--color-ai-pink-bg) 50%,
+    var(--color-ai-blue-bg) 100%
+  );
+  --gradient-ai-border: linear-gradient(
+    110deg,
+    var(--color-ai-fg) 0%,
+    var(--color-ai-pink-fg) 50%,
+    var(--color-ai-blue-fg) 100%
+  );
+  --gradient-ai-text: var(--gradient-ai-border);
+  --gradient-ai-soft: var(--color-bg-canvas);
+  --gradient-ai-surface: var(--color-bg-surface);
+  --ring-focus: var(--color-text-primary);
+  --scrollbar-thumb: var(--color-border-strong);
+  --scrollbar-thumb-hover: var(--color-text-secondary);
+  --scrollbar-thumb-active: var(--color-text-primary);
+  --elevation-raised: none;
+  --elevation-floating: none;
+  --elevation-overlay: none;
+  --shadow-raised: none;
+  --shadow-floating: none;
+  --shadow-overlay: none;
+  --chrome-shadow: none;
+  --chrome-overlay-shadow: none;
+  --radius-xs: 4px;
+  --radius-sm: 4px;
+  --radius-md: 5px;
+  --radius-lg: 6px;
+  --radius-xl: 6px;
+  --radius-2xl: 6px;
+  --radius-3xl: 6px;
+  --radius-4xl: 6px;
+  --radius-full: 6px;
+  --surface-radius: 6px;
+  --surface-radius-floating: 6px;
+  --surface-radius-nested: 4px;
+  --button-radius-sm: 4px;
+  --button-radius-md: 5px;
+  --button-radius-lg: 6px;
+  --control-radius-xs: 4px;
+  --control-radius-sm: 4px;
+  --control-radius-md: 5px;
+  --control-radius-lg: 6px;
+  --chip-radius: 4px;
+  --badge-border-strength: 70%;
+  --badge-text-highlight: 0%;
+  --status-bg-emphasis: 0%;
+  --color-chart-1: light-dark(#606060, #bdbdbd);
+  --color-chart-function: var(--color-chart-1);
+  --color-chart-ai: var(--color-ai-bg);
+  /* Status and syntax keep their meaning independently of the action palette. */
+  --minimal-status-new-fg: light-dark(#315de5, #799dff);
+  --minimal-status-progress-fg: light-dark(#ce9300, #edc12f);
+  --minimal-status-resolved-fg: light-dark(#189348, #39d27d);
+  --minimal-status-new-soft: color-mix(
+    in srgb,
+    var(--minimal-status-new-fg) 10%,
+    var(--color-bg-surface)
+  );
+  --color-status-review-fg: light-dark(#a323c2, #dd7cf4);
+  --minimal-status-review-soft: color-mix(
+    in srgb,
+    var(--color-status-review-fg) 10%,
+    var(--color-bg-surface)
+  );
+  /* Colored indicators remain vivid while their labels use primary theme text. */
+  --color-severity-critical-fg: light-dark(#e02c3b, #ff6470);
+  --color-severity-critical-border: color-mix(
+    in srgb,
+    var(--color-severity-critical-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-high-fg: light-dark(#ed691b, #ff914a);
+  --color-severity-high-border: color-mix(
+    in srgb,
+    var(--color-severity-high-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-medium-fg: light-dark(#cc9000, #edc12f);
+  --color-severity-medium-border: color-mix(
+    in srgb,
+    var(--color-severity-medium-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-low-fg: light-dark(#3268eb, #749dff);
+  --color-severity-low-border: color-mix(
+    in srgb,
+    var(--color-severity-low-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-info-fg: light-dark(#63758c, #9caec5);
+  --color-severity-info-border: color-mix(
+    in srgb,
+    var(--color-severity-info-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-syntax-key: light-dark(#3250cc, #a6b7ff);
+  --color-syntax-keyword: light-dark(#9f1fba, #e99df7);
+  --color-syntax-string: var(--color-success-fg);
+  --color-syntax-number: var(--color-warning-fg);
+  --color-syntax-comment: var(--color-text-tertiary);
+  /* Rebind utility aliases here: inherited aliases otherwise retain the old palette. */
+  --background: var(--color-bg-surface);
+  --foreground: var(--color-text-primary);
+  --card: var(--color-bg-surface);
+  --card-foreground: var(--color-text-primary);
+  --popover: var(--color-bg-surface);
+  --popover-foreground: var(--color-text-primary);
+  --primary: var(--color-function-bg);
+  --primary-foreground: var(--color-on-intent);
+  --secondary: var(--color-bg-canvas);
+  --secondary-foreground: var(--color-text-primary);
+  --muted: var(--color-bg-canvas);
+  --muted-foreground: var(--color-text-secondary);
+  --accent: var(--color-bg-canvas);
+  --accent-foreground: var(--color-text-primary);
+  --border: var(--color-border-default);
+  --input: var(--color-border-default);
+  --ring: var(--ring-focus);
+  --radius: var(--radius-md);
+}
+[data-layout-theme='minimalistic'].dark,
+[data-layout-theme='minimalistic'] .dark {
+  color-scheme: dark;
+}
+[data-layout-theme='minimalistic'].aegis-theme-light,
+[data-layout-theme='minimalistic'] .aegis-theme-light {
+  color-scheme: light;
+}

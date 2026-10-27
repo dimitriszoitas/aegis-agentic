@@ -1,0 +1,225 @@
+/* Fundamental Floating shares the Fundamental palette and controls. Only
+   workspace chrome becomes inset, rounded containers. */
+
+[data-layout-theme='fundamental-floating'] .side-nav {
+  --group-navigation-side-nav-inset: var(
+    --semantic-part-surface-side-nav-inset-fundamental-floating
+  );
+  margin: var(--group-navigation-surface-chrome-inset);
+  margin-inline-end: var(--group-navigation-surface-number-0);
+  border: var(--group-navigation-surface-border-width-hairline) solid
+    var(--group-navigation-surface-color-border-subtle);
+  border-radius: var(--group-navigation-surface-sidebar-radius-expanded);
+}
+
+[data-layout-theme='fundamental-floating'][data-layout-theme='fundamental-floating'] .side-nav {
+  box-shadow: var(--group-navigation-surface-chrome-shadow) !important;
+}
+[data-layout-theme='fundamental-floating'] .side-nav[data-collapsed='true'] {
+  border-radius: var(--group-navigation-surface-sidebar-radius-collapsed);
+}
+[data-layout-theme='fundamental-floating'] .nav-item:hover:not(.is-active) {
+  background: color-mix(
+    in srgb,
+    var(--group-navigation-surface-color-content-primary) var(--group-navigation-surface-mix-4),
+    var(--group-navigation-surface-color-surface-surface)
+  );
+}
+
+[data-layout-theme='fundamental-floating']
+  :is(.aegis-sheet-docked, .aegis-bottom-sheet, .aegis-filter-panel, .aegis-resizable-panel):where(
+    .aegis-sheet-docked,
+    .aegis-bottom-sheet
+  ) {
+  background: var(--group-surface-color-surface-surface);
+  border: var(--group-surface-border-width-hairline) solid var(--group-surface-color-border-subtle);
+  border-radius: var(--group-surface-chrome-radius);
+}
+
+[data-layout-theme='fundamental-floating'][data-layout-theme='fundamental-floating']
+  :is(.aegis-sheet-docked, .aegis-bottom-sheet, .aegis-filter-panel, .aegis-resizable-panel):where(
+    .aegis-sheet-docked,
+    .aegis-bottom-sheet
+  ) {
+  box-shadow: var(--group-surface-chrome-shadow) !important;
+}
+
+[data-layout-theme='fundamental-floating']
+  :is(.aegis-sheet-docked, .aegis-bottom-sheet, .aegis-filter-panel, .aegis-resizable-panel):where(
+    .aegis-filter-panel
+  ) {
+  background: var(--group-filtering-surface-color-surface-surface);
+  border: var(--group-filtering-surface-border-width-hairline) solid
+    var(--group-filtering-surface-color-border-subtle);
+  border-radius: var(--group-filtering-surface-chrome-radius);
+}
+
+[data-layout-theme='fundamental-floating'][data-layout-theme='fundamental-floating']
+  :is(.aegis-sheet-docked, .aegis-bottom-sheet, .aegis-filter-panel, .aegis-resizable-panel):where(
+    .aegis-filter-panel
+  ) {
+  box-shadow: var(--group-filtering-surface-chrome-shadow) !important;
+}
+
+[data-layout-theme='fundamental-floating']
+  :is(.aegis-sheet-docked, .aegis-bottom-sheet, .aegis-filter-panel, .aegis-resizable-panel):where(
+    .aegis-resizable-panel
+  ) {
+  background: var(--group-layout-surface-color-surface-surface);
+  border: var(--group-layout-surface-border-width-hairline) solid
+    var(--group-layout-surface-color-border-subtle);
+  border-radius: var(--group-layout-surface-chrome-radius);
+}
+
+[data-layout-theme='fundamental-floating'][data-layout-theme='fundamental-floating']
+  :is(.aegis-sheet-docked, .aegis-bottom-sheet, .aegis-filter-panel, .aegis-resizable-panel):where(
+    .aegis-resizable-panel
+  ) {
+  box-shadow: var(--group-layout-surface-chrome-shadow) !important;
+}
+[data-layout-theme='fundamental-floating'] .aegis-sheet.aegis-ai-panel.aegis-ai-panel {
+  border: var(--group-ai-assistance-overlay-border-width-hairline) solid
+    var(--group-ai-assistance-overlay-color-border-subtle);
+}
+
+/* The generic contained sheet retains its measured panel size. Reserve the
+   padding and gap in its bounds calculation so resizing cannot hide content. */
+[data-layout-theme='fundamental-floating'] .aegis-contained-sheet {
+  padding: var(--group-surface-chrome-inset);
+  gap: var(--group-surface-chrome-gap);
+}
+[data-layout-theme='fundamental-floating']
+  .aegis-contained-sheet
+  .aegis-contained-sheet-panel.aegis-contained-sheet-panel {
+  border: var(--group-surface-border-width-hairline) solid var(--group-surface-color-border-subtle);
+  border-radius: var(--group-surface-chrome-radius);
+  background: var(--group-surface-color-surface-surface);
+}
+[data-layout-theme='fundamental-floating'][data-layout-theme='fundamental-floating']
+  .aegis-contained-sheet
+  .aegis-contained-sheet-panel.aegis-contained-sheet-panel {
+  box-shadow: var(--group-surface-chrome-shadow) !important;
+}
+[data-layout-theme='fundamental-floating'] .aegis-contained-sheet-header {
+  border-start-start-radius: var(--group-surface-chrome-radius);
+  border-start-end-radius: var(--group-surface-chrome-radius);
+}
+[data-layout-theme='fundamental-floating'] .aegis-contained-sheet-footer {
+  border-end-start-radius: var(--group-surface-chrome-radius);
+  border-end-end-radius: var(--group-surface-chrome-radius);
+}
+
+@media (max-width: 1000px) {
+  [data-layout-theme='fundamental-floating'] .aegis-console .side-nav + .aegis-console-workspace {
+    margin-inline-start: calc(
+      var(--group-application-surface-sidebar-collapsed) +
+        var(--group-application-surface-chrome-inset)
+    );
+  }
+}
+@media (max-width: 640px) {
+}
+@media (forced-colors: active) {
+  [data-layout-theme='fundamental-floating']
+    :is(
+      .side-nav,
+      .aegis-sheet-docked,
+      .aegis-bottom-sheet,
+      .aegis-filter-panel,
+      .aegis-resizable-panel,
+      .aegis-contained-sheet-panel
+    ):where(.side-nav) {
+    border: var(--group-navigation-surface-border-width-hairline) solid CanvasText;
+  }
+  [data-layout-theme='fundamental-floating'][data-layout-theme='fundamental-floating']
+    :is(
+      .side-nav,
+      .aegis-sheet-docked,
+      .aegis-bottom-sheet,
+      .aegis-filter-panel,
+      .aegis-resizable-panel,
+      .aegis-contained-sheet-panel
+    ):where(.side-nav) {
+    box-shadow: var(--group-navigation-surface-elevation-none) !important;
+  }
+  [data-layout-theme='fundamental-floating']
+    :is(
+      .side-nav,
+      .aegis-sheet-docked,
+      .aegis-bottom-sheet,
+      .aegis-filter-panel,
+      .aegis-resizable-panel,
+      .aegis-contained-sheet-panel
+    ):where(.aegis-sheet-docked, .aegis-bottom-sheet, .aegis-contained-sheet-panel) {
+    border: var(--group-surface-border-width-hairline) solid CanvasText;
+  }
+  [data-layout-theme='fundamental-floating'][data-layout-theme='fundamental-floating']
+    :is(
+      .side-nav,
+      .aegis-sheet-docked,
+      .aegis-bottom-sheet,
+      .aegis-filter-panel,
+      .aegis-resizable-panel,
+      .aegis-contained-sheet-panel
+    ):where(.aegis-sheet-docked, .aegis-bottom-sheet, .aegis-contained-sheet-panel) {
+    box-shadow: var(--group-surface-elevation-none) !important;
+  }
+  [data-layout-theme='fundamental-floating']
+    :is(
+      .side-nav,
+      .aegis-sheet-docked,
+      .aegis-bottom-sheet,
+      .aegis-filter-panel,
+      .aegis-resizable-panel,
+      .aegis-contained-sheet-panel
+    ):where(.aegis-filter-panel) {
+    border: var(--group-filtering-surface-border-width-hairline) solid CanvasText;
+  }
+  [data-layout-theme='fundamental-floating'][data-layout-theme='fundamental-floating']
+    :is(
+      .side-nav,
+      .aegis-sheet-docked,
+      .aegis-bottom-sheet,
+      .aegis-filter-panel,
+      .aegis-resizable-panel,
+      .aegis-contained-sheet-panel
+    ):where(.aegis-filter-panel) {
+    box-shadow: var(--group-filtering-surface-elevation-none) !important;
+  }
+  [data-layout-theme='fundamental-floating']
+    :is(
+      .side-nav,
+      .aegis-sheet-docked,
+      .aegis-bottom-sheet,
+      .aegis-filter-panel,
+      .aegis-resizable-panel,
+      .aegis-contained-sheet-panel
+    ):where(.aegis-resizable-panel) {
+    border: var(--group-layout-surface-border-width-hairline) solid CanvasText;
+  }
+  [data-layout-theme='fundamental-floating'][data-layout-theme='fundamental-floating']
+    :is(
+      .side-nav,
+      .aegis-sheet-docked,
+      .aegis-bottom-sheet,
+      .aegis-filter-panel,
+      .aegis-resizable-panel,
+      .aegis-contained-sheet-panel
+    ):where(.aegis-resizable-panel) {
+    box-shadow: var(--group-layout-surface-elevation-none) !important;
+  }
+}
+@scope ([data-layout-theme='fundamental-floating'] :is(.aegis-sheet-docked, .aegis-bottom-sheet, .aegis-filter-panel, .aegis-resizable-panel)) {
+  .aegis-data-grid.aegis-data-grid {
+    --group-data-display-surface-fundamental-grid-surface: var(
+      --semantic-part-surface-fundamental-grid-surface-fundamental-floating
+    );
+  }
+}
+@scope ([data-layout-theme='fundamental-floating'] .aegis-contained-sheet .aegis-contained-sheet-panel.aegis-contained-sheet-panel) {
+  .aegis-data-grid.aegis-data-grid {
+    --group-data-display-surface-fundamental-grid-surface: var(
+      --semantic-part-surface-fundamental-grid-surface-fundamental-floating
+    );
+  }
+}

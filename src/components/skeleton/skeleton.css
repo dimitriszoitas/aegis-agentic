@@ -1,0 +1,69 @@
+.aegis-skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--group-feedback-skeleton-color-surface-selected);
+  border-radius: var(--group-feedback-skeleton-radius-border-radius-soft);
+}
+.aegis-skeleton[data-variant='text'] {
+  width: var(--group-feedback-skeleton-size-width-full);
+  height: var(--group-feedback-skeleton-space-height-regular);
+}
+.aegis-skeleton[data-variant='block'] {
+  width: var(--group-feedback-skeleton-size-width-full);
+  height: var(--group-feedback-skeleton-size-height-wide-content-vast);
+  border-radius: var(--group-feedback-skeleton-radius-border-radius-strong);
+}
+.aegis-skeleton[data-variant='avatar'] {
+  width: var(--group-feedback-skeleton-space-width-10);
+  height: var(--group-feedback-skeleton-space-height-10);
+  border-radius: var(--group-feedback-skeleton-radius-border-radius-full);
+  flex-shrink: var(--group-feedback-skeleton-flex-none);
+}
+.aegis-skeleton[data-variant='table-row'] {
+  display: flex;
+  align-items: center;
+  gap: var(--group-feedback-skeleton-space-gap-roomy);
+  padding: var(--group-feedback-skeleton-space-padding-comfortable);
+  height: var(--group-feedback-skeleton-size-height-vast);
+  background: var(--group-feedback-skeleton-color-surface-surface);
+  border-bottom: var(--group-feedback-skeleton-border-width-hairline) solid
+    var(--group-feedback-skeleton-color-border-subtle);
+  border-radius: var(--group-feedback-skeleton-number-0);
+}
+.aegis-skeleton-cell {
+  height: var(--group-feedback-skeleton-space-height-regular);
+  background: var(--group-feedback-skeleton-color-surface-selected);
+  border-radius: var(--group-feedback-skeleton-radius-border-radius-soft);
+  flex: var(--group-feedback-skeleton-flex-fill);
+}
+.aegis-skeleton-cell:nth-child(2) {
+  flex: var(--group-feedback-skeleton-flex-grow-three);
+}
+.aegis-skeleton[data-animate='true']::after {
+  position: absolute;
+  inset: var(--group-feedback-skeleton-number-0);
+  content: '';
+  transform: translateX(var(--group-feedback-skeleton-size-transform-negative-100percent));
+  background: linear-gradient(
+    var(--group-feedback-skeleton-angle-90deg),
+    transparent,
+    color-mix(
+      in srgb,
+      var(--group-feedback-skeleton-color-surface-surface) var(--group-feedback-skeleton-mix-60),
+      transparent
+    ),
+    transparent
+  );
+  animation: aegis-skeleton-shimmer var(--group-feedback-skeleton-duration-1600ms) ease-in-out
+    infinite;
+}
+@keyframes aegis-skeleton-shimmer {
+  to {
+    transform: translateX(var(--group-feedback-skeleton-size-transform-full));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aegis-skeleton[data-animate='true']::after {
+    display: none;
+  }
+}

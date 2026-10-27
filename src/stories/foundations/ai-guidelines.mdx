@@ -1,0 +1,68 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { AiCard, AiHighlight } from '../../components/ai-card';
+import { ConfidenceBadge } from '../../components/confidence-badge';
+import { FoundationLinks } from './foundation-examples';
+import { ThinkingIndicator } from '../../components/thinking-indicator';
+
+<Meta title="AI Guidelines" id="foundations-ai-guidelines" />
+
+# AI Guidelines
+
+AI output is visibly generated, grounded in the supplied context, and subject to human review. Keep the supporting context and the next action close to the response.
+
+## Recognizable in every treatment
+
+Use `--group-trigger-button-gradient-ai` for prominent AI actions, `--group-trigger-button-gradient-ai-soft` for tertiary controls and chips, `--group-trigger-button-gradient-ai-border` for secondary button outlines, `--group-ai-gradient-ai-text` for AI labels and icons, and `--group-ai-gradient-ai-surface` for generated content. Fundamental and Fundamental Floating share a lime-to-blue-to-purple palette in light and dark. The shared AI marker keeps its star still while the internal gradient moves slowly; reduced-motion preference keeps the gradient static. AI cards and highlights follow the shared quiet surface treatment. Pair the marker with the explicit “AI generated” label; color alone must never identify a response as generated.
+
+The following project example illustrates provenance and explicit review.
+
+<AiCard
+  title="Review the delivery plan"
+  confidence="high"
+  provenance="Project milestones · PRJ-1049"
+>
+  The attached project records include an upcoming delivery milestone. Review the dependencies and
+  confirm ownership before changing the schedule.
+</AiCard>
+
+## Confidence is evidence strength
+
+High, medium, and low confidence describe the strength and completeness of the available evidence. They do not replace severity, a workflow state, or permission to apply a change. Include provenance and state what remains unverified.
+
+<div className="row">
+  <ConfidenceBadge confidence="high" />
+  <ConfidenceBadge confidence="medium" />
+  <ConfidenceBadge confidence="low" />
+</div>
+
+## Keep progress inspectable
+
+Stream readable markdown while leaving the interface usable. A caret indicates incoming text, a thinking indicator explains the current stage, and a collapsible working section lists actual tool steps with pending, working, complete, or error status. Announce state transitions rather than every incoming token. Respect reduced motion by disabling caret blinking, shimmer, rotating status messages, and decorative motion.
+
+<ThinkingIndicator messages={['Reviewing the selected records', 'Preparing next steps']} />
+
+Stop generation immediately when requested and preserve partial output. Show recoverable failures inline with a retry action. Copy, feedback, evidence links, and regenerate actions remain keyboard accessible. A stop before the first text token still offers regeneration. Return focus to the composer when a Stop or Regenerate control is replaced. Rendering markdown never executes raw HTML from a generated response.
+
+## Show scope and provenance
+
+The panel's context chips show which records, references, and time scope the assistant can access. Reference chips open the referenced record through the host application's citation callback or its supplied URL. Do not claim that labels alone prove a relationship between records. The local streaming mock distinguishes supplied references from work performed by an external service.
+
+<AiHighlight confidence="medium" provenance="Customer account · CUS-1048">
+  Confirm the renewal owner and the latest customer feedback before proposing a follow-up.
+</AiHighlight>
+
+## Preserve the context of each turn
+
+Snapshot the prompt and attached context when a turn starts. Changing the visible selection affects the next request, while an existing turn and its citations keep their original scope. Regeneration uses that saved scope. A new keyed request may replace an active stream; cancel the old stream and ignore any late events, even if the adapter does not honor cancellation. Closing the panel stops its active generation and keeps the transcript available when reopened.
+
+The composer sends with Enter and inserts a new line with Shift+Enter. The slash-command menu fills a draft for review; it does not send automatically. Attaching or removing context changes the visible chips. Failed sends retain the draft, and IME composition must finish before Enter can submit.
+
+## Keep consequential decisions with the user
+
+AI may propose a change, summarize supplied records, or suggest a verification step. Applying a consequential change requires explicit review and approval. A change-review flow can show current and proposed values, approve and reject actions, and an audit line. A suggestion, confidence badge, or generated summary never applies an action by itself.
+
+All examples stream deterministic local responses. They use no API keys, make no model requests, and do not execute external actions.
+
+## Explore the interaction patterns
+
+<FoundationLinks />

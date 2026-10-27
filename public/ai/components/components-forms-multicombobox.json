@@ -1,0 +1,1890 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-forms-multicombobox",
+  "name": "MultiCombobox",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [
+    "autocomplete",
+    "combobox",
+    "multiselect"
+  ],
+  "purpose": "A searchable multiple-choice picker with removable chips and explicit selection controls.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/multi-combobox"
+  ],
+  "links": {
+    "contract": "./components-forms-multicombobox.json",
+    "overview": "../../?path=/docs/components-inputs-selection-multicombobox-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-multicombobox-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-multicombobox-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-multicombobox-overview--docs&docsTab=tokens"
+  },
+  "description": "A multi-select popover with Base UI Combobox primitives. Checked state and active keyboard focus remain independent. Type to filter, use Arrow/Home/End to navigate, Enter to toggle, Escape to close and Backspace on an empty search to remove the last selection. Select all applies to enabled filtered options. Set filterOptions=false for externally searched results.",
+  "exports": [
+    "MultiCombobox"
+  ],
+  "importStatements": [
+    "import { MultiCombobox } from '@dimitriszoitas/aegis-ui/multi-combobox';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "MultiCombobox",
+      "name": "aria-label",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "defaultValue",
+      "type": "readonly string[] | undefined",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "emptyLabel",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"No matching sources\""
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "filterOptions",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Disable local filtering when results are supplied by a remote search."
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "label",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "loading",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "loadingLabel",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Loading available sources\""
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "maxVisible",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "3"
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "name",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "onSearchChange",
+      "type": "((search: string) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "onValueChange",
+      "type": "((value: string[]) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "options",
+      "type": "readonly MultiComboboxOption[]",
+      "required": true
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "placeholder",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Choose sources\""
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "search",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "searchPlaceholder",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Search sources\""
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "value",
+      "type": "readonly string[] | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "state",
+      "values": [
+        "default",
+        "disabled",
+        "empty",
+        "invalid",
+        "loading"
+      ]
+    },
+    {
+      "name": "size",
+      "values": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/field",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/select",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/spinner",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/tag",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A searchable multiple-choice picker with removable chips and explicit selection controls.",
+    "usage": [
+      "Supply stable values and optional keywords for local search. Set filterOptions={false} when the host supplies remote results.",
+      "Select all applies to enabled search matches and preserves other selections; Clear removes the selection.",
+      "maxVisible limits visible chips, not selected values. Hidden choices are named in the overflow summary."
+    ],
+    "accessibility": [
+      "Arrow keys move the active option, Home and End reach the ends, and Enter toggles selection while focus stays in the search field.",
+      "Removing a chip moves focus to a remaining removal control or the trigger, avoiding a lost keyboard position.",
+      "Use loading for an actual pending result request; selection actions are disabled while results are loading."
+    ],
+    "context": [
+      "Use for multiple owners, labels, sources, or project scopes that benefit from searching."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-busy",
+      "aria-describedby",
+      "aria-hidden",
+      "aria-invalid",
+      "aria-label",
+      "aria-labelledby",
+      "aria-live",
+      "aria-required"
+    ],
+    "nativeElements": [
+      "button",
+      "div",
+      "label",
+      "span"
+    ],
+    "keyboardKeys": [
+      "Backspace"
+    ],
+    "dependencies": [
+      "@base-ui/react/combobox",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/field/field.css",
+    "src/components/field/field.tsx",
+    "src/components/field/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/multi-combobox/multi-combobox.css",
+    "src/components/multi-combobox/multi-combobox.stories.tsx",
+    "src/components/multi-combobox/multi-combobox.tsx",
+    "src/components/spinner/index.ts",
+    "src/components/spinner/spinner.css",
+    "src/components/spinner/spinner.tsx",
+    "src/components/tag/index.ts",
+    "src/components/tag/tag.css",
+    "src/components/tag/tag.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-overlays.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/theme.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-multicombobox--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-forms-multicombobox--matrix",
+      "sourceFile": "src/components/multi-combobox/multi-combobox.stories.tsx"
+    },
+    {
+      "id": "components-forms-multicombobox--open-grouped",
+      "name": "Open Grouped",
+      "url": "../../?path=/story/components-forms-multicombobox--open-grouped",
+      "sourceFile": "src/components/multi-combobox/multi-combobox.stories.tsx"
+    },
+    {
+      "id": "components-forms-multicombobox--loading",
+      "name": "Loading",
+      "url": "../../?path=/story/components-forms-multicombobox--loading",
+      "sourceFile": "src/components/multi-combobox/multi-combobox.stories.tsx"
+    },
+    {
+      "id": "components-forms-multicombobox--empty-results",
+      "name": "Empty Results",
+      "url": "../../?path=/story/components-forms-multicombobox--empty-results",
+      "sourceFile": "src/components/multi-combobox/multi-combobox.stories.tsx"
+    },
+    {
+      "id": "components-forms-multicombobox--async-results",
+      "name": "Async Results",
+      "url": "../../?path=/story/components-forms-multicombobox--async-results",
+      "sourceFile": "src/components/multi-combobox/multi-combobox.stories.tsx"
+    },
+    {
+      "id": "components-forms-multicombobox--keyboard-selection",
+      "name": "Keyboard Selection",
+      "url": "../../?path=/story/components-forms-multicombobox--keyboard-selection",
+      "sourceFile": "src/components/multi-combobox/multi-combobox.stories.tsx"
+    },
+    {
+      "id": "components-forms-multicombobox--keyboard-chip-removal",
+      "name": "Keyboard Chip Removal",
+      "url": "../../?path=/story/components-forms-multicombobox--keyboard-chip-removal",
+      "sourceFile": "src/components/multi-combobox/multi-combobox.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--anchor-width",
+    "--available-height",
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-data-display-measurement-icon-xs",
+    "--group-data-display-tag-badge-border-strength",
+    "--group-data-display-tag-border-width-hairline",
+    "--group-data-display-tag-color-border-default",
+    "--group-data-display-tag-color-content-primary",
+    "--group-data-display-tag-color-content-secondary",
+    "--group-data-display-tag-color-surface-selected",
+    "--group-data-display-tag-color-surface-surface",
+    "--group-data-display-tag-color-transparent",
+    "--group-data-display-tag-flex-none",
+    "--group-data-display-tag-font-leading-heading-tight",
+    "--group-data-display-tag-font-leading-solid",
+    "--group-data-display-tag-font-size-annotation-s",
+    "--group-data-display-tag-font-size-label",
+    "--group-data-display-tag-font-weight-medium",
+    "--group-data-display-tag-font-weight-semibold",
+    "--group-data-display-tag-mix-8",
+    "--group-data-display-tag-number-0",
+    "--group-data-display-tag-radius-border-radius-circle",
+    "--group-data-display-tag-radius-border-radius-full",
+    "--group-data-display-tag-radius-border-radius-soft",
+    "--group-data-display-tag-size-gap-micro-roomy",
+    "--group-data-display-tag-size-height-compact",
+    "--group-data-display-tag-size-height-micro-roomy",
+    "--group-data-display-tag-size-height-small",
+    "--group-data-display-tag-size-height-snug",
+    "--group-data-display-tag-size-min-width-compact",
+    "--group-data-display-tag-size-outline-offset-micro-small",
+    "--group-data-display-tag-size-padding-inline-start-micro-roomy",
+    "--group-data-display-tag-size-padding-micro-comfortable",
+    "--group-data-display-tag-size-padding-micro-large",
+    "--group-data-display-tag-size-padding-micro-roomy",
+    "--group-data-display-tag-size-padding-micro-snug",
+    "--group-data-display-tag-size-text-underline-offset-micro-compact",
+    "--group-data-display-tag-size-width-micro-roomy",
+    "--group-data-display-tag-size-width-small",
+    "--group-data-display-tag-space-padding-compact",
+    "--group-data-display-tag-tag-fg",
+    "--group-feedback-measurement-icon-stroke-strong",
+    "--group-feedback-measurement-spinner-track-opacity",
+    "--group-feedback-spinner-angle-360deg",
+    "--group-feedback-spinner-duration-900ms",
+    "--group-feedback-spinner-flex-none",
+    "--group-feedback-spinner-size-height-compact",
+    "--group-feedback-spinner-size-height-full",
+    "--group-feedback-spinner-size-height-glyph-comfortable",
+    "--group-feedback-spinner-size-height-regular",
+    "--group-feedback-spinner-size-width-compact",
+    "--group-feedback-spinner-size-width-full",
+    "--group-feedback-spinner-size-width-glyph-comfortable",
+    "--group-feedback-spinner-size-width-regular",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-flex-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-input-field-color-content-primary",
+    "--group-input-field-color-content-secondary",
+    "--group-input-field-color-content-tertiary",
+    "--group-input-field-color-danger-foreground",
+    "--group-input-field-font-leading-body",
+    "--group-input-field-font-leading-compact",
+    "--group-input-field-font-size-body",
+    "--group-input-field-font-weight-medium",
+    "--group-input-field-font-weight-regular",
+    "--group-input-field-gap-compact",
+    "--group-input-field-gap-snug",
+    "--group-input-field-number-0",
+    "--group-input-field-required-gap",
+    "--group-input-measurement-icon-compact",
+    "--group-input-measurement-icon-md",
+    "--group-input-measurement-overlay-collision-padding",
+    "--group-input-measurement-picker-offset",
+    "--group-input-multi-combobox-border-width-hairline",
+    "--group-input-multi-combobox-border-width-regular",
+    "--group-input-multi-combobox-color-action-fill",
+    "--group-input-multi-combobox-color-action-foreground",
+    "--group-input-multi-combobox-color-action-soft",
+    "--group-input-multi-combobox-color-border-strong",
+    "--group-input-multi-combobox-color-border-subtle",
+    "--group-input-multi-combobox-color-content-primary",
+    "--group-input-multi-combobox-color-content-secondary",
+    "--group-input-multi-combobox-color-content-tertiary",
+    "--group-input-multi-combobox-color-danger-foreground",
+    "--group-input-multi-combobox-color-on-intent",
+    "--group-input-multi-combobox-color-surface-hover",
+    "--group-input-multi-combobox-color-surface-selected",
+    "--group-input-multi-combobox-color-surface-surface",
+    "--group-input-multi-combobox-color-surface-surface-raised",
+    "--group-input-multi-combobox-color-transparent",
+    "--group-input-multi-combobox-ease-out",
+    "--group-input-multi-combobox-flex-fill",
+    "--group-input-multi-combobox-font-leading-compact",
+    "--group-input-multi-combobox-font-size-body",
+    "--group-input-multi-combobox-font-size-label",
+    "--group-input-multi-combobox-font-weight-semibold",
+    "--group-input-multi-combobox-motion-fast",
+    "--group-input-multi-combobox-number-0",
+    "--group-input-multi-combobox-opacity-hidden",
+    "--group-input-multi-combobox-opacity-strength-prominent",
+    "--group-input-multi-combobox-opacity-visible",
+    "--group-input-multi-combobox-radius-border-radius-bold",
+    "--group-input-multi-combobox-radius-border-radius-soft",
+    "--group-input-multi-combobox-radius-border-radius-strong",
+    "--group-input-multi-combobox-ring-focus",
+    "--group-input-multi-combobox-shadow-overlay",
+    "--group-input-multi-combobox-size-box-shadow-micro-compact",
+    "--group-input-multi-combobox-size-gap-micro-compact",
+    "--group-input-multi-combobox-size-height-small",
+    "--group-input-multi-combobox-size-margin-block-start-micro-compact",
+    "--group-input-multi-combobox-size-max-height-wide-panel-large",
+    "--group-input-multi-combobox-size-max-width-100vw",
+    "--group-input-multi-combobox-size-min-height-compact-content-small",
+    "--group-input-multi-combobox-size-min-height-regular",
+    "--group-input-multi-combobox-size-min-height-snug",
+    "--group-input-multi-combobox-size-min-width-snug",
+    "--group-input-multi-combobox-size-outline-offset-micro-compact",
+    "--group-input-multi-combobox-size-padding-block-micro-small",
+    "--group-input-multi-combobox-size-padding-micro-compact",
+    "--group-input-multi-combobox-size-transform-negative-3",
+    "--group-input-multi-combobox-size-width-canvas-tiny",
+    "--group-input-multi-combobox-size-width-full",
+    "--group-input-multi-combobox-size-width-small",
+    "--group-input-multi-combobox-space-gap-compact",
+    "--group-input-multi-combobox-space-gap-snug",
+    "--group-input-multi-combobox-space-max-width-roomy",
+    "--group-input-multi-combobox-space-padding-comfortable",
+    "--group-input-multi-combobox-space-padding-compact",
+    "--group-input-multi-combobox-space-padding-inline-end-regular",
+    "--group-input-multi-combobox-space-padding-regular",
+    "--group-input-multi-combobox-space-padding-snug",
+    "--group-input-multi-combobox-z-popover",
+    "--group-input-overlay-appearance-overlay-surface",
+    "--group-input-overlay-border-width-hairline",
+    "--group-input-overlay-elevation-none",
+    "--group-input-overlay-number-0",
+    "--group-input-overlay-shadow-popover",
+    "--group-input-surface-appearance-control-border",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-appearance-control-fill",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-inset-regular",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus",
+    "--severity-border",
+    "--severity-fg",
+    "--status-fg"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-multi-combobox-space-gap-compact",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-number-0",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-space-gap-snug",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-min-height-compact-content-small",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-space-padding-compact",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-space-padding-snug",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-border-width-hairline",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-border-strong",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-surface-surface",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-border-width-regular",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-ring-focus",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-min-height-regular",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-padding-block-micro-small",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-font-size-label",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-danger-foreground",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-surface-hover",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-flex-fill",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-min-width-snug",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-min-height-snug",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-transparent",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-content-secondary",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-content-tertiary",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-padding-micro-compact",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-surface-selected",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-z-popover",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--anchor-width",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-width-canvas-tiny",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-max-width-100vw",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-space-max-width-roomy",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--available-height",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-border-subtle",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-surface-surface-raised",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-content-primary",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-shadow-overlay",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-ease-out",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-motion-fast",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-space-padding-regular",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-width-full",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-action-foreground",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-font-size-body",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-action-soft",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-opacity-strength-prominent",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-max-height-wide-panel-large",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-font-weight-semibold",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-box-shadow-micro-compact",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-margin-block-start-micro-compact",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-width-small",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-height-small",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-on-intent",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-action-fill",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-gap-micro-compact",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-font-leading-compact",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-space-padding-comfortable",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-opacity-hidden",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-transform-negative-3",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-opacity-visible",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-space-padding-inline-end-regular",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-snug",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-medium",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-required-gap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-data-display-tag-size-height-snug",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-gap-micro-roomy",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-badge-border-strength",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-border-width-hairline",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-surface-surface",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-tag-fg",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-radius-border-radius-soft",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-number-0",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-space-padding-compact",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-size-label",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-weight-medium",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-leading-heading-tight",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-content-primary",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-transparent",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-height-compact",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-large",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-size-annotation-s",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-text-underline-offset-micro-compact",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-weight-semibold",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-width-micro-roomy",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-height-micro-roomy",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-radius-border-radius-circle",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-flex-none",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-border-default",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-inline-start-micro-roomy",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-width-small",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-height-small",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-outline-offset-micro-small",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-snug",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--severity-border",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-radius-border-radius-full",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-comfortable",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--severity-fg",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-mix-8",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--status-fg",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-leading-solid",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-min-width-compact",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-roomy",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-surface-selected",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-content-secondary",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-feedback-spinner-flex-none",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-width-glyph-comfortable",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-height-glyph-comfortable",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-width-compact",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-height-compact",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-width-regular",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-height-regular",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-width-full",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-height-full",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-duration-900ms",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-angle-360deg",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-input-overlay-appearance-overlay-surface",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-overlay-number-0",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-overlay-shadow-popover",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-overlay-border-width-hairline",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-overlay-elevation-none",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-fill",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-inset-regular",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-flex-none",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-measurement-picker-offset",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-overlay-collision-padding",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-icon-md",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-icon-compact",
+      "ownership": "owned",
+      "component": "MultiCombobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-data-display-measurement-icon-xs",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-stroke-strong",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-spinner-track-opacity",
+      "ownership": "nested",
+      "component": "Spinner",
+      "group": "feedback"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

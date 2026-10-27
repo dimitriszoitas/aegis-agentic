@@ -1,0 +1,90 @@
+.aegis-timeline {
+  list-style: none;
+  padding: var(--group-data-display-timeline-number-0);
+  margin: var(--group-data-display-timeline-number-0);
+  display: grid;
+}
+.aegis-timeline-entry {
+  position: relative;
+  display: flex;
+  gap: var(--group-data-display-timeline-space-gap-regular);
+  padding-bottom: var(--group-data-display-timeline-space-padding-bottom-roomy);
+  min-width: var(--group-data-display-timeline-number-0);
+}
+.aegis-timeline-entry:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: var(--group-data-display-timeline-size-top-regular);
+  bottom: var(--group-data-display-timeline-number-0);
+  left: var(--group-data-display-timeline-size-left-glyph-regular);
+  width: var(--group-data-display-timeline-size-width-micro-small);
+  background: var(--group-data-display-timeline-color-border-default);
+}
+.aegis-timeline-entry:last-child {
+  padding-bottom: var(--group-data-display-timeline-number-0);
+}
+.aegis-timeline-marker {
+  position: relative;
+  flex: var(--group-data-display-timeline-flex-none) var(--group-data-display-timeline-flex-none)
+    var(--group-data-display-timeline-size-flex-regular);
+  width: var(--group-data-display-timeline-size-width-regular);
+  height: var(--group-data-display-timeline-size-height-regular);
+  display: grid;
+  place-items: center;
+  border: var(--group-data-display-timeline-border-width-hairline) solid
+    var(--group-data-display-timeline-color-border-subtle);
+  border-radius: var(--group-data-display-timeline-radius-border-radius-full);
+  color: var(--group-data-display-timeline-color-content-secondary);
+  background: var(--group-data-display-timeline-color-surface-surface-raised);
+}
+.aegis-timeline-entry[data-type='ai'] .aegis-timeline-marker {
+  background: var(--group-data-display-timeline-gradient-ai-soft);
+  color: var(--group-data-display-timeline-color-ai-foreground);
+  border-color: var(--group-data-display-timeline-color-ai-border);
+}
+.aegis-timeline-entry[data-type='workflow'] .aegis-timeline-marker {
+  background: var(--group-data-display-timeline-color-caution-soft);
+  color: var(--group-data-display-timeline-color-caution-foreground);
+}
+.aegis-timeline-entry[data-type='status'] .aegis-timeline-marker {
+  background: var(--group-data-display-timeline-color-success-soft);
+  color: var(--group-data-display-timeline-color-success-foreground);
+}
+.aegis-timeline-content {
+  min-width: var(--group-data-display-timeline-number-0);
+  flex: var(--group-data-display-timeline-flex-fill);
+  padding-top: var(--group-data-display-timeline-space-padding-top-snug);
+}
+.aegis-timeline-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--group-data-display-timeline-space-gap-compact);
+}
+.aegis-timeline-heading strong {
+  font-size: var(--group-data-display-timeline-font-size-body);
+  font-weight: var(--group-data-display-timeline-font-weight-medium);
+}
+.aegis-timeline-heading time,
+.aegis-timeline-actor {
+  color: var(--group-data-display-timeline-color-content-secondary);
+  font-size: var(--group-data-display-timeline-font-size-label);
+}
+.aegis-timeline-actor {
+  display: block;
+  margin-top: var(--group-data-display-timeline-space-margin-top-snug);
+}
+.aegis-timeline-description {
+  font-size: var(--group-data-display-timeline-font-size-body);
+  line-height: var(--group-data-display-timeline-font-leading-relaxed);
+  margin-top: var(--group-data-display-timeline-space-margin-top-compact);
+  color: var(--group-data-display-timeline-color-content-secondary);
+  overflow-wrap: anywhere;
+}
+.aegis-timeline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--group-data-display-timeline-space-gap-compact);
+  margin-top: var(--group-data-display-timeline-space-margin-top-regular);
+}

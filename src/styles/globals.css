@@ -1,0 +1,1971 @@
+@import '@fontsource/figtree/400.css';
+@import '@fontsource/figtree/500.css';
+@import '@fontsource/figtree/600.css';
+@import '@fontsource/figtree/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import './tokens.css';
+@import './primitive-color-tokens.css';
+@import './theme.css';
+@import './layout-theme.css';
+@import './minimalistic-tokens.css';
+@import './minimalistic.css';
+@import './v0-simple-tokens.css';
+@import './v0-simple.css';
+@import './fundamental-tokens.css';
+@import './component-tokens.css';
+@import './component-runtime-tokens.css';
+@import './elevation-tokens.css';
+@import './design-tokens.css';
+@import './fundamental.css';
+@import './fundamental-overlays.css';
+@import './fundamental-floating.css';
+@import './scrollbars.css';
+
+* {
+  box-sizing: border-box;
+  border-color: var(--group-layout-surface-color-border-default);
+}
+html {
+  font-family: var(--group-layout-surface-font-family-ui);
+  font-size: var(--group-layout-surface-font-size-body);
+  color: var(--group-layout-surface-color-content-primary);
+  background: var(--group-layout-surface-color-surface-canvas);
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+body {
+  margin: var(--group-layout-surface-number-0);
+  background: var(--group-layout-surface-color-surface-canvas);
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+:focus-visible {
+  outline: var(--group-layout-surface-border-width-regular) solid
+    var(--group-layout-surface-ring-focus);
+  outline-offset: var(--group-layout-surface-focus-offset);
+}
+::selection {
+  background: var(--group-layout-surface-color-action-soft);
+  color: var(--group-layout-surface-color-action-foreground);
+}
+svg {
+  flex-shrink: var(--group-layout-surface-flex-none);
+}
+a {
+  color: var(--group-layout-surface-color-action-foreground);
+  text-underline-offset: var(--group-layout-surface-link-underline-offset);
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: var(--group-layout-surface-number-0);
+}
+h1 {
+  font-size: var(--group-layout-surface-font-size-title-page);
+  font-weight: var(--group-layout-surface-title-weight);
+  letter-spacing: var(--group-layout-surface-font-tracking-heading);
+  line-height: var(--group-layout-surface-font-leading-heading-tight);
+  margin-bottom: var(--group-layout-surface-stack-gap-regular);
+}
+h2 {
+  font-size: var(--group-layout-surface-font-size-subheading);
+  font-weight: var(--group-layout-surface-title-weight);
+  letter-spacing: var(--group-layout-surface-font-tracking-compact);
+  line-height: var(--group-layout-surface-font-leading-subheading);
+  margin-bottom: var(--group-layout-surface-stack-gap-regular);
+}
+h3 {
+  font-size: var(--group-layout-surface-font-size-body);
+  font-weight: var(--group-layout-surface-title-weight);
+  line-height: var(--group-layout-surface-font-leading-compact);
+  margin-bottom: var(--group-layout-surface-stack-gap-compact);
+}
+p {
+  line-height: var(--group-layout-surface-font-leading-relaxed);
+  margin-bottom: var(--group-layout-surface-stack-gap-regular);
+}
+.mono,
+code,
+pre {
+  font-family: var(--group-layout-surface-font-family-code);
+  font-variant-numeric: tabular-nums;
+}
+.muted {
+  color: var(--group-layout-surface-color-content-secondary);
+}
+.sr-only {
+  position: absolute;
+  width: var(--group-layout-surface-divider-width);
+  height: var(--group-layout-surface-divider-height);
+  padding: var(--group-layout-surface-number-0);
+  margin: var(--group-layout-surface-border-overlap);
+  overflow: hidden;
+  clip: rect(
+    var(--group-layout-surface-number-0),
+    var(--group-layout-surface-number-0),
+    var(--group-layout-surface-number-0),
+    var(--group-layout-surface-number-0)
+  );
+  white-space: nowrap;
+  border: var(--group-layout-surface-number-0);
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-layout-surface-gap-regular);
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--group-layout-surface-gap-compact);
+  flex-wrap: wrap;
+}
+.between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-layout-surface-gap-regular);
+}
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(var(--group-layout-surface-sidebar-width), var(--group-layout-surface-track-flex))
+  );
+  gap: var(--group-layout-surface-gap-roomy);
+  max-width: var(--group-layout-surface-content-max-width);
+}
+.story-pad {
+  padding: var(--group-layout-surface-page-padding);
+}
+.surface {
+  background: var(--group-surface-color-surface-surface);
+  border: var(--group-surface-border-width-hairline) solid var(--group-surface-color-border-subtle);
+  border-radius: var(--group-surface-corner-radius, var(--group-surface-radius-strong));
+  padding: var(--group-surface-card-padding);
+  box-shadow: var(--group-surface-shadow-raised);
+}
+.floating {
+  background: var(--group-surface-color-surface-surface-raised);
+  border: var(--group-surface-border-width-hairline) solid var(--group-surface-color-border-subtle);
+  border-radius: var(--group-surface-corner-radius, var(--group-surface-radius-strong));
+  box-shadow: var(--group-surface-shadow-floating);
+}
+.sb-show-main,
+.docs-story {
+  background: var(--group-layout-surface-color-surface-canvas);
+}
+.sbdocs-wrapper {
+  background: var(--group-layout-surface-color-surface-canvas) !important;
+  color: var(--group-layout-surface-color-content-primary) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: var(--group-layout-surface-motion-reduced-duration) !important;
+    animation-iteration-count: var(--group-layout-surface-motion-count-1) !important;
+    transition-duration: var(--group-layout-surface-motion-disabled-duration) !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Category boundaries keep shared defaults and internal utilities with their owner. Nested real components start an independent scope. */
+@scope (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button)) to (:is(.aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-trigger-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-trigger-surface-border-width-regular) solid
+      var(--group-trigger-surface-ring-focus);
+    outline-offset: var(--group-trigger-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-trigger-surface-color-action-soft);
+    color: var(--group-trigger-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-trigger-surface-flex-none);
+  }
+  a {
+    color: var(--group-trigger-surface-color-action-foreground);
+    text-underline-offset: var(--group-trigger-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-trigger-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-trigger-surface-font-size-title-page);
+    font-weight: var(--group-trigger-surface-title-weight);
+    letter-spacing: var(--group-trigger-surface-font-tracking-heading);
+    line-height: var(--group-trigger-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-trigger-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-trigger-surface-font-size-subheading);
+    font-weight: var(--group-trigger-surface-title-weight);
+    letter-spacing: var(--group-trigger-surface-font-tracking-compact);
+    line-height: var(--group-trigger-surface-font-leading-subheading);
+    margin-bottom: var(--group-trigger-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-trigger-surface-font-size-body);
+    font-weight: var(--group-trigger-surface-title-weight);
+    line-height: var(--group-trigger-surface-font-leading-compact);
+    margin-bottom: var(--group-trigger-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-trigger-surface-font-leading-relaxed);
+    margin-bottom: var(--group-trigger-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-trigger-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-trigger-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-trigger-surface-divider-width);
+    height: var(--group-trigger-surface-divider-height);
+    padding: var(--group-trigger-surface-number-0);
+    margin: var(--group-trigger-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-trigger-surface-number-0),
+      var(--group-trigger-surface-number-0),
+      var(--group-trigger-surface-number-0),
+      var(--group-trigger-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-trigger-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-trigger-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-trigger-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-trigger-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-trigger-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-trigger-surface-motion-count-1) !important;
+      transition-duration: var(--group-trigger-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-input-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-input-surface-border-width-regular) solid
+      var(--group-input-surface-ring-focus);
+    outline-offset: var(--group-input-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-input-surface-color-action-soft);
+    color: var(--group-input-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-input-surface-flex-none);
+  }
+  a {
+    color: var(--group-input-surface-color-action-foreground);
+    text-underline-offset: var(--group-input-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-input-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-input-surface-font-size-title-page);
+    font-weight: var(--group-input-surface-title-weight);
+    letter-spacing: var(--group-input-surface-font-tracking-heading);
+    line-height: var(--group-input-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-input-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-input-surface-font-size-subheading);
+    font-weight: var(--group-input-surface-title-weight);
+    letter-spacing: var(--group-input-surface-font-tracking-compact);
+    line-height: var(--group-input-surface-font-leading-subheading);
+    margin-bottom: var(--group-input-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-input-surface-font-size-body);
+    font-weight: var(--group-input-surface-title-weight);
+    line-height: var(--group-input-surface-font-leading-compact);
+    margin-bottom: var(--group-input-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-input-surface-font-leading-relaxed);
+    margin-bottom: var(--group-input-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-input-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-input-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-input-surface-divider-width);
+    height: var(--group-input-surface-divider-height);
+    padding: var(--group-input-surface-number-0);
+    margin: var(--group-input-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-input-surface-number-0),
+      var(--group-input-surface-number-0),
+      var(--group-input-surface-number-0),
+      var(--group-input-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-input-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-input-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-input-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-input-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-input-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-input-surface-motion-count-1) !important;
+      transition-duration: var(--group-input-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-navigation-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-navigation-surface-border-width-regular) solid
+      var(--group-navigation-surface-ring-focus);
+    outline-offset: var(--group-navigation-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-navigation-surface-color-action-soft);
+    color: var(--group-navigation-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-navigation-surface-flex-none);
+  }
+  a {
+    color: var(--group-navigation-surface-color-action-foreground);
+    text-underline-offset: var(--group-navigation-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-navigation-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-navigation-surface-font-size-title-page);
+    font-weight: var(--group-navigation-surface-title-weight);
+    letter-spacing: var(--group-navigation-surface-font-tracking-heading);
+    line-height: var(--group-navigation-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-navigation-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-navigation-surface-font-size-subheading);
+    font-weight: var(--group-navigation-surface-title-weight);
+    letter-spacing: var(--group-navigation-surface-font-tracking-compact);
+    line-height: var(--group-navigation-surface-font-leading-subheading);
+    margin-bottom: var(--group-navigation-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-navigation-surface-font-size-body);
+    font-weight: var(--group-navigation-surface-title-weight);
+    line-height: var(--group-navigation-surface-font-leading-compact);
+    margin-bottom: var(--group-navigation-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-navigation-surface-font-leading-relaxed);
+    margin-bottom: var(--group-navigation-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-navigation-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-navigation-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-navigation-surface-divider-width);
+    height: var(--group-navigation-surface-divider-height);
+    padding: var(--group-navigation-surface-number-0);
+    margin: var(--group-navigation-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-navigation-surface-number-0),
+      var(--group-navigation-surface-number-0),
+      var(--group-navigation-surface-number-0),
+      var(--group-navigation-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-navigation-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-navigation-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-navigation-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-navigation-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-navigation-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-navigation-surface-motion-count-1) !important;
+      transition-duration: var(--group-navigation-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-surface-border-width-regular) solid var(--group-surface-ring-focus);
+    outline-offset: var(--group-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-surface-color-action-soft);
+    color: var(--group-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-surface-flex-none);
+  }
+  a {
+    color: var(--group-surface-color-action-foreground);
+    text-underline-offset: var(--group-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-surface-font-size-title-page);
+    font-weight: var(--group-surface-title-weight);
+    letter-spacing: var(--group-surface-font-tracking-heading);
+    line-height: var(--group-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-surface-font-size-subheading);
+    font-weight: var(--group-surface-title-weight);
+    letter-spacing: var(--group-surface-font-tracking-compact);
+    line-height: var(--group-surface-font-leading-subheading);
+    margin-bottom: var(--group-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-surface-font-size-body);
+    font-weight: var(--group-surface-title-weight);
+    line-height: var(--group-surface-font-leading-compact);
+    margin-bottom: var(--group-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-surface-font-leading-relaxed);
+    margin-bottom: var(--group-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-surface-divider-width);
+    height: var(--group-surface-divider-height);
+    padding: var(--group-surface-number-0);
+    margin: var(--group-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-surface-number-0),
+      var(--group-surface-number-0),
+      var(--group-surface-number-0),
+      var(--group-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-surface-motion-count-1) !important;
+      transition-duration: var(--group-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-layout-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-layout-surface-border-width-regular) solid
+      var(--group-layout-surface-ring-focus);
+    outline-offset: var(--group-layout-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-layout-surface-color-action-soft);
+    color: var(--group-layout-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-layout-surface-flex-none);
+  }
+  a {
+    color: var(--group-layout-surface-color-action-foreground);
+    text-underline-offset: var(--group-layout-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-layout-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-layout-surface-font-size-title-page);
+    font-weight: var(--group-layout-surface-title-weight);
+    letter-spacing: var(--group-layout-surface-font-tracking-heading);
+    line-height: var(--group-layout-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-layout-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-layout-surface-font-size-subheading);
+    font-weight: var(--group-layout-surface-title-weight);
+    letter-spacing: var(--group-layout-surface-font-tracking-compact);
+    line-height: var(--group-layout-surface-font-leading-subheading);
+    margin-bottom: var(--group-layout-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-layout-surface-font-size-body);
+    font-weight: var(--group-layout-surface-title-weight);
+    line-height: var(--group-layout-surface-font-leading-compact);
+    margin-bottom: var(--group-layout-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-layout-surface-font-leading-relaxed);
+    margin-bottom: var(--group-layout-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-layout-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-layout-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-layout-surface-divider-width);
+    height: var(--group-layout-surface-divider-height);
+    padding: var(--group-layout-surface-number-0);
+    margin: var(--group-layout-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-layout-surface-number-0),
+      var(--group-layout-surface-number-0),
+      var(--group-layout-surface-number-0),
+      var(--group-layout-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-layout-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-layout-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-layout-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-layout-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-layout-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-layout-surface-motion-count-1) !important;
+      transition-duration: var(--group-layout-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-data-display-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-data-display-surface-border-width-regular) solid
+      var(--group-data-display-surface-ring-focus);
+    outline-offset: var(--group-data-display-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-data-display-surface-color-action-soft);
+    color: var(--group-data-display-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-data-display-surface-flex-none);
+  }
+  a {
+    color: var(--group-data-display-surface-color-action-foreground);
+    text-underline-offset: var(--group-data-display-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-data-display-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-data-display-surface-font-size-title-page);
+    font-weight: var(--group-data-display-surface-title-weight);
+    letter-spacing: var(--group-data-display-surface-font-tracking-heading);
+    line-height: var(--group-data-display-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-data-display-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-data-display-surface-font-size-subheading);
+    font-weight: var(--group-data-display-surface-title-weight);
+    letter-spacing: var(--group-data-display-surface-font-tracking-compact);
+    line-height: var(--group-data-display-surface-font-leading-subheading);
+    margin-bottom: var(--group-data-display-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-data-display-surface-font-size-body);
+    font-weight: var(--group-data-display-surface-title-weight);
+    line-height: var(--group-data-display-surface-font-leading-compact);
+    margin-bottom: var(--group-data-display-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-data-display-surface-font-leading-relaxed);
+    margin-bottom: var(--group-data-display-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-data-display-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-data-display-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-data-display-surface-divider-width);
+    height: var(--group-data-display-surface-divider-height);
+    padding: var(--group-data-display-surface-number-0);
+    margin: var(--group-data-display-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-data-display-surface-number-0),
+      var(--group-data-display-surface-number-0),
+      var(--group-data-display-surface-number-0),
+      var(--group-data-display-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-data-display-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-data-display-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-data-display-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-data-display-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-data-display-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-data-display-surface-motion-count-1) !important;
+      transition-duration: var(--group-data-display-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-data-viz-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-data-viz-surface-border-width-regular) solid
+      var(--group-data-viz-surface-ring-focus);
+    outline-offset: var(--group-data-viz-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-data-viz-surface-color-action-soft);
+    color: var(--group-data-viz-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-data-viz-surface-flex-none);
+  }
+  a {
+    color: var(--group-data-viz-surface-color-action-foreground);
+    text-underline-offset: var(--group-data-viz-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-data-viz-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-data-viz-surface-font-size-title-page);
+    font-weight: var(--group-data-viz-surface-title-weight);
+    letter-spacing: var(--group-data-viz-surface-font-tracking-heading);
+    line-height: var(--group-data-viz-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-data-viz-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-data-viz-surface-font-size-subheading);
+    font-weight: var(--group-data-viz-surface-title-weight);
+    letter-spacing: var(--group-data-viz-surface-font-tracking-compact);
+    line-height: var(--group-data-viz-surface-font-leading-subheading);
+    margin-bottom: var(--group-data-viz-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-data-viz-surface-font-size-body);
+    font-weight: var(--group-data-viz-surface-title-weight);
+    line-height: var(--group-data-viz-surface-font-leading-compact);
+    margin-bottom: var(--group-data-viz-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-data-viz-surface-font-leading-relaxed);
+    margin-bottom: var(--group-data-viz-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-data-viz-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-data-viz-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-data-viz-surface-divider-width);
+    height: var(--group-data-viz-surface-divider-height);
+    padding: var(--group-data-viz-surface-number-0);
+    margin: var(--group-data-viz-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-data-viz-surface-number-0),
+      var(--group-data-viz-surface-number-0),
+      var(--group-data-viz-surface-number-0),
+      var(--group-data-viz-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-data-viz-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-data-viz-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-data-viz-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-data-viz-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-data-viz-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-data-viz-surface-motion-count-1) !important;
+      transition-duration: var(--group-data-viz-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-code-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-code-surface-border-width-regular) solid
+      var(--group-code-surface-ring-focus);
+    outline-offset: var(--group-code-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-code-surface-color-action-soft);
+    color: var(--group-code-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-code-surface-flex-none);
+  }
+  a {
+    color: var(--group-code-surface-color-action-foreground);
+    text-underline-offset: var(--group-code-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-code-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-code-surface-font-size-title-page);
+    font-weight: var(--group-code-surface-title-weight);
+    letter-spacing: var(--group-code-surface-font-tracking-heading);
+    line-height: var(--group-code-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-code-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-code-surface-font-size-subheading);
+    font-weight: var(--group-code-surface-title-weight);
+    letter-spacing: var(--group-code-surface-font-tracking-compact);
+    line-height: var(--group-code-surface-font-leading-subheading);
+    margin-bottom: var(--group-code-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-code-surface-font-size-body);
+    font-weight: var(--group-code-surface-title-weight);
+    line-height: var(--group-code-surface-font-leading-compact);
+    margin-bottom: var(--group-code-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-code-surface-font-leading-relaxed);
+    margin-bottom: var(--group-code-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-code-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-code-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-code-surface-divider-width);
+    height: var(--group-code-surface-divider-height);
+    padding: var(--group-code-surface-number-0);
+    margin: var(--group-code-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-code-surface-number-0),
+      var(--group-code-surface-number-0),
+      var(--group-code-surface-number-0),
+      var(--group-code-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-code-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-code-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-code-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-code-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-code-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-code-surface-motion-count-1) !important;
+      transition-duration: var(--group-code-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-feedback-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-feedback-surface-border-width-regular) solid
+      var(--group-feedback-surface-ring-focus);
+    outline-offset: var(--group-feedback-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-feedback-surface-color-action-soft);
+    color: var(--group-feedback-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-feedback-surface-flex-none);
+  }
+  a {
+    color: var(--group-feedback-surface-color-action-foreground);
+    text-underline-offset: var(--group-feedback-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-feedback-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-feedback-surface-font-size-title-page);
+    font-weight: var(--group-feedback-surface-title-weight);
+    letter-spacing: var(--group-feedback-surface-font-tracking-heading);
+    line-height: var(--group-feedback-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-feedback-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-feedback-surface-font-size-subheading);
+    font-weight: var(--group-feedback-surface-title-weight);
+    letter-spacing: var(--group-feedback-surface-font-tracking-compact);
+    line-height: var(--group-feedback-surface-font-leading-subheading);
+    margin-bottom: var(--group-feedback-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-feedback-surface-font-size-body);
+    font-weight: var(--group-feedback-surface-title-weight);
+    line-height: var(--group-feedback-surface-font-leading-compact);
+    margin-bottom: var(--group-feedback-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-feedback-surface-font-leading-relaxed);
+    margin-bottom: var(--group-feedback-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-feedback-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-feedback-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-feedback-surface-divider-width);
+    height: var(--group-feedback-surface-divider-height);
+    padding: var(--group-feedback-surface-number-0);
+    margin: var(--group-feedback-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-feedback-surface-number-0),
+      var(--group-feedback-surface-number-0),
+      var(--group-feedback-surface-number-0),
+      var(--group-feedback-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-feedback-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-feedback-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-feedback-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-feedback-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-feedback-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-feedback-surface-motion-count-1) !important;
+      transition-duration: var(--group-feedback-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-ai-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-ai-surface-border-width-regular) solid var(--group-ai-surface-ring-focus);
+    outline-offset: var(--group-ai-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-ai-surface-color-action-soft);
+    color: var(--group-ai-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-ai-surface-flex-none);
+  }
+  a {
+    color: var(--group-ai-surface-color-action-foreground);
+    text-underline-offset: var(--group-ai-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-ai-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-ai-surface-font-size-title-page);
+    font-weight: var(--group-ai-surface-title-weight);
+    letter-spacing: var(--group-ai-surface-font-tracking-heading);
+    line-height: var(--group-ai-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-ai-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-ai-surface-font-size-subheading);
+    font-weight: var(--group-ai-surface-title-weight);
+    letter-spacing: var(--group-ai-surface-font-tracking-compact);
+    line-height: var(--group-ai-surface-font-leading-subheading);
+    margin-bottom: var(--group-ai-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-ai-surface-font-size-body);
+    font-weight: var(--group-ai-surface-title-weight);
+    line-height: var(--group-ai-surface-font-leading-compact);
+    margin-bottom: var(--group-ai-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-ai-surface-font-leading-relaxed);
+    margin-bottom: var(--group-ai-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-ai-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-ai-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-ai-surface-divider-width);
+    height: var(--group-ai-surface-divider-height);
+    padding: var(--group-ai-surface-number-0);
+    margin: var(--group-ai-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-ai-surface-number-0),
+      var(--group-ai-surface-number-0),
+      var(--group-ai-surface-number-0),
+      var(--group-ai-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-ai-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-ai-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-ai-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-ai-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-ai-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-ai-surface-motion-count-1) !important;
+      transition-duration: var(--group-ai-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-icon, .aegis-aws-logo)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-iconography-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-iconography-surface-border-width-regular) solid
+      var(--group-iconography-surface-ring-focus);
+    outline-offset: var(--group-iconography-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-iconography-surface-color-action-soft);
+    color: var(--group-iconography-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-iconography-surface-flex-none);
+  }
+  a {
+    color: var(--group-iconography-surface-color-action-foreground);
+    text-underline-offset: var(--group-iconography-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-iconography-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-iconography-surface-font-size-title-page);
+    font-weight: var(--group-iconography-surface-title-weight);
+    letter-spacing: var(--group-iconography-surface-font-tracking-heading);
+    line-height: var(--group-iconography-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-iconography-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-iconography-surface-font-size-subheading);
+    font-weight: var(--group-iconography-surface-title-weight);
+    letter-spacing: var(--group-iconography-surface-font-tracking-compact);
+    line-height: var(--group-iconography-surface-font-leading-subheading);
+    margin-bottom: var(--group-iconography-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-iconography-surface-font-size-body);
+    font-weight: var(--group-iconography-surface-title-weight);
+    line-height: var(--group-iconography-surface-font-leading-compact);
+    margin-bottom: var(--group-iconography-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-iconography-surface-font-leading-relaxed);
+    margin-bottom: var(--group-iconography-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-iconography-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-iconography-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-iconography-surface-divider-width);
+    height: var(--group-iconography-surface-divider-height);
+    padding: var(--group-iconography-surface-number-0);
+    margin: var(--group-iconography-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-iconography-surface-number-0),
+      var(--group-iconography-surface-number-0),
+      var(--group-iconography-surface-number-0),
+      var(--group-iconography-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-iconography-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-iconography-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-iconography-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-iconography-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-iconography-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-iconography-surface-motion-count-1) !important;
+      transition-duration: var(--group-iconography-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-ai-assistance-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-ai-assistance-surface-border-width-regular) solid
+      var(--group-ai-assistance-surface-ring-focus);
+    outline-offset: var(--group-ai-assistance-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-ai-assistance-surface-color-action-soft);
+    color: var(--group-ai-assistance-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-ai-assistance-surface-flex-none);
+  }
+  a {
+    color: var(--group-ai-assistance-surface-color-action-foreground);
+    text-underline-offset: var(--group-ai-assistance-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-ai-assistance-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-ai-assistance-surface-font-size-title-page);
+    font-weight: var(--group-ai-assistance-surface-title-weight);
+    letter-spacing: var(--group-ai-assistance-surface-font-tracking-heading);
+    line-height: var(--group-ai-assistance-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-ai-assistance-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-ai-assistance-surface-font-size-subheading);
+    font-weight: var(--group-ai-assistance-surface-title-weight);
+    letter-spacing: var(--group-ai-assistance-surface-font-tracking-compact);
+    line-height: var(--group-ai-assistance-surface-font-leading-subheading);
+    margin-bottom: var(--group-ai-assistance-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-ai-assistance-surface-font-size-body);
+    font-weight: var(--group-ai-assistance-surface-title-weight);
+    line-height: var(--group-ai-assistance-surface-font-leading-compact);
+    margin-bottom: var(--group-ai-assistance-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-ai-assistance-surface-font-leading-relaxed);
+    margin-bottom: var(--group-ai-assistance-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-ai-assistance-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-ai-assistance-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-ai-assistance-surface-divider-width);
+    height: var(--group-ai-assistance-surface-divider-height);
+    padding: var(--group-ai-assistance-surface-number-0);
+    margin: var(--group-ai-assistance-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-ai-assistance-surface-number-0),
+      var(--group-ai-assistance-surface-number-0),
+      var(--group-ai-assistance-surface-number-0),
+      var(--group-ai-assistance-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-ai-assistance-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-ai-assistance-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-ai-assistance-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-ai-assistance-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-ai-assistance-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-ai-assistance-surface-motion-count-1) !important;
+      transition-duration: var(--group-ai-assistance-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-filtering-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-filtering-surface-border-width-regular) solid
+      var(--group-filtering-surface-ring-focus);
+    outline-offset: var(--group-filtering-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-filtering-surface-color-action-soft);
+    color: var(--group-filtering-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-filtering-surface-flex-none);
+  }
+  a {
+    color: var(--group-filtering-surface-color-action-foreground);
+    text-underline-offset: var(--group-filtering-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-filtering-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-filtering-surface-font-size-title-page);
+    font-weight: var(--group-filtering-surface-title-weight);
+    letter-spacing: var(--group-filtering-surface-font-tracking-heading);
+    line-height: var(--group-filtering-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-filtering-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-filtering-surface-font-size-subheading);
+    font-weight: var(--group-filtering-surface-title-weight);
+    letter-spacing: var(--group-filtering-surface-font-tracking-compact);
+    line-height: var(--group-filtering-surface-font-leading-subheading);
+    margin-bottom: var(--group-filtering-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-filtering-surface-font-size-body);
+    font-weight: var(--group-filtering-surface-title-weight);
+    line-height: var(--group-filtering-surface-font-leading-compact);
+    margin-bottom: var(--group-filtering-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-filtering-surface-font-leading-relaxed);
+    margin-bottom: var(--group-filtering-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-filtering-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-filtering-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-filtering-surface-divider-width);
+    height: var(--group-filtering-surface-divider-height);
+    padding: var(--group-filtering-surface-number-0);
+    margin: var(--group-filtering-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-filtering-surface-number-0),
+      var(--group-filtering-surface-number-0),
+      var(--group-filtering-surface-number-0),
+      var(--group-filtering-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-filtering-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-filtering-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-filtering-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-filtering-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-filtering-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-filtering-surface-motion-count-1) !important;
+      transition-duration: var(--group-filtering-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-page-header)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-page-structure-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-page-structure-surface-border-width-regular) solid
+      var(--group-page-structure-surface-ring-focus);
+    outline-offset: var(--group-page-structure-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-page-structure-surface-color-action-soft);
+    color: var(--group-page-structure-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-page-structure-surface-flex-none);
+  }
+  a {
+    color: var(--group-page-structure-surface-color-action-foreground);
+    text-underline-offset: var(--group-page-structure-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-page-structure-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-page-structure-surface-font-size-title-page);
+    font-weight: var(--group-page-structure-surface-title-weight);
+    letter-spacing: var(--group-page-structure-surface-font-tracking-heading);
+    line-height: var(--group-page-structure-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-page-structure-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-page-structure-surface-font-size-subheading);
+    font-weight: var(--group-page-structure-surface-title-weight);
+    letter-spacing: var(--group-page-structure-surface-font-tracking-compact);
+    line-height: var(--group-page-structure-surface-font-leading-subheading);
+    margin-bottom: var(--group-page-structure-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-page-structure-surface-font-size-body);
+    font-weight: var(--group-page-structure-surface-title-weight);
+    line-height: var(--group-page-structure-surface-font-leading-compact);
+    margin-bottom: var(--group-page-structure-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-page-structure-surface-font-leading-relaxed);
+    margin-bottom: var(--group-page-structure-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-page-structure-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-page-structure-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-page-structure-surface-divider-width);
+    height: var(--group-page-structure-surface-divider-height);
+    padding: var(--group-page-structure-surface-number-0);
+    margin: var(--group-page-structure-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-page-structure-surface-number-0),
+      var(--group-page-structure-surface-number-0),
+      var(--group-page-structure-surface-number-0),
+      var(--group-page-structure-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-page-structure-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-page-structure-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-page-structure-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-page-structure-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-page-structure-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-page-structure-surface-motion-count-1) !important;
+      transition-duration: var(--group-page-structure-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-notification-center)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-communication-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-communication-surface-border-width-regular) solid
+      var(--group-communication-surface-ring-focus);
+    outline-offset: var(--group-communication-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-communication-surface-color-action-soft);
+    color: var(--group-communication-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-communication-surface-flex-none);
+  }
+  a {
+    color: var(--group-communication-surface-color-action-foreground);
+    text-underline-offset: var(--group-communication-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-communication-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-communication-surface-font-size-title-page);
+    font-weight: var(--group-communication-surface-title-weight);
+    letter-spacing: var(--group-communication-surface-font-tracking-heading);
+    line-height: var(--group-communication-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-communication-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-communication-surface-font-size-subheading);
+    font-weight: var(--group-communication-surface-title-weight);
+    letter-spacing: var(--group-communication-surface-font-tracking-compact);
+    line-height: var(--group-communication-surface-font-leading-subheading);
+    margin-bottom: var(--group-communication-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-communication-surface-font-size-body);
+    font-weight: var(--group-communication-surface-title-weight);
+    line-height: var(--group-communication-surface-font-leading-compact);
+    margin-bottom: var(--group-communication-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-communication-surface-font-leading-relaxed);
+    margin-bottom: var(--group-communication-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-communication-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-communication-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-communication-surface-divider-width);
+    height: var(--group-communication-surface-divider-height);
+    padding: var(--group-communication-surface-number-0);
+    margin: var(--group-communication-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-communication-surface-number-0),
+      var(--group-communication-surface-number-0),
+      var(--group-communication-surface-number-0),
+      var(--group-communication-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-communication-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-communication-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-communication-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-communication-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-communication-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-communication-surface-motion-count-1) !important;
+      transition-duration: var(--group-communication-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-workflow-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-workflow-surface-border-width-regular) solid
+      var(--group-workflow-surface-ring-focus);
+    outline-offset: var(--group-workflow-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-workflow-surface-color-action-soft);
+    color: var(--group-workflow-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-workflow-surface-flex-none);
+  }
+  a {
+    color: var(--group-workflow-surface-color-action-foreground);
+    text-underline-offset: var(--group-workflow-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-workflow-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-workflow-surface-font-size-title-page);
+    font-weight: var(--group-workflow-surface-title-weight);
+    letter-spacing: var(--group-workflow-surface-font-tracking-heading);
+    line-height: var(--group-workflow-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-workflow-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-workflow-surface-font-size-subheading);
+    font-weight: var(--group-workflow-surface-title-weight);
+    letter-spacing: var(--group-workflow-surface-font-tracking-compact);
+    line-height: var(--group-workflow-surface-font-leading-subheading);
+    margin-bottom: var(--group-workflow-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-workflow-surface-font-size-body);
+    font-weight: var(--group-workflow-surface-title-weight);
+    line-height: var(--group-workflow-surface-font-leading-compact);
+    margin-bottom: var(--group-workflow-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-workflow-surface-font-leading-relaxed);
+    margin-bottom: var(--group-workflow-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-workflow-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-workflow-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-workflow-surface-divider-width);
+    height: var(--group-workflow-surface-divider-height);
+    padding: var(--group-workflow-surface-number-0);
+    margin: var(--group-workflow-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-workflow-surface-number-0),
+      var(--group-workflow-surface-number-0),
+      var(--group-workflow-surface-number-0),
+      var(--group-workflow-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-workflow-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-workflow-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-workflow-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-workflow-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-workflow-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-workflow-surface-motion-count-1) !important;
+      transition-duration: var(--group-workflow-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+@scope (:is(.aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard)) {
+  * {
+    box-sizing: border-box;
+    border-color: var(--group-application-surface-color-border-default);
+  }
+  :focus-visible {
+    outline: var(--group-application-surface-border-width-regular) solid
+      var(--group-application-surface-ring-focus);
+    outline-offset: var(--group-application-surface-focus-offset);
+  }
+  ::selection {
+    background: var(--group-application-surface-color-action-soft);
+    color: var(--group-application-surface-color-action-foreground);
+  }
+  svg {
+    flex-shrink: var(--group-application-surface-flex-none);
+  }
+  a {
+    color: var(--group-application-surface-color-action-foreground);
+    text-underline-offset: var(--group-application-surface-link-underline-offset);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin-top: var(--group-application-surface-number-0);
+  }
+  h1 {
+    font-size: var(--group-application-surface-font-size-title-page);
+    font-weight: var(--group-application-surface-title-weight);
+    letter-spacing: var(--group-application-surface-font-tracking-heading);
+    line-height: var(--group-application-surface-font-leading-heading-tight);
+    margin-bottom: var(--group-application-surface-stack-gap-regular);
+  }
+  h2 {
+    font-size: var(--group-application-surface-font-size-subheading);
+    font-weight: var(--group-application-surface-title-weight);
+    letter-spacing: var(--group-application-surface-font-tracking-compact);
+    line-height: var(--group-application-surface-font-leading-subheading);
+    margin-bottom: var(--group-application-surface-stack-gap-regular);
+  }
+  h3 {
+    font-size: var(--group-application-surface-font-size-body);
+    font-weight: var(--group-application-surface-title-weight);
+    line-height: var(--group-application-surface-font-leading-compact);
+    margin-bottom: var(--group-application-surface-stack-gap-compact);
+  }
+  p {
+    line-height: var(--group-application-surface-font-leading-relaxed);
+    margin-bottom: var(--group-application-surface-stack-gap-regular);
+  }
+  .mono,
+  code,
+  pre {
+    font-family: var(--group-application-surface-font-family-code);
+    font-variant-numeric: tabular-nums;
+  }
+  .muted {
+    color: var(--group-application-surface-color-content-secondary);
+  }
+  .sr-only {
+    position: absolute;
+    width: var(--group-application-surface-divider-width);
+    height: var(--group-application-surface-divider-height);
+    padding: var(--group-application-surface-number-0);
+    margin: var(--group-application-surface-border-overlap);
+    overflow: hidden;
+    clip: rect(
+      var(--group-application-surface-number-0),
+      var(--group-application-surface-number-0),
+      var(--group-application-surface-number-0),
+      var(--group-application-surface-number-0)
+    );
+    white-space: nowrap;
+    border: var(--group-application-surface-number-0);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--group-application-surface-gap-regular);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--group-application-surface-gap-compact);
+    flex-wrap: wrap;
+  }
+  .between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--group-application-surface-gap-regular);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: var(--group-application-surface-motion-reduced-duration) !important;
+      animation-iteration-count: var(--group-application-surface-motion-count-1) !important;
+      transition-duration: var(--group-application-surface-motion-disabled-duration) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

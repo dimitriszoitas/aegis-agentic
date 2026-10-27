@@ -1,0 +1,2317 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-charts-area-chart",
+  "name": "Area chart",
+  "category": "Data Visualization",
+  "tokenGroup": "data-viz",
+  "kind": "component",
+  "aliases": [],
+  "purpose": "An ordered series chart that emphasizes magnitude with a filled area beneath the line.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/charts"
+  ],
+  "links": {
+    "contract": "./components-charts-area-chart.json",
+    "overview": "../../?path=/docs/components-data-visualization-area-chart-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-visualization-area-chart-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-visualization-area-chart-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-visualization-area-chart-overview--docs&docsTab=tokens"
+  },
+  "description": "Show how a time series accumulates or changes in volume.",
+  "exports": [
+    "AreaChart"
+  ],
+  "importStatements": [
+    "import { AreaChart } from '@dimitriszoitas/aegis-ui/charts';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "AreaChart",
+      "name": "action",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "brush",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "brushRange",
+      "type": "ChartBrushRange | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "compact",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "data",
+      "type": "readonly object[]",
+      "required": true
+    },
+    {
+      "component": "AreaChart",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "emptyTitle",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "error",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "height",
+      "type": "number | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "loading",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "onBrushChange",
+      "type": "((range: ChartBrushRange) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "onRetry",
+      "type": "(() => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "series",
+      "type": "readonly ChartSeries[]",
+      "required": true
+    },
+    {
+      "component": "AreaChart",
+      "name": "showDataTable",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "showLegend",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "stacked",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "title",
+      "type": "string",
+      "required": true
+    },
+    {
+      "component": "AreaChart",
+      "name": "valueFormatter",
+      "type": "((value: number) => string) | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "xFormatter",
+      "type": "((value: string | number) => string) | undefined",
+      "required": false
+    },
+    {
+      "component": "AreaChart",
+      "name": "xKey",
+      "type": "string | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "stacked",
+      "values": [
+        "false",
+        "true"
+      ]
+    },
+    {
+      "name": "state",
+      "values": [
+        "empty",
+        "error",
+        "loading",
+        "ready"
+      ]
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/empty-state",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/severity-badge",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/skeleton",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "An ordered series chart that emphasizes magnitude with a filled area beneath the line.",
+    "usage": [
+      "Use one or a few related series so filled areas remain readable. stacked changes the visual relationship to cumulative contribution.",
+      "Data order and series keys are supplied by the host; no aggregation or time bucketing is inferred.",
+      "Enable showDataTable for exact values and brush for range inspection when appropriate."
+    ],
+    "accessibility": [
+      "Arrow keys inspect chart values, and legend buttons expose which series are shown.",
+      "Do not rely on translucent overlap to explain the relationship between series; use clear labels and the data table."
+    ],
+    "context": [
+      "Use for volume or cumulative activity where the filled magnitude is useful, rather than as decoration behind a number."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "region",
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-busy",
+      "aria-hidden",
+      "aria-label",
+      "aria-labelledby",
+      "aria-pressed"
+    ],
+    "nativeElements": [
+      "button",
+      "caption",
+      "defs",
+      "details",
+      "div",
+      "figcaption",
+      "figure",
+      "h3",
+      "span",
+      "stop",
+      "strong",
+      "summary",
+      "table",
+      "tbody",
+      "td",
+      "th",
+      "thead",
+      "tr"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "recharts",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/button/button.css",
+    "src/components/button/button.tsx",
+    "src/components/button/index.ts",
+    "src/components/charts/area-chart.stories.tsx",
+    "src/components/charts/charts.css",
+    "src/components/charts/charts.tsx",
+    "src/components/empty-state/empty-state.css",
+    "src/components/empty-state/empty-state.tsx",
+    "src/components/empty-state/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/skeleton/index.ts",
+    "src/components/skeleton/skeleton.css",
+    "src/components/skeleton/skeleton.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/layout-theme.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-charts-area-chart--event-volume",
+      "name": "Event Volume",
+      "url": "../../?path=/story/components-charts-area-chart--event-volume",
+      "sourceFile": "src/components/charts/area-chart.stories.tsx"
+    },
+    {
+      "id": "components-charts-area-chart--stacked-severity",
+      "name": "Stacked Severity",
+      "url": "../../?path=/story/components-charts-area-chart--stacked-severity",
+      "sourceFile": "src/components/charts/area-chart.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-viz-chart-border-width-hairline",
+    "--group-data-viz-chart-border-width-regular",
+    "--group-data-viz-chart-color-action-soft",
+    "--group-data-viz-chart-color-border-default",
+    "--group-data-viz-chart-color-border-strong",
+    "--group-data-viz-chart-color-border-subtle",
+    "--group-data-viz-chart-color-chart-1",
+    "--group-data-viz-chart-color-chart-2",
+    "--group-data-viz-chart-color-chart-3",
+    "--group-data-viz-chart-color-chart-4",
+    "--group-data-viz-chart-color-chart-5",
+    "--group-data-viz-chart-color-chart-6",
+    "--group-data-viz-chart-color-chart-ai",
+    "--group-data-viz-chart-color-chart-destroy",
+    "--group-data-viz-chart-color-chart-function",
+    "--group-data-viz-chart-color-chart-severity-critical",
+    "--group-data-viz-chart-color-chart-severity-high",
+    "--group-data-viz-chart-color-chart-severity-info",
+    "--group-data-viz-chart-color-chart-severity-low",
+    "--group-data-viz-chart-color-chart-severity-medium",
+    "--group-data-viz-chart-color-chart-success",
+    "--group-data-viz-chart-color-chart-warning",
+    "--group-data-viz-chart-color-content-primary",
+    "--group-data-viz-chart-color-content-secondary",
+    "--group-data-viz-chart-color-surface-hover",
+    "--group-data-viz-chart-color-surface-surface",
+    "--group-data-viz-chart-color-surface-surface-raised",
+    "--group-data-viz-chart-color-transparent",
+    "--group-data-viz-chart-elevation-none",
+    "--group-data-viz-chart-flex-none",
+    "--group-data-viz-chart-font-family-code",
+    "--group-data-viz-chart-font-leading-body",
+    "--group-data-viz-chart-font-leading-expansive",
+    "--group-data-viz-chart-font-size-annotation-xs",
+    "--group-data-viz-chart-font-size-body",
+    "--group-data-viz-chart-font-size-heading-l",
+    "--group-data-viz-chart-font-size-label",
+    "--group-data-viz-chart-font-weight-medium",
+    "--group-data-viz-chart-font-weight-regular",
+    "--group-data-viz-chart-font-weight-semibold",
+    "--group-data-viz-chart-number-0",
+    "--group-data-viz-chart-opacity-strength-muted",
+    "--group-data-viz-chart-radius-border-radius-fixed-3",
+    "--group-data-viz-chart-radius-border-radius-soft",
+    "--group-data-viz-chart-radius-border-radius-strong",
+    "--group-data-viz-chart-ring-focus",
+    "--group-data-viz-chart-shadow-floating",
+    "--group-data-viz-chart-shadow-raised",
+    "--group-data-viz-chart-size-height-full",
+    "--group-data-viz-chart-size-height-glyph-tiny",
+    "--group-data-viz-chart-size-left-half",
+    "--group-data-viz-chart-size-max-height-wide-panel-snug",
+    "--group-data-viz-chart-size-min-width-panel-regular",
+    "--group-data-viz-chart-size-outline-offset-micro-compact",
+    "--group-data-viz-chart-size-top-half",
+    "--group-data-viz-chart-size-transform-negative-50percent",
+    "--group-data-viz-chart-size-width-full",
+    "--group-data-viz-chart-size-width-glyph-tiny",
+    "--group-data-viz-chart-space-gap-comfortable",
+    "--group-data-viz-chart-space-gap-compact",
+    "--group-data-viz-chart-space-gap-roomy",
+    "--group-data-viz-chart-space-gap-snug",
+    "--group-data-viz-chart-space-margin-bottom-compact",
+    "--group-data-viz-chart-space-margin-bottom-regular",
+    "--group-data-viz-chart-space-margin-top-regular",
+    "--group-data-viz-chart-space-margin-top-snug",
+    "--group-data-viz-chart-space-padding-comfortable",
+    "--group-data-viz-chart-space-padding-compact",
+    "--group-data-viz-chart-space-padding-regular",
+    "--group-data-viz-chart-space-padding-roomy",
+    "--group-data-viz-chart-space-padding-snug",
+    "--group-data-viz-chart-title-weight",
+    "--group-data-viz-measurement-chart-active-color-mix",
+    "--group-data-viz-measurement-chart-area-opacity-bottom",
+    "--group-data-viz-measurement-chart-area-opacity-top",
+    "--group-data-viz-measurement-chart-bar-max-width",
+    "--group-data-viz-measurement-chart-bar-radius",
+    "--group-data-viz-measurement-chart-brush-handle-width",
+    "--group-data-viz-measurement-chart-brush-height",
+    "--group-data-viz-measurement-chart-cursor-opacity",
+    "--group-data-viz-measurement-chart-dot-radius",
+    "--group-data-viz-measurement-chart-grid-dash",
+    "--group-data-viz-measurement-chart-height",
+    "--group-data-viz-measurement-chart-initial-width",
+    "--group-data-viz-measurement-chart-margin-left",
+    "--group-data-viz-measurement-chart-margin-right",
+    "--group-data-viz-measurement-chart-margin-top",
+    "--group-data-viz-measurement-chart-resize-delay",
+    "--group-data-viz-measurement-chart-stacked-opacity",
+    "--group-data-viz-measurement-chart-stroke",
+    "--group-data-viz-measurement-chart-tick-font-size",
+    "--group-data-viz-measurement-chart-tick-gap",
+    "--group-data-viz-measurement-chart-tick-margin",
+    "--group-data-viz-measurement-chart-y-axis-width",
+    "--group-data-viz-measurement-donut-initial-width",
+    "--group-data-viz-measurement-donut-inner-radius",
+    "--group-data-viz-measurement-donut-outer-radius",
+    "--group-data-viz-measurement-donut-padding-angle",
+    "--group-data-viz-measurement-donut-stroke",
+    "--group-data-viz-surface-border-overlap",
+    "--group-data-viz-surface-border-width-regular",
+    "--group-data-viz-surface-color-action-foreground",
+    "--group-data-viz-surface-color-action-soft",
+    "--group-data-viz-surface-color-border-default",
+    "--group-data-viz-surface-color-content-primary",
+    "--group-data-viz-surface-corner-radius",
+    "--group-data-viz-surface-divider-height",
+    "--group-data-viz-surface-divider-width",
+    "--group-data-viz-surface-elevation-none",
+    "--group-data-viz-surface-focus-offset",
+    "--group-data-viz-surface-font-family-ui",
+    "--group-data-viz-surface-font-leading-compact",
+    "--group-data-viz-surface-font-size-body",
+    "--group-data-viz-surface-motion-count-1",
+    "--group-data-viz-surface-motion-disabled-duration",
+    "--group-data-viz-surface-motion-reduced-duration",
+    "--group-data-viz-surface-number-0",
+    "--group-data-viz-surface-ring-focus",
+    "--group-data-viz-surface-stack-gap-compact",
+    "--group-data-viz-surface-title-weight",
+    "--group-feedback-empty-state-border-width-hairline",
+    "--group-feedback-empty-state-color-border-subtle",
+    "--group-feedback-empty-state-color-content-primary",
+    "--group-feedback-empty-state-color-content-secondary",
+    "--group-feedback-empty-state-color-danger-border",
+    "--group-feedback-empty-state-color-danger-foreground",
+    "--group-feedback-empty-state-color-danger-soft",
+    "--group-feedback-empty-state-color-surface-surface-raised",
+    "--group-feedback-empty-state-font-leading-prose",
+    "--group-feedback-empty-state-font-size-body",
+    "--group-feedback-empty-state-font-size-subheading",
+    "--group-feedback-empty-state-number-0",
+    "--group-feedback-empty-state-radius-border-radius-strong",
+    "--group-feedback-empty-state-shadow-raised",
+    "--group-feedback-empty-state-size-max-width-canvas-compact",
+    "--group-feedback-empty-state-size-min-height-panel-huge",
+    "--group-feedback-empty-state-size-min-height-wide-panel-large",
+    "--group-feedback-empty-state-space-gap-comfortable",
+    "--group-feedback-empty-state-space-gap-compact",
+    "--group-feedback-empty-state-space-height-14",
+    "--group-feedback-empty-state-space-margin-compact",
+    "--group-feedback-empty-state-space-padding-comfortable",
+    "--group-feedback-empty-state-space-padding-expansive",
+    "--group-feedback-empty-state-space-padding-roomy",
+    "--group-feedback-empty-state-space-width-14",
+    "--group-feedback-measurement-icon-empty",
+    "--group-feedback-measurement-icon-stroke-thin",
+    "--group-feedback-skeleton-angle-90deg",
+    "--group-feedback-skeleton-border-width-hairline",
+    "--group-feedback-skeleton-color-border-subtle",
+    "--group-feedback-skeleton-color-surface-selected",
+    "--group-feedback-skeleton-color-surface-surface",
+    "--group-feedback-skeleton-duration-1600ms",
+    "--group-feedback-skeleton-flex-fill",
+    "--group-feedback-skeleton-flex-grow-three",
+    "--group-feedback-skeleton-flex-none",
+    "--group-feedback-skeleton-mix-60",
+    "--group-feedback-skeleton-number-0",
+    "--group-feedback-skeleton-radius-border-radius-full",
+    "--group-feedback-skeleton-radius-border-radius-soft",
+    "--group-feedback-skeleton-radius-border-radius-strong",
+    "--group-feedback-skeleton-size-height-vast",
+    "--group-feedback-skeleton-size-height-wide-content-vast",
+    "--group-feedback-skeleton-size-transform-full",
+    "--group-feedback-skeleton-size-transform-negative-100percent",
+    "--group-feedback-skeleton-size-width-full",
+    "--group-feedback-skeleton-space-gap-roomy",
+    "--group-feedback-skeleton-space-height-10",
+    "--group-feedback-skeleton-space-height-regular",
+    "--group-feedback-skeleton-space-padding-comfortable",
+    "--group-feedback-skeleton-space-width-10",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-leading-compact",
+    "--group-feedback-surface-font-leading-relaxed",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus",
+    "--group-feedback-surface-stack-gap-compact",
+    "--group-feedback-surface-stack-gap-regular",
+    "--group-feedback-surface-title-weight",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-trigger-button-appearance-action-hover",
+    "--group-trigger-button-appearance-ai-hover",
+    "--group-trigger-button-border-width-hairline",
+    "--group-trigger-button-color-ai-blue-fg",
+    "--group-trigger-button-color-ai-fg",
+    "--group-trigger-button-color-ai-pink-fg",
+    "--group-trigger-button-color-ai-purple-fg",
+    "--group-trigger-button-color-border-default",
+    "--group-trigger-button-color-content-primary",
+    "--group-trigger-button-color-surface-surface",
+    "--group-trigger-button-color-transparent",
+    "--group-trigger-button-elevation-none",
+    "--group-trigger-button-font-leading-solid",
+    "--group-trigger-button-font-size-body",
+    "--group-trigger-button-font-size-label",
+    "--group-trigger-button-font-weight-medium",
+    "--group-trigger-button-gap-compact",
+    "--group-trigger-button-gradient-ai",
+    "--group-trigger-button-gradient-ai-border",
+    "--group-trigger-button-gradient-ai-soft",
+    "--group-trigger-button-gradient-ai-text",
+    "--group-trigger-button-height-compact",
+    "--group-trigger-button-height-large",
+    "--group-trigger-button-height-regular",
+    "--group-trigger-button-icon-size-compact",
+    "--group-trigger-button-icon-size-large",
+    "--group-trigger-button-icon-size-regular",
+    "--group-trigger-button-intent-bg",
+    "--group-trigger-button-intent-border",
+    "--group-trigger-button-intent-fg",
+    "--group-trigger-button-intent-on",
+    "--group-trigger-button-intent-soft",
+    "--group-trigger-button-loading-duration",
+    "--group-trigger-button-loading-rotation",
+    "--group-trigger-button-motion-fast",
+    "--group-trigger-button-number-0",
+    "--group-trigger-button-opacity-disabled",
+    "--group-trigger-button-opacity-hidden",
+    "--group-trigger-button-outline-overlap",
+    "--group-trigger-button-outline-width",
+    "--group-trigger-button-padding-icon",
+    "--group-trigger-button-padding-inline",
+    "--group-trigger-button-padding-snug",
+    "--group-trigger-button-press-offset",
+    "--group-trigger-button-primary-fill-pressed",
+    "--group-trigger-button-radius-current",
+    "--group-trigger-button-radius-strong",
+    "--group-trigger-button-state-overlay-hover",
+    "--group-trigger-button-state-overlay-pressed",
+    "--group-trigger-button-state-overlay-spread",
+    "--group-trigger-button-tertiary-fill-hover",
+    "--group-trigger-button-tertiary-foreground-hover",
+    "--group-trigger-measurement-icon-md",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-flex-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-viz-chart-number-0",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-width-full",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-roomy",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-border-width-hairline",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-border-subtle",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-corner-radius",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-surface-surface-raised",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-content-primary",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-shadow-raised",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-elevation-none",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-regular",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-transparent",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-gap-comfortable",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-bottom-regular",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-body",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-title-weight",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-top-snug",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-label",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-leading-body",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-content-secondary",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-flex-none",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-height-full",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-comfortable",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-top-regular",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-gap-compact",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-snug",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-surface-hover",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-opacity-strength-muted",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-width-glyph-tiny",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-height-glyph-tiny",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-radius-border-radius-fixed-3",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-min-width-panel-regular",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-border-default",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-shadow-floating",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-weight-semibold",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-bottom-compact",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-gap-roomy",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-leading-expansive",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-weight-medium",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-max-height-wide-panel-snug",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-compact",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-weight-regular",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-top-half",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-left-half",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-transform-negative-50percent",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-gap-snug",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-heading-l",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-family-code",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-annotation-xs",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-action-soft",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-border-width-regular",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-ring-focus",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-surface-selected",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-soft",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-width-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-height-regular",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-height-wide-content-vast",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-strong",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-width-10",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-height-10",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-none",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-gap-roomy",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-padding-comfortable",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-height-vast",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-surface-surface",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-border-width-hairline",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-border-subtle",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-number-0",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-fill",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-grow-three",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-transform-negative-100percent",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-angle-90deg",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-mix-60",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-duration-1600ms",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-transform-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-gap-comfortable",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-padding-expansive",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-padding-roomy",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-size-min-height-wide-panel-large",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-padding-comfortable",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-size-min-height-panel-huge",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-width-14",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-height-14",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-content-secondary",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-border-width-hairline",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-border-subtle",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-radius-border-radius-strong",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-shadow-raised",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-danger-foreground",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-danger-soft",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-danger-border",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-size-max-width-canvas-compact",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-number-0",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-margin-compact",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-font-size-subheading",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-content-primary",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-font-size-body",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-font-leading-prose",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-gap-compact",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-button-gap-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-inline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-current",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-leading-solid",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-weight-medium",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-motion-fast",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-bg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-on",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-icon",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-transparent",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-overlap",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-width",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-spread",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-press-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-disabled",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-hidden",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-snug",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-strong",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-rotation",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-text",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-data-viz-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-data-viz-surface-number-0",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-fill-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-foreground-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-action-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-primary-fill-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-ai-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-flex-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-data-viz-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-title-weight",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-leading-compact",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-stack-gap-compact",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-divider-width",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-divider-height",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-border-overlap",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-title-weight",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-leading-compact",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-stack-gap-compact",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-leading-relaxed",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-stack-gap-regular",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-data-viz-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-function",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-ai",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-success",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-warning",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-destroy",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-severity-critical",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-severity-high",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-severity-medium",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-severity-low",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-severity-info",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-1",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-2",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-3",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-4",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-5",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-6",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-height",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-initial-width",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-margin-top",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-margin-right",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-margin-left",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-tick-font-size",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-tick-gap",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-tick-margin",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-y-axis-width",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-dot-radius",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-stroke",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-bar-radius",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-bar-max-width",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-brush-height",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-brush-handle-width",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-resize-delay",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-area-opacity-top",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-area-opacity-bottom",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-grid-dash",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-cursor-opacity",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-border-strong",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-active-color-mix",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-surface-surface",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-stacked-opacity",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-donut-initial-width",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-donut-inner-radius",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-donut-outer-radius",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-donut-padding-angle",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-donut-stroke",
+      "ownership": "owned",
+      "component": "Area chart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-stroke-thin",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-empty",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-pink-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-blue-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-purple-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

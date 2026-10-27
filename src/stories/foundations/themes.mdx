@@ -1,0 +1,56 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { ThemeSwitchingPreview } from './theme-switching-preview';
+import { SurfaceExamples } from './foundation-examples';
+
+<Meta title="Foundations/Themes & Modes" id="foundations-theme" />
+
+# Themes & Modes
+
+Theme determines how the workspace is arranged. Mode determines its light or dark palette. Keep these choices independent so people can use either presentation in either lighting condition.
+
+## Two themes, two modes
+
+| Theme                | Light     | Dark      | Presentation                                                     |
+| -------------------- | --------- | --------- | ---------------------------------------------------------------- |
+| Fundamental          | Supported | Supported | Navigation and persistent panels follow the application edges.   |
+| Fundamental Floating | Supported | Supported | Navigation, assistant areas, and panels sit in inset containers. |
+
+Fundamental is the default. Fundamental Floating uses 12px exterior insets and 12px corners for persistent containers, with 8px exterior insets on narrow screens. Both share palettes, typography, component sizes, data density, and interior spacing.
+
+Use the sidebar's theme controls to compare the four combinations. In the Application Demo, the same choices are available in Settings → Appearance.
+
+## Preserve the user's place
+
+Changing the theme or mode should preserve content, draft values, selection, and interaction state. Try entering a draft name in this example, then change its presentation.
+
+<ThemeSwitchingPreview />
+
+## Surface hierarchy
+
+Canvas establishes the workspace. Borderless cards group content, while raised surface roles share the card fill. Inputs have a quiet fill and boundary. Transient overlays use a distinct surface and soft shadow, and modal tasks add a backdrop. Tables blend with their parent and use subtle horizontal dividers.
+
+<SurfaceExamples />
+
+Component examples use transparent layout wrappers. Add a Card when the composition needs a distinct surface. Passive groups can remain transparent; interactive tiles can gain a quiet fill on hover.
+
+## Apply the theme
+
+Set `data-layout-theme` to `fundamental` or `fundamental-floating`. Set `data-theme` and the corresponding light/dark class independently. Apply these to the document root so portaled menus, dialogs, and tooltips inherit the same choices.
+
+Use group tokens for surfaces, text, borders, and geometry. Group tokens reference semantic roles, and each semantic role maps directly to primitives for all four configurations. Avoid branching individual components on a mode when the token already resolves it. Keep equivalent states and accessible contrast in all four combinations.
+
+## Layer order
+
+Use the named layer tokens to keep nested interactions predictable.
+
+| Layer          | Token          | Value |
+| -------------- | -------------- | ----- |
+| Sticky content | `--z-sticky`   | 40    |
+| Dropdown       | `--z-dropdown` | 50    |
+| Sheet          | `--z-sheet`    | 60    |
+| Modal          | `--z-modal`    | 70    |
+| Popover        | `--z-popover`  | 80    |
+| Notification   | `--z-toast`    | 90    |
+| Tooltip        | `--z-tooltip`  | 100   |
+
+Keep motion and state changes independent from presentation. Respect reduced motion in both themes and both modes.

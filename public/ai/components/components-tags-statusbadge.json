@@ -1,0 +1,284 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-tags-statusbadge",
+  "name": "StatusBadge",
+  "category": "Data Display",
+  "tokenGroup": "data-display",
+  "kind": "component",
+  "aliases": [
+    "badge",
+    "state label",
+    "status pill"
+  ],
+  "purpose": "A textual lifecycle status for new, in-review, in-progress, completed, or cancelled records.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/status-badge"
+  ],
+  "links": {
+    "contract": "./components-tags-statusbadge.json",
+    "overview": "../../?path=/docs/components-data-display-statusbadge-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-display-statusbadge-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-display-statusbadge-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-display-statusbadge-overview--docs&docsTab=tokens"
+  },
+  "description": "Show the workflow state independently of its severity.",
+  "exports": [
+    "StatusBadge",
+    "StatusDot"
+  ],
+  "importStatements": [
+    "import { StatusBadge, StatusDot } from '@dimitriszoitas/aegis-ui/status-badge';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "StatusBadge",
+      "name": "status",
+      "type": "RecordStatus",
+      "required": true
+    }
+  ],
+  "variants": [
+    {
+      "name": "status",
+      "values": [
+        "cancelled",
+        "completed",
+        "in-progress",
+        "in-review",
+        "new"
+      ]
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/tag",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A textual lifecycle status for new, in-review, in-progress, completed, or cancelled records.",
+    "usage": [
+      "Supply the actual RecordStatus value rather than using a status merely to obtain its color.",
+      "Use Tag variant=\"status\" for a different lifecycle vocabulary instead of relabeling a mismatched standard status."
+    ],
+    "accessibility": [
+      "The text names the lifecycle state, while the dot is supplementary.",
+      "Status changes are data updates; announce important asynchronous transitions in the host rather than making every badge a live region."
+    ],
+    "intent": [
+      "In review uses the dedicated review-status color, not AI intent; completion and cancellation are distinct lifecycle outcomes."
+    ],
+    "context": [
+      "Use in record lists, details, activity summaries, and status filters."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "div",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "react"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/status-badge/status-badge.stories.tsx",
+    "src/components/status-badge/status-badge.tsx",
+    "src/package/styles.css",
+    "src/styles/component-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/theme.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-tags-statusbadge--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-tags-statusbadge--matrix",
+      "sourceFile": "src/components/status-badge/status-badge.stories.tsx"
+    },
+    {
+      "id": "components-tags-statusbadge--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-tags-statusbadge--playground",
+      "sourceFile": "src/components/status-badge/status-badge.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-display-surface-border-width-regular",
+    "--group-data-display-surface-color-action-foreground",
+    "--group-data-display-surface-color-action-soft",
+    "--group-data-display-surface-color-border-default",
+    "--group-data-display-surface-color-content-primary",
+    "--group-data-display-surface-elevation-none",
+    "--group-data-display-surface-focus-offset",
+    "--group-data-display-surface-font-family-ui",
+    "--group-data-display-surface-font-size-body",
+    "--group-data-display-surface-motion-count-1",
+    "--group-data-display-surface-motion-disabled-duration",
+    "--group-data-display-surface-motion-reduced-duration",
+    "--group-data-display-surface-number-0",
+    "--group-data-display-surface-radius-circle",
+    "--group-data-display-surface-ring-focus",
+    "--group-data-display-tag-color-content-secondary",
+    "--group-data-display-tag-color-function-fg",
+    "--group-data-display-tag-color-status-review-fg",
+    "--group-data-display-tag-color-success-fg",
+    "--group-data-display-tag-color-text-tertiary",
+    "--group-data-display-tag-color-warning-fg"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-radius-circle",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-function-fg",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-status-review-fg",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-warning-fg",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-success-fg",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-content-secondary",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-text-tertiary",
+      "ownership": "owned",
+      "component": "StatusBadge",
+      "group": "data-display"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

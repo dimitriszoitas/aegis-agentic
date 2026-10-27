@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Layout creation'
+  short_description: 'Compose responsive layouts from shared components'
+  default_prompt: 'Use $create-layout to compose a responsive application layout from the existing system.'

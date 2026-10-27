@@ -1,0 +1,323 @@
+/* v0 simple preserves the reference palette and changes weak control
+   boundaries and small supporting text. Category aliases are deliberately rebound
+   here so nested light/dark previews consume this approach's values. */
+[data-layout-theme='v0-simple'],
+[data-layout-theme='v0-simple'] :is(.dark, .aegis-theme-light) {
+  --color-bg-base: light-dark(#ffffff, #0a0a0a);
+  --color-bg-canvas: light-dark(#ffffff, #171717);
+  --color-bg-navigation: light-dark(#f7f7f7, #11171c);
+  --color-bg-sidebar: light-dark(#fafafa, #171717);
+  --color-bg-surface: light-dark(#ffffff, #171717);
+  --color-bg-surface-raised: var(--color-bg-surface);
+  --color-bg-strong: light-dark(#e5e5e5, #404040);
+  --color-bg-hover: light-dark(#fafafa, #262626);
+  --color-bg-selected: light-dark(#eef1fc, #222940);
+  --color-text-primary: light-dark(#161616, #e8ecf0);
+  --color-text-secondary: light-dark(#686868, #92a4b3);
+  --color-text-tertiary: light-dark(#686868, #8396a5);
+  --color-text-disabled: light-dark(#a2a2a2, #5f7281);
+  --color-border-decorative: light-dark(#f5f5f5, #262626);
+  --color-border-subtle: light-dark(#e5e5e5, #404040);
+  --color-border-default: var(--color-border-subtle);
+  --color-border-strong: light-dark(#737373, #8a8a8a);
+  --color-input-border-hover: light-dark(#949494, #646464);
+  --color-border-active: light-dark(#737373, #a3a3a3);
+  --color-on-intent: light-dark(#ffffff, #11171c);
+  --color-scrim: light-dark(rgb(0 0 0 / 36%), rgb(0 0 0 / 60%));
+
+  /* Control boundaries and interaction states retain their audited color pairs. */
+  --v0-field-border: light-dark(#949494, #646464);
+  --v0-interaction-hover: light-dark(#ededed, #363636);
+  --v0-interaction-pressed: light-dark(#e3e3e3, #424242);
+  --v0-destroy-hover: light-dark(#fbe4e5, #4e272c);
+  --v0-destroy-pressed: light-dark(#f5cdd0, #633039);
+  --v0-field-readonly-border: light-dark(#b5b5b5, #565656);
+
+  /* Actions, selection and focus use restrained blue with a slight indigo bias. */
+  --color-function-bg: light-dark(#495da8, #a0b4f5);
+  --color-function-fg: var(--color-function-bg);
+  --color-function-soft: var(--color-bg-selected);
+  --color-function-border: var(--color-function-fg);
+  --v0-action-hover: light-dark(#3a4f91, #afc2f8);
+  --v0-action-pressed: light-dark(#2e437c, #c0d0fa);
+  --ring-focus: var(--color-function-fg);
+  --v0-control-min: 32px;
+  --v0-control-default: 40px;
+  --v0-control-comfortable: 48px;
+  --v0-input-small: 32px;
+  --v0-input-regular: 40px;
+  --v0-input-large: 48px;
+  --space-0: 0px;
+  --size-8: 8px;
+  --size-12: 12px;
+  --size-16: 16px;
+  --size-20: 20px;
+  --size-24: 24px;
+  --size-28: 28px;
+  --size-32: 32px;
+  --size-40: 40px;
+  --size-48: 48px;
+  --size-64: 64px;
+  --v0-selection-chip-bg: light-dark(#f3f4f6, #262626);
+
+  /* Error feedback stays red; critical alert severity uses a distinct tangerine orange. */
+  --color-destroy-bg: light-dark(#982222, #ff8c8c);
+  --color-destroy-fg: var(--color-destroy-bg);
+  --color-destroy-soft: light-dark(#fef3f2, #3b1815);
+  --color-destroy-border: var(--color-destroy-fg);
+  --color-warning-bg: light-dark(#755c00, #fde047);
+  --color-warning-fg: var(--color-warning-bg);
+  --color-warning-soft: light-dark(#fef9c3, #3b3209);
+  --color-warning-border: var(--color-warning-fg);
+  /* This warm amber accent needs a readable label/outline on light surfaces. */
+  --color-warning-accent: #fbbf24;
+  --color-success-bg: light-dark(#287344, #8ed5a6);
+  --color-success-fg: var(--color-success-bg);
+  --color-success-soft: light-dark(#edf7ef, #20372a);
+  --color-success-border: var(--color-success-fg);
+  --color-status-review-fg: var(--color-text-secondary);
+  --color-severity-critical-fg: light-dark(#a85400, #ffb454);
+  --color-severity-critical-bg: light-dark(#fff7ed, #3d240b);
+  --color-severity-critical-border: var(--color-severity-critical-fg);
+  --color-severity-high-fg: var(--color-destroy-fg);
+  --color-severity-high-bg: var(--color-destroy-soft);
+  --color-severity-high-border: var(--color-severity-high-fg);
+  --color-severity-medium-fg: var(--color-warning-fg);
+  --color-severity-medium-bg: var(--color-warning-soft);
+  --color-severity-medium-border: var(--color-severity-medium-fg);
+  --color-severity-low-fg: var(--color-text-secondary);
+  --color-severity-low-bg: var(--color-bg-surface);
+  --color-severity-low-border: var(--color-border-strong);
+  --color-severity-info-fg: var(--color-success-fg);
+  --color-severity-info-bg: var(--color-success-soft);
+  --color-severity-info-border: var(--color-severity-info-fg);
+  /* Text roles describe feedback independently from an alert's severity. */
+  --color-text-error: var(--color-destroy-fg);
+  --color-text-success: var(--color-success-fg);
+  --color-text-warning: var(--color-warning-fg);
+  --color-text-caution: var(--color-text-warning);
+  --color-text-info: var(--color-function-fg);
+  --color-text-critical: var(--color-severity-critical-fg);
+  --badge-border-strength: 100%;
+  --badge-text-highlight: 100%;
+  --status-bg-emphasis: 0%;
+
+  /* Parser metadata owns its domain roles, independently from AI actions. */
+  --color-parser-custom-fg: light-dark(#315da8, #93baf7);
+  --color-parser-custom-bg: light-dark(#edf3fc, #1b2a40);
+  --color-parser-builtin-fg: light-dark(#7143a5, #d0b3f5);
+  --color-parser-builtin-bg: light-dark(#f4edfc, #30233e);
+  --color-parser-connect-fg: light-dark(#0d3c48, #b6ecf7);
+  --color-parser-connect-bg: light-dark(rgba(2, 192, 213, 0.09), rgba(2, 192, 213, 0.12));
+  --color-parser-datatype-fg: var(--color-text-primary);
+  --color-parser-datatype-bg: light-dark(rgba(22, 22, 22, 0.05), rgba(232, 236, 240, 0.08));
+  --color-parser-nested-fg: light-dark(#2f265f, #e2ddfe);
+  --color-parser-nested-bg: light-dark(rgba(59, 0, 255, 0.05), rgba(59, 0, 255, 0.12));
+
+  /* Source-compatible foundation names preserve the audited role distinctions. */
+  --db-color-text-primary: var(--color-text-primary);
+  --db-color-text-secondary: var(--color-text-secondary);
+  --db-color-action-primary-text-default: var(--color-on-intent);
+  --lw-next-text: var(--db-color-text-primary);
+  --lw-next-muted: var(--db-color-text-secondary);
+  --db-color-text-placeholder: var(--color-text-tertiary);
+  --db-color-action-disabled-text: var(--color-text-disabled);
+  --lw-next-primary-text: var(--db-color-action-primary-text-default);
+  --lw-next-background: var(--color-bg-base);
+  --lw-next-workspace-background: var(--color-bg-canvas);
+  --lw-next-sidebar-background: var(--color-bg-navigation);
+  --lw-next-sidebar: var(--color-bg-sidebar);
+  --lw-next-surface: var(--color-bg-surface);
+  --lw-next-subtle: var(--color-bg-hover);
+  --lw-next-border: var(--color-border-subtle);
+  --db-color-border-accessible: var(--color-border-strong);
+  --db-surface-strong: var(--color-bg-strong);
+  --db-border-subtle: var(--color-border-decorative);
+  --db-border-hover: var(--color-border-strong);
+  --db-border-active: var(--color-border-active);
+  --lw-next-accent: var(--color-function-fg);
+  --lw-next-primary: var(--color-function-bg);
+  --lw-next-tint: var(--color-function-soft);
+  --lw-next-focus: var(--ring-focus);
+  --db-input-surface: var(--color-bg-surface);
+  --db-input-border-hover: var(--color-input-border-hover);
+  --db-tabs-text-active: var(--color-function-fg);
+  --db-tabs-indicator: var(--color-function-fg);
+  --db-tooltip-link-text: var(--color-function-fg);
+  --db-tooltip-link-text-hover: var(--color-function-fg);
+  --db-tooltip-link-text-active: var(--color-function-fg);
+  --db-checkbox-mark: var(--color-on-intent);
+  --db-radio-mark: var(--color-on-intent);
+  --lw-next-danger: var(--color-destroy-fg);
+  --lw-next-danger-bg: var(--color-destroy-soft);
+  --lw-next-severity-critical: var(--color-severity-critical-fg);
+  --lw-next-severity-critical-bg: var(--color-severity-critical-bg);
+  --lw-next-warning: var(--color-warning-fg);
+  --lw-next-warning-bg: var(--color-warning-soft);
+  --lw-next-informational: var(--color-severity-info-fg);
+  --lw-next-informational-bg: var(--color-severity-info-bg);
+  --lw-next-parser-custom: var(--color-parser-custom-fg);
+  --lw-next-parser-custom-bg: var(--color-parser-custom-bg);
+  --lw-next-parser-builtin: var(--color-parser-builtin-fg);
+  --lw-next-parser-builtin-bg: var(--color-parser-builtin-bg);
+  --lw-next-parser-connect: var(--color-parser-connect-fg);
+  --lw-next-parser-connect-bg: var(--color-parser-connect-bg);
+  --lw-next-parser-datatype: var(--color-parser-datatype-fg);
+  --lw-next-parser-datatype-bg: var(--color-parser-datatype-bg);
+  --lw-next-parser-nested: var(--color-parser-nested-fg);
+  --lw-next-parser-nested-bg: var(--color-parser-nested-bg);
+  /* Added semantic text roles are distinct from existing severity token names. */
+  --lw-next-text-error: var(--color-text-error);
+  --lw-next-text-success: var(--color-text-success);
+  --lw-next-text-warning: var(--color-text-warning);
+  --lw-next-text-caution: var(--color-text-caution);
+  --lw-next-text-info: var(--color-text-info);
+  --lw-next-text-critical: var(--color-text-critical);
+  --lw-next-warning-accent: var(--color-warning-accent);
+
+  /* AI keeps its label/icon distinction, with a single quiet accent. Constant
+     image gradients support existing clipped-text consumers without decoration. */
+  --color-ai-bg: var(--color-function-bg);
+  --color-ai-fg: var(--color-function-fg);
+  --color-ai-soft: var(--color-function-soft);
+  --color-ai-surface: var(--color-bg-surface);
+  --color-ai-border: var(--color-border-strong);
+  --color-ai-pink-bg: var(--color-ai-bg);
+  --color-ai-pink-fg: var(--color-ai-fg);
+  --color-ai-pink-soft: var(--color-ai-soft);
+  --color-ai-blue-bg: var(--color-ai-bg);
+  --color-ai-blue-fg: var(--color-ai-fg);
+  --color-ai-blue-soft: var(--color-ai-soft);
+  --gradient-ai: linear-gradient(var(--color-ai-bg), var(--color-ai-bg));
+  --gradient-ai-text: linear-gradient(var(--color-ai-fg), var(--color-ai-fg));
+  --gradient-ai-border: var(--gradient-ai-text);
+  --gradient-ai-soft: linear-gradient(var(--color-ai-soft), var(--color-ai-soft));
+  --gradient-ai-surface: linear-gradient(var(--color-ai-surface), var(--color-ai-surface));
+  /* Twenty syntax text roles, each >= 4.5:1 on its theme's code surface. */
+  --color-code-surface: light-dark(#ffffff, #171717);
+  --color-syntax-keyword: light-dark(#6d28d9, #c4b5fd);
+  --color-syntax-string: light-dark(#166534, #86efac);
+  --color-syntax-number: light-dark(#92400e, #fcd34d);
+  --color-syntax-comment: light-dark(#626b78, #a8b4c5);
+  --color-syntax-function: light-dark(#1d4ed8, #93c5fd);
+  --color-syntax-type: light-dark(#0e7490, #67e8f9);
+  --color-syntax-variable: light-dark(#374151, #d1d5db);
+  --color-syntax-property: light-dark(#9d174d, #f9a8d4);
+  --color-syntax-operator: light-dark(#7c2d12, #fdba74);
+  --color-syntax-punctuation: light-dark(#4b5563, #cbd5e1);
+  --color-syntax-constant: light-dark(#4338ca, #a5b4fc);
+  --color-syntax-boolean: light-dark(#9f1239, #fda4af);
+  --color-syntax-class: light-dark(#5b21b6, #ddd6fe);
+  --color-syntax-namespace: light-dark(#115e59, #99f6e4);
+  --color-syntax-parameter: light-dark(#854d0e, #fde047);
+  --color-syntax-attribute: light-dark(#0369a1, #7dd3fc);
+  --color-syntax-tag: light-dark(#9a3412, #fdba74);
+  --color-syntax-regex: light-dark(#86198f, #f0abfc);
+  --color-syntax-escape: light-dark(#4d7c0f, #bef264);
+  --color-syntax-invalid: light-dark(#991b1b, #fca5a5);
+  --color-syntax-key: var(--color-syntax-property);
+  --color-chart-1: light-dark(#3f5ca4, #90b2f1);
+  --color-chart-2: light-dark(#226c78, #82c6d2);
+  --color-chart-3: var(--color-parser-builtin-fg);
+  --color-chart-4: var(--color-destroy-fg);
+  --color-chart-5: var(--color-warning-fg);
+  --color-chart-6: var(--color-success-fg);
+  --color-chart-severity-critical: var(--color-severity-critical-fg);
+  --color-chart-severity-high: var(--color-severity-high-fg);
+  --color-chart-severity-medium: var(--color-severity-medium-fg);
+  --color-chart-severity-low: var(--color-severity-low-fg);
+  --color-chart-severity-info: var(--color-severity-info-fg);
+  --color-chart-function: var(--color-chart-1);
+  --color-chart-ai: var(--color-chart-1);
+  --color-chart-success: var(--color-chart-6);
+  --color-chart-warning: var(--color-chart-5);
+  --color-chart-destroy: var(--color-chart-4);
+
+  --elevation-raised: none;
+  --elevation-floating:
+    0 2px 4px light-dark(rgb(0 0 0 / 4%), rgb(0 0 0 / 16%)),
+    0 6px 16px light-dark(rgb(0 0 0 / 8%), rgb(0 0 0 / 28%));
+  --elevation-overlay:
+    0 4px 12px light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 20%)),
+    0 12px 32px light-dark(rgb(0 0 0 / 12%), rgb(0 0 0 / 36%));
+  --shadow-raised: none;
+  --shadow-floating: var(--elevation-floating);
+  --shadow-overlay: var(--elevation-overlay);
+  --chrome-shadow: none;
+  --chrome-overlay-shadow: var(--shadow-overlay);
+  --chrome-inset: 0px;
+  --chrome-gap: 0px;
+  --chrome-radius: 0px;
+  --chrome-nav-border-width: 0 1px 0 0;
+  --chrome-sheet-border-width: 0 0 0 1px;
+  --sidebar-radius-expanded: 0px;
+  --sidebar-radius-collapsed: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
+  --radius-2xl: 8px;
+  --radius-3xl: 8px;
+  --radius-4xl: 8px;
+  --radius-full: 6px;
+  --surface-radius: var(--radius-lg);
+  --surface-radius-floating: var(--radius-lg);
+  --surface-radius-nested: 4px;
+  --button-radius-sm: 4px;
+  --button-radius-md: var(--radius-md);
+  --button-radius-lg: var(--radius-lg);
+  --control-radius-xs: 4px;
+  --control-radius-sm: 4px;
+  --control-radius-md: var(--radius-md);
+  --control-radius-lg: var(--radius-lg);
+  --chip-radius: 4px;
+  --font-ui: Figtree, system-ui, sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+  --font-mono: var(--font-code);
+  --text-xxs: 10px;
+  --text-xs: 12px;
+  --text-sm: 12px;
+  --text-base: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 26px;
+  --text-3xl: 26px;
+  --title-page-size: var(--text-2xl);
+  --title-section-size: var(--text-xl);
+  --title-panel-size: var(--text-lg);
+  --metric-value-size: var(--text-2xl);
+  --scrollbar-thumb: var(--color-border-strong);
+  --scrollbar-thumb-hover: var(--color-text-secondary);
+  --scrollbar-thumb-active: var(--color-text-primary);
+
+  --background: var(--color-bg-surface);
+  --foreground: var(--color-text-primary);
+  --card: var(--color-bg-surface);
+  --card-foreground: var(--color-text-primary);
+  --popover: var(--color-bg-surface);
+  --popover-foreground: var(--color-text-primary);
+  --primary: var(--color-function-bg);
+  --primary-foreground: var(--color-on-intent);
+  --secondary: var(--color-bg-hover);
+  --secondary-foreground: var(--color-text-primary);
+  --muted: var(--color-bg-hover);
+  --muted-foreground: var(--color-text-secondary);
+  --accent: var(--color-bg-selected);
+  --accent-foreground: var(--color-text-primary);
+  --destructive: var(--color-destroy-bg);
+  --destructive-foreground: var(--color-on-intent);
+  --border: var(--color-border-default);
+  --input: var(--color-border-strong);
+  --ring: var(--ring-focus);
+  --radius: var(--radius-md);
+}
+[data-layout-theme='v0-simple'].dark,
+[data-layout-theme='v0-simple'] .dark {
+  color-scheme: dark;
+}
+[data-layout-theme='v0-simple'].aegis-theme-light,
+[data-layout-theme='v0-simple'] .aegis-theme-light {
+  color-scheme: light;
+}

@@ -1,0 +1,947 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-forms-checkbox",
+  "name": "Checkbox",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [],
+  "purpose": "An independent boolean or mixed selection control with an optional label and description.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/checkbox"
+  ],
+  "links": {
+    "contract": "./components-forms-checkbox.json",
+    "overview": "../../?path=/docs/components-inputs-selection-checkbox-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-checkbox-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-checkbox-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-checkbox-overview--docs&docsTab=tokens"
+  },
+  "description": "Supports checked, unchecked and indeterminate states, keyboard Space, label clicks and native form submission. Controlled checked accepts boolean or \"indeterminate\".",
+  "exports": [
+    "Checkbox"
+  ],
+  "importStatements": [
+    "import { Checkbox } from '@dimitriszoitas/aegis-ui/checkbox';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Checkbox",
+      "name": "checked",
+      "type": "CheckboxCheckedState | undefined",
+      "required": false
+    },
+    {
+      "component": "Checkbox",
+      "name": "containerClassName",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Checkbox",
+      "name": "defaultChecked",
+      "type": "CheckboxCheckedState | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "Checkbox",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Checkbox",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Checkbox",
+      "name": "label",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Checkbox",
+      "name": "onCheckedChange",
+      "type": "((checked: CheckboxCheckedState) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "Checkbox",
+      "name": "readOnly",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Focusable and announced, but cannot be changed by pointer or keyboard."
+    },
+    {
+      "component": "Checkbox",
+      "name": "required",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Checkbox",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | undefined",
+      "required": false,
+      "defaultValue": "\"md\"",
+      "description": "Compact controls use the same styling at 16px instead of 18px."
+    },
+    {
+      "component": "Checkbox",
+      "name": "value",
+      "type": "string | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    },
+    {
+      "name": "checked",
+      "values": [
+        "false",
+        "indeterminate",
+        "true"
+      ]
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/field",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "An independent boolean or mixed selection control with an optional label and description.",
+    "usage": [
+      "Use checked=\"indeterminate\" only to represent a partial selection, such as some children in a group.",
+      "Use readOnly when the checked value must remain focusable and inspectable; use disabled when interaction is unavailable.",
+      "The sm size is intended for dense facets and tables; it preserves the same state and labeling behavior."
+    ],
+    "accessibility": [
+      "Base UI exposes checked and mixed states and supports Space activation. The visible label is associated with the control.",
+      "Description and Field help/error references are combined. Do not repeat the full label as the description."
+    ],
+    "context": [
+      "Use for independent preferences, row selection, and filters that allow several values."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-readonly"
+    ],
+    "nativeElements": [
+      "button",
+      "div",
+      "label"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/checkbox",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/checkbox/checkbox.css",
+    "src/components/checkbox/checkbox.stories.tsx",
+    "src/components/checkbox/checkbox.tsx",
+    "src/components/field/field.css",
+    "src/components/field/field.tsx",
+    "src/components/field/index.ts",
+    "src/components/icon/index.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-checkbox--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-forms-checkbox--matrix",
+      "sourceFile": "src/components/checkbox/checkbox.stories.tsx"
+    },
+    {
+      "id": "components-forms-checkbox--compact",
+      "name": "Compact",
+      "url": "../../?path=/story/components-forms-checkbox--compact",
+      "sourceFile": "src/components/checkbox/checkbox.stories.tsx"
+    },
+    {
+      "id": "components-forms-checkbox--read-only-and-disabled",
+      "name": "Read Only And Disabled",
+      "url": "../../?path=/story/components-forms-checkbox--read-only-and-disabled",
+      "sourceFile": "src/components/checkbox/checkbox.stories.tsx"
+    },
+    {
+      "id": "components-forms-checkbox--select-all",
+      "name": "Select All",
+      "url": "../../?path=/story/components-forms-checkbox--select-all",
+      "sourceFile": "src/components/checkbox/checkbox.stories.tsx"
+    },
+    {
+      "id": "components-forms-checkbox--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-forms-checkbox--playground",
+      "sourceFile": "src/components/checkbox/checkbox.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-input-field-color-content-primary",
+    "--group-input-field-color-content-secondary",
+    "--group-input-field-color-content-tertiary",
+    "--group-input-field-color-danger-foreground",
+    "--group-input-field-font-leading-body",
+    "--group-input-field-font-leading-compact",
+    "--group-input-field-font-size-body",
+    "--group-input-field-font-weight-medium",
+    "--group-input-field-font-weight-regular",
+    "--group-input-field-gap-compact",
+    "--group-input-field-gap-snug",
+    "--group-input-field-number-0",
+    "--group-input-field-required-gap",
+    "--group-input-measurement-icon-sm",
+    "--group-input-measurement-icon-stroke-strong",
+    "--group-input-measurement-icon-xs",
+    "--group-input-selection-border-width-hairline",
+    "--group-input-selection-color-action-fill",
+    "--group-input-selection-color-border-strong",
+    "--group-input-selection-color-content-primary",
+    "--group-input-selection-color-content-secondary",
+    "--group-input-selection-color-danger-foreground",
+    "--group-input-selection-color-on-intent",
+    "--group-input-selection-color-surface-surface",
+    "--group-input-selection-ease-out",
+    "--group-input-selection-font-leading-body",
+    "--group-input-selection-font-leading-control",
+    "--group-input-selection-font-line-box-xl",
+    "--group-input-selection-font-size-body",
+    "--group-input-selection-motion-fast",
+    "--group-input-selection-number-0",
+    "--group-input-selection-opacity-strength-prominent",
+    "--group-input-selection-radius-border-radius-soft",
+    "--group-input-selection-size-height-glyph-vast",
+    "--group-input-selection-size-height-small",
+    "--group-input-selection-size-margin-top-micro-compact",
+    "--group-input-selection-size-margin-top-micro-small",
+    "--group-input-selection-size-width-glyph-vast",
+    "--group-input-selection-size-width-small",
+    "--group-input-selection-space-gap-compact",
+    "--group-input-selection-space-gap-snug",
+    "--group-input-surface-appearance-control-border",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-border-strong",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-selection-space-gap-compact",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-width-glyph-vast",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-height-glyph-vast",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-margin-top-micro-small",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-number-0",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-border-width-hairline",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-border-strong",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-surface-surface",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-on-intent",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-ease-out",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-motion-fast",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-width-small",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-height-small",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-margin-top-micro-compact",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-icon-xs",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-font-size-body",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-font-line-box-xl",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-action-fill",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-danger-foreground",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-space-gap-snug",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-font-leading-control",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-content-primary",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-content-secondary",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-font-leading-body",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-opacity-strength-prominent",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-snug",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-medium",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-required-gap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-strong",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-measurement-icon-stroke-strong",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-icon-sm",
+      "ownership": "owned",
+      "component": "Checkbox",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "Check",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

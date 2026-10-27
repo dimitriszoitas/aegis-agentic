@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Component creation'
+  short_description: 'Build reusable components with tokens and Base UI'
+  default_prompt: 'Use $create-component to build or extend a reusable component in this repository.'

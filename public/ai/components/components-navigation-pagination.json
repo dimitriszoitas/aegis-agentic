@@ -1,0 +1,745 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-navigation-pagination",
+  "name": "Pagination",
+  "category": "Navigation",
+  "tokenGroup": "navigation",
+  "kind": "component",
+  "aliases": [],
+  "purpose": "Controlled navigation through result pages, with an optional page-size selector.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/pagination"
+  ],
+  "links": {
+    "contract": "./components-navigation-pagination.json",
+    "overview": "../../?path=/docs/components-navigation-pagination-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-navigation-pagination-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-navigation-pagination-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-navigation-pagination-overview--docs&docsTab=tokens"
+  },
+  "description": "Navigate a large result set with clear page and record counts.",
+  "exports": [
+    "Pagination"
+  ],
+  "importStatements": [
+    "import { Pagination } from '@dimitriszoitas/aegis-ui/pagination';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Pagination",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "Pagination",
+      "name": "noun",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"results\""
+    },
+    {
+      "component": "Pagination",
+      "name": "onPageChange",
+      "type": "(page: number) => void",
+      "required": true
+    },
+    {
+      "component": "Pagination",
+      "name": "onPageSizeChange",
+      "type": "((pageSize: number) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "Pagination",
+      "name": "page",
+      "type": "number",
+      "required": true,
+      "description": "One-based page number."
+    },
+    {
+      "component": "Pagination",
+      "name": "pageSize",
+      "type": "number",
+      "required": true
+    },
+    {
+      "component": "Pagination",
+      "name": "pageSizeOptions",
+      "type": "readonly number[] | undefined",
+      "required": false,
+      "defaultValue": "[10, 25, 50, 100]"
+    },
+    {
+      "component": "Pagination",
+      "name": "total",
+      "type": "number",
+      "required": true
+    }
+  ],
+  "variants": [],
+  "composition": [
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "Controlled navigation through result pages, with an optional page-size selector.",
+    "usage": [
+      "page is one-based. Supply the total result count and current pageSize; the host retrieves or slices the actual records.",
+      "Changing page size calls onPageSizeChange and requests page 1. Keep the two controlled values synchronized."
+    ],
+    "accessibility": [
+      "The result summary is a polite live region, page buttons have explicit names, and the current page uses aria-current.",
+      "Previous and Next are disabled at the ends and when there are no results. Ellipses are decorative rather than focusable controls."
+    ],
+    "context": [
+      "Use with server-backed or locally paged collections; it does not implement infinite scrolling."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-current",
+      "aria-hidden",
+      "aria-label",
+      "aria-live"
+    ],
+    "nativeElements": [
+      "button",
+      "div",
+      "label",
+      "nav",
+      "option",
+      "p",
+      "select",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/icon/index.tsx",
+    "src/components/pagination/pagination.css",
+    "src/components/pagination/pagination.stories.tsx",
+    "src/components/pagination/pagination.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-navigation-pagination--interactive",
+      "name": "Interactive",
+      "url": "../../?path=/story/components-navigation-pagination--interactive",
+      "sourceFile": "src/components/pagination/pagination.stories.tsx"
+    },
+    {
+      "id": "components-navigation-pagination--many-pages",
+      "name": "Many Pages",
+      "url": "../../?path=/story/components-navigation-pagination--many-pages",
+      "sourceFile": "src/components/pagination/pagination.stories.tsx"
+    },
+    {
+      "id": "components-navigation-pagination--states",
+      "name": "States",
+      "url": "../../?path=/story/components-navigation-pagination--states",
+      "sourceFile": "src/components/pagination/pagination.stories.tsx"
+    },
+    {
+      "id": "components-navigation-pagination--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-navigation-pagination--playground",
+      "sourceFile": "src/components/pagination/pagination.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-measurement-icon-md",
+    "--group-navigation-measurement-icon-sm",
+    "--group-navigation-pagination-border-width-hairline",
+    "--group-navigation-pagination-color-border-default",
+    "--group-navigation-pagination-color-border-subtle",
+    "--group-navigation-pagination-color-content-primary",
+    "--group-navigation-pagination-color-content-secondary",
+    "--group-navigation-pagination-color-content-tertiary",
+    "--group-navigation-pagination-color-surface-hover",
+    "--group-navigation-pagination-color-surface-surface",
+    "--group-navigation-pagination-color-surface-surface-raised",
+    "--group-navigation-pagination-color-transparent",
+    "--group-navigation-pagination-ease-out",
+    "--group-navigation-pagination-font-size-body",
+    "--group-navigation-pagination-font-weight-semibold",
+    "--group-navigation-pagination-motion-fast",
+    "--group-navigation-pagination-number-0",
+    "--group-navigation-pagination-opacity-strength-emphasized",
+    "--group-navigation-pagination-radius-border-radius-bold",
+    "--group-navigation-pagination-shadow-raised",
+    "--group-navigation-pagination-size-min-width-content-comfortable",
+    "--group-navigation-pagination-size-width-full",
+    "--group-navigation-pagination-space-gap-5",
+    "--group-navigation-pagination-space-gap-compact",
+    "--group-navigation-pagination-space-gap-regular",
+    "--group-navigation-pagination-space-gap-snug",
+    "--group-navigation-pagination-space-height-spacious",
+    "--group-navigation-pagination-space-padding-compact",
+    "--group-navigation-pagination-space-padding-inline-regular",
+    "--group-navigation-pagination-space-padding-inline-spacious",
+    "--group-navigation-pagination-space-right-regular",
+    "--group-navigation-pagination-space-width-spacious",
+    "--group-navigation-surface-appearance-control-border",
+    "--group-navigation-surface-appearance-control-fill",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-color-action-foreground",
+    "--group-navigation-surface-color-action-soft",
+    "--group-navigation-surface-color-border-default",
+    "--group-navigation-surface-color-content-primary",
+    "--group-navigation-surface-elevation-none",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-font-family-ui",
+    "--group-navigation-surface-font-leading-relaxed",
+    "--group-navigation-surface-font-size-body",
+    "--group-navigation-surface-motion-count-1",
+    "--group-navigation-surface-motion-disabled-duration",
+    "--group-navigation-surface-motion-reduced-duration",
+    "--group-navigation-surface-number-0",
+    "--group-navigation-surface-ring-focus",
+    "--group-navigation-surface-stack-gap-regular"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-space-gap-regular",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-size-width-full",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-font-size-body",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-color-content-secondary",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-number-0",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-space-gap-5",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-space-gap-compact",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-border-width-hairline",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-color-border-default",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-color-surface-surface",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-color-content-primary",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-space-height-spacious",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-space-padding-compact",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-space-gap-snug",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-space-width-spacious",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-color-transparent",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-ease-out",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-motion-fast",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-color-surface-hover",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-color-border-subtle",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-color-surface-surface-raised",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-shadow-raised",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-font-weight-semibold",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-opacity-strength-emphasized",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-color-content-tertiary",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-space-padding-inline-regular",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-space-padding-inline-spacious",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-size-min-width-content-comfortable",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-pagination-space-right-regular",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-navigation-surface-appearance-control-fill",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-appearance-control-border",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-number-0",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-navigation-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-navigation-measurement-icon-sm",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-measurement-icon-md",
+      "ownership": "owned",
+      "component": "Pagination",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

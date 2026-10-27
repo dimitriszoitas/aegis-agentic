@@ -1,0 +1,107 @@
+.aegis-wizard {
+  width: var(--group-workflow-wizard-size-width-full);
+  max-width: var(--group-workflow-wizard-size-max-width-extended-canvas-snug);
+  min-width: var(--group-workflow-wizard-number-0);
+  align-self: start;
+  justify-self: start;
+  container-type: inline-size;
+  container-name: wizard;
+}
+.aegis-wizard-body {
+  display: grid;
+  align-items: start;
+  gap: var(--group-workflow-wizard-space-gap-5);
+}
+.aegis-wizard-panel,
+.aegis-wizard-progress {
+  min-width: var(--group-workflow-wizard-number-0);
+  background: var(--group-workflow-wizard-color-surface-surface);
+  border: var(--group-workflow-wizard-border-width-hairline) solid
+    var(--group-workflow-wizard-color-border-subtle);
+  border-radius: var(
+    --group-workflow-surface-corner-radius,
+    var(--group-workflow-wizard-radius-border-radius-strong)
+  );
+  box-shadow: var(--group-workflow-wizard-shadow-raised);
+}
+.aegis-wizard-header {
+  padding: var(--group-workflow-wizard-space-padding-roomy);
+  border-bottom: var(--group-workflow-wizard-border-width-hairline) solid
+    var(--group-workflow-wizard-color-border-subtle);
+}
+.aegis-wizard-header h2 {
+  font-size: var(--group-workflow-wizard-font-size-subheading);
+  margin: var(--group-workflow-wizard-number-0);
+}
+.aegis-wizard-header p {
+  margin: var(--group-workflow-wizard-space-margin-compact) var(--group-workflow-wizard-number-0)
+    var(--group-workflow-wizard-number-0);
+  color: var(--group-workflow-wizard-color-content-secondary);
+  font-size: var(--group-workflow-wizard-font-size-body);
+}
+.aegis-wizard-progress {
+  padding: var(--group-workflow-wizard-space-padding-roomy);
+}
+.aegis-wizard-content {
+  padding: var(--group-workflow-wizard-space-padding-roomy)
+    var(--group-workflow-wizard-space-padding-roomy) var(--group-workflow-wizard-space-padding-5);
+  min-width: var(--group-workflow-wizard-number-0);
+}
+.aegis-wizard-step-heading {
+  margin-bottom: var(--group-workflow-wizard-space-margin-bottom-roomy);
+}
+.aegis-wizard-step-heading p {
+  margin-bottom: var(--group-workflow-wizard-space-margin-bottom-snug);
+  color: var(--group-workflow-wizard-color-content-secondary);
+  font-size: var(--group-workflow-wizard-font-size-label);
+}
+.aegis-wizard-step-heading h3 {
+  font-size: var(--group-workflow-wizard-font-size-subheading);
+  margin: var(--group-workflow-wizard-number-0);
+}
+.aegis-wizard-step-heading h3:focus-visible {
+  outline: none;
+}
+.aegis-wizard-step-content {
+  border: var(--group-workflow-wizard-number-0);
+  padding: var(--group-workflow-wizard-number-0);
+  margin-inline: var(--group-workflow-wizard-number-0);
+  min-width: var(--group-workflow-wizard-number-0);
+  margin-top: var(--group-workflow-wizard-space-margin-top-comfortable);
+}
+.aegis-wizard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--group-workflow-wizard-space-padding-regular)
+    var(--group-workflow-wizard-space-padding-roomy);
+  border-top: var(--group-workflow-wizard-border-width-hairline) solid
+    var(--group-workflow-wizard-color-border-subtle);
+  background: var(--group-workflow-wizard-color-surface-surface);
+  border-radius: var(--group-workflow-wizard-number-0) var(--group-workflow-wizard-number-0)
+    var(
+      --group-workflow-surface-corner-radius,
+      var(--group-workflow-wizard-radius-border-radius-strong)
+    )
+    var(--group-workflow-wizard-radius-border-radius-strong);
+  position: sticky;
+  bottom: var(--group-workflow-wizard-number-0);
+  z-index: var(--group-workflow-wizard-layer-local);
+  gap: var(--group-workflow-wizard-space-gap-comfortable);
+}
+.aegis-wizard[data-orientation='vertical'] .aegis-wizard-body {
+  grid-template-columns: var(
+      --group-workflow-wizard-size-grid-template-columns-wide-panel-roomy
+    ) minmax(var(--group-workflow-wizard-number-0), var(--group-workflow-wizard-track-flex));
+}
+@container wizard (max-width: 660px) {
+  .aegis-wizard[data-orientation='vertical'] .aegis-wizard-body {
+    grid-template-columns: var(--group-workflow-wizard-track-flex);
+  }
+  .aegis-wizard-header,
+  .aegis-wizard-progress,
+  .aegis-wizard-content,
+  .aegis-wizard-footer {
+    padding-inline: var(--group-workflow-wizard-space-padding-inline-comfortable);
+  }
+}

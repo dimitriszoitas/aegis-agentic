@@ -1,0 +1,488 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-forms-field",
+  "name": "Field",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [
+    "form field",
+    "helper text",
+    "label",
+    "validation"
+  ],
+  "purpose": "A label, helper text, and validation boundary that shares accessible metadata with one compatible control.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/field"
+  ],
+  "links": {
+    "contract": "./components-forms-field.json",
+    "overview": "../../?path=/docs/components-inputs-selection-field-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-field-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-field-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-field-overview--docs&docsTab=tokens"
+  },
+  "description": "Provides automatic label, required state and help/error association to every Aegis form control. Use one logical control per Field. For a radio group, the label names the entire group.",
+  "exports": [
+    "Field"
+  ],
+  "importStatements": [
+    "import { Field } from '@dimitriszoitas/aegis-ui/field';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Field",
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "component": "Field",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Field",
+      "name": "error",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Field",
+      "name": "helpText",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Field",
+      "name": "id",
+      "type": "string | undefined",
+      "required": false,
+      "description": "The ID shared by the label and the control."
+    },
+    {
+      "component": "Field",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Field",
+      "name": "label",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "component": "Field",
+      "name": "optional",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Field",
+      "name": "required",
+      "type": "boolean | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "state",
+      "values": [
+        "default",
+        "disabled",
+        "error",
+        "optional",
+        "required"
+      ]
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "A label, helper text, and validation boundary that shares accessible metadata with one compatible control.",
+    "usage": [
+      "Wrap a single logical control. Its generated ID, required state, disabled state, and invalid state flow through useFieldControl.",
+      "Provide helpText for format guidance and error for actionable validation. A nonempty error marks the field invalid unless invalid is explicitly overridden.",
+      "When supplying an explicit control ID, use the same ID on Field so label activation still reaches the control."
+    ],
+    "accessibility": [
+      "Helper and error IDs are composed with the control’s existing aria-describedby references rather than replacing them.",
+      "Errors use role=\"alert\". Keep error messages concise, and avoid repeatedly remounting unchanged messages while typing."
+    ],
+    "context": [
+      "Use for forms and custom controls that call the exported useFieldControl helper."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "alert"
+    ],
+    "ariaAttributes": [
+      "aria-hidden"
+    ],
+    "nativeElements": [
+      "div",
+      "label",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/field/field.css",
+    "src/components/field/field.stories.tsx",
+    "src/components/field/field.tsx",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-field--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-forms-field--matrix",
+      "sourceFile": "src/components/field/field.stories.tsx"
+    },
+    {
+      "id": "components-forms-field--validation",
+      "name": "Validation",
+      "url": "../../?path=/story/components-forms-field--validation",
+      "sourceFile": "src/components/field/field.stories.tsx"
+    },
+    {
+      "id": "components-forms-field--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-forms-field--playground",
+      "sourceFile": "src/components/field/field.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-input-field-color-content-primary",
+    "--group-input-field-color-content-secondary",
+    "--group-input-field-color-content-tertiary",
+    "--group-input-field-color-danger-foreground",
+    "--group-input-field-font-leading-body",
+    "--group-input-field-font-leading-compact",
+    "--group-input-field-font-size-body",
+    "--group-input-field-font-weight-medium",
+    "--group-input-field-font-weight-regular",
+    "--group-input-field-gap-compact",
+    "--group-input-field-gap-snug",
+    "--group-input-field-number-0",
+    "--group-input-field-required-gap",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-snug",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-medium",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-compact",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-required-gap",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-regular",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Field",
+      "group": "input"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

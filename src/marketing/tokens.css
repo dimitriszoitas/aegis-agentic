@@ -1,0 +1,25 @@
+:root:has(.aegis-marketing),
+.aegis-marketing {
+  --font-marketing: 'Aegis Marketing Inter', sans-serif;
+  --marketing-bg: #101112;
+  --marketing-surface: #1b1d20;
+  --marketing-raised: #272a2e;
+  --marketing-text: #f5f5f3;
+  --marketing-muted: #adb0b6;
+  --marketing-subtle: #969ba4;
+  --marketing-line: #33363c;
+  --marketing-accent: #b3f5b3;
+  --marketing-accent-bright: #d4ffd2;
+  --marketing-accent-ink: #152a1a;
+  --marketing-blue: #8abaff;
+  --marketing-purple: #c1a3ff;
+  --marketing-coral: #ffac97;
+  --marketing-yellow: #f6d682;
+  --marketing-paper: var(--marketing-bg);
+  --marketing-paper-text: var(--marketing-text);
+  --marketing-paper-muted: var(--marketing-muted);
+  --marketing-paper-line: var(--marketing-line);
+  --marketing-glow: #61b876;
+  --marketing-pink: #f2a8d2;
+  --marketing-green: #b3f5b3;
+}

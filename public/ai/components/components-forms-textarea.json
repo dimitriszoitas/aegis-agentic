@@ -1,0 +1,832 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-forms-textarea",
+  "name": "Textarea",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [
+    "multiline input",
+    "text area"
+  ],
+  "purpose": "A multiline native text control with optional measured growth and a character count.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/textarea"
+  ],
+  "links": {
+    "contract": "./components-forms-textarea.json",
+    "overview": "../../?path=/docs/components-inputs-selection-textarea-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-textarea-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-textarea-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-textarea-overview--docs&docsTab=tokens"
+  },
+  "description": "A multiline field with optional automatic growth bounded by maxRows and an accessible character counter. Native maxLength limits user input; counts use the same UTF-16 length as HTML.",
+  "exports": [
+    "Textarea"
+  ],
+  "importStatements": [
+    "import { Textarea } from '@dimitriszoitas/aegis-ui/textarea';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Textarea",
+      "name": "appearance",
+      "type": "\"default\" | \"plain\" | undefined",
+      "required": false,
+      "defaultValue": "\"default\"",
+      "description": "Plain removes the field surface for composition inside another labelled control."
+    },
+    {
+      "component": "Textarea",
+      "name": "autoGrow",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "Textarea",
+      "name": "defaultValue",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"\""
+    },
+    {
+      "component": "Textarea",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Textarea",
+      "name": "label",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Textarea",
+      "name": "maxRows",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "10"
+    },
+    {
+      "component": "Textarea",
+      "name": "onValueChange",
+      "type": "((value: string) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "Textarea",
+      "name": "showCount",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "Textarea",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "Textarea",
+      "name": "textareaClassName",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Textarea",
+      "name": "value",
+      "type": "string | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "autoGrow",
+      "values": [
+        "false",
+        "true"
+      ],
+      "default": "false"
+    },
+    {
+      "name": "state",
+      "values": [
+        "default",
+        "disabled",
+        "invalid",
+        "readOnly"
+      ]
+    },
+    {
+      "name": "appearance",
+      "values": [
+        "default",
+        "plain"
+      ],
+      "default": "default"
+    },
+    {
+      "name": "size",
+      "values": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/field",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A multiline native text control with optional measured growth and a character count.",
+    "usage": [
+      "Use rows for the initial height and autoGrow with maxRows for a bounded composer. Overflow becomes scrollable after the maximum height.",
+      "showCount reports the current text length; maxLength is the native input limit. A count alone does not impose a limit.",
+      "Choose concise helper text for expected content, especially when a character limit matters."
+    ],
+    "accessibility": [
+      "Field labels, descriptions, and invalid state are preserved. The character count is included in aria-describedby.",
+      "Enter inserts a newline in the standalone component; submission shortcuts belong to a composing pattern such as PromptInput."
+    ],
+    "context": [
+      "Use for notes, descriptions, and freeform messages that need more than one line."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [],
+    "nativeElements": [
+      "div",
+      "label",
+      "span",
+      "textarea"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/field/field.css",
+    "src/components/field/field.tsx",
+    "src/components/field/index.ts",
+    "src/components/textarea/textarea.css",
+    "src/components/textarea/textarea.stories.tsx",
+    "src/components/textarea/textarea.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-textarea--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-forms-textarea--matrix",
+      "sourceFile": "src/components/textarea/textarea.stories.tsx"
+    },
+    {
+      "id": "components-forms-textarea--auto-grow-and-counter",
+      "name": "Auto Grow And Counter",
+      "url": "../../?path=/story/components-forms-textarea--auto-grow-and-counter",
+      "sourceFile": "src/components/textarea/textarea.stories.tsx"
+    },
+    {
+      "id": "components-forms-textarea--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-forms-textarea--playground",
+      "sourceFile": "src/components/textarea/textarea.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-input-field-border-width-hairline",
+    "--group-input-field-color-action-fill",
+    "--group-input-field-color-border-strong",
+    "--group-input-field-color-content-primary",
+    "--group-input-field-color-content-secondary",
+    "--group-input-field-color-content-tertiary",
+    "--group-input-field-color-danger-foreground",
+    "--group-input-field-color-surface-hover",
+    "--group-input-field-color-surface-surface",
+    "--group-input-field-color-transparent",
+    "--group-input-field-ease-out",
+    "--group-input-field-font-leading-body",
+    "--group-input-field-font-leading-compact",
+    "--group-input-field-font-leading-prominent",
+    "--group-input-field-font-size-body",
+    "--group-input-field-font-size-label",
+    "--group-input-field-font-size-prominent",
+    "--group-input-field-font-weight-medium",
+    "--group-input-field-font-weight-regular",
+    "--group-input-field-gap-compact",
+    "--group-input-field-gap-snug",
+    "--group-input-field-motion-fast",
+    "--group-input-field-number-0",
+    "--group-input-field-opacity-disabled",
+    "--group-input-field-opacity-visible",
+    "--group-input-field-padding-compact",
+    "--group-input-field-padding-regular",
+    "--group-input-field-padding-snug",
+    "--group-input-field-padding-tight",
+    "--group-input-field-radius-bold",
+    "--group-input-field-required-gap",
+    "--group-input-field-width-available",
+    "--group-input-measurement-textarea-line-height",
+    "--group-input-surface-appearance-control-border",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-appearance-control-fill",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-width-available",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-regular",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-hairline",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-border-strong",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-bold",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-surface",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ease-out",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-motion-fast",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-compact",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-snug",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-label",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-visible",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-action-fill",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-disabled",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-hover",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-transparent",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-tight",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-prominent",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-prominent",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-snug",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-medium",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-required-gap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-fill",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-textarea-line-height",
+      "ownership": "owned",
+      "component": "Textarea",
+      "group": "input"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

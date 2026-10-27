@@ -1,0 +1,4 @@
+.aegis-scroll-area {
+  overflow: auto;
+  overscroll-behavior: contain;
+}

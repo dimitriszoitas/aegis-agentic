@@ -1,0 +1,33 @@
+/* Elevation aliases are rebound at presentation/theme scopes so local semantics resolve correctly.
+   Ordinary Fundamental containers stay shadow-free. Overlay aliases preserve their current shadows. */
+:root,
+.aegis-theme-light,
+.dark,
+[data-layout-theme='fundamental'],
+[data-layout-theme='fundamental-floating'] {
+  --shadow-none: none;
+  --shadow-sm: var(--shadow-raised);
+  --shadow-md: var(--shadow-floating);
+  --shadow-lg: var(--shadow-overlay);
+  --elevation-0: var(--shadow-none);
+  --elevation-1: var(--shadow-sm);
+  --elevation-2: var(--shadow-md);
+  --elevation-3: var(--shadow-lg);
+  --shadow-popover:
+    var(--number-0) var(--size-3) var(--size-8)
+      color-mix(in srgb, var(--color-scrim) var(--mix-40), transparent),
+    var(--number-0) var(--size-12) var(--size-36)
+      color-mix(in srgb, var(--color-scrim) var(--mix-55), transparent);
+  --shadow-dialog:
+    var(--number-0) var(--size-3) var(--size-12)
+      color-mix(in srgb, var(--color-scrim) var(--mix-40), transparent),
+    var(--number-0) var(--size-20) var(--size-64)
+      color-mix(in srgb, var(--color-scrim) var(--mix-55), transparent);
+  /* Single silhouette shadows, used with filter: drop-shadow(var(--drop-shadow-…)). */
+  --drop-shadow-sm: var(--number-0) var(--size-1) var(--size-2)
+    color-mix(in srgb, var(--color-scrim) var(--mix-40), transparent);
+  --drop-shadow-md: var(--number-0) var(--size-4) var(--size-8)
+    color-mix(in srgb, var(--color-scrim) var(--mix-40), transparent);
+  --drop-shadow-lg: var(--number-0) var(--size-12) var(--size-24)
+    color-mix(in srgb, var(--color-scrim) var(--mix-55), transparent);
+}

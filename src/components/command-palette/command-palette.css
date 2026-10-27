@@ -1,0 +1,95 @@
+.command-scrim {
+  position: fixed;
+  inset: var(--group-navigation-command-palette-number-0);
+  background: var(--group-navigation-command-palette-color-scrim);
+  backdrop-filter: blur(var(--group-navigation-command-palette-size-backdrop-filter-micro-snug));
+  z-index: var(--group-navigation-command-palette-z-modal);
+}
+.command-dialog {
+  position: fixed;
+  left: var(--group-navigation-command-palette-size-left-half);
+  top: var(--group-navigation-command-palette-size-top-14vh);
+  transform: translateX(var(--group-navigation-command-palette-size-transform-negative-50percent));
+  width: min(
+    var(--group-navigation-command-palette-size-width-wide-canvas-compact),
+    calc(
+      var(--group-navigation-command-palette-size-width-100vw) -
+        var(--group-navigation-command-palette-size-width-comfortable)
+    )
+  );
+  border: var(--group-navigation-command-palette-border-width-hairline) solid
+    var(--group-navigation-command-palette-color-border-default);
+  border-radius: var(--group-navigation-command-palette-radius-border-radius-strong);
+  background: var(--group-navigation-command-palette-color-surface-surface-raised);
+  box-shadow: var(--group-navigation-command-palette-shadow-overlay);
+  z-index: var(--group-navigation-command-palette-z-modal);
+  overflow: hidden;
+}
+.command-search {
+  display: flex;
+  align-items: center;
+  gap: var(--group-navigation-command-palette-space-gap-regular);
+  padding: var(--group-navigation-command-palette-space-padding-comfortable);
+  border-bottom: var(--group-navigation-command-palette-border-width-hairline) solid
+    var(--group-navigation-command-palette-color-border-subtle);
+  color: var(--group-navigation-command-palette-color-content-secondary);
+}
+.command-search input {
+  background: var(--group-navigation-command-palette-color-transparent);
+  border: var(--group-navigation-command-palette-number-0);
+  flex: var(--group-navigation-command-palette-flex-fill);
+  min-width: var(--group-navigation-command-palette-number-0);
+  color: var(--group-navigation-command-palette-color-content-primary);
+  height: var(--group-navigation-command-palette-size-height-compact-content-small);
+  outline: none;
+}
+.command-dialog .command-list {
+  padding: var(--group-navigation-command-palette-space-padding-compact);
+  max-height: var(--group-navigation-command-palette-size-max-height-canvas-large);
+  overflow: auto;
+}
+.command-dialog .command-group-label {
+  padding: var(--group-navigation-command-palette-space-padding-regular);
+  font-size: var(--group-navigation-command-palette-font-size-label);
+  color: var(--group-navigation-command-palette-color-content-tertiary);
+}
+.command-dialog .command-item {
+  display: flex;
+  align-items: center;
+  gap: var(--group-navigation-command-palette-space-gap-regular);
+  padding: var(--group-navigation-command-palette-size-padding-glyph-compact)
+    var(--group-navigation-command-palette-space-padding-regular);
+  border-radius: var(--group-navigation-command-palette-radius-border-radius-strong);
+  cursor: pointer;
+  color: var(--group-navigation-command-palette-color-content-secondary);
+}
+.command-dialog .command-item svg {
+  width: var(--group-navigation-measurement-icon-navigation);
+  height: var(--group-navigation-measurement-icon-navigation);
+}
+.command-dialog .command-item > span {
+  flex: var(--group-navigation-command-palette-flex-fill);
+}
+.command-dialog .command-item[data-highlighted] {
+  background: var(--group-navigation-command-palette-color-surface-hover);
+  color: var(--group-navigation-command-palette-color-content-primary);
+}
+.command-dialog .command-empty {
+  padding: var(--group-navigation-command-palette-space-padding-roomy);
+  color: var(--group-navigation-command-palette-color-content-secondary);
+}
+.command-footer {
+  display: flex;
+  gap: var(--group-navigation-command-palette-space-gap-comfortable);
+  padding: var(--group-navigation-command-palette-space-padding-regular)
+    var(--group-navigation-command-palette-space-padding-comfortable);
+  border-top: var(--group-navigation-command-palette-border-width-hairline) solid
+    var(--group-navigation-command-palette-color-border-subtle);
+  font-size: var(--group-navigation-command-palette-font-size-label);
+  color: var(--group-navigation-command-palette-color-content-secondary);
+}
+.command-footer > span {
+  display: flex;
+  align-items: center;
+  gap: var(--group-navigation-command-palette-space-gap-compact);
+}

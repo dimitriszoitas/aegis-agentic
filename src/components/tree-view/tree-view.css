@@ -1,0 +1,127 @@
+.aegis-tree-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-tree-view-space-gap-compact);
+  min-width: var(--group-input-tree-view-number-0);
+}
+.aegis-tree,
+.aegis-tree-group {
+  list-style: none;
+  padding: var(--group-input-tree-view-number-0);
+  margin: var(--group-input-tree-view-number-0);
+}
+.aegis-tree {
+  border: var(--group-input-tree-view-border-width-hairline) solid
+    var(--group-input-tree-view-color-border-subtle);
+  border-radius: var(--group-input-tree-view-radius-border-radius-strong);
+  background: var(--group-input-tree-view-color-surface-surface);
+  padding: var(--group-input-tree-view-space-padding-snug);
+}
+.aegis-tree-item {
+  outline: none;
+}
+.aegis-tree-row {
+  display: flex;
+  align-items: center;
+  gap: var(--group-input-tree-view-space-gap-compact);
+  min-height: var(--group-input-tree-view-size-min-height-roomy);
+  padding: var(--group-input-tree-view-space-padding-compact)
+    var(--group-input-tree-view-space-padding-regular);
+  padding-left: calc(
+    var(--group-input-tree-view-space-padding-left-compact) + (var(--tree-level) - 1) *
+      var(--group-input-tree-view-nested-inset)
+  );
+  border-radius: var(--group-input-tree-view-radius-border-radius-strong);
+  color: var(--group-input-tree-view-color-content-primary);
+  cursor: pointer;
+}
+.aegis-tree-row:hover:not([data-disabled]) {
+  background: var(--group-input-tree-view-color-surface-hover);
+}
+.aegis-tree-row[data-checked] {
+  background: var(--group-input-tree-view-color-action-soft);
+}
+.aegis-tree-item:focus-visible > .aegis-tree-row {
+  outline: var(--group-input-tree-view-border-width-regular) solid
+    var(--group-input-tree-view-ring-focus);
+  outline-offset: var(--group-input-tree-view-size-outline-offset-negative-2);
+}
+.aegis-tree-expand {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--group-input-tree-view-size-width-compact);
+  height: var(--group-input-tree-view-size-height-compact);
+  padding: var(--group-input-tree-view-number-0);
+  border: var(--group-input-tree-view-number-0);
+  border-radius: var(--group-input-tree-view-radius-border-radius-soft);
+  color: var(--group-input-tree-view-color-content-secondary);
+  background: var(--group-input-tree-view-color-transparent);
+}
+.aegis-tree-expand:hover:not(:disabled) {
+  background: var(--group-input-tree-view-color-surface-selected);
+}
+.aegis-tree-expand > svg {
+  transition: transform var(--group-input-tree-view-motion-fast)
+    var(--group-input-tree-view-ease-out);
+}
+.aegis-tree-expand > svg[data-expanded='true'] {
+  transform: rotate(var(--group-input-tree-view-angle-90deg));
+}
+.aegis-tree-expand-spacer {
+  flex: none;
+  width: var(--group-input-tree-view-size-width-compact);
+}
+.aegis-tree-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--group-input-tree-view-size-width-small);
+  height: var(--group-input-tree-view-size-height-small);
+  border: var(--group-input-tree-view-border-width-hairline) solid
+    var(--group-input-tree-view-color-border-strong);
+  border-radius: var(--group-input-tree-view-radius-border-radius-soft);
+  color: var(--group-input-tree-view-color-on-intent);
+}
+.aegis-tree-checkbox[data-state='true'],
+.aegis-tree-checkbox[data-state='indeterminate'] {
+  background: var(--group-input-tree-view-color-action-fill);
+  border-color: var(--group-input-tree-view-color-action-fill);
+}
+.aegis-tree-row[data-disabled] {
+  cursor: not-allowed;
+}
+.aegis-tree-row[data-disabled] .aegis-tree-checkbox {
+  opacity: var(--group-input-tree-view-opacity-strength-prominent);
+}
+.aegis-tree-icon {
+  display: inline-flex;
+  flex: none;
+  color: var(--group-input-tree-view-color-content-secondary);
+}
+.aegis-tree-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-tree-view-size-gap-micro-compact);
+  min-width: var(--group-input-tree-view-number-0);
+  line-height: var(--group-input-tree-view-font-leading-compact);
+}
+.aegis-tree-description {
+  color: var(--group-input-tree-view-color-content-secondary);
+  font-size: var(--group-input-tree-view-font-size-body);
+}
+.aegis-tree-count {
+  margin-left: auto;
+  padding-left: var(--group-input-tree-view-space-padding-left-compact);
+  color: var(--group-input-tree-view-color-content-secondary);
+  font-size: var(--group-input-tree-view-font-size-label);
+  font-variant-numeric: tabular-nums;
+}
+.aegis-tree-empty {
+  margin: var(--group-input-tree-view-number-0);
+  padding: var(--group-input-tree-view-space-padding-comfortable);
+  color: var(--group-input-tree-view-color-content-secondary);
+  text-align: center;
+}

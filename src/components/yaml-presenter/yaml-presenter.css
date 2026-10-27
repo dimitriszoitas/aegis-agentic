@@ -1,0 +1,53 @@
+.aegis-yaml-presenter {
+  min-width: var(--group-code-yaml-presenter-number-0);
+  border: var(--group-code-yaml-presenter-border-width-hairline) solid
+    var(--group-code-yaml-presenter-color-border-default);
+  border-radius: var(--group-code-yaml-presenter-radius-border-radius-bold);
+  overflow: hidden;
+  background: var(--group-code-yaml-presenter-color-surface-surface);
+}
+.aegis-yaml-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-code-yaml-presenter-space-gap-regular);
+  padding: var(--group-code-yaml-presenter-space-padding-compact)
+    var(--group-code-yaml-presenter-space-padding-regular);
+  border-bottom: var(--group-code-yaml-presenter-border-width-hairline) solid
+    var(--group-code-yaml-presenter-color-border-subtle);
+  background: var(--group-code-yaml-presenter-color-surface-canvas);
+}
+.aegis-yaml-filename {
+  min-width: var(--group-code-yaml-presenter-number-0);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--group-code-yaml-presenter-space-gap-compact);
+  padding: var(--group-code-yaml-presenter-space-padding-snug)
+    var(--group-code-yaml-presenter-space-padding-compact);
+  border: var(--group-code-yaml-presenter-border-width-hairline) solid
+    var(--group-code-yaml-presenter-color-border-subtle);
+  border-radius: var(--group-code-yaml-presenter-radius-border-radius-soft);
+  background: var(--group-code-yaml-presenter-color-surface-surface);
+  color: var(--group-code-yaml-presenter-color-content-secondary);
+  font-family: var(--group-code-yaml-presenter-font-family-code);
+  font-size: var(--group-code-yaml-presenter-font-size-label);
+}
+.aegis-yaml-filename > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.aegis-yaml-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--group-code-yaml-presenter-space-gap-snug);
+}
+.aegis-yaml-presenter .aegis-code-editor {
+  border: var(--group-code-yaml-presenter-number-0);
+  border-radius: var(--group-code-yaml-presenter-number-0);
+}
+.aegis-yaml-presenter:focus-within {
+  outline: var(--group-code-yaml-presenter-border-width-regular) solid
+    var(--group-code-yaml-presenter-ring-focus);
+  outline-offset: var(--group-code-yaml-presenter-size-outline-offset-micro-compact);
+}

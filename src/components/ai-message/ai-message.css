@@ -1,0 +1,244 @@
+.aegis-ai-message {
+  padding: var(--group-ai-space-padding-comfortable);
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-ai-space-gap-comfortable);
+  min-width: var(--group-ai-number-0);
+  color: var(--group-ai-color-content-primary);
+  border: var(--group-ai-border-width-hairline) solid var(--group-ai-color-ai-border);
+  border-radius: var(--group-ai-radius-border-radius-strong);
+  background: var(--group-ai-gradient-ai-surface);
+  font-size: var(--group-ai-font-size-body);
+}
+.aegis-ai-message-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--group-ai-space-gap-compact);
+}
+.aegis-ai-working {
+  padding: var(--group-ai-space-padding-regular);
+  border: var(--group-ai-border-width-hairline) solid var(--group-ai-color-border-subtle);
+  border-radius: var(--group-ai-radius-border-radius-bold);
+  background: var(--group-ai-color-surface-surface);
+}
+.aegis-ai-working summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-ai-space-gap-regular);
+  list-style: none;
+  cursor: pointer;
+  font-size: var(--group-ai-font-size-label);
+  color: var(--group-ai-color-content-secondary);
+  font-weight: var(--group-ai-font-weight-medium);
+  border-radius: var(--group-ai-radius-border-radius-soft);
+}
+.aegis-ai-working summary::-webkit-details-marker {
+  display: none;
+}
+.aegis-ai-working[open] summary > svg {
+  transform: rotate(var(--group-ai-angle-180deg));
+}
+.aegis-ai-working ol {
+  padding: var(--group-ai-number-0);
+  margin: var(--group-ai-space-margin-regular) var(--group-ai-number-0) var(--group-ai-number-0);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-ai-space-gap-regular);
+}
+.aegis-ai-working li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--group-ai-space-gap-compact);
+  color: var(--group-ai-color-content-secondary);
+  font-size: var(--group-ai-font-size-label);
+  line-height: var(--group-ai-font-leading-body);
+}
+.aegis-ai-working li > svg {
+  flex-shrink: var(--group-ai-flex-none);
+  margin-top: var(--group-ai-size-margin-top-micro-compact);
+  color: var(--group-ai-color-content-tertiary);
+}
+.aegis-ai-working li[data-status='complete'] > svg {
+  color: var(--group-ai-color-success-foreground);
+}
+.aegis-ai-working li[data-status='error'] > svg {
+  color: var(--group-ai-color-danger-foreground);
+}
+.aegis-ai-working li[data-status='working'] > svg {
+  color: var(--group-ai-color-ai-foreground);
+  animation: aegis-ai-working-spin var(--group-ai-duration-1-2s) linear infinite;
+}
+.aegis-ai-markdown {
+  line-height: var(--group-ai-font-leading-loose);
+  overflow-wrap: anywhere;
+  min-width: var(--group-ai-number-0);
+}
+.aegis-ai-markdown > :first-child {
+  margin-top: var(--group-ai-number-0);
+}
+.aegis-ai-markdown > :last-child {
+  margin-bottom: var(--group-ai-number-0);
+}
+.aegis-ai-markdown p {
+  margin: var(--group-ai-number-0) var(--group-ai-number-0) var(--group-ai-space-margin-regular);
+}
+.aegis-ai-markdown h3,
+.aegis-ai-markdown h4 {
+  font-size: var(--group-ai-font-size-subheading);
+  margin: var(--group-ai-space-margin-5) var(--group-ai-number-0) var(--group-ai-space-margin-compact);
+  line-height: var(--group-ai-font-leading-body);
+}
+.aegis-ai-markdown ul,
+.aegis-ai-markdown ol {
+  padding-left: var(--group-ai-space-padding-left-5);
+  margin: var(--group-ai-number-0) var(--group-ai-number-0) var(--group-ai-space-margin-regular);
+}
+.aegis-ai-markdown ul {
+  list-style: disc;
+}
+.aegis-ai-markdown ol {
+  list-style: decimal;
+}
+.aegis-ai-markdown li + li {
+  margin-top: var(--group-ai-space-margin-top-compact);
+}
+.aegis-ai-markdown a {
+  color: var(--group-ai-color-action-foreground);
+  text-decoration: underline;
+  text-underline-offset: var(--group-ai-size-text-underline-offset-micro-snug);
+}
+.aegis-ai-markdown code {
+  font-family: var(--group-ai-font-family-code);
+  font-size: var(--group-ai-font-size-label);
+  border-radius: var(--group-ai-radius-border-radius-soft);
+  background: var(--group-ai-color-surface-hover);
+  padding: var(--group-ai-size-padding-micro-compact) var(--group-ai-space-padding-snug);
+}
+.aegis-ai-markdown pre {
+  overflow: auto;
+  padding: var(--group-ai-space-padding-regular);
+  border: var(--group-ai-border-width-hairline) solid var(--group-ai-color-border-default);
+  border-radius: var(--group-ai-radius-border-radius-bold);
+  background: var(--group-ai-color-surface-surface);
+}
+.aegis-ai-markdown pre code {
+  background: var(--group-ai-color-transparent);
+  padding: var(--group-ai-number-0);
+  white-space: pre;
+}
+.aegis-ai-markdown blockquote {
+  margin: var(--group-ai-space-margin-regular) var(--group-ai-number-0);
+  padding-left: var(--group-ai-space-padding-left-comfortable);
+  border-left: var(--group-ai-border-width-strong) solid var(--group-ai-color-ai-border);
+  color: var(--group-ai-color-content-secondary);
+}
+.aegis-ai-markdown hr {
+  border: var(--group-ai-number-0);
+  border-top: var(--group-ai-border-width-hairline) solid var(--group-ai-color-border-subtle);
+  margin: var(--group-ai-space-margin-comfortable) var(--group-ai-number-0);
+}
+.aegis-ai-streaming-caret {
+  display: inline-block;
+  width: var(--group-ai-size-width-micro-snug);
+  height: var(--group-ai-size-height-1em);
+  border-radius: var(--group-ai-radius-border-radius-slight);
+  margin-left: var(--group-ai-size-margin-left-micro-snug);
+  background: var(--group-ai-gradient-ai-text);
+  vertical-align: middle;
+  animation: aegis-ai-caret var(--group-ai-duration-1s) steps(var(--group-ai-motion-count-2), start) infinite;
+}
+.aegis-ai-markdown:has(.aegis-ai-streaming-caret) > p:nth-last-child(2) {
+  display: inline;
+}
+.aegis-ai-evidence-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-ai-space-gap-compact);
+}
+.aegis-ai-evidence-label {
+  color: var(--group-ai-color-content-tertiary);
+  font-size: var(--group-ai-font-size-label);
+}
+.aegis-ai-evidence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--group-ai-space-gap-compact);
+}
+.aegis-ai-evidence-chip,
+.aegis-ai-context-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--group-ai-size-gap-micro-comfortable);
+  padding: var(--group-ai-space-padding-snug) var(--group-ai-space-padding-compact);
+  border: var(--group-ai-border-width-hairline) solid var(--group-ai-color-ai-border);
+  border-radius: var(--group-ai-radius-border-radius-soft);
+  background: var(--group-ai-gradient-ai-soft);
+  color: var(--group-ai-color-ai-foreground);
+  font-size: var(--group-ai-font-size-label);
+  font-family: var(--group-ai-font-family-code);
+  line-height: var(--group-ai-font-leading-subheading);
+  text-decoration: none;
+  max-width: var(--group-ai-size-max-width-full);
+  overflow-wrap: anywhere;
+}
+button.aegis-ai-evidence-chip:hover,
+a.aegis-ai-evidence-chip:hover {
+  border-color: var(--group-ai-color-ai-foreground);
+}
+.aegis-ai-result-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-ai-space-gap-regular);
+}
+.aegis-ai-message-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--group-ai-space-gap-compact);
+}
+.aegis-ai-response-note {
+  margin: var(--group-ai-number-0);
+  color: var(--group-ai-color-content-tertiary);
+  font-size: var(--group-ai-font-size-label);
+}
+.aegis-ai-copy-error {
+  margin: var(--group-ai-number-0);
+  color: var(--group-ai-color-danger-foreground);
+  font-size: var(--group-ai-font-size-label);
+}
+.aegis-ai-message-user {
+  background: var(--group-ai-color-surface-surface-raised);
+  border-color: var(--group-ai-color-border-subtle);
+  margin-left: var(--group-ai-space-margin-left-roomy);
+  gap: var(--group-ai-space-gap-compact);
+}
+.aegis-ai-user-label {
+  font-size: var(--group-ai-font-size-label);
+  color: var(--group-ai-color-content-secondary);
+  font-weight: var(--group-ai-font-weight-semibold);
+}
+.aegis-ai-message-user > p {
+  margin: var(--group-ai-number-0);
+  line-height: var(--group-ai-font-leading-spacious);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+@keyframes aegis-ai-working-spin {
+  to {
+    transform: rotate(var(--group-ai-angle-360deg));
+  }
+}
+@keyframes aegis-ai-caret {
+  to {
+    opacity: var(--group-ai-opacity-hidden);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aegis-ai-streaming-caret,
+  .aegis-ai-working li[data-status='working'] > svg {
+    animation: none;
+  }
+}

@@ -1,0 +1,736 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-charts-sparkline",
+  "name": "Sparkline",
+  "category": "Data Visualization",
+  "tokenGroup": "data-viz",
+  "kind": "component",
+  "aliases": [
+    "inline chart",
+    "trend"
+  ],
+  "purpose": "A lightweight SVG trend designed for compact summaries without animation or interactive focus.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/sparkline"
+  ],
+  "links": {
+    "contract": "./components-charts-sparkline.json",
+    "overview": "../../?path=/docs/components-data-visualization-sparkline-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-visualization-sparkline-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-visualization-sparkline-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-visualization-sparkline-overview--docs&docsTab=tokens"
+  },
+  "description": "Show the shape of a small time series where a full chart would be too heavy.",
+  "exports": [
+    "Sparkline"
+  ],
+  "importStatements": [
+    "import { Sparkline } from '@dimitriszoitas/aegis-ui/sparkline';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Sparkline",
+      "name": "data",
+      "type": "readonly number[]",
+      "required": true
+    },
+    {
+      "component": "Sparkline",
+      "name": "height",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "28px (var(--group-data-viz-measurement-sparkline-height))"
+    },
+    {
+      "component": "Sparkline",
+      "name": "intent",
+      "type": "\"function\" | \"destroy\" | \"ai\" | \"success\" | \"warning\" | undefined",
+      "required": false,
+      "defaultValue": "\"function\""
+    },
+    {
+      "component": "Sparkline",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"No activity data\""
+    },
+    {
+      "component": "Sparkline",
+      "name": "loading",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "Sparkline",
+      "name": "variant",
+      "type": "\"area\" | \"line\" | \"bar\" | undefined",
+      "required": false,
+      "defaultValue": "\"line\""
+    },
+    {
+      "component": "Sparkline",
+      "name": "width",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "100px (var(--group-data-viz-measurement-sparkline-width))"
+    }
+  ],
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "area",
+        "bar",
+        "line"
+      ],
+      "default": "line"
+    },
+    {
+      "name": "intent",
+      "values": [
+        "ai",
+        "destroy",
+        "function",
+        "success",
+        "warning"
+      ],
+      "default": "function"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/skeleton",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A lightweight SVG trend designed for compact summaries without animation or interactive focus.",
+    "usage": [
+      "Provide data in the intended order. Negative and nonfinite values are normalized to zero, so signed measures require a different chart.",
+      "Line and area emphasize relative shape; bar uses a zero baseline. Provide label when the default event-oriented summary is not accurate."
+    ],
+    "accessibility": [
+      "The graphic is exposed as an image with a summary label; it does not add a keyboard stop.",
+      "Provide exact values elsewhere when the user needs precision. Empty and loading states have their own readable labels."
+    ],
+    "context": [
+      "Use inside metrics and dense record cells where the trend supplements a primary value."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "img",
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-label"
+    ],
+    "nativeElements": [
+      "circle",
+      "defs",
+      "path",
+      "rect",
+      "span",
+      "stop",
+      "svg"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/skeleton/index.ts",
+    "src/components/skeleton/skeleton.css",
+    "src/components/skeleton/skeleton.tsx",
+    "src/components/sparkline/sparkline.css",
+    "src/components/sparkline/sparkline.stories.tsx",
+    "src/components/sparkline/sparkline.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-charts-sparkline--variants-and-intents",
+      "name": "Variants And Intents",
+      "url": "../../?path=/story/components-charts-sparkline--variants-and-intents",
+      "sourceFile": "src/components/sparkline/sparkline.stories.tsx"
+    },
+    {
+      "id": "components-charts-sparkline--states",
+      "name": "States",
+      "url": "../../?path=/story/components-charts-sparkline--states",
+      "sourceFile": "src/components/sparkline/sparkline.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-viz-chart-color-ai-bg",
+    "--group-data-viz-chart-color-ai-blue-bg",
+    "--group-data-viz-chart-color-ai-pink-bg",
+    "--group-data-viz-chart-color-ai-purple-bg",
+    "--group-data-viz-chart-color-chart-ai",
+    "--group-data-viz-chart-color-chart-destroy",
+    "--group-data-viz-chart-color-chart-function",
+    "--group-data-viz-chart-color-chart-success",
+    "--group-data-viz-chart-color-chart-warning",
+    "--group-data-viz-chart-color-content-tertiary",
+    "--group-data-viz-chart-flex-none",
+    "--group-data-viz-chart-font-size-body",
+    "--group-data-viz-measurement-sparkline-area-opacity",
+    "--group-data-viz-measurement-sparkline-bar-gap",
+    "--group-data-viz-measurement-sparkline-bar-min-width",
+    "--group-data-viz-measurement-sparkline-bar-radius",
+    "--group-data-viz-measurement-sparkline-baseline-inset",
+    "--group-data-viz-measurement-sparkline-dot-radius",
+    "--group-data-viz-measurement-sparkline-height",
+    "--group-data-viz-measurement-sparkline-inset",
+    "--group-data-viz-measurement-sparkline-min-height",
+    "--group-data-viz-measurement-sparkline-min-width",
+    "--group-data-viz-measurement-sparkline-stroke",
+    "--group-data-viz-measurement-sparkline-width",
+    "--group-data-viz-surface-border-width-regular",
+    "--group-data-viz-surface-color-action-foreground",
+    "--group-data-viz-surface-color-action-soft",
+    "--group-data-viz-surface-color-border-default",
+    "--group-data-viz-surface-color-content-primary",
+    "--group-data-viz-surface-elevation-none",
+    "--group-data-viz-surface-flex-none",
+    "--group-data-viz-surface-focus-offset",
+    "--group-data-viz-surface-font-family-ui",
+    "--group-data-viz-surface-font-size-body",
+    "--group-data-viz-surface-motion-count-1",
+    "--group-data-viz-surface-motion-disabled-duration",
+    "--group-data-viz-surface-motion-reduced-duration",
+    "--group-data-viz-surface-number-0",
+    "--group-data-viz-surface-ring-focus",
+    "--group-feedback-skeleton-angle-90deg",
+    "--group-feedback-skeleton-border-width-hairline",
+    "--group-feedback-skeleton-color-border-subtle",
+    "--group-feedback-skeleton-color-surface-selected",
+    "--group-feedback-skeleton-color-surface-surface",
+    "--group-feedback-skeleton-duration-1600ms",
+    "--group-feedback-skeleton-flex-fill",
+    "--group-feedback-skeleton-flex-grow-three",
+    "--group-feedback-skeleton-flex-none",
+    "--group-feedback-skeleton-mix-60",
+    "--group-feedback-skeleton-number-0",
+    "--group-feedback-skeleton-radius-border-radius-full",
+    "--group-feedback-skeleton-radius-border-radius-soft",
+    "--group-feedback-skeleton-radius-border-radius-strong",
+    "--group-feedback-skeleton-size-height-vast",
+    "--group-feedback-skeleton-size-height-wide-content-vast",
+    "--group-feedback-skeleton-size-transform-full",
+    "--group-feedback-skeleton-size-transform-negative-100percent",
+    "--group-feedback-skeleton-size-width-full",
+    "--group-feedback-skeleton-space-gap-roomy",
+    "--group-feedback-skeleton-space-height-10",
+    "--group-feedback-skeleton-space-height-regular",
+    "--group-feedback-skeleton-space-padding-comfortable",
+    "--group-feedback-skeleton-space-width-10",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-viz-chart-flex-none",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-content-tertiary",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-body",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-surface-selected",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-soft",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-width-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-height-regular",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-height-wide-content-vast",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-strong",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-width-10",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-height-10",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-none",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-gap-roomy",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-padding-comfortable",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-height-vast",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-surface-surface",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-border-width-hairline",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-border-subtle",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-number-0",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-fill",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-grow-three",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-transform-negative-100percent",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-angle-90deg",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-mix-60",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-duration-1600ms",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-transform-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-data-viz-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-data-viz-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-flex-none",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-data-viz-surface-number-0",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-function",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-ai",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-success",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-warning",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-destroy",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-width",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-height",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-min-width",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-min-height",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-inset",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-baseline-inset",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-bar-gap",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-bar-min-width",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-bg",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-pink-bg",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-blue-bg",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-purple-bg",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-bar-radius",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-area-opacity",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-dot-radius",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-stroke",
+      "ownership": "owned",
+      "component": "Sparkline",
+      "group": "data-viz"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

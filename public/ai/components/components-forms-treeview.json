@@ -1,0 +1,1035 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-forms-treeview",
+  "name": "TreeView",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [
+    "hierarchical selection",
+    "tree"
+  ],
+  "purpose": "A hierarchical multi-selection tree whose branch check states are derived from selectable leaves.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/tree-view"
+  ],
+  "links": {
+    "contract": "./components-forms-treeview.json",
+    "overview": "../../?path=/docs/components-inputs-selection-treeview-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-treeview-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-treeview-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-treeview-overview--docs&docsTab=tokens"
+  },
+  "description": "Stores selected leaf IDs and derives parent checked/mixed state. Selecting a branch affects enabled descendants only. Arrow keys navigate and expand/collapse; Home/End jump; Space/Enter toggle; typing searches visible labels; * expands siblings; Control/Command+A selects all enabled leaves. Selection and expansion each support controlled and uncontrolled state.",
+  "exports": [
+    "TreeView"
+  ],
+  "importStatements": [
+    "import { TreeView } from '@dimitriszoitas/aegis-ui/tree-view';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "TreeView",
+      "name": "defaultExpandedIds",
+      "type": "readonly string[] | undefined",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "component": "TreeView",
+      "name": "defaultSelectedIds",
+      "type": "readonly string[] | undefined",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "component": "TreeView",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "TreeView",
+      "name": "emptyLabel",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"No matching sources\""
+    },
+    {
+      "component": "TreeView",
+      "name": "expandedIds",
+      "type": "readonly string[] | undefined",
+      "required": false
+    },
+    {
+      "component": "TreeView",
+      "name": "items",
+      "type": "readonly TreeViewItem[]",
+      "required": true
+    },
+    {
+      "component": "TreeView",
+      "name": "label",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "TreeView",
+      "name": "onExpandedChange",
+      "type": "((expandedIds: string[]) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "TreeView",
+      "name": "onSelectedChange",
+      "type": "((selectedIds: string[]) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "TreeView",
+      "name": "selectedIds",
+      "type": "readonly string[] | undefined",
+      "required": false,
+      "description": "Selected leaf IDs. Branch states are derived from selectable descendants."
+    }
+  ],
+  "variants": [],
+  "composition": [
+    {
+      "name": "@/components/field",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A hierarchical multi-selection tree whose branch check states are derived from selectable leaves.",
+    "usage": [
+      "Store selected leaf IDs, not branch IDs. Checking a branch updates its selectable descendants and derives mixed parent states.",
+      "Keep expandedIds and selectedIds separate. Expanding a branch reveals content without changing selection.",
+      "Disabled branches and leaves are excluded from selection changes; counts and descriptions should describe the underlying hierarchy."
+    ],
+    "accessibility": [
+      "Arrow Up/Down, Home/End, and typeahead move roving focus. Right opens a branch or enters it; Left closes it or moves to its parent.",
+      "Space or Enter toggles selection. Levels, positions, expanded state, and mixed checked state are exposed through tree semantics."
+    ],
+    "context": [
+      "Use for nested project scope, folders, and organizational selections where parent-child relationships matter."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "group",
+      "status",
+      "tree",
+      "treeitem"
+    ],
+    "ariaAttributes": [
+      "aria-checked",
+      "aria-describedby",
+      "aria-disabled",
+      "aria-expanded",
+      "aria-hidden",
+      "aria-label",
+      "aria-labelledby",
+      "aria-level",
+      "aria-multiselectable",
+      "aria-posinset",
+      "aria-setsize"
+    ],
+    "nativeElements": [
+      "button",
+      "div",
+      "li",
+      "p",
+      "span",
+      "ul"
+    ],
+    "keyboardKeys": [
+      "ArrowDown",
+      "ArrowLeft",
+      "ArrowRight",
+      "ArrowUp",
+      "End",
+      "Enter",
+      "Home",
+      "Space"
+    ],
+    "dependencies": [
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/field/field.css",
+    "src/components/field/field.tsx",
+    "src/components/field/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/tree-view/tree-view.css",
+    "src/components/tree-view/tree-view.stories.tsx",
+    "src/components/tree-view/tree-view.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/tree.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-treeview--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-forms-treeview--matrix",
+      "sourceFile": "src/components/tree-view/tree-view.stories.tsx"
+    },
+    {
+      "id": "components-forms-treeview--fully-expanded",
+      "name": "Fully Expanded",
+      "url": "../../?path=/story/components-forms-treeview--fully-expanded",
+      "sourceFile": "src/components/tree-view/tree-view.stories.tsx"
+    },
+    {
+      "id": "components-forms-treeview--empty",
+      "name": "Empty",
+      "url": "../../?path=/story/components-forms-treeview--empty",
+      "sourceFile": "src/components/tree-view/tree-view.stories.tsx"
+    },
+    {
+      "id": "components-forms-treeview--keyboard-and-tri-state",
+      "name": "Keyboard And Tri State",
+      "url": "../../?path=/story/components-forms-treeview--keyboard-and-tri-state",
+      "sourceFile": "src/components/tree-view/tree-view.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-input-field-color-content-primary",
+    "--group-input-field-color-content-secondary",
+    "--group-input-field-color-content-tertiary",
+    "--group-input-field-color-danger-foreground",
+    "--group-input-field-font-leading-body",
+    "--group-input-field-font-leading-compact",
+    "--group-input-field-font-size-body",
+    "--group-input-field-font-weight-medium",
+    "--group-input-field-font-weight-regular",
+    "--group-input-field-gap-compact",
+    "--group-input-field-gap-snug",
+    "--group-input-field-number-0",
+    "--group-input-field-required-gap",
+    "--group-input-measurement-icon-compact",
+    "--group-input-measurement-icon-sm",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-leading-relaxed",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-input-surface-stack-gap-regular",
+    "--group-input-tree-view-angle-90deg",
+    "--group-input-tree-view-border-width-hairline",
+    "--group-input-tree-view-border-width-regular",
+    "--group-input-tree-view-color-action-fill",
+    "--group-input-tree-view-color-action-soft",
+    "--group-input-tree-view-color-border-strong",
+    "--group-input-tree-view-color-border-subtle",
+    "--group-input-tree-view-color-content-primary",
+    "--group-input-tree-view-color-content-secondary",
+    "--group-input-tree-view-color-on-intent",
+    "--group-input-tree-view-color-surface-hover",
+    "--group-input-tree-view-color-surface-selected",
+    "--group-input-tree-view-color-surface-surface",
+    "--group-input-tree-view-color-transparent",
+    "--group-input-tree-view-ease-out",
+    "--group-input-tree-view-font-leading-compact",
+    "--group-input-tree-view-font-size-body",
+    "--group-input-tree-view-font-size-label",
+    "--group-input-tree-view-motion-fast",
+    "--group-input-tree-view-nested-inset",
+    "--group-input-tree-view-number-0",
+    "--group-input-tree-view-opacity-strength-prominent",
+    "--group-input-tree-view-radius-border-radius-soft",
+    "--group-input-tree-view-radius-border-radius-strong",
+    "--group-input-tree-view-ring-focus",
+    "--group-input-tree-view-size-gap-micro-compact",
+    "--group-input-tree-view-size-height-compact",
+    "--group-input-tree-view-size-height-small",
+    "--group-input-tree-view-size-min-height-roomy",
+    "--group-input-tree-view-size-outline-offset-negative-2",
+    "--group-input-tree-view-size-width-compact",
+    "--group-input-tree-view-size-width-small",
+    "--group-input-tree-view-space-gap-compact",
+    "--group-input-tree-view-space-padding-comfortable",
+    "--group-input-tree-view-space-padding-compact",
+    "--group-input-tree-view-space-padding-left-compact",
+    "--group-input-tree-view-space-padding-regular",
+    "--group-input-tree-view-space-padding-snug",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus",
+    "--tree-level"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-tree-view-space-gap-compact",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-number-0",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-border-width-hairline",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-color-border-subtle",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-color-surface-surface",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-space-padding-snug",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-size-min-height-roomy",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-space-padding-compact",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-space-padding-regular",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-nested-inset",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-space-padding-left-compact",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--tree-level",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-color-content-primary",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-color-surface-hover",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-color-action-soft",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-border-width-regular",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-ring-focus",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-size-outline-offset-negative-2",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-size-width-compact",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-size-height-compact",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-color-content-secondary",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-color-transparent",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-color-surface-selected",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-ease-out",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-motion-fast",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-angle-90deg",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-size-width-small",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-size-height-small",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-color-border-strong",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-color-on-intent",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-color-action-fill",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-opacity-strength-prominent",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-size-gap-micro-compact",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-font-leading-compact",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-font-size-body",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-font-size-label",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-tree-view-space-padding-comfortable",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-snug",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-medium",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-required-gap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-measurement-icon-sm",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-icon-compact",
+      "ownership": "owned",
+      "component": "TreeView",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

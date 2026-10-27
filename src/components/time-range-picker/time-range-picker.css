@@ -1,0 +1,52 @@
+.aegis-time-range-trigger[aria-invalid='true'] {
+  box-shadow: inset var(--group-input-time-range-picker-number-0)
+    var(--group-input-time-range-picker-number-0) var(--group-input-time-range-picker-number-0)
+    var(--group-input-time-range-picker-size-box-shadow-micro-small)
+    var(--group-input-time-range-picker-color-danger-foreground);
+}
+.time-range-presets .time-range-preset {
+  --group-input-time-range-picker-minimal-interaction-border: var(
+    --semantic-part-time-range-picker-minimal-interaction-border-default
+  );
+  width: var(--group-input-time-range-picker-size-width-full);
+  min-height: var(--group-input-time-range-picker-size-min-height-comfortable);
+  padding-inline: var(--group-input-time-range-picker-space-padding-inline-compact);
+  border-color: var(--group-input-time-range-picker-color-transparent);
+  font-size: var(--group-input-time-range-picker-font-size-body);
+  font-weight: var(--group-input-time-range-picker-font-weight-regular);
+  color: var(--group-input-time-range-picker-color-content-primary);
+  background: var(--group-input-time-range-picker-color-transparent);
+}
+.time-range-presets .time-range-preset .button-label {
+  flex: var(--group-input-time-range-picker-flex-fill);
+  text-align: start;
+}
+.time-range-presets .time-range-preset[data-active='true'] {
+  color: var(--group-input-time-range-picker-color-action-foreground);
+  font-weight: var(--group-input-time-range-picker-font-weight-medium);
+  background: var(--group-input-time-range-picker-color-surface-canvas);
+}
+.time-range-presets .time-range-preset:hover:not(:disabled) {
+  color: var(--group-input-time-range-picker-color-action-foreground);
+  background: var(--group-input-time-range-picker-color-surface-hover);
+  border-color: var(--group-input-time-range-picker-color-transparent);
+  box-shadow: var(--group-input-time-range-picker-elevation-none);
+}
+.time-range-presets .time-range-preset:focus-visible {
+  outline: var(--group-input-time-range-picker-border-width-regular) solid
+    var(--group-input-time-range-picker-ring-focus);
+  outline-offset: var(--group-input-time-range-picker-size-outline-offset-negative-2);
+  border-color: var(--group-input-time-range-picker-color-transparent);
+  box-shadow: var(--group-input-time-range-picker-elevation-none);
+}
+
+@media (max-width: 360px) {
+  .time-range-custom .rdp-root {
+    --group-input-measurement-rdp-day-width: var(
+      --semantic-part-time-range-picker-rdp-day-width-default
+    );
+    --group-input-measurement-rdp-day_button-width: var(
+      --semantic-part-time-range-picker-rdp-day_button-width-default
+    );
+  }
+}

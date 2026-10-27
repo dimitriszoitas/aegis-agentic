@@ -1,0 +1,810 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-data-relativetime",
+  "name": "RelativeTime",
+  "category": "Data Display",
+  "tokenGroup": "data-display",
+  "kind": "component",
+  "aliases": [
+    "time ago",
+    "timestamp"
+  ],
+  "purpose": "A relative timestamp with an absolute date and timezone available on focus and hover.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/relative-time"
+  ],
+  "links": {
+    "contract": "./components-data-relativetime.json",
+    "overview": "../../?path=/docs/components-data-display-relativetime-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-display-relativetime-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-display-relativetime-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-display-relativetime-overview--docs&docsTab=tokens"
+  },
+  "description": "Keep recent activity readable while retaining the exact timestamp.",
+  "exports": [
+    "RelativeTime"
+  ],
+  "importStatements": [
+    "import { RelativeTime } from '@dimitriszoitas/aegis-ui/relative-time';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "RelativeTime",
+      "name": "compact",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "RelativeTime",
+      "name": "locale",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"en-GB\""
+    },
+    {
+      "component": "RelativeTime",
+      "name": "now",
+      "type": "number | Date | undefined",
+      "required": false
+    },
+    {
+      "component": "RelativeTime",
+      "name": "timeZone",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"UTC\""
+    },
+    {
+      "component": "RelativeTime",
+      "name": "updateInterval",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "30000"
+    },
+    {
+      "component": "RelativeTime",
+      "name": "value",
+      "type": "string | number | Date",
+      "required": true
+    }
+  ],
+  "variants": [
+    {
+      "name": "compact",
+      "values": [
+        "false",
+        "true"
+      ],
+      "default": "false"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/tooltip",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A relative timestamp with an absolute date and timezone available on focus and hover.",
+    "usage": [
+      "Pass now for historical or deterministic views. Otherwise the clock updates at updateInterval, with a one-second minimum.",
+      "The default timezone is UTC and locale is en-GB; set them deliberately for the audience."
+    ],
+    "accessibility": [
+      "A native time element carries the ISO datetime, and its accessible label includes both relative and absolute time.",
+      "The default Tab stop exposes the absolute-time tooltip to keyboard users. Invalid dates render “Unavailable”."
+    ],
+    "context": [
+      "Use for activity timestamps and recent updates; use a fixed formatted date when precision is the primary comparison."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-label"
+    ],
+    "nativeElements": [
+      "span",
+      "time"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/tooltip",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/relative-time/relative-time.css",
+    "src/components/relative-time/relative-time.stories.tsx",
+    "src/components/relative-time/relative-time.tsx",
+    "src/components/tooltip/index.ts",
+    "src/components/tooltip/tooltip.css",
+    "src/components/tooltip/tooltip.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-overlays.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/theme.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-data-relativetime--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-data-relativetime--matrix",
+      "sourceFile": "src/components/relative-time/relative-time.stories.tsx"
+    },
+    {
+      "id": "components-data-relativetime--auto-updating",
+      "name": "Auto Updating",
+      "url": "../../?path=/story/components-data-relativetime--auto-updating",
+      "sourceFile": "src/components/relative-time/relative-time.stories.tsx"
+    },
+    {
+      "id": "components-data-relativetime--invalid-timestamp",
+      "name": "Invalid Timestamp",
+      "url": "../../?path=/story/components-data-relativetime--invalid-timestamp",
+      "sourceFile": "src/components/relative-time/relative-time.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-display-relative-time-font-family-code",
+    "--group-data-display-relative-time-font-size-label",
+    "--group-data-display-relative-time-radius-border-radius-soft",
+    "--group-data-display-surface-border-width-regular",
+    "--group-data-display-surface-color-action-foreground",
+    "--group-data-display-surface-color-action-soft",
+    "--group-data-display-surface-color-border-default",
+    "--group-data-display-surface-color-content-primary",
+    "--group-data-display-surface-color-content-secondary",
+    "--group-data-display-surface-elevation-none",
+    "--group-data-display-surface-focus-offset",
+    "--group-data-display-surface-font-family-ui",
+    "--group-data-display-surface-font-size-body",
+    "--group-data-display-surface-motion-count-1",
+    "--group-data-display-surface-motion-disabled-duration",
+    "--group-data-display-surface-motion-reduced-duration",
+    "--group-data-display-surface-number-0",
+    "--group-data-display-surface-ring-focus",
+    "--group-feedback-measurement-overlay-collision-padding",
+    "--group-feedback-measurement-overlay-offset",
+    "--group-feedback-measurement-tooltip-arrow-height",
+    "--group-feedback-measurement-tooltip-arrow-width",
+    "--group-feedback-measurement-tooltip-delay",
+    "--group-feedback-overlay-angle-180deg",
+    "--group-feedback-overlay-angle-90deg",
+    "--group-feedback-overlay-appearance-overlay-surface",
+    "--group-feedback-overlay-border-width-hairline",
+    "--group-feedback-overlay-border-width-regular",
+    "--group-feedback-overlay-color-border-default",
+    "--group-feedback-overlay-color-content-primary",
+    "--group-feedback-overlay-color-surface-hover",
+    "--group-feedback-overlay-color-surface-surface",
+    "--group-feedback-overlay-columns-two",
+    "--group-feedback-overlay-ease-out",
+    "--group-feedback-overlay-elevation-none",
+    "--group-feedback-overlay-font-family-code",
+    "--group-feedback-overlay-font-family-ui",
+    "--group-feedback-overlay-font-leading-body",
+    "--group-feedback-overlay-font-size-annotation-s",
+    "--group-feedback-overlay-font-size-body",
+    "--group-feedback-overlay-font-size-label",
+    "--group-feedback-overlay-font-weight-regular",
+    "--group-feedback-overlay-font-weight-semibold",
+    "--group-feedback-overlay-motion-fast",
+    "--group-feedback-overlay-number-0",
+    "--group-feedback-overlay-opacity-hidden",
+    "--group-feedback-overlay-opacity-strength-balanced",
+    "--group-feedback-overlay-opacity-visible",
+    "--group-feedback-overlay-radius-border-radius-bold",
+    "--group-feedback-overlay-ring-focus",
+    "--group-feedback-overlay-scale-0-97",
+    "--group-feedback-overlay-scale-1",
+    "--group-feedback-overlay-shadow-floating",
+    "--group-feedback-overlay-shadow-popover",
+    "--group-feedback-overlay-size-max-width-canvas-tiny",
+    "--group-feedback-overlay-size-max-width-wide-panel-vast",
+    "--group-feedback-overlay-size-min-height-compact-content-small",
+    "--group-feedback-overlay-size-outline-offset-micro-compact",
+    "--group-feedback-overlay-size-stroke-width-micro-small",
+    "--group-feedback-overlay-space-gap-16",
+    "--group-feedback-overlay-space-gap-24",
+    "--group-feedback-overlay-space-gap-comfortable",
+    "--group-feedback-overlay-space-gap-compact",
+    "--group-feedback-overlay-space-margin-bottom-snug",
+    "--group-feedback-overlay-space-padding-16",
+    "--group-feedback-overlay-space-padding-20",
+    "--group-feedback-overlay-space-padding-compact",
+    "--group-feedback-overlay-space-padding-regular",
+    "--group-feedback-overlay-tooltip-bg",
+    "--group-feedback-overlay-tooltip-border",
+    "--group-feedback-overlay-tooltip-fg",
+    "--group-feedback-overlay-tooltip-secondary",
+    "--group-feedback-overlay-track-flex",
+    "--group-feedback-overlay-z-tooltip",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-flex-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus",
+    "--transform-origin"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-display-relative-time-font-family-code",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-relative-time-font-size-label",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-relative-time-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-feedback-overlay-z-tooltip",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-max-width-wide-panel-vast",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-compact",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-regular",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-border-width-hairline",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-border",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-radius-border-radius-bold",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-bg",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-fg",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-shadow-floating",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-family-ui",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-size-label",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-leading-body",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-ease-out",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-motion-fast",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--transform-origin",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-number-0",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-elevation-none",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-stroke-width-micro-small",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-max-width-canvas-tiny",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-comfortable",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-weight-semibold",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-margin-bottom-snug",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-family-code",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-size-annotation-s",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-weight-regular",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-secondary",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-opacity-hidden",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-scale-0-97",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-opacity-visible",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-scale-1",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-compact",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-min-height-compact-content-small",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-border-default",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-surface-surface",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-content-primary",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-size-body",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-surface-hover",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-border-width-regular",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-ring-focus",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-outline-offset-micro-compact",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-opacity-strength-balanced",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-16",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-16",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-20",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-columns-two",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-track-flex",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-24",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-tooltip-arrow-width",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-tooltip-arrow-height",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-angle-180deg",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-angle-90deg",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-appearance-overlay-surface",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-shadow-popover",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-secondary",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-flex-none",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-tooltip-delay",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-overlay-offset",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-overlay-collision-padding",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

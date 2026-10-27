@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": false,
+    "rootDir": "./src",
+    "outDir": "./lib-dist/types",
+    "types": ["vite/client"],
+    "stripInternal": true
+  },
+  "include": [
+    "src/index.ts",
+    "src/package/*.ts",
+    "src/components/icon/index.tsx",
+    "src/components/aws-logo/index.ts",
+    "src/lib/ai.ts",
+    "src/lib/filters.ts",
+    "src/lib/time-range.ts",
+    "src/lib/utils.ts"
+  ],
+  "exclude": ["**/*.stories.tsx", "**/*.test.ts"]
+}

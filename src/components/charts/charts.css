@@ -1,0 +1,209 @@
+.aegis-chart-container {
+  display: flex;
+  flex-direction: column;
+  min-width: var(--group-data-viz-chart-number-0);
+  width: var(--group-data-viz-chart-size-width-full);
+  margin: var(--group-data-viz-chart-number-0);
+  padding: var(--group-data-viz-chart-space-padding-roomy);
+  border: var(--group-data-viz-chart-border-width-hairline) solid
+    var(--group-data-viz-chart-color-border-subtle);
+  border-radius: var(
+    --group-data-viz-surface-corner-radius,
+    var(--group-data-viz-chart-radius-border-radius-strong)
+  );
+  background: var(--group-data-viz-chart-color-surface-surface-raised);
+  color: var(--group-data-viz-chart-color-content-primary);
+  box-shadow: var(--group-data-viz-chart-shadow-raised);
+}
+.aegis-chart-container[data-compact='true'] {
+  border: var(--group-data-viz-chart-number-0);
+  box-shadow: var(--group-data-viz-chart-elevation-none);
+  padding: var(--group-data-viz-chart-space-padding-regular);
+  background: var(--group-data-viz-chart-color-transparent);
+}
+.aegis-chart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--group-data-viz-chart-space-gap-comfortable);
+  margin-bottom: var(--group-data-viz-chart-space-margin-bottom-regular);
+}
+.aegis-chart-header h3 {
+  margin: var(--group-data-viz-chart-number-0);
+  font-size: var(--group-data-viz-chart-font-size-body);
+  font-weight: var(--group-data-viz-chart-title-weight);
+}
+.aegis-chart-description {
+  margin-top: var(--group-data-viz-chart-space-margin-top-snug);
+  font-size: var(--group-data-viz-chart-font-size-label);
+  line-height: var(--group-data-viz-chart-font-leading-body);
+  color: var(--group-data-viz-chart-color-content-secondary);
+}
+.aegis-chart-action {
+  flex-shrink: var(--group-data-viz-chart-flex-none);
+}
+.aegis-chart-plot {
+  width: var(--group-data-viz-chart-size-width-full);
+  min-width: var(--group-data-viz-chart-number-0);
+}
+.aegis-chart-loading {
+  height: var(--group-data-viz-chart-size-height-full);
+  padding: var(--group-data-viz-chart-space-padding-comfortable);
+}
+.aegis-chart-legend-wrap {
+  margin-top: var(--group-data-viz-chart-space-margin-top-regular);
+}
+.aegis-chart-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--group-data-viz-chart-space-gap-compact)
+    var(--group-data-viz-chart-space-gap-comfortable);
+  color: var(--group-data-viz-chart-color-content-secondary);
+  font-size: var(--group-data-viz-chart-font-size-label);
+}
+.aegis-chart-legend button,
+.aegis-chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--group-data-viz-chart-space-gap-compact);
+}
+.aegis-chart-legend button {
+  border: var(--group-data-viz-chart-number-0);
+  padding: var(--group-data-viz-chart-space-padding-snug);
+  border-radius: var(--group-data-viz-chart-radius-border-radius-soft);
+  background: var(--group-data-viz-chart-color-transparent);
+  font: inherit;
+  color: inherit;
+}
+.aegis-chart-legend button:hover {
+  background: var(--group-data-viz-chart-color-surface-hover);
+  color: var(--group-data-viz-chart-color-content-primary);
+}
+.aegis-chart-legend button[data-hidden='true'] {
+  text-decoration: line-through;
+}
+.aegis-chart-legend button[data-hidden='true'] .aegis-chart-swatch {
+  opacity: var(--group-data-viz-chart-opacity-strength-muted);
+}
+.aegis-chart-swatch {
+  display: inline-block;
+  flex-shrink: var(--group-data-viz-chart-flex-none);
+  width: var(--group-data-viz-chart-size-width-glyph-tiny);
+  height: var(--group-data-viz-chart-size-height-glyph-tiny);
+  border-radius: var(--group-data-viz-chart-radius-border-radius-fixed-3);
+}
+.aegis-chart-tooltip {
+  min-width: var(--group-data-viz-chart-size-min-width-panel-regular);
+  padding: var(--group-data-viz-chart-space-padding-regular);
+  border: var(--group-data-viz-chart-border-width-hairline) solid
+    var(--group-data-viz-chart-color-border-default);
+  border-radius: var(--group-data-viz-chart-radius-border-radius-strong);
+  background: var(--group-data-viz-chart-color-surface-surface-raised);
+  box-shadow: var(--group-data-viz-chart-shadow-floating);
+  color: var(--group-data-viz-chart-color-content-primary);
+  font-size: var(--group-data-viz-chart-font-size-label);
+}
+.aegis-chart-tooltip-label {
+  font-weight: var(--group-data-viz-chart-font-weight-semibold);
+  margin-bottom: var(--group-data-viz-chart-space-margin-bottom-compact);
+}
+.aegis-chart-tooltip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-data-viz-chart-space-gap-roomy);
+  line-height: var(--group-data-viz-chart-font-leading-expansive);
+}
+.aegis-chart-tooltip-name {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--group-data-viz-chart-space-gap-compact);
+  color: var(--group-data-viz-chart-color-content-secondary);
+}
+.aegis-chart-tooltip-row strong {
+  font-weight: var(--group-data-viz-chart-font-weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+.aegis-chart-footer {
+  margin-top: var(--group-data-viz-chart-space-margin-top-regular);
+}
+.aegis-chart-data summary {
+  cursor: pointer;
+  width: max-content;
+  border-radius: var(--group-data-viz-chart-radius-border-radius-soft);
+  color: var(--group-data-viz-chart-color-content-secondary);
+  font-size: var(--group-data-viz-chart-font-size-label);
+}
+.aegis-chart-data-scroll {
+  overflow: auto;
+  max-height: var(--group-data-viz-chart-size-max-height-wide-panel-snug);
+  margin-top: var(--group-data-viz-chart-space-margin-top-regular);
+}
+.aegis-chart-data table {
+  border-collapse: collapse;
+  width: var(--group-data-viz-chart-size-width-full);
+  font-size: var(--group-data-viz-chart-font-size-label);
+  text-align: right;
+}
+.aegis-chart-data th,
+.aegis-chart-data td {
+  padding: var(--group-data-viz-chart-space-padding-compact);
+  border-bottom: var(--group-data-viz-chart-border-width-hairline) solid
+    var(--group-data-viz-chart-color-border-subtle);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.aegis-chart-data th:first-child {
+  text-align: left;
+}
+.aegis-chart-data thead th {
+  font-weight: var(--group-data-viz-chart-font-weight-semibold);
+  color: var(--group-data-viz-chart-color-content-secondary);
+}
+.aegis-chart-data tbody th {
+  font-weight: var(--group-data-viz-chart-font-weight-regular);
+}
+.aegis-donut-plot {
+  width: var(--group-data-viz-chart-size-width-full);
+  height: var(--group-data-viz-chart-size-height-full);
+  position: relative;
+}
+.aegis-donut-total {
+  position: absolute;
+  pointer-events: none;
+  top: var(--group-data-viz-chart-size-top-half);
+  left: var(--group-data-viz-chart-size-left-half);
+  transform: translate(
+    var(--group-data-viz-chart-size-transform-negative-50percent),
+    var(--group-data-viz-chart-size-transform-negative-50percent)
+  );
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-data-viz-chart-space-gap-snug);
+}
+.aegis-donut-total strong {
+  font-size: var(--group-data-viz-chart-font-size-heading-l);
+  font-weight: var(--group-data-viz-chart-title-weight);
+  font-variant-numeric: tabular-nums;
+}
+.aegis-donut-total span {
+  color: var(--group-data-viz-chart-color-content-secondary);
+  font-size: var(--group-data-viz-chart-font-size-label);
+}
+.aegis-chart-container .recharts-brush-texts text {
+  fill: var(--group-data-viz-chart-color-content-secondary);
+  font-family: var(--group-data-viz-chart-font-family-code);
+  font-size: var(--group-data-viz-chart-font-size-annotation-xs);
+}
+.aegis-chart-container .recharts-brush-slide {
+  fill: var(--group-data-viz-chart-color-action-soft);
+}
+.aegis-chart-container .recharts-surface:focus-visible {
+  outline: var(--group-data-viz-chart-border-width-regular) solid
+    var(--group-data-viz-chart-ring-focus);
+  outline-offset: var(--group-data-viz-chart-size-outline-offset-micro-compact);
+  border-radius: var(--group-data-viz-chart-radius-border-radius-soft);
+}

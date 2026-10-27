@@ -1,0 +1,27 @@
+.aegis-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: var(--group-data-display-kbd-flex-none);
+  white-space: nowrap;
+  min-width: var(--group-data-display-kbd-space-min-width-5);
+  height: var(--group-data-display-kbd-space-height-5);
+  padding: var(--group-data-display-kbd-number-0) var(--group-data-display-kbd-space-padding-snug);
+  border: var(--group-data-display-kbd-border-width-hairline) solid
+    var(--group-data-display-kbd-color-border-default);
+  border-bottom-width: var(--group-data-display-kbd-border-width-regular);
+  border-radius: var(--group-data-display-kbd-radius-border-radius-soft);
+  background: var(--group-data-display-kbd-color-surface-surface);
+  color: var(--group-data-display-kbd-color-content-secondary);
+  font-family: var(--group-data-display-kbd-font-family-code);
+  font-size: var(--group-data-display-kbd-font-size-label);
+  font-weight: var(--group-data-display-kbd-font-weight-regular);
+  line-height: var(--group-data-display-kbd-font-leading-solid);
+}
+.aegis-kbd[data-size='md'] {
+  height: var(--group-data-display-kbd-space-height-roomy);
+  min-width: var(--group-data-display-kbd-space-min-width-roomy);
+  padding: var(--group-data-display-kbd-number-0)
+    var(--group-data-display-kbd-space-padding-compact);
+  font-size: var(--group-data-display-kbd-font-size-body);
+}

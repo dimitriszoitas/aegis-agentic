@@ -1,0 +1,37 @@
+.aegis-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-field-gap-compact);
+  min-width: var(--group-input-field-number-0);
+}
+.aegis-field-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--group-input-field-gap-snug);
+  width: fit-content;
+  color: var(--group-input-field-color-content-primary);
+  font-size: var(--group-input-field-font-size-body);
+  font-weight: var(--group-input-field-font-weight-medium);
+  line-height: var(--group-input-field-font-leading-compact);
+}
+.aegis-field-optional {
+  margin-left: var(--group-input-field-required-gap);
+  color: var(--group-input-field-color-content-secondary);
+  font-size: var(--group-input-field-font-size-body);
+  font-weight: var(--group-input-field-font-weight-regular);
+}
+.aegis-field-marker,
+.aegis-field-error {
+  color: var(--group-input-field-color-danger-foreground);
+}
+.aegis-field-help,
+.aegis-field-error {
+  font-size: var(--group-input-field-font-size-body);
+  line-height: var(--group-input-field-font-leading-body);
+}
+.aegis-field-help {
+  color: var(--group-input-field-color-content-secondary);
+}
+.aegis-field[data-disabled] > .aegis-field-label {
+  color: var(--group-input-field-color-content-tertiary);
+}

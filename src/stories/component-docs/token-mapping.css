@@ -1,0 +1,29 @@
+.component-docs .component-docs-mapping-table {
+  table-layout: auto;
+}
+.component-docs .component-docs-mapping-table :is(th, td) {
+  min-width: var(--size-160);
+  max-width: var(--size-320);
+}
+.component-docs .component-docs-mapping-table code {
+  display: inline-block;
+  max-width: var(--size-full);
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+.component-docs-mapping-node + .component-docs-mapping-node {
+  padding-block-start: var(--space-3);
+  margin-block-start: var(--space-3);
+  border-block-start: var(--stroke-1) solid var(--color-border-subtle);
+}
+.component-docs .component-docs-mapping-context {
+  margin-block-start: var(--space-3);
+  line-height: var(--line-height-1-6);
+  overflow-wrap: anywhere;
+}
+.component-docs .component-docs-mapping-table details {
+  margin-block-start: var(--space-3);
+}
+.component-docs .component-docs-mapping-table summary {
+  font-size: var(--text-xs);
+}

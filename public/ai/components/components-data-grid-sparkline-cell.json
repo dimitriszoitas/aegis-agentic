@@ -1,0 +1,4029 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-data-grid-sparkline-cell",
+  "name": "Sparkline cell",
+  "category": "Data Display/Data grid",
+  "tokenGroup": "data-display",
+  "kind": "component",
+  "aliases": [],
+  "purpose": "A lightweight, noninteractive trend graphic inside a dense table cell.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/data-grid-cells"
+  ],
+  "links": {
+    "contract": "./components-data-grid-sparkline-cell.json",
+    "overview": "../../?path=/docs/components-data-display-data-grid-sparkline-cell-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-display-data-grid-sparkline-cell-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-display-data-grid-sparkline-cell-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-display-data-grid-sparkline-cell-overview--docs&docsTab=tokens"
+  },
+  "description": "Compare recent activity directly alongside a record.",
+  "exports": [
+    "SparklineCell"
+  ],
+  "importStatements": [
+    "import { SparklineCell } from '@dimitriszoitas/aegis-ui/data-grid-cells';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "SparklineCell",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "SparklineCell",
+      "name": "data",
+      "type": "readonly number[]",
+      "required": true
+    },
+    {
+      "component": "SparklineCell",
+      "name": "height",
+      "type": "number | undefined",
+      "required": false
+    },
+    {
+      "component": "SparklineCell",
+      "name": "intent",
+      "type": "\"function\" | \"destroy\" | \"ai\" | \"success\" | \"warning\" | undefined",
+      "required": false
+    },
+    {
+      "component": "SparklineCell",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "SparklineCell",
+      "name": "variant",
+      "type": "\"area\" | \"line\" | \"bar\" | undefined",
+      "required": false
+    },
+    {
+      "component": "SparklineCell",
+      "name": "width",
+      "type": "number | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "area",
+        "bar",
+        "line"
+      ]
+    },
+    {
+      "name": "intent",
+      "values": [
+        "ai",
+        "destroy",
+        "function",
+        "success",
+        "warning"
+      ]
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/avatar",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/dropdown-menu",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon-button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/relative-time",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/severity-badge",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/skeleton",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/sparkline",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/status-badge",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/tag",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/tooltip",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A lightweight, noninteractive trend graphic inside a dense table cell.",
+    "usage": [
+      "Supply an ordered numeric series and a meaningful label that names its measure and time window.",
+      "Line, area, and bar variants share Sparkline behavior; choose bars for bucket counts and lines for trend shape."
+    ],
+    "accessibility": [
+      "The SVG has an image label and does not capture focus or animate.",
+      "Provide a nearby number or a detail view with exact values when users need quantitative comparison."
+    ],
+    "context": [
+      "Use as a compact supporting trend beside a primary metric, not as the sole source of exact data."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "group"
+    ],
+    "ariaAttributes": [
+      "aria-expanded",
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "br",
+      "button",
+      "div",
+      "span",
+      "strong"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/direction-provider",
+      "@base-ui/react/menu",
+      "@base-ui/react/tooltip",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/avatar/avatar.css",
+    "src/components/avatar/avatar.tsx",
+    "src/components/avatar/index.ts",
+    "src/components/button/button.css",
+    "src/components/button/button.tsx",
+    "src/components/button/index.ts",
+    "src/components/data-grid-cells/data-grid-cells.css",
+    "src/components/data-grid-cells/data-grid-cells.tsx",
+    "src/components/data-grid-cells/sparkline-cell.stories.tsx",
+    "src/components/dropdown-menu/dropdown-menu.css",
+    "src/components/dropdown-menu/dropdown-menu.tsx",
+    "src/components/dropdown-menu/index.ts",
+    "src/components/icon-button/icon-button.css",
+    "src/components/icon-button/icon-button.tsx",
+    "src/components/icon-button/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/relative-time/index.ts",
+    "src/components/relative-time/relative-time.css",
+    "src/components/relative-time/relative-time.tsx",
+    "src/components/severity-badge/index.ts",
+    "src/components/severity-badge/severity-badge.tsx",
+    "src/components/skeleton/index.ts",
+    "src/components/skeleton/skeleton.css",
+    "src/components/skeleton/skeleton.tsx",
+    "src/components/sparkline/index.ts",
+    "src/components/sparkline/sparkline.css",
+    "src/components/sparkline/sparkline.tsx",
+    "src/components/status-badge/index.ts",
+    "src/components/status-badge/status-badge.tsx",
+    "src/components/tag/index.ts",
+    "src/components/tag/tag.css",
+    "src/components/tag/tag.tsx",
+    "src/components/tooltip/index.ts",
+    "src/components/tooltip/tooltip.css",
+    "src/components/tooltip/tooltip.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/component-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-overlays.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/theme.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-data-grid-sparkline-cell--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-data-grid-sparkline-cell--matrix",
+      "sourceFile": "src/components/data-grid-cells/sparkline-cell.stories.tsx"
+    },
+    {
+      "id": "components-data-grid-sparkline-cell--edge-cases",
+      "name": "Edge Cases",
+      "url": "../../?path=/story/components-data-grid-sparkline-cell--edge-cases",
+      "sourceFile": "src/components/data-grid-cells/sparkline-cell.stories.tsx"
+    },
+    {
+      "id": "components-data-grid-sparkline-cell--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-data-grid-sparkline-cell--playground",
+      "sourceFile": "src/components/data-grid-cells/sparkline-cell.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--available-height",
+    "--group-data-display-avatar-border-width-hairline",
+    "--group-data-display-avatar-border-width-regular",
+    "--group-data-display-avatar-color-action-border",
+    "--group-data-display-avatar-color-action-foreground",
+    "--group-data-display-avatar-color-action-soft",
+    "--group-data-display-avatar-color-border-subtle",
+    "--group-data-display-avatar-color-caution-fill",
+    "--group-data-display-avatar-color-content-secondary",
+    "--group-data-display-avatar-color-content-tertiary",
+    "--group-data-display-avatar-color-danger-fill",
+    "--group-data-display-avatar-color-success-fill",
+    "--group-data-display-avatar-color-surface-hover",
+    "--group-data-display-avatar-color-surface-surface",
+    "--group-data-display-avatar-flex-none",
+    "--group-data-display-avatar-font-size-annotation-xs",
+    "--group-data-display-avatar-font-size-body",
+    "--group-data-display-avatar-font-size-label",
+    "--group-data-display-avatar-font-weight-semibold",
+    "--group-data-display-avatar-number-0",
+    "--group-data-display-avatar-radius-border-radius-full",
+    "--group-data-display-avatar-size-bottom-negative-1",
+    "--group-data-display-avatar-size-box-shadow-micro-compact",
+    "--group-data-display-avatar-size-height-full",
+    "--group-data-display-avatar-size-height-glyph-small",
+    "--group-data-display-avatar-size-right-negative-1",
+    "--group-data-display-avatar-size-width-full",
+    "--group-data-display-avatar-size-width-glyph-small",
+    "--group-data-display-avatar-space-height-10",
+    "--group-data-display-avatar-space-height-roomy",
+    "--group-data-display-avatar-space-height-spacious",
+    "--group-data-display-avatar-space-margin-left-compact",
+    "--group-data-display-avatar-space-padding-left-compact",
+    "--group-data-display-avatar-space-width-10",
+    "--group-data-display-avatar-space-width-roomy",
+    "--group-data-display-avatar-space-width-spacious",
+    "--group-data-display-data-grid-cells-border-width-hairline",
+    "--group-data-display-data-grid-cells-color-ai-border",
+    "--group-data-display-data-grid-cells-color-ai-foreground",
+    "--group-data-display-data-grid-cells-color-content-primary",
+    "--group-data-display-data-grid-cells-color-content-secondary",
+    "--group-data-display-data-grid-cells-color-content-tertiary",
+    "--group-data-display-data-grid-cells-color-surface-hover",
+    "--group-data-display-data-grid-cells-color-transparent",
+    "--group-data-display-data-grid-cells-ease-out",
+    "--group-data-display-data-grid-cells-flex-none",
+    "--group-data-display-data-grid-cells-font-family-code",
+    "--group-data-display-data-grid-cells-font-size-annotation-s",
+    "--group-data-display-data-grid-cells-font-size-body",
+    "--group-data-display-data-grid-cells-font-size-label",
+    "--group-data-display-data-grid-cells-font-weight-medium",
+    "--group-data-display-data-grid-cells-gradient-ai-soft",
+    "--group-data-display-data-grid-cells-gradient-ai-text",
+    "--group-data-display-data-grid-cells-motion-fast",
+    "--group-data-display-data-grid-cells-number-0",
+    "--group-data-display-data-grid-cells-opacity-hidden",
+    "--group-data-display-data-grid-cells-opacity-strength-medium",
+    "--group-data-display-data-grid-cells-opacity-visible",
+    "--group-data-display-data-grid-cells-radius-border-radius-bold",
+    "--group-data-display-data-grid-cells-radius-border-radius-rounded",
+    "--group-data-display-data-grid-cells-radius-border-radius-soft",
+    "--group-data-display-data-grid-cells-size-gap-micro-compact",
+    "--group-data-display-data-grid-cells-size-max-width-panel-small",
+    "--group-data-display-data-grid-cells-size-padding-micro-snug",
+    "--group-data-display-data-grid-cells-space-gap-compact",
+    "--group-data-display-data-grid-cells-space-gap-snug",
+    "--group-data-display-data-grid-cells-space-height-5",
+    "--group-data-display-data-grid-cells-space-height-7",
+    "--group-data-display-data-grid-cells-space-height-roomy",
+    "--group-data-display-data-grid-cells-space-margin-left-snug",
+    "--group-data-display-data-grid-cells-space-min-width-5",
+    "--group-data-display-data-grid-cells-space-min-width-roomy",
+    "--group-data-display-data-grid-cells-space-padding-compact",
+    "--group-data-display-data-grid-cells-space-padding-left-snug",
+    "--group-data-display-data-grid-cells-space-padding-snug",
+    "--group-data-display-data-grid-cells-space-width-roomy",
+    "--group-data-display-measurement-icon-inline",
+    "--group-data-display-measurement-icon-md",
+    "--group-data-display-measurement-icon-sm",
+    "--group-data-display-measurement-icon-xs",
+    "--group-data-display-relative-time-font-family-code",
+    "--group-data-display-relative-time-font-size-label",
+    "--group-data-display-relative-time-radius-border-radius-soft",
+    "--group-data-display-surface-border-width-regular",
+    "--group-data-display-surface-color-action-foreground",
+    "--group-data-display-surface-color-action-soft",
+    "--group-data-display-surface-color-border-default",
+    "--group-data-display-surface-color-content-primary",
+    "--group-data-display-surface-color-content-secondary",
+    "--group-data-display-surface-color-surface-canvas",
+    "--group-data-display-surface-color-surface-surface",
+    "--group-data-display-surface-elevation-none",
+    "--group-data-display-surface-focus-offset",
+    "--group-data-display-surface-font-family-ui",
+    "--group-data-display-surface-font-line-box-l",
+    "--group-data-display-surface-font-line-box-s",
+    "--group-data-display-surface-font-size-body",
+    "--group-data-display-surface-font-size-label",
+    "--group-data-display-surface-motion-count-1",
+    "--group-data-display-surface-motion-disabled-duration",
+    "--group-data-display-surface-motion-reduced-duration",
+    "--group-data-display-surface-number-0",
+    "--group-data-display-surface-radius-circle",
+    "--group-data-display-surface-radius-rounded",
+    "--group-data-display-surface-ring-focus",
+    "--group-data-display-table-font-line-box-s",
+    "--group-data-display-table-font-line-box-xs",
+    "--group-data-display-table-font-size-caption",
+    "--group-data-display-table-font-size-label",
+    "--group-data-display-tag-badge-border-strength",
+    "--group-data-display-tag-border-width-hairline",
+    "--group-data-display-tag-color-border-default",
+    "--group-data-display-tag-color-content-primary",
+    "--group-data-display-tag-color-content-secondary",
+    "--group-data-display-tag-color-function-fg",
+    "--group-data-display-tag-color-status-review-fg",
+    "--group-data-display-tag-color-success-fg",
+    "--group-data-display-tag-color-surface-selected",
+    "--group-data-display-tag-color-surface-surface",
+    "--group-data-display-tag-color-text-tertiary",
+    "--group-data-display-tag-color-transparent",
+    "--group-data-display-tag-color-warning-fg",
+    "--group-data-display-tag-flex-none",
+    "--group-data-display-tag-font-leading-heading-tight",
+    "--group-data-display-tag-font-leading-solid",
+    "--group-data-display-tag-font-size-annotation-s",
+    "--group-data-display-tag-font-size-label",
+    "--group-data-display-tag-font-weight-medium",
+    "--group-data-display-tag-font-weight-semibold",
+    "--group-data-display-tag-mix-8",
+    "--group-data-display-tag-number-0",
+    "--group-data-display-tag-radius-border-radius-circle",
+    "--group-data-display-tag-radius-border-radius-full",
+    "--group-data-display-tag-radius-border-radius-soft",
+    "--group-data-display-tag-size-gap-micro-roomy",
+    "--group-data-display-tag-size-height-compact",
+    "--group-data-display-tag-size-height-micro-roomy",
+    "--group-data-display-tag-size-height-small",
+    "--group-data-display-tag-size-height-snug",
+    "--group-data-display-tag-size-min-width-compact",
+    "--group-data-display-tag-size-outline-offset-micro-small",
+    "--group-data-display-tag-size-padding-inline-start-micro-roomy",
+    "--group-data-display-tag-size-padding-micro-comfortable",
+    "--group-data-display-tag-size-padding-micro-large",
+    "--group-data-display-tag-size-padding-micro-roomy",
+    "--group-data-display-tag-size-padding-micro-snug",
+    "--group-data-display-tag-size-text-underline-offset-micro-compact",
+    "--group-data-display-tag-size-width-micro-roomy",
+    "--group-data-display-tag-size-width-small",
+    "--group-data-display-tag-space-padding-compact",
+    "--group-data-display-tag-tag-fg",
+    "--group-data-viz-chart-color-ai-bg",
+    "--group-data-viz-chart-color-ai-blue-bg",
+    "--group-data-viz-chart-color-ai-pink-bg",
+    "--group-data-viz-chart-color-ai-purple-bg",
+    "--group-data-viz-chart-color-chart-ai",
+    "--group-data-viz-chart-color-chart-destroy",
+    "--group-data-viz-chart-color-chart-function",
+    "--group-data-viz-chart-color-chart-success",
+    "--group-data-viz-chart-color-chart-warning",
+    "--group-data-viz-chart-color-content-tertiary",
+    "--group-data-viz-chart-flex-none",
+    "--group-data-viz-chart-font-size-body",
+    "--group-data-viz-measurement-sparkline-area-opacity",
+    "--group-data-viz-measurement-sparkline-bar-gap",
+    "--group-data-viz-measurement-sparkline-bar-min-width",
+    "--group-data-viz-measurement-sparkline-bar-radius",
+    "--group-data-viz-measurement-sparkline-baseline-inset",
+    "--group-data-viz-measurement-sparkline-dot-radius",
+    "--group-data-viz-measurement-sparkline-height",
+    "--group-data-viz-measurement-sparkline-inset",
+    "--group-data-viz-measurement-sparkline-min-height",
+    "--group-data-viz-measurement-sparkline-min-width",
+    "--group-data-viz-measurement-sparkline-stroke",
+    "--group-data-viz-measurement-sparkline-width",
+    "--group-data-viz-surface-border-width-regular",
+    "--group-data-viz-surface-color-action-foreground",
+    "--group-data-viz-surface-color-action-soft",
+    "--group-data-viz-surface-color-border-default",
+    "--group-data-viz-surface-color-content-primary",
+    "--group-data-viz-surface-elevation-none",
+    "--group-data-viz-surface-flex-none",
+    "--group-data-viz-surface-focus-offset",
+    "--group-data-viz-surface-font-family-ui",
+    "--group-data-viz-surface-font-size-body",
+    "--group-data-viz-surface-motion-count-1",
+    "--group-data-viz-surface-motion-disabled-duration",
+    "--group-data-viz-surface-motion-reduced-duration",
+    "--group-data-viz-surface-number-0",
+    "--group-data-viz-surface-ring-focus",
+    "--group-feedback-measurement-overlay-collision-padding",
+    "--group-feedback-measurement-overlay-offset",
+    "--group-feedback-measurement-tooltip-arrow-height",
+    "--group-feedback-measurement-tooltip-arrow-width",
+    "--group-feedback-measurement-tooltip-delay",
+    "--group-feedback-overlay-angle-180deg",
+    "--group-feedback-overlay-angle-90deg",
+    "--group-feedback-overlay-appearance-overlay-surface",
+    "--group-feedback-overlay-border-width-hairline",
+    "--group-feedback-overlay-border-width-regular",
+    "--group-feedback-overlay-color-border-default",
+    "--group-feedback-overlay-color-content-primary",
+    "--group-feedback-overlay-color-surface-hover",
+    "--group-feedback-overlay-color-surface-surface",
+    "--group-feedback-overlay-columns-two",
+    "--group-feedback-overlay-ease-out",
+    "--group-feedback-overlay-elevation-none",
+    "--group-feedback-overlay-font-family-code",
+    "--group-feedback-overlay-font-family-ui",
+    "--group-feedback-overlay-font-leading-body",
+    "--group-feedback-overlay-font-size-annotation-s",
+    "--group-feedback-overlay-font-size-body",
+    "--group-feedback-overlay-font-size-label",
+    "--group-feedback-overlay-font-weight-regular",
+    "--group-feedback-overlay-font-weight-semibold",
+    "--group-feedback-overlay-motion-fast",
+    "--group-feedback-overlay-number-0",
+    "--group-feedback-overlay-opacity-hidden",
+    "--group-feedback-overlay-opacity-strength-balanced",
+    "--group-feedback-overlay-opacity-visible",
+    "--group-feedback-overlay-radius-border-radius-bold",
+    "--group-feedback-overlay-ring-focus",
+    "--group-feedback-overlay-scale-0-97",
+    "--group-feedback-overlay-scale-1",
+    "--group-feedback-overlay-shadow-floating",
+    "--group-feedback-overlay-shadow-popover",
+    "--group-feedback-overlay-size-max-width-canvas-tiny",
+    "--group-feedback-overlay-size-max-width-wide-panel-vast",
+    "--group-feedback-overlay-size-min-height-compact-content-small",
+    "--group-feedback-overlay-size-outline-offset-micro-compact",
+    "--group-feedback-overlay-size-stroke-width-micro-small",
+    "--group-feedback-overlay-space-gap-16",
+    "--group-feedback-overlay-space-gap-24",
+    "--group-feedback-overlay-space-gap-comfortable",
+    "--group-feedback-overlay-space-gap-compact",
+    "--group-feedback-overlay-space-margin-bottom-snug",
+    "--group-feedback-overlay-space-padding-16",
+    "--group-feedback-overlay-space-padding-20",
+    "--group-feedback-overlay-space-padding-compact",
+    "--group-feedback-overlay-space-padding-regular",
+    "--group-feedback-overlay-tooltip-bg",
+    "--group-feedback-overlay-tooltip-border",
+    "--group-feedback-overlay-tooltip-fg",
+    "--group-feedback-overlay-tooltip-secondary",
+    "--group-feedback-overlay-track-flex",
+    "--group-feedback-overlay-z-tooltip",
+    "--group-feedback-skeleton-angle-90deg",
+    "--group-feedback-skeleton-border-width-hairline",
+    "--group-feedback-skeleton-color-border-subtle",
+    "--group-feedback-skeleton-color-surface-selected",
+    "--group-feedback-skeleton-color-surface-surface",
+    "--group-feedback-skeleton-duration-1600ms",
+    "--group-feedback-skeleton-flex-fill",
+    "--group-feedback-skeleton-flex-grow-three",
+    "--group-feedback-skeleton-flex-none",
+    "--group-feedback-skeleton-mix-60",
+    "--group-feedback-skeleton-number-0",
+    "--group-feedback-skeleton-radius-border-radius-full",
+    "--group-feedback-skeleton-radius-border-radius-soft",
+    "--group-feedback-skeleton-radius-border-radius-strong",
+    "--group-feedback-skeleton-size-height-vast",
+    "--group-feedback-skeleton-size-height-wide-content-vast",
+    "--group-feedback-skeleton-size-transform-full",
+    "--group-feedback-skeleton-size-transform-negative-100percent",
+    "--group-feedback-skeleton-size-width-full",
+    "--group-feedback-skeleton-space-gap-roomy",
+    "--group-feedback-skeleton-space-height-10",
+    "--group-feedback-skeleton-space-height-regular",
+    "--group-feedback-skeleton-space-padding-comfortable",
+    "--group-feedback-skeleton-space-width-10",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-flex-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-trigger-button-appearance-action-hover",
+    "--group-trigger-button-appearance-ai-hover",
+    "--group-trigger-button-border-width-hairline",
+    "--group-trigger-button-color-ai-blue-fg",
+    "--group-trigger-button-color-ai-fg",
+    "--group-trigger-button-color-ai-pink-fg",
+    "--group-trigger-button-color-ai-purple-fg",
+    "--group-trigger-button-color-border-default",
+    "--group-trigger-button-color-content-primary",
+    "--group-trigger-button-color-surface-surface",
+    "--group-trigger-button-color-surface-surface-raised",
+    "--group-trigger-button-color-transparent",
+    "--group-trigger-button-elevation-none",
+    "--group-trigger-button-font-leading-solid",
+    "--group-trigger-button-font-size-body",
+    "--group-trigger-button-font-size-label",
+    "--group-trigger-button-font-weight-medium",
+    "--group-trigger-button-gap-compact",
+    "--group-trigger-button-gradient-ai",
+    "--group-trigger-button-gradient-ai-border",
+    "--group-trigger-button-gradient-ai-soft",
+    "--group-trigger-button-gradient-ai-text",
+    "--group-trigger-button-height-compact",
+    "--group-trigger-button-height-large",
+    "--group-trigger-button-height-regular",
+    "--group-trigger-button-icon-size-compact",
+    "--group-trigger-button-icon-size-large",
+    "--group-trigger-button-icon-size-regular",
+    "--group-trigger-button-intent-bg",
+    "--group-trigger-button-intent-border",
+    "--group-trigger-button-intent-fg",
+    "--group-trigger-button-intent-on",
+    "--group-trigger-button-intent-soft",
+    "--group-trigger-button-loading-duration",
+    "--group-trigger-button-loading-rotation",
+    "--group-trigger-button-motion-fast",
+    "--group-trigger-button-number-0",
+    "--group-trigger-button-opacity-disabled",
+    "--group-trigger-button-opacity-hidden",
+    "--group-trigger-button-outline-overlap",
+    "--group-trigger-button-outline-width",
+    "--group-trigger-button-padding-compact",
+    "--group-trigger-button-padding-icon",
+    "--group-trigger-button-padding-inline",
+    "--group-trigger-button-padding-regular",
+    "--group-trigger-button-padding-snug",
+    "--group-trigger-button-press-offset",
+    "--group-trigger-button-primary-fill-pressed",
+    "--group-trigger-button-radius-bold",
+    "--group-trigger-button-radius-current",
+    "--group-trigger-button-radius-strong",
+    "--group-trigger-button-shadow-overlay",
+    "--group-trigger-button-state-overlay-hover",
+    "--group-trigger-button-state-overlay-pressed",
+    "--group-trigger-button-state-overlay-spread",
+    "--group-trigger-button-tertiary-fill-hover",
+    "--group-trigger-button-tertiary-foreground-hover",
+    "--group-trigger-button-z-tooltip",
+    "--group-trigger-measurement-icon-dot",
+    "--group-trigger-measurement-icon-md",
+    "--group-trigger-measurement-icon-sm",
+    "--group-trigger-measurement-icon-tooltip-delay",
+    "--group-trigger-measurement-overlay-collision-padding",
+    "--group-trigger-measurement-overlay-offset",
+    "--group-trigger-measurement-submenu-offset",
+    "--group-trigger-overlay-appearance-overlay-surface",
+    "--group-trigger-overlay-border-width-hairline",
+    "--group-trigger-overlay-border-width-regular",
+    "--group-trigger-overlay-color-action-foreground",
+    "--group-trigger-overlay-color-border-default",
+    "--group-trigger-overlay-color-border-subtle",
+    "--group-trigger-overlay-color-content-primary",
+    "--group-trigger-overlay-color-content-secondary",
+    "--group-trigger-overlay-color-content-tertiary",
+    "--group-trigger-overlay-color-danger-foreground",
+    "--group-trigger-overlay-color-danger-soft",
+    "--group-trigger-overlay-color-surface-hover",
+    "--group-trigger-overlay-color-surface-surface",
+    "--group-trigger-overlay-color-surface-surface-raised",
+    "--group-trigger-overlay-ease-out",
+    "--group-trigger-overlay-elevation-none",
+    "--group-trigger-overlay-flex-fill",
+    "--group-trigger-overlay-flex-none",
+    "--group-trigger-overlay-font-family-code",
+    "--group-trigger-overlay-font-family-ui",
+    "--group-trigger-overlay-font-size-annotation-s",
+    "--group-trigger-overlay-font-size-body",
+    "--group-trigger-overlay-font-weight-semibold",
+    "--group-trigger-overlay-motion-fast",
+    "--group-trigger-overlay-number-0",
+    "--group-trigger-overlay-opacity-hidden",
+    "--group-trigger-overlay-opacity-strength-balanced",
+    "--group-trigger-overlay-opacity-strength-prominent",
+    "--group-trigger-overlay-opacity-visible",
+    "--group-trigger-overlay-radius-border-radius-bold",
+    "--group-trigger-overlay-radius-border-radius-strong",
+    "--group-trigger-overlay-ring-focus",
+    "--group-trigger-overlay-shadow-floating",
+    "--group-trigger-overlay-shadow-popover",
+    "--group-trigger-overlay-size-box-shadow-micro-compact",
+    "--group-trigger-overlay-size-height-micro-small",
+    "--group-trigger-overlay-size-max-width-100vw",
+    "--group-trigger-overlay-size-min-height-compact-content-small",
+    "--group-trigger-overlay-size-min-width-wide-panel-snug",
+    "--group-trigger-overlay-size-outline-offset-micro-compact",
+    "--group-trigger-overlay-size-padding-inline-end-compact-content-small",
+    "--group-trigger-overlay-size-transform-negative-3",
+    "--group-trigger-overlay-size-width-glyph-comfortable",
+    "--group-trigger-overlay-space-gap-compact",
+    "--group-trigger-overlay-space-inset-inline-end-regular",
+    "--group-trigger-overlay-space-margin-left-roomy",
+    "--group-trigger-overlay-space-margin-snug",
+    "--group-trigger-overlay-space-max-width-roomy",
+    "--group-trigger-overlay-space-padding-compact",
+    "--group-trigger-overlay-space-padding-regular",
+    "--group-trigger-overlay-space-padding-snug",
+    "--group-trigger-overlay-z-dropdown",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-flex-none",
+    "--group-trigger-surface-focus-inset-regular",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus",
+    "--severity-border",
+    "--severity-fg",
+    "--sparkline-color",
+    "--status-fg",
+    "--transform-origin"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-display-data-grid-cells-space-gap-compact",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-number-0",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-space-width-roomy",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-space-height-roomy",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-flex-none",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-color-surface-hover",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-color-content-secondary",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-size-gap-micro-compact",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-font-size-body",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-font-weight-medium",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-color-content-primary",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-font-size-label",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-font-family-code",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-space-gap-snug",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-size-max-width-panel-small",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-space-min-width-5",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-space-height-5",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-space-padding-snug",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-color-content-tertiary",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--sparkline-color",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-opacity-hidden",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-ease-out",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-motion-fast",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-opacity-visible",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-size-padding-micro-snug",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-space-padding-compact",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-border-width-hairline",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-color-ai-border",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-gradient-ai-soft",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-color-ai-foreground",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-gradient-ai-text",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-color-transparent",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-space-padding-left-snug",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-space-margin-left-snug",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-font-size-annotation-s",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-space-min-width-roomy",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-space-height-7",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-radius-border-radius-rounded",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-data-grid-cells-opacity-strength-medium",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-width-spacious",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-height-spacious",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-action-soft",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-action-foreground",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-border-width-hairline",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-action-border",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-radius-border-radius-full",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-font-size-label",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-font-weight-semibold",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-flex-none",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-width-roomy",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-height-roomy",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-font-size-annotation-xs",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-width-10",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-height-10",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-font-size-body",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-width-full",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-height-full",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-right-negative-1",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-bottom-negative-1",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-width-glyph-small",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-height-glyph-small",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-border-width-regular",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-surface-surface",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-content-tertiary",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-success-fill",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-caution-fill",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-danger-fill",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-padding-left-compact",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-margin-left-compact",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-number-0",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-box-shadow-micro-compact",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-surface-hover",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-content-secondary",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-border-subtle",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-relative-time-font-family-code",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-relative-time-font-size-label",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-relative-time-radius-border-radius-soft",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-feedback-overlay-z-tooltip",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-max-width-wide-panel-vast",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-compact",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-regular",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-border-width-hairline",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-border",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-radius-border-radius-bold",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-bg",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-fg",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-shadow-floating",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-family-ui",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-size-label",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-leading-body",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-ease-out",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-motion-fast",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--transform-origin",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-number-0",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-elevation-none",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-stroke-width-micro-small",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-max-width-canvas-tiny",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-comfortable",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-weight-semibold",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-margin-bottom-snug",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-family-code",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-size-annotation-s",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-weight-regular",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-secondary",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-opacity-hidden",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-scale-0-97",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-opacity-visible",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-scale-1",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-compact",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-min-height-compact-content-small",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-border-default",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-surface-surface",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-content-primary",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-size-body",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-surface-hover",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-border-width-regular",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-ring-focus",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-outline-offset-micro-compact",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-opacity-strength-balanced",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-16",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-16",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-20",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-columns-two",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-track-flex",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-24",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-tooltip-arrow-width",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-tooltip-arrow-height",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-angle-180deg",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-angle-90deg",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-data-display-tag-size-height-snug",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-gap-micro-roomy",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-badge-border-strength",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-border-width-hairline",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-surface-surface",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-tag-fg",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-radius-border-radius-soft",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-number-0",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-space-padding-compact",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-size-label",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-weight-medium",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-leading-heading-tight",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-content-primary",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-transparent",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-height-compact",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-large",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-size-annotation-s",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-text-underline-offset-micro-compact",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-weight-semibold",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-width-micro-roomy",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-height-micro-roomy",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-radius-border-radius-circle",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-flex-none",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-border-default",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-inline-start-micro-roomy",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-width-small",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-height-small",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-outline-offset-micro-small",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-snug",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--severity-border",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-radius-border-radius-full",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-comfortable",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--severity-fg",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-mix-8",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--status-fg",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-font-leading-solid",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-min-width-compact",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-size-padding-micro-roomy",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-surface-selected",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-content-secondary",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-viz-chart-flex-none",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-content-tertiary",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-body",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-surface-selected",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-soft",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-width-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-height-regular",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-height-wide-content-vast",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-strong",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-width-10",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-height-10",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-none",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-gap-roomy",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-padding-comfortable",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-height-vast",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-surface-surface",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-border-width-hairline",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-border-subtle",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-number-0",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-fill",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-grow-three",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-transform-negative-100percent",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-angle-90deg",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-mix-60",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-duration-1600ms",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-transform-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-button-z-tooltip",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-compact",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-bold",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-shadow-overlay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gap-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-inline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-current",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-leading-solid",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-weight-medium",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-motion-fast",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-bg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-on",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-icon",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-transparent",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-overlap",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-width",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-spread",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-press-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-disabled",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-hidden",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-snug",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-strong",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-rotation",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-text",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-z-dropdown",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-min-width-wide-panel-snug",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--available-height",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-max-width-100vw",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-max-width-roomy",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-padding-snug",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-border-width-hairline",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-border-subtle",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-radius-border-radius-strong",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-content-primary",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-shadow-floating",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-font-family-ui",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-font-size-body",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-ease-out",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-motion-fast",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--transform-origin",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-gap-compact",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-min-height-compact-content-small",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-padding-compact",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-padding-regular",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-surface-hover",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-number-0",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-ring-focus",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-box-shadow-micro-compact",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-content-tertiary",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-opacity-strength-prominent",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-flex-fill",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-flex-none",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-content-secondary",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-margin-left-roomy",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-font-family-code",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-font-size-annotation-s",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-danger-foreground",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-danger-soft",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-padding-inline-end-compact-content-small",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-inset-inline-end-regular",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-width-glyph-comfortable",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-action-foreground",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-font-weight-semibold",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-height-micro-small",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-margin-snug",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-opacity-hidden",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-transform-negative-3",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-opacity-visible",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-border-default",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-radius-border-radius-bold",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-surface-surface",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-border-width-regular",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-outline-offset-micro-compact",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-opacity-strength-balanced",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-appearance-overlay-surface",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-shadow-popover",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-feedback-overlay-appearance-overlay-surface",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-shadow-popover",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-overlay-elevation-none",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-viz-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-secondary",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-line-box-l",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-label",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-line-box-s",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-table-font-size-caption",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-table-font-line-box-xs",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-table-font-size-label",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-table-font-line-box-s",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-fill-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-foreground-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-action-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-primary-fill-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-ai-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-inset-regular",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-data-display-surface-radius-rounded",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-surface-canvas",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-surface-surface",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-radius-circle",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-radius-circle",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-radius-circle",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-flex-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-secondary",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-viz-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-flex-none",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-flex-none",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "SeverityBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "RelativeTime",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-viz-surface-number-0",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-data-display-measurement-icon-sm",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-measurement-icon-inline",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-measurement-icon-md",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-measurement-icon-xs",
+      "ownership": "owned",
+      "component": "Sparkline cell",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "Folder",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-feedback-measurement-tooltip-delay",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-overlay-offset",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-overlay-collision-padding",
+      "ownership": "nested",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-data-display-measurement-icon-xs",
+      "ownership": "nested",
+      "component": "Tag",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-function",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-ai",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-success",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-warning",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-destroy",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-width",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-height",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-min-width",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-min-height",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-inset",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-baseline-inset",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-bar-gap",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-bar-min-width",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-bg",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-pink-bg",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-blue-bg",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-purple-bg",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-bar-radius",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-area-opacity",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-dot-radius",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-stroke",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-display-tag-color-function-fg",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-status-review-fg",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-warning-fg",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-success-fg",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-content-secondary",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-tag-color-text-tertiary",
+      "ownership": "nested",
+      "component": "StatusBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-tooltip-delay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-pink-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-blue-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-purple-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-submenu-offset",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-collision-padding",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-sm",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-dot",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-offset",
+      "ownership": "nested",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

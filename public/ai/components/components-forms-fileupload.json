@@ -1,0 +1,1783 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-forms-fileupload",
+  "name": "FileUpload",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [
+    "attachment",
+    "dropzone",
+    "file picker"
+  ],
+  "purpose": "A file-selection and upload list with validation, progress, cancellation, and retry.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/file-upload"
+  ],
+  "links": {
+    "contract": "./components-forms-fileupload.json",
+    "overview": "../../?path=/docs/components-inputs-selection-fileupload-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-fileupload-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-fileupload-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-fileupload-overview--docs&docsTab=tokens"
+  },
+  "description": "Choose local files with type, size, count, and duplicate validation. No network request is made unless the application supplies onUpload. The adapter receives an AbortSignal and progress callback; cancellation and retry remain available. Files stay ready on the device in selection-only mode.",
+  "exports": [
+    "FileUpload"
+  ],
+  "importStatements": [
+    "import { FileUpload } from '@dimitriszoitas/aegis-ui/file-upload';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "FileUpload",
+      "name": "accept",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Native file accept syntax: extensions, MIME types, or type wildcards."
+    },
+    {
+      "component": "FileUpload",
+      "name": "defaultValue",
+      "type": "FileUploadItem[] | undefined",
+      "required": false,
+      "defaultValue": "[]"
+    },
+    {
+      "component": "FileUpload",
+      "name": "description",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Choose files or drop them here.\""
+    },
+    {
+      "component": "FileUpload",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "FileUpload",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "FileUpload",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Attachments\""
+    },
+    {
+      "component": "FileUpload",
+      "name": "maxFiles",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "5"
+    },
+    {
+      "component": "FileUpload",
+      "name": "maxSizeBytes",
+      "type": "number | undefined",
+      "required": false
+    },
+    {
+      "component": "FileUpload",
+      "name": "multiple",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "true"
+    },
+    {
+      "component": "FileUpload",
+      "name": "onUpload",
+      "type": "((file: File, context: FileUploadContext) => Promise<void>) | undefined",
+      "required": false,
+      "description": "Supply your transport. Without one, accepted files remain ready on this device."
+    },
+    {
+      "component": "FileUpload",
+      "name": "onValueChange",
+      "type": "((items: FileUploadItem[]) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "FileUpload",
+      "name": "value",
+      "type": "FileUploadItem[] | undefined",
+      "required": false
+    }
+  ],
+  "variants": [],
+  "composition": [
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon-button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/progress-bar",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A file-selection and upload list with validation, progress, cancellation, and retry.",
+    "usage": [
+      "Configure accept, maxSizeBytes, and maxFiles for the actual endpoint. Selection validates file type, size, duplicates, and count.",
+      "Without onUpload, files are selected locally and remain ready. Provide onUpload to perform transfer and honor its AbortSignal.",
+      "Report real progress through onProgress. Removing a file or unmounting aborts its pending transfer."
+    ],
+    "accessibility": [
+      "A native file input and a keyboard-operable choose button provide an alternative to drag and drop.",
+      "Upload status and progress are announced; failed uploads can be retried, and removal returns focus to the choose control."
+    ],
+    "context": [
+      "Use for attachments and imports. The host still owns server validation, storage, and completion policy."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "alert",
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-describedby",
+      "aria-hidden",
+      "aria-invalid",
+      "aria-label",
+      "aria-labelledby",
+      "aria-live"
+    ],
+    "nativeElements": [
+      "div",
+      "h3",
+      "input",
+      "li",
+      "p",
+      "section",
+      "small",
+      "span",
+      "strong",
+      "ul"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/tooltip",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/button/button.css",
+    "src/components/button/button.tsx",
+    "src/components/button/index.ts",
+    "src/components/file-upload/file-upload.css",
+    "src/components/file-upload/file-upload.stories.tsx",
+    "src/components/file-upload/file-upload.tsx",
+    "src/components/icon-button/icon-button.css",
+    "src/components/icon-button/icon-button.tsx",
+    "src/components/icon-button/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/progress-bar/index.ts",
+    "src/components/progress-bar/progress-bar.css",
+    "src/components/progress-bar/progress-bar.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-fileupload--local-selection",
+      "name": "Local Selection",
+      "url": "../../?path=/story/components-forms-fileupload--local-selection",
+      "sourceFile": "src/components/file-upload/file-upload.stories.tsx"
+    },
+    {
+      "id": "components-forms-fileupload--validation",
+      "name": "Validation",
+      "url": "../../?path=/story/components-forms-fileupload--validation",
+      "sourceFile": "src/components/file-upload/file-upload.stories.tsx"
+    },
+    {
+      "id": "components-forms-fileupload--async-adapter",
+      "name": "Async Adapter",
+      "url": "../../?path=/story/components-forms-fileupload--async-adapter",
+      "sourceFile": "src/components/file-upload/file-upload.stories.tsx"
+    },
+    {
+      "id": "components-forms-fileupload--retry-and-cancel",
+      "name": "Retry And Cancel",
+      "url": "../../?path=/story/components-forms-fileupload--retry-and-cancel",
+      "sourceFile": "src/components/file-upload/file-upload.stories.tsx"
+    },
+    {
+      "id": "components-forms-fileupload--disabled",
+      "name": "Disabled",
+      "url": "../../?path=/story/components-forms-fileupload--disabled",
+      "sourceFile": "src/components/file-upload/file-upload.stories.tsx"
+    },
+    {
+      "id": "components-forms-fileupload--single-file",
+      "name": "Single File",
+      "url": "../../?path=/story/components-forms-fileupload--single-file",
+      "sourceFile": "src/components/file-upload/file-upload.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-feedback-measurement-progress-indeterminate-width",
+    "--group-feedback-progress-bar-color-content-secondary",
+    "--group-feedback-progress-bar-color-surface-selected",
+    "--group-feedback-progress-bar-duration-1600ms",
+    "--group-feedback-progress-bar-ease-out",
+    "--group-feedback-progress-bar-flex-fill",
+    "--group-feedback-progress-bar-font-size-body",
+    "--group-feedback-progress-bar-gradient-ai",
+    "--group-feedback-progress-bar-motion-base",
+    "--group-feedback-progress-bar-progress-color",
+    "--group-feedback-progress-bar-radius-border-radius-full",
+    "--group-feedback-progress-bar-size-height-full",
+    "--group-feedback-progress-bar-size-min-width-large",
+    "--group-feedback-progress-bar-size-min-width-wide-content-vast",
+    "--group-feedback-progress-bar-size-transform-390percent",
+    "--group-feedback-progress-bar-size-transform-90percent",
+    "--group-feedback-progress-bar-size-transform-negative-100percent",
+    "--group-feedback-progress-bar-size-width-full",
+    "--group-feedback-progress-bar-space-gap-comfortable",
+    "--group-feedback-progress-bar-space-height-compact",
+    "--group-feedback-progress-bar-space-height-snug",
+    "--group-feedback-progress-bar-space-margin-bottom-compact",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-code",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-input-file-upload-border-width-hairline",
+    "--group-input-file-upload-border-width-regular",
+    "--group-input-file-upload-color-action-foreground",
+    "--group-input-file-upload-color-action-soft",
+    "--group-input-file-upload-color-border-default",
+    "--group-input-file-upload-color-border-subtle",
+    "--group-input-file-upload-color-content-secondary",
+    "--group-input-file-upload-color-danger-foreground",
+    "--group-input-file-upload-color-success-foreground",
+    "--group-input-file-upload-color-surface-canvas",
+    "--group-input-file-upload-color-surface-surface",
+    "--group-input-file-upload-flex-fill",
+    "--group-input-file-upload-font-family-code",
+    "--group-input-file-upload-font-size-body",
+    "--group-input-file-upload-font-size-label",
+    "--group-input-file-upload-font-weight-medium",
+    "--group-input-file-upload-font-weight-semibold",
+    "--group-input-file-upload-motion-fast",
+    "--group-input-file-upload-number-0",
+    "--group-input-file-upload-radius-border-radius-bold",
+    "--group-input-file-upload-radius-border-radius-strong",
+    "--group-input-file-upload-size-height-large",
+    "--group-input-file-upload-size-min-width-panel-huge",
+    "--group-input-file-upload-size-outline-offset-micro-compact",
+    "--group-input-file-upload-size-width-large",
+    "--group-input-file-upload-space-gap-comfortable",
+    "--group-input-file-upload-space-gap-compact",
+    "--group-input-file-upload-space-gap-regular",
+    "--group-input-file-upload-space-gap-snug",
+    "--group-input-file-upload-space-margin-snug",
+    "--group-input-file-upload-space-padding-5",
+    "--group-input-file-upload-space-padding-left-5",
+    "--group-input-file-upload-space-padding-regular",
+    "--group-input-measurement-icon-brand",
+    "--group-input-measurement-icon-inline",
+    "--group-input-measurement-icon-lg",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-leading-compact",
+    "--group-input-surface-font-leading-relaxed",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-input-surface-stack-gap-compact",
+    "--group-input-surface-stack-gap-regular",
+    "--group-input-surface-title-weight",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus",
+    "--group-trigger-button-appearance-action-hover",
+    "--group-trigger-button-appearance-ai-hover",
+    "--group-trigger-button-border-width-hairline",
+    "--group-trigger-button-color-ai-blue-fg",
+    "--group-trigger-button-color-ai-fg",
+    "--group-trigger-button-color-ai-pink-fg",
+    "--group-trigger-button-color-ai-purple-fg",
+    "--group-trigger-button-color-border-default",
+    "--group-trigger-button-color-content-primary",
+    "--group-trigger-button-color-surface-surface",
+    "--group-trigger-button-color-surface-surface-raised",
+    "--group-trigger-button-color-transparent",
+    "--group-trigger-button-elevation-none",
+    "--group-trigger-button-font-leading-solid",
+    "--group-trigger-button-font-size-body",
+    "--group-trigger-button-font-size-label",
+    "--group-trigger-button-font-weight-medium",
+    "--group-trigger-button-gap-compact",
+    "--group-trigger-button-gradient-ai",
+    "--group-trigger-button-gradient-ai-border",
+    "--group-trigger-button-gradient-ai-soft",
+    "--group-trigger-button-gradient-ai-text",
+    "--group-trigger-button-height-compact",
+    "--group-trigger-button-height-large",
+    "--group-trigger-button-height-regular",
+    "--group-trigger-button-icon-size-compact",
+    "--group-trigger-button-icon-size-large",
+    "--group-trigger-button-icon-size-regular",
+    "--group-trigger-button-intent-bg",
+    "--group-trigger-button-intent-border",
+    "--group-trigger-button-intent-fg",
+    "--group-trigger-button-intent-on",
+    "--group-trigger-button-intent-soft",
+    "--group-trigger-button-loading-duration",
+    "--group-trigger-button-loading-rotation",
+    "--group-trigger-button-motion-fast",
+    "--group-trigger-button-number-0",
+    "--group-trigger-button-opacity-disabled",
+    "--group-trigger-button-opacity-hidden",
+    "--group-trigger-button-outline-overlap",
+    "--group-trigger-button-outline-width",
+    "--group-trigger-button-padding-compact",
+    "--group-trigger-button-padding-icon",
+    "--group-trigger-button-padding-inline",
+    "--group-trigger-button-padding-regular",
+    "--group-trigger-button-padding-snug",
+    "--group-trigger-button-press-offset",
+    "--group-trigger-button-primary-fill-pressed",
+    "--group-trigger-button-radius-bold",
+    "--group-trigger-button-radius-current",
+    "--group-trigger-button-radius-strong",
+    "--group-trigger-button-shadow-overlay",
+    "--group-trigger-button-state-overlay-hover",
+    "--group-trigger-button-state-overlay-pressed",
+    "--group-trigger-button-state-overlay-spread",
+    "--group-trigger-button-tertiary-fill-hover",
+    "--group-trigger-button-tertiary-foreground-hover",
+    "--group-trigger-button-z-tooltip",
+    "--group-trigger-measurement-icon-md",
+    "--group-trigger-measurement-icon-tooltip-delay",
+    "--group-trigger-measurement-overlay-offset",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-flex-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-space-gap-regular",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-number-0",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-font-size-body",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-font-weight-semibold",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-font-family-code",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-font-size-label",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-color-content-secondary",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-space-gap-comfortable",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-space-padding-5",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-border-width-hairline",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-color-border-default",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-color-surface-surface",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-motion-fast",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-color-action-foreground",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-color-action-soft",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-border-width-regular",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-size-width-large",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-size-height-large",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-color-border-subtle",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-flex-fill",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-size-min-width-panel-huge",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-space-margin-snug",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-color-danger-foreground",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-space-gap-compact",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-space-padding-regular",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-color-success-foreground",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-space-gap-snug",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-font-weight-medium",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-color-surface-canvas",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-file-upload-space-padding-left-5",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-trigger-button-gap-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-inline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-current",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-leading-solid",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-weight-medium",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-motion-fast",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-bg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-on",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-icon",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-transparent",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-overlap",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-width",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-spread",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-press-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-disabled",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-hidden",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-snug",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-strong",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-rotation",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-text",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-feedback-progress-bar-size-min-width-wide-content-vast",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-size-width-full",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-space-gap-comfortable",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-font-size-body",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-color-content-secondary",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-space-margin-bottom-compact",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-space-height-compact",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-color-surface-selected",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-radius-border-radius-full",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-space-height-snug",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-size-height-full",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-progress-color",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-ease-out",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-motion-base",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-gradient-ai",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-duration-1600ms",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-size-transform-negative-100percent",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-size-transform-390percent",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-size-transform-90percent",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-flex-fill",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-progress-bar-size-min-width-large",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-button-z-tooltip",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-compact",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-bold",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-shadow-overlay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-fill-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-foreground-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-action-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-primary-fill-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-ai-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-flex-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-title-weight",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-leading-compact",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-stack-gap-compact",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-code",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-measurement-icon-brand",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-icon-lg",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-icon-inline",
+      "ownership": "owned",
+      "component": "FileUpload",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "ArrowUp",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-pink-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-blue-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-purple-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-feedback-measurement-progress-indeterminate-width",
+      "ownership": "nested",
+      "component": "ProgressBar",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-tooltip-delay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

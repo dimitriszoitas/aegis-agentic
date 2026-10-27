@@ -1,0 +1,1020 @@
+@import './tokens.css';
+@import './fonts.css';
+:root:has(.aegis-marketing),
+body:has(.aegis-marketing) {
+  background: var(--marketing-bg);
+}
+.app-loading {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  color: var(--color-text-secondary);
+}
+.aegis-marketing {
+  font-family: var(--font-marketing);
+  font-size: 16px;
+  line-height: 1.5;
+  background: var(--marketing-bg);
+  color: var(--marketing-text);
+  min-height: 100dvh;
+  overflow: clip;
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+.marketing-showcase-preview,
+.marketing-specimen-art {
+  font-family: var(--font-ui);
+}
+.aegis-marketing a {
+  color: inherit;
+  text-decoration: none;
+}
+.aegis-marketing a,
+.aegis-marketing button {
+  -webkit-tap-highlight-color: transparent;
+}
+.aegis-marketing :focus-visible {
+  outline: 2px solid var(--marketing-accent);
+  outline-offset: 4px;
+}
+.aegis-marketing section[id],
+.aegis-marketing h2[id] {
+  scroll-margin-top: 88px;
+}
+.marketing-container {
+  width: min(1280px, calc(100% - 64px));
+  margin-inline: auto;
+}
+.marketing-skip {
+  position: fixed;
+  top: -80px;
+  left: 20px;
+  z-index: 100;
+  background: var(--marketing-accent);
+  color: var(--marketing-accent-ink) !important;
+  padding: 12px 20px;
+  border-radius: 8px;
+}
+.marketing-skip:focus {
+  top: 12px;
+}
+.marketing-header {
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: color-mix(in srgb, var(--marketing-bg) 96%, transparent);
+  border-bottom: 1px solid var(--marketing-line);
+  backdrop-filter: blur(18px);
+  color: var(--marketing-text);
+}
+.marketing-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: 100%;
+}
+.marketing-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 24px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+.marketing-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: var(--marketing-accent);
+  background: var(--marketing-raised);
+  border: 1px solid var(--marketing-line);
+  box-shadow:
+    inset 0 1px 1px color-mix(in srgb, var(--marketing-text) 12%, transparent),
+    0 1px 2px var(--marketing-bg);
+}
+.marketing-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.marketing-nav-links > a,
+.marketing-explore-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  font: 600 14px var(--font-marketing);
+  color: var(--marketing-muted);
+}
+.marketing-nav-links > a:hover,
+.marketing-nav-links > a[aria-current='page'],
+.marketing-explore-trigger:hover {
+  color: var(--marketing-text);
+}
+.marketing-nav-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.marketing-nav-docs,
+.marketing-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 7px;
+}
+.marketing-nav-docs:hover {
+  background: var(--marketing-raised);
+}
+.aegis-marketing .marketing-nav-cta {
+  background: var(--marketing-accent);
+  color: var(--marketing-accent-ink);
+  border-color: var(--marketing-accent);
+  box-shadow: inset 0 1px 1px color-mix(in srgb, var(--marketing-text) 25%, transparent);
+}
+.aegis-marketing .marketing-nav-cta:hover {
+  background: var(--marketing-accent-bright);
+}
+.marketing-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 7px;
+}
+.marketing-explore {
+  position: relative;
+}
+.marketing-explore-trigger {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.marketing-explore-trigger svg {
+  transition: transform 150ms;
+}
+.marketing-explore-trigger[aria-expanded='true'] svg {
+  transform: rotate(180deg);
+}
+.marketing-explore-panel {
+  position: absolute;
+  top: 48px;
+  left: -16px;
+  width: 400px;
+  padding: 8px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 12px;
+  background: var(--marketing-surface);
+  box-shadow: 0 20px 40px -10px var(--marketing-bg);
+}
+.marketing-explore-panel[hidden] {
+  display: none;
+}
+.marketing-explore-panel a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 14px;
+  border-radius: 8px;
+}
+.marketing-explore-panel a:hover {
+  background: var(--marketing-raised);
+}
+.marketing-explore-panel a > svg:first-child {
+  color: var(--marketing-accent);
+  flex: 0 0 auto;
+}
+.marketing-explore-panel a > svg:last-child {
+  margin-left: auto;
+  flex: 0 0 auto;
+  color: var(--marketing-muted);
+}
+.marketing-explore-panel strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+.marketing-explore-panel small {
+  display: block;
+  color: var(--marketing-muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+.marketing-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 17px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    background 150ms,
+    box-shadow 150ms;
+}
+.aegis-marketing .marketing-link-primary {
+  background: var(--marketing-accent);
+  color: var(--marketing-accent-ink);
+  border-color: var(--marketing-accent);
+  box-shadow: inset 0 1px 1px color-mix(in srgb, var(--marketing-text) 25%, transparent);
+}
+.aegis-marketing .marketing-link-primary:hover {
+  background: var(--marketing-accent-bright);
+}
+.marketing-link-secondary {
+  background: var(--marketing-surface);
+}
+.marketing-link-secondary:hover {
+  background: var(--marketing-raised);
+}
+.marketing-overview {
+  padding-block: 88px;
+}
+.marketing-overview-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 64px;
+}
+.marketing-overview-heading h2,
+.marketing-section-heading h2,
+.marketing-collection-heading h2,
+.marketing-source h2 {
+  font-size: clamp(28px, 2.55vw, 36px);
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+.marketing-overview-heading > p {
+  max-width: 530px;
+  color: var(--marketing-muted);
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
+.marketing-system-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 36px;
+  margin: 56px 0 0;
+}
+.marketing-system-facts > div {
+  display: flex;
+  flex-direction: column;
+}
+.marketing-system-facts dt {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+.marketing-system-facts dd {
+  margin: 0;
+}
+.marketing-system-facts dd:not(.marketing-fact-description) {
+  order: -1;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  color: var(--marketing-accent);
+}
+.marketing-system-facts .marketing-fact-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--marketing-muted);
+  margin-top: 8px;
+}
+.marketing-collection {
+  padding-block: 88px;
+  border-top: 1px solid var(--marketing-line);
+}
+.marketing-section-label {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--marketing-accent);
+  margin: 0 0 12px;
+}
+.marketing-collection-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+.marketing-collection-heading > div {
+  max-width: 770px;
+}
+.marketing-heading-description {
+  max-width: 720px;
+  color: var(--marketing-muted);
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 18px 0 0;
+}
+.marketing-collection-heading > .marketing-heading-description {
+  max-width: 400px;
+  margin: 0;
+}
+.marketing-underlined-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  padding-block: 8px;
+  flex-shrink: 0;
+}
+.marketing-underlined-link:hover {
+  color: var(--marketing-accent);
+}
+.marketing-specimens {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.marketing-specimen {
+  min-width: 0;
+  display: block;
+  border: 1px solid var(--marketing-line);
+  border-radius: 12px;
+  padding: 7px;
+  background: var(--marketing-bg);
+  transition:
+    border-color 200ms,
+    box-shadow 200ms;
+}
+.marketing-specimen:hover {
+  border-color: var(--marketing-subtle);
+  box-shadow: 0 10px 28px -14px var(--marketing-bg);
+}
+.marketing-specimen-art {
+  height: 242px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent,
+      transparent 3px,
+      color-mix(in srgb, var(--marketing-text) 2%, transparent) 3px,
+      color-mix(in srgb, var(--marketing-text) 2%, transparent) 4px
+    ),
+    var(--marketing-surface);
+  padding: 26px 18px;
+}
+.marketing-specimen-inner {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 8px;
+  background: var(--color-bg-surface);
+  box-shadow: 0 12px 24px -10px color-mix(in srgb, var(--marketing-bg) 85%, transparent);
+  transition: transform 250ms ease;
+}
+.marketing-specimen:hover .marketing-specimen-inner,
+.marketing-specimen:focus-visible .marketing-specimen-inner {
+  transform: translateY(-4px) scale(1.02);
+}
+.marketing-specimen-caption {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 7px 12px;
+  padding: 24px 18px;
+}
+.marketing-specimen-caption > span {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.marketing-specimen-caption > svg {
+  margin-top: 5px;
+  color: var(--marketing-muted);
+}
+.marketing-specimen-caption p {
+  grid-column: 1/-1;
+  margin: 0;
+  color: var(--marketing-muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.marketing-specimen-field > span {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  display: block;
+  margin-bottom: 8px;
+}
+.marketing-specimen-field > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
+  border: 1px solid var(--color-border-default);
+  border-radius: 5px;
+  padding: 12px 10px;
+  font-size: 12px;
+  color: var(--color-text-primary);
+}
+.marketing-specimen-field .aegis-kbd {
+  margin-left: auto;
+  font-size: 9px;
+}
+.marketing-specimen-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+.marketing-specimen-inline {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  margin-top: 22px;
+}
+.marketing-specimen-inline i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-success-fg);
+}
+.marketing-specimen-inline > span:last-child {
+  margin-left: auto;
+}
+.marketing-specimen-metric > span {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+.marketing-specimen-metric > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 10px;
+  margin-bottom: 22px;
+}
+.marketing-specimen-metric strong {
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+.marketing-specimen-metric svg {
+  min-width: 0;
+  max-width: 45%;
+}
+.marketing-specimen-badges,
+.marketing-specimen-status {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.marketing-specimen-badges .severity-badge,
+.marketing-specimen-status .status-badge {
+  font-size: 11px;
+  min-height: 24px;
+}
+.marketing-specimen-status {
+  margin-top: 9px;
+}
+.marketing-specimen-code .marketing-specimen-inner {
+  padding: 0;
+}
+.marketing-specimen-code-tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--marketing-line);
+  font: 10px/1.5 var(--font-mono);
+  color: var(--marketing-muted);
+}
+.marketing-specimen-code-tab > span:first-child {
+  color: var(--marketing-text);
+}
+.marketing-specimen-code-lines {
+  padding-block: 21px;
+}
+.marketing-specimen-code-lines p {
+  display: flex;
+  gap: 20px;
+  white-space: pre;
+  margin: 0;
+  padding: 6px 20px;
+  font: 11px/1.5 var(--font-mono);
+}
+.marketing-specimen-code-lines i {
+  font-style: normal;
+  min-width: 14px;
+  color: var(--marketing-subtle);
+}
+.marketing-specimen-code-lines .marketing-line-remove {
+  background: color-mix(in srgb, var(--red-400) 12%, transparent);
+  color: var(--red-200);
+}
+.marketing-specimen-code-lines .marketing-line-add {
+  background: color-mix(in srgb, var(--marketing-accent) 10%, transparent);
+  color: var(--marketing-accent);
+}
+
+.marketing-collection-tail {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.marketing-collection-tail p {
+  margin: 0;
+  color: var(--marketing-muted);
+  font-size: 14px;
+}
+.marketing-collection-tail a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.marketing-system-section {
+  padding-block: 88px 72px;
+  border-block: 1px solid var(--marketing-line);
+  background: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 3px,
+    color-mix(in srgb, var(--marketing-text) 1.5%, transparent) 3px,
+    color-mix(in srgb, var(--marketing-text) 1.5%, transparent) 4px
+  );
+}
+.marketing-section-heading {
+  text-align: center;
+}
+.marketing-feature-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 28px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 14px;
+  color: var(--marketing-accent);
+  background: var(--marketing-surface);
+  box-shadow:
+    inset 0 1px 1px color-mix(in srgb, var(--marketing-text) 12%, transparent),
+    0 2px 2px var(--marketing-bg);
+}
+.marketing-section-heading > p:last-child {
+  max-width: 740px;
+  margin: 20px auto 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--marketing-muted);
+}
+.marketing-system-section > .component-canvas {
+  margin-top: 44px;
+}
+.marketing-section-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.marketing-workflows {
+  padding-block: 88px;
+}
+.marketing-workflows .marketing-workflow-stage {
+  border-radius: 12px;
+}
+.marketing-footer {
+  padding: 64px 0 24px;
+  border-top: 1px solid var(--marketing-line);
+}
+.marketing-footer-top {
+  display: flex;
+  gap: 100px;
+  justify-content: space-between;
+}
+.marketing-footer-brand {
+  max-width: 340px;
+}
+.marketing-footer-brand > p {
+  color: var(--marketing-muted);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 20px 0 0;
+}
+.marketing-footer nav {
+  display: flex;
+  gap: 100px;
+}
+.marketing-footer nav > div {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.marketing-footer nav > div > span {
+  font-size: 14px;
+  color: var(--marketing-muted);
+}
+.marketing-footer nav a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.marketing-footer nav a:hover {
+  color: var(--marketing-accent);
+}
+.marketing-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 54px;
+  padding-top: 28px;
+  border-top: 1px solid var(--marketing-line);
+  font-size: 13px;
+  color: var(--marketing-muted);
+}
+.marketing-source {
+  border-block: 1px solid var(--marketing-line);
+  background: var(--marketing-bg);
+  color: var(--marketing-text);
+  padding-block: 88px;
+}
+.marketing-source-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
+}
+.marketing-source .marketing-section-label {
+  color: var(--marketing-accent);
+}
+.marketing-source h2 {
+  font-size: 36px;
+}
+.marketing-source-grid > div > p:not(.marketing-section-label) {
+  max-width: 440px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--marketing-muted);
+  margin: 22px 0;
+}
+.marketing-source-panel {
+  border: 1px solid var(--marketing-line);
+  border-radius: 12px;
+  background: var(--marketing-surface);
+  overflow: hidden;
+  min-width: 0;
+}
+.marketing-source-panel-heading,
+.marketing-source-panel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 18px 20px;
+  color: var(--marketing-muted);
+  font-size: 13px;
+}
+.marketing-source-panel-heading {
+  border-bottom: 1px solid var(--marketing-line);
+}
+.marketing-source-panel-heading > span:last-child {
+  font: 10px var(--font-mono);
+}
+.marketing-source-panel pre {
+  margin: 0;
+  padding: 28px 20px;
+  font-size: 13px;
+  line-height: 1.85;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.marketing-code-muted {
+  color: var(--marketing-accent);
+}
+.marketing-source-panel-footer {
+  border-top: 1px solid var(--marketing-line);
+}
+.marketing-source-panel-footer button {
+  background: transparent;
+  color: var(--marketing-text);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  padding: 5px;
+  border: 0;
+  border-radius: 3px;
+}
+.marketing-copy-error {
+  font-size: 15px;
+  padding: 0 20px;
+  color: var(--marketing-muted);
+}
+.marketing-faq {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  padding-block: 74px;
+}
+.marketing-home .marketing-faq h2 {
+  font-size: 32px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  margin: 0;
+}
+.marketing-faq details {
+  border-bottom: 1px solid var(--marketing-paper-line);
+  padding: 19px 0;
+}
+.marketing-faq details:first-child {
+  padding-top: 0;
+}
+.marketing-faq summary {
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.marketing-faq summary::-webkit-details-marker {
+  display: none;
+}
+.marketing-faq summary::after {
+  content: '+';
+  font: 18px/1 var(--font-mono);
+  font-weight: 400;
+}
+.marketing-faq details[open] summary::after {
+  content: '−';
+}
+.marketing-faq details p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--marketing-paper-muted);
+  margin: 16px 0 0;
+}
+
+@media (max-width: 1100px) {
+  .marketing-nav {
+    gap: 24px;
+  }
+  .marketing-nav-links {
+    gap: 18px;
+  }
+  .marketing-nav-docs {
+    display: none;
+  }
+  .marketing-specimens {
+    gap: 18px;
+  }
+  .marketing-specimen-art {
+    padding: 20px 12px;
+  }
+  .marketing-specimen-inner {
+    padding: 14px;
+  }
+  .marketing-specimen-field .aegis-kbd {
+    display: none;
+  }
+  .marketing-specimen-field > div {
+    white-space: normal;
+  }
+  .marketing-specimen-buttons {
+    flex-wrap: wrap;
+  }
+  .marketing-source-grid {
+    gap: 40px;
+  }
+  .marketing-overview-heading {
+    gap: 40px;
+  }
+  .marketing-overview-heading > p {
+    max-width: 440px;
+  }
+  .marketing-system-facts {
+    gap: 24px;
+  }
+}
+@media (max-width: 760px) {
+  .marketing-container {
+    width: calc(100% - 40px);
+  }
+  .marketing-header {
+    height: 64px;
+  }
+  .marketing-nav {
+    gap: 14px;
+  }
+  .marketing-brand {
+    font-size: 23px;
+  }
+  .marketing-nav-cta {
+    min-height: 36px;
+    font-size: 12px;
+    padding-inline: 12px;
+  }
+  .marketing-menu-toggle {
+    display: flex;
+  }
+  .marketing-nav-links {
+    display: none;
+    position: absolute;
+    top: 63px;
+    left: 0;
+    width: 100%;
+    max-height: calc(100svh - 64px);
+    overflow-y: auto;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--marketing-line);
+    background: var(--marketing-bg);
+    gap: 6px;
+  }
+  .marketing-nav-links[data-open='true'] {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .marketing-nav-links > a,
+  .marketing-explore-trigger {
+    padding: 9px 0;
+    font-size: 16px;
+    min-height: 44px;
+  }
+  .marketing-explore-trigger {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .marketing-explore-panel {
+    position: static;
+    width: 100%;
+    padding: 4px;
+    box-shadow: none;
+  }
+  .marketing-explore-panel a {
+    padding: 14px 8px;
+    gap: 10px;
+  }
+  .marketing-link-button {
+    min-height: 42px;
+    font-size: 13px;
+    padding-inline: 14px;
+  }
+  .marketing-overview,
+  .marketing-collection,
+  .marketing-workflows {
+    padding-block: 64px;
+  }
+  .marketing-overview-heading {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .marketing-overview-heading > p {
+    font-size: 16px;
+  }
+  .marketing-system-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 20px;
+    margin-top: 36px;
+  }
+  .marketing-system-facts dd:not(.marketing-fact-description) {
+    font-size: 40px;
+  }
+  .marketing-system-facts dt {
+    font-size: 15px;
+  }
+  .marketing-system-facts .marketing-fact-description {
+    font-size: 14px;
+  }
+  .marketing-collection-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+  .marketing-heading-description,
+  .marketing-section-heading > p:last-child {
+    font-size: 16px;
+  }
+  .marketing-specimens {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .marketing-specimen-art {
+    height: 270px;
+    padding-inline: 26px;
+  }
+  .marketing-specimen-inner {
+    padding: 22px;
+  }
+  .marketing-specimen-field .aegis-kbd {
+    display: inline-flex;
+  }
+  .marketing-specimen-caption {
+    padding: 22px 16px;
+  }
+  .marketing-collection-tail {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .marketing-system-section {
+    padding-block: 64px 48px;
+  }
+  .marketing-section-actions {
+    padding-inline: 16px;
+  }
+  .marketing-source {
+    padding-block: 64px;
+  }
+  .marketing-source-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .marketing-source h2 {
+    font-size: 30px;
+  }
+  .marketing-faq {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-block: 64px;
+  }
+  .marketing-footer-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .marketing-footer nav {
+    gap: 80px;
+  }
+  .marketing-footer-bottom {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .marketing-footer-bottom > span:nth-child(2) {
+    display: none;
+  }
+}
+@media (max-width: 390px) {
+  .marketing-container {
+    width: calc(100% - 32px);
+  }
+  .marketing-nav {
+    gap: 10px;
+  }
+  .marketing-nav-cta {
+    font-size: 11px;
+  }
+  .marketing-specimen-field .aegis-kbd {
+    display: none;
+  }
+  .marketing-specimen-art {
+    padding-inline: 18px;
+  }
+  .marketing-specimen-inner {
+    padding-inline: 16px;
+  }
+  .marketing-footer nav {
+    gap: 60px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marketing-specimen,
+  .marketing-specimen-inner,
+  .marketing-link-button,
+  .marketing-explore-trigger svg {
+    transition: none;
+  }
+  .marketing-specimen:hover .marketing-specimen-inner,
+  .marketing-specimen:focus-visible .marketing-specimen-inner {
+    transform: none;
+  }
+}

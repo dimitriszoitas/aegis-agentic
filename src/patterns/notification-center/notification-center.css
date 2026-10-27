@@ -1,0 +1,124 @@
+.aegis-notification-center-count {
+  position: absolute;
+  top: var(--group-communication-notification-center-number-0);
+  right: var(--group-communication-notification-center-number-0);
+  transform: translate(
+    var(--group-communication-notification-center-size-transform-25percent),
+    var(--group-communication-notification-center-size-transform-negative-25percent)
+  );
+  pointer-events: none;
+}
+.aegis-notification-center-body {
+  display: grid;
+  gap: var(--group-communication-notification-center-space-gap-regular);
+  min-width: var(--group-communication-notification-center-number-0);
+}
+.aegis-notification-center-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-communication-notification-center-space-gap-compact);
+  color: var(--group-communication-notification-center-color-content-secondary);
+  font-size: var(--group-communication-notification-center-font-size-label);
+}
+.aegis-notification-center-list {
+  margin: var(--group-communication-notification-center-number-0);
+  padding: var(--group-communication-notification-center-number-0);
+  list-style: none;
+}
+.aegis-notification-center-list > li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--group-communication-notification-center-space-gap-regular);
+  padding: var(--group-communication-notification-center-space-padding-comfortable)
+    var(--group-communication-notification-center-number-0);
+  border-bottom: var(--group-communication-notification-center-border-width-hairline) solid
+    var(--group-communication-notification-center-color-border-subtle);
+}
+.aegis-notification-center-list > li:last-child {
+  border-bottom: var(--group-communication-notification-center-number-0);
+}
+.aegis-notification-center-icon {
+  display: flex;
+  flex: none;
+  color: var(--group-communication-notification-center-color-info-foreground);
+  padding-top: var(--group-communication-notification-center-space-padding-top-snug);
+}
+.aegis-notification-center-list > li[data-intent='success'] .aegis-notification-center-icon {
+  color: var(--group-communication-notification-center-color-success-foreground);
+}
+.aegis-notification-center-list > li[data-intent='warning'] .aegis-notification-center-icon {
+  color: var(--group-communication-notification-center-color-caution-foreground);
+}
+.aegis-notification-center-list > li[data-intent='destroy'] .aegis-notification-center-icon {
+  color: var(--group-communication-notification-center-color-danger-foreground);
+}
+.aegis-notification-center-list > li[data-intent='ai'] .aegis-notification-center-icon {
+  color: var(--group-communication-notification-center-color-ai-foreground);
+}
+.aegis-notification-center-copy {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex: var(--group-communication-notification-center-flex-fill);
+  min-width: var(--group-communication-notification-center-number-0);
+  gap: var(--group-communication-notification-center-space-gap-snug);
+}
+.aegis-notification-center-title,
+.aegis-notification-center-copy > strong {
+  color: var(--group-communication-notification-center-color-content-primary);
+  font-size: var(--group-communication-notification-center-font-size-body);
+  font-weight: var(--group-communication-notification-center-font-weight-medium);
+  line-height: var(--group-communication-notification-center-font-leading-body);
+  overflow-wrap: anywhere;
+}
+.aegis-notification-center-title {
+  border: var(--group-communication-notification-center-number-0);
+  background: var(--group-communication-notification-center-elevation-none);
+  padding: var(--group-communication-notification-center-number-0);
+  text-align: left;
+  cursor: pointer;
+}
+.aegis-notification-center-title:hover {
+  color: var(--group-communication-notification-center-color-action-foreground);
+}
+.aegis-notification-center-title:focus-visible {
+  outline: var(--group-communication-notification-center-border-width-regular) solid
+    var(--group-communication-notification-center-color-action-foreground);
+  outline-offset: var(--group-communication-notification-center-size-outline-offset-micro-snug);
+  border-radius: var(--group-communication-notification-center-radius-border-radius-soft);
+}
+.aegis-notification-center-title:disabled {
+  cursor: wait;
+}
+.aegis-notification-center-list
+  > li[data-unread='true']
+  .aegis-notification-center-copy
+  > :first-child {
+  font-weight: var(--group-communication-notification-center-font-weight-semibold);
+}
+.aegis-notification-center-copy p {
+  margin: var(--group-communication-notification-center-number-0);
+  font-size: var(--group-communication-notification-center-font-size-label);
+  line-height: var(--group-communication-notification-center-font-leading-body);
+  color: var(--group-communication-notification-center-color-content-secondary);
+  overflow-wrap: anywhere;
+}
+.aegis-notification-center-copy time {
+  font-size: var(--group-communication-notification-center-font-size-label);
+  color: var(--group-communication-notification-center-color-content-tertiary);
+}
+.aegis-notification-center .aegis-notification-center-read {
+  margin-left: calc(-1 * var(--group-communication-notification-center-space-margin-left-compact));
+  margin-top: var(--group-communication-notification-center-space-margin-top-snug);
+}
+.aegis-notification-center-loading {
+  display: grid;
+  gap: var(--group-communication-notification-center-space-gap-5);
+  padding: var(--group-communication-notification-center-space-padding-comfortable)
+    var(--group-communication-notification-center-number-0);
+}
+.aegis-notification-center-loading > div {
+  display: grid;
+  gap: var(--group-communication-notification-center-space-gap-compact);
+}

@@ -1,0 +1,1071 @@
+/* Fundamental uses text hierarchy and a single card level. Floating overlays
+   receive their own separation in fundamental-overlays.css. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) {
+  font-family: var(--group-layout-surface-font-family-ui);
+  line-height: var(--group-layout-surface-font-leading-body);
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button)) to (:is(.aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-trigger-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-input-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-navigation-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-layout-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-data-display-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-data-viz-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-code-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-feedback-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-ai-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-icon, .aegis-aws-logo)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-iconography-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-ai-assistance-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-filtering-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-page-header)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-page-structure-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-notification-center)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-communication-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-workflow-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-console, .business-app, .business-overview, .business-lists, .aegis-business-detail)) to (:is(.aegis-button, .button-group, .aegis-context-content, .aegis-menu-content, .aegis-icon-button, .icon-button-tooltip, .aegis-link, .aegis-split-button, .aegis-checkbox-field, .aegis-checkbox-control, .aegis-date-picker-trigger, .aegis-date-picker-calendar, .aegis-field, .aegis-file-upload, .aegis-multi-field, .aegis-multi-popover, .aegis-radio-field, .aegis-radio-group, .aegis-segmented, .aegis-select-field, .aegis-select-trigger, .aegis-select-content, .aegis-slider-field, .aegis-switch-field, .aegis-switch-control, .aegis-textarea, .aegis-input, .aegis-time-range-trigger, .time-range-popover, .aegis-tree, .aegis-breadcrumb, .command-dialog, .command-scrim, .aegis-pagination, .side-nav, .nav-tooltip, .aegis-stepper, .aegis-tabs, .surface, .floating, .aegis-card, .aegis-accordion, .aegis-bottom-sheet, .aegis-modal, .aegis-modal-overlay, .aegis-popover, .aegis-contained-sheet, .aegis-sheet, .aegis-sheet-overlay, .aegis-resizable-panels, .aegis-resizable-panel, .aegis-scroll-area, .aegis-separator, .aegis-avatar, .aegis-avatar-group, .aegis-bulk-actions, .aegis-copyable-field, .count-badge, .aegis-data-grid, .aegis-entity-cell, .aegis-time-cell, .aegis-cell-actions, .aegis-description-list, .aegis-expandable-text, .aegis-kbd, .aegis-list, .aegis-list-item, .aegis-metric-card, .aegis-relative-time, .severity-badge, .severity-dot, .status-badge, .status-dot, .tag, .aegis-timeline, .aegis-chart-metric-card, .aegis-chart-container, .aegis-chart-tooltip, .aegis-event-histogram, .aegis-gantt, .aegis-sparkline, .aegis-sparkline-empty, .aegis-code-editor, .aegis-diff-view, .aegis-json-viewer, .aegis-yaml-presenter, .aegis-empty-state, .aegis-notification, .aegis-notification-viewport, .aegis-progress, .aegis-skeleton, .aegis-spinner, .aegis-tooltip, .aegis-ai-card, .aegis-ai-highlight, .aegis-ai-label, .aegis-ai-inline, .aegis-ai-message, .aegis-confidence-badge, .aegis-streaming-skeleton, .aegis-thinking-indicator, .aegis-icon, .aegis-aws-logo, .aegis-ai-diff-review, .aegis-ai-panel, .aegis-prompt, .aegis-prompt-menu, .aegis-filter-bar, .aegis-filter-panel, .aegis-filter-options, .aegis-applied-filter-groups, .aegis-page-header, .aegis-notification-center, .aegis-onboarding-checklist, .aegis-unsaved-bar, .aegis-wizard)) {
+  :scope:scope,
+  :scope:scope *,
+  :scope:scope::before,
+  :scope:scope::after {
+    box-shadow: var(--group-application-surface-elevation-none) !important;
+    text-shadow: none !important;
+  }
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-console, .aegis-docs-theme, .aegis-catalogue-preview):where(.aegis-console) {
+  font-family: var(--group-application-surface-font-family-ui);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-console, .aegis-docs-theme, .aegis-catalogue-preview):where(
+    .aegis-docs-theme,
+    .aegis-catalogue-preview
+  ) {
+  font-family: var(--group-layout-surface-font-family-ui);
+}
+/* Surface fills and spacing define containers; control and intent borders remain explicit. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .surface,
+    .floating,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-chart-tooltip,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-filter-panel,
+    .aegis-tree,
+    .aegis-accordion-contained,
+    .aegis-json-viewer,
+    .aegis-yaml-presenter,
+    .aegis-diff-view,
+    .aegis-modal,
+    .aegis-sheet,
+    .aegis-bottom-sheet,
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .command-dialog,
+    .aegis-tooltip,
+    .aegis-tooltip-rich,
+    .aegis-notification[data-variant='floating']
+  ):where(
+    .surface,
+    .floating,
+    .aegis-card,
+    .aegis-accordion-contained,
+    .aegis-modal,
+    .aegis-sheet,
+    .aegis-bottom-sheet,
+    .aegis-popover
+  ) {
+  border-width: var(--group-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .surface,
+    .floating,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-chart-tooltip,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-filter-panel,
+    .aegis-tree,
+    .aegis-accordion-contained,
+    .aegis-json-viewer,
+    .aegis-yaml-presenter,
+    .aegis-diff-view,
+    .aegis-modal,
+    .aegis-sheet,
+    .aegis-bottom-sheet,
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .command-dialog,
+    .aegis-tooltip,
+    .aegis-tooltip-rich,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-chart-container, .aegis-chart-tooltip) {
+  border-width: var(--group-data-viz-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .surface,
+    .floating,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-chart-tooltip,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-filter-panel,
+    .aegis-tree,
+    .aegis-accordion-contained,
+    .aegis-json-viewer,
+    .aegis-yaml-presenter,
+    .aegis-diff-view,
+    .aegis-modal,
+    .aegis-sheet,
+    .aegis-bottom-sheet,
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .command-dialog,
+    .aegis-tooltip,
+    .aegis-tooltip-rich,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-ai-card, .aegis-ai-highlight) {
+  border-width: var(--group-ai-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .surface,
+    .floating,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-chart-tooltip,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-filter-panel,
+    .aegis-tree,
+    .aegis-accordion-contained,
+    .aegis-json-viewer,
+    .aegis-yaml-presenter,
+    .aegis-diff-view,
+    .aegis-modal,
+    .aegis-sheet,
+    .aegis-bottom-sheet,
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .command-dialog,
+    .aegis-tooltip,
+    .aegis-tooltip-rich,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-wizard-panel, .aegis-wizard-progress) {
+  border-width: var(--group-workflow-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .surface,
+    .floating,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-chart-tooltip,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-filter-panel,
+    .aegis-tree,
+    .aegis-accordion-contained,
+    .aegis-json-viewer,
+    .aegis-yaml-presenter,
+    .aegis-diff-view,
+    .aegis-modal,
+    .aegis-sheet,
+    .aegis-bottom-sheet,
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .command-dialog,
+    .aegis-tooltip,
+    .aegis-tooltip-rich,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-filter-panel) {
+  border-width: var(--group-filtering-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .surface,
+    .floating,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-chart-tooltip,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-filter-panel,
+    .aegis-tree,
+    .aegis-accordion-contained,
+    .aegis-json-viewer,
+    .aegis-yaml-presenter,
+    .aegis-diff-view,
+    .aegis-modal,
+    .aegis-sheet,
+    .aegis-bottom-sheet,
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .command-dialog,
+    .aegis-tooltip,
+    .aegis-tooltip-rich,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-tree, .aegis-select-content, .aegis-multi-popover) {
+  border-width: var(--group-input-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .surface,
+    .floating,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-chart-tooltip,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-filter-panel,
+    .aegis-tree,
+    .aegis-accordion-contained,
+    .aegis-json-viewer,
+    .aegis-yaml-presenter,
+    .aegis-diff-view,
+    .aegis-modal,
+    .aegis-sheet,
+    .aegis-bottom-sheet,
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .command-dialog,
+    .aegis-tooltip,
+    .aegis-tooltip-rich,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-json-viewer, .aegis-yaml-presenter, .aegis-diff-view) {
+  border-width: var(--group-code-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .surface,
+    .floating,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-chart-tooltip,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-filter-panel,
+    .aegis-tree,
+    .aegis-accordion-contained,
+    .aegis-json-viewer,
+    .aegis-yaml-presenter,
+    .aegis-diff-view,
+    .aegis-modal,
+    .aegis-sheet,
+    .aegis-bottom-sheet,
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .command-dialog,
+    .aegis-tooltip,
+    .aegis-tooltip-rich,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-menu-content, .aegis-context-content) {
+  border-width: var(--group-trigger-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .surface,
+    .floating,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-chart-tooltip,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-filter-panel,
+    .aegis-tree,
+    .aegis-accordion-contained,
+    .aegis-json-viewer,
+    .aegis-yaml-presenter,
+    .aegis-diff-view,
+    .aegis-modal,
+    .aegis-sheet,
+    .aegis-bottom-sheet,
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .command-dialog,
+    .aegis-tooltip,
+    .aegis-tooltip-rich,
+    .aegis-notification[data-variant='floating']
+  ):where(.command-dialog) {
+  border-width: var(--group-navigation-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .surface,
+    .floating,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-chart-tooltip,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-filter-panel,
+    .aegis-tree,
+    .aegis-accordion-contained,
+    .aegis-json-viewer,
+    .aegis-yaml-presenter,
+    .aegis-diff-view,
+    .aegis-modal,
+    .aegis-sheet,
+    .aegis-bottom-sheet,
+    .aegis-popover,
+    .aegis-menu-content,
+    .aegis-context-content,
+    .aegis-select-content,
+    .aegis-multi-popover,
+    .command-dialog,
+    .aegis-tooltip,
+    .aegis-tooltip-rich,
+    .aegis-notification[data-variant='floating']
+  ):where(.aegis-tooltip, .aegis-tooltip-rich, .aegis-notification[data-variant='floating']) {
+  border-width: var(--group-feedback-surface-number-0);
+}
+/* Space separates groups without adding visual weight or changing row geometry. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-console-summary, .aegis-console-metrics) {
+  gap: var(--group-application-surface-card-padding);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-console-header-actions {
+  gap: var(--group-application-surface-gap-regular);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) .nav-items {
+  gap: var(--group-navigation-surface-gap-compact);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) .nav-sections {
+  gap: var(--group-navigation-surface-gap-comfortable);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) .nav-section {
+  padding-block-start: var(--group-navigation-surface-padding-start-compact);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-filter-bar {
+  padding-block: var(--group-filtering-surface-card-padding);
+  gap: var(--group-filtering-surface-gap-comfortable);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-toolbar:not(:has(> .aegis-filter-bar)) {
+  padding-block: var(--group-data-display-surface-padding-block-compact);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-footer {
+  padding-block: var(--group-data-display-surface-padding-block-tight);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-wizard-body, .aegis-rule-fields) {
+  gap: var(--group-workflow-surface-gap-roomy);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-wizard-step-content, .aegis-modal-body, .aegis-sheet-body)
+  > .stack {
+  gap: var(--group-layout-surface-card-padding);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-wizard-footer {
+  padding-block: var(--group-workflow-surface-padding-block-compact);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) .side-nav {
+  background: var(--group-navigation-surface-appearance-nav-surface);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .nav-item.is-active {
+  color: var(--group-navigation-surface-color-content-primary);
+  background: var(--group-navigation-surface-appearance-nav-selected);
+  border-color: var(--group-navigation-surface-color-transparent);
+  font-weight: var(--group-navigation-surface-font-weight-semibold);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .nav-item.is-active
+  > svg {
+  color: inherit;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .nav-item:hover:not(.is-active) {
+  background: var(--group-navigation-surface-color-surface-surface);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .workspace-switch {
+  border-color: var(--group-navigation-surface-color-transparent);
+  background: var(--group-navigation-surface-color-transparent);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-metric-value {
+  font-weight: var(--group-data-display-surface-font-weight-semibold);
+  letter-spacing: var(--group-data-display-surface-font-tracking-heading);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-metric-label, .aegis-grid-table > thead > tr > th) {
+  font-weight: var(--group-data-display-surface-font-weight-medium);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-entity-cell-detail, .aegis-grid-cell-secondary) {
+  color: var(--group-data-display-surface-color-content-secondary);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-cell-content
+  .aegis-entity-cell-name {
+  line-height: var(--group-data-display-surface-font-line-box-l);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-cell-content
+  .aegis-entity-cell-detail {
+  font-size: var(--group-data-display-surface-font-size-label);
+  line-height: var(--group-data-display-surface-font-line-box-s);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-data-grid[data-density='compact']
+  .aegis-entity-cell-detail {
+  font-size: var(--group-data-display-table-font-size-caption);
+  line-height: var(--group-data-display-table-font-line-box-xs);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-data-grid[data-density='compact']
+  .aegis-entity-cell-name {
+  font-size: var(--group-data-display-table-font-size-label);
+  line-height: var(--group-data-display-table-font-line-box-s);
+}
+/* Tables inherit the surrounding surface instead of adding another card. Sticky
+   cells still paint that surface so scrolling content cannot show through them. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-data-grid {
+  --group-data-display-surface-fundamental-grid-surface: var(
+    --semantic-part-surface-fundamental-grid-surface-fundamental-fundamental-floating
+  );
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-data-grid {
+  background: var(--group-data-display-table-color-transparent);
+  border: var(--group-data-display-table-number-0);
+  border-radius: var(--group-data-display-table-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-data-grid
+  .aegis-filter-bar {
+  background: var(--group-filtering-table-color-transparent);
+  border-bottom: var(--group-filtering-table-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-toolbar {
+  background: var(--group-data-display-table-color-transparent);
+  border-bottom: var(--group-data-display-table-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-console-queue-tabs
+  .aegis-tabs-list {
+  background: var(--group-navigation-table-color-transparent);
+  border-bottom: var(--group-navigation-table-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > thead,
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > thead
+  > tr
+  > th {
+  background: var(--group-data-display-surface-fundamental-grid-surface);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > thead
+  > tr
+  > th {
+  border: var(--group-data-display-surface-number-0);
+  color: var(--group-data-display-surface-color-content-secondary);
+  font-weight: var(--group-data-display-surface-font-weight-regular);
+}
+/* Horizontal breathing room leaves the measured vertical density unchanged. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > :is(thead, tbody)
+  > tr:not(.aegis-grid-expanded-row, .aegis-grid-spacer, .aegis-grid-empty-row)
+  > :is(th, td):not(.aegis-grid-selection-column, .aegis-grid-expand-column) {
+  padding-inline: var(--group-data-display-surface-padding-inline-compact);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-data-grid[data-density='compact']
+  .aegis-grid-table
+  > :is(thead, tbody)
+  > tr:not(.aegis-grid-expanded-row, .aegis-grid-spacer, .aegis-grid-empty-row)
+  > :is(th, td):not(.aegis-grid-selection-column, .aegis-grid-expand-column) {
+  padding-inline: var(--group-data-display-table-space-padding-inline-regular);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > tbody
+  > tr
+  > td,
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > tbody
+  > tr.aegis-grid-expanded-row
+  > td {
+  background: var(--group-data-display-surface-color-transparent);
+  border: var(--group-data-display-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-scroll
+  td.aegis-grid-pinned {
+  background: var(--group-data-display-surface-fundamental-grid-surface);
+}
+/* Keep the leading data value prominent, independent of utility columns and column order. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > tbody
+  > .aegis-grid-row
+  > td[data-primary-column='false'] {
+  color: color-mix(
+    in srgb,
+    var(--group-data-display-surface-color-content-primary) var(--group-data-display-surface-mix-85),
+    var(--group-data-display-surface-color-content-secondary)
+  );
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > tbody
+  > .aegis-grid-row
+  > td[data-primary-column]
+  :is(.aegis-entity-cell-name, .aegis-time-cell, .severity-badge, .status-badge, .tag:not(button)) {
+  color: inherit;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > tbody
+  > .aegis-grid-row:hover
+  > td {
+  background: color-mix(
+    in srgb,
+    var(--group-data-display-surface-color-content-primary) var(--group-data-display-surface-mix-5),
+    var(--group-data-display-surface-fundamental-grid-surface)
+  );
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > tbody
+  > .aegis-grid-row.is-selected
+  > td {
+  background: color-mix(
+    in srgb,
+    var(--group-data-display-surface-color-content-primary) var(--group-data-display-surface-mix-8),
+    var(--group-data-display-surface-fundamental-grid-surface)
+  );
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > tbody
+  > .aegis-grid-row
+  > td:first-child {
+  border-start-start-radius: var(--group-data-display-surface-radius-strong);
+  border-end-start-radius: var(--group-data-display-surface-radius-strong);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > tbody
+  > .aegis-grid-row
+  > td:last-child {
+  border-start-end-radius: var(--group-data-display-surface-radius-strong);
+  border-end-end-radius: var(--group-data-display-surface-radius-strong);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > tbody
+  > .aegis-grid-row[data-selected-before='true']
+  > td:is(:first-child, :last-child) {
+  border-start-start-radius: var(--group-data-display-surface-number-0);
+  border-start-end-radius: var(--group-data-display-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > tbody
+  > .aegis-grid-row[data-selected-after='true']
+  > td:is(:first-child, :last-child) {
+  border-end-start-radius: var(--group-data-display-surface-number-0);
+  border-end-end-radius: var(--group-data-display-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-event-table
+  :is(th, td) {
+  border: var(--group-data-display-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-footer,
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-bulk
+  .aegis-bulk-actions {
+  background: var(--group-data-display-surface-color-transparent);
+  border: var(--group-data-display-surface-number-0);
+  border-radius: var(--group-data-display-surface-number-0);
+}
+/* Emphasis controls fill; intent supplies blue, destructive red, or the AI gradient. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-button:not([data-intent='ai'], [data-intent='destroy']) {
+  --group-trigger-button-intent-bg: var(--semantic-color-action-fill);
+  --group-trigger-button-intent-fg: var(--semantic-color-action-foreground);
+  --group-trigger-button-intent-soft: var(--semantic-color-action-soft);
+  --group-trigger-button-intent-on: var(--semantic-color-on-intent);
+  --group-trigger-button-intent-border: var(--semantic-color-action-outline);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-button:hover:not(:disabled) {
+  background: var(--group-trigger-button-intent-soft);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-button[data-emphasis='tertiary']:hover:not(:disabled) {
+  background: color-mix(
+    in srgb,
+    var(--group-trigger-button-intent-fg) var(--group-trigger-button-tertiary-fill-hover),
+    var(--group-trigger-button-color-surface-surface)
+  );
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-button[data-emphasis='tertiary']:not([data-intent='ai']):hover:not(:disabled) {
+  color: light-dark(
+    color-mix(
+      in srgb,
+      var(--group-trigger-button-intent-fg) var(--group-trigger-button-tertiary-foreground-hover),
+      var(--group-trigger-button-color-content-primary)
+    ),
+    var(--group-trigger-button-intent-fg)
+  );
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-button[data-emphasis='primary']:not([data-intent='ai'], [data-intent='destroy']):hover:not(
+    :disabled
+  ) {
+  background: var(--group-trigger-button-appearance-action-hover);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-button[data-emphasis='primary'][data-intent='destroy']:hover:not(:disabled) {
+  background: color-mix(
+    in srgb,
+    var(--group-trigger-button-intent-bg) var(--group-trigger-button-primary-fill-pressed),
+    var(--group-trigger-button-color-content-primary)
+  );
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-button[data-emphasis='primary'][data-intent='ai']:hover:not(:disabled) {
+  background: var(--group-trigger-button-appearance-ai-hover);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-button[data-intent='ai']:not([data-emphasis='primary']):hover:not(:disabled) {
+  background: var(--group-trigger-button-gradient-ai-soft);
+}
+/* Field boundaries remain quiet and stable while editing. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-input-shell, .aegis-multi-shell):not([data-disabled], [data-readonly]),
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .aegis-select-trigger,
+    .aegis-date-picker-trigger[data-emphasis='secondary'],
+    .aegis-textarea-native:not([data-appearance='plain']),
+    .aegis-pagination-size select,
+    .time-range-clock input
+  ):where(
+    .aegis-select-trigger,
+    .aegis-date-picker-trigger[data-emphasis='secondary'],
+    .aegis-textarea-native:not([data-appearance='plain']),
+    .time-range-clock input
+  ):not(:disabled, [readonly]) {
+  background: var(--group-input-surface-appearance-control-fill);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .aegis-select-trigger,
+    .aegis-date-picker-trigger[data-emphasis='secondary'],
+    .aegis-textarea-native:not([data-appearance='plain']),
+    .aegis-pagination-size select,
+    .time-range-clock input
+  ):where(.aegis-pagination-size select):not(:disabled, [readonly]) {
+  background: var(--group-navigation-surface-appearance-control-fill);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-input-shell, .aegis-multi-shell, .aegis-code-editor, .aegis-prompt):where(
+    .aegis-input-shell,
+    .aegis-multi-shell
+  ):not([data-invalid], [aria-invalid='true']),
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .aegis-select-trigger,
+    .aegis-date-picker-trigger,
+    .aegis-textarea-native,
+    .aegis-pagination-size select
+  ):where(.aegis-select-trigger, .aegis-date-picker-trigger, .aegis-textarea-native):not(
+    [aria-invalid='true']
+  ),
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .time-range-clock
+  input {
+  border-color: var(--group-input-surface-appearance-control-border);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-input-shell, .aegis-multi-shell, .aegis-code-editor, .aegis-prompt):where(
+    .aegis-code-editor
+  ):not([data-invalid], [aria-invalid='true']) {
+  border-color: var(--group-code-surface-appearance-control-border);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-input-shell, .aegis-multi-shell, .aegis-code-editor, .aegis-prompt):where(
+    .aegis-prompt
+  ):not([data-invalid], [aria-invalid='true']) {
+  border-color: var(--group-ai-assistance-surface-appearance-control-border);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .aegis-select-trigger,
+    .aegis-date-picker-trigger,
+    .aegis-textarea-native,
+    .aegis-pagination-size select
+  ):where(.aegis-pagination-size select):not([aria-invalid='true']) {
+  border-color: var(--group-navigation-surface-appearance-control-border);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-checkbox-control[data-unchecked]:not([data-indeterminate]):not(
+    :disabled,
+    :hover,
+    :focus
+  ):not([aria-invalid='true']) {
+  border-color: light-dark(
+    var(--group-input-surface-color-border-strong),
+    var(--group-input-surface-appearance-control-border)
+  );
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-input-shell, .aegis-multi-shell):hover:not([data-invalid]):not([data-disabled]):not(
+    [data-readonly]
+  ),
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.aegis-select-trigger, .aegis-date-picker-trigger, .aegis-textarea-native):hover:not(
+    :disabled
+  ):not([aria-invalid='true']):not([readonly]) {
+  border-color: var(--group-input-surface-appearance-control-border-hover);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .aegis-menu-item[data-highlighted],
+    .aegis-context-item[data-highlighted],
+    .aegis-select-option[data-highlighted],
+    .aegis-multi-option[data-active]
+  ):where(.aegis-menu-item[data-highlighted], .aegis-context-item[data-highlighted]) {
+  outline: var(--group-trigger-surface-border-width-regular) solid
+    var(--group-trigger-surface-ring-focus);
+  outline-offset: var(--group-trigger-surface-focus-inset-regular);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .aegis-menu-item[data-highlighted],
+    .aegis-context-item[data-highlighted],
+    .aegis-select-option[data-highlighted],
+    .aegis-multi-option[data-active]
+  ):where(.aegis-select-option[data-highlighted], .aegis-multi-option[data-active]) {
+  outline: var(--group-input-surface-border-width-regular) solid
+    var(--group-input-surface-ring-focus);
+  outline-offset: var(--group-input-surface-focus-inset-regular);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-row:focus-visible
+  > td:not(.aegis-grid-pinned) {
+  position: relative;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-row:focus-visible
+  > td::after {
+  content: '';
+  position: absolute;
+  inset: var(--group-data-display-surface-number-0);
+  border-block: var(--group-data-display-surface-border-width-regular) solid
+    var(--group-data-display-surface-ring-focus);
+  pointer-events: none;
+  z-index: var(--group-data-display-surface-layer-local-3);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-row:focus-visible
+  > td:first-child::after {
+  border-left: var(--group-data-display-surface-border-width-regular) solid
+    var(--group-data-display-surface-ring-focus);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-row:focus-visible
+  > td:last-child::after {
+  border-right: var(--group-data-display-surface-border-width-regular) solid
+    var(--group-data-display-surface-ring-focus);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-grid-table
+  > thead
+  > tr
+  > th.is-drag-target::after {
+  content: '';
+  position: absolute;
+  inset: var(--group-data-display-surface-number-0) auto var(--group-data-display-surface-number-0)
+    var(--group-data-display-surface-number-0);
+  border-left: var(--group-data-display-surface-border-width-regular) solid
+    var(--group-data-display-surface-ring-focus);
+  pointer-events: none;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-time-range-trigger[aria-invalid='true'] {
+  outline: var(--group-input-surface-border-width-hairline) solid
+    var(--group-input-surface-color-danger-foreground);
+  outline-offset: var(--group-input-surface-focus-inset-tight);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) .aegis-avatar {
+  border-radius: var(--group-data-display-surface-radius-rounded);
+  background: var(--group-data-display-surface-color-surface-canvas);
+  color: var(--group-data-display-surface-color-content-primary);
+  border-color: var(--group-data-display-surface-color-border-default);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-avatar-group
+  > .aegis-avatar {
+  outline: var(--group-data-display-surface-border-width-regular) solid
+    var(--group-data-display-surface-color-surface-surface);
+  outline-offset: var(--group-data-display-surface-number-0);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-tabs-trigger[data-active],
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-tabs-trigger[data-active]
+  .aegis-tabs-count {
+  color: var(--group-navigation-surface-color-content-primary);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-tabs-trigger[data-active]
+  .aegis-tabs-count,
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-tabs-pill
+  .aegis-tabs-trigger[data-active] {
+  background: var(--group-navigation-surface-color-surface-canvas);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .severity-dot,
+    .status-dot,
+    .aegis-avatar-status,
+    .workspace-status,
+    .aegis-radio-control,
+    .aegis-radio-indicator
+  ):where(.severity-dot, .status-dot, .aegis-avatar-status) {
+  border-radius: var(--group-data-display-surface-radius-circle);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .severity-dot,
+    .status-dot,
+    .aegis-avatar-status,
+    .workspace-status,
+    .aegis-radio-control,
+    .aegis-radio-indicator
+  ):where(.workspace-status) {
+  border-radius: var(--group-navigation-surface-radius-circle);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(
+    .severity-dot,
+    .status-dot,
+    .aegis-avatar-status,
+    .workspace-status,
+    .aegis-radio-control,
+    .aegis-radio-indicator
+  ):where(.aegis-radio-control, .aegis-radio-indicator) {
+  border-radius: var(--group-input-surface-radius-circle);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-skeleton[data-animate='true']::after {
+  display: none;
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-skeleton:not([data-variant='table-row']),
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-skeleton-cell {
+  background: var(--group-feedback-surface-color-border-default);
+}
+@media (forced-colors: active) {
+  :is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) .aegis-button {
+    border-color: ButtonText;
+  }
+}
+@scope (:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) :is(.aegis-card, .surface, .floating, .aegis-side-sheet, .aegis-modal)) {
+  .aegis-data-grid.aegis-data-grid {
+    --group-data-display-surface-fundamental-grid-surface: var(
+      --semantic-part-surface-fundamental-grid-surface-fundamental-fundamental-floating-context4290
+    );
+  }
+}

@@ -1,0 +1,1733 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-ai-thinkingindicator",
+  "name": "ThinkingIndicator",
+  "category": "AI",
+  "tokenGroup": "ai",
+  "kind": "component",
+  "aliases": [],
+  "purpose": "An AI working status with optional rotating messages and a compact presentation.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/thinking-indicator"
+  ],
+  "links": {
+    "contract": "./components-ai-thinkingindicator.json",
+    "overview": "../../?path=/docs/components-ai-thinkingindicator-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-ai-thinkingindicator-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-ai-thinkingindicator-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-ai-thinkingindicator-overview--docs&docsTab=tokens"
+  },
+  "description": "Show that an assistant is working without inventing progress percentages.",
+  "exports": [
+    "ThinkingIndicator"
+  ],
+  "importStatements": [
+    "import { ThinkingIndicator } from '@dimitriszoitas/aegis-ui/thinking-indicator';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "ThinkingIndicator",
+      "name": "compact",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "ThinkingIndicator",
+      "name": "interval",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "3200"
+    },
+    {
+      "component": "ThinkingIndicator",
+      "name": "messages",
+      "type": "readonly string[] | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "compact",
+      "values": [
+        "false",
+        "true"
+      ],
+      "default": "false"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/ai-card",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/confidence-badge",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon-button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "An AI working status with optional rotating messages and a compact presentation.",
+    "usage": [
+      "Supply messages that accurately describe the operation; the default phrases are generic presentation copy, not proof that a processing stage occurred.",
+      "Use compact for limited space. The indicator itself neither starts nor cancels generation."
+    ],
+    "accessibility": [
+      "The component uses a status role and keeps decorative dots hidden.",
+      "Message rotation pauses when reduced motion is requested, and intervals are bounded to avoid excessively rapid changes."
+    ],
+    "context": [
+      "Use while an actual AI request is pending, with a separate stop control when cancellation is supported."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-hidden"
+    ],
+    "nativeElements": [
+      "div",
+      "i",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/tooltip",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/ai-card/ai-card.css",
+    "src/components/ai-card/ai-card.tsx",
+    "src/components/ai-card/index.ts",
+    "src/components/button/button.css",
+    "src/components/button/button.tsx",
+    "src/components/button/index.ts",
+    "src/components/confidence-badge/confidence-badge.css",
+    "src/components/confidence-badge/confidence-badge.tsx",
+    "src/components/confidence-badge/index.ts",
+    "src/components/icon-button/icon-button.css",
+    "src/components/icon-button/icon-button.tsx",
+    "src/components/icon-button/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/thinking-indicator/thinking-indicator.css",
+    "src/components/thinking-indicator/thinking-indicator.stories.tsx",
+    "src/components/thinking-indicator/thinking-indicator.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/layout-theme.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-ai-thinkingindicator--evidence-review",
+      "name": "Evidence Review",
+      "url": "../../?path=/story/components-ai-thinkingindicator--evidence-review",
+      "sourceFile": "src/components/thinking-indicator/thinking-indicator.stories.tsx"
+    },
+    {
+      "id": "components-ai-thinkingindicator--compact",
+      "name": "Compact",
+      "url": "../../?path=/story/components-ai-thinkingindicator--compact",
+      "sourceFile": "src/components/thinking-indicator/thinking-indicator.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-border-width-hairline",
+    "--group-ai-color-ai-blue-fg",
+    "--group-ai-color-ai-border",
+    "--group-ai-color-ai-foreground",
+    "--group-ai-color-ai-pink-fg",
+    "--group-ai-color-ai-purple-fg",
+    "--group-ai-color-content-primary",
+    "--group-ai-color-content-secondary",
+    "--group-ai-color-content-tertiary",
+    "--group-ai-confidence-badge-border-width-hairline",
+    "--group-ai-confidence-badge-color-ai-border",
+    "--group-ai-confidence-badge-color-ai-foreground",
+    "--group-ai-confidence-badge-font-leading-heading-tight",
+    "--group-ai-confidence-badge-font-size-label",
+    "--group-ai-confidence-badge-gradient-ai-soft",
+    "--group-ai-confidence-badge-gradient-ai-text",
+    "--group-ai-confidence-badge-opacity-strength-soft",
+    "--group-ai-confidence-badge-opacity-visible",
+    "--group-ai-confidence-badge-radius-border-radius-slight",
+    "--group-ai-confidence-badge-radius-border-radius-soft",
+    "--group-ai-confidence-badge-size-gap-micro-compact",
+    "--group-ai-confidence-badge-size-gap-micro-roomy",
+    "--group-ai-confidence-badge-size-height-glyph-compact",
+    "--group-ai-confidence-badge-size-height-micro-comfortable",
+    "--group-ai-confidence-badge-size-height-micro-vast",
+    "--group-ai-confidence-badge-size-height-tiny",
+    "--group-ai-confidence-badge-size-width-micro-snug",
+    "--group-ai-confidence-badge-space-padding-compact",
+    "--group-ai-confidence-badge-space-padding-snug",
+    "--group-ai-duration-0-15s",
+    "--group-ai-duration-0-3s",
+    "--group-ai-duration-1-2s",
+    "--group-ai-font-leading-compact",
+    "--group-ai-font-leading-relaxed",
+    "--group-ai-font-leading-spacious",
+    "--group-ai-font-size-body",
+    "--group-ai-font-size-label",
+    "--group-ai-font-size-subheading",
+    "--group-ai-font-weight-semibold",
+    "--group-ai-gradient-ai-soft",
+    "--group-ai-gradient-ai-surface",
+    "--group-ai-gradient-ai-text",
+    "--group-ai-measurement-ai-gradient-duration",
+    "--group-ai-measurement-icon-inline",
+    "--group-ai-measurement-icon-sm",
+    "--group-ai-number-0",
+    "--group-ai-opacity-strength-muted",
+    "--group-ai-opacity-visible",
+    "--group-ai-radius-border-radius-full",
+    "--group-ai-radius-border-radius-strong",
+    "--group-ai-size-flex-basis-full",
+    "--group-ai-size-gap-micro-roomy",
+    "--group-ai-size-gap-micro-snug",
+    "--group-ai-size-height-micro-regular",
+    "--group-ai-size-transform-negative-2",
+    "--group-ai-size-width-micro-regular",
+    "--group-ai-space-gap-compact",
+    "--group-ai-space-gap-regular",
+    "--group-ai-space-gap-snug",
+    "--group-ai-space-padding-comfortable",
+    "--group-ai-space-padding-regular",
+    "--group-ai-space-padding-roomy",
+    "--group-ai-space-padding-top-regular",
+    "--group-ai-space-padding-top-snug",
+    "--group-ai-surface-border-width-regular",
+    "--group-ai-surface-color-action-foreground",
+    "--group-ai-surface-color-action-soft",
+    "--group-ai-surface-color-border-default",
+    "--group-ai-surface-color-content-primary",
+    "--group-ai-surface-corner-radius",
+    "--group-ai-surface-elevation-none",
+    "--group-ai-surface-flex-none",
+    "--group-ai-surface-focus-offset",
+    "--group-ai-surface-font-family-ui",
+    "--group-ai-surface-font-leading-compact",
+    "--group-ai-surface-font-size-body",
+    "--group-ai-surface-motion-count-1",
+    "--group-ai-surface-motion-disabled-duration",
+    "--group-ai-surface-motion-reduced-duration",
+    "--group-ai-surface-number-0",
+    "--group-ai-surface-ring-focus",
+    "--group-ai-surface-stack-gap-compact",
+    "--group-ai-surface-title-weight",
+    "--group-ai-title-weight",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-trigger-button-appearance-action-hover",
+    "--group-trigger-button-appearance-ai-hover",
+    "--group-trigger-button-border-width-hairline",
+    "--group-trigger-button-color-ai-blue-fg",
+    "--group-trigger-button-color-ai-fg",
+    "--group-trigger-button-color-ai-pink-fg",
+    "--group-trigger-button-color-ai-purple-fg",
+    "--group-trigger-button-color-border-default",
+    "--group-trigger-button-color-content-primary",
+    "--group-trigger-button-color-surface-surface",
+    "--group-trigger-button-color-surface-surface-raised",
+    "--group-trigger-button-color-transparent",
+    "--group-trigger-button-elevation-none",
+    "--group-trigger-button-font-leading-solid",
+    "--group-trigger-button-font-size-body",
+    "--group-trigger-button-font-size-label",
+    "--group-trigger-button-font-weight-medium",
+    "--group-trigger-button-gap-compact",
+    "--group-trigger-button-gradient-ai",
+    "--group-trigger-button-gradient-ai-border",
+    "--group-trigger-button-gradient-ai-soft",
+    "--group-trigger-button-gradient-ai-text",
+    "--group-trigger-button-height-compact",
+    "--group-trigger-button-height-large",
+    "--group-trigger-button-height-regular",
+    "--group-trigger-button-icon-size-compact",
+    "--group-trigger-button-icon-size-large",
+    "--group-trigger-button-icon-size-regular",
+    "--group-trigger-button-intent-bg",
+    "--group-trigger-button-intent-border",
+    "--group-trigger-button-intent-fg",
+    "--group-trigger-button-intent-on",
+    "--group-trigger-button-intent-soft",
+    "--group-trigger-button-loading-duration",
+    "--group-trigger-button-loading-rotation",
+    "--group-trigger-button-motion-fast",
+    "--group-trigger-button-number-0",
+    "--group-trigger-button-opacity-disabled",
+    "--group-trigger-button-opacity-hidden",
+    "--group-trigger-button-outline-overlap",
+    "--group-trigger-button-outline-width",
+    "--group-trigger-button-padding-compact",
+    "--group-trigger-button-padding-icon",
+    "--group-trigger-button-padding-inline",
+    "--group-trigger-button-padding-regular",
+    "--group-trigger-button-padding-snug",
+    "--group-trigger-button-press-offset",
+    "--group-trigger-button-primary-fill-pressed",
+    "--group-trigger-button-radius-bold",
+    "--group-trigger-button-radius-current",
+    "--group-trigger-button-radius-strong",
+    "--group-trigger-button-shadow-overlay",
+    "--group-trigger-button-state-overlay-hover",
+    "--group-trigger-button-state-overlay-pressed",
+    "--group-trigger-button-state-overlay-spread",
+    "--group-trigger-button-tertiary-fill-hover",
+    "--group-trigger-button-tertiary-foreground-hover",
+    "--group-trigger-button-z-tooltip",
+    "--group-trigger-measurement-icon-md",
+    "--group-trigger-measurement-icon-tooltip-delay",
+    "--group-trigger-measurement-overlay-offset",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-flex-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-ai-space-gap-compact",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-content-secondary",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-font-size-body",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-gap-micro-snug",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-width-micro-regular",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-height-micro-regular",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-radius-border-radius-full",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-gradient-ai-text",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-duration-1-2s",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-duration-0-15s",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-duration-0-3s",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-flex-basis-full",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-space-padding-top-snug",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-font-size-label",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-content-tertiary",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-opacity-strength-muted",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-number-0",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-opacity-visible",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-transform-negative-2",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-gap-micro-roomy",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-ai-foreground",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-font-size-label",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-font-weight-semibold",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-font-leading-compact",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-gradient-ai-text",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-number-0",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-gradient-ai-surface",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-border-width-hairline",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-ai-border",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-radius-border-radius-strong",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-corner-radius",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-content-primary",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-space-padding-roomy",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-space-gap-regular",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-space-gap-compact",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-font-size-subheading",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-title-weight",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-font-size-body",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-font-leading-spacious",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-space-padding-top-regular",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-content-tertiary",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-font-leading-relaxed",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-space-gap-snug",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-space-padding-comfortable",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-space-padding-regular",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-trigger-button-z-tooltip",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-compact",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-bold",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-shadow-overlay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gap-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-inline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-current",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-leading-solid",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-weight-medium",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-motion-fast",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-bg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-on",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-icon",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-transparent",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-overlap",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-width",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-spread",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-press-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-disabled",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-hidden",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-snug",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-strong",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-rotation",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-text",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-gap-micro-roomy",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-space-padding-compact",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-space-padding-snug",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-border-width-hairline",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-color-ai-border",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-radius-border-radius-soft",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-color-ai-foreground",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-font-size-label",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-font-leading-heading-tight",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-gradient-ai-text",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-gap-micro-compact",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-height-tiny",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-width-micro-snug",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-height-micro-comfortable",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-radius-border-radius-slight",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-opacity-strength-soft",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-height-micro-vast",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-height-glyph-compact",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-opacity-visible",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-ai-surface-elevation-none",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-elevation-none",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-elevation-none",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-ai-surface-number-0",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-fill-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-foreground-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-action-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-primary-fill-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-ai-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-flex-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-ai-surface-color-border-default",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-border-default",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-border-default",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-ring-focus",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-ring-focus",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-ring-focus",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-focus-offset",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-focus-offset",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-focus-offset",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-flex-none",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-font-size-body",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-title-weight",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-font-leading-compact",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-stack-gap-compact",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-ai-surface-number-0",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-number-0",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-font-size-body",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-font-size-body",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "ThinkingIndicator",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-ai-measurement-ai-gradient-duration",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-ai-pink-fg",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-ai-blue-fg",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-ai-purple-fg",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-measurement-icon-inline",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-measurement-icon-sm",
+      "ownership": "nested",
+      "component": "AiLabel",
+      "group": "ai"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-tooltip-delay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-pink-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-blue-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-purple-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "categories": {
+    "trigger": {
+      "title": "Components/Triggers",
+      "prefixes": [
+        "src/components/button/",
+        "src/components/button-group/",
+        "src/components/context-menu/",
+        "src/components/copy-button/",
+        "src/components/dropdown-menu/",
+        "src/components/icon-button/",
+        "src/components/link/",
+        "src/components/split-button/",
+        "src/components/ui/"
+      ]
+    },
+    "input": {
+      "title": "Components/Inputs & Selection",
+      "prefixes": [
+        "src/components/checkbox/",
+        "src/components/date-picker/",
+        "src/components/field/",
+        "src/components/file-upload/",
+        "src/components/multi-combobox/",
+        "src/components/radio-group/",
+        "src/components/search-input/",
+        "src/components/segmented-control/",
+        "src/components/select/",
+        "src/components/slider/",
+        "src/components/switch/",
+        "src/components/textarea/",
+        "src/components/text-input/",
+        "src/components/time-range-picker/",
+        "src/components/tree-view/"
+      ]
+    },
+    "navigation": {
+      "title": "Components/Navigation",
+      "prefixes": [
+        "src/components/breadcrumb/",
+        "src/components/command-palette/",
+        "src/components/pagination/",
+        "src/components/side-nav/",
+        "src/components/stepper/",
+        "src/components/tabs/"
+      ]
+    },
+    "surface": {
+      "title": "Components/Surfaces",
+      "prefixes": [
+        "src/components/accordion/",
+        "src/components/bottom-sheet/",
+        "src/components/card/",
+        "src/components/modal/",
+        "src/components/popover/",
+        "src/components/sheet/",
+        "src/components/side-sheet/"
+      ]
+    },
+    "layout": {
+      "title": "Components/Layout",
+      "prefixes": [
+        "src/components/resizable-panels/",
+        "src/components/scroll-area/",
+        "src/components/separator/"
+      ]
+    },
+    "data-display": {
+      "title": "Components/Data Display",
+      "prefixes": [
+        "src/components/avatar/",
+        "src/components/bulk-actions-bar/",
+        "src/components/copyable-field/",
+        "src/components/count-badge/",
+        "src/components/data-grid/",
+        "src/components/data-grid-cells/",
+        "src/components/description-list/",
+        "src/components/expandable-text/",
+        "src/components/kbd/",
+        "src/components/list/",
+        "src/components/metric-card/",
+        "src/components/relative-time/",
+        "src/components/severity-badge/",
+        "src/components/status-badge/",
+        "src/components/tag/",
+        "src/components/timeline/"
+      ]
+    },
+    "data-viz": {
+      "title": "Components/Data Visualization",
+      "prefixes": [
+        "src/components/charts/",
+        "src/components/event-histogram/",
+        "src/components/gantt-chart/",
+        "src/components/mini-bar-chart/",
+        "src/components/sparkline/",
+        "src/components/metric-card/chart-metric-card.tsx",
+        "src/components/metric-card/chart-metric-card.css",
+        "src/components/metric-card/chart-metric-card.stories.tsx"
+      ]
+    },
+    "code": {
+      "title": "Components/Code",
+      "prefixes": [
+        "src/components/code-editor/",
+        "src/components/diff-view/",
+        "src/components/json-viewer/",
+        "src/components/yaml-presenter/"
+      ]
+    },
+    "feedback": {
+      "title": "Components/Feedback",
+      "prefixes": [
+        "src/components/banner/",
+        "src/components/empty-state/",
+        "src/components/notification/",
+        "src/components/progress-bar/",
+        "src/components/skeleton/",
+        "src/components/spinner/",
+        "src/components/toast/",
+        "src/components/tooltip/"
+      ]
+    },
+    "ai": {
+      "title": "Components/AI",
+      "prefixes": [
+        "src/components/ai-card/",
+        "src/components/ai-inline-suggestion/",
+        "src/components/ai-message/",
+        "src/components/confidence-badge/",
+        "src/components/streaming-skeleton/",
+        "src/components/thinking-indicator/"
+      ]
+    },
+    "iconography": {
+      "title": "Foundations/Iconography",
+      "prefixes": ["src/components/icon/", "src/components/aws-logo/"]
+    },
+    "ai-assistance": {
+      "title": "Patterns/AI Assistance",
+      "prefixes": [
+        "src/patterns/ai-diff-review/",
+        "src/patterns/ai-panel/",
+        "src/patterns/prompt-input/"
+      ]
+    },
+    "filtering": {
+      "title": "Patterns/Filtering",
+      "prefixes": ["src/patterns/filter-bar/", "src/patterns/filter-panel/"]
+    },
+    "page-structure": {
+      "title": "Patterns/Page Structure",
+      "prefixes": ["src/patterns/page-header/"]
+    },
+    "communication": {
+      "title": "Patterns/Communication",
+      "prefixes": ["src/patterns/notification-center/"]
+    },
+    "workflow": {
+      "title": "Patterns/Workflows",
+      "prefixes": [
+        "src/patterns/onboarding-checklist/",
+        "src/patterns/unsaved-changes-bar/",
+        "src/patterns/wizard/"
+      ]
+    },
+    "application": {
+      "title": "Console/Application Demo",
+      "prefixes": ["src/patterns/business-app/"]
+    }
+  },
+  "sharedFiles": [
+    "src/package/reset.css",
+    "src/package/styles.css",
+    "src/styles/fundamental-floating.css",
+    "src/styles/fundamental-overlays.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/layout-theme.css",
+    "src/styles/scrollbars.css"
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-ai-confidencebadge",
+  "name": "ConfidenceBadge",
+  "category": "AI",
+  "tokenGroup": "ai",
+  "kind": "component",
+  "aliases": [],
+  "purpose": "A textual high, medium, or low confidence indicator with a supplementary bar motif.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/confidence-badge"
+  ],
+  "links": {
+    "contract": "./components-ai-confidencebadge.json",
+    "overview": "../../?path=/docs/components-ai-confidencebadge-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-ai-confidencebadge-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-ai-confidencebadge-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-ai-confidencebadge-overview--docs&docsTab=tokens"
+  },
+  "description": "Make the stated confidence of an AI result visible and qualified.",
+  "exports": [
+    "ConfidenceBadge"
+  ],
+  "importStatements": [
+    "import { ConfidenceBadge } from '@dimitriszoitas/aegis-ui/confidence-badge';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "ConfidenceBadge",
+      "name": "confidence",
+      "type": "ConfidenceLevel",
+      "required": true
+    }
+  ],
+  "variants": [
+    {
+      "name": "confidence",
+      "values": [
+        "high",
+        "low",
+        "medium"
+      ]
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "A textual high, medium, or low confidence indicator with a supplementary bar motif.",
+    "usage": [
+      "Supply confidence from a defined assessment in the host. The badge does not calculate confidence from content.",
+      "Explain the evidence or uncertainty nearby when confidence affects an important decision."
+    ],
+    "accessibility": [
+      "The confidence level is visible text; the decorative bars are hidden from assistive technology.",
+      "Do not use confidence as a substitute for an explicit action status or approval control."
+    ],
+    "intent": [
+      "Confidence describes evidence strength, not severity, urgency, or permission to apply a result."
+    ],
+    "context": [
+      "Use beside generated findings and suggestions that expose supporting context."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-hidden"
+    ],
+    "nativeElements": [
+      "i",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/confidence-badge/confidence-badge.css",
+    "src/components/confidence-badge/confidence-badge.stories.tsx",
+    "src/components/confidence-badge/confidence-badge.tsx",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-ai-confidencebadge--levels",
+      "name": "Levels",
+      "url": "../../?path=/story/components-ai-confidencebadge--levels",
+      "sourceFile": "src/components/confidence-badge/confidence-badge.stories.tsx"
+    },
+    {
+      "id": "components-ai-confidencebadge--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-ai-confidencebadge--playground",
+      "sourceFile": "src/components/confidence-badge/confidence-badge.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-confidence-badge-border-width-hairline",
+    "--group-ai-confidence-badge-color-ai-border",
+    "--group-ai-confidence-badge-color-ai-foreground",
+    "--group-ai-confidence-badge-font-leading-heading-tight",
+    "--group-ai-confidence-badge-font-size-label",
+    "--group-ai-confidence-badge-gradient-ai-soft",
+    "--group-ai-confidence-badge-gradient-ai-text",
+    "--group-ai-confidence-badge-opacity-strength-soft",
+    "--group-ai-confidence-badge-opacity-visible",
+    "--group-ai-confidence-badge-radius-border-radius-slight",
+    "--group-ai-confidence-badge-radius-border-radius-soft",
+    "--group-ai-confidence-badge-size-gap-micro-compact",
+    "--group-ai-confidence-badge-size-gap-micro-roomy",
+    "--group-ai-confidence-badge-size-height-glyph-compact",
+    "--group-ai-confidence-badge-size-height-micro-comfortable",
+    "--group-ai-confidence-badge-size-height-micro-vast",
+    "--group-ai-confidence-badge-size-height-tiny",
+    "--group-ai-confidence-badge-size-width-micro-snug",
+    "--group-ai-confidence-badge-space-padding-compact",
+    "--group-ai-confidence-badge-space-padding-snug",
+    "--group-ai-surface-border-width-regular",
+    "--group-ai-surface-color-action-foreground",
+    "--group-ai-surface-color-action-soft",
+    "--group-ai-surface-color-border-default",
+    "--group-ai-surface-color-content-primary",
+    "--group-ai-surface-elevation-none",
+    "--group-ai-surface-focus-offset",
+    "--group-ai-surface-font-family-ui",
+    "--group-ai-surface-font-size-body",
+    "--group-ai-surface-motion-count-1",
+    "--group-ai-surface-motion-disabled-duration",
+    "--group-ai-surface-motion-reduced-duration",
+    "--group-ai-surface-number-0",
+    "--group-ai-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-ai-confidence-badge-size-gap-micro-roomy",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-space-padding-compact",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-space-padding-snug",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-border-width-hairline",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-color-ai-border",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-gradient-ai-soft",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-color-ai-foreground",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-font-size-label",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-font-leading-heading-tight",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-gradient-ai-text",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-gap-micro-compact",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-height-tiny",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-width-micro-snug",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-height-micro-comfortable",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-radius-border-radius-slight",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-opacity-strength-soft",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-height-micro-vast",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-size-height-glyph-compact",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-confidence-badge-opacity-visible",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-elevation-none",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-border-default",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-ring-focus",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-focus-offset",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-number-0",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-font-size-body",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "ConfidenceBadge",
+      "group": "ai"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

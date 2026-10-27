@@ -1,0 +1,27 @@
+/* Native documentation controls share the preview's input-modality tracking.
+   Text fields can match :focus-visible after a click, so that pseudo-class alone
+   cannot distinguish keyboard navigation from pointer activation. */
+:root:not([data-aegis-input-focus='keyboard'])
+  :is(.component-directory-controls, .component-docs-controls, .component-docs-specimen-toolbar)
+  :is(input, select, textarea):focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+:root
+  :is(.component-directory-controls, .component-docs-controls, .component-docs-specimen-toolbar)
+  :is(input[type='search'], input[type='text'], input:not([type]), select, textarea):focus:not(
+    :disabled,
+    [readonly],
+    [aria-invalid='true']
+  ) {
+  border-color: var(--color-function-fg);
+}
+
+:root[data-aegis-input-focus='keyboard']
+  :is(.component-directory-controls, .component-docs-controls, .component-docs-specimen-toolbar)
+  :is(input, select, textarea):focus-visible {
+  outline: var(--stroke-2) solid var(--ring-focus) !important;
+  outline-offset: var(--space-1);
+  box-shadow: none !important;
+}

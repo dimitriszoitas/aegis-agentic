@@ -1,0 +1,438 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-navigation-breadcrumb",
+  "name": "Breadcrumb",
+  "category": "Navigation",
+  "tokenGroup": "navigation",
+  "kind": "component",
+  "aliases": [
+    "breadcrumbs",
+    "location trail"
+  ],
+  "purpose": "A navigation trail ending in a noninteractive current-page label.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/breadcrumb"
+  ],
+  "links": {
+    "contract": "./components-navigation-breadcrumb.json",
+    "overview": "../../?path=/docs/components-navigation-breadcrumb-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-navigation-breadcrumb-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-navigation-breadcrumb-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-navigation-breadcrumb-overview--docs&docsTab=tokens"
+  },
+  "description": "Keep the current location visible within a deeper workspace.",
+  "exports": [
+    "Breadcrumb"
+  ],
+  "importStatements": [
+    "import { Breadcrumb } from '@dimitriszoitas/aegis-ui/breadcrumb';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Breadcrumb",
+      "name": "items",
+      "type": "readonly BreadcrumbItem[]",
+      "required": true
+    },
+    {
+      "component": "Breadcrumb",
+      "name": "separator",
+      "type": "ReactNode",
+      "required": false
+    }
+  ],
+  "variants": [],
+  "composition": [
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A navigation trail ending in a noninteractive current-page label.",
+    "usage": [
+      "Order items from the broadest destination to the current page. The last item is always displayed as current, even if an href was provided.",
+      "Use href for addressable destinations and onClick for application-managed navigation."
+    ],
+    "accessibility": [
+      "The trail is a named navigation landmark with an ordered list and aria-current=\"page\" on the last item.",
+      "Separators are decorative. Give multiple breadcrumb landmarks distinct aria-label values if a page genuinely needs more than one."
+    ],
+    "context": [
+      "Use for hierarchy, and use PageHeader back navigation when returning to a list is the clearer relationship."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-current",
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "a",
+      "button",
+      "li",
+      "nav",
+      "ol",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/breadcrumb/breadcrumb.css",
+    "src/components/breadcrumb/breadcrumb.stories.tsx",
+    "src/components/breadcrumb/breadcrumb.tsx",
+    "src/components/icon/index.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-navigation-breadcrumb--hierarchy",
+      "name": "Hierarchy",
+      "url": "../../?path=/story/components-navigation-breadcrumb--hierarchy",
+      "sourceFile": "src/components/breadcrumb/breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-navigation-breadcrumb--client-navigation",
+      "name": "Client Navigation",
+      "url": "../../?path=/story/components-navigation-breadcrumb--client-navigation",
+      "sourceFile": "src/components/breadcrumb/breadcrumb.stories.tsx"
+    },
+    {
+      "id": "components-navigation-breadcrumb--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-navigation-breadcrumb--playground",
+      "sourceFile": "src/components/breadcrumb/breadcrumb.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-navigation-color-content-primary",
+    "--group-navigation-color-content-secondary",
+    "--group-navigation-color-content-tertiary",
+    "--group-navigation-color-transparent",
+    "--group-navigation-font-size-body",
+    "--group-navigation-font-weight-medium",
+    "--group-navigation-measurement-icon-compact",
+    "--group-navigation-number-0",
+    "--group-navigation-radius-border-radius-soft",
+    "--group-navigation-size-text-underline-offset-micro-snug",
+    "--group-navigation-space-gap-compact",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-color-action-foreground",
+    "--group-navigation-surface-color-action-soft",
+    "--group-navigation-surface-color-border-default",
+    "--group-navigation-surface-color-content-primary",
+    "--group-navigation-surface-elevation-none",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-font-family-ui",
+    "--group-navigation-surface-font-size-body",
+    "--group-navigation-surface-link-underline-offset",
+    "--group-navigation-surface-motion-count-1",
+    "--group-navigation-surface-motion-disabled-duration",
+    "--group-navigation-surface-motion-reduced-duration",
+    "--group-navigation-surface-number-0",
+    "--group-navigation-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-navigation-space-gap-compact",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-number-0",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-font-size-body",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-content-secondary",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-transparent",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-content-primary",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-size-text-underline-offset-micro-snug",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-color-content-tertiary",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-font-weight-medium",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-navigation-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-link-underline-offset",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-navigation-surface-number-0",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-navigation-measurement-icon-compact",
+      "ownership": "owned",
+      "component": "Breadcrumb",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "ChevronRight",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

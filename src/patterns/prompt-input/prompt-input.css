@@ -1,0 +1,159 @@
+.aegis-prompt-positioner {
+  z-index: var(--group-ai-assistance-ai-z-popover);
+}
+.aegis-prompt {
+  min-width: var(--group-ai-assistance-ai-number-0);
+  width: var(--group-ai-assistance-ai-size-width-full);
+  padding: var(--group-ai-assistance-ai-size-padding-glyph-small);
+  border: var(--group-ai-assistance-ai-border-width-hairline) solid
+    var(--group-ai-assistance-ai-color-border-default);
+  border-radius: var(--group-ai-assistance-ai-radius-border-radius-strong);
+  background: var(--group-ai-assistance-ai-color-surface-surface);
+}
+.aegis-prompt[data-disabled] {
+  background: var(--group-ai-assistance-ai-color-surface-canvas);
+}
+.aegis-prompt-context {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--group-ai-assistance-ai-space-gap-snug);
+  margin-bottom: var(--group-ai-assistance-ai-space-margin-bottom-compact);
+  max-height: var(--group-ai-assistance-ai-size-max-height-wide-content-snug);
+  overflow-y: auto;
+}
+.aegis-prompt-toolbar,
+.aegis-prompt-tools {
+  display: flex;
+  gap: var(--group-ai-assistance-ai-space-gap-snug);
+  align-items: center;
+}
+.aegis-prompt-toolbar {
+  justify-content: space-between;
+  margin-top: var(--group-ai-assistance-ai-size-margin-top-micro-roomy);
+}
+.aegis-prompt-hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--group-ai-assistance-ai-space-gap-snug);
+  margin: var(--group-ai-assistance-ai-space-margin-compact) var(--group-ai-assistance-ai-number-0)
+    var(--group-ai-assistance-ai-number-0);
+  color: var(--group-ai-assistance-ai-color-content-secondary);
+  font-size: var(--group-ai-assistance-ai-font-size-annotation-xs);
+}
+.aegis-prompt-hint > span {
+  margin-inline: var(--group-ai-assistance-ai-size-margin-inline-micro-compact);
+}
+.aegis-prompt-error {
+  margin: var(--group-ai-assistance-ai-space-margin-compact) var(--group-ai-assistance-ai-number-0)
+    var(--group-ai-assistance-ai-number-0);
+  font-size: var(--group-ai-assistance-ai-font-size-caption);
+  color: var(--group-ai-assistance-ai-color-danger-foreground);
+}
+.aegis-prompt-menu {
+  z-index: var(--group-ai-assistance-ai-z-popover);
+  width: min(
+    var(--group-ai-assistance-ai-size-width-canvas-small),
+    calc(
+      var(--group-ai-assistance-ai-size-width-100vw) - var(--group-ai-assistance-ai-size-width-snug)
+    )
+  );
+  border: var(--group-ai-assistance-ai-border-width-hairline) solid
+    var(--group-ai-assistance-ai-color-border-default);
+  border-radius: var(--group-ai-assistance-ai-radius-border-radius-strong);
+  background: var(--group-ai-assistance-ai-color-surface-surface-raised);
+  box-shadow: var(--group-ai-assistance-ai-shadow-floating);
+  padding: var(--group-ai-assistance-ai-size-padding-micro-roomy);
+}
+.aegis-prompt-menu .aegis-prompt-menu-input {
+  width: var(--group-ai-assistance-ai-size-width-full);
+  border: var(--group-ai-assistance-ai-number-0);
+  border-bottom: var(--group-ai-assistance-ai-border-width-hairline) solid
+    var(--group-ai-assistance-ai-color-border-subtle);
+  padding: var(--group-ai-assistance-ai-size-padding-glyph-small);
+  color: var(--group-ai-assistance-ai-color-content-primary);
+  background: var(--group-ai-assistance-ai-color-transparent);
+  font: inherit;
+  font-size: var(--group-ai-assistance-ai-font-size-label);
+}
+.aegis-prompt-menu .aegis-prompt-menu-list {
+  max-height: var(--group-ai-assistance-ai-size-max-height-wide-panel-huge);
+  overflow-y: auto;
+  padding-top: var(--group-ai-assistance-ai-space-padding-top-snug);
+}
+.aegis-prompt-menu .aegis-prompt-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--group-ai-assistance-ai-space-gap-compact);
+  justify-content: space-between;
+  padding: var(--group-ai-assistance-ai-size-padding-glyph-tiny);
+  border-radius: var(--group-ai-assistance-ai-radius-border-radius-bold);
+  color: var(--group-ai-assistance-ai-color-content-primary);
+  cursor: pointer;
+}
+.aegis-prompt-menu .aegis-prompt-menu-item[data-highlighted] {
+  background: var(--group-ai-assistance-ai-color-surface-selected);
+}
+.aegis-prompt-menu .aegis-prompt-menu-item > span {
+  display: grid;
+  gap: var(--group-ai-assistance-ai-size-gap-micro-snug);
+  min-width: var(--group-ai-assistance-ai-number-0);
+}
+.aegis-prompt-menu strong {
+  font-size: var(--group-ai-assistance-ai-font-size-label);
+  font-weight: var(--group-ai-assistance-ai-font-weight-medium);
+  overflow-wrap: anywhere;
+}
+.aegis-prompt-menu small,
+.aegis-prompt-menu .aegis-prompt-menu-empty {
+  color: var(--group-ai-assistance-ai-color-content-secondary);
+  font-size: var(--group-ai-assistance-ai-font-size-caption);
+}
+.aegis-prompt-menu .aegis-prompt-menu-empty {
+  padding: var(--group-ai-assistance-ai-space-padding-5)
+    var(--group-ai-assistance-ai-space-padding-compact);
+}
+
+.aegis-prompt-context-name {
+  display: block;
+  min-width: var(--group-ai-assistance-ai-number-0);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.aegis-prompt[data-presentation='hero'] {
+  padding: var(--group-ai-assistance-ai-number-0);
+  border-radius: var(--group-ai-assistance-prompt-radius-pronounced);
+}
+.aegis-prompt[data-presentation='hero'] .aegis-prompt-composer {
+  padding: var(--group-ai-assistance-prompt-padding-comfortable);
+}
+.aegis-prompt[data-presentation='hero'] .aegis-prompt-toolbar {
+  margin-top: var(--group-ai-assistance-ai-space-gap-compact);
+  gap: var(--group-ai-assistance-ai-space-gap-regular);
+}
+.aegis-prompt[data-presentation='hero'] .aegis-prompt-hint {
+  font-size: var(--group-ai-assistance-ai-font-size-annotation-s);
+  margin-top: var(--group-ai-assistance-ai-space-gap-regular);
+}
+.aegis-prompt[data-presentation='hero'] .aegis-prompt-context {
+  align-items: center;
+  gap: var(--group-ai-assistance-ai-space-gap-compact);
+  margin: var(--group-ai-assistance-ai-number-0);
+  padding: var(--group-ai-assistance-ai-space-padding-regular)
+    var(--group-ai-assistance-prompt-padding-comfortable);
+  border-top: var(--group-ai-assistance-ai-border-width-hairline) solid
+    var(--group-ai-assistance-ai-color-border-subtle);
+  border-radius: var(--group-ai-assistance-ai-number-0) var(--group-ai-assistance-ai-number-0)
+    var(--group-ai-assistance-prompt-radius-pronounced)
+    var(--group-ai-assistance-prompt-radius-pronounced);
+  background: var(--group-ai-assistance-ai-color-surface-canvas);
+}
+.aegis-prompt-context-label {
+  color: var(--group-ai-assistance-ai-color-content-secondary);
+  font-size: var(--group-ai-assistance-ai-font-size-caption);
+}
+:root[data-aegis-input-focus='keyboard'] .aegis-prompt:has([data-prompt-editor]:focus-visible) {
+  outline: var(--group-ai-assistance-surface-border-width-regular) solid
+    var(--group-ai-assistance-ai-ring-focus) !important;
+  outline-offset: var(--group-ai-assistance-surface-focus-offset);
+}

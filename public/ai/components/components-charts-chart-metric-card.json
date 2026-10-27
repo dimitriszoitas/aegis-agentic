@@ -1,0 +1,3242 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-charts-chart-metric-card",
+  "name": "Chart metric card",
+  "category": "Data Visualization",
+  "tokenGroup": "data-viz",
+  "kind": "component",
+  "aliases": [
+    "kpi chart",
+    "metric chart"
+  ],
+  "purpose": "A summary metric, explicit comparison, latest readout, and underlying bar, area, or compact-bar series.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/metric-card"
+  ],
+  "links": {
+    "contract": "./components-charts-chart-metric-card.json",
+    "overview": "../../?path=/docs/components-data-visualization-chart-metric-card-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-visualization-chart-metric-card-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-visualization-chart-metric-card-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-visualization-chart-metric-card-overview--docs&docsTab=tokens"
+  },
+  "description": "A summary metric and its underlying series in one card. Bar and area variants retain the shared chart keyboard inspection and tooltips. Compact bars are a static overview; every variant exposes an exact data table. The latest readout comes from the final supplied interval. Example values are illustrative, sum to 61,800, and end at 9,700 on Oct 21; the +364.3% comparison is supplied separately. The example explicitly marks that comparison favorable for presentation, not as a business performance assessment.",
+  "exports": [
+    "ChartMetricCard"
+  ],
+  "importStatements": [
+    "import { ChartMetricCard } from '@dimitriszoitas/aegis-ui/metric-card';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "ChartMetricCard",
+      "name": "color",
+      "type": "ChartColor | undefined",
+      "required": false,
+      "defaultValue": "\"chart-2\"",
+      "description": "Shared semantic color for the series. Individual full-size bars may override it through data.color."
+    },
+    {
+      "component": "ChartMetricCard",
+      "name": "data",
+      "type": "readonly ChartMetricDatum[]",
+      "required": true,
+      "description": "Ordered oldest to newest. Compact bars require non-negative values."
+    },
+    {
+      "component": "ChartMetricCard",
+      "name": "delta",
+      "type": "number | undefined",
+      "required": false,
+      "description": "Percentage change; its desirability is independent of its direction."
+    },
+    {
+      "component": "ChartMetricCard",
+      "name": "height",
+      "type": "number | undefined",
+      "required": false,
+      "description": "Plot height in pixels; defaults to 220, or 80 for compact bars."
+    },
+    {
+      "component": "ChartMetricCard",
+      "name": "label",
+      "type": "string",
+      "required": true
+    },
+    {
+      "component": "ChartMetricCard",
+      "name": "metric",
+      "type": "string | number",
+      "required": true,
+      "description": "Summary metric, which may be a total, rate, or other caller-defined aggregation."
+    },
+    {
+      "component": "ChartMetricCard",
+      "name": "period",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "ChartMetricCard",
+      "name": "trendIsPositive",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Omit for a neutral change. Set explicitly when the change is favorable or unfavorable."
+    },
+    {
+      "component": "ChartMetricCard",
+      "name": "valueFormatter",
+      "type": "((value: number) => string) | undefined",
+      "required": false,
+      "description": "Formats numeric summary, latest value, chart ticks, and tooltips. The data table stays exact."
+    },
+    {
+      "component": "ChartMetricCard",
+      "name": "variant",
+      "type": "ChartMetricCardVariant | undefined",
+      "required": false,
+      "defaultValue": "\"bar\""
+    }
+  ],
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "area",
+        "bar",
+        "compact"
+      ],
+      "default": "bar"
+    },
+    {
+      "name": "color",
+      "values": [
+        "ai",
+        "chart-1",
+        "chart-2",
+        "chart-3",
+        "chart-4",
+        "chart-5",
+        "chart-6",
+        "critical",
+        "destroy",
+        "function",
+        "high",
+        "info",
+        "low",
+        "medium",
+        "success",
+        "warning"
+      ],
+      "default": "chart-2"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/card",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/charts",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/empty-state",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/mini-bar-chart",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/severity-badge",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/skeleton",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/sparkline",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A summary metric, explicit comparison, latest readout, and underlying bar, area, or compact-bar series.",
+    "usage": [
+      "Supply data oldest to newest; the last datum becomes the latest readout. metric is caller-defined and is not automatically summed from data.",
+      "Set trendIsPositive only when the change has a known favorable or unfavorable meaning. Omission keeps the comparison neutral.",
+      "Use finite values; compact bars require non-negative values. Per-datum color applies to the full bar variant, while area and compact variants use the series color."
+    ],
+    "accessibility": [
+      "Every variant exposes exact values through a native chart-data disclosure; full-size plots also support keyboard inspection.",
+      "Formatted summary and tooltip values do not replace the exact numbers in the data table."
+    ],
+    "context": [
+      "Use when users need to connect an aggregate KPI to the interval data beneath it."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-labelledby"
+    ],
+    "nativeElements": [
+      "div",
+      "h3",
+      "header",
+      "p",
+      "span",
+      "strong"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "recharts",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/button/button.css",
+    "src/components/button/button.tsx",
+    "src/components/button/index.ts",
+    "src/components/card/card.css",
+    "src/components/card/card.tsx",
+    "src/components/card/index.ts",
+    "src/components/charts/charts.css",
+    "src/components/charts/charts.tsx",
+    "src/components/charts/index.ts",
+    "src/components/empty-state/empty-state.css",
+    "src/components/empty-state/empty-state.tsx",
+    "src/components/empty-state/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/metric-card/chart-metric-card.css",
+    "src/components/metric-card/chart-metric-card.stories.tsx",
+    "src/components/metric-card/chart-metric-card.tsx",
+    "src/components/mini-bar-chart/index.ts",
+    "src/components/mini-bar-chart/mini-bar-chart.tsx",
+    "src/components/skeleton/index.ts",
+    "src/components/skeleton/skeleton.css",
+    "src/components/skeleton/skeleton.tsx",
+    "src/components/sparkline/index.ts",
+    "src/components/sparkline/sparkline.css",
+    "src/components/sparkline/sparkline.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/layout-theme.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-charts-chart-metric-card--standard-bar",
+      "name": "Standard Bar",
+      "url": "../../?path=/story/components-charts-chart-metric-card--standard-bar",
+      "sourceFile": "src/components/metric-card/chart-metric-card.stories.tsx"
+    },
+    {
+      "id": "components-charts-chart-metric-card--area-trend",
+      "name": "Area Trend",
+      "url": "../../?path=/story/components-charts-chart-metric-card--area-trend",
+      "sourceFile": "src/components/metric-card/chart-metric-card.stories.tsx"
+    },
+    {
+      "id": "components-charts-chart-metric-card--compact-bar",
+      "name": "Compact Bar",
+      "url": "../../?path=/story/components-charts-chart-metric-card--compact-bar",
+      "sourceFile": "src/components/metric-card/chart-metric-card.stories.tsx"
+    },
+    {
+      "id": "components-charts-chart-metric-card--combined-showcase",
+      "name": "Combined Showcase",
+      "url": "../../?path=/story/components-charts-chart-metric-card--combined-showcase",
+      "sourceFile": "src/components/metric-card/chart-metric-card.stories.tsx"
+    },
+    {
+      "id": "components-charts-chart-metric-card--neutral-change",
+      "name": "Neutral Change",
+      "url": "../../?path=/story/components-charts-chart-metric-card--neutral-change",
+      "sourceFile": "src/components/metric-card/chart-metric-card.stories.tsx"
+    },
+    {
+      "id": "components-charts-chart-metric-card--empty",
+      "name": "Empty",
+      "url": "../../?path=/story/components-charts-chart-metric-card--empty",
+      "sourceFile": "src/components/metric-card/chart-metric-card.stories.tsx"
+    },
+    {
+      "id": "components-charts-chart-metric-card--keyboard-and-exact-data",
+      "name": "Keyboard And Exact Data",
+      "url": "../../?path=/story/components-charts-chart-metric-card--keyboard-and-exact-data",
+      "sourceFile": "src/components/metric-card/chart-metric-card.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-viz-chart-border-width-hairline",
+    "--group-data-viz-chart-border-width-regular",
+    "--group-data-viz-chart-color-action-soft",
+    "--group-data-viz-chart-color-ai-bg",
+    "--group-data-viz-chart-color-ai-blue-bg",
+    "--group-data-viz-chart-color-ai-pink-bg",
+    "--group-data-viz-chart-color-ai-purple-bg",
+    "--group-data-viz-chart-color-border-default",
+    "--group-data-viz-chart-color-border-strong",
+    "--group-data-viz-chart-color-border-subtle",
+    "--group-data-viz-chart-color-chart-1",
+    "--group-data-viz-chart-color-chart-2",
+    "--group-data-viz-chart-color-chart-3",
+    "--group-data-viz-chart-color-chart-4",
+    "--group-data-viz-chart-color-chart-5",
+    "--group-data-viz-chart-color-chart-6",
+    "--group-data-viz-chart-color-chart-ai",
+    "--group-data-viz-chart-color-chart-destroy",
+    "--group-data-viz-chart-color-chart-function",
+    "--group-data-viz-chart-color-chart-severity-critical",
+    "--group-data-viz-chart-color-chart-severity-high",
+    "--group-data-viz-chart-color-chart-severity-info",
+    "--group-data-viz-chart-color-chart-severity-low",
+    "--group-data-viz-chart-color-chart-severity-medium",
+    "--group-data-viz-chart-color-chart-success",
+    "--group-data-viz-chart-color-chart-warning",
+    "--group-data-viz-chart-color-content-primary",
+    "--group-data-viz-chart-color-content-secondary",
+    "--group-data-viz-chart-color-content-tertiary",
+    "--group-data-viz-chart-color-surface-hover",
+    "--group-data-viz-chart-color-surface-surface",
+    "--group-data-viz-chart-color-surface-surface-raised",
+    "--group-data-viz-chart-color-transparent",
+    "--group-data-viz-chart-elevation-none",
+    "--group-data-viz-chart-flex-none",
+    "--group-data-viz-chart-font-family-code",
+    "--group-data-viz-chart-font-leading-body",
+    "--group-data-viz-chart-font-leading-expansive",
+    "--group-data-viz-chart-font-size-annotation-xs",
+    "--group-data-viz-chart-font-size-body",
+    "--group-data-viz-chart-font-size-heading-l",
+    "--group-data-viz-chart-font-size-label",
+    "--group-data-viz-chart-font-weight-medium",
+    "--group-data-viz-chart-font-weight-regular",
+    "--group-data-viz-chart-font-weight-semibold",
+    "--group-data-viz-chart-number-0",
+    "--group-data-viz-chart-opacity-strength-muted",
+    "--group-data-viz-chart-radius-border-radius-fixed-3",
+    "--group-data-viz-chart-radius-border-radius-soft",
+    "--group-data-viz-chart-radius-border-radius-strong",
+    "--group-data-viz-chart-ring-focus",
+    "--group-data-viz-chart-shadow-floating",
+    "--group-data-viz-chart-shadow-raised",
+    "--group-data-viz-chart-size-height-full",
+    "--group-data-viz-chart-size-height-glyph-tiny",
+    "--group-data-viz-chart-size-left-half",
+    "--group-data-viz-chart-size-max-height-wide-panel-snug",
+    "--group-data-viz-chart-size-min-width-panel-regular",
+    "--group-data-viz-chart-size-outline-offset-micro-compact",
+    "--group-data-viz-chart-size-top-half",
+    "--group-data-viz-chart-size-transform-negative-50percent",
+    "--group-data-viz-chart-size-width-full",
+    "--group-data-viz-chart-size-width-glyph-tiny",
+    "--group-data-viz-chart-space-gap-comfortable",
+    "--group-data-viz-chart-space-gap-compact",
+    "--group-data-viz-chart-space-gap-roomy",
+    "--group-data-viz-chart-space-gap-snug",
+    "--group-data-viz-chart-space-margin-bottom-compact",
+    "--group-data-viz-chart-space-margin-bottom-regular",
+    "--group-data-viz-chart-space-margin-top-regular",
+    "--group-data-viz-chart-space-margin-top-snug",
+    "--group-data-viz-chart-space-padding-comfortable",
+    "--group-data-viz-chart-space-padding-compact",
+    "--group-data-viz-chart-space-padding-regular",
+    "--group-data-viz-chart-space-padding-roomy",
+    "--group-data-viz-chart-space-padding-snug",
+    "--group-data-viz-chart-title-weight",
+    "--group-data-viz-measurement-chart-active-color-mix",
+    "--group-data-viz-measurement-chart-area-opacity-bottom",
+    "--group-data-viz-measurement-chart-area-opacity-top",
+    "--group-data-viz-measurement-chart-bar-max-width",
+    "--group-data-viz-measurement-chart-bar-radius",
+    "--group-data-viz-measurement-chart-brush-handle-width",
+    "--group-data-viz-measurement-chart-brush-height",
+    "--group-data-viz-measurement-chart-cursor-opacity",
+    "--group-data-viz-measurement-chart-dot-radius",
+    "--group-data-viz-measurement-chart-grid-dash",
+    "--group-data-viz-measurement-chart-height",
+    "--group-data-viz-measurement-chart-initial-width",
+    "--group-data-viz-measurement-chart-margin-left",
+    "--group-data-viz-measurement-chart-margin-right",
+    "--group-data-viz-measurement-chart-margin-top",
+    "--group-data-viz-measurement-chart-resize-delay",
+    "--group-data-viz-measurement-chart-stacked-opacity",
+    "--group-data-viz-measurement-chart-stroke",
+    "--group-data-viz-measurement-chart-tick-font-size",
+    "--group-data-viz-measurement-chart-tick-gap",
+    "--group-data-viz-measurement-chart-tick-margin",
+    "--group-data-viz-measurement-chart-y-axis-width",
+    "--group-data-viz-measurement-donut-initial-width",
+    "--group-data-viz-measurement-donut-inner-radius",
+    "--group-data-viz-measurement-donut-outer-radius",
+    "--group-data-viz-measurement-donut-padding-angle",
+    "--group-data-viz-measurement-donut-stroke",
+    "--group-data-viz-measurement-icon-inline",
+    "--group-data-viz-measurement-metric-chart-compact-height",
+    "--group-data-viz-measurement-metric-chart-height",
+    "--group-data-viz-measurement-metric-chart-initial-width",
+    "--group-data-viz-measurement-metric-chart-min-height",
+    "--group-data-viz-measurement-mini-bar-height",
+    "--group-data-viz-measurement-mini-bar-width",
+    "--group-data-viz-measurement-sparkline-area-opacity",
+    "--group-data-viz-measurement-sparkline-bar-gap",
+    "--group-data-viz-measurement-sparkline-bar-min-width",
+    "--group-data-viz-measurement-sparkline-bar-radius",
+    "--group-data-viz-measurement-sparkline-baseline-inset",
+    "--group-data-viz-measurement-sparkline-dot-radius",
+    "--group-data-viz-measurement-sparkline-height",
+    "--group-data-viz-measurement-sparkline-inset",
+    "--group-data-viz-measurement-sparkline-min-height",
+    "--group-data-viz-measurement-sparkline-min-width",
+    "--group-data-viz-measurement-sparkline-stroke",
+    "--group-data-viz-measurement-sparkline-width",
+    "--group-data-viz-metric-card-color-content-primary",
+    "--group-data-viz-metric-card-color-content-secondary",
+    "--group-data-viz-metric-card-color-danger-foreground",
+    "--group-data-viz-metric-card-color-success-foreground",
+    "--group-data-viz-metric-card-color-transparent",
+    "--group-data-viz-metric-card-elevation-none",
+    "--group-data-viz-metric-card-font-leading-display",
+    "--group-data-viz-metric-card-font-size-body",
+    "--group-data-viz-metric-card-font-size-heading-xl",
+    "--group-data-viz-metric-card-font-size-label",
+    "--group-data-viz-metric-card-font-tracking-display",
+    "--group-data-viz-metric-card-font-weight-medium",
+    "--group-data-viz-metric-card-font-weight-semibold",
+    "--group-data-viz-metric-card-number-0",
+    "--group-data-viz-metric-card-size-clip-path-half",
+    "--group-data-viz-metric-card-size-grid-template-columns-canvas-tiny",
+    "--group-data-viz-metric-card-size-grid-template-columns-full",
+    "--group-data-viz-metric-card-size-height-micro-small",
+    "--group-data-viz-metric-card-size-margin-negative-1",
+    "--group-data-viz-metric-card-size-max-width-extended-canvas-roomy",
+    "--group-data-viz-metric-card-size-max-width-full",
+    "--group-data-viz-metric-card-size-width-full",
+    "--group-data-viz-metric-card-size-width-micro-small",
+    "--group-data-viz-metric-card-space-gap-comfortable",
+    "--group-data-viz-metric-card-space-gap-compact",
+    "--group-data-viz-metric-card-space-gap-regular",
+    "--group-data-viz-metric-card-space-gap-roomy",
+    "--group-data-viz-metric-card-space-gap-snug",
+    "--group-data-viz-metric-card-space-margin-block-compact",
+    "--group-data-viz-metric-card-space-margin-block-roomy",
+    "--group-data-viz-metric-card-space-margin-compact",
+    "--group-data-viz-metric-card-space-margin-top-comfortable",
+    "--group-data-viz-metric-card-space-margin-top-compact",
+    "--group-data-viz-metric-card-space-padding-block-roomy",
+    "--group-data-viz-metric-card-space-padding-roomy",
+    "--group-data-viz-metric-card-track-flex",
+    "--group-data-viz-surface-border-overlap",
+    "--group-data-viz-surface-border-width-regular",
+    "--group-data-viz-surface-color-action-foreground",
+    "--group-data-viz-surface-color-action-soft",
+    "--group-data-viz-surface-color-border-default",
+    "--group-data-viz-surface-color-content-primary",
+    "--group-data-viz-surface-corner-radius",
+    "--group-data-viz-surface-divider-height",
+    "--group-data-viz-surface-divider-width",
+    "--group-data-viz-surface-elevation-none",
+    "--group-data-viz-surface-flex-none",
+    "--group-data-viz-surface-focus-offset",
+    "--group-data-viz-surface-font-family-ui",
+    "--group-data-viz-surface-font-leading-compact",
+    "--group-data-viz-surface-font-leading-relaxed",
+    "--group-data-viz-surface-font-size-body",
+    "--group-data-viz-surface-motion-count-1",
+    "--group-data-viz-surface-motion-disabled-duration",
+    "--group-data-viz-surface-motion-reduced-duration",
+    "--group-data-viz-surface-number-0",
+    "--group-data-viz-surface-ring-focus",
+    "--group-data-viz-surface-stack-gap-compact",
+    "--group-data-viz-surface-stack-gap-regular",
+    "--group-data-viz-surface-title-weight",
+    "--group-feedback-empty-state-border-width-hairline",
+    "--group-feedback-empty-state-color-border-subtle",
+    "--group-feedback-empty-state-color-content-primary",
+    "--group-feedback-empty-state-color-content-secondary",
+    "--group-feedback-empty-state-color-danger-border",
+    "--group-feedback-empty-state-color-danger-foreground",
+    "--group-feedback-empty-state-color-danger-soft",
+    "--group-feedback-empty-state-color-surface-surface-raised",
+    "--group-feedback-empty-state-font-leading-prose",
+    "--group-feedback-empty-state-font-size-body",
+    "--group-feedback-empty-state-font-size-subheading",
+    "--group-feedback-empty-state-number-0",
+    "--group-feedback-empty-state-radius-border-radius-strong",
+    "--group-feedback-empty-state-shadow-raised",
+    "--group-feedback-empty-state-size-max-width-canvas-compact",
+    "--group-feedback-empty-state-size-min-height-panel-huge",
+    "--group-feedback-empty-state-size-min-height-wide-panel-large",
+    "--group-feedback-empty-state-space-gap-comfortable",
+    "--group-feedback-empty-state-space-gap-compact",
+    "--group-feedback-empty-state-space-height-14",
+    "--group-feedback-empty-state-space-margin-compact",
+    "--group-feedback-empty-state-space-padding-comfortable",
+    "--group-feedback-empty-state-space-padding-expansive",
+    "--group-feedback-empty-state-space-padding-roomy",
+    "--group-feedback-empty-state-space-width-14",
+    "--group-feedback-measurement-icon-empty",
+    "--group-feedback-measurement-icon-stroke-thin",
+    "--group-feedback-skeleton-angle-90deg",
+    "--group-feedback-skeleton-border-width-hairline",
+    "--group-feedback-skeleton-color-border-subtle",
+    "--group-feedback-skeleton-color-surface-selected",
+    "--group-feedback-skeleton-color-surface-surface",
+    "--group-feedback-skeleton-duration-1600ms",
+    "--group-feedback-skeleton-flex-fill",
+    "--group-feedback-skeleton-flex-grow-three",
+    "--group-feedback-skeleton-flex-none",
+    "--group-feedback-skeleton-mix-60",
+    "--group-feedback-skeleton-number-0",
+    "--group-feedback-skeleton-radius-border-radius-full",
+    "--group-feedback-skeleton-radius-border-radius-soft",
+    "--group-feedback-skeleton-radius-border-radius-strong",
+    "--group-feedback-skeleton-size-height-vast",
+    "--group-feedback-skeleton-size-height-wide-content-vast",
+    "--group-feedback-skeleton-size-transform-full",
+    "--group-feedback-skeleton-size-transform-negative-100percent",
+    "--group-feedback-skeleton-size-width-full",
+    "--group-feedback-skeleton-space-gap-roomy",
+    "--group-feedback-skeleton-space-height-10",
+    "--group-feedback-skeleton-space-height-regular",
+    "--group-feedback-skeleton-space-padding-comfortable",
+    "--group-feedback-skeleton-space-width-10",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-leading-compact",
+    "--group-feedback-surface-font-leading-relaxed",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus",
+    "--group-feedback-surface-stack-gap-compact",
+    "--group-feedback-surface-stack-gap-regular",
+    "--group-feedback-surface-title-weight",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-surface-border-width-hairline",
+    "--group-surface-border-width-regular",
+    "--group-surface-card-padding",
+    "--group-surface-color-action-foreground",
+    "--group-surface-color-action-soft",
+    "--group-surface-color-border-default",
+    "--group-surface-color-border-subtle",
+    "--group-surface-color-content-primary",
+    "--group-surface-color-content-secondary",
+    "--group-surface-color-surface-surface",
+    "--group-surface-color-surface-surface-raised",
+    "--group-surface-corner-radius",
+    "--group-surface-elevation-none",
+    "--group-surface-focus-offset",
+    "--group-surface-font-family-ui",
+    "--group-surface-font-leading-compact",
+    "--group-surface-font-leading-relaxed",
+    "--group-surface-font-size-body",
+    "--group-surface-font-size-subheading",
+    "--group-surface-gap-regular",
+    "--group-surface-gap-snug",
+    "--group-surface-motion-count-1",
+    "--group-surface-motion-disabled-duration",
+    "--group-surface-motion-reduced-duration",
+    "--group-surface-number-0",
+    "--group-surface-radius-strong",
+    "--group-surface-ring-focus",
+    "--group-surface-shadow-floating",
+    "--group-surface-shadow-raised",
+    "--group-surface-stack-gap-compact",
+    "--group-surface-stack-gap-regular",
+    "--group-surface-title-weight",
+    "--group-trigger-button-appearance-action-hover",
+    "--group-trigger-button-appearance-ai-hover",
+    "--group-trigger-button-border-width-hairline",
+    "--group-trigger-button-color-ai-blue-fg",
+    "--group-trigger-button-color-ai-fg",
+    "--group-trigger-button-color-ai-pink-fg",
+    "--group-trigger-button-color-ai-purple-fg",
+    "--group-trigger-button-color-border-default",
+    "--group-trigger-button-color-content-primary",
+    "--group-trigger-button-color-surface-surface",
+    "--group-trigger-button-color-transparent",
+    "--group-trigger-button-elevation-none",
+    "--group-trigger-button-font-leading-solid",
+    "--group-trigger-button-font-size-body",
+    "--group-trigger-button-font-size-label",
+    "--group-trigger-button-font-weight-medium",
+    "--group-trigger-button-gap-compact",
+    "--group-trigger-button-gradient-ai",
+    "--group-trigger-button-gradient-ai-border",
+    "--group-trigger-button-gradient-ai-soft",
+    "--group-trigger-button-gradient-ai-text",
+    "--group-trigger-button-height-compact",
+    "--group-trigger-button-height-large",
+    "--group-trigger-button-height-regular",
+    "--group-trigger-button-icon-size-compact",
+    "--group-trigger-button-icon-size-large",
+    "--group-trigger-button-icon-size-regular",
+    "--group-trigger-button-intent-bg",
+    "--group-trigger-button-intent-border",
+    "--group-trigger-button-intent-fg",
+    "--group-trigger-button-intent-on",
+    "--group-trigger-button-intent-soft",
+    "--group-trigger-button-loading-duration",
+    "--group-trigger-button-loading-rotation",
+    "--group-trigger-button-motion-fast",
+    "--group-trigger-button-number-0",
+    "--group-trigger-button-opacity-disabled",
+    "--group-trigger-button-opacity-hidden",
+    "--group-trigger-button-outline-overlap",
+    "--group-trigger-button-outline-width",
+    "--group-trigger-button-padding-icon",
+    "--group-trigger-button-padding-inline",
+    "--group-trigger-button-padding-snug",
+    "--group-trigger-button-press-offset",
+    "--group-trigger-button-primary-fill-pressed",
+    "--group-trigger-button-radius-current",
+    "--group-trigger-button-radius-strong",
+    "--group-trigger-button-state-overlay-hover",
+    "--group-trigger-button-state-overlay-pressed",
+    "--group-trigger-button-state-overlay-spread",
+    "--group-trigger-button-tertiary-fill-hover",
+    "--group-trigger-button-tertiary-foreground-hover",
+    "--group-trigger-measurement-icon-md",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-flex-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-viz-metric-card-number-0",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-size-width-full",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-padding-roomy",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-margin-compact",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-font-size-body",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-font-weight-medium",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-color-content-primary",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-gap-comfortable",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-gap-compact",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-size-max-width-full",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-font-size-heading-xl",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-font-leading-display",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-font-weight-semibold",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-font-tracking-display",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-gap-snug",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-color-content-secondary",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-color-success-foreground",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-color-danger-foreground",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-gap-regular",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-margin-block-compact",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-margin-block-roomy",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-color-transparent",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-elevation-none",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-size-width-micro-small",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-size-height-micro-small",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-size-margin-negative-1",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-size-clip-path-half",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-margin-top-compact",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-font-size-label",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-margin-top-comfortable",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-padding-block-roomy",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-size-grid-template-columns-canvas-tiny",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-size-grid-template-columns-full",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-track-flex",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-space-gap-roomy",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-metric-card-size-max-width-extended-canvas-roomy",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-surface-color-surface-surface",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-border-width-hairline",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-border-subtle",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-corner-radius",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-radius-strong",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-number-0",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-shadow-raised",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-shadow-floating",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-card-padding",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-gap-snug",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-size-subheading",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-title-weight",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-content-secondary",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-gap-regular",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-data-viz-chart-flex-none",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-content-tertiary",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-body",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-surface-selected",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-soft",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-width-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-height-regular",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-height-wide-content-vast",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-strong",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-width-10",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-height-10",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-radius-border-radius-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-none",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-gap-roomy",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-space-padding-comfortable",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-height-vast",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-surface-surface",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-border-width-hairline",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-color-border-subtle",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-number-0",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-fill",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-flex-grow-three",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-transform-negative-100percent",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-angle-90deg",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-mix-60",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-duration-1600ms",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-skeleton-size-transform-full",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-data-viz-chart-number-0",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-width-full",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-roomy",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-border-width-hairline",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-border-subtle",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-radius-border-radius-strong",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-corner-radius",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-content-primary",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-shadow-raised",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-elevation-none",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-regular",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-transparent",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-gap-comfortable",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-bottom-regular",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-body",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-title-weight",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-top-snug",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-label",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-leading-body",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-content-secondary",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-flex-none",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-height-full",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-comfortable",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-top-regular",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-gap-compact",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-snug",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-radius-border-radius-soft",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-surface-hover",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-opacity-strength-muted",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-width-glyph-tiny",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-height-glyph-tiny",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-radius-border-radius-fixed-3",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-min-width-panel-regular",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-border-default",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-shadow-floating",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-weight-semibold",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-bottom-compact",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-gap-roomy",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-leading-expansive",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-weight-medium",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-max-height-wide-panel-snug",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-compact",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-weight-regular",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-top-half",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-left-half",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-transform-negative-50percent",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-gap-snug",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-heading-l",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-family-code",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-annotation-xs",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-action-soft",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-border-width-regular",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-ring-focus",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-outline-offset-micro-compact",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-gap-comfortable",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-padding-expansive",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-padding-roomy",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-size-min-height-wide-panel-large",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-padding-comfortable",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-size-min-height-panel-huge",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-width-14",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-height-14",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-content-secondary",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-border-width-hairline",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-border-subtle",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-radius-border-radius-strong",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-shadow-raised",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-danger-foreground",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-danger-soft",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-danger-border",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-size-max-width-canvas-compact",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-number-0",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-margin-compact",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-font-size-subheading",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-content-primary",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-font-size-body",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-font-leading-prose",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-gap-compact",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-button-gap-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-inline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-current",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-leading-solid",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-weight-medium",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-motion-fast",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-bg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-on",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-icon",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-transparent",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-overlap",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-width",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-spread",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-press-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-disabled",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-hidden",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-snug",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-strong",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-rotation",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-text",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-data-viz-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-elevation-none",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-data-viz-surface-number-0",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-fill-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-foreground-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-action-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-primary-fill-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-ai-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-flex-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-leading-compact",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-stack-gap-compact",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-leading-relaxed",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-stack-gap-regular",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-data-viz-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-border-default",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-ring-focus",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-focus-offset",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-flex-none",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-number-0",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-size-body",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-title-weight",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-title-weight",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-leading-compact",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-leading-compact",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-stack-gap-compact",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-stack-gap-compact",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-divider-width",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-divider-width",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-divider-height",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-divider-height",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-border-overlap",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-border-overlap",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-title-weight",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-leading-compact",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-stack-gap-compact",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-leading-relaxed",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-stack-gap-regular",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Card",
+      "group": "surface"
+    },
+    {
+      "token": "--group-data-viz-surface-number-0",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Skeleton",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-data-viz-measurement-metric-chart-height",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-metric-chart-compact-height",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-metric-chart-min-height",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-metric-chart-initial-width",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-icon-inline",
+      "ownership": "owned",
+      "component": "Chart metric card",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-mini-bar-width",
+      "ownership": "nested",
+      "component": "MiniBarChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-mini-bar-height",
+      "ownership": "nested",
+      "component": "MiniBarChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-function",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-ai",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-success",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-warning",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-destroy",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-width",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-height",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-min-width",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-min-height",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-inset",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-baseline-inset",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-bar-gap",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-bar-min-width",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-bg",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-pink-bg",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-blue-bg",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-ai-purple-bg",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-bar-radius",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-area-opacity",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-dot-radius",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-sparkline-stroke",
+      "ownership": "nested",
+      "component": "Sparkline",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-function",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-ai",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-success",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-warning",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-destroy",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-severity-critical",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-severity-high",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-severity-medium",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-severity-low",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-severity-info",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-1",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-2",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-3",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-4",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-5",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-chart-6",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-height",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-initial-width",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-margin-top",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-margin-right",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-margin-left",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-tick-font-size",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-tick-gap",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-tick-margin",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-y-axis-width",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-dot-radius",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-stroke",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-bar-radius",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-bar-max-width",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-brush-height",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-brush-handle-width",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-resize-delay",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-area-opacity-top",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-area-opacity-bottom",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-grid-dash",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-cursor-opacity",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-border-strong",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-active-color-mix",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-surface-surface",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-stacked-opacity",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-donut-initial-width",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-donut-inner-radius",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-donut-outer-radius",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-donut-padding-angle",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-donut-stroke",
+      "ownership": "nested",
+      "component": "chartColor",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-stroke-thin",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-empty",
+      "ownership": "nested",
+      "component": "EmptyState",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-pink-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-blue-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-purple-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

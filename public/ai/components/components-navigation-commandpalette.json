@@ -1,0 +1,1710 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-navigation-commandpalette",
+  "name": "CommandPalette",
+  "category": "Navigation",
+  "tokenGroup": "navigation",
+  "kind": "component",
+  "aliases": [
+    "command menu",
+    "quick actions"
+  ],
+  "purpose": "A searchable modal command list with grouped actions and optional global shortcut registration.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/command-palette"
+  ],
+  "links": {
+    "contract": "./components-navigation-commandpalette.json",
+    "overview": "../../?path=/docs/components-navigation-commandpalette-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-navigation-commandpalette-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-navigation-commandpalette-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-navigation-commandpalette-overview--docs&docsTab=tokens"
+  },
+  "description": "Reach workspace actions through one searchable keyboard surface.",
+  "exports": [
+    "CommandPalette"
+  ],
+  "importStatements": [
+    "import { CommandPalette } from '@dimitriszoitas/aegis-ui/command-palette';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "CommandPalette",
+      "name": "actions",
+      "type": "CommandAction[]",
+      "required": true
+    },
+    {
+      "component": "CommandPalette",
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "CommandPalette",
+      "name": "onAskAi",
+      "type": "((query: string) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "CommandPalette",
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "CommandPalette",
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "CommandPalette",
+      "name": "shortcut",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "true"
+    }
+  ],
+  "variants": [],
+  "composition": [
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon-button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/kbd",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A searchable modal command list with grouped actions and optional global shortcut registration.",
+    "usage": [
+      "Supply explicit actions with labels, keywords, and callbacks. Searching does not invent an operation or issue a network query.",
+      "Disable shortcut registration when embedding a palette where the host already owns the global shortcut."
+    ],
+    "accessibility": [
+      "The dialog focuses its command input; Base UI provides active-item navigation and Enter selection.",
+      "Escape closes the palette. Focus returns to the opener unless the action deliberately moved focus elsewhere."
+    ],
+    "context": [
+      "Use for application navigation and frequent actions that also remain discoverable through visible controls."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "div",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/autocomplete",
+      "@base-ui/react/dialog",
+      "@base-ui/react/tooltip",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/button/button.css",
+    "src/components/button/button.tsx",
+    "src/components/button/index.ts",
+    "src/components/command-palette/command-palette.css",
+    "src/components/command-palette/command-palette.stories.tsx",
+    "src/components/command-palette/command-palette.tsx",
+    "src/components/icon-button/icon-button.css",
+    "src/components/icon-button/icon-button.tsx",
+    "src/components/icon-button/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/kbd/index.ts",
+    "src/components/kbd/kbd.css",
+    "src/components/kbd/kbd.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-overlays.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/theme.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-navigation-commandpalette--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-navigation-commandpalette--matrix",
+      "sourceFile": "src/components/command-palette/command-palette.stories.tsx"
+    },
+    {
+      "id": "components-navigation-commandpalette--open-palette",
+      "name": "Open Palette",
+      "url": "../../?path=/story/components-navigation-commandpalette--open-palette",
+      "sourceFile": "src/components/command-palette/command-palette.stories.tsx"
+    },
+    {
+      "id": "components-navigation-commandpalette--keyboard-focus",
+      "name": "Keyboard Focus",
+      "url": "../../?path=/story/components-navigation-commandpalette--keyboard-focus",
+      "sourceFile": "src/components/command-palette/command-palette.stories.tsx"
+    },
+    {
+      "id": "components-navigation-commandpalette--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-navigation-commandpalette--playground",
+      "sourceFile": "src/components/command-palette/command-palette.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-data-display-kbd-border-width-hairline",
+    "--group-data-display-kbd-border-width-regular",
+    "--group-data-display-kbd-color-border-default",
+    "--group-data-display-kbd-color-content-secondary",
+    "--group-data-display-kbd-color-surface-surface",
+    "--group-data-display-kbd-flex-none",
+    "--group-data-display-kbd-font-family-code",
+    "--group-data-display-kbd-font-leading-solid",
+    "--group-data-display-kbd-font-size-body",
+    "--group-data-display-kbd-font-size-label",
+    "--group-data-display-kbd-font-weight-regular",
+    "--group-data-display-kbd-number-0",
+    "--group-data-display-kbd-radius-border-radius-soft",
+    "--group-data-display-kbd-space-height-5",
+    "--group-data-display-kbd-space-height-roomy",
+    "--group-data-display-kbd-space-min-width-5",
+    "--group-data-display-kbd-space-min-width-roomy",
+    "--group-data-display-kbd-space-padding-compact",
+    "--group-data-display-kbd-space-padding-snug",
+    "--group-data-display-surface-border-width-regular",
+    "--group-data-display-surface-color-action-foreground",
+    "--group-data-display-surface-color-action-soft",
+    "--group-data-display-surface-color-border-default",
+    "--group-data-display-surface-color-content-primary",
+    "--group-data-display-surface-elevation-none",
+    "--group-data-display-surface-focus-offset",
+    "--group-data-display-surface-font-family-ui",
+    "--group-data-display-surface-font-size-body",
+    "--group-data-display-surface-motion-count-1",
+    "--group-data-display-surface-motion-disabled-duration",
+    "--group-data-display-surface-motion-reduced-duration",
+    "--group-data-display-surface-number-0",
+    "--group-data-display-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-command-palette-border-width-hairline",
+    "--group-navigation-command-palette-color-border-default",
+    "--group-navigation-command-palette-color-border-subtle",
+    "--group-navigation-command-palette-color-content-primary",
+    "--group-navigation-command-palette-color-content-secondary",
+    "--group-navigation-command-palette-color-content-tertiary",
+    "--group-navigation-command-palette-color-scrim",
+    "--group-navigation-command-palette-color-surface-hover",
+    "--group-navigation-command-palette-color-surface-surface-raised",
+    "--group-navigation-command-palette-color-transparent",
+    "--group-navigation-command-palette-flex-fill",
+    "--group-navigation-command-palette-font-size-label",
+    "--group-navigation-command-palette-number-0",
+    "--group-navigation-command-palette-radius-border-radius-strong",
+    "--group-navigation-command-palette-shadow-overlay",
+    "--group-navigation-command-palette-size-backdrop-filter-micro-snug",
+    "--group-navigation-command-palette-size-height-compact-content-small",
+    "--group-navigation-command-palette-size-left-half",
+    "--group-navigation-command-palette-size-max-height-canvas-large",
+    "--group-navigation-command-palette-size-padding-glyph-compact",
+    "--group-navigation-command-palette-size-top-14vh",
+    "--group-navigation-command-palette-size-transform-negative-50percent",
+    "--group-navigation-command-palette-size-width-100vw",
+    "--group-navigation-command-palette-size-width-comfortable",
+    "--group-navigation-command-palette-size-width-wide-canvas-compact",
+    "--group-navigation-command-palette-space-gap-comfortable",
+    "--group-navigation-command-palette-space-gap-compact",
+    "--group-navigation-command-palette-space-gap-regular",
+    "--group-navigation-command-palette-space-padding-comfortable",
+    "--group-navigation-command-palette-space-padding-compact",
+    "--group-navigation-command-palette-space-padding-regular",
+    "--group-navigation-command-palette-space-padding-roomy",
+    "--group-navigation-command-palette-z-modal",
+    "--group-navigation-measurement-icon-lg",
+    "--group-navigation-measurement-icon-navigation",
+    "--group-navigation-measurement-icon-sm",
+    "--group-navigation-overlay-appearance-overlay-surface",
+    "--group-navigation-overlay-border-width-hairline",
+    "--group-navigation-overlay-elevation-none",
+    "--group-navigation-overlay-number-0",
+    "--group-navigation-overlay-shadow-dialog",
+    "--group-navigation-surface-backdrop-blur",
+    "--group-navigation-surface-border-overlap",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-color-action-foreground",
+    "--group-navigation-surface-color-action-soft",
+    "--group-navigation-surface-color-border-default",
+    "--group-navigation-surface-color-content-primary",
+    "--group-navigation-surface-color-scrim",
+    "--group-navigation-surface-divider-height",
+    "--group-navigation-surface-divider-width",
+    "--group-navigation-surface-elevation-none",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-font-family-ui",
+    "--group-navigation-surface-font-size-body",
+    "--group-navigation-surface-mix-70",
+    "--group-navigation-surface-motion-count-1",
+    "--group-navigation-surface-motion-disabled-duration",
+    "--group-navigation-surface-motion-reduced-duration",
+    "--group-navigation-surface-number-0",
+    "--group-navigation-surface-ring-focus",
+    "--group-trigger-button-appearance-action-hover",
+    "--group-trigger-button-appearance-ai-hover",
+    "--group-trigger-button-border-width-hairline",
+    "--group-trigger-button-color-ai-blue-fg",
+    "--group-trigger-button-color-ai-fg",
+    "--group-trigger-button-color-ai-pink-fg",
+    "--group-trigger-button-color-ai-purple-fg",
+    "--group-trigger-button-color-border-default",
+    "--group-trigger-button-color-content-primary",
+    "--group-trigger-button-color-surface-surface",
+    "--group-trigger-button-color-surface-surface-raised",
+    "--group-trigger-button-color-transparent",
+    "--group-trigger-button-elevation-none",
+    "--group-trigger-button-font-leading-solid",
+    "--group-trigger-button-font-size-body",
+    "--group-trigger-button-font-size-label",
+    "--group-trigger-button-font-weight-medium",
+    "--group-trigger-button-gap-compact",
+    "--group-trigger-button-gradient-ai",
+    "--group-trigger-button-gradient-ai-border",
+    "--group-trigger-button-gradient-ai-soft",
+    "--group-trigger-button-gradient-ai-text",
+    "--group-trigger-button-height-compact",
+    "--group-trigger-button-height-large",
+    "--group-trigger-button-height-regular",
+    "--group-trigger-button-icon-size-compact",
+    "--group-trigger-button-icon-size-large",
+    "--group-trigger-button-icon-size-regular",
+    "--group-trigger-button-intent-bg",
+    "--group-trigger-button-intent-border",
+    "--group-trigger-button-intent-fg",
+    "--group-trigger-button-intent-on",
+    "--group-trigger-button-intent-soft",
+    "--group-trigger-button-loading-duration",
+    "--group-trigger-button-loading-rotation",
+    "--group-trigger-button-motion-fast",
+    "--group-trigger-button-number-0",
+    "--group-trigger-button-opacity-disabled",
+    "--group-trigger-button-opacity-hidden",
+    "--group-trigger-button-outline-overlap",
+    "--group-trigger-button-outline-width",
+    "--group-trigger-button-padding-compact",
+    "--group-trigger-button-padding-icon",
+    "--group-trigger-button-padding-inline",
+    "--group-trigger-button-padding-regular",
+    "--group-trigger-button-padding-snug",
+    "--group-trigger-button-press-offset",
+    "--group-trigger-button-primary-fill-pressed",
+    "--group-trigger-button-radius-bold",
+    "--group-trigger-button-radius-current",
+    "--group-trigger-button-radius-strong",
+    "--group-trigger-button-shadow-overlay",
+    "--group-trigger-button-state-overlay-hover",
+    "--group-trigger-button-state-overlay-pressed",
+    "--group-trigger-button-state-overlay-spread",
+    "--group-trigger-button-tertiary-fill-hover",
+    "--group-trigger-button-tertiary-foreground-hover",
+    "--group-trigger-button-z-tooltip",
+    "--group-trigger-measurement-icon-md",
+    "--group-trigger-measurement-icon-tooltip-delay",
+    "--group-trigger-measurement-overlay-offset",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-flex-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-number-0",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-color-scrim",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-size-backdrop-filter-micro-snug",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-z-modal",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-size-left-half",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-size-top-14vh",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-size-transform-negative-50percent",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-size-width-100vw",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-size-width-comfortable",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-size-width-wide-canvas-compact",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-border-width-hairline",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-color-border-default",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-color-surface-surface-raised",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-shadow-overlay",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-space-gap-regular",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-space-padding-comfortable",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-color-border-subtle",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-color-content-secondary",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-color-transparent",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-flex-fill",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-color-content-primary",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-size-height-compact-content-small",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-space-padding-compact",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-size-max-height-canvas-large",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-space-padding-regular",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-font-size-label",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-color-content-tertiary",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-size-padding-glyph-compact",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-measurement-icon-navigation",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-color-surface-hover",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-space-padding-roomy",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-space-gap-comfortable",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-command-palette-space-gap-compact",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-trigger-button-z-tooltip",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-compact",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-bold",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-shadow-overlay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gap-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-inline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-current",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-leading-solid",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-weight-medium",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-motion-fast",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-bg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-on",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-icon",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-transparent",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-overlap",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-width",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-spread",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-press-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-disabled",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-hidden",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-snug",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-strong",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-rotation",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-text",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-data-display-kbd-flex-none",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-min-width-5",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-height-5",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-number-0",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-padding-snug",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-border-width-hairline",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-color-border-default",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-border-width-regular",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-radius-border-radius-soft",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-color-surface-surface",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-color-content-secondary",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-font-family-code",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-font-size-label",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-font-weight-regular",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-font-leading-solid",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-height-roomy",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-min-width-roomy",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-padding-compact",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-font-size-body",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-navigation-overlay-appearance-overlay-surface",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-overlay-number-0",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-overlay-shadow-dialog",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-scrim",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-mix-70",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-backdrop-blur",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-overlay-border-width-hairline",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-overlay-elevation-none",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-navigation-surface-elevation-none",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-navigation-surface-number-0",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-fill-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-foreground-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-action-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-primary-fill-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-ai-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-flex-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-navigation-surface-color-border-default",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-divider-width",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-divider-height",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-border-overlap",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-navigation-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-font-size-body",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-navigation-measurement-icon-lg",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-navigation-measurement-icon-sm",
+      "ownership": "owned",
+      "component": "CommandPalette",
+      "group": "navigation"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "Sparkles",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-tooltip-delay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-pink-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-blue-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-purple-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

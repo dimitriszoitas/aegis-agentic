@@ -1,0 +1,111 @@
+/* Only known surface components inherit the smaller nested corner; controls keep their own radii. */
+:where(
+    .surface,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-modal
+  )
+  :is(
+    .surface,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-data-grid
+  ):where(.surface, .aegis-card) {
+  --group-surface-corner-radius: var(--semantic-radius-l);
+}
+:where(
+    .surface,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-modal
+  )
+  :is(
+    .surface,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-data-grid
+  ):where(.aegis-chart-container) {
+  --group-data-viz-surface-corner-radius: var(--semantic-radius-l);
+}
+:where(
+    .surface,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-modal
+  )
+  :is(
+    .surface,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-data-grid
+  ):where(.aegis-ai-card, .aegis-ai-highlight) {
+  --group-ai-surface-corner-radius: var(--semantic-radius-l);
+}
+:where(
+    .surface,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-modal
+  )
+  :is(
+    .surface,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-data-grid
+  ):where(.aegis-wizard-panel, .aegis-wizard-progress) {
+  --group-workflow-surface-corner-radius: var(--semantic-radius-l);
+}
+:where(
+    .surface,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-modal
+  )
+  :is(
+    .surface,
+    .aegis-card,
+    .aegis-chart-container,
+    .aegis-ai-card,
+    .aegis-ai-highlight,
+    .aegis-wizard-panel,
+    .aegis-wizard-progress,
+    .aegis-data-grid
+  ):where(.aegis-data-grid) {
+  --group-data-display-surface-corner-radius: var(--semantic-radius-l);
+}

@@ -1,0 +1,827 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-code-codeeditor",
+  "name": "CodeEditor",
+  "category": "Code",
+  "tokenGroup": "code",
+  "kind": "component",
+  "aliases": [],
+  "purpose": "A token-themed CodeMirror editor with controlled text, folding, line numbers, and bounded height.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/code-editor"
+  ],
+  "links": {
+    "contract": "./components-code-codeeditor.json",
+    "overview": "../../?path=/docs/components-code-codeeditor-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-code-codeeditor-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-code-codeeditor-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-code-codeeditor-overview--docs&docsTab=tokens"
+  },
+  "description": "Edit YAML or JSON within the same visual language as the surrounding form.",
+  "exports": [
+    "CodeEditor"
+  ],
+  "importStatements": [
+    "import { CodeEditor } from '@dimitriszoitas/aegis-ui/code-editor';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "CodeEditor",
+      "name": "autoFocus",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "CodeEditor",
+      "name": "defaultValue",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"\""
+    },
+    {
+      "component": "CodeEditor",
+      "name": "extensions",
+      "type": "Extension[] | undefined",
+      "required": false
+    },
+    {
+      "component": "CodeEditor",
+      "name": "folding",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "true"
+    },
+    {
+      "component": "CodeEditor",
+      "name": "height",
+      "type": "string | number | undefined",
+      "required": false
+    },
+    {
+      "component": "CodeEditor",
+      "name": "highlightedLines",
+      "type": "readonly HighlightedLineRange[] | undefined",
+      "required": false
+    },
+    {
+      "component": "CodeEditor",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Code editor\"",
+      "description": "Accessible name of the editing surface."
+    },
+    {
+      "component": "CodeEditor",
+      "name": "language",
+      "type": "CodeLanguage | undefined",
+      "required": false,
+      "defaultValue": "\"yaml\""
+    },
+    {
+      "component": "CodeEditor",
+      "name": "lineNumbers",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "true"
+    },
+    {
+      "component": "CodeEditor",
+      "name": "maxHeight",
+      "type": "string | number | undefined",
+      "required": false,
+      "defaultValue": "520px (var(--group-code-measurement-code-max-height))"
+    },
+    {
+      "component": "CodeEditor",
+      "name": "minHeight",
+      "type": "string | number | undefined",
+      "required": false,
+      "defaultValue": "160px (var(--group-code-measurement-code-min-height))"
+    },
+    {
+      "component": "CodeEditor",
+      "name": "onValueChange",
+      "type": "((value: string) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "CodeEditor",
+      "name": "placeholder",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "CodeEditor",
+      "name": "readOnly",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "CodeEditor",
+      "name": "statusBar",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Custom content at the left of the status bar, or false to hide the bar."
+    },
+    {
+      "component": "CodeEditor",
+      "name": "value",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "CodeEditor",
+      "name": "wrapLines",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    }
+  ],
+  "variants": [
+    {
+      "name": "language",
+      "values": [
+        "json",
+        "yaml"
+      ],
+      "default": "yaml"
+    },
+    {
+      "name": "readOnly",
+      "values": [
+        "false",
+        "true"
+      ],
+      "default": "false"
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "A token-themed CodeMirror editor with controlled text, folding, line numbers, and bounded height.",
+    "usage": [
+      "Select the supported language and provide a specific label. Use value with onValueChange for controlled editing, or defaultValue for local state.",
+      "readOnly prevents edits without turning the source into an image; text remains inspectable and selectable.",
+      "Use highlightedLines for source emphasis and the imperative handle for focus, fold-all, or unfold-all controls."
+    ],
+    "accessibility": [
+      "Tab and Shift+Tab leave the editor rather than indenting or trapping focus; preserve that behavior when adding custom extensions.",
+      "The editor includes accessible navigation instructions and supports external descriptions. The status bar reports cursor position and language."
+    ],
+    "context": [
+      "Use for configuration and structured source editing; parsing, validation, and persistence belong to the host."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-hidden"
+    ],
+    "nativeElements": [
+      "div",
+      "p",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@codemirror/lang-json",
+      "@codemirror/lang-yaml",
+      "@codemirror/language",
+      "@codemirror/state",
+      "@codemirror/view",
+      "@lezer/highlight",
+      "@uiw/react-codemirror",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/code-editor/code-editor.css",
+    "src/components/code-editor/code-editor.stories.tsx",
+    "src/components/code-editor/code-editor.tsx",
+    "src/components/code-editor/code-theme.ts",
+    "src/components/code-editor/source-languages.ts",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-code-codeeditor--default",
+      "name": "Default",
+      "url": "../../?path=/story/components-code-codeeditor--default",
+      "sourceFile": "src/components/code-editor/code-editor.stories.tsx"
+    },
+    {
+      "id": "components-code-codeeditor--json",
+      "name": "Json",
+      "url": "../../?path=/story/components-code-codeeditor--json",
+      "sourceFile": "src/components/code-editor/code-editor.stories.tsx"
+    },
+    {
+      "id": "components-code-codeeditor--read-only",
+      "name": "Read Only",
+      "url": "../../?path=/story/components-code-codeeditor--read-only",
+      "sourceFile": "src/components/code-editor/code-editor.stories.tsx"
+    },
+    {
+      "id": "components-code-codeeditor--empty",
+      "name": "Empty",
+      "url": "../../?path=/story/components-code-codeeditor--empty",
+      "sourceFile": "src/components/code-editor/code-editor.stories.tsx"
+    },
+    {
+      "id": "components-code-codeeditor--highlighted-lines",
+      "name": "Highlighted Lines",
+      "url": "../../?path=/story/components-code-codeeditor--highlighted-lines",
+      "sourceFile": "src/components/code-editor/code-editor.stories.tsx"
+    },
+    {
+      "id": "components-code-codeeditor--wrapped-and-minimal",
+      "name": "Wrapped And Minimal",
+      "url": "../../?path=/story/components-code-codeeditor--wrapped-and-minimal",
+      "sourceFile": "src/components/code-editor/code-editor.stories.tsx"
+    },
+    {
+      "id": "components-code-codeeditor--custom-status",
+      "name": "Custom Status",
+      "url": "../../?path=/story/components-code-codeeditor--custom-status",
+      "sourceFile": "src/components/code-editor/code-editor.stories.tsx"
+    },
+    {
+      "id": "components-code-codeeditor--keyboard-editing",
+      "name": "Keyboard Editing",
+      "url": "../../?path=/story/components-code-codeeditor--keyboard-editing",
+      "sourceFile": "src/components/code-editor/code-editor.stories.tsx"
+    },
+    {
+      "id": "components-code-codeeditor--folding",
+      "name": "Folding",
+      "url": "../../?path=/story/components-code-codeeditor--folding",
+      "sourceFile": "src/components/code-editor/code-editor.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-border-width-hairline",
+    "--group-code-code-editor-border-width-regular",
+    "--group-code-code-editor-color-action-soft",
+    "--group-code-code-editor-color-bg-hover",
+    "--group-code-code-editor-color-bg-surface-raised",
+    "--group-code-code-editor-color-border-default",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-code-editor-color-border-subtle",
+    "--group-code-code-editor-color-content-primary",
+    "--group-code-code-editor-color-content-secondary",
+    "--group-code-code-editor-color-destroy-fg",
+    "--group-code-code-editor-color-function-bg",
+    "--group-code-code-editor-color-function-border",
+    "--group-code-code-editor-color-function-fg",
+    "--group-code-code-editor-color-surface-canvas",
+    "--group-code-code-editor-color-surface-surface",
+    "--group-code-code-editor-color-syntax-key",
+    "--group-code-code-editor-color-syntax-keyword",
+    "--group-code-code-editor-color-syntax-number",
+    "--group-code-code-editor-color-syntax-string",
+    "--group-code-code-editor-color-warning-border",
+    "--group-code-code-editor-color-warning-soft",
+    "--group-code-code-editor-font-family-code",
+    "--group-code-code-editor-font-family-ui",
+    "--group-code-code-editor-font-size-body",
+    "--group-code-code-editor-font-size-label",
+    "--group-code-code-editor-number-0",
+    "--group-code-code-editor-radius-border-radius-bold",
+    "--group-code-code-editor-radius-xs",
+    "--group-code-code-editor-ring-focus",
+    "--group-code-code-editor-shadow-floating",
+    "--group-code-code-editor-size-box-shadow-micro-compact",
+    "--group-code-code-editor-size-outline-offset-micro-compact",
+    "--group-code-code-editor-space-1",
+    "--group-code-code-editor-space-4",
+    "--group-code-code-editor-space-gap-compact",
+    "--group-code-code-editor-space-margin-compact",
+    "--group-code-code-editor-space-padding-compact",
+    "--group-code-code-editor-space-padding-regular",
+    "--group-code-measurement-code-border-width",
+    "--group-code-measurement-code-highlight-width",
+    "--group-code-measurement-code-line-height",
+    "--group-code-measurement-code-max-height",
+    "--group-code-measurement-code-min-height",
+    "--group-code-surface-appearance-control-border",
+    "--group-code-surface-border-overlap",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-color-action-foreground",
+    "--group-code-surface-color-action-soft",
+    "--group-code-surface-color-border-default",
+    "--group-code-surface-color-content-primary",
+    "--group-code-surface-divider-height",
+    "--group-code-surface-divider-width",
+    "--group-code-surface-elevation-none",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-font-family-ui",
+    "--group-code-surface-font-leading-relaxed",
+    "--group-code-surface-font-size-body",
+    "--group-code-surface-motion-count-1",
+    "--group-code-surface-motion-disabled-duration",
+    "--group-code-surface-motion-reduced-duration",
+    "--group-code-surface-number-0",
+    "--group-code-surface-ring-focus",
+    "--group-code-surface-stack-gap-regular",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-number-0",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-content-primary",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-surface-surface",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-border-width-hairline",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-default",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-ring-focus",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-action-soft",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-size-box-shadow-micro-compact",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-space-gap-compact",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-space-padding-compact",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-space-padding-regular",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-subtle",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-content-secondary",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-surface-canvas",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-font-size-label",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-space-margin-compact",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-border-width-regular",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-elevation-none",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-appearance-control-border",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-color-border-default",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-number-0",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-divider-width",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-divider-height",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-border-overlap",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-font-size-body",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-measurement-code-min-height",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-measurement-code-max-height",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-font-size-body",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-font-family-code",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-measurement-code-line-height",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-space-4",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-measurement-code-border-width",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-bg-hover",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-function-fg",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-function-border",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-destroy-fg",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-radius-xs",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-space-1",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-bg-surface-raised",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-shadow-floating",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-warning-soft",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-warning-border",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-font-family-ui",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-function-bg",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-measurement-code-highlight-width",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-syntax-key",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-syntax-string",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-syntax-number",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    },
+    {
+      "token": "--group-code-code-editor-color-syntax-keyword",
+      "ownership": "owned",
+      "component": "CodeEditor",
+      "group": "code"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

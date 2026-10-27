@@ -1,0 +1,242 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-utilities-scrollarea",
+  "name": "ScrollArea",
+  "category": "Layout",
+  "tokenGroup": "layout",
+  "kind": "component",
+  "aliases": [
+    "scroll container",
+    "scrollbar"
+  ],
+  "purpose": "A named, keyboard-focusable native scrolling region with a configurable maximum height.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/scroll-area"
+  ],
+  "links": {
+    "contract": "./components-utilities-scrollarea.json",
+    "overview": "../../?path=/docs/components-layout-scrollarea-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-layout-scrollarea-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-layout-scrollarea-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-layout-scrollarea-overview--docs&docsTab=tokens"
+  },
+  "description": "Bound a long region while preserving normal keyboard and touch scrolling.",
+  "exports": [
+    "ScrollArea"
+  ],
+  "importStatements": [
+    "import { ScrollArea } from '@dimitriszoitas/aegis-ui/scroll-area';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "ScrollArea",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Scrollable content\""
+    },
+    {
+      "component": "ScrollArea",
+      "name": "maxHeight",
+      "type": "string | number | undefined",
+      "required": false,
+      "defaultValue": "360px (var(--group-layout-measurement-scroll-area-max-height))"
+    }
+  ],
+  "variants": [],
+  "composition": [],
+  "guidance": {
+    "overview": "A named, keyboard-focusable native scrolling region with a configurable maximum height.",
+    "usage": [
+      "Choose a descriptive label and a maximum height that makes surrounding controls visible.",
+      "Use a single obvious scroll region for related content; avoid nesting several small scroll areas without a clear purpose."
+    ],
+    "accessibility": [
+      "The region has tabIndex=0 so keyboard users can scroll content even when it contains no interactive controls.",
+      "Keep the region name distinct from its neighboring content and preserve the visible keyboard focus boundary."
+    ],
+    "context": [
+      "Use for logs, long lists, code-adjacent content, and bounded panels."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "region"
+    ],
+    "ariaAttributes": [
+      "aria-label"
+    ],
+    "nativeElements": [
+      "div"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/scroll-area/scroll-area.css",
+    "src/components/scroll-area/scroll-area.stories.tsx",
+    "src/components/scroll-area/scroll-area.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-utilities-scrollarea--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-utilities-scrollarea--matrix",
+      "sourceFile": "src/components/scroll-area/scroll-area.stories.tsx"
+    },
+    {
+      "id": "components-utilities-scrollarea--both-axes",
+      "name": "Both Axes",
+      "url": "../../?path=/story/components-utilities-scrollarea--both-axes",
+      "sourceFile": "src/components/scroll-area/scroll-area.stories.tsx"
+    },
+    {
+      "id": "components-utilities-scrollarea--no-overflow",
+      "name": "No Overflow",
+      "url": "../../?path=/story/components-utilities-scrollarea--no-overflow",
+      "sourceFile": "src/components/scroll-area/scroll-area.stories.tsx"
+    },
+    {
+      "id": "components-utilities-scrollarea--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-utilities-scrollarea--playground",
+      "sourceFile": "src/components/scroll-area/scroll-area.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-layout-measurement-scroll-area-max-height",
+    "--group-layout-surface-border-width-regular",
+    "--group-layout-surface-color-action-foreground",
+    "--group-layout-surface-color-action-soft",
+    "--group-layout-surface-color-border-default",
+    "--group-layout-surface-color-content-primary",
+    "--group-layout-surface-elevation-none",
+    "--group-layout-surface-focus-offset",
+    "--group-layout-surface-font-family-ui",
+    "--group-layout-surface-font-size-body",
+    "--group-layout-surface-motion-count-1",
+    "--group-layout-surface-motion-disabled-duration",
+    "--group-layout-surface-motion-reduced-duration",
+    "--group-layout-surface-number-0",
+    "--group-layout-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-layout-surface-elevation-none",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-color-border-default",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-ring-focus",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-focus-offset",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-number-0",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-font-size-body",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    },
+    {
+      "token": "--group-layout-measurement-scroll-area-max-height",
+      "ownership": "owned",
+      "component": "ScrollArea",
+      "group": "layout"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

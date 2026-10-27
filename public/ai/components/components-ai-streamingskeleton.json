@@ -1,0 +1,490 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-ai-streamingskeleton",
+  "name": "StreamingSkeleton",
+  "category": "AI",
+  "tokenGroup": "ai",
+  "kind": "component",
+  "aliases": [
+    "ai loading",
+    "streaming placeholder"
+  ],
+  "purpose": "A named placeholder for an AI response that has not yet produced readable content.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/streaming-skeleton"
+  ],
+  "links": {
+    "contract": "./components-ai-streamingskeleton.json",
+    "overview": "../../?path=/docs/components-ai-streamingskeleton-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-ai-streamingskeleton-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-ai-streamingskeleton-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-ai-streamingskeleton-overview--docs&docsTab=tokens"
+  },
+  "description": "Reserve space while generated content starts to arrive.",
+  "exports": [
+    "StreamingSkeleton"
+  ],
+  "importStatements": [
+    "import { StreamingSkeleton } from '@dimitriszoitas/aegis-ui/streaming-skeleton';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "StreamingSkeleton",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Generating AI response\""
+    },
+    {
+      "component": "StreamingSkeleton",
+      "name": "lines",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "3"
+    },
+    {
+      "component": "StreamingSkeleton",
+      "name": "variant",
+      "type": "\"text\" | \"card\" | undefined",
+      "required": false,
+      "defaultValue": "\"text\""
+    }
+  ],
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "card",
+        "text"
+      ],
+      "default": "text"
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "A named placeholder for an AI response that has not yet produced readable content.",
+    "usage": [
+      "Use before the first response content, then replace it with the real message as text arrives.",
+      "Choose the number of lines to approximate the expected content rather than implying an exact response length."
+    ],
+    "accessibility": [
+      "The loading label is exposed through a single status region, and decorative placeholder lines are hidden.",
+      "Avoid layering another identical loading announcement around it."
+    ],
+    "context": [
+      "Use in the initial response state of AiMessage or a generated-result region."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "div",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/streaming-skeleton/streaming-skeleton.css",
+    "src/components/streaming-skeleton/streaming-skeleton.stories.tsx",
+    "src/components/streaming-skeleton/streaming-skeleton.tsx",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-ai-streamingskeleton--pending-blocks",
+      "name": "Pending Blocks",
+      "url": "../../?path=/story/components-ai-streamingskeleton--pending-blocks",
+      "sourceFile": "src/components/streaming-skeleton/streaming-skeleton.stories.tsx"
+    },
+    {
+      "id": "components-ai-streamingskeleton--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-ai-streamingskeleton--playground",
+      "sourceFile": "src/components/streaming-skeleton/streaming-skeleton.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-angle-115deg",
+    "--group-ai-border-width-hairline",
+    "--group-ai-color-ai-blue-fill",
+    "--group-ai-color-ai-border",
+    "--group-ai-color-ai-fill",
+    "--group-ai-color-ai-purple-fill",
+    "--group-ai-duration-1-8s",
+    "--group-ai-duration-3-2s",
+    "--group-ai-gradient-ai",
+    "--group-ai-gradient-ai-surface",
+    "--group-ai-gradient-ai-text",
+    "--group-ai-layer-underlay",
+    "--group-ai-mix-38",
+    "--group-ai-number-0",
+    "--group-ai-opacity-strength-faint",
+    "--group-ai-opacity-strength-hint",
+    "--group-ai-opacity-strength-soft",
+    "--group-ai-opacity-strength-subtle",
+    "--group-ai-radius-border-radius-bold",
+    "--group-ai-radius-border-radius-strong",
+    "--group-ai-scale-0-94",
+    "--group-ai-scale-1-06",
+    "--group-ai-size-filter-glyph-vast",
+    "--group-ai-size-height-tiny",
+    "--group-ai-size-inset-negative-20percent",
+    "--group-ai-size-transform-full",
+    "--group-ai-size-transform-negative-100percent",
+    "--group-ai-size-width-64percent",
+    "--group-ai-size-width-86percent",
+    "--group-ai-size-width-full",
+    "--group-ai-space-gap-regular",
+    "--group-ai-space-padding-5",
+    "--group-ai-streaming-line-base",
+    "--group-ai-surface-border-overlap",
+    "--group-ai-surface-border-width-regular",
+    "--group-ai-surface-color-action-foreground",
+    "--group-ai-surface-color-action-soft",
+    "--group-ai-surface-color-border-default",
+    "--group-ai-surface-color-content-primary",
+    "--group-ai-surface-divider-height",
+    "--group-ai-surface-divider-width",
+    "--group-ai-surface-elevation-none",
+    "--group-ai-surface-focus-offset",
+    "--group-ai-surface-font-family-ui",
+    "--group-ai-surface-font-size-body",
+    "--group-ai-surface-motion-count-1",
+    "--group-ai-surface-motion-disabled-duration",
+    "--group-ai-surface-motion-reduced-duration",
+    "--group-ai-surface-number-0",
+    "--group-ai-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-ai-space-gap-regular",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-number-0",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-width-full",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-inset-negative-20percent",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-layer-underlay",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-gradient-ai",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-filter-glyph-vast",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-opacity-strength-hint",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-scale-0-94",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-duration-3-2s",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-space-padding-5",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-border-width-hairline",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-ai-border",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-gradient-ai-surface",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-height-tiny",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-angle-115deg",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-ai-blue-fill",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-ai-fill",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-color-ai-purple-fill",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-mix-38",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-streaming-line-base",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-width-64percent",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-width-86percent",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-gradient-ai-text",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-opacity-strength-subtle",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-transform-negative-100percent",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-duration-1-8s",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-size-transform-full",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-opacity-strength-soft",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-scale-1-06",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-opacity-strength-faint",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-elevation-none",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-border-default",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-ring-focus",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-focus-offset",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-divider-width",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-divider-height",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-number-0",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-border-overlap",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-font-size-body",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    },
+    {
+      "token": "--group-ai-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "StreamingSkeleton",
+      "group": "ai"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

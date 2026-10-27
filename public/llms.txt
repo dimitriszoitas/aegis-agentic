@@ -1,0 +1,29 @@
+# @dimitriszoitas/aegis-ui
+
+> React components and patterns for applications. Use the public contracts to discover supported APIs and guidance.
+
+## Start here
+
+- [Component index](./ai/index.json): Ordered documentation navigation, task-based categories, aliases, exact import paths and per-component contracts.
+- [Contract schema](./ai/schema.json): Version 1 JSON schema for the index, components and token graph.
+- [Token declaration graph](./ai/tokens.json): Source expressions, selectors, conditions and references. Values are not universal computed results.
+- [Documentation](./?path=/docs/foundations-welcome--docs): Live examples and full component guidance.
+
+## Documentation navigation
+
+- [Welcome](./?path=/docs/foundations-welcome--docs)
+- [Principles](./?path=/docs/foundations-principles--docs)
+- [Directory](./?path=/docs/foundations-component-directory--docs)
+- [AI Guidelines](./?path=/docs/foundations-ai-guidelines--docs)
+
+Foundations: [Colors](./?path=/docs/foundations-colors--docs) · [Typography](./?path=/docs/foundations-type-and-motion--docs) · [Spacing & Sizing](./?path=/docs/foundations-space-and-surfaces--docs) · [Iconography](./?path=/docs/foundations-icons-overview--docs) · [Motion](./?path=/docs/foundations-motion--docs) · [Opacity](./?path=/docs/foundations-opacity--docs) · [Border (Radius, Width, Style)](./?path=/docs/foundations-border--docs) · [Elevation](./?path=/docs/foundations-elevation--docs) · [Themes & Modes](./?path=/docs/foundations-theme--docs).
+
+Agentic Skills: [Agentic Skills](./?path=/docs/agentic-skills-component-creation--docs).
+
+## Usage
+
+Choose a component from the index, read its contract, and import its exported name from the listed package path. Import the optional `@dimitriszoitas/aegis-ui/styles.css` once for the supplied visual language. Without it, styled components require consumer styling. For headless composition, import Base UI primitives from `@dimitriszoitas/aegis-ui/primitives`, which includes no CSS and uses Base UI APIs instead of the styled component APIs. Use the published TypeScript declarations for inherited HTML props and complex types. Preserve existing component names and choose categories by task, without atomic design grouping.
+
+Each component has one documentation hub with Overview, Guidelines, Tokens Used and Examples tabs. Contract documentation links select the matching hub tab; legacy section routes and individual story URLs remain accessible.
+
+Component contracts distinguish source-extracted facts from authored guidance. Source ARIA and keyboard facts do not certify accessibility. Story links do not certify passing tests. Runtime verification and design parity are not included. Token declarations retain context; check the active theme, selector and state before overriding them. The published graph includes common definitions and Fundamental or Fundamental Floating declarations, excluding selectors scoped only to legacy presentation themes.

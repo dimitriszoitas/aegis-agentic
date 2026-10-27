@@ -1,0 +1,615 @@
+.component-docs {
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+  max-width: 1180px;
+  margin-inline: auto;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  min-width: 0;
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+.component-docs-heading {
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-7);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.component-docs-heading > p {
+  margin: 0 0 var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+.component-docs .component-docs-heading h1 {
+  font-size: 32px;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+.component-docs-page-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+.component-docs h2 {
+  margin: var(--space-8) 0 var(--space-4);
+  color: var(--color-text-primary);
+  font-size: 20px;
+  font-weight: var(--title-weight);
+  border: 0;
+}
+.component-docs p {
+  max-width: 85ch;
+}
+.component-docs-lead {
+  font-size: 18px;
+}
+.component-docs a,
+.component-docs-text-action {
+  color: var(--color-function-fg);
+}
+.component-docs-table-scroll {
+  overflow: auto;
+  margin-block: var(--space-4);
+  max-height: 680px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  min-width: 0;
+  width: 100%;
+}
+.component-docs table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  margin: 0;
+}
+.component-docs table :is(th, td) {
+  padding: 12px 16px;
+  border: 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  text-align: start;
+  vertical-align: top;
+  min-width: 130px;
+  max-width: 440px;
+  overflow-wrap: anywhere;
+}
+.component-docs table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-bg-surface);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+.component-docs .component-docs-table-scroll table tbody tr,
+.component-docs .component-docs-table-scroll table tbody tr:nth-of-type(2n) {
+  background: var(--color-bg-canvas);
+}
+.component-docs table tbody th {
+  font-weight: 500;
+}
+.component-docs code,
+.component-docs li code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--color-text-primary);
+  background: var(--color-bg-surface);
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+}
+.component-docs small {
+  display: block;
+  margin-top: 6px;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  font-weight: 400;
+}
+.component-docs summary {
+  cursor: pointer;
+  color: var(--color-function-fg);
+  margin-block: var(--space-2);
+}
+.component-docs-specimen {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-block: var(--space-5);
+  background: var(--color-bg-surface);
+}
+.component-docs-specimen-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+  font-size: var(--text-xs);
+}
+.component-docs-specimen-toolbar label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+.component-docs-specimen-toolbar select {
+  min-width: 0;
+  flex: 1;
+  text-overflow: ellipsis;
+}
+.component-docs-frame {
+  display: block;
+  width: 100%;
+  height: 420px;
+  border: 0;
+  background: var(--color-bg-canvas);
+}
+.component-docs-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--space-5);
+  margin-block: var(--space-5);
+}
+.component-docs-controls > label {
+  display: grid;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+.component-docs :is(select, input[type='search']) {
+  max-width: 100%;
+  padding: 7px 10px;
+  color: var(--color-text-primary);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  font: inherit;
+}
+.component-docs input[type='search'] {
+  min-width: 240px;
+}
+.component-docs button {
+  font: inherit;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  color: var(--color-function-fg);
+  background: var(--color-bg-surface);
+  padding: 6px 10px;
+}
+.component-docs button:disabled {
+  opacity: 0.5;
+}
+.component-docs .component-docs-note {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+.component-docs-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+.component-docs-link-grid a {
+  display: block;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+}
+.component-docs-code-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.component-docs-selector-list {
+  max-height: 400px;
+  overflow: auto;
+}
+.component-docs-selector-list li {
+  margin-bottom: var(--space-3);
+}
+.component-docs-controls .component-docs-checkbox {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .component-docs input[type='search'] {
+    min-width: 0;
+    width: 100%;
+  }
+  .component-docs-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .component-docs-frame {
+    height: 380px;
+  }
+}
+
+.component-docs-token-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  padding-block: var(--space-3);
+  border-block: var(--stroke-1) solid var(--color-border-subtle);
+  font-size: var(--text-sm);
+}
+.component-docs-token-group {
+  scroll-margin-top: var(--space-6);
+  padding-block-start: var(--space-6);
+}
+.component-docs .component-docs-token-group > :is(h2, h3) {
+  margin-block-start: var(--number-0);
+}
+.component-docs-token-value + .component-docs-token-value {
+  margin-block-start: var(--space-4);
+}
+
+/* One full-width hub, with a shared tab strip and an anchored guide. */
+.component-docs {
+  max-width: none;
+}
+.component-docs-heading {
+  margin-bottom: var(--number-0);
+  border-bottom: none;
+}
+.component-docs .component-docs-heading h1 {
+  font-size: var(--text-3xl);
+  margin-block: var(--space-2) var(--space-3);
+}
+.component-docs-heading .component-docs-description {
+  color: var(--color-text-secondary);
+  font-size: var(--text-md);
+  margin-bottom: var(--space-4);
+}
+.component-docs-tabs {
+  display: flex;
+  gap: var(--space-5);
+  border-bottom: var(--stroke-1) solid var(--color-border-default);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.component-docs .component-docs-tab {
+  flex: none;
+  border: none;
+  border-bottom: var(--stroke-2) solid transparent;
+  border-radius: var(--number-0);
+  background: transparent;
+  color: var(--color-text-secondary);
+  padding: var(--space-3) var(--number-0);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+.component-docs .component-docs-tab:hover {
+  color: var(--color-text-primary);
+}
+.component-docs .component-docs-tab[data-active] {
+  border-bottom-color: var(--color-function-fg);
+  color: var(--color-text-primary);
+}
+.component-docs-tab:focus-visible,
+.component-docs-guideline-nav a:focus-visible {
+  outline: var(--stroke-2) solid var(--color-function-fg);
+  outline-offset: calc(var(--stroke-2) * -1);
+}
+.component-docs-panel {
+  min-width: var(--number-0);
+  padding-top: var(--space-6);
+}
+.component-docs-panel[hidden] {
+  display: none;
+}
+.component-docs-guidelines {
+  display: grid;
+  grid-template-columns: calc(var(--space-24) * 2) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-10);
+}
+.component-docs-guideline-nav {
+  position: sticky;
+  top: var(--space-6);
+  display: grid;
+  gap: var(--space-1);
+  max-height: calc(100svh - var(--space-12));
+  overflow-y: auto;
+  padding-bottom: var(--space-1);
+}
+.component-docs-guideline-nav p {
+  margin: var(--number-0) var(--number-0) var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+.component-docs-guideline-nav a {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+}
+.component-docs-guideline-nav a:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-hover);
+}
+.component-docs-guideline-nav a[aria-current='location'] {
+  color: var(--color-function-fg);
+  background: var(--color-function-soft);
+}
+.component-docs-guideline-content {
+  min-width: var(--number-0);
+}
+.component-docs-guideline-section {
+  min-width: var(--number-0);
+  scroll-margin-top: var(--space-6);
+  padding-block: var(--space-8);
+  border-bottom: var(--stroke-1) solid var(--color-border-subtle);
+}
+.component-docs-guideline-section:first-child {
+  padding-top: var(--number-0);
+}
+.component-docs-guideline-section:last-child {
+  border-bottom: none;
+}
+.component-docs .component-docs-guideline-section > h2 {
+  margin-top: var(--number-0);
+  font-size: var(--text-2xl);
+}
+.component-docs .component-docs-guideline-section h3 {
+  margin-block: var(--space-6) var(--space-3);
+  font-size: var(--text-md);
+  color: var(--color-text-primary);
+  font-weight: var(--title-weight);
+}
+@media (max-width: 800px) {
+  .component-docs-guidelines {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+  .component-docs-guideline-nav {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: none;
+    padding-bottom: var(--space-4);
+    border-bottom: var(--stroke-1) solid var(--color-border-subtle);
+  }
+  .component-docs-guideline-nav p {
+    grid-column: 1 / -1;
+  }
+  .component-docs-tabs {
+    gap: var(--space-4);
+  }
+}
+.component-docs-specimen-stage {
+  position: relative;
+  background: var(--color-bg-canvas);
+}
+.component-docs-specimen[data-playground] {
+  container-type: inline-size;
+}
+.component-docs-playground-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  align-items: stretch;
+}
+.component-docs-playground-layout > .component-docs-specimen-stage {
+  min-width: 0;
+}
+.component-docs-playground-layout .component-docs-frame {
+  height: 600px;
+}
+.component-docs-playground-sidebar {
+  min-width: 0;
+  max-height: 600px;
+  overflow: auto;
+  border-left: var(--stroke-1) solid var(--color-border-subtle);
+  background: var(--color-bg-canvas);
+}
+.component-docs .component-docs-playground-sidebar > .component-docs-playground-controls {
+  border: 0;
+  border-radius: 0;
+}
+.component-docs-example-title {
+  color: var(--color-text-primary);
+}
+.component-docs-example-picker {
+  min-inline-size: 0;
+  margin: var(--space-5) var(--space-5) 0;
+  padding: 0 0 var(--space-5);
+  border: 0;
+  border-bottom: var(--stroke-1) solid var(--color-border-subtle);
+}
+.component-docs-example-picker legend {
+  margin-bottom: var(--space-3);
+  padding: 0;
+  color: var(--color-text-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+}
+.component-docs-example-choices {
+  display: grid;
+  gap: var(--space-1);
+  max-height: 240px;
+  overflow-y: auto;
+  padding: var(--space-1);
+  scrollbar-width: thin;
+}
+.component-docs-example-choice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: var(--line-height-1-5);
+  cursor: pointer;
+}
+.component-docs-example-choice:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+.component-docs-example-choice:has(input:checked) {
+  background: var(--color-function-soft);
+  color: var(--color-function-fg);
+}
+.component-docs-example-selected {
+  flex: none;
+  visibility: hidden;
+}
+.component-docs-example-choice:has(input:checked) .component-docs-example-selected {
+  visibility: visible;
+}
+:root[data-aegis-input-focus='keyboard'] .component-docs-example-choice:has(input:focus-visible) {
+  outline: var(--stroke-2) solid var(--ring-focus);
+  outline-offset: calc(var(--stroke-2) * -1);
+}
+.component-docs-preset-options {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+.component-docs-preset-options p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+}
+@media (forced-colors: active) {
+  .component-docs-example-choice:has(input:checked) {
+    outline: var(--stroke-1) solid Highlight;
+    outline-offset: calc(var(--stroke-1) * -1);
+  }
+}
+@container (max-width: 800px) {
+  .component-docs-playground-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .component-docs-playground-sidebar {
+    max-height: none;
+    border-left: 0;
+    border-top: var(--stroke-1) solid var(--color-border-subtle);
+  }
+}
+.component-docs-frame:not([data-ready]) {
+  visibility: hidden;
+}
+.component-docs-specimen-loading {
+  position: absolute;
+  inset: var(--number-0);
+  display: grid;
+  place-content: center;
+  padding: var(--space-6);
+  margin: var(--number-0);
+  color: var(--color-text-secondary);
+}
+
+/* Documentation hierarchy follows the landing page; specimens remain isolated. */
+.component-docs.component-docs .component-docs-heading {
+  padding-block: var(--space-8) var(--space-7);
+}
+.component-docs.component-docs .component-docs-heading > h1 {
+  max-width: var(--docs-reading-width, var(--size-720));
+  margin-block: var(--space-3) var(--space-5);
+  padding: 0;
+  border: 0;
+  font-size: var(--docs-title-size, var(--text-3xl));
+  font-weight: var(--font-weight-medium);
+  line-height: var(--docs-title-leading, var(--line-height-1-15));
+  letter-spacing: var(--docs-title-tracking, var(--tracking-negative-0-03em));
+}
+.component-docs.component-docs .component-docs-heading .component-docs-description {
+  max-width: var(--docs-reading-width, var(--size-720));
+  line-height: var(--line-height-1-6);
+  margin-bottom: var(--space-5);
+}
+.component-docs.component-docs .component-docs-page-links {
+  gap: var(--space-6);
+  font-size: var(--text-sm);
+}
+.component-docs.component-docs .component-docs-tabs {
+  gap: var(--space-7);
+  border-color: var(--color-border-subtle);
+}
+.component-docs.component-docs .component-docs-panel {
+  padding-top: var(--space-8);
+}
+.component-docs.component-docs .component-docs-panel > h2,
+.component-docs.component-docs .component-docs-guideline-section > h2 {
+  margin-block: var(--docs-section-space, var(--space-12)) var(--space-4);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-1-3);
+  letter-spacing: var(--tracking-negative-0-015em);
+}
+.component-docs.component-docs .component-docs-guideline-section > h2 {
+  margin-top: 0;
+}
+.component-docs.component-docs .component-docs-panel > p,
+.component-docs.component-docs .component-docs-guideline-section > p,
+.component-docs.component-docs .component-docs-panel > :is(ul, ol),
+.component-docs.component-docs .component-docs-guideline-section > :is(ul, ol) {
+  max-width: var(--docs-reading-width, var(--size-720));
+}
+.component-docs.component-docs .component-docs-panel > p,
+.component-docs.component-docs .component-docs-guideline-section > p {
+  color: var(--color-text-secondary);
+}
+.component-docs.component-docs .component-docs-lead {
+  font-size: var(--text-md);
+  line-height: var(--line-height-1-6);
+  margin-top: 0;
+  margin-bottom: var(--space-7);
+}
+.component-docs.component-docs .component-docs-guidelines {
+  gap: var(--space-12);
+}
+.component-docs.component-docs .component-docs-guideline-section {
+  padding-block: var(--docs-section-space, var(--space-12));
+}
+.component-docs.component-docs .component-docs-guideline-section > h3 {
+  margin-block: var(--space-8) var(--space-4);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-medium);
+}
+.component-docs.component-docs .component-docs-link-grid {
+  gap: var(--space-4);
+}
+.component-docs.component-docs .component-docs-link-grid a {
+  padding: var(--space-5);
+  border-color: transparent;
+  text-decoration: none;
+}
+.component-docs.component-docs .component-docs-link-grid a:hover {
+  border-color: var(--color-border-default);
+  background: var(--color-bg-hover);
+}
+.component-docs.component-docs .component-docs-specimen {
+  margin-block: var(--space-7);
+}
+.component-docs.component-docs .component-docs-specimen-toolbar {
+  padding: var(--space-4) var(--space-5);
+  color: var(--color-text-secondary);
+}
+@media (max-width: 800px) {
+  .component-docs.component-docs .component-docs-guidelines {
+    gap: var(--space-7);
+  }
+  .component-docs.component-docs .component-docs-tabs {
+    gap: var(--space-4);
+  }
+}
+@media (max-width: 640px) {
+  .component-docs.component-docs .component-docs-heading {
+    padding-top: var(--space-5);
+  }
+  .component-docs.component-docs .component-docs-panel {
+    padding-top: var(--space-6);
+  }
+  .component-docs.component-docs .component-docs-specimen-toolbar {
+    padding: var(--space-3) var(--space-4);
+  }
+}

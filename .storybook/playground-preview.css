@@ -1,0 +1,16 @@
+.sb-main-padded:has(.aegis-playground-preview) {
+  padding: 0;
+}
+.aegis-playground-preview {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  min-width: 0;
+  width: 100%;
+  padding: 16px;
+}
+.aegis-playground-preview > * {
+  max-width: 100%;
+  min-width: 0;
+}

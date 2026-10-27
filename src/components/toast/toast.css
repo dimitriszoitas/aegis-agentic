@@ -1,0 +1,30 @@
+/* Toast presentation is shared by Notification; legacy demo controls remain. */
+.aegis-toast-demo-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--group-feedback-toast-space-gap-compact);
+  min-height: var(--group-feedback-toast-size-min-height-compact-content-small);
+  padding: var(--group-feedback-toast-space-padding-compact)
+    var(--group-feedback-toast-space-padding-regular);
+  border: var(--group-feedback-toast-border-width-hairline) solid
+    var(--group-feedback-toast-color-border-default);
+  border-radius: var(--group-feedback-toast-radius-border-radius-bold);
+  background: var(--group-feedback-toast-color-surface-surface);
+  color: var(--group-feedback-toast-color-content-primary);
+  font: inherit;
+  font-size: var(--group-feedback-toast-font-size-body);
+  cursor: pointer;
+}
+.aegis-toast-demo-trigger:hover:not(:disabled) {
+  background: var(--group-feedback-toast-color-surface-hover);
+}
+.aegis-toast-demo-trigger:focus-visible {
+  outline: var(--group-feedback-toast-border-width-regular) solid
+    var(--group-feedback-toast-ring-focus);
+  outline-offset: var(--group-feedback-toast-size-outline-offset-micro-compact);
+}
+.aegis-toast-demo-trigger:disabled {
+  opacity: var(--group-feedback-toast-opacity-strength-balanced);
+  cursor: not-allowed;
+}

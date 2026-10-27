@@ -1,0 +1,208 @@
+.anatomy-fixture {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 64px 56px;
+  background: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+}
+.anatomy-fixture-content {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 64px;
+}
+.anatomy-viewer {
+  position: relative;
+  margin-block: var(--space-6);
+}
+.anatomy-stage {
+  --anatomy-marker-offset: var(--size-40);
+  --anatomy-marker-size: var(--size-28);
+  --anatomy-clearance: var(--space-3);
+  --anatomy-label-clearance: var(--space-1);
+  position: relative;
+  width: 100%;
+  box-shadow: 0 0 0 1px var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-canvas);
+  isolation: isolate;
+}
+.anatomy-stage iframe {
+  display: block;
+  position: absolute;
+  inset: 0;
+  border: 0;
+  border-radius: inherit;
+  transform-origin: top left;
+  pointer-events: none;
+}
+.anatomy-connectors {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+.anatomy-connectors line {
+  stroke: var(--color-function-fg);
+  stroke-width: 1;
+  opacity: 0.55;
+}
+.anatomy-connectors line.is-active {
+  stroke-width: 2;
+  opacity: 1;
+}
+.anatomy-highlight {
+  fill: none;
+  stroke: var(--color-function-fg);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+}
+.anatomy-marker-position {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 2;
+}
+.anatomy-marker-position[data-active] {
+  z-index: 3;
+}
+.component-docs .anatomy-marker {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: calc(var(--anatomy-marker-size) / -2);
+  top: calc(var(--anatomy-marker-size) / -2);
+  width: var(--anatomy-marker-size);
+  height: var(--anatomy-marker-size);
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border: 2px solid var(--color-bg-canvas);
+  border-radius: calc(var(--anatomy-marker-size) / 2);
+  background: var(--color-function-fg);
+  color: var(--color-bg-canvas);
+  box-shadow: 0 0 0 1px var(--color-function-fg);
+  font: 600 12px/1 var(--font-ui);
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  transition:
+    width 140ms ease-out,
+    left 140ms ease-out;
+}
+.component-docs .anatomy-marker-title,
+.component-docs .anatomy-marker-number {
+  font: inherit;
+}
+.component-docs .anatomy-marker-title {
+  display: none;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-inline: var(--space-3);
+}
+.component-docs .anatomy-marker[data-expanded] .anatomy-marker-title {
+  display: block;
+}
+.component-docs .anatomy-marker[data-expanded] .anatomy-marker-number {
+  display: none;
+}
+.component-docs .anatomy-marker-measure {
+  position: fixed;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  pointer-events: none;
+  width: max-content;
+  padding-inline: var(--space-3);
+  border-inline: 2px solid transparent;
+  font: 600 12px/1 var(--font-ui);
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .component-docs .anatomy-marker {
+    transition: none;
+  }
+}
+.component-docs .anatomy-marker:is(:focus-visible, [data-active]) {
+  outline: 2px solid var(--color-function-fg);
+  outline-offset: 3px;
+}
+.anatomy-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--color-bg-canvas);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+.component-docs .anatomy-note {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+.component-docs ol.anatomy-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+  margin: var(--space-6) 0;
+}
+.component-docs .anatomy-legend li {
+  margin: 0;
+  padding: 0;
+}
+.component-docs .anatomy-legend-trigger {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  white-space: normal;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-surface);
+}
+.component-docs .anatomy-legend li[data-active] .anatomy-legend-trigger {
+  border-color: var(--color-function-fg);
+}
+.component-docs .anatomy-legend-trigger:focus-visible {
+  outline: 2px solid var(--color-function-fg);
+  outline-offset: 3px;
+}
+.anatomy-legend-number {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-function-fg) 12%, transparent);
+  color: var(--color-function-fg);
+  font-size: 13px;
+  font-weight: 600;
+}
+.anatomy-legend strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+.component-docs .anatomy-legend-description {
+  display: block;
+  margin: 4px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+}

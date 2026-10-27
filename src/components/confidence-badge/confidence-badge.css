@@ -1,0 +1,51 @@
+.aegis-confidence-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--group-ai-confidence-badge-size-gap-micro-roomy);
+  padding: var(--group-ai-confidence-badge-space-padding-snug)
+    var(--group-ai-confidence-badge-space-padding-compact);
+  border: var(--group-ai-confidence-badge-border-width-hairline) solid
+    var(--group-ai-confidence-badge-color-ai-border);
+  border-radius: var(--group-ai-confidence-badge-radius-border-radius-soft);
+  background: var(--group-ai-confidence-badge-gradient-ai-soft);
+  color: var(--group-ai-confidence-badge-color-ai-foreground);
+  font-size: var(--group-ai-confidence-badge-font-size-label);
+  line-height: var(--group-ai-confidence-badge-font-leading-heading-tight);
+  white-space: nowrap;
+}
+.aegis-confidence-badge > span:last-child {
+  background: var(--group-ai-confidence-badge-gradient-ai-text);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.aegis-confidence-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: var(--group-ai-confidence-badge-size-gap-micro-compact);
+  height: var(--group-ai-confidence-badge-size-height-tiny);
+}
+.aegis-confidence-bars i {
+  display: block;
+  width: var(--group-ai-confidence-badge-size-width-micro-snug);
+  height: var(--group-ai-confidence-badge-size-height-micro-comfortable);
+  border-radius: var(--group-ai-confidence-badge-radius-border-radius-slight);
+  background: var(--group-ai-confidence-badge-gradient-ai-text);
+  opacity: var(--group-ai-confidence-badge-opacity-strength-soft);
+}
+.aegis-confidence-bars i:nth-child(2) {
+  height: var(--group-ai-confidence-badge-size-height-micro-vast);
+}
+.aegis-confidence-bars i:nth-child(3) {
+  height: var(--group-ai-confidence-badge-size-height-glyph-compact);
+}
+.aegis-confidence-bars i[data-active='true'] {
+  opacity: var(--group-ai-confidence-badge-opacity-visible);
+}
+@media (forced-colors: active) {
+  .aegis-confidence-badge > span:last-child {
+    -webkit-text-fill-color: currentColor;
+  }
+  .aegis-confidence-bars i {
+    background: CanvasText;
+  }
+}

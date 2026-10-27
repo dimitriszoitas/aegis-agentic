@@ -1,0 +1,67 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import {
+  SurfaceExamples,
+  AiLanguageExample,
+  DensityExamples,
+  FoundationLinks,
+} from './foundation-examples';
+
+<Meta title="Principles" id="foundations-principles" />
+
+# Aegis design principles
+
+Aegis provides reusable components and patterns for applications, dashboards, developer tools, and data-rich interfaces. Its visual hierarchy helps people scan information, understand context, and act deliberately. The primary example is a connected business workspace for projects, customers, invoices, team profiles, activity, and Aegis AI.
+
+## Give the workspace a clear hierarchy
+
+Use **Fundamental** by default. **Fundamental Floating** places navigation and assistant panels in rounded, inset containers. Both share their palette, typography, controls, and component behavior, and each supports light and dark color. Changing presentation must preserve application state.
+
+The canvas establishes the workspace. Borderless surfaces group content when a distinct container is useful; passive layout groups can remain transparent. Inputs retain a separate fill and boundary. Transient overlays use a distinct surface and soft shadow, with a backdrop for modal tasks. The examples below read the shared Fundamental tokens.
+
+<SurfaceExamples />
+
+Spacing should distinguish related content from separate sections. Use component spacing tokens rather than adding padding around every element. Cards use 8px corners, nested surfaces use 6px, and standard controls use 6px; small controls use 5px. Chips and checkbox corners remain 4px. Contained navigation and assistant panels use the floating chrome geometry without changing the controls inside them.
+
+## Give color a job
+
+Blue identifies ordinary actions in four emphases: filled primary, outlined secondary, soft tertiary, and transparent ghost. Lime-to-blue-to-purple gradients identify AI assistance. Red marks destructive actions, green confirms success, and amber calls for attention. Severity is a separate ordered scale, not a replacement for workflow status.
+
+Generic tags have transparent backgrounds, semantic outlines, and optional dots. Labeled severity badges use text and an outline without a dot; the explicit compact variant retains its dot. Status indicators and count badges have their own semantic roles. Use primary theme text for readable labels and pair color with a label or icon so meaning does not depend on color alone.
+
+## Preserve attention in dense interfaces
+
+Use Figtree for interface text and JetBrains Mono for timestamps, identifiers, addresses, and code. Align numeric values with tabular numerals. Page titles use 26px, section and panel titles use 16px, and interface text uses 14px. Supporting text is smaller and quieter without disappearing into the surface.
+
+Grid rows measure 36px in compact density, 48px by default, and 60px in comfortable density. Long record titles stay on one line with full text available through a tooltip or accessible label. Keep secondary metadata within the chosen row height. Density preserves the available actions.
+
+<DensityExamples />
+
+Use normal separators for clear boundaries and light separators for quieter grouping. A line divides sections; a dot separates short inline metadata. Navigation groups use subtle horizontal dividers without visible group headings.
+
+## Make every path accessible
+
+Every action has a visible label or accessible name. Text and select fields retain their normal border when focused, without an extra outline or color change; hover and error states remain distinct. Buttons, options, trees, and grids retain their own keyboard focus cues. Keyboard users can enter and leave menus and complete dialogs. Restore focus after closing an overlay or removing the focused item. Reduced-motion preferences remove decorative animation while preserving clear state changes.
+
+## Guide multi-step work
+
+Separate progress navigation from form content when a workflow needs both. Keep completed steps revisitable, validate before advancing, and focus the new step heading. A sticky footer keeps Back, Continue, and the final action within reach. Leaving a dirty workflow requires an explicit choice. Use top-aligned progress and form cards for longer tasks; the reusable wizard also supports a horizontal layout.
+
+## Keep AI accountable
+
+Generated content carries an explicit “AI generated” label, recognizable marker, and provenance. Show the context an assistant can access, link claims to references, and distinguish confidence from certainty. The lime-to-blue-to-purple AI palette is shared by Fundamental and Fundamental Floating in both color modes.
+
+<AiLanguageExample />
+
+Streaming must leave the interface usable: people can stop generation, inspect references, or continue working. Describe only work that actually occurred. A local mock may describe the supplied context; a production adapter can report tool results only after those tools run. Consequential changes require a human decision with the current and proposed content available for review.
+
+Each assistant turn snapshots its context. New selection cannot change an in-flight response, and regeneration reuses the original snapshot. Stop preserves partial output and returns focus to the composer. Late events from canceled or superseded streams are ignored.
+
+The interactive examples use local, deterministic responses. They illustrate behavior without connecting to external services.
+
+## Explore working examples
+
+<FoundationLinks />
+
+The reusable components are available in the `@dimitriszoitas/aegis-ui@0.1.0` package archive. Import `@dimitriszoitas/aegis-ui/styles.css` once alongside the components; it includes compiled styles and tokens, so consumers do not need Tailwind. Optional `reset.css` goes before `styles.css`, and `fonts.css` loads the self-hosted typefaces. Apply the `/theme` helpers at the document root so portaled overlays follow the same color and presentation settings.
+
+The archive has not been published to the npm registry. Installation, public entry points, and local verification are documented in the [repository README](https://github.com/dimitriszoitas/aegis-ui#install-the-react-package).

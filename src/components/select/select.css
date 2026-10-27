@@ -1,0 +1,177 @@
+.aegis-select-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-field-gap-compact);
+  min-width: var(--group-input-field-number-0);
+}
+.aegis-select-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--group-input-field-gap-compact);
+  height: var(--group-input-field-height-regular);
+  width: var(--group-input-field-width-available);
+  min-width: var(--group-input-field-number-0);
+  flex-shrink: var(--group-input-field-flex-none);
+  padding: var(--group-input-field-number-0) var(--group-input-field-padding-regular);
+  border: var(--group-input-field-border-width-hairline) solid
+    var(--group-input-field-color-border-strong);
+  border-radius: var(--group-input-field-radius-bold);
+  background: var(--group-input-field-color-surface-surface);
+  color: var(--group-input-field-color-content-primary);
+  font: inherit;
+  text-align: left;
+}
+.aegis-select-value {
+  flex: var(--group-input-field-flex-fill);
+  min-width: var(--group-input-field-number-0);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.aegis-select-trigger[data-size='sm'] {
+  height: var(--group-input-field-height-compact);
+  font-size: var(--group-input-field-font-size-body);
+  padding-inline: var(--group-input-field-padding-compact);
+}
+.aegis-select-trigger[data-size='lg'] {
+  height: var(--group-input-field-height-large);
+}
+.aegis-select-trigger[data-placeholder] {
+  color: var(--group-input-field-color-content-tertiary);
+}
+.aegis-select-trigger:hover:not(:disabled) {
+  border-color: var(--group-input-field-color-action-foreground);
+}
+.aegis-select-trigger[aria-invalid='true'] {
+  border-color: var(--group-input-field-color-danger-foreground);
+}
+.aegis-select-trigger:disabled {
+  opacity: var(--group-input-field-opacity-disabled);
+  background: var(--group-input-field-color-surface-hover);
+}
+.aegis-select-chevron {
+  display: flex;
+  flex: none;
+  margin-left: auto;
+  color: var(--group-input-field-color-content-secondary);
+}
+.aegis-select-icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  color: var(--group-input-field-color-content-secondary);
+}
+.aegis-select-positioner {
+  z-index: var(--group-input-field-z-popover);
+}
+.aegis-select-content {
+  z-index: var(--group-input-field-z-popover);
+  width: max-content;
+  min-width: var(--anchor-width);
+  max-width: calc(
+    var(--group-input-field-viewport-width) - var(--group-input-field-viewport-clearance)
+  );
+  max-height: min(var(--group-input-field-popup-max-height), var(--available-height));
+  overflow: hidden;
+  background: var(--group-input-field-color-surface-surface-raised);
+  color: var(--group-input-field-color-content-primary);
+  border: var(--group-input-field-border-width-hairline) solid
+    var(--group-input-field-color-border-subtle);
+  border-radius: var(--group-input-field-radius-strong);
+  box-shadow: var(--group-input-field-shadow-overlay);
+  transform-origin: var(--transform-origin);
+  animation: aegis-select-enter var(--group-input-field-motion-fast)
+    var(--group-input-field-ease-out);
+}
+.aegis-select-viewport {
+  overflow-y: auto;
+  max-height: min(var(--group-input-field-popup-max-height), var(--available-height));
+  overscroll-behavior: contain;
+  padding: var(--group-input-field-padding-snug);
+}
+.aegis-select-option {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  gap: var(--group-input-field-gap-compact);
+  min-height: var(--group-input-field-option-min-height);
+  padding: var(--group-input-field-padding-compact) var(--group-input-field-padding-regular);
+  border-radius: var(--group-input-field-radius-strong);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+.aegis-select-option[data-highlighted] {
+  background: var(--group-input-field-color-surface-hover);
+  box-shadow: inset var(--group-input-field-number-0) var(--group-input-field-number-0)
+    var(--group-input-field-number-0) var(--group-input-field-focus-width)
+    var(--group-input-field-ring-focus);
+}
+.aegis-select-option[data-selected] {
+  background: var(--group-input-field-color-action-soft);
+}
+.aegis-select-option[data-disabled] {
+  cursor: not-allowed;
+  color: var(--group-input-field-color-content-tertiary);
+}
+.aegis-select-option-copy {
+  min-width: var(--group-input-field-number-0);
+  overflow-wrap: anywhere;
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-field-gap-tight);
+  padding-right: var(--group-input-field-option-indicator-clearance);
+}
+.aegis-select-option-description {
+  color: var(--group-input-field-color-content-secondary);
+  font-size: var(--group-input-field-font-size-label);
+  line-height: var(--group-input-field-font-leading-compact);
+}
+.aegis-select-check {
+  margin-left: auto;
+  display: flex;
+  color: var(--group-input-field-color-action-foreground);
+}
+.aegis-select-group-label {
+  padding: var(--group-input-field-padding-compact) var(--group-input-field-padding-regular);
+  color: var(--group-input-field-color-content-secondary);
+  font-size: var(--group-input-field-font-size-label);
+  font-weight: var(--group-input-field-font-weight-semibold);
+}
+.aegis-select-scroll {
+  display: flex;
+  justify-content: center;
+  padding: var(--group-input-field-padding-snug);
+  color: var(--group-input-field-color-content-secondary);
+}
+.aegis-select-no-options {
+  padding: var(--group-input-field-padding-comfortable);
+  color: var(--group-input-field-color-content-secondary);
+}
+@keyframes aegis-select-enter {
+  from {
+    opacity: var(--group-input-field-opacity-hidden);
+    transform: translateY(var(--group-input-field-popup-enter-offset));
+  }
+  to {
+    opacity: var(--group-input-field-opacity-visible);
+    transform: translateY(var(--group-input-field-number-0));
+  }
+}
+
+.aegis-select-trigger {
+  border-radius: var(--group-input-field-radius-bold);
+}
+.aegis-select-trigger[data-size='sm'] {
+  border-radius: var(--group-input-field-radius-rounded);
+}
+.aegis-select-trigger[data-size='lg'] {
+  border-radius: var(--group-input-field-radius-bold);
+}
+
+.aegis-select-option > .aegis-select-icon,
+.aegis-select-option > .aegis-select-check {
+  min-height: var(--group-input-field-line-min-height);
+  margin-block-start: var(--group-input-field-number-0);
+  align-items: center;
+}

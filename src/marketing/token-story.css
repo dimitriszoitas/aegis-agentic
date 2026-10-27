@@ -1,0 +1,752 @@
+.marketing-token-story {
+  padding-block: 88px;
+  border-top: 1px solid var(--marketing-line);
+  color: var(--marketing-text);
+}
+.marketing-token-heading {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 44px;
+}
+.marketing-token-story .marketing-token-heading h2 {
+  margin: 0;
+  font-size: clamp(28px, 2.55vw, 36px);
+  line-height: 1.24;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.marketing-token-heading > p {
+  max-width: 720px;
+  margin: 18px auto 0;
+  color: var(--marketing-muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+.marketing-token-bento {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.marketing-token-tile {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--marketing-line);
+  border-radius: 14px;
+  background: var(--marketing-surface);
+}
+.marketing-token-tile-copy {
+  position: relative;
+  z-index: 1;
+  padding: 0 26px 26px;
+  margin-top: auto;
+}
+.marketing-token-tile-copy > span {
+  color: var(--marketing-muted);
+  font: 9px/1.5 var(--font-mono);
+  letter-spacing: 0.09em;
+}
+.marketing-token-tile-copy h3 {
+  margin: 9px 0 9px;
+  color: var(--marketing-text);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+}
+.marketing-token-tile-copy p {
+  max-width: 310px;
+  margin: 0;
+  color: var(--marketing-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.marketing-token-color-art,
+.marketing-token-type-art,
+.marketing-token-space-art,
+.marketing-token-role-art {
+  position: relative;
+  height: 205px;
+  flex: 0 0 205px;
+  overflow: hidden;
+}
+.marketing-token-color-art {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12px;
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    color-mix(in srgb, var(--marketing-purple) 9%, transparent),
+    transparent 68%
+  );
+}
+.marketing-token-color-card {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 35px;
+  width: 110px;
+  height: 145px;
+  padding: 12px 13px;
+  border: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+  border-radius: 9px;
+  box-shadow: 0 12px 18px color-mix(in srgb, var(--marketing-bg) 50%, transparent);
+}
+.marketing-token-color-card > span {
+  font-size: 10px;
+  font-weight: 600;
+}
+.marketing-token-color-card strong {
+  margin-top: 12px;
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+.marketing-token-color-card > i {
+  height: 1px;
+  margin: 12px 0 8px;
+  background: currentColor;
+  opacity: 0.25;
+}
+.marketing-token-color-card small {
+  font: 7px var(--font-mono);
+  letter-spacing: 0.09em;
+}
+.marketing-token-color-card-blue {
+  background: color-mix(in srgb, var(--marketing-blue) 20%, var(--marketing-surface));
+  color: var(--marketing-blue);
+  transform: translateX(-70px) rotate(-15deg);
+}
+.marketing-token-color-card-mint {
+  z-index: 2;
+  top: 23px;
+  background: color-mix(in srgb, var(--marketing-accent) 21%, var(--marketing-surface));
+  color: var(--marketing-accent-bright);
+  transform: rotate(3deg);
+}
+.marketing-token-color-card-purple {
+  background: color-mix(in srgb, var(--marketing-purple) 24%, var(--marketing-surface));
+  color: var(--marketing-purple);
+  transform: translateX(73px) rotate(17deg);
+}
+.marketing-token-type-art {
+  font-family: var(--font-ui);
+  padding: 23px 26px;
+  color: var(--marketing-purple);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--marketing-purple) 8%, transparent),
+    transparent 80%
+  );
+}
+.marketing-token-type-family {
+  display: flex;
+  justify-content: space-between;
+  color: var(--marketing-muted);
+  font: 8px var(--font-mono);
+  letter-spacing: 0.08em;
+}
+.marketing-token-type-family i {
+  font-style: normal;
+}
+.marketing-token-type-specimen {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-top: 5px;
+  border-bottom: 1px dashed color-mix(in srgb, var(--marketing-purple) 30%, transparent);
+  font-size: 79px;
+  letter-spacing: -0.08em;
+  line-height: 1.15;
+}
+.marketing-token-type-specimen span {
+  color: color-mix(in srgb, var(--marketing-purple) 60%, var(--marketing-surface));
+  font: 40px var(--font-mono);
+  letter-spacing: -0.07em;
+}
+.marketing-token-type-scale {
+  display: grid;
+  gap: 4px;
+  margin-top: 10px;
+}
+.marketing-token-type-scale strong {
+  color: var(--marketing-text);
+  font-size: 16px;
+  font-weight: 600;
+}
+.marketing-token-type-scale span {
+  color: var(--marketing-muted);
+  font-size: 10px;
+}
+.marketing-token-type-scale code {
+  color: var(--marketing-purple);
+  font-size: 9px;
+}
+.marketing-token-space-art {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 24px 26px 30px;
+  background: radial-gradient(
+    ellipse at 70% 50%,
+    color-mix(in srgb, var(--marketing-coral) 8%, transparent),
+    transparent 70%
+  );
+}
+.marketing-token-space-ruler {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 6px;
+  height: 95px;
+}
+.marketing-token-space-ruler > span {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+.marketing-token-space-ruler i {
+  display: block;
+  width: 11px;
+  border: 1px solid color-mix(in srgb, var(--marketing-coral) 60%, transparent);
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--marketing-coral) 20%, transparent);
+}
+.marketing-token-space-ruler small {
+  color: var(--marketing-coral);
+  font: 9px var(--font-mono);
+}
+.marketing-token-space-specimen {
+  padding: 12px;
+  border: 1px dashed color-mix(in srgb, var(--marketing-coral) 60%, transparent);
+  border-radius: 7px;
+  background: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 4px,
+    color-mix(in srgb, var(--marketing-coral) 8%, transparent) 4px,
+    color-mix(in srgb, var(--marketing-coral) 8%, transparent) 5px
+  );
+}
+.marketing-token-space-specimen > div {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid color-mix(in srgb, var(--marketing-coral) 25%, transparent);
+  border-radius: 4px;
+  background: var(--marketing-surface);
+}
+.marketing-token-space-specimen i {
+  width: 85%;
+  height: 4px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--marketing-coral) 55%, transparent);
+}
+.marketing-token-space-specimen i:last-child {
+  width: 55%;
+  opacity: 0.5;
+}
+.marketing-token-space-specimen > span {
+  display: block;
+  height: 19px;
+  color: var(--marketing-coral);
+  text-align: center;
+  font: 9px/19px var(--font-mono);
+}
+.marketing-token-space-art > code {
+  position: absolute;
+  bottom: 17px;
+  left: 26px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--marketing-coral);
+  font-size: 10px;
+}
+.marketing-token-role-art {
+  padding: 34px 26px 24px;
+  background: radial-gradient(
+    ellipse at 80% 50%,
+    color-mix(in srgb, var(--marketing-blue) 11%, transparent),
+    transparent 75%
+  );
+}
+.marketing-token-role-stack {
+  display: grid;
+  gap: 9px;
+  position: relative;
+  z-index: 1;
+}
+.marketing-token-role-stack > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--marketing-surface) 92%, transparent);
+  transform: translateX(-4px) rotate(-3deg);
+}
+.marketing-token-role-stack > div:nth-child(2) {
+  transform: translateX(5px) rotate(-3deg);
+}
+.marketing-token-role-stack > div:nth-child(3) {
+  transform: translateX(14px) rotate(-3deg);
+}
+.marketing-token-role-stack span {
+  font-size: 11px;
+  font-weight: 600;
+}
+.marketing-token-role-stack code {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--marketing-muted);
+  font-size: 9px;
+}
+.marketing-token-role-function {
+  color: var(--marketing-blue);
+}
+.marketing-token-role-success {
+  color: var(--marketing-accent);
+}
+.marketing-token-role-warning {
+  color: var(--marketing-yellow);
+}
+.marketing-token-role-orbit {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  width: 180px;
+  height: 180px;
+  border: 1px solid color-mix(in srgb, var(--marketing-blue) 16%, transparent);
+  border-radius: 50%;
+  transform: rotate(-20deg);
+}
+.marketing-token-role-orbit i {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--marketing-blue);
+  top: 24px;
+  right: 20px;
+}
+.marketing-token-role-orbit i:nth-child(2) {
+  top: auto;
+  bottom: 24px;
+  left: 20px;
+  background: var(--marketing-accent);
+}
+.marketing-token-role-orbit i:nth-child(3) {
+  top: auto;
+  bottom: 21px;
+  right: 24px;
+  background: var(--marketing-purple);
+}
+.marketing-token-role-orbit i:nth-child(4) {
+  top: 24px;
+  left: 20px;
+  background: var(--marketing-coral);
+}
+.marketing-token-preview {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 26px;
+  border: 1px solid color-mix(in srgb, var(--marketing-accent) 22%, var(--marketing-line));
+  border-radius: 14px;
+  background: linear-gradient(
+    150deg,
+    color-mix(in srgb, var(--marketing-accent) 5%, var(--marketing-surface)),
+    var(--marketing-surface) 45%
+  );
+  color: var(--marketing-text);
+}
+.marketing-token-live-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--marketing-accent);
+  font: 9px var(--font-mono);
+  letter-spacing: 0.07em;
+}
+.marketing-token-live-label i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 10px color-mix(in srgb, var(--marketing-accent) 35%, transparent);
+}
+.marketing-token-preview-heading h3 {
+  margin: 16px 0 10px;
+  font-size: 24px;
+  line-height: 1.13;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+.marketing-token-preview-heading p {
+  margin: 0;
+  max-width: 255px;
+  color: var(--marketing-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.marketing-token-controls {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 22px 0 18px;
+}
+.marketing-token-theme {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 3px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 6px;
+  background: var(--marketing-bg);
+}
+.marketing-token-theme button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 30px;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: 4px;
+  color: var(--marketing-muted);
+  background: transparent;
+  font: 12px var(--font-ui);
+  cursor: pointer;
+}
+.marketing-token-theme button[aria-pressed='true'] {
+  color: var(--marketing-text);
+  background: var(--marketing-raised);
+}
+.marketing-token-theme button:hover {
+  color: var(--marketing-accent-bright);
+}
+.aegis-marketing .marketing-token-preview :focus-visible {
+  outline: 2px solid var(--marketing-accent);
+  outline-offset: 3px;
+}
+.aegis-marketing .marketing-token-live-surface :focus-visible {
+  outline-color: var(--ring-focus);
+}
+.marketing-token-spacing-control {
+  display: grid;
+  gap: 6px;
+  color: var(--marketing-muted);
+  font-size: 12px;
+}
+.marketing-token-spacing-control select {
+  min-height: 36px;
+  padding: 4px 7px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 5px;
+  background: var(--marketing-bg);
+  color: var(--marketing-text);
+  font: 12px var(--font-ui);
+  cursor: pointer;
+}
+.marketing-token-live-surface {
+  font-family: var(--font-ui);
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 10px;
+  background: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+}
+.marketing-token-role-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 12px;
+}
+.marketing-token-role-swatches > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-text-secondary);
+  font-size: 9px;
+}
+.marketing-token-role-swatches i {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 2px;
+}
+.marketing-token-swatch-surface {
+  background: var(--color-bg-surface);
+}
+.marketing-token-swatch-text {
+  background: var(--color-text-primary);
+}
+.marketing-token-swatch-action {
+  background: var(--color-function-bg);
+}
+.marketing-token-components {
+  display: grid;
+  gap: var(--space-3);
+}
+.marketing-token-signal .aegis-card-title {
+  margin-top: var(--space-2);
+  font-size: 15px;
+  line-height: 1.4;
+}
+.marketing-token-signal-meta,
+.marketing-token-signal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.marketing-token-signal-meta > span:first-child {
+  color: var(--color-text-secondary);
+  font-size: 10px;
+}
+.marketing-token-signal-description {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.marketing-token-context {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+.marketing-token-context .aegis-card-content {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.marketing-token-context .aegis-card-content > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-text-secondary);
+  font-size: 10px;
+}
+.marketing-token-context strong {
+  overflow-wrap: anywhere;
+  font: 500 11px var(--font-mono);
+}
+.marketing-token-context small {
+  color: var(--color-text-secondary);
+  font-size: 9px;
+}
+.marketing-token-trace {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 20px;
+  color: var(--marketing-muted);
+  font-size: 9px;
+}
+.marketing-token-trace > code:first-child {
+  color: var(--marketing-accent);
+}
+.marketing-token-trace > strong {
+  margin-left: auto;
+  color: var(--marketing-text);
+  font: 500 21px var(--font-mono);
+}
+.marketing-token-trace small {
+  margin-left: 2px;
+  color: var(--marketing-muted);
+  font-size: 9px;
+}
+.marketing-token-preview-note {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--marketing-line);
+  color: var(--marketing-muted);
+  font-size: 9px;
+  line-height: 1.6;
+}
+@media (max-width: 1150px) {
+  .marketing-token-bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .marketing-token-preview {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 20px 34px;
+  }
+  .marketing-token-preview-heading {
+    grid-column: 1;
+  }
+  .marketing-token-controls {
+    grid-column: 1;
+    margin: 0;
+    align-self: start;
+    justify-content: start;
+  }
+  .marketing-token-live-surface {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+  }
+  .marketing-token-trace {
+    grid-column: 1;
+    padding-top: 0;
+    align-self: end;
+  }
+  .marketing-token-preview-note {
+    grid-column: 1;
+    margin: 0;
+    align-self: end;
+  }
+  .marketing-token-tile-copy h3 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .marketing-token-story {
+    padding-block: 64px;
+  }
+  .marketing-token-heading {
+    display: block;
+    margin-bottom: 30px;
+  }
+  .marketing-token-heading > p {
+    margin-top: 22px;
+    max-width: 470px;
+    font-size: 14px;
+  }
+  .marketing-token-bento {
+    gap: 12px;
+  }
+  .marketing-token-tile-copy {
+    padding: 0 20px 23px;
+  }
+  .marketing-token-tile-copy h3 {
+    font-size: 20px;
+  }
+  .marketing-token-preview {
+    display: flex;
+    padding: 24px;
+    gap: 0;
+  }
+  .marketing-token-controls {
+    margin: 22px 0 18px;
+  }
+  .marketing-token-live-surface {
+    width: 100%;
+  }
+  .marketing-token-trace {
+    padding-top: 20px;
+    align-self: stretch;
+  }
+  .marketing-token-preview-note {
+    margin-top: 14px;
+    align-self: stretch;
+  }
+}
+@media (max-width: 540px) {
+  .marketing-token-bento {
+    grid-template-columns: 1fr;
+  }
+  .marketing-token-story .marketing-token-heading h2 {
+    font-size: 28px;
+  }
+  .marketing-token-tile-copy {
+    padding-inline: 26px;
+  }
+  .marketing-token-tile-copy h3 {
+    font-size: 20px;
+  }
+  .marketing-token-preview {
+    grid-column: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marketing-token-story *,
+  .marketing-token-story *::before,
+  .marketing-token-story *::after {
+    transition: none;
+  }
+}
+
+.marketing-token-architecture {
+  margin-top: 16px;
+  padding: 22px 26px 20px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 12px;
+  background: var(--marketing-surface);
+}
+.marketing-token-architecture ol {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 48px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.marketing-token-architecture li {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+}
+.marketing-token-architecture li > span {
+  color: var(--marketing-muted);
+  font: 9px/1.5 var(--font-mono);
+  letter-spacing: 0.06em;
+}
+.marketing-token-architecture li > div {
+  display: flex;
+  align-items: baseline;
+  gap: 13px;
+}
+.marketing-token-architecture code {
+  color: var(--marketing-accent-bright);
+  font: 12px/1.5 var(--font-mono);
+}
+.marketing-token-architecture small {
+  color: var(--marketing-muted);
+  font: 10px var(--font-mono);
+}
+.marketing-token-architecture li > svg {
+  position: absolute;
+  top: 17px;
+  right: -26px;
+  color: var(--marketing-muted);
+}
+.marketing-token-architecture > p {
+  margin: 17px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--marketing-line);
+  color: var(--marketing-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+@media (max-width: 760px) {
+  .marketing-token-architecture ol {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .marketing-token-architecture li > svg {
+    top: auto;
+    right: auto;
+    left: 0;
+    bottom: -24px;
+    transform: rotate(90deg);
+  }
+}

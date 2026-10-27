@@ -1,0 +1,79 @@
+@custom-variant dark (&:where(.dark, .dark *));
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-canvas: var(--color-bg-canvas);
+  --color-surface: var(--color-bg-surface);
+  --color-raised: var(--color-bg-surface-raised);
+  --color-hover: var(--color-bg-hover);
+  --color-selected: var(--color-bg-selected);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--color-text-tertiary);
+  --color-subtle: var(--color-border-subtle);
+  --color-default: var(--color-border-default);
+  --color-function: var(--color-function-bg);
+  --color-ai: var(--color-ai-bg);
+  --color-destroy: var(--color-destroy-bg);
+  --color-success: var(--color-success-bg);
+  --color-warning: var(--color-warning-bg);
+  --color-focus: var(--ring-focus);
+  --font-sans: var(--font-ui);
+  --font-mono: var(--font-code);
+  --shadow-raised: var(--elevation-raised);
+  --shadow-floating: var(--elevation-floating);
+  --shadow-overlay: var(--elevation-overlay);
+  --radius-xs: var(--radius-fixed-6);
+  --radius-sm: var(--radius-fixed-6);
+  --radius-md: var(--radius-fixed-7);
+  --radius-lg: var(--radius-fixed-8);
+  --radius-xl: var(--radius-fixed-8);
+  --radius-2xl: var(--radius-fixed-8);
+  --radius-3xl: var(--radius-fixed-8);
+  --radius-4xl: var(--radius-fixed-8);
+}
+:root {
+  --background: var(--color-bg-surface);
+  --foreground: var(--color-text-primary);
+  --card: var(--color-bg-surface-raised);
+  --card-foreground: var(--color-text-primary);
+  --popover: var(--color-bg-surface-raised);
+  --popover-foreground: var(--color-text-primary);
+  --primary: var(--color-function-bg);
+  --primary-foreground: var(--color-on-intent);
+  --secondary: var(--color-bg-selected);
+  --secondary-foreground: var(--color-text-primary);
+  --muted: var(--color-bg-hover);
+  --muted-foreground: var(--color-text-secondary);
+  --accent: var(--color-bg-hover);
+  --accent-foreground: var(--color-text-primary);
+  --destructive: var(--color-destroy-bg);
+  --destructive-foreground: var(--color-on-intent);
+  --border: var(--color-border-default);
+  --input: var(--color-border-default);
+  --ring: var(--ring-focus);
+  --radius: var(--radius-md);
+}
+
+@utility text-primary {
+  color: var(--color-text-primary);
+}
+@utility text-secondary {
+  color: var(--color-text-secondary);
+}

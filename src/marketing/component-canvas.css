@@ -1,0 +1,758 @@
+.component-canvas {
+  width: 100%;
+  margin: 0 auto;
+  overflow: clip;
+  isolation: isolate;
+}
+.component-canvas-viewport {
+  --canvas-scale: 1;
+  --canvas-height: 900px;
+  --canvas-spread: 1;
+  position: relative;
+  width: 100%;
+  height: var(--canvas-height);
+  touch-action: pan-y;
+}
+.component-canvas-scaler {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1600px;
+  height: 900px;
+  transform: translateX(-50%) scale(var(--canvas-scale));
+  transform-origin: center top;
+}
+.component-canvas-scene {
+  --color-bg-canvas: var(--marketing-bg);
+  --color-bg-surface: var(--marketing-surface);
+  --color-bg-surface-raised: var(--marketing-raised);
+  --color-text-primary: var(--marketing-text);
+  --color-text-secondary: var(--marketing-muted);
+  --color-text-tertiary: var(--marketing-subtle);
+  --color-border-subtle: color-mix(in srgb, var(--marketing-line) 70%, transparent);
+  --color-border-default: var(--marketing-line);
+  --color-chart-function: var(--marketing-blue);
+  --color-chart-success: var(--marketing-accent);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: var(--marketing-text);
+  font-family: var(--font-ui);
+  perspective: 2200px;
+}
+.component-canvas-plane {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: translateY(calc(var(--canvas-spread) * 220px))
+    rotateX(calc(var(--canvas-spread) * 22deg)) rotateZ(calc(var(--canvas-spread) * -8deg))
+    scale(calc(1 - var(--canvas-spread) * 0.09));
+  transform-origin: 50% 40%;
+}
+.component-canvas-panel {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid var(--marketing-line);
+  border-radius: 13px;
+  background: var(--marketing-surface);
+  box-shadow:
+    0 2px 2px color-mix(in srgb, var(--marketing-bg) 35%, transparent),
+    0 18px 38px -12px color-mix(in srgb, var(--marketing-bg) 85%, transparent),
+    0 42px 85px -28px color-mix(in srgb, var(--marketing-bg) 85%, transparent),
+    inset 0 1px color-mix(in srgb, var(--marketing-text) 5%, transparent);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.component-canvas-workspace {
+  left: 250px;
+  top: 65px;
+  width: 1100px;
+  height: 705px;
+  transform: translateZ(0);
+  background: var(--marketing-bg);
+}
+.component-canvas-windowbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 34px;
+  padding: 0 14px;
+  background: var(--marketing-raised);
+  border-bottom: 1px solid var(--marketing-line);
+  color: var(--marketing-muted);
+  font-size: 10px;
+}
+.component-canvas-windowbar > span:nth-child(2),
+.component-canvas-appbar > span:nth-child(2),
+.component-canvas-card-heading > span,
+.component-canvas-table-heading > span,
+.component-canvas-panel-header > span:first-child,
+.component-canvas-ai-heading > span,
+.component-canvas-workspace-footer > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.component-canvas-windowdots {
+  display: flex;
+  gap: 5px;
+  width: 50px;
+}
+.component-canvas-windowdots i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--marketing-coral);
+  opacity: 0.9;
+}
+.component-canvas-windowdots i:nth-child(2) {
+  background: var(--marketing-yellow);
+}
+.component-canvas-windowdots i:nth-child(3) {
+  background: var(--marketing-accent);
+}
+.component-canvas-windowhint {
+  width: 50px;
+  text-align: right;
+  font-family: var(--font-mono);
+}
+.component-canvas-appbar {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  height: 44px;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--marketing-line);
+  background: var(--marketing-surface);
+  color: var(--marketing-muted);
+  font-size: 11px;
+}
+.component-canvas-appmark {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border: 1px solid color-mix(in srgb, var(--marketing-accent) 35%, transparent);
+  border-radius: 7px;
+  color: var(--marketing-accent);
+}
+.component-canvas-app-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.component-canvas-workspace-body {
+  padding: 20px 26px 0;
+}
+.component-canvas-pageheading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.component-canvas-kicker {
+  color: var(--marketing-subtle);
+  font: 8px var(--font-mono);
+  letter-spacing: 0.06em;
+}
+.component-canvas-pageheading h3 {
+  margin: 3px 0 0;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+.component-canvas-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 12px;
+}
+.component-canvas .component-canvas-activity-card,
+.component-canvas .component-canvas-sources {
+  padding: 12px;
+  border-color: var(--marketing-line);
+  background: var(--marketing-surface);
+  box-shadow: none;
+  border-radius: 8px;
+}
+.component-canvas-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 500;
+}
+.component-canvas-card-heading > span:last-child {
+  color: var(--marketing-muted);
+}
+.component-canvas-chart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 104px;
+  margin-top: 7px;
+}
+.component-canvas-chart::before {
+  position: absolute;
+  content: '';
+  inset: 6px 0 3px 28px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--marketing-line) 0 1px,
+    transparent 1px 42px
+  );
+  opacity: 0.55;
+}
+.component-canvas-chart > svg {
+  position: relative;
+  width: calc(100% - 26px);
+  height: 88px;
+}
+.component-canvas-chart-guides {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90px;
+  color: var(--marketing-subtle);
+  font: 8px var(--font-mono);
+}
+.component-canvas-chart-axis {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 28px;
+  color: var(--marketing-subtle);
+  font: 8px var(--font-mono);
+}
+.component-canvas-source {
+  margin-top: 17px;
+}
+.component-canvas-source > span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--marketing-muted);
+  font-size: 10px;
+}
+.component-canvas-sources .aegis-progress-track {
+  height: 4px;
+}
+.component-canvas-table-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0 9px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.component-canvas-table-heading > span:last-child {
+  color: var(--marketing-subtle);
+  font-size: 10px;
+  font-weight: 400;
+}
+.component-canvas-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: left;
+}
+.component-canvas-table th {
+  height: 26px;
+  color: var(--marketing-subtle);
+  font-size: 9px;
+  font-weight: 400;
+  border-bottom: 1px solid var(--marketing-line);
+}
+.component-canvas-table td {
+  height: 45px;
+  border-bottom: 1px solid color-mix(in srgb, var(--marketing-line) 65%, transparent);
+}
+.component-canvas-table tr:last-child td {
+  border-bottom: 0;
+}
+.component-canvas-table th:first-child,
+.component-canvas-table td:first-child {
+  width: 30px;
+}
+.component-canvas-table td:nth-child(2) {
+  width: 40%;
+}
+.component-canvas-table td:last-child {
+  color: var(--marketing-muted);
+  font: 9px var(--font-mono);
+}
+.component-canvas-table td > strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+}
+.component-canvas-table td > span:not(.severity-badge, .status-badge) {
+  display: block;
+  color: var(--marketing-subtle);
+  font-size: 8px;
+}
+.component-canvas-table .severity-badge,
+.component-canvas-table .status-badge {
+  font-size: 10px;
+  min-height: 22px;
+  padding: 1px 5px;
+}
+.component-canvas-workspace-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 18px;
+  border-top: 1px solid var(--marketing-line);
+  background: var(--marketing-surface);
+  color: var(--marketing-subtle);
+  font-size: 8px;
+}
+.component-canvas-online {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--marketing-accent);
+}
+.component-canvas-library {
+  left: 92px;
+  top: 255px;
+  width: 260px;
+  transform: translate3d(
+      calc(var(--canvas-spread) * -90px),
+      calc(var(--canvas-spread) * -220px),
+      calc(35px + var(--canvas-spread) * 160px)
+    )
+    rotateZ(calc(var(--canvas-spread) * -6deg));
+}
+.component-canvas-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px;
+  border-bottom: 1px solid var(--marketing-line);
+  font-size: 12px;
+  font-weight: 500;
+}
+.component-canvas-panel-header > span:last-child {
+  color: var(--marketing-subtle);
+  font: 9px var(--font-mono);
+}
+.component-canvas-library-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px;
+  margin: 12px 11px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 6px;
+  color: var(--marketing-subtle);
+  font-size: 10px;
+}
+.component-canvas-library-search > span {
+  margin-left: auto;
+  font: 8px var(--font-mono);
+}
+.component-canvas-library-label {
+  margin: 16px 13px 8px;
+  color: var(--marketing-subtle);
+  font: 8px var(--font-mono);
+  letter-spacing: 0.08em;
+}
+.component-canvas-library-items {
+  display: grid;
+  gap: 4px;
+  padding: 0 8px;
+}
+.component-canvas-library-items > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 6px;
+  border-radius: 5px;
+  color: var(--marketing-muted);
+  font-size: 11px;
+}
+.component-canvas-library-items > div[data-active='true'] {
+  background: color-mix(in srgb, var(--marketing-blue) 12%, transparent);
+  color: var(--marketing-blue);
+}
+.component-canvas-library-items > div > svg:last-child {
+  margin-left: auto;
+  font: 9px var(--font-mono);
+  opacity: 0.8;
+}
+.component-canvas-library-samples {
+  display: grid;
+  gap: 12px;
+  padding: 17px 13px;
+  margin-top: 12px;
+  border-top: 1px solid var(--marketing-line);
+}
+.component-canvas-library-samples > span {
+  font-size: 11px;
+}
+.component-canvas-library-samples > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.component-canvas-library-samples .aegis-checkbox-label,
+.component-canvas-library-samples .aegis-switch-label {
+  font-size: 9px;
+}
+.component-canvas-panel-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 13px;
+  border-top: 1px solid var(--marketing-line);
+  color: var(--marketing-subtle);
+  font-size: 8px;
+}
+.component-canvas-inspector {
+  right: 54px;
+  top: 245px;
+  width: 265px;
+  transform: translate3d(
+      calc(var(--canvas-spread) * 100px),
+      calc(var(--canvas-spread) * -130px),
+      calc(50px + var(--canvas-spread) * 210px)
+    )
+    rotateZ(calc(var(--canvas-spread) * 7deg));
+}
+.component-canvas-inspector-section {
+  padding: 13px;
+  border-bottom: 1px solid var(--marketing-line);
+}
+.component-canvas-inspector-section:last-child {
+  border: 0;
+}
+.component-canvas-inspector-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--marketing-subtle);
+  font: 8px var(--font-mono);
+  letter-spacing: 0.075em;
+}
+.component-canvas-token-mode {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  background: var(--marketing-bg);
+  color: var(--marketing-subtle);
+  font-size: 10px;
+  text-align: center;
+}
+.component-canvas-token-mode > span {
+  flex: 1;
+  padding: 3px 8px;
+}
+.component-canvas-token-mode > span:first-child {
+  border-radius: 3px;
+  background: var(--marketing-raised);
+  color: var(--marketing-text);
+}
+.component-canvas-token-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: var(--marketing-muted);
+  font-size: 10px;
+}
+.component-canvas-token-row > span {
+  flex: 1;
+}
+.component-canvas-token-row > i {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 3px;
+}
+.component-canvas-token-row > code {
+  width: 59px;
+  font: 8px var(--font-mono);
+  color: var(--marketing-subtle);
+}
+.component-canvas-swatch-surface {
+  background: var(--marketing-raised);
+}
+.component-canvas-swatch-blue {
+  background: var(--marketing-blue);
+}
+.component-canvas-swatch-mint {
+  background: var(--marketing-accent);
+}
+.component-canvas-dimension-row {
+  display: flex;
+  gap: 8px;
+}
+.component-canvas-dimension-row > span {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 4px;
+  color: var(--marketing-subtle);
+  font-size: 9px;
+}
+.component-canvas-dimension-row b {
+  font: 10px var(--font-mono);
+  color: var(--marketing-muted);
+}
+.component-canvas-token-code {
+  margin-top: 11px;
+  padding: 8px;
+  border-radius: 5px;
+  background: var(--marketing-bg);
+  font: 8px/1.6 var(--font-mono);
+}
+.component-canvas-token-code code {
+  display: block;
+  color: var(--marketing-purple);
+}
+.component-canvas-token-code > span {
+  color: var(--marketing-muted);
+}
+.component-canvas-payload .aegis-json-viewer {
+  border: 0;
+  background: transparent;
+  font-size: 9px;
+}
+.component-canvas-payload .aegis-json-header {
+  display: none;
+}
+.component-canvas-payload .aegis-json-row {
+  min-height: 21px;
+  font-size: 9px;
+}
+.component-canvas .component-canvas-ai {
+  left: 1015px;
+  top: 685px;
+  width: 370px;
+  padding: 20px;
+  border-color: color-mix(in srgb, var(--color-ai-fg) 45%, var(--marketing-line));
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-ai-fg) 9%, var(--marketing-surface)),
+    var(--marketing-surface) 60%
+  );
+  transform: translate3d(
+      calc(var(--canvas-spread) * 80px),
+      calc(var(--canvas-spread) * 220px),
+      calc(65px + var(--canvas-spread) * 220px)
+    )
+    rotateZ(calc(var(--canvas-spread) * 5deg));
+}
+.component-canvas-ai-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--marketing-purple);
+}
+.component-canvas-ai h3 {
+  margin: 13px 0 6px;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.component-canvas-ai p {
+  margin: 0;
+  color: var(--marketing-muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+.component-canvas-ai-footer,
+.component-canvas-ai-footer > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+}
+.component-canvas-ai-footer {
+  margin-top: 15px;
+}
+.component-canvas-ai .avatar-group {
+  transform: scale(0.8);
+  transform-origin: left center;
+}
+.component-canvas .component-canvas-metric {
+  left: 150px;
+  top: 740px;
+  width: 275px;
+  padding: 20px;
+  transform: translate3d(
+      calc(var(--canvas-spread) * -75px),
+      calc(var(--canvas-spread) * 180px),
+      calc(60px + var(--canvas-spread) * 180px)
+    )
+    rotateZ(calc(var(--canvas-spread) * -7deg));
+}
+.component-canvas-metric-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--marketing-muted);
+  font-size: 10px;
+}
+.component-canvas-metric-label > .tag {
+  margin-left: auto;
+}
+.component-canvas-metric-symbol {
+  color: var(--marketing-accent);
+}
+.component-canvas-metric-value {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 9px 0 7px;
+}
+.component-canvas-metric-value strong {
+  font-size: 27px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+.component-canvas-metric-value > span {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--marketing-accent);
+  font-size: 10px;
+}
+.component-canvas figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 5px 0 0;
+  padding: 18px 0 24px;
+  color: var(--marketing-muted);
+  text-align: center;
+  font: 11px/1.6 var(--font-ui);
+}
+.component-canvas-caption-mark {
+  display: inline-flex;
+  color: var(--marketing-accent);
+}
+.component-canvas-caption-note {
+  margin-left: 8px;
+  padding-left: 16px;
+  border-left: 1px solid var(--marketing-line);
+  color: var(--marketing-subtle);
+  font: 9px var(--font-mono);
+}
+
+.component-canvas-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.component-canvas-summary > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3px 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--marketing-line);
+  border-radius: 8px;
+  background: var(--marketing-surface);
+}
+.component-canvas-summary span {
+  grid-column: 1 / -1;
+  color: var(--marketing-muted);
+  font-size: 10px;
+}
+.component-canvas-summary strong {
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+.component-canvas-summary small {
+  align-self: end;
+  color: var(--marketing-subtle);
+  font-size: 9px;
+}
+.component-canvas-event-count {
+  color: var(--marketing-muted);
+  font: 11px var(--font-mono);
+}
+.component-canvas-viewport[data-visible='true'] .component-canvas-plane,
+.component-canvas-viewport[data-visible='true'] .component-canvas-library,
+.component-canvas-viewport[data-visible='true'] .component-canvas-inspector,
+.component-canvas-viewport[data-visible='true'] .component-canvas-ai,
+.component-canvas-viewport[data-visible='true'] .component-canvas-metric {
+  will-change: transform;
+}
+.component-canvas-viewport[data-compact='true'] .component-canvas-scaler {
+  width: 1100px;
+  height: 1350px;
+}
+.component-canvas-viewport[data-compact='true'] .component-canvas-workspace {
+  left: 135px;
+  top: 300px;
+  width: 830px;
+}
+.component-canvas-viewport[data-compact='true'] .component-canvas-library {
+  left: 180px;
+  top: 20px;
+  width: 270px;
+}
+.component-canvas-viewport[data-compact='true'] .component-canvas-library-items,
+.component-canvas-viewport[data-compact='true'] .component-canvas-library-label,
+.component-canvas-viewport[data-compact='true'] .component-canvas-panel-note {
+  display: none;
+}
+.component-canvas-viewport[data-compact='true'] .component-canvas-library-samples {
+  margin-top: 0;
+}
+.component-canvas-viewport[data-compact='true'] .component-canvas-inspector {
+  left: 175px;
+  right: auto;
+  top: 945px;
+  width: 250px;
+}
+.component-canvas-viewport[data-compact='true'] .component-canvas-payload {
+  display: none;
+}
+.component-canvas-viewport[data-compact='true'] .component-canvas-ai {
+  left: 540px;
+  top: 1020px;
+  width: 370px;
+}
+.component-canvas-viewport[data-compact='true'] .component-canvas-metric {
+  left: 625px;
+  top: 115px;
+}
+@media (max-width: 760px) {
+  .component-canvas figcaption {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 12px 15px 20px;
+    font-size: 10px;
+  }
+  .component-canvas-caption-note {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .component-canvas-viewport {
+    --canvas-spread: 0;
+  }
+  .component-canvas * {
+    animation: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}

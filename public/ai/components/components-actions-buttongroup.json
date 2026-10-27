@@ -1,0 +1,217 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-actions-buttongroup",
+  "name": "ButtonGroup",
+  "category": "Triggers",
+  "tokenGroup": "trigger",
+  "kind": "component",
+  "aliases": [
+    "action group",
+    "button cluster"
+  ],
+  "purpose": "A visual and semantic group of related buttons without adding selection behavior.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/button-group"
+  ],
+  "links": {
+    "contract": "./components-actions-buttongroup.json",
+    "overview": "../../?path=/docs/components-triggers-buttongroup-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-triggers-buttongroup-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-triggers-buttongroup-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-triggers-buttongroup-overview--docs&docsTab=tokens"
+  },
+  "description": "Keep related actions together in one compact row.",
+  "exports": [
+    "ButtonGroup"
+  ],
+  "importStatements": [
+    "import { ButtonGroup } from '@dimitriszoitas/aegis-ui/button-group';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "ButtonGroup",
+      "name": "aria-label",
+      "type": "string",
+      "required": true,
+      "description": "Defines a string value that labels the current element."
+    }
+  ],
+  "variants": [],
+  "composition": [
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A visual and semantic group of related buttons without adding selection behavior.",
+    "usage": [
+      "Provide the required aria-label to explain the relationship between the buttons.",
+      "Each child keeps its own click handler and state. Add aria-pressed to toggle buttons, or use SegmentedControl for one mutually exclusive value."
+    ],
+    "accessibility": [
+      "All enabled child buttons remain separate Tab stops; this wrapper does not implement roving focus or arrow-key selection.",
+      "Keep visible focus outlines unclipped when placing the group in a toolbar or an overflow container."
+    ],
+    "context": [
+      "Use for related table view controls or a cluster of independent formatting actions."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "group"
+    ],
+    "ariaAttributes": [],
+    "nativeElements": [
+      "div"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/button-group/button-group.stories.tsx",
+    "src/components/button-group/button-group.tsx",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-actions-buttongroup--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-actions-buttongroup--matrix",
+      "sourceFile": "src/components/button-group/button-group.stories.tsx"
+    },
+    {
+      "id": "components-actions-buttongroup--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-actions-buttongroup--playground",
+      "sourceFile": "src/components/button-group/button-group.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "ButtonGroup",
+      "group": "trigger"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

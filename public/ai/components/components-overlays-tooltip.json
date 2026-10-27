@@ -1,0 +1,773 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-overlays-tooltip",
+  "name": "Tooltip",
+  "category": "Feedback",
+  "tokenGroup": "feedback",
+  "kind": "component",
+  "aliases": [
+    "hint",
+    "hover help"
+  ],
+  "purpose": "Brief supplementary information associated with a hoverable and keyboard-focusable trigger.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/tooltip"
+  ],
+  "links": {
+    "contract": "./components-overlays-tooltip.json",
+    "overview": "../../?path=/docs/components-feedback-tooltip-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-feedback-tooltip-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-feedback-tooltip-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-feedback-tooltip-overview--docs&docsTab=tokens"
+  },
+  "description": "Explain a compact control without adding permanent visual noise.",
+  "exports": [
+    "RichTooltip",
+    "Tooltip"
+  ],
+  "importStatements": [
+    "import { RichTooltip, Tooltip } from '@dimitriszoitas/aegis-ui/tooltip';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Tooltip",
+      "name": "align",
+      "type": "Align | undefined",
+      "required": false,
+      "defaultValue": "\"center\""
+    },
+    {
+      "component": "Tooltip",
+      "name": "children",
+      "type": "ReactElement<unknown, string | JSXElementConstructor<any>>",
+      "required": true
+    },
+    {
+      "component": "Tooltip",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Tooltip",
+      "name": "content",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "component": "Tooltip",
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "Tooltip",
+      "name": "delayDuration",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "300ms (var(--group-feedback-measurement-tooltip-delay))"
+    },
+    {
+      "component": "Tooltip",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "Tooltip",
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "Tooltip",
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Tooltip",
+      "name": "side",
+      "type": "Side | undefined",
+      "required": false,
+      "defaultValue": "\"top\""
+    },
+    {
+      "component": "Tooltip",
+      "name": "variant",
+      "type": "\"default\" | \"inverted\" | undefined",
+      "required": false,
+      "defaultValue": "\"default\""
+    }
+  ],
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "default",
+        "inverted"
+      ],
+      "default": "default"
+    },
+    {
+      "name": "side",
+      "values": [
+        "bottom",
+        "left",
+        "right",
+        "top"
+      ],
+      "default": "top"
+    },
+    {
+      "name": "align",
+      "values": [
+        "center",
+        "end",
+        "start"
+      ],
+      "default": "center"
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "Brief supplementary information associated with a hoverable and keyboard-focusable trigger.",
+    "usage": [
+      "Keep content short and noninteractive. Use Popover when the content includes controls, links, or a longer explanation.",
+      "RichTooltip adds a title, description, and optional shortcut without changing the underlying tooltip behavior."
+    ],
+    "accessibility": [
+      "The asChild trigger must support focus and forwarded trigger props. Plain text needs an appropriate focusable wrapper when keyboard access is necessary.",
+      "Do not use the tooltip as the only accessible label or the only place to present essential validation."
+    ],
+    "intent": [
+      "Default and inverted change contrast treatment, not message priority."
+    ],
+    "context": [
+      "Use for abbreviated controls, absolute timestamps, and short clarification of an existing label."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "tooltip"
+    ],
+    "ariaAttributes": [
+      "aria-describedby",
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "button",
+      "div",
+      "kbd",
+      "path",
+      "span",
+      "svg"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/tooltip",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/tooltip/tooltip.css",
+    "src/components/tooltip/tooltip.stories.tsx",
+    "src/components/tooltip/tooltip.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-overlays.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/theme.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-overlays-tooltip--default",
+      "name": "Default",
+      "url": "../../?path=/story/components-overlays-tooltip--default",
+      "sourceFile": "src/components/tooltip/tooltip.stories.tsx"
+    },
+    {
+      "id": "components-overlays-tooltip--open-tooltip",
+      "name": "Open Tooltip",
+      "url": "../../?path=/story/components-overlays-tooltip--open-tooltip",
+      "sourceFile": "src/components/tooltip/tooltip.stories.tsx"
+    },
+    {
+      "id": "components-overlays-tooltip--inverted",
+      "name": "Inverted",
+      "url": "../../?path=/story/components-overlays-tooltip--inverted",
+      "sourceFile": "src/components/tooltip/tooltip.stories.tsx"
+    },
+    {
+      "id": "components-overlays-tooltip--inverted-rich-tooltip",
+      "name": "Inverted Rich Tooltip",
+      "url": "../../?path=/story/components-overlays-tooltip--inverted-rich-tooltip",
+      "sourceFile": "src/components/tooltip/tooltip.stories.tsx"
+    },
+    {
+      "id": "components-overlays-tooltip--arrow-edges",
+      "name": "Arrow Edges",
+      "url": "../../?path=/story/components-overlays-tooltip--arrow-edges",
+      "sourceFile": "src/components/tooltip/tooltip.stories.tsx"
+    },
+    {
+      "id": "components-overlays-tooltip--open-rich-tooltip",
+      "name": "Open Rich Tooltip",
+      "url": "../../?path=/story/components-overlays-tooltip--open-rich-tooltip",
+      "sourceFile": "src/components/tooltip/tooltip.stories.tsx"
+    },
+    {
+      "id": "components-overlays-tooltip--placement-matrix",
+      "name": "Placement Matrix",
+      "url": "../../?path=/story/components-overlays-tooltip--placement-matrix",
+      "sourceFile": "src/components/tooltip/tooltip.stories.tsx"
+    },
+    {
+      "id": "components-overlays-tooltip--rich-details",
+      "name": "Rich Details",
+      "url": "../../?path=/story/components-overlays-tooltip--rich-details",
+      "sourceFile": "src/components/tooltip/tooltip.stories.tsx"
+    },
+    {
+      "id": "components-overlays-tooltip--icon-only-and-disabled",
+      "name": "Icon Only And Disabled",
+      "url": "../../?path=/story/components-overlays-tooltip--icon-only-and-disabled",
+      "sourceFile": "src/components/tooltip/tooltip.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-feedback-measurement-overlay-collision-padding",
+    "--group-feedback-measurement-overlay-offset",
+    "--group-feedback-measurement-tooltip-arrow-height",
+    "--group-feedback-measurement-tooltip-arrow-width",
+    "--group-feedback-measurement-tooltip-delay",
+    "--group-feedback-overlay-angle-180deg",
+    "--group-feedback-overlay-angle-90deg",
+    "--group-feedback-overlay-appearance-overlay-surface",
+    "--group-feedback-overlay-border-width-hairline",
+    "--group-feedback-overlay-border-width-regular",
+    "--group-feedback-overlay-color-border-default",
+    "--group-feedback-overlay-color-content-primary",
+    "--group-feedback-overlay-color-surface-hover",
+    "--group-feedback-overlay-color-surface-surface",
+    "--group-feedback-overlay-columns-two",
+    "--group-feedback-overlay-ease-out",
+    "--group-feedback-overlay-elevation-none",
+    "--group-feedback-overlay-font-family-code",
+    "--group-feedback-overlay-font-family-ui",
+    "--group-feedback-overlay-font-leading-body",
+    "--group-feedback-overlay-font-size-annotation-s",
+    "--group-feedback-overlay-font-size-body",
+    "--group-feedback-overlay-font-size-label",
+    "--group-feedback-overlay-font-weight-regular",
+    "--group-feedback-overlay-font-weight-semibold",
+    "--group-feedback-overlay-motion-fast",
+    "--group-feedback-overlay-number-0",
+    "--group-feedback-overlay-opacity-hidden",
+    "--group-feedback-overlay-opacity-strength-balanced",
+    "--group-feedback-overlay-opacity-visible",
+    "--group-feedback-overlay-radius-border-radius-bold",
+    "--group-feedback-overlay-ring-focus",
+    "--group-feedback-overlay-scale-0-97",
+    "--group-feedback-overlay-scale-1",
+    "--group-feedback-overlay-shadow-floating",
+    "--group-feedback-overlay-shadow-popover",
+    "--group-feedback-overlay-size-max-width-canvas-tiny",
+    "--group-feedback-overlay-size-max-width-wide-panel-vast",
+    "--group-feedback-overlay-size-min-height-compact-content-small",
+    "--group-feedback-overlay-size-outline-offset-micro-compact",
+    "--group-feedback-overlay-size-stroke-width-micro-small",
+    "--group-feedback-overlay-space-gap-16",
+    "--group-feedback-overlay-space-gap-24",
+    "--group-feedback-overlay-space-gap-comfortable",
+    "--group-feedback-overlay-space-gap-compact",
+    "--group-feedback-overlay-space-margin-bottom-snug",
+    "--group-feedback-overlay-space-padding-16",
+    "--group-feedback-overlay-space-padding-20",
+    "--group-feedback-overlay-space-padding-compact",
+    "--group-feedback-overlay-space-padding-regular",
+    "--group-feedback-overlay-tooltip-bg",
+    "--group-feedback-overlay-tooltip-border",
+    "--group-feedback-overlay-tooltip-fg",
+    "--group-feedback-overlay-tooltip-secondary",
+    "--group-feedback-overlay-track-flex",
+    "--group-feedback-overlay-z-tooltip",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-flex-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus",
+    "--transform-origin"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-feedback-overlay-z-tooltip",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-max-width-wide-panel-vast",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-compact",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-regular",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-border-width-hairline",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-border",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-bg",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-fg",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-shadow-floating",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-family-ui",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-size-label",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-leading-body",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-ease-out",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-motion-fast",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--transform-origin",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-number-0",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-elevation-none",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-stroke-width-micro-small",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-max-width-canvas-tiny",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-comfortable",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-weight-semibold",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-margin-bottom-snug",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-family-code",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-size-annotation-s",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-weight-regular",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-tooltip-secondary",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-opacity-hidden",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-scale-0-97",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-opacity-visible",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-scale-1",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-compact",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-min-height-compact-content-small",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-border-default",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-surface-surface",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-content-primary",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-font-size-body",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-color-surface-hover",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-border-width-regular",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-ring-focus",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-opacity-strength-balanced",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-16",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-16",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-padding-20",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-columns-two",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-track-flex",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-space-gap-24",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-tooltip-arrow-width",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-tooltip-arrow-height",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-angle-180deg",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-angle-90deg",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-appearance-overlay-surface",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-shadow-popover",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-flex-none",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-tooltip-delay",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-overlay-offset",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-overlay-collision-padding",
+      "ownership": "owned",
+      "component": "Tooltip",
+      "group": "feedback"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

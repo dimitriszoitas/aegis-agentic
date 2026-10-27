@@ -1,0 +1,551 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-people-avatar",
+  "name": "Avatar",
+  "category": "Data Display",
+  "tokenGroup": "data-display",
+  "kind": "component",
+  "aliases": [
+    "initials",
+    "person",
+    "profile image"
+  ],
+  "purpose": "A person or entity image with initials fallback and optional presence status.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/avatar"
+  ],
+  "links": {
+    "contract": "./components-people-avatar.json",
+    "overview": "../../?path=/docs/components-data-display-avatar-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-display-avatar-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-display-avatar-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-display-avatar-overview--docs&docsTab=tokens"
+  },
+  "description": "Identify a person with a photo, initials, or presence indicator.",
+  "exports": [
+    "Avatar",
+    "AvatarGroup"
+  ],
+  "importStatements": [
+    "import { Avatar, AvatarGroup } from '@dimitriszoitas/aegis-ui/avatar';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Avatar",
+      "name": "initials",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Avatar",
+      "name": "name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "component": "Avatar",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "Avatar",
+      "name": "src",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Avatar",
+      "name": "status",
+      "type": "\"online\" | \"away\" | \"busy\" | \"offline\" | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    },
+    {
+      "name": "status",
+      "values": [
+        "away",
+        "busy",
+        "offline",
+        "online"
+      ]
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "A person or entity image with initials fallback and optional presence status.",
+    "usage": [
+      "Always supply name. Initials are derived from the first and last name parts unless provided explicitly.",
+      "A failed image falls back to initials. Presence is an independent online, away, busy, or offline value supplied by the host."
+    ],
+    "accessibility": [
+      "The wrapper exposes an image label containing the name and presence; the nested image has empty alt text to avoid duplicate announcements.",
+      "AvatarGroup names the group and includes hidden members’ names in its overflow label and title."
+    ],
+    "context": [
+      "Use for owners and team members beside a name or in an assigned-members group."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "group",
+      "img"
+    ],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "div",
+      "img",
+      "p",
+      "span",
+      "strong"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/avatar/avatar.css",
+    "src/components/avatar/avatar.stories.tsx",
+    "src/components/avatar/avatar.tsx",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-people-avatar--sizes-and-presence",
+      "name": "Sizes And Presence",
+      "url": "../../?path=/story/components-people-avatar--sizes-and-presence",
+      "sourceFile": "src/components/avatar/avatar.stories.tsx"
+    },
+    {
+      "id": "components-people-avatar--groups",
+      "name": "Groups",
+      "url": "../../?path=/story/components-people-avatar--groups",
+      "sourceFile": "src/components/avatar/avatar.stories.tsx"
+    },
+    {
+      "id": "components-people-avatar--initials-fallback",
+      "name": "Initials Fallback",
+      "url": "../../?path=/story/components-people-avatar--initials-fallback",
+      "sourceFile": "src/components/avatar/avatar.stories.tsx"
+    },
+    {
+      "id": "components-people-avatar--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-people-avatar--playground",
+      "sourceFile": "src/components/avatar/avatar.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-display-avatar-border-width-hairline",
+    "--group-data-display-avatar-border-width-regular",
+    "--group-data-display-avatar-color-action-border",
+    "--group-data-display-avatar-color-action-foreground",
+    "--group-data-display-avatar-color-action-soft",
+    "--group-data-display-avatar-color-border-subtle",
+    "--group-data-display-avatar-color-caution-fill",
+    "--group-data-display-avatar-color-content-secondary",
+    "--group-data-display-avatar-color-content-tertiary",
+    "--group-data-display-avatar-color-danger-fill",
+    "--group-data-display-avatar-color-success-fill",
+    "--group-data-display-avatar-color-surface-hover",
+    "--group-data-display-avatar-color-surface-surface",
+    "--group-data-display-avatar-flex-none",
+    "--group-data-display-avatar-font-size-annotation-xs",
+    "--group-data-display-avatar-font-size-body",
+    "--group-data-display-avatar-font-size-label",
+    "--group-data-display-avatar-font-weight-semibold",
+    "--group-data-display-avatar-number-0",
+    "--group-data-display-avatar-radius-border-radius-full",
+    "--group-data-display-avatar-size-bottom-negative-1",
+    "--group-data-display-avatar-size-box-shadow-micro-compact",
+    "--group-data-display-avatar-size-height-full",
+    "--group-data-display-avatar-size-height-glyph-small",
+    "--group-data-display-avatar-size-right-negative-1",
+    "--group-data-display-avatar-size-width-full",
+    "--group-data-display-avatar-size-width-glyph-small",
+    "--group-data-display-avatar-space-height-10",
+    "--group-data-display-avatar-space-height-roomy",
+    "--group-data-display-avatar-space-height-spacious",
+    "--group-data-display-avatar-space-margin-left-compact",
+    "--group-data-display-avatar-space-padding-left-compact",
+    "--group-data-display-avatar-space-width-10",
+    "--group-data-display-avatar-space-width-roomy",
+    "--group-data-display-avatar-space-width-spacious",
+    "--group-data-display-surface-border-width-regular",
+    "--group-data-display-surface-color-action-foreground",
+    "--group-data-display-surface-color-action-soft",
+    "--group-data-display-surface-color-border-default",
+    "--group-data-display-surface-color-content-primary",
+    "--group-data-display-surface-color-surface-canvas",
+    "--group-data-display-surface-color-surface-surface",
+    "--group-data-display-surface-elevation-none",
+    "--group-data-display-surface-focus-offset",
+    "--group-data-display-surface-font-family-ui",
+    "--group-data-display-surface-font-size-body",
+    "--group-data-display-surface-motion-count-1",
+    "--group-data-display-surface-motion-disabled-duration",
+    "--group-data-display-surface-motion-reduced-duration",
+    "--group-data-display-surface-number-0",
+    "--group-data-display-surface-radius-circle",
+    "--group-data-display-surface-radius-rounded",
+    "--group-data-display-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-display-avatar-space-width-spacious",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-height-spacious",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-action-soft",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-action-foreground",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-border-width-hairline",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-action-border",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-radius-border-radius-full",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-font-size-label",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-font-weight-semibold",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-flex-none",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-width-roomy",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-height-roomy",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-font-size-annotation-xs",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-width-10",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-height-10",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-font-size-body",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-width-full",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-height-full",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-right-negative-1",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-bottom-negative-1",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-width-glyph-small",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-height-glyph-small",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-border-width-regular",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-surface-surface",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-content-tertiary",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-success-fill",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-caution-fill",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-danger-fill",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-padding-left-compact",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-space-margin-left-compact",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-number-0",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-size-box-shadow-micro-compact",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-surface-hover",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-content-secondary",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-avatar-color-border-subtle",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-radius-rounded",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-surface-canvas",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-surface-surface",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-radius-circle",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Avatar",
+      "group": "data-display"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

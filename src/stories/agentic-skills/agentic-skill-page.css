@@ -1,0 +1,240 @@
+.agentic-skill-page {
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  line-height: var(--line-height-1-6);
+  min-width: var(--number-0);
+}
+.agentic-skill-header {
+  display: grid;
+  gap: var(--space-3);
+}
+.agentic-skill-header > :is(h1, p),
+.agentic-skill-copy-row h2 {
+  margin: var(--number-0);
+}
+.agentic-skill-page .agentic-skill-eyebrow,
+.agentic-skill-source-path,
+.agentic-skill-copy-action {
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+}
+.sbdocs-content .agentic-skill-page a {
+  color: var(--color-function-fg);
+  text-decoration: underline;
+  text-underline-offset: var(--size-3);
+}
+.agentic-skill-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--size-240)), 1fr));
+  gap: var(--space-6);
+  padding-block: var(--space-5);
+  margin: var(--space-4) var(--number-0);
+  border-block: var(--stroke-1) solid var(--color-border-subtle);
+}
+.agentic-skill-summary > div {
+  min-width: var(--number-0);
+}
+.sbdocs-content .agentic-skill-summary :is(dt, dd) {
+  padding: var(--number-0);
+  margin: var(--number-0);
+  font-style: normal;
+}
+.agentic-skill-summary dt {
+  font-weight: var(--font-weight-medium);
+}
+.agentic-skill-summary dd {
+  margin-top: var(--space-2);
+  color: var(--color-text-secondary);
+}
+.agentic-skill-copy-row,
+.agentic-skill-copy-action {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.agentic-skill-copy-row {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-block: var(--space-6) var(--space-3);
+}
+.agentic-skill-page pre {
+  padding: var(--space-4);
+  border-radius: var(--surface-radius);
+  background: var(--color-bg-surface);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.agentic-skill-page code {
+  font-family: var(--font-code);
+  font-size: var(--text-xs);
+  overflow-wrap: anywhere;
+}
+.sbdocs-content .agentic-skill-page pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.agentic-skill-prose h2 {
+  padding-top: var(--space-4);
+  margin-top: var(--space-6);
+}
+.agentic-skill-prose h3 {
+  padding-top: var(--space-3);
+  margin-top: var(--space-5);
+}
+.agentic-skill-prose li + li {
+  margin-top: var(--space-2);
+}
+.agentic-skill-contract {
+  margin-top: var(--space-8);
+  border-top: var(--stroke-1) solid var(--color-border-default);
+  scroll-margin-top: var(--space-6);
+}
+.agentic-skill-page :focus-visible {
+  outline: var(--stroke-2) solid var(--ring-focus);
+  outline-offset: var(--size-3);
+}
+
+.agentic-skill-navigation {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-block: var(--space-3);
+  overflow-x: auto;
+  gap: var(--space-2);
+  border-bottom: var(--stroke-1) solid var(--color-border-default);
+  margin-block: var(--space-5) var(--space-6);
+}
+.agentic-skill-tab {
+  flex: none;
+  appearance: none;
+  border: var(--stroke-1) solid transparent;
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  background: transparent;
+  cursor: pointer;
+}
+.agentic-skill-tab:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+.agentic-skill-tab[data-active] {
+  color: var(--color-text-primary);
+  background: var(--color-bg-surface);
+  border-color: var(--color-border-default);
+  font-weight: var(--font-weight-medium);
+}
+.agentic-skill-selected-header h2 {
+  margin: var(--number-0);
+}
+.agentic-skill-panel {
+  min-width: var(--number-0);
+}
+
+/* Keep the guide's page frame separate from the real controls it contains. */
+.agentic-skill-page.agentic-skill-page > .agentic-skill-header {
+  padding-top: var(--space-8);
+  gap: var(--space-5);
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-header > h1 {
+  max-width: var(--docs-reading-width, var(--size-720));
+  padding: 0;
+  border: 0;
+  font-size: var(--docs-title-size, var(--text-3xl));
+  font-weight: var(--font-weight-medium);
+  line-height: var(--docs-title-leading, var(--line-height-1-15));
+  letter-spacing: var(--docs-title-tracking, var(--tracking-negative-0-03em));
+  color: var(--color-text-primary);
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-header > p {
+  max-width: var(--docs-reading-width, var(--size-720));
+  color: var(--color-text-secondary);
+}
+.agentic-skill-page.agentic-skill-page > .agentic-skill-header > p {
+  font-size: var(--text-md);
+}
+.agentic-skill-page.agentic-skill-page
+  :is(
+    .agentic-skill-selected-header > h2,
+    .agentic-skill-copy-row > h2,
+    .agentic-skill-prose > h2
+  ) {
+  padding: 0;
+  border: 0;
+  color: var(--color-text-primary);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-1-3);
+  letter-spacing: var(--tracking-negative-0-015em);
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-navigation {
+  margin-block: var(--space-8);
+  padding-block: 0;
+  gap: var(--space-6);
+  border-color: var(--color-border-subtle);
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-tab {
+  padding: var(--space-3) 0;
+  border: 0;
+  border-bottom: var(--stroke-2) solid transparent;
+  border-radius: 0;
+  background: transparent;
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-tab:hover {
+  color: var(--color-text-primary);
+  background: transparent;
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-tab[data-active] {
+  background: transparent;
+  border-bottom-color: var(--color-function-fg);
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-summary {
+  gap: var(--space-10);
+  padding-block: var(--space-6);
+  margin-block: var(--space-6);
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-summary dd {
+  max-width: var(--size-480);
+  margin-top: var(--space-2);
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-prose > h2,
+.agentic-skill-page.agentic-skill-page .agentic-skill-copy-row {
+  margin-top: var(--docs-section-space, var(--space-12));
+  margin-bottom: var(--space-4);
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-prose > h3 {
+  margin-block: var(--space-8) var(--space-4);
+  padding: 0;
+  border: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-medium);
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-invocation > p,
+.agentic-skill-page.agentic-skill-page .agentic-skill-prose > :is(p, ul, ol) {
+  max-width: var(--docs-reading-width, var(--size-720));
+  color: var(--color-text-secondary);
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-prose > :is(p, ul, ol) strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+.agentic-skill-page.agentic-skill-page .agentic-skill-contract {
+  margin-top: var(--docs-section-space, var(--space-12));
+  border-color: var(--color-border-subtle);
+}
+.agentic-skill-page.agentic-skill-page pre {
+  padding: var(--space-5) var(--space-6);
+}
+@media (max-width: 640px) {
+  .agentic-skill-page.agentic-skill-page > .agentic-skill-header {
+    padding-top: var(--space-5);
+  }
+  .agentic-skill-page.agentic-skill-page .agentic-skill-navigation {
+    gap: var(--space-4);
+  }
+  .agentic-skill-page.agentic-skill-page pre {
+    padding: var(--space-4);
+  }
+}

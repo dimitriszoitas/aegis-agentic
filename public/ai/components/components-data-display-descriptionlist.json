@@ -1,0 +1,346 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-data-display-descriptionlist",
+  "name": "DescriptionList",
+  "category": "Data Display",
+  "tokenGroup": "data-display",
+  "kind": "component",
+  "aliases": [
+    "definition list",
+    "key value",
+    "metadata"
+  ],
+  "purpose": "A semantic set of labels and values for inspecting record or configuration details.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/description-list"
+  ],
+  "links": {
+    "contract": "./components-data-display-descriptionlist.json",
+    "overview": "../../?path=/docs/components-data-display-descriptionlist-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-display-descriptionlist-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-display-descriptionlist-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-display-descriptionlist-overview--docs&docsTab=tokens"
+  },
+  "description": "Semantic label/value pairs for record metadata.",
+  "exports": [
+    "DescriptionList"
+  ],
+  "importStatements": [
+    "import { DescriptionList } from '@dimitriszoitas/aegis-ui/description-list';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "DescriptionList",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "DescriptionList",
+      "name": "columns",
+      "type": "2 | 3 | 1 | undefined",
+      "required": false,
+      "defaultValue": "1"
+    },
+    {
+      "component": "DescriptionList",
+      "name": "emptyValue",
+      "type": "ReactNode",
+      "required": false,
+      "defaultValue": "\"Not provided\""
+    },
+    {
+      "component": "DescriptionList",
+      "name": "items",
+      "type": "readonly DescriptionItem[]",
+      "required": true
+    },
+    {
+      "component": "DescriptionList",
+      "name": "orientation",
+      "type": "\"horizontal\" | \"stacked\" | undefined",
+      "required": false,
+      "defaultValue": "\"stacked\""
+    }
+  ],
+  "variants": [
+    {
+      "name": "orientation",
+      "values": [
+        "horizontal",
+        "stacked"
+      ],
+      "default": "stacked"
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "A semantic set of labels and values for inspecting record or configuration details.",
+    "usage": [
+      "Use stable item IDs and concise labels; place complex values such as tags or links in value.",
+      "Choose stacked or horizontal alignment and one to three columns according to available width.",
+      "Missing strings, null, and undefined use emptyValue. Numeric zero and false remain meaningful values."
+    ],
+    "accessibility": [
+      "Native dl, dt, and dd elements preserve the label-to-value relationship without inventing table semantics.",
+      "Ensure interactive values have their own accessible names; the label is descriptive content rather than a form label."
+    ],
+    "context": [
+      "Use for account details, invoice metadata, and settings summaries."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [],
+    "nativeElements": [
+      "dd",
+      "div",
+      "dl",
+      "dt"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/description-list/description-list.css",
+    "src/components/description-list/description-list.stories.tsx",
+    "src/components/description-list/description-list.tsx",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-data-display-descriptionlist--stacked",
+      "name": "Stacked",
+      "url": "../../?path=/story/components-data-display-descriptionlist--stacked",
+      "sourceFile": "src/components/description-list/description-list.stories.tsx"
+    },
+    {
+      "id": "components-data-display-descriptionlist--horizontal",
+      "name": "Horizontal",
+      "url": "../../?path=/story/components-data-display-descriptionlist--horizontal",
+      "sourceFile": "src/components/description-list/description-list.stories.tsx"
+    },
+    {
+      "id": "components-data-display-descriptionlist--missing-value",
+      "name": "Missing Value",
+      "url": "../../?path=/story/components-data-display-descriptionlist--missing-value",
+      "sourceFile": "src/components/description-list/description-list.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-display-description-list-color-content-primary",
+    "--group-data-display-description-list-color-content-secondary",
+    "--group-data-display-description-list-columns-three",
+    "--group-data-display-description-list-columns-two",
+    "--group-data-display-description-list-font-size-body",
+    "--group-data-display-description-list-number-0",
+    "--group-data-display-description-list-size-grid-template-columns-content-huge",
+    "--group-data-display-description-list-space-gap-5",
+    "--group-data-display-description-list-space-gap-comfortable",
+    "--group-data-display-description-list-space-gap-roomy",
+    "--group-data-display-description-list-space-margin-bottom-snug",
+    "--group-data-display-description-list-track-double",
+    "--group-data-display-description-list-track-flex",
+    "--group-data-display-surface-border-width-regular",
+    "--group-data-display-surface-color-action-foreground",
+    "--group-data-display-surface-color-action-soft",
+    "--group-data-display-surface-color-border-default",
+    "--group-data-display-surface-color-content-primary",
+    "--group-data-display-surface-elevation-none",
+    "--group-data-display-surface-focus-offset",
+    "--group-data-display-surface-font-family-ui",
+    "--group-data-display-surface-font-size-body",
+    "--group-data-display-surface-motion-count-1",
+    "--group-data-display-surface-motion-disabled-duration",
+    "--group-data-display-surface-motion-reduced-duration",
+    "--group-data-display-surface-number-0",
+    "--group-data-display-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-display-description-list-number-0",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-track-flex",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-space-gap-5",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-space-gap-roomy",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-columns-two",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-columns-three",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-space-margin-bottom-snug",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-color-content-secondary",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-font-size-body",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-color-content-primary",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-size-grid-template-columns-content-huge",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-track-double",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-description-list-space-gap-comfortable",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "DescriptionList",
+      "group": "data-display"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

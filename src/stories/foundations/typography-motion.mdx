@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { TypographyExamples } from './foundation-examples';
+import { FontExamples, FontWeightExamples, TypographyRoles } from './foundation-detail-examples';
+
+<Meta title="Foundations/Typography" id="foundations-type-and-motion" />
+
+# Typography
+
+Figtree supports scanning across application interfaces. JetBrains Mono distinguishes code, identifiers, and machine-readable data. Both families are self-hosted, so interfaces do not depend on a font CDN.
+
+## Font families
+
+The semantic families are `--semantic-font-family-ui` and `--semantic-font-family-code`. Components read them through their own group, such as `--group-surface-font-family-ui` or `--group-code-code-editor-font-family-code`. Use the UI family for labels and content, and the code family for code, timestamps, addresses, and identifiers. A monospaced font makes character positions predictable; it does not replace a clear label.
+
+<FontExamples />
+
+## Semantic text roles
+
+All four configurations share font, size, weight, and spacing mappings. Semantic text roles reference primitives directly; family group tokens select the roles used by each component. These foundation specimens inspect the canonical semantic roles, while production components consume their family group.
+
+<TypographyRoles />
+
+Title groups select `--semantic-title-weight`. Body text remains regular, and supporting content uses the secondary text role. Metric values use tabular numerals so changing numbers stay aligned. Reserve semantic color for values with meaningful status.
+
+## Type scale
+
+The canonical scale uses property-aware names such as `--semantic-font-size-label`, `--semantic-font-size-body`, and `--semantic-font-size-heading-m`. Choose a family group token that maps to the intended role when composing interface content. Existing `--text-*` names are compatibility aliases, not the source for new styling.
+
+<TypographyExamples />
+
+## Weight and rhythm
+
+Use weight to clarify hierarchy within a size. Avoid turning every label into a heading. The available weight tokens are shown in ascending order.
+
+<FontWeightExamples />
+
+Line-height and tracking tokens support individual component needs. Preserve the component's existing text rhythm when composing it; do not apply one compact line-height to all content. Allow body copy to wrap and keep complete identifiers available when visual text is truncated.
+
+## Writing for interfaces
+
+Use sentence case, familiar words, and concrete action labels. Keep related labels consistent across the application. Placeholder text supplements a label; it does not replace one.
+
+Read <a className="foundation-detail-link" href="./?path=/docs/foundations-motion--docs" target="_top">Motion</a> for transitions and reduced-motion behavior.

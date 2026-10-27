@@ -1,0 +1,75 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { ColorFoundations } from './color-palettes';
+import { ColorSwatches, IntentExamples, SeverityExamples } from './foundation-examples';
+
+<Meta title="Foundations/Colors" id="foundations-colors" />
+
+# Colors
+
+The 21 primitive palettes provide raw color scales. Semantic roles assign meaning, and component-family groups connect those roles to the interface. The dependency order is primitive → semantic → group → consumer. Lemon adds a vivid, clear yellow alongside the warmer Yellow and Amber scales, with the same 14 solid steps and two alpha scales.
+
+<ColorFoundations>
+
+## Semantic color roles
+
+Components consume group tokens, never primitive or semantic tokens directly. Every semantic role has an explicit mapping for Fundamental light, Fundamental dark, Fundamental Floating light, and Fundamental Floating dark. The paired swatches inspect Fundamental light and dark mappings; the same source also defines both Floating configurations.
+
+## Backgrounds
+
+Canvas establishes the workspace, and surface holds content. Raised surface roles share the card fill. Hover and selected describe interaction states rather than extra elevation levels. Borderless cards, subtle table dividers, and text hierarchy keep data-rich layouts readable. Navigation and transient overlays have their own surface roles; contained floating panels retain the same palette.
+
+<ColorSwatches prefix="--semantic-color-surface-" />
+
+## Text
+
+Primary text carries decisions and data. Secondary text carries descriptions and supporting context. Tertiary text is reserved for nonessential detail; verify contrast at the actual text size and surface. Dense tables can keep the first data column primary and use a quieter supporting text treatment for the remaining columns while preserving link and action intent.
+
+<ColorSwatches prefix="--semantic-color-content-" />
+
+## Borders
+
+Subtle borders separate content without visual noise. Default borders clarify table dividers. Controls use dedicated boundaries where needed, including a stronger resting checkbox border in light mode. Structural containers remain borderless; feedback and semantic indicators retain the outlines that communicate their roles.
+
+<ColorSwatches prefix="--semantic-color-border-" />
+
+## Action intents
+
+Action, AI, danger, success, and caution roles provide fills, foregrounds, and soft surfaces. Button exposes `function`, `ai`, and `destroy` intents alongside `default`. Tag also supports `success` and `warning`. Each component maps its supported API choices through its own group tokens. Neutral remains available for quieter controls.
+
+AI uses a lime-to-blue-to-purple palette. Button treatments consume `--group-trigger-button-gradient-ai`, `--group-trigger-button-gradient-ai-soft`, and `--group-trigger-button-gradient-ai-border`. Their semantic mappings reference primitive colors directly. Text, icons, and generated-content surfaces have separate group roles. A visible label and recognizable marker identify AI beyond color.
+
+Fill and text gradients use separate roles. Verify text contrast across the complete gradient on its actual surface, including soft fills and hover states; bright fill colors are not automatically suitable for small text.
+
+<IntentExamples />
+
+Generic tags and severity badges use transparent backgrounds and primary theme text. Tags can carry semantic color in outlines and dots. Labeled severity badges use an outline without a dot; the explicit compact variant retains its dot. Workflow status, severity, and quantity remain distinct component roles. Destructive, success, warning, syntax, and added or removed code retain their meaning across both color modes.
+
+## Severity
+
+Severity communicates ordered urgency: critical, high, medium, low, and informational. Use this scale for issues or records where ordered urgency is meaningful. Do not substitute severity for workflow status or confidence.
+
+<SeverityExamples />
+
+## Data visualization
+
+Charts consume dedicated plot roles rather than relying on text colors as a universal palette. Match chart segments and legend markers, keep labels readable, and use semantic color only where it carries meaning. A neutral activity series and a severity distribution serve different purposes.
+
+<ColorSwatches prefix="--semantic-color-chart-" />
+
+## Shared palette, different containment
+
+Canvas and content surfaces use `--semantic-color-surface-canvas` and `--semantic-color-surface-surface`. The interface reads them through its family group, such as `--group-surface-color-surface-canvas`. Navigation, fields, and transient overlays have separate group roles. Floating containment can change corners, borders, and shadows without changing font, size, or spacing roles.
+
+## Three token tiers
+
+1. **Primitive** tokens contain raw values, including the 21 color palettes and dimensional scales. They do not reference other tokens.
+2. **Semantic** tokens describe purpose, such as `--semantic-color-content-primary`. Every role maps directly to primitives in all four configurations. Semantic roles cannot alias other semantic roles.
+3. **Group** tokens belong to a sidebar category, such as Triggers, Inputs & Selection, or Surfaces. They reference semantic roles only. Components and patterns consume these group tokens.
+
+For example, `--primitive-size-28` → `--semantic-size-m` → `--group-trigger-button-height-compact` → the small Button. A family can expose a relative sizing ramp for its own needs: “regular” is not a universal pixel size across buttons and surfaces. Use the component API first, then its documented group tokens when customization is required.
+
+`tokens/design-tokens.json` is the source of truth. Generated CSS preserves these dependencies. Raw values belong to primitives; structural expressions can combine tokens from the immediately preceding tier. Compatibility names support older integrations, but are not the names to use in new consumer styling.
+
+The four explicit configurations are `fundamental.light`, `fundamental.dark`, `fundamental-floating.light`, and `fundamental-floating.dark`. Font, sizing, and spacing mappings remain invariant; visual styling roles can differ. Apply the theme helpers at the document root so portaled overlays inherit the same configuration. Fundamental is the default.
+
+</ColorFoundations>

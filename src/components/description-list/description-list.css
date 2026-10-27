@@ -1,0 +1,61 @@
+.aegis-description-list {
+  display: grid;
+  grid-template-columns: minmax(
+    var(--group-data-display-description-list-number-0),
+    var(--group-data-display-description-list-track-flex)
+  );
+  gap: var(--group-data-display-description-list-space-gap-5)
+    var(--group-data-display-description-list-space-gap-roomy);
+  margin: var(--group-data-display-description-list-number-0);
+}
+.aegis-description-list[data-columns='2'] {
+  grid-template-columns: repeat(
+    var(--group-data-display-description-list-columns-two),
+    minmax(
+      var(--group-data-display-description-list-number-0),
+      var(--group-data-display-description-list-track-flex)
+    )
+  );
+}
+.aegis-description-list[data-columns='3'] {
+  grid-template-columns: repeat(
+    var(--group-data-display-description-list-columns-three),
+    minmax(
+      var(--group-data-display-description-list-number-0),
+      var(--group-data-display-description-list-track-flex)
+    )
+  );
+}
+.aegis-description-list > div {
+  min-width: var(--group-data-display-description-list-number-0);
+}
+.aegis-description-list dt {
+  margin-bottom: var(--group-data-display-description-list-space-margin-bottom-snug);
+  color: var(--group-data-display-description-list-color-content-secondary);
+  font-size: var(--group-data-display-description-list-font-size-body);
+}
+.aegis-description-list dd {
+  margin: var(--group-data-display-description-list-number-0);
+  color: var(--group-data-display-description-list-color-content-primary);
+  font-size: var(--group-data-display-description-list-font-size-body);
+  overflow-wrap: anywhere;
+}
+.aegis-description-list[data-orientation='horizontal'] > div {
+  display: grid;
+  grid-template-columns: minmax(
+      var(--group-data-display-description-list-size-grid-template-columns-content-huge),
+      var(--group-data-display-description-list-track-flex)
+    ) minmax(
+      var(--group-data-display-description-list-number-0),
+      var(--group-data-display-description-list-track-double)
+    );
+  gap: var(--group-data-display-description-list-space-gap-comfortable);
+}
+@media (max-width: 640px) {
+  .aegis-description-list[data-columns] {
+    grid-template-columns: minmax(
+      var(--group-data-display-description-list-number-0),
+      var(--group-data-display-description-list-track-flex)
+    );
+  }
+}

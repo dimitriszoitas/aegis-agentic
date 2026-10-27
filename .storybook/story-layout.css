@@ -1,0 +1,5 @@
+/* Story spacing without an implied card. Components keep their own surfaces. */
+.story-layout {
+  min-width: 0;
+  padding: var(--layout-card-padding);
+}

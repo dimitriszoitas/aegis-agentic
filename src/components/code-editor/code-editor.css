@@ -1,0 +1,42 @@
+.aegis-code-editor {
+  min-width: var(--group-code-code-editor-number-0);
+  overflow: hidden;
+  color: var(--group-code-code-editor-color-content-primary);
+  background: var(--group-code-code-editor-color-surface-surface);
+  border: var(--group-code-code-editor-border-width-hairline) solid
+    var(--group-code-code-editor-color-border-default);
+  border-radius: var(--group-code-code-editor-radius-border-radius-bold);
+}
+.aegis-code-editor:focus-within {
+  border-color: var(--group-code-code-editor-ring-focus);
+  box-shadow: var(--group-code-code-editor-number-0) var(--group-code-code-editor-number-0)
+    var(--group-code-code-editor-number-0)
+    var(--group-code-code-editor-size-box-shadow-micro-compact)
+    var(--group-code-code-editor-color-action-soft);
+}
+.aegis-code-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--group-code-code-editor-space-gap-compact);
+  padding: var(--group-code-code-editor-space-padding-compact)
+    var(--group-code-code-editor-space-padding-regular);
+  border-top: var(--group-code-code-editor-border-width-hairline) solid
+    var(--group-code-code-editor-color-border-subtle);
+  color: var(--group-code-code-editor-color-content-secondary);
+  background: var(--group-code-code-editor-color-surface-canvas);
+  font-size: var(--group-code-code-editor-font-size-label);
+  font-variant-numeric: tabular-nums;
+}
+.aegis-code-status-divider {
+  margin: var(--group-code-code-editor-number-0) var(--group-code-code-editor-space-margin-compact);
+}
+.aegis-code-editor .cm-foldGutter .cm-gutterElement {
+  cursor: pointer;
+}
+.aegis-code-editor .cm-panels button:focus-visible,
+.aegis-code-editor .cm-panels input:focus-visible {
+  outline: var(--group-code-code-editor-border-width-regular) solid
+    var(--group-code-code-editor-ring-focus);
+  outline-offset: var(--group-code-code-editor-size-outline-offset-micro-compact);
+}

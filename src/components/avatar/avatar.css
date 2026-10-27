@@ -1,0 +1,70 @@
+.aegis-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: var(--group-data-display-avatar-space-width-spacious);
+  height: var(--group-data-display-avatar-space-height-spacious);
+  background: var(--group-data-display-avatar-color-action-soft);
+  color: var(--group-data-display-avatar-color-action-foreground);
+  border: var(--group-data-display-avatar-border-width-hairline) solid
+    var(--group-data-display-avatar-color-action-border);
+  border-radius: var(--group-data-display-avatar-radius-border-radius-full);
+  font-size: var(--group-data-display-avatar-font-size-label);
+  font-weight: var(--group-data-display-avatar-font-weight-semibold);
+  flex-shrink: var(--group-data-display-avatar-flex-none);
+}
+.aegis-avatar[data-size='sm'] {
+  width: var(--group-data-display-avatar-space-width-roomy);
+  height: var(--group-data-display-avatar-space-height-roomy);
+  font-size: var(--group-data-display-avatar-font-size-annotation-xs);
+}
+.aegis-avatar[data-size='lg'] {
+  width: var(--group-data-display-avatar-space-width-10);
+  height: var(--group-data-display-avatar-space-height-10);
+  font-size: var(--group-data-display-avatar-font-size-body);
+}
+.aegis-avatar img {
+  width: var(--group-data-display-avatar-size-width-full);
+  height: var(--group-data-display-avatar-size-height-full);
+  object-fit: cover;
+  border-radius: inherit;
+}
+.aegis-avatar-status {
+  position: absolute;
+  right: var(--group-data-display-avatar-size-right-negative-1);
+  bottom: var(--group-data-display-avatar-size-bottom-negative-1);
+  width: var(--group-data-display-avatar-size-width-glyph-small);
+  height: var(--group-data-display-avatar-size-height-glyph-small);
+  border: var(--group-data-display-avatar-border-width-regular) solid
+    var(--group-data-display-avatar-color-surface-surface);
+  border-radius: var(--group-data-display-avatar-radius-border-radius-full);
+  background: var(--group-data-display-avatar-color-content-tertiary);
+}
+.aegis-avatar-status[data-status='online'] {
+  background: var(--group-data-display-avatar-color-success-fill);
+}
+.aegis-avatar-status[data-status='away'] {
+  background: var(--group-data-display-avatar-color-caution-fill);
+}
+.aegis-avatar-status[data-status='busy'] {
+  background: var(--group-data-display-avatar-color-danger-fill);
+}
+.aegis-avatar-group {
+  display: inline-flex;
+  align-items: center;
+  padding-left: var(--group-data-display-avatar-space-padding-left-compact);
+}
+.aegis-avatar-group > .aegis-avatar {
+  margin-left: calc(var(--group-data-display-avatar-space-margin-left-compact) * -1);
+  box-shadow: var(--group-data-display-avatar-number-0) var(--group-data-display-avatar-number-0)
+    var(--group-data-display-avatar-number-0)
+    var(--group-data-display-avatar-size-box-shadow-micro-compact)
+    var(--group-data-display-avatar-color-surface-surface);
+}
+.aegis-avatar-overflow {
+  background: var(--group-data-display-avatar-color-surface-hover);
+  color: var(--group-data-display-avatar-color-content-secondary);
+  border-color: var(--group-data-display-avatar-color-border-subtle);
+}

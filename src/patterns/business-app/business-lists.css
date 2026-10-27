@@ -1,0 +1,223 @@
+.aegis-business-list {
+  min-width: var(--group-application-business-app-number-0);
+  display: grid;
+  gap: var(--group-application-business-app-space-gap-roomy);
+  container: business-list / inline-size;
+}
+.aegis-business-list-workspace {
+  display: flex;
+  align-items: stretch;
+  min-width: var(--group-application-business-app-number-0);
+}
+.aegis-business-facets {
+  flex: var(--group-application-business-app-flex-none)
+    var(--group-application-business-app-flex-none) var(--group-application-business-app-flex-none);
+  min-width: var(--group-application-business-app-number-0);
+  overflow: hidden;
+  transition:
+    flex-basis var(--group-application-business-app-motion-slide)
+      var(--group-application-business-app-ease-out),
+    margin-inline-end var(--group-application-business-app-motion-slide)
+      var(--group-application-business-app-ease-out);
+}
+.aegis-business-list-workspace[data-panel-open='true'] > .aegis-business-facets {
+  flex-basis: var(--group-application-business-app-size-flex-basis-wide-panel-vast);
+  margin-inline-end: var(--group-application-business-app-space-margin-inline-end-5);
+}
+.aegis-business-list-results {
+  flex: var(--group-application-business-app-flex-fill);
+  min-width: var(--group-application-business-app-number-0);
+}
+.aegis-business-filter-toggle {
+  display: grid;
+  place-items: center;
+  flex: var(--group-application-business-app-flex-none)
+    var(--group-application-business-app-flex-none)
+    var(--group-application-business-app-size-flex-compact-content-large);
+  width: var(--group-application-business-app-size-width-compact-content-large);
+}
+.aegis-business-list-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-gap-5);
+}
+.aegis-business-list-heading h1 {
+  margin: var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-primary);
+  font-size: var(--group-application-business-app-font-size-title-page);
+  line-height: var(--group-application-business-app-font-leading-heading);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+  letter-spacing: var(--group-application-business-app-font-tracking-heading);
+}
+.aegis-business-list-heading h1:focus {
+  outline: none;
+}
+.aegis-business-list-heading p {
+  margin: var(--group-application-business-app-space-margin-compact)
+    var(--group-application-business-app-number-0) var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-body);
+}
+.aegis-business-list-summary {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-body);
+  text-align: right;
+  flex-shrink: var(--group-application-business-app-flex-none);
+}
+.aegis-business-list-tools {
+  display: grid;
+  gap: var(--group-application-business-app-space-gap-regular);
+  width: var(--group-application-business-app-size-width-full);
+  min-width: var(--group-application-business-app-number-0);
+}
+.aegis-business-list-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-application-business-app-space-gap-regular);
+  padding: var(--group-application-business-app-space-padding-compact)
+    var(--group-application-business-app-number-0)
+    var(--group-application-business-app-space-padding-comfortable);
+  min-width: var(--group-application-business-app-number-0);
+}
+.aegis-business-list-create {
+  display: flex;
+  margin-inline-start: auto;
+}
+.aegis-business-bulk {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-application-business-app-space-gap-regular);
+  min-height: var(--group-application-business-app-size-min-height-compact-content-small);
+}
+.aegis-business-bulk strong {
+  font-size: var(--group-application-business-app-font-size-body);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+  padding-inline: var(--group-application-business-app-space-padding-inline-compact);
+}
+.aegis-business-name-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-gap-regular);
+  min-width: var(--group-application-business-app-number-0);
+}
+.aegis-business-cell-copy {
+  display: grid;
+  gap: var(--group-application-business-app-size-gap-micro-compact);
+  min-width: var(--group-application-business-app-number-0);
+}
+.aegis-business-cell-copy > span {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-label);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.aegis-business-record-link {
+  border: var(--group-application-business-app-number-0);
+  background: var(--group-application-business-app-color-transparent);
+  padding: var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-primary);
+  font: inherit;
+  font-weight: var(--group-application-business-app-font-weight-medium);
+  text-align: start;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: var(--group-application-business-app-size-max-width-full);
+  width: fit-content;
+}
+.aegis-business-record-link:hover {
+  color: var(--group-application-business-app-color-action-foreground);
+  text-decoration: underline;
+  text-underline-offset: var(
+    --group-application-business-app-size-text-underline-offset-micro-snug
+  );
+}
+.aegis-business-record-link:focus-visible,
+.aegis-business-person:focus-visible {
+  outline: var(--group-application-business-app-border-width-regular) solid var(--color-focus-ring);
+  outline-offset: var(--group-application-business-app-size-outline-offset-micro-snug);
+  border-radius: var(--group-application-business-app-radius-border-radius-bold);
+}
+.aegis-business-person {
+  border: var(--group-application-business-app-number-0);
+  background: var(--group-application-business-app-color-transparent);
+  padding: var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-secondary);
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-gap-compact);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.aegis-business-person:hover {
+  color: var(--group-application-business-app-color-content-primary);
+}
+.aegis-business-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-gap-regular);
+}
+.aegis-business-progress > span {
+  width: var(--group-application-business-app-size-width-4ch);
+  text-align: right;
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-label);
+}
+.aegis-business-create-form {
+  display: grid;
+  gap: var(--group-application-business-app-space-gap-5);
+}
+.aegis-business-form-columns {
+  display: grid;
+  grid-template-columns: var(--group-application-business-app-track-flex) var(
+      --group-application-business-app-track-flex
+    );
+  gap: var(--group-application-business-app-space-gap-comfortable);
+}
+.aegis-business-form-columns > * {
+  min-width: var(--group-application-business-app-number-0);
+}
+@media (max-width: 740px) {
+  .aegis-business-list-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--group-application-business-app-space-gap-regular);
+  }
+  .aegis-business-list-summary {
+    text-align: left;
+  }
+  .aegis-business-list-create {
+    margin-inline-start: var(--group-application-business-app-number-0);
+  }
+  .aegis-business-form-columns {
+    grid-template-columns: minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  }
+}
+@container business-list (max-width: 740px) {
+  .aegis-business-list-workspace {
+    flex-direction: column;
+  }
+  .aegis-business-list-workspace[data-panel-open='true'] > .aegis-business-facets {
+    flex-basis: auto;
+    margin: var(--group-application-business-app-number-0)
+      var(--group-application-business-app-number-0)
+      var(--group-application-business-app-space-margin-comfortable);
+  }
+  .aegis-business-list-workspace[data-panel-open='false'] > .aegis-business-facets {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aegis-business-facets {
+    transition: none;
+  }
+}

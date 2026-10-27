@@ -1,0 +1,937 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-feedback-notification",
+  "name": "Notification",
+  "category": "Feedback",
+  "tokenGroup": "feedback",
+  "kind": "component",
+  "aliases": [
+    "notification",
+    "snackbar",
+    "toast"
+  ],
+  "purpose": "One notification presentation for inline messages and floating lifecycle-managed feedback.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/notification"
+  ],
+  "links": {
+    "contract": "./components-feedback-notification.json",
+    "overview": "../../?path=/docs/components-feedback-notification-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-feedback-notification-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-feedback-notification-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-feedback-notification-overview--docs&docsTab=tokens"
+  },
+  "description": "One notification family for inline feedback and floating messages. Inline notifications use a semantic outline with no background fill; floating notifications use a neutral surface. Use `action` for a labeled callback, `actions` for custom controls, and `onDismiss` for a dismiss button. The floating variant styles the message; `NotificationViewport` and `showNotification` place it above the application.\n\nMount one `NotificationViewport` per application shell, then call `showNotification`. Its action callback also dismisses that message. Loading notifications stay visible until replaced or dismissed; other notifications default to 5 seconds. `Banner`/`Callout` and `Toast`/`Toaster`/`showToast` remain compatibility APIs for the same family.\n\n| NotificationViewport prop | Type | Default / behavior |\n| --- | --- | --- |\n| position | top-left, top-center, top-right, bottom-left, bottom-center, bottom-right | bottom-right |\n| offset | number, string, or side-offset object | 12 |\n| gap | number | 12 |\n| visibleToasts | number | 4 |\n| duration | number | Sonner host timeout in milliseconds; individual calls may override it |\n| theme | light, dark, system | Optional host appearance; message content uses Aegis theme tokens |\n| expand / closeButton | boolean | Expand the stack / show a host close control |\n| hotkey | string[] | Keyboard shortcut that focuses the notification region |\n| containerAriaLabel | string | Accessible name for the notification region |\n| toastOptions | ToastOptions | Shared host settings; Aegis unstyled content remains enabled |\n| className / style | string / CSSProperties | Host presentation props |",
+  "exports": [
+    "Notification",
+    "NotificationViewport"
+  ],
+  "importStatements": [
+    "import { Notification, NotificationViewport } from '@dimitriszoitas/aegis-ui/notification';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Notification",
+      "name": "action",
+      "type": "NotificationAction | undefined",
+      "required": false
+    },
+    {
+      "component": "Notification",
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Custom or multiple action controls."
+    },
+    {
+      "component": "Notification",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Notification",
+      "name": "dismissLabel",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Dismiss notification\""
+    },
+    {
+      "component": "Notification",
+      "name": "icon",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Set null to omit the leading icon."
+    },
+    {
+      "component": "Notification",
+      "name": "intent",
+      "type": "NotificationIntent | undefined",
+      "required": false,
+      "defaultValue": "\"info\""
+    },
+    {
+      "component": "Notification",
+      "name": "onDismiss",
+      "type": "(() => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "Notification",
+      "name": "title",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Notification",
+      "name": "variant",
+      "type": "\"inline\" | \"floating\" | undefined",
+      "required": false,
+      "defaultValue": "\"inline\""
+    }
+  ],
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "floating",
+        "inline"
+      ],
+      "default": "inline"
+    },
+    {
+      "name": "intent",
+      "values": [
+        "ai",
+        "destroy",
+        "info",
+        "loading",
+        "success",
+        "warning"
+      ],
+      "default": "info"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "One notification presentation for inline messages and floating lifecycle-managed feedback.",
+    "usage": [
+      "Use inline beside the affected content. For transient feedback, mount NotificationViewport and call showNotification.",
+      "Replace a loading notification by reusing its ID, or dismiss it explicitly; loading notifications do not expire.",
+      "A built-in action in showNotification dismisses the toast after its callback. Custom actions own their own behavior."
+    ],
+    "accessibility": [
+      "Inline destroy messages default to alert, other inline messages to note, and static floating or loading messages to status.",
+      "Lifecycle notifications use a presentation role internally because Sonner owns the announcement, avoiding nested live regions."
+    ],
+    "intent": [
+      "Info, success, warning, destroy, ai, and loading describe the message purpose. Inline treatment keeps a transparent surface with a semantic boundary."
+    ],
+    "context": [
+      "Use inline for persistent guidance or failures, and floating for confirmation after a completed action."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-describedby",
+      "aria-hidden",
+      "aria-label",
+      "aria-labelledby",
+      "aria-live"
+    ],
+    "nativeElements": [
+      "button",
+      "div",
+      "p",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/icon/index.tsx",
+    "src/components/notification/notification.css",
+    "src/components/notification/notification.stories.tsx",
+    "src/components/notification/notification.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-overlays.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-feedback-notification--inline",
+      "name": "Inline",
+      "url": "../../?path=/story/components-feedback-notification--inline",
+      "sourceFile": "src/components/notification/notification.stories.tsx"
+    },
+    {
+      "id": "components-feedback-notification--inline-intents",
+      "name": "Inline Intents",
+      "url": "../../?path=/story/components-feedback-notification--inline-intents",
+      "sourceFile": "src/components/notification/notification.stories.tsx"
+    },
+    {
+      "id": "components-feedback-notification--with-actions-and-dismiss",
+      "name": "With Actions And Dismiss",
+      "url": "../../?path=/story/components-feedback-notification--with-actions-and-dismiss",
+      "sourceFile": "src/components/notification/notification.stories.tsx"
+    },
+    {
+      "id": "components-feedback-notification--inline-callout",
+      "name": "Inline Callout",
+      "url": "../../?path=/story/components-feedback-notification--inline-callout",
+      "sourceFile": "src/components/notification/notification.stories.tsx"
+    },
+    {
+      "id": "components-feedback-notification--floating",
+      "name": "Floating",
+      "url": "../../?path=/story/components-feedback-notification--floating",
+      "sourceFile": "src/components/notification/notification.stories.tsx"
+    },
+    {
+      "id": "components-feedback-notification--floating-intents",
+      "name": "Floating Intents",
+      "url": "../../?path=/story/components-feedback-notification--floating-intents",
+      "sourceFile": "src/components/notification/notification.stories.tsx"
+    },
+    {
+      "id": "components-feedback-notification--live-floating",
+      "name": "Live Floating",
+      "url": "../../?path=/story/components-feedback-notification--live-floating",
+      "sourceFile": "src/components/notification/notification.stories.tsx"
+    },
+    {
+      "id": "components-feedback-notification--floating-with-action",
+      "name": "Floating With Action",
+      "url": "../../?path=/story/components-feedback-notification--floating-with-action",
+      "sourceFile": "src/components/notification/notification.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-feedback-measurement-icon-lg",
+    "--group-feedback-measurement-icon-md",
+    "--group-feedback-measurement-icon-notification",
+    "--group-feedback-measurement-icon-sm",
+    "--group-feedback-notification-angle-360deg",
+    "--group-feedback-notification-border-width-hairline",
+    "--group-feedback-notification-border-width-regular",
+    "--group-feedback-notification-color-action-border",
+    "--group-feedback-notification-color-action-foreground",
+    "--group-feedback-notification-color-action-soft",
+    "--group-feedback-notification-color-border-subtle",
+    "--group-feedback-notification-color-content-primary",
+    "--group-feedback-notification-color-content-secondary",
+    "--group-feedback-notification-color-surface-hover",
+    "--group-feedback-notification-color-surface-selected",
+    "--group-feedback-notification-color-surface-surface-raised",
+    "--group-feedback-notification-color-transparent",
+    "--group-feedback-notification-duration-1s",
+    "--group-feedback-notification-elevation-none",
+    "--group-feedback-notification-font-family-ui",
+    "--group-feedback-notification-font-leading-body",
+    "--group-feedback-notification-font-leading-relaxed",
+    "--group-feedback-notification-font-size-body",
+    "--group-feedback-notification-font-size-label",
+    "--group-feedback-notification-font-weight-medium",
+    "--group-feedback-notification-font-weight-semibold",
+    "--group-feedback-notification-gradient-ai-text",
+    "--group-feedback-notification-grid-line-before-end",
+    "--group-feedback-notification-grid-line-start",
+    "--group-feedback-notification-grid-line-two",
+    "--group-feedback-notification-notification-accent",
+    "--group-feedback-notification-number-0",
+    "--group-feedback-notification-radius-border-radius-soft",
+    "--group-feedback-notification-radius-border-radius-strong",
+    "--group-feedback-notification-ring-focus",
+    "--group-feedback-notification-shadow-floating",
+    "--group-feedback-notification-size-height-snug",
+    "--group-feedback-notification-size-margin-top-micro-small",
+    "--group-feedback-notification-size-outline-offset-micro-compact",
+    "--group-feedback-notification-size-width-full",
+    "--group-feedback-notification-size-width-snug",
+    "--group-feedback-notification-space-column-gap-regular",
+    "--group-feedback-notification-space-gap-compact",
+    "--group-feedback-notification-space-margin-top-snug",
+    "--group-feedback-notification-space-padding-comfortable",
+    "--group-feedback-notification-space-padding-compact",
+    "--group-feedback-notification-space-padding-snug",
+    "--group-feedback-notification-space-row-gap-compact",
+    "--group-feedback-notification-track-flex",
+    "--group-feedback-notification-z-toast",
+    "--group-feedback-overlay-appearance-overlay-surface",
+    "--group-feedback-overlay-border-width-hairline",
+    "--group-feedback-overlay-elevation-none",
+    "--group-feedback-overlay-number-0",
+    "--group-feedback-overlay-shadow-popover",
+    "--group-feedback-surface-border-width-hairline",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-color-transparent",
+    "--group-feedback-surface-column-gap-regular",
+    "--group-feedback-surface-content-padding-compact",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-font-size-label",
+    "--group-feedback-surface-font-weight-medium",
+    "--group-feedback-surface-icon-height",
+    "--group-feedback-surface-icon-width",
+    "--group-feedback-surface-label-min-height",
+    "--group-feedback-surface-link-underline-offset",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus",
+    "--group-feedback-surface-row-gap-compact",
+    "--group-feedback-surface-space-border-radius-regular",
+    "--group-feedback-surface-width-available",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-feedback-notification-number-0",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-track-flex",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-space-column-gap-regular",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-space-row-gap-compact",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-space-padding-comfortable",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-border-width-hairline",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-notification-accent",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-color-content-primary",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-font-family-ui",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-color-transparent",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-elevation-none",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-size-width-full",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-color-surface-surface-raised",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-color-border-subtle",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-shadow-floating",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-grid-line-start",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-size-margin-top-micro-small",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-font-size-body",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-font-weight-semibold",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-font-leading-body",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-color-content-secondary",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-space-margin-top-snug",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-font-size-label",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-gradient-ai-text",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-space-gap-compact",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-grid-line-two",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-space-padding-compact",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-space-padding-snug",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-font-weight-medium",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-color-action-foreground",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-color-action-border",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-color-action-soft",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-color-surface-selected",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-grid-line-before-end",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-size-width-snug",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-size-height-snug",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-color-surface-hover",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-border-width-regular",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-ring-focus",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-z-toast",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-duration-1s",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-notification-angle-360deg",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-appearance-overlay-surface",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-number-0",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-shadow-popover",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-content-padding-compact",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-hairline",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-space-border-radius-regular",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-column-gap-regular",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-row-gap-compact",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-icon-width",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-icon-height",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-label-min-height",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-width-available",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-transparent",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-label",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-weight-medium",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-link-underline-offset",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-border-width-hairline",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-elevation-none",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-lg",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-notification",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-sm",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-md",
+      "ownership": "owned",
+      "component": "Notification",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

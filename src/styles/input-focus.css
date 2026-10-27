@@ -1,0 +1,196 @@
+/* Shared input modality: pointer activation highlights the existing border;
+   keyboard navigation adds one ring. Each rule retains its category ownership. */
+/* input */
+:root :is(.aegis-input-native, .aegis-multi-trigger):focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* code */
+:root :is(.cm-editor .cm-content, .cm-editor.cm-focused):focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ai-assistance */
+:root .aegis-prompt [data-prompt-editor]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* input */
+:root:not([data-aegis-input-focus='keyboard'])
+  :is(.aegis-input-shell, .aegis-multi-shell):focus-within,
+:root:not([data-aegis-input-focus='keyboard'])
+  :is(
+    .aegis-textarea-native,
+    .aegis-select-trigger,
+    .aegis-date-picker-trigger,
+    .aegis-time-range-trigger,
+    .aegis-multi-search input,
+    .time-range-clock input,
+    .aegis-checkbox-control,
+    .aegis-radio-control,
+    .aegis-switch-control,
+    .aegis-slider-thumb,
+    .aegis-tree-item
+  ):focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* input */
+:root:not([data-aegis-input-focus='keyboard'])
+  :is(.rdp-day_button, .rdp-button_previous, .rdp-button_next, .time-range-preset):focus,
+:root:not([data-aegis-input-focus='keyboard'])
+  :is(
+    .aegis-select-option[data-highlighted],
+    .aegis-multi-option[data-highlighted],
+    .aegis-multi-option[data-active]
+  ) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* code */
+:root:not([data-aegis-input-focus='keyboard'])
+  :is(.aegis-code-editor, .aegis-diff-host .cm-editor, .aegis-yaml-presenter):focus-within,
+:root:not([data-aegis-input-focus='keyboard'])
+  :is(.aegis-json-fallback textarea, .cm-panels input, .cm-panels button):focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ai-assistance */
+:root:not([data-aegis-input-focus='keyboard']) .aegis-prompt:focus-within,
+:root:not([data-aegis-input-focus='keyboard']) .aegis-prompt-menu-input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* navigation */
+:root:not([data-aegis-input-focus='keyboard'])
+  :is(.aegis-pagination-size select, .command-input):focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* input */
+:root:not([data-aegis-input-focus='keyboard']) .aegis-file-upload-dropzone:focus-within,
+:root:not([data-aegis-input-focus='keyboard']) .aegis-slider-thumb:has(input:focus),
+:root:not([data-aegis-input-focus='keyboard']) .aegis-segmented-option input:focus + span {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* input */
+:root
+  :is(
+    .aegis-input-shell,
+    .aegis-multi-shell,
+    .aegis-textarea-native,
+    .aegis-select-trigger,
+    .aegis-date-picker-trigger,
+    .aegis-time-range-trigger,
+    .time-range-clock input
+  ):is(:focus-within, [data-popup-open], [data-state='open']):not(
+    [data-invalid],
+    [aria-invalid='true'],
+    [data-disabled],
+    :disabled,
+    [data-readonly],
+    [readonly]
+  ) {
+  border-color: var(--group-input-surface-appearance-control-border-hover) !important;
+}
+
+/* code */
+:root
+  :is(.aegis-code-editor, .aegis-diff-host .cm-editor):focus-within:not(
+    [data-invalid],
+    [aria-invalid='true'],
+    [data-readonly]
+  ) {
+  border-color: var(--group-code-code-editor-color-border-strong) !important;
+}
+
+/* ai-assistance */
+:root .aegis-prompt:focus-within:not([data-invalid], [aria-invalid='true'], [data-disabled]) {
+  border-color: var(--group-ai-assistance-ai-ring-focus) !important;
+}
+
+/* navigation */
+:root .aegis-pagination-size select:focus:not([aria-invalid='true'], :disabled) {
+  border-color: var(--group-navigation-surface-ring-focus) !important;
+}
+
+/* input */
+:root[data-aegis-input-focus='keyboard']
+  :is(.aegis-input-shell, .aegis-multi-shell):has(:focus-visible),
+:root[data-aegis-input-focus='keyboard']
+  :is(
+    .aegis-textarea-native,
+    .aegis-select-trigger,
+    .aegis-date-picker-trigger,
+    .aegis-time-range-trigger,
+    .aegis-multi-search input,
+    .time-range-clock input
+  ):focus-visible:not(.aegis-prompt [data-prompt-editor]) {
+  outline: var(--group-input-surface-border-width-regular) solid
+    var(--group-input-surface-ring-focus) !important;
+  outline-offset: var(--group-input-surface-focus-offset);
+}
+
+/* code */
+:root[data-aegis-input-focus='keyboard']
+  :is(.aegis-code-editor, .aegis-diff-host .cm-editor):has(.cm-content:focus-visible),
+:root[data-aegis-input-focus='keyboard']
+  :is(.aegis-json-fallback textarea, .cm-panels input):focus-visible {
+  outline: var(--group-code-surface-border-width-regular) solid var(--group-code-surface-ring-focus) !important;
+  outline-offset: var(--group-code-surface-focus-offset);
+  box-shadow: none !important;
+}
+
+/* ai-assistance */
+:root[data-aegis-input-focus='keyboard'] .aegis-prompt:has([data-prompt-editor]:focus-visible),
+:root[data-aegis-input-focus='keyboard'] .aegis-prompt-menu-input:focus-visible {
+  outline: var(--group-ai-assistance-surface-border-width-regular) solid
+    var(--group-ai-assistance-surface-ring-focus) !important;
+  outline-offset: var(--group-ai-assistance-surface-focus-offset);
+}
+
+/* navigation */
+:root[data-aegis-input-focus='keyboard']
+  :is(.aegis-pagination-size select, .command-input):focus-visible {
+  outline: var(--group-navigation-surface-border-width-regular) solid
+    var(--group-navigation-surface-ring-focus) !important;
+  outline-offset: var(--group-navigation-surface-focus-offset);
+}
+
+/* input */
+:root :is(.aegis-input-shell, .aegis-multi-shell)[data-invalid]:is(:hover, :focus-within),
+:root
+  :is(
+    .aegis-textarea-native,
+    .aegis-select-trigger,
+    .aegis-date-picker-trigger,
+    .aegis-time-range-trigger
+  )[aria-invalid='true']:is(:hover, :focus) {
+  border-color: var(--group-input-surface-color-danger-foreground) !important;
+}
+
+/* input */
+:root .aegis-time-range-trigger[aria-invalid='true']:focus {
+  box-shadow: none !important;
+}
+
+/* input */
+:root[data-aegis-input-focus='keyboard']
+  :is(.aegis-checkbox-control, .aegis-radio-control, .aegis-switch-control, .aegis-tree-item):focus,
+:root[data-aegis-input-focus='keyboard'] .aegis-slider-thumb:has(input:focus),
+:root[data-aegis-input-focus='keyboard'] .aegis-segmented-option input:focus + span,
+:root[data-aegis-input-focus='keyboard'] .aegis-file-upload-dropzone:focus-within {
+  outline: var(--group-input-surface-border-width-regular) solid
+    var(--group-input-surface-ring-focus) !important;
+  outline-offset: var(--group-input-surface-focus-offset);
+}

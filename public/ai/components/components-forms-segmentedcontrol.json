@@ -1,0 +1,606 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-forms-segmentedcontrol",
+  "name": "SegmentedControl",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [
+    "segmented buttons",
+    "single choice"
+  ],
+  "purpose": "A compact, mutually exclusive choice implemented with native radio inputs.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/segmented-control"
+  ],
+  "links": {
+    "contract": "./components-forms-segmentedcontrol.json",
+    "overview": "../../?path=/docs/components-inputs-selection-segmentedcontrol-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-segmentedcontrol-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-segmentedcontrol-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-segmentedcontrol-overview--docs&docsTab=tokens"
+  },
+  "description": "A single selection among related views, using native radio keyboard behavior.",
+  "exports": [
+    "SegmentedControl"
+  ],
+  "importStatements": [
+    "import { SegmentedControl } from '@dimitriszoitas/aegis-ui/segmented-control';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "SegmentedControl",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "defaultValue",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "fullWidth",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "label",
+      "type": "string",
+      "required": true
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "onValueChange",
+      "type": "((value: string) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "options",
+      "type": "readonly SegmentOption[]",
+      "required": true
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | undefined",
+      "required": false,
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "value",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "SegmentedControl",
+      "name": "wrap",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Allow short option sets to wrap within narrow settings panels."
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "A compact, mutually exclusive choice implemented with native radio inputs.",
+    "usage": [
+      "Keep option labels short and use this for a small set of peer choices such as Day, Week, and Month.",
+      "Supply value with onValueChange for controlled state. Otherwise defaultValue or the first enabled option supplies the initial selection."
+    ],
+    "accessibility": [
+      "The required group label becomes a fieldset legend. Native radio behavior provides arrow-key selection and one group Tab stop.",
+      "Disabled options remain visible but cannot be selected. Use ButtonGroup for independent actions rather than exclusive values."
+    ],
+    "context": [
+      "Use for a chart scale or a local display setting; use Tabs when each choice represents a distinct content panel."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [],
+    "nativeElements": [
+      "fieldset",
+      "input",
+      "label",
+      "legend",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/segmented-control/segmented-control.css",
+    "src/components/segmented-control/segmented-control.stories.tsx",
+    "src/components/segmented-control/segmented-control.tsx",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-segmentedcontrol--default",
+      "name": "Default",
+      "url": "../../?path=/story/components-forms-segmentedcontrol--default",
+      "sourceFile": "src/components/segmented-control/segmented-control.stories.tsx"
+    },
+    {
+      "id": "components-forms-segmentedcontrol--compact",
+      "name": "Compact",
+      "url": "../../?path=/story/components-forms-segmentedcontrol--compact",
+      "sourceFile": "src/components/segmented-control/segmented-control.stories.tsx"
+    },
+    {
+      "id": "components-forms-segmentedcontrol--disabled",
+      "name": "Disabled",
+      "url": "../../?path=/story/components-forms-segmentedcontrol--disabled",
+      "sourceFile": "src/components/segmented-control/segmented-control.stories.tsx"
+    },
+    {
+      "id": "components-forms-segmentedcontrol--keyboard-selection",
+      "name": "Keyboard Selection",
+      "url": "../../?path=/story/components-forms-segmentedcontrol--keyboard-selection",
+      "sourceFile": "src/components/segmented-control/segmented-control.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-input-selection-border-width-hairline",
+    "--group-input-selection-border-width-regular",
+    "--group-input-selection-color-border-default",
+    "--group-input-selection-color-border-subtle",
+    "--group-input-selection-color-content-primary",
+    "--group-input-selection-color-content-secondary",
+    "--group-input-selection-color-surface-canvas",
+    "--group-input-selection-color-surface-surface",
+    "--group-input-selection-flex-fill",
+    "--group-input-selection-font-size-body",
+    "--group-input-selection-font-size-label",
+    "--group-input-selection-number-0",
+    "--group-input-selection-opacity-hidden",
+    "--group-input-selection-opacity-strength-emphasized",
+    "--group-input-selection-radius-border-radius-bold",
+    "--group-input-selection-radius-border-radius-strong",
+    "--group-input-selection-ring-focus",
+    "--group-input-selection-size-gap-micro-snug",
+    "--group-input-selection-size-height-micro-small",
+    "--group-input-selection-size-min-height-control-vast",
+    "--group-input-selection-size-min-height-snug",
+    "--group-input-selection-size-outline-offset-micro-compact",
+    "--group-input-selection-size-padding-micro-roomy",
+    "--group-input-selection-size-padding-micro-snug",
+    "--group-input-selection-size-width-full",
+    "--group-input-selection-size-width-micro-small",
+    "--group-input-selection-space-gap-compact",
+    "--group-input-selection-space-padding-compact",
+    "--group-input-selection-space-padding-regular",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-number-0",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-padding-micro-snug",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-gap-micro-snug",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-border-width-hairline",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-border-subtle",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-surface-surface",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-width-full",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-flex-fill",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-opacity-hidden",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-width-micro-small",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-height-micro-small",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-space-gap-compact",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-padding-micro-roomy",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-space-padding-regular",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-min-height-control-vast",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-content-secondary",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-font-size-body",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-surface-canvas",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-content-primary",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-border-default",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-border-width-regular",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-ring-focus",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-opacity-strength-emphasized",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-min-height-snug",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-space-padding-compact",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-font-size-label",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "SegmentedControl",
+      "group": "input"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

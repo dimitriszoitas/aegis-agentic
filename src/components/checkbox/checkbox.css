@@ -1,0 +1,84 @@
+.aegis-checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--group-input-selection-space-gap-compact);
+}
+.aegis-checkbox-control {
+  flex: none;
+  width: var(--group-input-selection-size-width-glyph-vast);
+  height: var(--group-input-selection-size-height-glyph-vast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--group-input-selection-size-margin-top-micro-small);
+  padding: var(--group-input-selection-number-0);
+  border: var(--group-input-selection-border-width-hairline) solid
+    var(--group-input-selection-color-border-strong);
+  border-radius: var(--group-input-selection-radius-border-radius-soft);
+  background: var(--group-input-selection-color-surface-surface);
+  color: var(--group-input-selection-color-on-intent);
+  transition:
+    background var(--group-input-selection-motion-fast) var(--group-input-selection-ease-out),
+    border-color var(--group-input-selection-motion-fast) var(--group-input-selection-ease-out);
+}
+.aegis-checkbox-field[data-size='sm'] .aegis-checkbox-control {
+  width: var(--group-input-selection-size-width-small);
+  height: var(--group-input-selection-size-height-small);
+  margin-top: var(--group-input-selection-size-margin-top-micro-compact);
+}
+.aegis-checkbox-field[data-size='sm'] .aegis-checkbox-indicator svg {
+  width: var(--group-input-measurement-icon-xs);
+  height: var(--group-input-measurement-icon-xs);
+}
+.aegis-checkbox-field[data-size='sm'] .aegis-checkbox-label {
+  font-size: var(--group-input-selection-font-size-body);
+  line-height: var(--group-input-selection-font-line-box-xl);
+}
+.aegis-checkbox-control:hover:not(:disabled) {
+  border-color: var(--group-input-selection-color-action-fill);
+}
+.aegis-checkbox-control[data-checked],
+.aegis-checkbox-control[data-indeterminate] {
+  background: var(--group-input-selection-color-action-fill);
+  border-color: var(--group-input-selection-color-action-fill);
+}
+.aegis-checkbox-control[aria-invalid='true'] {
+  border-color: var(--group-input-selection-color-danger-foreground);
+}
+.aegis-checkbox-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aegis-checkbox-mixed {
+  display: none;
+}
+.aegis-checkbox-control[data-indeterminate] .aegis-checkbox-check {
+  display: none;
+}
+.aegis-checkbox-control[data-indeterminate] .aegis-checkbox-mixed {
+  display: block;
+}
+.aegis-checkbox-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-selection-space-gap-snug);
+  min-width: var(--group-input-selection-number-0);
+}
+.aegis-checkbox-label {
+  font-size: var(--group-input-selection-font-size-body);
+  line-height: var(--group-input-selection-font-leading-control);
+  color: var(--group-input-selection-color-content-primary);
+  cursor: pointer;
+}
+.aegis-checkbox-description {
+  color: var(--group-input-selection-color-content-secondary);
+  font-size: var(--group-input-selection-font-size-body);
+  line-height: var(--group-input-selection-font-leading-body);
+}
+.aegis-checkbox-field[data-disabled] .aegis-checkbox-control {
+  opacity: var(--group-input-selection-opacity-strength-prominent);
+}
+.aegis-checkbox-field[data-disabled] .aegis-checkbox-label {
+  cursor: not-allowed;
+}

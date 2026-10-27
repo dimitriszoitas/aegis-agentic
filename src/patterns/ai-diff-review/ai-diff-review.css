@@ -1,0 +1,63 @@
+.aegis-ai-diff-review {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-ai-assistance-ai-diff-review-space-gap-comfortable);
+  min-width: var(--group-ai-assistance-ai-diff-review-number-0);
+}
+.aegis-ai-review-heading h2 {
+  margin: var(--group-ai-assistance-ai-diff-review-number-0);
+  font-size: var(--group-ai-assistance-ai-diff-review-font-size-heading-s);
+}
+.aegis-ai-review-heading p {
+  margin: var(--group-ai-assistance-ai-diff-review-space-margin-snug)
+    var(--group-ai-assistance-ai-diff-review-number-0)
+    var(--group-ai-assistance-ai-diff-review-number-0);
+  color: var(--group-ai-assistance-ai-diff-review-color-content-secondary);
+  font-size: var(--group-ai-assistance-ai-diff-review-font-size-body);
+}
+.aegis-ai-review-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--group-ai-assistance-ai-diff-review-space-gap-regular);
+  padding-top: var(--group-ai-assistance-ai-diff-review-space-padding-top-regular);
+  border-top: var(--group-ai-assistance-ai-diff-review-border-width-hairline) solid
+    var(--group-ai-assistance-ai-diff-review-color-border-subtle);
+}
+.aegis-ai-review-guidance {
+  margin: var(--group-ai-assistance-ai-diff-review-number-0);
+  color: var(--group-ai-assistance-ai-diff-review-color-content-secondary);
+  font-size: var(--group-ai-assistance-ai-diff-review-font-size-body);
+}
+.aegis-ai-review-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--group-ai-assistance-ai-diff-review-space-gap-compact);
+  margin-left: auto;
+}
+.aegis-ai-review-audit {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--group-ai-assistance-ai-diff-review-space-gap-compact);
+  margin: var(--group-ai-assistance-ai-diff-review-number-0);
+  padding: var(--group-ai-assistance-ai-diff-review-space-padding-regular);
+  width: var(--group-ai-assistance-ai-diff-review-size-width-full);
+  border: var(--group-ai-assistance-ai-diff-review-border-width-hairline) solid
+    var(--group-ai-assistance-ai-diff-review-color-success-border);
+  border-radius: var(--group-ai-assistance-ai-diff-review-radius-border-radius-bold);
+  background: var(--group-ai-assistance-ai-diff-review-color-success-soft);
+  color: var(--group-ai-assistance-ai-diff-review-color-success-foreground);
+  font-size: var(--group-ai-assistance-ai-diff-review-font-size-body);
+}
+.aegis-ai-review-audit[data-status='rejected'] {
+  border-color: var(--group-ai-assistance-ai-diff-review-color-border-default);
+  background: var(--group-ai-assistance-ai-diff-review-color-surface-hover);
+  color: var(--group-ai-assistance-ai-diff-review-color-content-secondary);
+}
+.aegis-ai-review-audit small {
+  display: block;
+  margin-top: var(--group-ai-assistance-ai-diff-review-space-margin-top-snug);
+  color: var(--group-ai-assistance-ai-diff-review-color-content-secondary);
+  font-size: var(--group-ai-assistance-ai-diff-review-font-size-label);
+}

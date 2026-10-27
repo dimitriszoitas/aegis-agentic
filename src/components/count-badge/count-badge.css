@@ -1,0 +1,10 @@
+.count-badge[data-variant='inverted'] {
+  background: var(--group-data-display-count-badge-color-content-primary);
+  color: var(--group-data-display-count-badge-color-surface-surface-raised);
+}
+.count-badge[data-size='sm'] {
+  min-width: var(--group-data-display-count-badge-size-small);
+  height: var(--group-data-display-count-badge-size-small);
+  padding-inline: var(--group-data-display-count-badge-padding-snug);
+  font-size: var(--group-data-display-count-badge-font-size-small);
+}

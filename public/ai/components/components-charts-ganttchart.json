@@ -1,0 +1,1273 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-charts-ganttchart",
+  "name": "GanttChart",
+  "category": "Data Visualization",
+  "tokenGroup": "data-viz",
+  "kind": "component",
+  "aliases": [
+    "gantt",
+    "gantt chart",
+    "project timeline",
+    "schedule"
+  ],
+  "purpose": "A schedule view of tasks, milestones, progress, and dependencies across a day, week, or month scale.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/gantt-chart"
+  ],
+  "links": {
+    "contract": "./components-charts-ganttchart.json",
+    "overview": "../../?path=/docs/components-data-visualization-ganttchart-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-visualization-ganttchart-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-visualization-ganttchart-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-visualization-ganttchart-overview--docs&docsTab=tokens"
+  },
+  "description": "Read-only schedule with selectable tasks. Editing and persistence belong to the host.",
+  "exports": [
+    "GanttChart"
+  ],
+  "importStatements": [
+    "import { GanttChart } from '@dimitriszoitas/aegis-ui/gantt-chart';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "GanttChart",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "GanttChart",
+      "name": "defaultScale",
+      "type": "GanttScale | undefined",
+      "required": false,
+      "defaultValue": "\"week\""
+    },
+    {
+      "component": "GanttChart",
+      "name": "description",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "GanttChart",
+      "name": "onScaleChange",
+      "type": "((scale: GanttScale) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "GanttChart",
+      "name": "onTaskSelect",
+      "type": "((task: GanttTask) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "GanttChart",
+      "name": "scale",
+      "type": "GanttScale | undefined",
+      "required": false
+    },
+    {
+      "component": "GanttChart",
+      "name": "selectedTaskId",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "GanttChart",
+      "name": "showControls",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "true"
+    },
+    {
+      "component": "GanttChart",
+      "name": "tasks",
+      "type": "readonly GanttTask[]",
+      "required": true
+    },
+    {
+      "component": "GanttChart",
+      "name": "title",
+      "type": "string",
+      "required": true
+    },
+    {
+      "component": "GanttChart",
+      "name": "today",
+      "type": "string | undefined",
+      "required": false,
+      "description": "An explicit ISO date keeps server and client rendering deterministic."
+    }
+  ],
+  "variants": [
+    {
+      "name": "defaultScale",
+      "values": [
+        "day",
+        "month",
+        "week"
+      ],
+      "default": "week"
+    },
+    {
+      "name": "scale",
+      "values": [
+        "day",
+        "month",
+        "week"
+      ]
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/segmented-control",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A schedule view of tasks, milestones, progress, and dependencies across a day, week, or month scale.",
+    "usage": [
+      "Supply valid dates and stable unique task IDs. Invalid tasks are identified rather than silently drawn at invented positions.",
+      "The chart is a schedule viewer: onTaskSelect opens or selects a task, but dragging to reschedule is not implemented.",
+      "Pass today explicitly for reproducible planning views. Missing or self-referencing dependencies are skipped, and very large date spans are bounded."
+    ],
+    "accessibility": [
+      "The timeline is a named focusable horizontal scroll region, and the scale selector uses native radio behavior.",
+      "Selectable tasks are buttons whose labels include dates, progress, owner, and dependencies; static tasks are described as images."
+    ],
+    "context": [
+      "Use for project plans and delivery schedules with a corresponding task-detail view."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "img",
+      "region",
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label",
+      "aria-labelledby",
+      "aria-pressed"
+    ],
+    "nativeElements": [
+      "button",
+      "caption",
+      "defs",
+      "details",
+      "div",
+      "h3",
+      "header",
+      "marker",
+      "p",
+      "path",
+      "section",
+      "small",
+      "span",
+      "strong",
+      "summary",
+      "svg",
+      "table",
+      "tbody",
+      "td",
+      "th",
+      "thead",
+      "tr"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/gantt-chart/gantt-chart.css",
+    "src/components/gantt-chart/gantt-chart.stories.tsx",
+    "src/components/gantt-chart/gantt-chart.tsx",
+    "src/components/gantt-chart/gantt-model.ts",
+    "src/components/segmented-control/index.ts",
+    "src/components/segmented-control/segmented-control.css",
+    "src/components/segmented-control/segmented-control.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-charts-ganttchart--project-timeline",
+      "name": "Project Timeline",
+      "url": "../../?path=/story/components-charts-ganttchart--project-timeline",
+      "sourceFile": "src/components/gantt-chart/gantt-chart.stories.tsx"
+    },
+    {
+      "id": "components-charts-ganttchart--monthly",
+      "name": "Monthly",
+      "url": "../../?path=/story/components-charts-ganttchart--monthly",
+      "sourceFile": "src/components/gantt-chart/gantt-chart.stories.tsx"
+    },
+    {
+      "id": "components-charts-ganttchart--empty",
+      "name": "Empty",
+      "url": "../../?path=/story/components-charts-ganttchart--empty",
+      "sourceFile": "src/components/gantt-chart/gantt-chart.stories.tsx"
+    },
+    {
+      "id": "components-charts-ganttchart--select-task",
+      "name": "Select Task",
+      "url": "../../?path=/story/components-charts-ganttchart--select-task",
+      "sourceFile": "src/components/gantt-chart/gantt-chart.stories.tsx"
+    },
+    {
+      "id": "components-charts-ganttchart--long-owners",
+      "name": "Long Owners",
+      "url": "../../?path=/story/components-charts-ganttchart--long-owners",
+      "sourceFile": "src/components/gantt-chart/gantt-chart.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--gantt-width",
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-data-viz-chart-angle-45deg",
+    "--group-data-viz-chart-border-width-hairline",
+    "--group-data-viz-chart-border-width-regular",
+    "--group-data-viz-chart-color-border-subtle",
+    "--group-data-viz-chart-color-caution-foreground",
+    "--group-data-viz-chart-color-content-primary",
+    "--group-data-viz-chart-color-content-secondary",
+    "--group-data-viz-chart-color-content-tertiary",
+    "--group-data-viz-chart-color-danger-foreground",
+    "--group-data-viz-chart-color-surface-canvas",
+    "--group-data-viz-chart-color-surface-surface",
+    "--group-data-viz-chart-elevation-none",
+    "--group-data-viz-chart-flex-none",
+    "--group-data-viz-chart-font-size-annotation-xs",
+    "--group-data-viz-chart-font-size-body",
+    "--group-data-viz-chart-font-size-label",
+    "--group-data-viz-chart-gantt-color",
+    "--group-data-viz-chart-icon-stroke-light",
+    "--group-data-viz-chart-layer-local-2",
+    "--group-data-viz-chart-layer-local-3",
+    "--group-data-viz-chart-layer-local-4",
+    "--group-data-viz-chart-layer-local-5",
+    "--group-data-viz-chart-mix-16",
+    "--group-data-viz-chart-mix-25",
+    "--group-data-viz-chart-number-0",
+    "--group-data-viz-chart-radius-border-radius-bold",
+    "--group-data-viz-chart-radius-border-radius-strong",
+    "--group-data-viz-chart-ring-focus",
+    "--group-data-viz-chart-size-gap-micro-compact",
+    "--group-data-viz-chart-size-grid-template-columns-panel-snug",
+    "--group-data-viz-chart-size-grid-template-columns-wide-panel-tiny",
+    "--group-data-viz-chart-size-height-large",
+    "--group-data-viz-chart-size-height-regular",
+    "--group-data-viz-chart-size-max-height-wide-canvas-snug",
+    "--group-data-viz-chart-size-max-width-full",
+    "--group-data-viz-chart-size-outline-offset-micro-compact",
+    "--group-data-viz-chart-size-padding-micro-compact",
+    "--group-data-viz-chart-size-top-glyph-small",
+    "--group-data-viz-chart-size-top-small",
+    "--group-data-viz-chart-size-transform-micro-regular",
+    "--group-data-viz-chart-size-width-full",
+    "--group-data-viz-chart-space-gap-comfortable",
+    "--group-data-viz-chart-space-margin-block-regular",
+    "--group-data-viz-chart-space-margin-bottom-comfortable",
+    "--group-data-viz-chart-space-margin-snug",
+    "--group-data-viz-chart-space-margin-top-regular",
+    "--group-data-viz-chart-space-padding-7",
+    "--group-data-viz-chart-space-padding-compact",
+    "--group-data-viz-chart-space-padding-inline-comfortable",
+    "--group-data-viz-chart-space-padding-inline-compact",
+    "--group-data-viz-chart-space-padding-snug",
+    "--group-data-viz-chart-title-weight",
+    "--group-data-viz-measurement-chart-resize-delay",
+    "--group-data-viz-measurement-gantt-arrow-size",
+    "--group-data-viz-measurement-gantt-day-width",
+    "--group-data-viz-measurement-gantt-dependency-turn",
+    "--group-data-viz-measurement-gantt-milestone-width",
+    "--group-data-viz-measurement-gantt-min-width",
+    "--group-data-viz-measurement-gantt-month-width",
+    "--group-data-viz-measurement-gantt-row-height",
+    "--group-data-viz-measurement-gantt-task-min-width",
+    "--group-data-viz-measurement-gantt-week-width",
+    "--group-data-viz-surface-border-overlap",
+    "--group-data-viz-surface-border-width-regular",
+    "--group-data-viz-surface-color-action-foreground",
+    "--group-data-viz-surface-color-action-soft",
+    "--group-data-viz-surface-color-border-default",
+    "--group-data-viz-surface-color-content-primary",
+    "--group-data-viz-surface-divider-height",
+    "--group-data-viz-surface-divider-width",
+    "--group-data-viz-surface-elevation-none",
+    "--group-data-viz-surface-flex-none",
+    "--group-data-viz-surface-focus-offset",
+    "--group-data-viz-surface-font-family-ui",
+    "--group-data-viz-surface-font-leading-compact",
+    "--group-data-viz-surface-font-leading-relaxed",
+    "--group-data-viz-surface-font-size-body",
+    "--group-data-viz-surface-motion-count-1",
+    "--group-data-viz-surface-motion-disabled-duration",
+    "--group-data-viz-surface-motion-reduced-duration",
+    "--group-data-viz-surface-number-0",
+    "--group-data-viz-surface-ring-focus",
+    "--group-data-viz-surface-stack-gap-compact",
+    "--group-data-viz-surface-stack-gap-regular",
+    "--group-data-viz-surface-title-weight",
+    "--group-input-selection-border-width-hairline",
+    "--group-input-selection-border-width-regular",
+    "--group-input-selection-color-border-default",
+    "--group-input-selection-color-border-subtle",
+    "--group-input-selection-color-content-primary",
+    "--group-input-selection-color-content-secondary",
+    "--group-input-selection-color-surface-canvas",
+    "--group-input-selection-color-surface-surface",
+    "--group-input-selection-flex-fill",
+    "--group-input-selection-font-size-body",
+    "--group-input-selection-font-size-label",
+    "--group-input-selection-number-0",
+    "--group-input-selection-opacity-hidden",
+    "--group-input-selection-opacity-strength-emphasized",
+    "--group-input-selection-radius-border-radius-bold",
+    "--group-input-selection-radius-border-radius-strong",
+    "--group-input-selection-ring-focus",
+    "--group-input-selection-size-gap-micro-snug",
+    "--group-input-selection-size-height-micro-small",
+    "--group-input-selection-size-min-height-control-vast",
+    "--group-input-selection-size-min-height-snug",
+    "--group-input-selection-size-outline-offset-micro-compact",
+    "--group-input-selection-size-padding-micro-roomy",
+    "--group-input-selection-size-padding-micro-snug",
+    "--group-input-selection-size-width-full",
+    "--group-input-selection-size-width-micro-small",
+    "--group-input-selection-space-gap-compact",
+    "--group-input-selection-space-padding-compact",
+    "--group-input-selection-space-padding-regular",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-viz-chart-number-0",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-content-primary",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-gap-comfortable",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-bottom-comfortable",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-body",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-snug",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-content-secondary",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-max-height-wide-canvas-snug",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-border-width-hairline",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-border-subtle",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-surface-canvas",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--gantt-width",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-grid-template-columns-wide-panel-tiny",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-height-large",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-surface-surface",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-label",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-layer-local-3",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-layer-local-5",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-inline-comfortable",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-flex-none",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-inline-compact",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-layer-local-4",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-gap-micro-compact",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-gantt-row-height",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-title-weight",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-top-glyph-small",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-height-regular",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-gantt-color",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-mix-16",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-border-width-regular",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-ring-focus",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-mix-25",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-top-small",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-gantt-milestone-width",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-angle-45deg",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-transform-micro-regular",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-content-tertiary",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-elevation-none",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-icon-stroke-light",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-layer-local-2",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-danger-foreground",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-padding-micro-compact",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-snug",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-font-size-annotation-xs",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-top-regular",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-max-width-full",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-width-full",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-margin-block-regular",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-compact",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-space-padding-7",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-color-caution-foreground",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-chart-size-grid-template-columns-panel-snug",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-number-0",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-padding-micro-snug",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-gap-micro-snug",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-border-width-hairline",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-border-subtle",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-radius-border-radius-strong",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-surface-surface",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-width-full",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-flex-fill",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-opacity-hidden",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-width-micro-small",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-height-micro-small",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-space-gap-compact",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-padding-micro-roomy",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-space-padding-regular",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-min-height-control-vast",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-radius-border-radius-bold",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-content-secondary",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-font-size-body",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-surface-canvas",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-content-primary",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-border-default",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-border-width-regular",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-ring-focus",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-outline-offset-micro-compact",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-opacity-strength-emphasized",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-min-height-snug",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-space-padding-compact",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-font-size-label",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-data-viz-surface-elevation-none",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-data-viz-surface-color-border-default",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-ring-focus",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-focus-offset",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-flex-none",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-number-0",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-size-body",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-title-weight",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-leading-compact",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-stack-gap-compact",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-divider-width",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-divider-height",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-border-overlap",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "SegmentedControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-data-viz-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-gantt-arrow-size",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-gantt-min-width",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-gantt-day-width",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-gantt-week-width",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-gantt-month-width",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-gantt-dependency-turn",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-gantt-task-min-width",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    },
+    {
+      "token": "--group-data-viz-measurement-chart-resize-delay",
+      "ownership": "owned",
+      "component": "GanttChart",
+      "group": "data-viz"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

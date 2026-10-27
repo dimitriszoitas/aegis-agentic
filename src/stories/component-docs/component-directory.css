@@ -1,0 +1,283 @@
+.component-directory {
+  max-width: var(--size-1100);
+  margin-inline: auto;
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  line-height: var(--line-height-1-5);
+}
+.component-directory :is(h1, h2, h3, h4, p, dl, ul) {
+  margin: var(--number-0);
+}
+.component-directory h1 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-1-2);
+}
+.component-directory h2 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-1-3);
+}
+.component-directory h3 {
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-semibold);
+}
+.component-directory h4 {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  overflow-wrap: anywhere;
+}
+.component-directory :is(p, dt),
+.component-directory h2 > span {
+  color: var(--color-text-secondary);
+}
+.component-directory-intro {
+  display: grid;
+  gap: var(--space-3);
+}
+.component-directory-intro > p:not(.component-directory-eyebrow) {
+  max-width: var(--size-720);
+}
+.component-directory .component-directory-eyebrow {
+  font-size: var(--text-xs);
+}
+.component-directory-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding-block: var(--space-4);
+}
+.component-directory-summary > div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-1);
+}
+.component-directory .component-directory-summary dt {
+  margin: var(--number-0);
+  padding: var(--number-0);
+  font-style: normal;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--text-xs);
+}
+.component-directory .component-directory-summary dd {
+  padding: var(--number-0);
+  line-height: var(--line-height-1-2);
+  margin: var(--number-0);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+.component-directory-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+  border-block: var(--stroke-1) solid var(--color-border-subtle);
+}
+.component-directory-controls label {
+  display: grid;
+  flex: 1 1 var(--size-200);
+  min-width: var(--number-0);
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+}
+.component-directory-controls .component-directory-search {
+  flex-basis: var(--size-320);
+  flex-grow: 2;
+}
+.component-directory-controls :is(input, select) {
+  width: var(--size-full);
+  min-width: var(--number-0);
+  min-height: var(--size-36);
+  padding: var(--space-2) var(--space-3);
+  border: var(--stroke-1) solid var(--color-border-default);
+  border-radius: var(--control-radius-md);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  font: inherit;
+  font-size: var(--text-base);
+}
+.component-directory-controls input::placeholder {
+  color: var(--color-text-secondary);
+}
+.component-directory :is(a, button, input, select):focus-visible {
+  outline: var(--stroke-2) solid var(--ring-focus);
+  outline-offset: var(--space-1);
+}
+.component-directory-results {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-4);
+  font-size: var(--text-xs);
+}
+.component-directory-results button {
+  padding: var(--space-1) var(--space-2);
+  border: var(--number-0);
+  border-radius: var(--control-radius-sm);
+  background: transparent;
+  color: var(--color-function-fg);
+  font: inherit;
+  cursor: pointer;
+}
+.component-directory-results button:hover {
+  background: var(--color-bg-hover);
+}
+.component-directory-section {
+  display: grid;
+  gap: var(--space-6);
+  padding-block: var(--space-6);
+}
+.component-directory-section + .component-directory-section,
+.component-directory-resources {
+  border-top: var(--stroke-1) solid var(--color-border-subtle);
+}
+.component-directory-section > header,
+.component-directory-group > header {
+  display: grid;
+  gap: var(--space-1);
+}
+.component-directory-group {
+  display: grid;
+  gap: var(--space-3);
+}
+.component-directory-group > header p {
+  font-size: var(--text-xs);
+}
+.component-directory ul {
+  padding: var(--number-0);
+  list-style: none;
+}
+.component-directory .component-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--size-full), var(--size-260)), 1fr));
+  gap: var(--space-3);
+}
+.component-directory-grid > li {
+  min-width: var(--number-0);
+  margin: var(--number-0);
+}
+.component-directory .component-directory-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  height: var(--size-full);
+  padding: var(--space-4);
+  border: var(--stroke-1) solid var(--color-border-subtle);
+  border-radius: var(--surface-radius);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.component-directory .component-directory-card:hover {
+  background: var(--color-bg-hover);
+  border-color: var(--color-border-default);
+}
+.component-directory-card > p {
+  flex: 1;
+  font-size: var(--text-xs);
+  overflow-wrap: anywhere;
+}
+.component-directory-card-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  color: var(--color-function-fg);
+  font-size: var(--text-xs);
+}
+.component-directory-empty,
+.component-directory-resources {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-6);
+}
+.component-directory-resources ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.component-directory-resources a {
+  color: var(--color-function-fg);
+}
+
+/* Catalogue chrome shares the Welcome page's editorial rhythm. */
+.component-directory.component-directory {
+  max-width: none;
+}
+.component-directory.component-directory :is(h1, h2, h3, h4) {
+  padding: 0;
+  border: 0;
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+.component-directory.component-directory h1 {
+  font-size: var(--docs-title-size, var(--text-3xl));
+  line-height: var(--docs-title-leading, var(--line-height-1-15));
+  letter-spacing: var(--docs-title-tracking, var(--tracking-negative-0-03em));
+}
+.component-directory.component-directory h2 {
+  font-size: var(--text-2xl);
+  letter-spacing: var(--tracking-negative-0-015em);
+}
+.component-directory.component-directory .component-directory-intro {
+  padding-top: var(--space-8);
+  gap: var(--space-5);
+}
+.component-directory.component-directory
+  .component-directory-intro
+  > p:not(.component-directory-eyebrow) {
+  color: var(--color-text-secondary);
+  font-size: var(--text-md);
+  line-height: var(--line-height-1-6);
+}
+.component-directory.component-directory .component-directory-summary {
+  gap: var(--space-10);
+  padding-block: var(--space-3) var(--space-7);
+}
+.component-directory.component-directory .component-directory-summary dd {
+  font-weight: var(--font-weight-medium);
+}
+.component-directory.component-directory .component-directory-section {
+  padding-block: var(--docs-section-space, var(--space-12));
+  gap: var(--space-8);
+}
+.component-directory.component-directory .component-directory-group {
+  gap: var(--space-5);
+}
+.component-directory.component-directory .component-directory-section > header,
+.component-directory.component-directory .component-directory-group > header {
+  gap: var(--space-2);
+}
+.component-directory.component-directory .component-directory-group > header p {
+  max-width: var(--docs-reading-width, var(--size-720));
+  font-size: var(--text-base);
+}
+.component-directory.component-directory .component-directory-grid {
+  gap: var(--space-4);
+}
+.component-directory.component-directory .component-directory-card {
+  padding: var(--space-5);
+  border-color: transparent;
+  background: var(--color-bg-surface);
+}
+.component-directory.component-directory .component-directory-card > p {
+  line-height: var(--line-height-1-6);
+}
+.component-directory.component-directory .component-directory-card-link {
+  margin-top: var(--space-4);
+}
+@media (max-width: 640px) {
+  .component-directory.component-directory .component-directory-intro {
+    padding-top: var(--space-5);
+  }
+  .component-directory.component-directory .component-directory-summary {
+    gap: var(--space-6);
+  }
+}

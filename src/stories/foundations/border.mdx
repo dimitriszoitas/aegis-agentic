@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { BorderWidthExamples, BorderStyleExamples } from './foundation-detail-examples';
+import {
+  RadiusExamples,
+  SurfaceRadiusExamples,
+  ControlRadiusExamples,
+  SeparatorExamples,
+} from './foundation-examples';
+
+<Meta title="Foundations/Border (Radius, Width, Style)" id="foundations-border" />
+
+# Border
+
+Radius, width, and style describe a boundary's geometry. Border color communicates its visual weight or meaning. Use the component API or its group roles. Component styling must not read primitive or semantic tokens directly.
+
+## Radius
+
+Radius roles have explicit mappings in all four configurations. The current control, card, and nested-surface mappings match, while floating chrome has separate containment geometry. Button and field roles are separate even when they currently resolve to the same value. The specimens below use the active variables; the labels show their source declarations.
+
+<ControlRadiusExamples />
+
+<SurfaceRadiusExamples />
+
+Surface groups use `--group-surface-radius-strong` for 8px cards and `--group-surface-radius-bold` for 6px nested surfaces. Tags, severity badges, and checkboxes consume their own group radius roles. Status pills and genuine circular markers retain the shape appropriate to their component.
+
+Floating navigation and assistant panels use chrome group roles, including `--group-surface-overlay-chrome-radius`. Exterior geometry does not replace the radii of controls inside it. The semantic radius ramp shown below maps directly to primitive measurements; consumers select a family-relative group radius such as rounded, bold, or full.
+
+<RadiusExamples />
+
+## Width
+
+The semantic width roles are `--semantic-border-width-hairline`, `--semantic-border-width-regular`, and `--semantic-border-width-strong`. Family groups select these roles, for example `--group-input-field-border-width-hairline`. A thicker line is not automatically more accessible or more important; use the existing component state and semantic color together with the width.
+
+<BorderWidthExamples />
+
+## Style
+
+The source uses native CSS border styles rather than a separate named border-style token scale. These examples show styles already used by the system, combined with a hairline width and the appropriate family color role.
+
+<BorderStyleExamples />
+
+Solid boundaries identify controls and separators. The FileUpload drop zone uses a dashed boundary. Cards can omit a border and rely on surface fill and spacing. Keep semantic feedback boundaries where they communicate an intent, and preserve control boundaries where they identify an interactive target.
+
+## Separators
+
+Use a line between sections or controls, and a dot between short inline metadata values. Both variants support `normal` and `light` emphasis. Lines use default or subtle border tokens; dots use secondary text or strong border tokens. Navigation groups use subtle horizontal dividers without visible group headings in both themes.
+
+<SeparatorExamples />
+
+## Color and state
+
+Neutral roles are `--semantic-color-border-subtle`, `--semantic-color-border-default`, and `--semantic-color-border-strong`. Consumers read the family mapping, such as `--group-input-field-color-border-strong`. Intent-specific group roles select the matching semantic feedback color. Do not add a border to every container or replace a component's focus, selected, or error state with a decorative outline.
+
+Read <a className="foundation-detail-link" href="./?path=/docs/foundations-colors--docs" target="_top">Colors</a> for semantic color roles.

@@ -1,0 +1,888 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-lists-dropdownmenu",
+  "name": "DropdownMenu",
+  "category": "Triggers",
+  "tokenGroup": "trigger",
+  "kind": "component",
+  "aliases": [
+    "action menu",
+    "dropdown",
+    "menu"
+  ],
+  "purpose": "A compact menu of actions, checkbox choices, radio choices, groups, and nested menus.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/dropdown-menu"
+  ],
+  "links": {
+    "contract": "./components-lists-dropdownmenu.json",
+    "overview": "../../?path=/docs/components-triggers-dropdownmenu-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-triggers-dropdownmenu-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-triggers-dropdownmenu-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-triggers-dropdownmenu-overview--docs&docsTab=tokens"
+  },
+  "description": "Group secondary actions behind a predictable menu trigger.",
+  "exports": [
+    "DropdownMenu"
+  ],
+  "importStatements": [
+    "import { DropdownMenu } from '@dimitriszoitas/aegis-ui/dropdown-menu';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "DropdownMenu",
+      "name": "align",
+      "type": "Align | undefined",
+      "required": false,
+      "defaultValue": "\"end\""
+    },
+    {
+      "component": "DropdownMenu",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "DropdownMenu",
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "DropdownMenu",
+      "name": "dir",
+      "type": "\"rtl\" | \"ltr\" | undefined",
+      "required": false
+    },
+    {
+      "component": "DropdownMenu",
+      "name": "items",
+      "type": "DropdownMenuEntry[]",
+      "required": true
+    },
+    {
+      "component": "DropdownMenu",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Actions\""
+    },
+    {
+      "component": "DropdownMenu",
+      "name": "modal",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "DropdownMenu",
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "DropdownMenu",
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "DropdownMenu",
+      "name": "side",
+      "type": "Side | undefined",
+      "required": false,
+      "defaultValue": "\"bottom\""
+    },
+    {
+      "component": "DropdownMenu",
+      "name": "trigger",
+      "type": "ReactElement<unknown, string | JSXElementConstructor<any>>",
+      "required": true
+    }
+  ],
+  "variants": [
+    {
+      "name": "align",
+      "values": [
+        "center",
+        "end",
+        "start"
+      ],
+      "default": "end"
+    },
+    {
+      "name": "dir",
+      "values": [
+        "ltr",
+        "rtl"
+      ]
+    },
+    {
+      "name": "side",
+      "values": [
+        "bottom",
+        "inline-end",
+        "inline-start",
+        "left",
+        "right",
+        "top"
+      ],
+      "default": "bottom"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A compact menu of actions, checkbox choices, radio choices, groups, and nested menus.",
+    "usage": [
+      "Use action items for commands, checkbox items for independent toggles, and radio groups for one mutually exclusive value.",
+      "Checkbox choices keep the menu open for repeated changes. Radio selection and ordinary commands follow menu dismissal behavior.",
+      "Leading icons describe actions; selected checkbox and radio indicators appear at the trailing edge."
+    ],
+    "accessibility": [
+      "Base UI supplies menu roles, arrow navigation, typeahead, and Escape dismissal. The trigger must be one focusable React element.",
+      "Tab closes the menu and continues from its trigger rather than trapping focus inside the menu."
+    ],
+    "intent": [
+      "Only destructive action items receive destroy intent; checkbox state should communicate selection rather than danger."
+    ],
+    "context": [
+      "Use for row actions and table column controls; use Select for a form value that needs a persistent selected label."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-checked",
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "kbd",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/direction-provider",
+      "@base-ui/react/menu",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/dropdown-menu/dropdown-menu.css",
+    "src/components/dropdown-menu/dropdown-menu.stories.tsx",
+    "src/components/dropdown-menu/dropdown-menu.tsx",
+    "src/components/icon/index.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-overlays.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/theme.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-lists-dropdownmenu--actions-and-submenus",
+      "name": "Actions And Submenus",
+      "url": "../../?path=/story/components-lists-dropdownmenu--actions-and-submenus",
+      "sourceFile": "src/components/dropdown-menu/dropdown-menu.stories.tsx"
+    },
+    {
+      "id": "components-lists-dropdownmenu--open-actions",
+      "name": "Open Actions",
+      "url": "../../?path=/story/components-lists-dropdownmenu--open-actions",
+      "sourceFile": "src/components/dropdown-menu/dropdown-menu.stories.tsx"
+    },
+    {
+      "id": "components-lists-dropdownmenu--checkbox-and-radio",
+      "name": "Checkbox And Radio",
+      "url": "../../?path=/story/components-lists-dropdownmenu--checkbox-and-radio",
+      "sourceFile": "src/components/dropdown-menu/dropdown-menu.stories.tsx"
+    },
+    {
+      "id": "components-lists-dropdownmenu--open-checkbox-and-radio",
+      "name": "Open Checkbox And Radio",
+      "url": "../../?path=/story/components-lists-dropdownmenu--open-checkbox-and-radio",
+      "sourceFile": "src/components/dropdown-menu/dropdown-menu.stories.tsx"
+    },
+    {
+      "id": "components-lists-dropdownmenu--interactive-actions",
+      "name": "Interactive Actions",
+      "url": "../../?path=/story/components-lists-dropdownmenu--interactive-actions",
+      "sourceFile": "src/components/dropdown-menu/dropdown-menu.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--available-height",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-trigger-measurement-icon-dot",
+    "--group-trigger-measurement-icon-md",
+    "--group-trigger-measurement-icon-sm",
+    "--group-trigger-measurement-overlay-collision-padding",
+    "--group-trigger-measurement-overlay-offset",
+    "--group-trigger-measurement-submenu-offset",
+    "--group-trigger-overlay-appearance-overlay-surface",
+    "--group-trigger-overlay-border-width-hairline",
+    "--group-trigger-overlay-border-width-regular",
+    "--group-trigger-overlay-color-action-foreground",
+    "--group-trigger-overlay-color-border-default",
+    "--group-trigger-overlay-color-border-subtle",
+    "--group-trigger-overlay-color-content-primary",
+    "--group-trigger-overlay-color-content-secondary",
+    "--group-trigger-overlay-color-content-tertiary",
+    "--group-trigger-overlay-color-danger-foreground",
+    "--group-trigger-overlay-color-danger-soft",
+    "--group-trigger-overlay-color-surface-hover",
+    "--group-trigger-overlay-color-surface-surface",
+    "--group-trigger-overlay-color-surface-surface-raised",
+    "--group-trigger-overlay-ease-out",
+    "--group-trigger-overlay-elevation-none",
+    "--group-trigger-overlay-flex-fill",
+    "--group-trigger-overlay-flex-none",
+    "--group-trigger-overlay-font-family-code",
+    "--group-trigger-overlay-font-family-ui",
+    "--group-trigger-overlay-font-size-annotation-s",
+    "--group-trigger-overlay-font-size-body",
+    "--group-trigger-overlay-font-weight-semibold",
+    "--group-trigger-overlay-motion-fast",
+    "--group-trigger-overlay-number-0",
+    "--group-trigger-overlay-opacity-hidden",
+    "--group-trigger-overlay-opacity-strength-balanced",
+    "--group-trigger-overlay-opacity-strength-prominent",
+    "--group-trigger-overlay-opacity-visible",
+    "--group-trigger-overlay-radius-border-radius-bold",
+    "--group-trigger-overlay-radius-border-radius-strong",
+    "--group-trigger-overlay-ring-focus",
+    "--group-trigger-overlay-shadow-floating",
+    "--group-trigger-overlay-shadow-popover",
+    "--group-trigger-overlay-size-box-shadow-micro-compact",
+    "--group-trigger-overlay-size-height-micro-small",
+    "--group-trigger-overlay-size-max-width-100vw",
+    "--group-trigger-overlay-size-min-height-compact-content-small",
+    "--group-trigger-overlay-size-min-width-wide-panel-snug",
+    "--group-trigger-overlay-size-outline-offset-micro-compact",
+    "--group-trigger-overlay-size-padding-inline-end-compact-content-small",
+    "--group-trigger-overlay-size-transform-negative-3",
+    "--group-trigger-overlay-size-width-glyph-comfortable",
+    "--group-trigger-overlay-space-gap-compact",
+    "--group-trigger-overlay-space-inset-inline-end-regular",
+    "--group-trigger-overlay-space-margin-left-roomy",
+    "--group-trigger-overlay-space-margin-snug",
+    "--group-trigger-overlay-space-max-width-roomy",
+    "--group-trigger-overlay-space-padding-compact",
+    "--group-trigger-overlay-space-padding-regular",
+    "--group-trigger-overlay-space-padding-snug",
+    "--group-trigger-overlay-z-dropdown",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-focus-inset-regular",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus",
+    "--transform-origin"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-trigger-overlay-z-dropdown",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-min-width-wide-panel-snug",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--available-height",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-max-width-100vw",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-max-width-roomy",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-padding-snug",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-border-width-hairline",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-border-subtle",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-surface-surface-raised",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-content-primary",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-shadow-floating",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-font-family-ui",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-font-size-body",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-ease-out",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-motion-fast",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--transform-origin",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-gap-compact",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-min-height-compact-content-small",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-padding-compact",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-padding-regular",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-surface-hover",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-number-0",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-ring-focus",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-box-shadow-micro-compact",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-content-tertiary",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-opacity-strength-prominent",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-flex-fill",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-flex-none",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-content-secondary",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-margin-left-roomy",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-font-family-code",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-font-size-annotation-s",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-danger-foreground",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-danger-soft",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-padding-inline-end-compact-content-small",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-inset-inline-end-regular",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-width-glyph-comfortable",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-action-foreground",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-font-weight-semibold",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-height-micro-small",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-space-margin-snug",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-opacity-hidden",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-transform-negative-3",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-opacity-visible",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-border-default",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-color-surface-surface",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-border-width-regular",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-opacity-strength-balanced",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-appearance-overlay-surface",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-shadow-popover",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-overlay-elevation-none",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-inset-regular",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-measurement-submenu-offset",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-collision-padding",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-sm",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-dot",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-offset",
+      "ownership": "owned",
+      "component": "DropdownMenu",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "Minus",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

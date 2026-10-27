@@ -1,0 +1,11 @@
+.aegis-search-shortcut {
+  font-family: var(--group-input-field-font-family-code);
+  font-size: var(--group-input-field-font-size-label);
+  line-height: var(--group-input-field-font-leading-heading-tight);
+  padding: var(--group-input-field-padding-tight) var(--group-input-field-padding-snug);
+  border: var(--group-input-field-border-width-hairline) solid
+    var(--group-input-field-color-border-default);
+  border-radius: var(--group-input-field-radius-soft);
+  background: var(--group-input-field-color-surface-hover);
+  color: var(--group-input-field-color-content-secondary);
+}

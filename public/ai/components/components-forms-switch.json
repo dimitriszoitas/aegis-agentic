@@ -1,0 +1,791 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-forms-switch",
+  "name": "Switch",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [
+    "on off",
+    "toggle"
+  ],
+  "purpose": "A binary on/off control for a setting, with a label that remains stable across states.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/switch"
+  ],
+  "links": {
+    "contract": "./components-forms-switch.json",
+    "overview": "../../?path=/docs/components-inputs-selection-switch-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-switch-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-switch-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-switch-overview--docs&docsTab=tokens"
+  },
+  "description": "An immediate on/off setting with a persistent accessible label. Space and Enter toggle it. Checked state is included in native forms when a name is supplied.",
+  "exports": [
+    "Switch"
+  ],
+  "importStatements": [
+    "import { Switch } from '@dimitriszoitas/aegis-ui/switch';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Switch",
+      "name": "checked",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Switch",
+      "name": "containerClassName",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Switch",
+      "name": "defaultChecked",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Switch",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Switch",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Switch",
+      "name": "label",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Switch",
+      "name": "onCheckedChange",
+      "type": "((checked: boolean) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "Switch",
+      "name": "readOnly",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Switch",
+      "name": "required",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Switch",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | undefined",
+      "required": false,
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "Switch",
+      "name": "value",
+      "type": "string | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/field",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A binary on/off control for a setting, with a label that remains stable across states.",
+    "usage": [
+      "Name the setting, such as “Email updates”, rather than changing the label between “Enable” and “Disable”.",
+      "The component reports checked changes; the host decides whether the change is immediate or part of a later form submission."
+    ],
+    "accessibility": [
+      "Base UI exposes switch semantics and keyboard activation. Visible labels and descriptions are associated with the control.",
+      "Use the description to explain the consequence of enabling the setting, and Field for related validation."
+    ],
+    "context": [
+      "Use for workspace preferences and optional capabilities, not selecting rows in a collection."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [],
+    "nativeElements": [
+      "button",
+      "div",
+      "label"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/switch",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/field/field.css",
+    "src/components/field/field.tsx",
+    "src/components/field/index.ts",
+    "src/components/switch/switch.css",
+    "src/components/switch/switch.stories.tsx",
+    "src/components/switch/switch.tsx",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-switch--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-forms-switch--matrix",
+      "sourceFile": "src/components/switch/switch.stories.tsx"
+    },
+    {
+      "id": "components-forms-switch--immediate-setting",
+      "name": "Immediate Setting",
+      "url": "../../?path=/story/components-forms-switch--immediate-setting",
+      "sourceFile": "src/components/switch/switch.stories.tsx"
+    },
+    {
+      "id": "components-forms-switch--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-forms-switch--playground",
+      "sourceFile": "src/components/switch/switch.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-input-field-color-content-primary",
+    "--group-input-field-color-content-secondary",
+    "--group-input-field-color-content-tertiary",
+    "--group-input-field-color-danger-foreground",
+    "--group-input-field-font-leading-body",
+    "--group-input-field-font-leading-compact",
+    "--group-input-field-font-size-body",
+    "--group-input-field-font-weight-medium",
+    "--group-input-field-font-weight-regular",
+    "--group-input-field-gap-compact",
+    "--group-input-field-gap-snug",
+    "--group-input-field-number-0",
+    "--group-input-field-required-gap",
+    "--group-input-selection-border-width-hairline",
+    "--group-input-selection-color-action-fill",
+    "--group-input-selection-color-action-foreground",
+    "--group-input-selection-color-border-strong",
+    "--group-input-selection-color-content-primary",
+    "--group-input-selection-color-content-secondary",
+    "--group-input-selection-color-danger-foreground",
+    "--group-input-selection-color-on-intent",
+    "--group-input-selection-color-surface-selected",
+    "--group-input-selection-ease-out",
+    "--group-input-selection-font-leading-body",
+    "--group-input-selection-font-size-body",
+    "--group-input-selection-motion-base",
+    "--group-input-selection-number-0",
+    "--group-input-selection-opacity-strength-prominent",
+    "--group-input-selection-radius-border-radius-full",
+    "--group-input-selection-size-height-control-snug",
+    "--group-input-selection-size-height-glyph-vast",
+    "--group-input-selection-size-height-small",
+    "--group-input-selection-size-height-tiny",
+    "--group-input-selection-size-padding-micro-compact",
+    "--group-input-selection-size-transform-small",
+    "--group-input-selection-size-transform-tiny",
+    "--group-input-selection-size-width-compact-content-snug",
+    "--group-input-selection-size-width-control-vast",
+    "--group-input-selection-size-width-small",
+    "--group-input-selection-size-width-tiny",
+    "--group-input-selection-space-gap-regular",
+    "--group-input-selection-space-gap-snug",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-selection-space-gap-regular",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-width-compact-content-snug",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-height-control-snug",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-padding-micro-compact",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-border-width-hairline",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-border-strong",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-radius-border-radius-full",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-surface-selected",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-ease-out",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-motion-base",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-width-small",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-height-small",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-content-secondary",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-number-0",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-action-fill",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-transform-small",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-on-intent",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-width-control-vast",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-height-glyph-vast",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-width-tiny",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-height-tiny",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-size-transform-tiny",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-action-foreground",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-danger-foreground",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-space-gap-snug",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-font-size-body",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-font-leading-body",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-color-content-primary",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-selection-opacity-strength-prominent",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-snug",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-medium",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-required-gap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Switch",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

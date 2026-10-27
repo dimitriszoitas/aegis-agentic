@@ -1,0 +1,243 @@
+.aegis-multi-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-multi-combobox-space-gap-compact);
+  min-width: var(--group-input-multi-combobox-number-0);
+}
+.aegis-multi-shell {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-input-multi-combobox-space-gap-snug);
+  min-height: var(--group-input-multi-combobox-size-min-height-compact-content-small);
+  padding: var(--group-input-multi-combobox-space-padding-snug)
+    var(--group-input-multi-combobox-space-padding-compact);
+  border: var(--group-input-multi-combobox-border-width-hairline) solid
+    var(--group-input-multi-combobox-color-border-strong);
+  border-radius: var(--group-input-multi-combobox-radius-border-radius-bold);
+  background: var(--group-input-multi-combobox-color-surface-surface);
+}
+.aegis-multi-shell:focus-within {
+  outline: var(--group-input-multi-combobox-border-width-regular) solid
+    var(--group-input-multi-combobox-ring-focus);
+  outline-offset: var(--group-input-multi-combobox-size-outline-offset-micro-compact);
+}
+.aegis-multi-shell[data-size='sm'] {
+  min-height: var(--group-input-multi-combobox-size-min-height-regular);
+  padding-block: var(--group-input-multi-combobox-size-padding-block-micro-small);
+  font-size: var(--group-input-multi-combobox-font-size-label);
+}
+.aegis-multi-shell[data-invalid] {
+  border-color: var(--group-input-multi-combobox-color-danger-foreground);
+}
+.aegis-multi-shell[data-disabled] {
+  background: var(--group-input-multi-combobox-color-surface-hover);
+}
+.aegis-multi-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-input-multi-combobox-space-gap-compact);
+  flex: var(--group-input-multi-combobox-flex-fill);
+  min-width: var(--group-input-multi-combobox-size-min-width-snug);
+  min-height: var(--group-input-multi-combobox-size-min-height-snug);
+  padding: var(--group-input-multi-combobox-number-0);
+  border: var(--group-input-multi-combobox-number-0);
+  background: var(--group-input-multi-combobox-color-transparent);
+  color: var(--group-input-multi-combobox-color-content-secondary);
+  font: inherit;
+}
+.aegis-multi-trigger > svg {
+  margin-left: auto;
+}
+.aegis-multi-trigger:focus-visible {
+  outline: none;
+}
+.aegis-multi-placeholder {
+  color: var(--group-input-multi-combobox-color-content-tertiary);
+}
+.aegis-multi-overflow {
+  padding: var(--group-input-multi-combobox-size-padding-micro-compact)
+    var(--group-input-multi-combobox-space-padding-compact);
+  border-radius: var(--group-input-multi-combobox-radius-border-radius-soft);
+  background: var(--group-input-multi-combobox-color-surface-selected);
+  color: var(--group-input-multi-combobox-color-content-secondary);
+  font-size: var(--group-input-multi-combobox-font-size-label);
+}
+.aegis-multi-positioner {
+  z-index: var(--group-input-multi-combobox-z-popover);
+}
+.aegis-multi-popover {
+  z-index: var(--group-input-multi-combobox-z-popover);
+  width: max(var(--group-input-multi-combobox-size-width-canvas-tiny), var(--anchor-width));
+  max-width: calc(
+    var(--group-input-multi-combobox-size-max-width-100vw) -
+      var(--group-input-multi-combobox-space-max-width-roomy)
+  );
+  max-height: var(--available-height);
+  overflow: auto;
+  border: var(--group-input-multi-combobox-border-width-hairline) solid
+    var(--group-input-multi-combobox-color-border-subtle);
+  border-radius: var(--group-input-multi-combobox-radius-border-radius-strong);
+  background: var(--group-input-multi-combobox-color-surface-surface-raised);
+  color: var(--group-input-multi-combobox-color-content-primary);
+  box-shadow: var(--group-input-multi-combobox-shadow-overlay);
+  animation: aegis-multi-enter var(--group-input-multi-combobox-motion-fast)
+    var(--group-input-multi-combobox-ease-out);
+}
+.aegis-multi-search {
+  display: flex;
+  align-items: center;
+  gap: var(--group-input-multi-combobox-space-gap-compact);
+  padding: var(--group-input-multi-combobox-space-padding-regular);
+  color: var(--group-input-multi-combobox-color-content-secondary);
+  border-bottom: var(--group-input-multi-combobox-border-width-hairline) solid
+    var(--group-input-multi-combobox-color-border-subtle);
+}
+.aegis-multi-search input {
+  width: var(--group-input-multi-combobox-size-width-full);
+  min-width: var(--group-input-multi-combobox-number-0);
+  padding: var(--group-input-multi-combobox-space-padding-snug);
+  border: var(--group-input-multi-combobox-number-0);
+  border-radius: var(--group-input-multi-combobox-radius-border-radius-soft);
+  background: var(--group-input-multi-combobox-color-transparent);
+  color: var(--group-input-multi-combobox-color-content-primary);
+  font: inherit;
+}
+.aegis-multi-search input::placeholder {
+  color: var(--group-input-multi-combobox-color-content-tertiary);
+}
+.aegis-multi-toolbar {
+  display: flex;
+  gap: var(--group-input-multi-combobox-space-gap-compact);
+  align-items: center;
+  padding: var(--group-input-multi-combobox-space-padding-compact)
+    var(--group-input-multi-combobox-space-padding-regular);
+  border-bottom: var(--group-input-multi-combobox-border-width-hairline) solid
+    var(--group-input-multi-combobox-color-border-subtle);
+}
+.aegis-multi-toolbar button {
+  padding: var(--group-input-multi-combobox-space-padding-snug)
+    var(--group-input-multi-combobox-space-padding-compact);
+  border: var(--group-input-multi-combobox-number-0);
+  border-radius: var(--group-input-multi-combobox-radius-border-radius-soft);
+  background: var(--group-input-multi-combobox-color-transparent);
+  color: var(--group-input-multi-combobox-color-action-foreground);
+  font: inherit;
+  font-size: var(--group-input-multi-combobox-font-size-body);
+}
+.aegis-multi-toolbar button:hover:not(:disabled) {
+  background: var(--group-input-multi-combobox-color-action-soft);
+}
+.aegis-multi-toolbar button:disabled {
+  opacity: var(--group-input-multi-combobox-opacity-strength-prominent);
+}
+.aegis-multi-toolbar > span {
+  margin-left: auto;
+  font-size: var(--group-input-multi-combobox-font-size-label);
+  color: var(--group-input-multi-combobox-color-content-secondary);
+}
+.aegis-multi-list {
+  max-height: var(--group-input-multi-combobox-size-max-height-wide-panel-large);
+  overflow: auto;
+  padding: var(--group-input-multi-combobox-space-padding-snug);
+}
+.aegis-multi-group-label {
+  padding: var(--group-input-multi-combobox-space-padding-compact)
+    var(--group-input-multi-combobox-space-padding-regular);
+  font-size: var(--group-input-multi-combobox-font-size-label);
+  font-weight: var(--group-input-multi-combobox-font-weight-semibold);
+  color: var(--group-input-multi-combobox-color-content-secondary);
+}
+.aegis-multi-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--group-input-multi-combobox-space-gap-compact);
+  padding: var(--group-input-multi-combobox-space-padding-compact)
+    var(--group-input-multi-combobox-space-padding-regular);
+  border-radius: var(--group-input-multi-combobox-radius-border-radius-strong);
+  cursor: pointer;
+}
+.aegis-multi-option[data-active] {
+  background: var(--group-input-multi-combobox-color-surface-hover);
+  box-shadow: inset var(--group-input-multi-combobox-number-0)
+    var(--group-input-multi-combobox-number-0) var(--group-input-multi-combobox-number-0)
+    var(--group-input-multi-combobox-size-box-shadow-micro-compact)
+    var(--group-input-multi-combobox-ring-focus);
+}
+.aegis-multi-option[data-disabled] {
+  cursor: not-allowed;
+}
+.aegis-multi-option[aria-selected='true'] {
+  background: var(--group-input-multi-combobox-color-action-soft);
+}
+.aegis-multi-check {
+  margin-block-start: var(--group-input-multi-combobox-size-margin-block-start-micro-compact);
+  width: var(--group-input-multi-combobox-size-width-small);
+  height: var(--group-input-multi-combobox-size-height-small);
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--group-input-multi-combobox-border-width-hairline) solid
+    var(--group-input-multi-combobox-color-border-strong);
+  border-radius: var(--group-input-multi-combobox-radius-border-radius-soft);
+  color: var(--group-input-multi-combobox-color-on-intent);
+}
+.aegis-multi-check[data-checked] {
+  background: var(--group-input-multi-combobox-color-action-fill);
+  border-color: var(--group-input-multi-combobox-color-action-fill);
+}
+.aegis-multi-option[data-disabled] .aegis-multi-check {
+  margin-block-start: var(--group-input-multi-combobox-size-margin-block-start-micro-compact);
+  opacity: var(--group-input-multi-combobox-opacity-strength-prominent);
+}
+.aegis-multi-icon {
+  display: inline-flex;
+  flex: none;
+  margin-block-start: var(--group-input-multi-combobox-size-margin-block-start-micro-compact);
+  color: var(--group-input-multi-combobox-color-content-secondary);
+}
+.aegis-multi-option-copy {
+  min-width: var(--group-input-multi-combobox-number-0);
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-multi-combobox-size-gap-micro-compact);
+}
+.aegis-multi-description {
+  font-size: var(--group-input-multi-combobox-font-size-label);
+  color: var(--group-input-multi-combobox-color-content-secondary);
+  line-height: var(--group-input-multi-combobox-font-leading-compact);
+}
+.aegis-multi-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--group-input-multi-combobox-space-gap-compact);
+  padding: var(--group-input-multi-combobox-space-padding-comfortable);
+  color: var(--group-input-multi-combobox-color-content-secondary);
+  font-size: var(--group-input-multi-combobox-font-size-body);
+}
+.aegis-multi-footer {
+  padding: var(--group-input-multi-combobox-space-padding-compact)
+    var(--group-input-multi-combobox-space-padding-regular);
+  border-top: var(--group-input-multi-combobox-border-width-hairline) solid
+    var(--group-input-multi-combobox-color-border-subtle);
+  color: var(--group-input-multi-combobox-color-content-secondary);
+  font-size: var(--group-input-multi-combobox-font-size-label);
+}
+@keyframes aegis-multi-enter {
+  from {
+    opacity: var(--group-input-multi-combobox-opacity-hidden);
+    transform: translateY(var(--group-input-multi-combobox-size-transform-negative-3));
+  }
+  to {
+    opacity: var(--group-input-multi-combobox-opacity-visible);
+    transform: translateY(var(--group-input-multi-combobox-number-0));
+  }
+}
+
+.aegis-multi-shell {
+  border-radius: var(--group-input-multi-combobox-radius-border-radius-bold);
+  padding-inline-end: var(--group-input-multi-combobox-space-padding-inline-end-regular);
+}

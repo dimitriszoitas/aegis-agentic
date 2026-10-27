@@ -1,0 +1,34 @@
+.aegis-applied-filter-groups {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--group-filtering-filter-bar-space-gap-compact);
+  width: var(--group-filtering-filter-bar-size-width-full);
+  min-width: var(--group-filtering-filter-bar-number-0);
+}
+.aegis-applied-filter-label {
+  flex: var(--group-filtering-filter-bar-flex-none) var(--group-filtering-filter-bar-flex-none) auto;
+  color: var(--group-filtering-filter-bar-color-content-secondary);
+  font-size: var(--group-filtering-filter-bar-font-size-label);
+  white-space: nowrap;
+}
+.aegis-applied-filter-groups .aegis-applied-filter-group {
+  min-width: var(--group-filtering-filter-bar-number-0);
+  max-width: min(
+    var(--group-filtering-filter-bar-size-max-width-canvas-roomy),
+    var(--group-filtering-filter-bar-size-max-width-full)
+  );
+}
+.aegis-applied-filter-summary {
+  min-width: var(--group-filtering-filter-bar-number-0);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.aegis-applied-filter-category {
+  color: var(--group-filtering-filter-bar-color-content-secondary);
+}
+.aegis-applied-filter-group .tag-remove {
+  flex: var(--group-filtering-filter-bar-flex-none) var(--group-filtering-filter-bar-flex-none)
+    var(--group-filtering-filter-bar-size-flex-small);
+}

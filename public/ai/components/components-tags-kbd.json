@@ -1,0 +1,357 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-tags-kbd",
+  "name": "Kbd",
+  "category": "Data Display",
+  "tokenGroup": "data-display",
+  "kind": "component",
+  "aliases": [
+    "keyboard shortcut",
+    "keycap"
+  ],
+  "purpose": "A visual keyboard-key label with native kbd semantics.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/kbd"
+  ],
+  "links": {
+    "contract": "./components-tags-kbd.json",
+    "overview": "../../?path=/docs/components-data-display-kbd-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-display-kbd-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-display-kbd-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-display-kbd-overview--docs&docsTab=tokens"
+  },
+  "description": "Make keyboard shortcuts recognizable beside their actions.",
+  "exports": [
+    "Kbd"
+  ],
+  "importStatements": [
+    "import { Kbd } from '@dimitriszoitas/aegis-ui/kbd';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Kbd",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | undefined",
+      "required": false,
+      "defaultValue": "\"sm\""
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "md",
+        "sm"
+      ],
+      "default": "sm"
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "A visual keyboard-key label with native kbd semantics.",
+    "usage": [
+      "Display only shortcuts that are implemented by the surrounding application.",
+      "Use concise key names and show the correct modifier for the supported platform."
+    ],
+    "accessibility": [
+      "Kbd does not register a shortcut or receive focus by itself.",
+      "Pair shortcut hints with a visible action name so the command remains understandable without recognizing a symbol."
+    ],
+    "context": [
+      "Use in menus, search triggers, and keyboard instructions."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [],
+    "nativeElements": [
+      "kbd"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/kbd/kbd.css",
+    "src/components/kbd/kbd.stories.tsx",
+    "src/components/kbd/kbd.tsx",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-tags-kbd--sizes",
+      "name": "Sizes",
+      "url": "../../?path=/story/components-tags-kbd--sizes",
+      "sourceFile": "src/components/kbd/kbd.stories.tsx"
+    },
+    {
+      "id": "components-tags-kbd--workspace-shortcuts",
+      "name": "Workspace Shortcuts",
+      "url": "../../?path=/story/components-tags-kbd--workspace-shortcuts",
+      "sourceFile": "src/components/kbd/kbd.stories.tsx"
+    },
+    {
+      "id": "components-tags-kbd--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-tags-kbd--playground",
+      "sourceFile": "src/components/kbd/kbd.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-display-kbd-border-width-hairline",
+    "--group-data-display-kbd-border-width-regular",
+    "--group-data-display-kbd-color-border-default",
+    "--group-data-display-kbd-color-content-secondary",
+    "--group-data-display-kbd-color-surface-surface",
+    "--group-data-display-kbd-flex-none",
+    "--group-data-display-kbd-font-family-code",
+    "--group-data-display-kbd-font-leading-solid",
+    "--group-data-display-kbd-font-size-body",
+    "--group-data-display-kbd-font-size-label",
+    "--group-data-display-kbd-font-weight-regular",
+    "--group-data-display-kbd-number-0",
+    "--group-data-display-kbd-radius-border-radius-soft",
+    "--group-data-display-kbd-space-height-5",
+    "--group-data-display-kbd-space-height-roomy",
+    "--group-data-display-kbd-space-min-width-5",
+    "--group-data-display-kbd-space-min-width-roomy",
+    "--group-data-display-kbd-space-padding-compact",
+    "--group-data-display-kbd-space-padding-snug",
+    "--group-data-display-surface-border-width-regular",
+    "--group-data-display-surface-color-action-foreground",
+    "--group-data-display-surface-color-action-soft",
+    "--group-data-display-surface-color-border-default",
+    "--group-data-display-surface-color-content-primary",
+    "--group-data-display-surface-elevation-none",
+    "--group-data-display-surface-focus-offset",
+    "--group-data-display-surface-font-family-ui",
+    "--group-data-display-surface-font-size-body",
+    "--group-data-display-surface-motion-count-1",
+    "--group-data-display-surface-motion-disabled-duration",
+    "--group-data-display-surface-motion-reduced-duration",
+    "--group-data-display-surface-number-0",
+    "--group-data-display-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-display-kbd-flex-none",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-min-width-5",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-height-5",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-number-0",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-padding-snug",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-border-width-hairline",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-color-border-default",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-border-width-regular",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-color-surface-surface",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-color-content-secondary",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-font-family-code",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-font-size-label",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-font-weight-regular",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-font-leading-solid",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-height-roomy",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-min-width-roomy",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-space-padding-compact",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-kbd-font-size-body",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Kbd",
+      "group": "data-display"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

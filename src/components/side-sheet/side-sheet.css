@@ -1,0 +1,279 @@
+.aegis-sheet-overlay {
+  position: fixed;
+  inset: var(--group-surface-overlay-number-0);
+  z-index: var(--group-surface-overlay-z-sheet);
+  background: var(--group-surface-overlay-color-scrim);
+  animation: aegis-sheet-fade var(--group-surface-overlay-motion-base)
+    var(--group-surface-overlay-ease-out);
+}
+.aegis-sheet {
+  --group-surface-overlay-sheet-width: var(--semantic-part-overlay-sheet-width-default);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: var(--group-surface-overlay-z-sheet);
+  inset: var(--group-surface-overlay-chrome-inset) var(--group-surface-overlay-chrome-inset)
+    var(--group-surface-overlay-chrome-inset) auto;
+  width: min(
+    var(--group-surface-overlay-sheet-width),
+    calc(
+      var(--group-surface-overlay-size-width-100vw) - 2 * var(--group-surface-overlay-chrome-inset)
+    )
+  );
+  border: solid var(--group-surface-overlay-color-border-subtle);
+  border-width: var(--group-surface-overlay-chrome-sheet-border-width);
+  border-radius: var(--group-surface-overlay-chrome-radius);
+  background: var(--group-surface-overlay-color-surface-surface-raised);
+  color: var(--group-surface-overlay-color-content-primary);
+  box-shadow: var(--group-surface-overlay-chrome-overlay-shadow);
+  font-family: var(--group-surface-overlay-font-family-ui);
+  outline: none;
+  overflow: hidden;
+  animation: aegis-sheet-enter var(--group-surface-overlay-motion-slide)
+    var(--group-surface-overlay-ease-out);
+}
+.aegis-sheet-sm {
+  --group-surface-overlay-sheet-width: var(--semantic-part-overlay-sheet-width-default-context3275);
+}
+.aegis-sheet-lg {
+  --group-surface-overlay-sheet-width: var(--semantic-part-overlay-sheet-width-default-context3276);
+}
+.aegis-sheet-docked {
+  position: relative;
+  z-index: auto;
+  inset: auto;
+  flex: var(--group-surface-overlay-flex-none) var(--group-surface-overlay-flex-none)
+    min(
+      var(--group-surface-overlay-sheet-width),
+      calc(
+        var(--group-surface-overlay-size-flex-100vw) - 2 * var(--group-surface-overlay-chrome-inset)
+      )
+    );
+  height: calc(
+    var(--group-surface-overlay-size-height-full) - 2 * var(--group-surface-overlay-chrome-inset)
+  );
+  margin: var(--group-surface-overlay-chrome-inset);
+  margin-left: var(--group-surface-overlay-number-0);
+  box-shadow: var(--group-surface-overlay-chrome-shadow);
+}
+.aegis-sheet.aegis-sheet-resizable[data-resized='true'] {
+  width: min(
+    var(--sheet-resized-width),
+    calc(
+      var(--group-surface-overlay-size-width-100vw) - 2 * var(--group-surface-overlay-chrome-inset)
+    )
+  );
+  flex-basis: min(
+    var(--sheet-resized-width),
+    calc(
+      var(--group-surface-overlay-size-flex-basis-100vw) - 2 *
+        var(--group-surface-overlay-chrome-inset)
+    )
+  );
+}
+.aegis-sheet-resize-handle {
+  position: absolute;
+  z-index: var(--group-surface-overlay-layer-local-2);
+  inset: var(--group-surface-overlay-number-0) auto var(--group-surface-overlay-number-0)
+    var(--group-surface-overlay-number-0);
+  width: var(--group-surface-overlay-size-width-micro-vast);
+  cursor: col-resize;
+  touch-action: none;
+  outline: none;
+}
+.aegis-sheet-resize-handle::after {
+  content: '';
+  position: absolute;
+  inset: var(--group-surface-overlay-number-0) auto var(--group-surface-overlay-number-0)
+    var(--group-surface-overlay-number-0);
+  width: var(--group-surface-overlay-size-width-micro-compact);
+  background: var(--group-surface-overlay-color-transparent);
+}
+.aegis-sheet-resize-handle:hover::after,
+:root[data-aegis-input-focus='keyboard'] .aegis-sheet-resize-handle:focus-visible::after,
+.aegis-sheet[data-resizing='true'] > .aegis-sheet-resize-handle::after {
+  background: var(--group-surface-overlay-color-action-foreground);
+}
+:root[data-aegis-input-focus='keyboard'] .aegis-sheet-resize-handle:focus-visible::after {
+  width: var(--group-surface-overlay-size-width-micro-snug);
+}
+.aegis-sheet[data-resizing='true'] {
+  user-select: none;
+}
+@media (max-width: 700px) {
+  .aegis-sheet-resize-handle {
+    display: none;
+  }
+}
+.aegis-sheet-header {
+  flex-shrink: var(--group-surface-overlay-flex-none);
+  padding: var(--group-surface-overlay-space-padding-roomy);
+  border-bottom: var(--group-surface-overlay-border-width-hairline) solid
+    var(--group-surface-overlay-color-border-subtle);
+}
+.aegis-sheet-heading-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--group-surface-overlay-space-gap-regular);
+}
+.aegis-sheet-heading {
+  min-width: var(--group-surface-overlay-number-0);
+  flex: var(--group-surface-overlay-flex-fill);
+}
+.aegis-sheet-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--group-surface-overlay-space-gap-compact);
+  flex-wrap: wrap;
+  margin-top: var(--group-surface-overlay-space-margin-top-regular);
+}
+.aegis-sheet-navigation {
+  display: flex;
+  align-items: center;
+  gap: var(--group-surface-overlay-space-gap-compact);
+}
+.aegis-sheet-navigation span {
+  min-width: var(--group-surface-overlay-size-min-width-vast);
+  text-align: center;
+  color: var(--group-surface-overlay-color-content-secondary);
+  font-size: var(--group-surface-overlay-font-size-label);
+  font-variant-numeric: tabular-nums;
+}
+.aegis-sheet-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-surface-overlay-space-gap-compact);
+  min-width: var(--group-surface-overlay-number-0);
+}
+.aegis-sheet-icon-button {
+  width: var(--group-surface-overlay-size-width-regular);
+  height: var(--group-surface-overlay-size-height-regular);
+  flex-shrink: var(--group-surface-overlay-flex-none);
+  display: grid;
+  place-items: center;
+  border: var(--group-surface-overlay-number-0);
+  border-radius: var(--group-surface-overlay-radius-border-radius-bold);
+  background: var(--group-surface-overlay-color-transparent);
+  color: var(--group-surface-overlay-color-content-secondary);
+  cursor: pointer;
+}
+.aegis-sheet-icon-button:hover:not(:disabled) {
+  background: var(--group-surface-overlay-color-surface-hover);
+  color: var(--group-surface-overlay-color-content-primary);
+}
+.aegis-sheet-icon-button:disabled {
+  opacity: var(--group-surface-overlay-opacity-strength-medium);
+  cursor: not-allowed;
+}
+:root[data-aegis-input-focus='keyboard'] .aegis-sheet-icon-button:focus-visible {
+  outline: var(--group-surface-overlay-border-width-regular) solid
+    var(--group-surface-overlay-ring-focus);
+  outline-offset: var(--group-surface-overlay-size-outline-offset-micro-compact);
+}
+.aegis-sheet-title {
+  margin: var(--group-surface-overlay-number-0);
+  font-size: var(--group-surface-overlay-font-size-subheading);
+  font-weight: var(--group-surface-overlay-title-weight);
+  line-height: var(--group-surface-overlay-font-line-box-xxl);
+  overflow-wrap: anywhere;
+}
+.aegis-sheet-description {
+  margin: var(--group-surface-overlay-space-margin-compact) var(--group-surface-overlay-number-0)
+    var(--group-surface-overlay-number-0);
+  font-size: var(--group-surface-overlay-font-size-body);
+  color: var(--group-surface-overlay-color-content-secondary);
+  line-height: var(--group-surface-overlay-font-leading-body);
+}
+.aegis-sheet-body {
+  flex: var(--group-surface-overlay-flex-fill);
+  min-height: var(--group-surface-overlay-number-0);
+  overflow: auto;
+  padding: var(--group-surface-overlay-space-padding-roomy);
+  font-size: var(--group-surface-overlay-font-size-body);
+}
+:root[data-aegis-input-focus='keyboard'] .aegis-sheet-body:focus-visible {
+  outline: var(--group-surface-overlay-border-width-regular) solid
+    var(--group-surface-overlay-ring-focus);
+  outline-offset: var(--group-surface-overlay-size-outline-offset-negative-3);
+}
+.aegis-sheet-section + .aegis-sheet-section {
+  margin-top: var(--group-surface-overlay-space-margin-top-roomy);
+  padding-top: var(--group-surface-overlay-space-padding-top-roomy);
+  border-top: var(--group-surface-overlay-border-width-hairline) solid
+    var(--group-surface-overlay-color-border-subtle);
+}
+.aegis-sheet-section > h3 {
+  margin: var(--group-surface-overlay-number-0) var(--group-surface-overlay-number-0)
+    var(--group-surface-overlay-space-margin-regular);
+  font-size: var(--group-surface-overlay-font-size-body);
+  font-weight: var(--group-surface-overlay-title-weight);
+}
+.aegis-sheet-field {
+  display: grid;
+  grid-template-columns:
+    minmax(
+      var(--group-surface-overlay-size-grid-template-columns-wide-content-snug),
+      var(--group-surface-overlay-size-grid-template-columns-36percent)
+    )
+    minmax(var(--group-surface-overlay-number-0), var(--group-surface-overlay-track-flex));
+  gap: var(--group-surface-overlay-space-gap-comfortable);
+  padding-block: var(--group-surface-overlay-space-padding-block-compact);
+  font-size: var(--group-surface-overlay-font-size-body);
+  line-height: var(--group-surface-overlay-font-leading-body);
+}
+.aegis-sheet-field-label {
+  color: var(--group-surface-overlay-color-content-secondary);
+}
+.aegis-sheet-field-value {
+  color: var(--group-surface-overlay-color-content-primary);
+  overflow-wrap: anywhere;
+}
+.aegis-sheet-footer {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--group-surface-overlay-space-gap-compact);
+  flex-shrink: var(--group-surface-overlay-flex-none);
+  padding: var(--group-surface-overlay-space-padding-regular)
+    var(--group-surface-overlay-space-padding-roomy);
+  border-top: var(--group-surface-overlay-border-width-hairline) solid
+    var(--group-surface-overlay-color-border-subtle);
+  background: var(--group-surface-overlay-color-surface-surface-raised);
+}
+@keyframes aegis-sheet-enter {
+  from {
+    opacity: var(--group-surface-overlay-opacity-hidden);
+    transform: translateX(
+      calc(
+        var(--group-surface-overlay-size-transform-full) + var(--group-surface-overlay-chrome-inset)
+      )
+    );
+  }
+  to {
+    opacity: var(--group-surface-overlay-opacity-visible);
+    transform: translateX(var(--group-surface-overlay-number-0));
+  }
+}
+@keyframes aegis-sheet-fade {
+  from {
+    opacity: var(--group-surface-overlay-opacity-hidden);
+  }
+  to {
+    opacity: var(--group-surface-overlay-opacity-visible);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aegis-sheet,
+  .aegis-sheet-overlay {
+    animation: none;
+  }
+}
+
+/* Programmatic and pointer focus do not imply keyboard navigation. */
+:root:not([data-aegis-input-focus='keyboard'])
+  :is(.aegis-sheet-resize-handle, .aegis-sheet-icon-button, .aegis-sheet-body):focus-visible {
+  outline: none;
+}

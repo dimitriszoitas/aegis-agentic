@@ -1,0 +1,148 @@
+/* Documentation uses a shared, generous canvas rather than Storybook's narrow article default. */
+.sbdocs-wrapper.sbdocs-wrapper {
+  padding: var(--space-8) var(--space-12);
+  justify-content: center;
+}
+.sbdocs-wrapper > .sbdocs-content {
+  width: 100%;
+  max-width: calc(var(--size-720) * 2);
+  min-width: 0;
+}
+.sbdocs-content .component-directory {
+  max-width: 100%;
+}
+.sbdocs-content .aegis-docs-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Component hubs use the same generous page width; their tables scroll independently. */
+.sbdocs-wrapper:has(.component-docs) {
+  padding: var(--space-8) var(--space-12);
+  justify-content: center;
+}
+.sbdocs-wrapper:has(.component-docs) > .sbdocs-content {
+  max-width: calc(var(--size-720) * 2);
+}
+
+@media (max-width: 900px) {
+  .sbdocs-wrapper.sbdocs-wrapper {
+    padding: var(--space-7) var(--space-6);
+  }
+}
+@media (max-width: 640px) {
+  .sbdocs-wrapper.sbdocs-wrapper,
+  .sbdocs-wrapper:has(.component-docs) {
+    padding: var(--space-5) var(--space-4);
+  }
+}
+
+/* Page chrome only. Direct MDX prose and explicitly named documentation headings
+   share the landing-page hierarchy; live component descendants keep their own styles. */
+.sbdocs-content {
+  --docs-title-size: clamp(var(--text-3xl), 3.5vw, var(--size-48));
+  --docs-title-leading: var(--line-height-1-15);
+  --docs-title-tracking: var(--tracking-negative-0-03em);
+  --docs-section-space: var(--space-12);
+  --docs-reading-width: var(--size-720);
+}
+.sbdocs-content.sbdocs-content > h1 {
+  max-width: var(--docs-reading-width);
+  margin: var(--space-8) 0 var(--space-5);
+  padding: 0;
+  border: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+  font-size: var(--docs-title-size);
+  line-height: var(--docs-title-leading);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--docs-title-tracking);
+  text-wrap: balance;
+}
+.sbdocs-content.sbdocs-content > h1 + p {
+  max-width: var(--docs-reading-width);
+  margin-bottom: var(--space-8);
+  color: var(--color-text-secondary);
+  font-size: var(--text-md);
+  line-height: var(--line-height-1-6);
+}
+.sbdocs-content.sbdocs-content > h2,
+.sbdocs-content .foundation-color-tabs .aegis-tabs-panel > h2 {
+  margin: var(--docs-section-space) 0 var(--space-4);
+  padding: var(--space-6) 0 0;
+  border: 0;
+  border-top: var(--stroke-1) solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-negative-0-015em);
+  line-height: var(--line-height-1-3);
+}
+.sbdocs-content.sbdocs-content > h3,
+.sbdocs-content .foundation-color-tabs .aegis-tabs-panel > h3 {
+  margin: var(--space-7) 0 var(--space-3);
+  border: 0;
+  color: var(--color-text-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-1-3);
+}
+.sbdocs-content.sbdocs-content > :is(p, ul, ol),
+.sbdocs-content .foundation-color-tabs .aegis-tabs-panel > :is(p, ul, ol) {
+  max-width: var(--docs-reading-width);
+  color: var(--color-text-secondary);
+  font-size: var(--text-base);
+  line-height: var(--line-height-1-6);
+}
+.sbdocs-content.sbdocs-content > p,
+.sbdocs-content .foundation-color-tabs .aegis-tabs-panel > p {
+  margin-block: var(--space-4);
+}
+.sbdocs-content.sbdocs-content > :is(p, ul, ol) strong,
+.sbdocs-content .foundation-color-tabs .aegis-tabs-panel > :is(p, ul, ol) strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+.sbdocs-content.sbdocs-content > :is(ul, ol) > li + li {
+  margin-top: var(--space-2);
+}
+.sbdocs-content.sbdocs-content > hr {
+  margin-block: var(--docs-section-space);
+  border: 0;
+  border-top: var(--stroke-1) solid var(--color-border-subtle);
+}
+/* These headings label foundation reference sections, not the specimens themselves. */
+.sbdocs-content .foundation-palette-intro > h2,
+.sbdocs-content .foundation-palette-heading > h2 {
+  padding: 0;
+  border: 0;
+  color: var(--color-text-primary);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-negative-0-015em);
+}
+.sbdocs-content .foundation-palette-intro > p {
+  max-width: var(--docs-reading-width);
+}
+@media (max-width: 640px) {
+  .sbdocs-content {
+    --docs-section-space: var(--space-8);
+  }
+  .sbdocs-content.sbdocs-content > h1 {
+    margin-top: var(--space-5);
+  }
+}
+
+/* Storybook's default bright links are not theme-aware on the document canvas. */
+.sbdocs-content.sbdocs-content a.sbdocs-a {
+  color: var(--color-function-fg);
+  text-underline-offset: var(--space-1);
+}
+.sbdocs-content.sbdocs-content a.sbdocs-a:hover {
+  text-decoration: underline;
+}
+.sbdocs-content.sbdocs-content a.sbdocs-a:focus-visible {
+  outline: var(--stroke-2) solid var(--color-focus-ring);
+  outline-offset: var(--space-1);
+}

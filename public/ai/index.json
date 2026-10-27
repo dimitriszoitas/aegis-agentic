@@ -1,0 +1,2316 @@
+{
+  "$schema": "./schema.json#/$defs/index",
+  "schemaVersion": 1,
+  "documentType": "index",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "provenance": {
+    "generator": "scripts/generate-ai-contracts.mjs",
+    "metadata": "src/stories/component-docs/generated/*.json",
+    "guidance": "src/stories/component-docs/authored-guidance.ts",
+    "aliases": "src/stories/component-docs/component-discovery.ts",
+    "navigation": "scripts/component-doc-navigation.mjs",
+    "foundationTokens": [
+      "src/styles/design-tokens.css",
+      "src/styles/elevation-tokens.css",
+      "src/styles/primitive-color-tokens.css"
+    ],
+    "tokenManifest": "tokens/design-tokens.json",
+    "sourceDigest": "21fd52bbc176b1e25594f296044b985d1204c39a53282b86ae21a666efef4382"
+  },
+  "description": "Task-based discovery of component APIs, usage guidance, examples and token references.",
+  "limitations": [
+    "Own component props are included. Inherited React and native HTML props remain available through the published TypeScript declarations and full API documentation.",
+    "TypeScript types and defaults are source text, not JSON validation rules. Conditional prop requirements need the published declarations and authored guidance.",
+    "Keyboard keys and ARIA names are source facts, not proof that every interaction or accessibility requirement has been verified.",
+    "Runtime verification and design parity are not included in these contracts. Story links identify examples, not test results."
+  ],
+  "supportedThemes": {
+    "color": [
+      "light",
+      "dark"
+    ],
+    "presentation": [
+      "fundamental",
+      "fundamental-floating"
+    ]
+  },
+  "consumption": {
+    "styled": {
+      "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+      "guidance": "Styled components use the optional shared stylesheet. Import it once to use the supplied visual language; omitting it requires consumer styling."
+    },
+    "headless": {
+      "importPath": "@dimitriszoitas/aegis-ui/primitives",
+      "importStatement": "import { Button } from '@dimitriszoitas/aegis-ui/primitives';",
+      "guidance": "This entry re-exports Base UI primitives without CSS. Its APIs are Base UI APIs, distinct from the styled component contracts in this index."
+    }
+  },
+  "navigation": {
+    "topLevel": [
+      {
+        "label": "Welcome",
+        "id": "foundations-welcome--docs",
+        "url": "../?path=/docs/foundations-welcome--docs"
+      },
+      {
+        "label": "Principles",
+        "id": "foundations-principles--docs",
+        "url": "../?path=/docs/foundations-principles--docs"
+      },
+      {
+        "label": "Directory",
+        "id": "foundations-component-directory--docs",
+        "url": "../?path=/docs/foundations-component-directory--docs"
+      },
+      {
+        "label": "AI Guidelines",
+        "id": "foundations-ai-guidelines--docs",
+        "url": "../?path=/docs/foundations-ai-guidelines--docs"
+      }
+    ],
+    "agenticSkills": [
+      {
+        "label": "Agentic Skills",
+        "id": "agentic-skills-component-creation--docs",
+        "url": "../?path=/docs/agentic-skills-component-creation--docs"
+      }
+    ],
+    "foundations": [
+      {
+        "label": "Colors",
+        "id": "foundations-colors--docs",
+        "url": "../?path=/docs/foundations-colors--docs"
+      },
+      {
+        "label": "Typography",
+        "id": "foundations-type-and-motion--docs",
+        "url": "../?path=/docs/foundations-type-and-motion--docs"
+      },
+      {
+        "label": "Spacing & Sizing",
+        "id": "foundations-space-and-surfaces--docs",
+        "url": "../?path=/docs/foundations-space-and-surfaces--docs"
+      },
+      {
+        "label": "Iconography",
+        "id": "foundations-icons-overview--docs",
+        "url": "../?path=/docs/foundations-icons-overview--docs"
+      },
+      {
+        "label": "Motion",
+        "id": "foundations-motion--docs",
+        "url": "../?path=/docs/foundations-motion--docs"
+      },
+      {
+        "label": "Opacity",
+        "id": "foundations-opacity--docs",
+        "url": "../?path=/docs/foundations-opacity--docs"
+      },
+      {
+        "label": "Border (Radius, Width, Style)",
+        "id": "foundations-border--docs",
+        "url": "../?path=/docs/foundations-border--docs"
+      },
+      {
+        "label": "Elevation",
+        "id": "foundations-elevation--docs",
+        "url": "../?path=/docs/foundations-elevation--docs"
+      },
+      {
+        "label": "Themes & Modes",
+        "id": "foundations-theme--docs",
+        "url": "../?path=/docs/foundations-theme--docs"
+      }
+    ]
+  },
+  "tokenGraph": "./tokens.json",
+  "components": [
+    {
+      "id": "components-actions-button",
+      "name": "Button",
+      "category": "Triggers",
+      "tokenGroup": "trigger",
+      "kind": "component",
+      "aliases": [
+        "action",
+        "cta",
+        "trigger"
+      ],
+      "purpose": "A native button for an action, with independent size, intent, emphasis, and loading state.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/button"
+      ],
+      "links": {
+        "contract": "./components/components-actions-button.json",
+        "overview": "../?path=/docs/components-triggers-button-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-triggers-button-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-triggers-button-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-triggers-button-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-actions-buttongroup",
+      "name": "ButtonGroup",
+      "category": "Triggers",
+      "tokenGroup": "trigger",
+      "kind": "component",
+      "aliases": [
+        "action group",
+        "button cluster"
+      ],
+      "purpose": "A visual and semantic group of related buttons without adding selection behavior.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/button-group"
+      ],
+      "links": {
+        "contract": "./components/components-actions-buttongroup.json",
+        "overview": "../?path=/docs/components-triggers-buttongroup-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-triggers-buttongroup-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-triggers-buttongroup-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-triggers-buttongroup-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-actions-copybutton",
+      "name": "CopyButton",
+      "category": "Triggers",
+      "tokenGroup": "trigger",
+      "kind": "component",
+      "aliases": [
+        "clipboard",
+        "copy action"
+      ],
+      "purpose": "An explicit clipboard action with a temporary success icon and optional notification.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/copy-button"
+      ],
+      "links": {
+        "contract": "./components/components-actions-copybutton.json",
+        "overview": "../?path=/docs/components-triggers-copybutton-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-triggers-copybutton-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-triggers-copybutton-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-triggers-copybutton-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-actions-iconbutton",
+      "name": "IconButton",
+      "category": "Triggers",
+      "tokenGroup": "trigger",
+      "kind": "component",
+      "aliases": [
+        "icon action",
+        "icon trigger"
+      ],
+      "purpose": "A compact Button with a required accessible label and an optional label tooltip.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/icon-button"
+      ],
+      "links": {
+        "contract": "./components/components-actions-iconbutton.json",
+        "overview": "../?path=/docs/components-triggers-iconbutton-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-triggers-iconbutton-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-triggers-iconbutton-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-triggers-iconbutton-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-actions-link",
+      "name": "Link",
+      "category": "Triggers",
+      "tokenGroup": "trigger",
+      "kind": "component",
+      "aliases": [
+        "anchor",
+        "hyperlink",
+        "navigation link"
+      ],
+      "purpose": "A native anchor for navigation, with optional icons and explicit external-link behavior.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/link"
+      ],
+      "links": {
+        "contract": "./components/components-actions-link.json",
+        "overview": "../?path=/docs/components-triggers-link-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-triggers-link-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-triggers-link-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-triggers-link-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-actions-splitbutton",
+      "name": "SplitButton",
+      "category": "Triggers",
+      "tokenGroup": "trigger",
+      "kind": "component",
+      "aliases": [
+        "action menu",
+        "split action"
+      ],
+      "purpose": "A frequent primary action paired with a menu of related alternatives.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/split-button"
+      ],
+      "links": {
+        "contract": "./components/components-actions-splitbutton.json",
+        "overview": "../?path=/docs/components-triggers-splitbutton-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-triggers-splitbutton-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-triggers-splitbutton-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-triggers-splitbutton-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-ai-aicard",
+      "name": "AiCard",
+      "category": "AI",
+      "tokenGroup": "ai",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A labeled AI-generated result with optional confidence, provenance, feedback, and regeneration.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/ai-card"
+      ],
+      "links": {
+        "contract": "./components/components-ai-aicard.json",
+        "overview": "../?path=/docs/components-ai-aicard-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-ai-aicard-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-ai-aicard-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-ai-aicard-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-ai-aihighlight",
+      "name": "AiHighlight",
+      "category": "AI",
+      "tokenGroup": "ai",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A compact complementary AI result with optional confidence and provenance.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/ai-card"
+      ],
+      "links": {
+        "contract": "./components/components-ai-aihighlight.json",
+        "overview": "../?path=/docs/components-ai-aihighlight-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-ai-aihighlight-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-ai-aihighlight-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-ai-aihighlight-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-ai-aiinlinesuggestion",
+      "name": "AiInlineSuggestion",
+      "category": "AI",
+      "tokenGroup": "ai",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "An input or textarea with an optional proposed suffix that the user explicitly accepts or dismisses.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/ai-inline-suggestion"
+      ],
+      "links": {
+        "contract": "./components/components-ai-aiinlinesuggestion.json",
+        "overview": "../?path=/docs/components-ai-aiinlinesuggestion-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-ai-aiinlinesuggestion-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-ai-aiinlinesuggestion-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-ai-aiinlinesuggestion-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-ai-aimessage",
+      "name": "AiMessage",
+      "category": "AI",
+      "tokenGroup": "ai",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A user or assistant conversation entry with source context, progress, citations, and optional result actions.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/ai-message"
+      ],
+      "links": {
+        "contract": "./components/components-ai-aimessage.json",
+        "overview": "../?path=/docs/components-ai-aimessage-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-ai-aimessage-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-ai-aimessage-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-ai-aimessage-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-ai-confidencebadge",
+      "name": "ConfidenceBadge",
+      "category": "AI",
+      "tokenGroup": "ai",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A textual high, medium, or low confidence indicator with a supplementary bar motif.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/confidence-badge"
+      ],
+      "links": {
+        "contract": "./components/components-ai-confidencebadge.json",
+        "overview": "../?path=/docs/components-ai-confidencebadge-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-ai-confidencebadge-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-ai-confidencebadge-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-ai-confidencebadge-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-ai-streamingskeleton",
+      "name": "StreamingSkeleton",
+      "category": "AI",
+      "tokenGroup": "ai",
+      "kind": "component",
+      "aliases": [
+        "ai loading",
+        "streaming placeholder"
+      ],
+      "purpose": "A named placeholder for an AI response that has not yet produced readable content.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/streaming-skeleton"
+      ],
+      "links": {
+        "contract": "./components/components-ai-streamingskeleton.json",
+        "overview": "../?path=/docs/components-ai-streamingskeleton-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-ai-streamingskeleton-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-ai-streamingskeleton-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-ai-streamingskeleton-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-ai-thinkingindicator",
+      "name": "ThinkingIndicator",
+      "category": "AI",
+      "tokenGroup": "ai",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "An AI working status with optional rotating messages and a compact presentation.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/thinking-indicator"
+      ],
+      "links": {
+        "contract": "./components/components-ai-thinkingindicator.json",
+        "overview": "../?path=/docs/components-ai-thinkingindicator-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-ai-thinkingindicator-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-ai-thinkingindicator-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-ai-thinkingindicator-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-charts-area-chart",
+      "name": "Area chart",
+      "category": "Data Visualization",
+      "tokenGroup": "data-viz",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "An ordered series chart that emphasizes magnitude with a filled area beneath the line.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/charts"
+      ],
+      "links": {
+        "contract": "./components/components-charts-area-chart.json",
+        "overview": "../?path=/docs/components-data-visualization-area-chart-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-visualization-area-chart-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-visualization-area-chart-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-visualization-area-chart-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-charts-bar-chart",
+      "name": "Bar chart",
+      "category": "Data Visualization",
+      "tokenGroup": "data-viz",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A categorical or interval comparison with grouped or stacked bars and active-bar feedback.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/charts"
+      ],
+      "links": {
+        "contract": "./components/components-charts-bar-chart.json",
+        "overview": "../?path=/docs/components-data-visualization-bar-chart-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-visualization-bar-chart-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-visualization-bar-chart-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-visualization-bar-chart-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-charts-chart-container",
+      "name": "Chart container",
+      "category": "Data Visualization",
+      "tokenGroup": "data-viz",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A named chart figure that coordinates the title, description, plot area, loading, error, legend, and footer.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/charts"
+      ],
+      "links": {
+        "contract": "./components/components-charts-chart-container.json",
+        "overview": "../?path=/docs/components-data-visualization-chart-container-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-visualization-chart-container-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-visualization-chart-container-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-visualization-chart-container-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-charts-chart-metric-card",
+      "name": "Chart metric card",
+      "category": "Data Visualization",
+      "tokenGroup": "data-viz",
+      "kind": "component",
+      "aliases": [
+        "kpi chart",
+        "metric chart"
+      ],
+      "purpose": "A summary metric, explicit comparison, latest readout, and underlying bar, area, or compact-bar series.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/metric-card"
+      ],
+      "links": {
+        "contract": "./components/components-charts-chart-metric-card.json",
+        "overview": "../?path=/docs/components-data-visualization-chart-metric-card-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-visualization-chart-metric-card-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-visualization-chart-metric-card-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-visualization-chart-metric-card-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-charts-donut-chart",
+      "name": "Donut chart",
+      "category": "Data Visualization",
+      "tokenGroup": "data-viz",
+      "kind": "component",
+      "aliases": [
+        "donut",
+        "doughnut",
+        "pie"
+      ],
+      "purpose": "A part-to-whole summary with a visible total, category legend, and optional exact data table.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/charts"
+      ],
+      "links": {
+        "contract": "./components/components-charts-donut-chart.json",
+        "overview": "../?path=/docs/components-data-visualization-donut-chart-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-visualization-donut-chart-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-visualization-donut-chart-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-visualization-donut-chart-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-charts-event-histogram",
+      "name": "Event histogram",
+      "category": "Data Visualization",
+      "tokenGroup": "data-viz",
+      "kind": "component",
+      "aliases": [
+        "distribution",
+        "histogram"
+      ],
+      "purpose": "Stacked severity counts over time, composed from BarChart and a shared TimeRange value.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/event-histogram"
+      ],
+      "links": {
+        "contract": "./components/components-charts-event-histogram.json",
+        "overview": "../?path=/docs/components-data-visualization-event-histogram-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-visualization-event-histogram-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-visualization-event-histogram-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-visualization-event-histogram-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-charts-ganttchart",
+      "name": "GanttChart",
+      "category": "Data Visualization",
+      "tokenGroup": "data-viz",
+      "kind": "component",
+      "aliases": [
+        "gantt",
+        "gantt chart",
+        "project timeline",
+        "schedule"
+      ],
+      "purpose": "A schedule view of tasks, milestones, progress, and dependencies across a day, week, or month scale.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/gantt-chart"
+      ],
+      "links": {
+        "contract": "./components/components-charts-ganttchart.json",
+        "overview": "../?path=/docs/components-data-visualization-ganttchart-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-visualization-ganttchart-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-visualization-ganttchart-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-visualization-ganttchart-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-charts-line-chart",
+      "name": "Line chart",
+      "category": "Data Visualization",
+      "tokenGroup": "data-viz",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "An ordered series chart for comparing change over time without filling the area below each line.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/charts"
+      ],
+      "links": {
+        "contract": "./components/components-charts-line-chart.json",
+        "overview": "../?path=/docs/components-data-visualization-line-chart-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-visualization-line-chart-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-visualization-line-chart-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-visualization-line-chart-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-charts-metric-card",
+      "name": "Metric card",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "kpi",
+        "metric",
+        "stat",
+        "statistic"
+      ],
+      "purpose": "A summary value with an optional unit, percentage comparison, and compact supporting trend.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/metric-card"
+      ],
+      "links": {
+        "contract": "./components/components-charts-metric-card.json",
+        "overview": "../?path=/docs/components-data-display-metric-card-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-metric-card-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-metric-card-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-metric-card-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-charts-mini-bar-chart",
+      "name": "Mini bar chart",
+      "category": "Data Visualization",
+      "tokenGroup": "data-viz",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "The compact zero-based bar form of Sparkline for non-negative interval values.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/mini-bar-chart"
+      ],
+      "links": {
+        "contract": "./components/components-charts-mini-bar-chart.json",
+        "overview": "../?path=/docs/components-data-visualization-mini-bar-chart-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-visualization-mini-bar-chart-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-visualization-mini-bar-chart-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-visualization-mini-bar-chart-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-charts-sparkline",
+      "name": "Sparkline",
+      "category": "Data Visualization",
+      "tokenGroup": "data-viz",
+      "kind": "component",
+      "aliases": [
+        "inline chart",
+        "trend"
+      ],
+      "purpose": "A lightweight SVG trend designed for compact summaries without animation or interactive focus.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/sparkline"
+      ],
+      "links": {
+        "contract": "./components/components-charts-sparkline.json",
+        "overview": "../?path=/docs/components-data-visualization-sparkline-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-visualization-sparkline-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-visualization-sparkline-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-visualization-sparkline-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-code-codeeditor",
+      "name": "CodeEditor",
+      "category": "Code",
+      "tokenGroup": "code",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A token-themed CodeMirror editor with controlled text, folding, line numbers, and bounded height.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/code-editor"
+      ],
+      "links": {
+        "contract": "./components/components-code-codeeditor.json",
+        "overview": "../?path=/docs/components-code-codeeditor-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-code-codeeditor-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-code-codeeditor-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-code-codeeditor-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-code-diffview",
+      "name": "DiffView",
+      "category": "Code",
+      "tokenGroup": "code",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A split or unified source comparison with exact change counts and change navigation.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/diff-view"
+      ],
+      "links": {
+        "contract": "./components/components-code-diffview.json",
+        "overview": "../?path=/docs/components-code-diffview-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-code-diffview-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-code-diffview-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-code-diffview-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-code-yamlpresenter",
+      "name": "YamlPresenter",
+      "category": "Code",
+      "tokenGroup": "code",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A readonly YAML source panel with filename, copy, fold, and unfold controls.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/yaml-presenter"
+      ],
+      "links": {
+        "contract": "./components/components-code-yamlpresenter.json",
+        "overview": "../?path=/docs/components-code-yamlpresenter-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-code-yamlpresenter-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-code-yamlpresenter-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-code-yamlpresenter-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-content-expandabletext",
+      "name": "ExpandableText",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "read more",
+        "text disclosure"
+      ],
+      "purpose": "A plain-text preview that exposes a disclosure control only when its line limit is exceeded.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/expandable-text"
+      ],
+      "links": {
+        "contract": "./components/components-content-expandabletext.json",
+        "overview": "../?path=/docs/components-data-display-expandabletext-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-expandabletext-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-expandabletext-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-expandabletext-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-datagrid",
+      "name": "DataGrid",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "data table",
+        "datagrid",
+        "grid",
+        "table"
+      ],
+      "purpose": "A typed record grid with sorting, selection, column controls, expansion, grouping, pagination, and virtualization.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/data-grid"
+      ],
+      "links": {
+        "contract": "./components/components-data-datagrid.json",
+        "overview": "../?path=/docs/components-data-display-datagrid-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-datagrid-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-datagrid-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-datagrid-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-display-descriptionlist",
+      "name": "DescriptionList",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "definition list",
+        "key value",
+        "metadata"
+      ],
+      "purpose": "A semantic set of labels and values for inspecting record or configuration details.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/description-list"
+      ],
+      "links": {
+        "contract": "./components/components-data-display-descriptionlist.json",
+        "overview": "../?path=/docs/components-data-display-descriptionlist-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-descriptionlist-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-descriptionlist-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-descriptionlist-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-grid-actions-cell",
+      "name": "Actions cell",
+      "category": "Data Display/Data grid",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A row-action group with a limited number of visible icon buttons and an overflow menu.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/data-grid-cells"
+      ],
+      "links": {
+        "contract": "./components/components-data-grid-actions-cell.json",
+        "overview": "../?path=/docs/components-data-display-data-grid-actions-cell-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-data-grid-actions-cell-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-data-grid-actions-cell-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-data-grid-actions-cell-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-grid-ai-verdict-cell",
+      "name": "AI verdict cell",
+      "category": "Data Display/Data grid",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A compact AI suggestion with a normalized confidence score and an explicit review reminder.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/data-grid-cells"
+      ],
+      "links": {
+        "contract": "./components/components-data-grid-ai-verdict-cell.json",
+        "overview": "../?path=/docs/components-data-display-data-grid-ai-verdict-cell-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-data-grid-ai-verdict-cell-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-data-grid-ai-verdict-cell-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-data-grid-ai-verdict-cell-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-grid-bulk-actions-bar",
+      "name": "Bulk actions bar",
+      "category": "Data Display/Data grid",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "Controlled batch actions for the current selected record set, with asynchronous operation feedback.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/bulk-actions-bar"
+      ],
+      "links": {
+        "contract": "./components/components-data-grid-bulk-actions-bar.json",
+        "overview": "../?path=/docs/components-data-display-data-grid-bulk-actions-bar-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-data-grid-bulk-actions-bar-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-data-grid-bulk-actions-bar-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-data-grid-bulk-actions-bar-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-grid-cells",
+      "name": "Cells",
+      "category": "Data Display/Data grid",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A compact user, project, or account identity with a primary name and optional supporting detail.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/data-grid-cells"
+      ],
+      "links": {
+        "contract": "./components/components-data-grid-cells.json",
+        "overview": "../?path=/docs/components-data-display-data-grid-cells-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-data-grid-cells-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-data-grid-cells-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-data-grid-cells-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-grid-expand-cell",
+      "name": "Expand cell",
+      "category": "Data Display/Data grid",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A row disclosure button with optional nested-item count.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/data-grid-cells"
+      ],
+      "links": {
+        "contract": "./components/components-data-grid-expand-cell.json",
+        "overview": "../?path=/docs/components-data-display-data-grid-expand-cell-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-data-grid-expand-cell-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-data-grid-expand-cell-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-data-grid-expand-cell-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-grid-number-cell",
+      "name": "Number cell",
+      "category": "Data Display/Data grid",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A consistently formatted numeric table value using Intl.NumberFormat.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/data-grid-cells"
+      ],
+      "links": {
+        "contract": "./components/components-data-grid-number-cell.json",
+        "overview": "../?path=/docs/components-data-display-data-grid-number-cell-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-data-grid-number-cell-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-data-grid-number-cell-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-data-grid-number-cell-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-grid-severity-cell",
+      "name": "Severity cell",
+      "category": "Data Display/Data grid",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A table adapter to the shared SeverityBadge scale.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/data-grid-cells"
+      ],
+      "links": {
+        "contract": "./components/components-data-grid-severity-cell.json",
+        "overview": "../?path=/docs/components-data-display-data-grid-severity-cell-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-data-grid-severity-cell-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-data-grid-severity-cell-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-data-grid-severity-cell-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-grid-sparkline-cell",
+      "name": "Sparkline cell",
+      "category": "Data Display/Data grid",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A lightweight, noninteractive trend graphic inside a dense table cell.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/data-grid-cells"
+      ],
+      "links": {
+        "contract": "./components/components-data-grid-sparkline-cell.json",
+        "overview": "../?path=/docs/components-data-display-data-grid-sparkline-cell-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-data-grid-sparkline-cell-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-data-grid-sparkline-cell-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-data-grid-sparkline-cell-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-grid-status-cell",
+      "name": "Status cell",
+      "category": "Data Display/Data grid",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A data-grid adapter to the standard record lifecycle badge.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/data-grid-cells"
+      ],
+      "links": {
+        "contract": "./components/components-data-grid-status-cell.json",
+        "overview": "../?path=/docs/components-data-display-data-grid-status-cell-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-data-grid-status-cell-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-data-grid-status-cell-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-data-grid-status-cell-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-grid-tags-cell",
+      "name": "Tags cell",
+      "category": "Data Display/Data grid",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A bounded row of static tags with a named overflow summary.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/data-grid-cells"
+      ],
+      "links": {
+        "contract": "./components/components-data-grid-tags-cell.json",
+        "overview": "../?path=/docs/components-data-display-data-grid-tags-cell-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-data-grid-tags-cell-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-data-grid-tags-cell-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-data-grid-tags-cell-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-grid-time-cell",
+      "name": "Time cell",
+      "category": "Data Display/Data grid",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "The compact RelativeTime presentation for a data-grid timestamp.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/data-grid-cells"
+      ],
+      "links": {
+        "contract": "./components/components-data-grid-time-cell.json",
+        "overview": "../?path=/docs/components-data-display-data-grid-time-cell-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-data-grid-time-cell-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-data-grid-time-cell-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-data-grid-time-cell-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-jsonviewer",
+      "name": "JsonViewer",
+      "category": "Code",
+      "tokenGroup": "code",
+      "kind": "component",
+      "aliases": [
+        "json",
+        "structured data"
+      ],
+      "purpose": "A bounded, expandable JSON tree with type-aware values and path or value copying.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/json-viewer"
+      ],
+      "links": {
+        "contract": "./components/components-data-jsonviewer.json",
+        "overview": "../?path=/docs/components-code-jsonviewer-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-code-jsonviewer-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-code-jsonviewer-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-code-jsonviewer-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-relativetime",
+      "name": "RelativeTime",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "time ago",
+        "timestamp"
+      ],
+      "purpose": "A relative timestamp with an absolute date and timezone available on focus and hover.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/relative-time"
+      ],
+      "links": {
+        "contract": "./components/components-data-relativetime.json",
+        "overview": "../?path=/docs/components-data-display-relativetime-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-relativetime-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-relativetime-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-relativetime-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-timeline",
+      "name": "Timeline",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "activity timeline",
+        "event history"
+      ],
+      "purpose": "An ordered activity list with timestamps, event types, optional actors, and actions.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/timeline"
+      ],
+      "links": {
+        "contract": "./components/components-data-timeline.json",
+        "overview": "../?path=/docs/components-data-display-timeline-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-timeline-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-timeline-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-timeline-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-feedback-empty-state",
+      "name": "Empty state",
+      "category": "Feedback",
+      "tokenGroup": "feedback",
+      "kind": "component",
+      "aliases": [
+        "empty view",
+        "no results"
+      ],
+      "purpose": "A named explanation of no results, no data, or a loading failure, with optional recovery actions.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/empty-state"
+      ],
+      "links": {
+        "contract": "./components/components-feedback-empty-state.json",
+        "overview": "../?path=/docs/components-feedback-empty-state-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-feedback-empty-state-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-feedback-empty-state-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-feedback-empty-state-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-feedback-notification",
+      "name": "Notification",
+      "category": "Feedback",
+      "tokenGroup": "feedback",
+      "kind": "component",
+      "aliases": [
+        "notification",
+        "snackbar",
+        "toast"
+      ],
+      "purpose": "One notification presentation for inline messages and floating lifecycle-managed feedback.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/notification"
+      ],
+      "links": {
+        "contract": "./components/components-feedback-notification.json",
+        "overview": "../?path=/docs/components-feedback-notification-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-feedback-notification-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-feedback-notification-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-feedback-notification-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-feedback-progress-bar",
+      "name": "Progress bar",
+      "category": "Feedback",
+      "tokenGroup": "feedback",
+      "kind": "component",
+      "aliases": [
+        "completion",
+        "progress"
+      ],
+      "purpose": "Determinate or indeterminate progress with a required accessible task label.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/progress-bar"
+      ],
+      "links": {
+        "contract": "./components/components-feedback-progress-bar.json",
+        "overview": "../?path=/docs/components-feedback-progress-bar-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-feedback-progress-bar-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-feedback-progress-bar-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-feedback-progress-bar-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-feedback-skeleton",
+      "name": "Skeleton",
+      "category": "Feedback",
+      "tokenGroup": "feedback",
+      "kind": "component",
+      "aliases": [
+        "loading placeholder",
+        "placeholder"
+      ],
+      "purpose": "A decorative placeholder that reserves the approximate shape of pending content.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/skeleton"
+      ],
+      "links": {
+        "contract": "./components/components-feedback-skeleton.json",
+        "overview": "../?path=/docs/components-feedback-skeleton-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-feedback-skeleton-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-feedback-skeleton-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-feedback-skeleton-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-feedback-spinner",
+      "name": "Spinner",
+      "category": "Feedback",
+      "tokenGroup": "feedback",
+      "kind": "component",
+      "aliases": [
+        "loader",
+        "loading indicator"
+      ],
+      "purpose": "A small activity indicator that can be either decorative or a named loading status.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/spinner"
+      ],
+      "links": {
+        "contract": "./components/components-feedback-spinner.json",
+        "overview": "../?path=/docs/components-feedback-spinner-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-feedback-spinner-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-feedback-spinner-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-feedback-spinner-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-checkbox",
+      "name": "Checkbox",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "An independent boolean or mixed selection control with an optional label and description.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/checkbox"
+      ],
+      "links": {
+        "contract": "./components/components-forms-checkbox.json",
+        "overview": "../?path=/docs/components-inputs-selection-checkbox-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-checkbox-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-checkbox-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-checkbox-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-copyablefield",
+      "name": "CopyableField",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "copy field",
+        "readonly field"
+      ],
+      "purpose": "A readonly, selectable value paired with a clearly labeled copy action.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/copyable-field"
+      ],
+      "links": {
+        "contract": "./components/components-forms-copyablefield.json",
+        "overview": "../?path=/docs/components-data-display-copyablefield-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-copyablefield-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-copyablefield-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-copyablefield-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-datepicker",
+      "name": "DatePicker",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "calendar",
+        "date input"
+      ],
+      "purpose": "A single-date calendar inside a focus-managed popover.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/date-picker"
+      ],
+      "links": {
+        "contract": "./components/components-forms-datepicker.json",
+        "overview": "../?path=/docs/components-inputs-selection-datepicker-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-datepicker-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-datepicker-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-datepicker-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-field",
+      "name": "Field",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "form field",
+        "helper text",
+        "label",
+        "validation"
+      ],
+      "purpose": "A label, helper text, and validation boundary that shares accessible metadata with one compatible control.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/field"
+      ],
+      "links": {
+        "contract": "./components/components-forms-field.json",
+        "overview": "../?path=/docs/components-inputs-selection-field-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-field-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-field-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-field-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-fileupload",
+      "name": "FileUpload",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "attachment",
+        "dropzone",
+        "file picker"
+      ],
+      "purpose": "A file-selection and upload list with validation, progress, cancellation, and retry.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/file-upload"
+      ],
+      "links": {
+        "contract": "./components/components-forms-fileupload.json",
+        "overview": "../?path=/docs/components-inputs-selection-fileupload-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-fileupload-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-fileupload-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-fileupload-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-multicombobox",
+      "name": "MultiCombobox",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "autocomplete",
+        "combobox",
+        "multiselect"
+      ],
+      "purpose": "A searchable multiple-choice picker with removable chips and explicit selection controls.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/multi-combobox"
+      ],
+      "links": {
+        "contract": "./components/components-forms-multicombobox.json",
+        "overview": "../?path=/docs/components-inputs-selection-multicombobox-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-multicombobox-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-multicombobox-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-multicombobox-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-radiogroup",
+      "name": "RadioGroup",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "radio",
+        "radio buttons"
+      ],
+      "purpose": "A labeled set of mutually exclusive options with optional per-option descriptions.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/radio-group"
+      ],
+      "links": {
+        "contract": "./components/components-forms-radiogroup.json",
+        "overview": "../?path=/docs/components-inputs-selection-radiogroup-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-radiogroup-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-radiogroup-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-radiogroup-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-searchinput",
+      "name": "SearchInput",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "search field",
+        "searchbox"
+      ],
+      "purpose": "A searchable text field that separates immediate draft changes from debounced search requests.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/search-input"
+      ],
+      "links": {
+        "contract": "./components/components-forms-searchinput.json",
+        "overview": "../?path=/docs/components-inputs-selection-searchinput-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-searchinput-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-searchinput-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-searchinput-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-segmentedcontrol",
+      "name": "SegmentedControl",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "segmented buttons",
+        "single choice"
+      ],
+      "purpose": "A compact, mutually exclusive choice implemented with native radio inputs.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/segmented-control"
+      ],
+      "links": {
+        "contract": "./components/components-forms-segmentedcontrol.json",
+        "overview": "../?path=/docs/components-inputs-selection-segmentedcontrol-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-segmentedcontrol-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-segmentedcontrol-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-segmentedcontrol-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-select",
+      "name": "Select",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "dropdown select",
+        "single select"
+      ],
+      "purpose": "A single-value picker with grouped options, optional icons, descriptions, and native form integration.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/select"
+      ],
+      "links": {
+        "contract": "./components/components-forms-select.json",
+        "overview": "../?path=/docs/components-inputs-selection-select-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-select-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-select-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-select-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-slider",
+      "name": "Slider",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "range input"
+      ],
+      "purpose": "One or more keyboard-operable thumbs for a numeric value or bounded range.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/slider"
+      ],
+      "links": {
+        "contract": "./components/components-forms-slider.json",
+        "overview": "../?path=/docs/components-inputs-selection-slider-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-slider-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-slider-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-slider-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-switch",
+      "name": "Switch",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "on off",
+        "toggle"
+      ],
+      "purpose": "A binary on/off control for a setting, with a label that remains stable across states.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/switch"
+      ],
+      "links": {
+        "contract": "./components/components-forms-switch.json",
+        "overview": "../?path=/docs/components-inputs-selection-switch-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-switch-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-switch-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-switch-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-textarea",
+      "name": "Textarea",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "multiline input",
+        "text area"
+      ],
+      "purpose": "A multiline native text control with optional measured growth and a character count.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/textarea"
+      ],
+      "links": {
+        "contract": "./components/components-forms-textarea.json",
+        "overview": "../?path=/docs/components-inputs-selection-textarea-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-textarea-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-textarea-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-textarea-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-textinput",
+      "name": "TextInput",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "input",
+        "text field",
+        "textbox",
+        "textfield"
+      ],
+      "purpose": "A single-line native input with optional prefix, suffix, clear control, and Field integration.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/text-input"
+      ],
+      "links": {
+        "contract": "./components/components-forms-textinput.json",
+        "overview": "../?path=/docs/components-inputs-selection-textinput-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-textinput-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-textinput-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-textinput-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-timerangepicker",
+      "name": "TimeRangePicker",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "date range",
+        "time window"
+      ],
+      "purpose": "A period selector that commits a relative preset or a validated absolute UTC interval.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/time-range-picker"
+      ],
+      "links": {
+        "contract": "./components/components-forms-timerangepicker.json",
+        "overview": "../?path=/docs/components-inputs-selection-timerangepicker-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-timerangepicker-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-timerangepicker-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-timerangepicker-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-treeview",
+      "name": "TreeView",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "hierarchical selection",
+        "tree"
+      ],
+      "purpose": "A hierarchical multi-selection tree whose branch check states are derived from selectable leaves.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/tree-view"
+      ],
+      "links": {
+        "contract": "./components/components-forms-treeview.json",
+        "overview": "../?path=/docs/components-inputs-selection-treeview-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-treeview-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-treeview-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-treeview-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-layout-resizablepanels",
+      "name": "ResizablePanels",
+      "category": "Layout",
+      "tokenGroup": "layout",
+      "kind": "component",
+      "aliases": [
+        "resizable layout",
+        "split pane"
+      ],
+      "purpose": "Composable split panes backed by react-resizable-panels, with labeled resize handles.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/resizable-panels"
+      ],
+      "links": {
+        "contract": "./components/components-layout-resizablepanels.json",
+        "overview": "../?path=/docs/components-layout-resizablepanels-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-layout-resizablepanels-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-layout-resizablepanels-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-layout-resizablepanels-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-lists-accordion",
+      "name": "Accordion",
+      "category": "Surfaces",
+      "tokenGroup": "surface",
+      "kind": "component",
+      "aliases": [
+        "collapsible sections",
+        "disclosure"
+      ],
+      "purpose": "A set of labeled disclosure rows for content that can be explored independently.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/accordion"
+      ],
+      "links": {
+        "contract": "./components/components-lists-accordion.json",
+        "overview": "../?path=/docs/components-surfaces-accordion-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-surfaces-accordion-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-surfaces-accordion-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-surfaces-accordion-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-lists-contextmenu",
+      "name": "ContextMenu",
+      "category": "Triggers",
+      "tokenGroup": "trigger",
+      "kind": "component",
+      "aliases": [
+        "context actions",
+        "right click menu"
+      ],
+      "purpose": "A menu attached to a content region, opened through a context gesture or keyboard command.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/context-menu"
+      ],
+      "links": {
+        "contract": "./components/components-lists-contextmenu.json",
+        "overview": "../?path=/docs/components-triggers-contextmenu-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-triggers-contextmenu-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-triggers-contextmenu-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-triggers-contextmenu-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-lists-dropdownmenu",
+      "name": "DropdownMenu",
+      "category": "Triggers",
+      "tokenGroup": "trigger",
+      "kind": "component",
+      "aliases": [
+        "action menu",
+        "dropdown",
+        "menu"
+      ],
+      "purpose": "A compact menu of actions, checkbox choices, radio choices, groups, and nested menus.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/dropdown-menu"
+      ],
+      "links": {
+        "contract": "./components/components-lists-dropdownmenu.json",
+        "overview": "../?path=/docs/components-triggers-dropdownmenu-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-triggers-dropdownmenu-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-triggers-dropdownmenu-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-triggers-dropdownmenu-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-lists-list",
+      "name": "List",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A native list with one-line or two-line rows, optional selection controls, identity, tags, counters, and nested groups.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/list"
+      ],
+      "links": {
+        "contract": "./components/components-lists-list.json",
+        "overview": "../?path=/docs/components-data-display-list-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-list-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-list-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-list-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-navigation-breadcrumb",
+      "name": "Breadcrumb",
+      "category": "Navigation",
+      "tokenGroup": "navigation",
+      "kind": "component",
+      "aliases": [
+        "breadcrumbs",
+        "location trail"
+      ],
+      "purpose": "A navigation trail ending in a noninteractive current-page label.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/breadcrumb"
+      ],
+      "links": {
+        "contract": "./components/components-navigation-breadcrumb.json",
+        "overview": "../?path=/docs/components-navigation-breadcrumb-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-navigation-breadcrumb-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-navigation-breadcrumb-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-navigation-breadcrumb-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-navigation-commandpalette",
+      "name": "CommandPalette",
+      "category": "Navigation",
+      "tokenGroup": "navigation",
+      "kind": "component",
+      "aliases": [
+        "command menu",
+        "quick actions"
+      ],
+      "purpose": "A searchable modal command list with grouped actions and optional global shortcut registration.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/command-palette"
+      ],
+      "links": {
+        "contract": "./components/components-navigation-commandpalette.json",
+        "overview": "../?path=/docs/components-navigation-commandpalette-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-navigation-commandpalette-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-navigation-commandpalette-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-navigation-commandpalette-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-navigation-pagination",
+      "name": "Pagination",
+      "category": "Navigation",
+      "tokenGroup": "navigation",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "Controlled navigation through result pages, with an optional page-size selector.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/pagination"
+      ],
+      "links": {
+        "contract": "./components/components-navigation-pagination.json",
+        "overview": "../?path=/docs/components-navigation-pagination-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-navigation-pagination-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-navigation-pagination-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-navigation-pagination-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-navigation-sidenav",
+      "name": "SideNav",
+      "category": "Navigation",
+      "tokenGroup": "navigation",
+      "kind": "component",
+      "aliases": [
+        "side navigation",
+        "sidebar"
+      ],
+      "purpose": "A collapsible application navigation rail with groups, counts, search, workspace content, and a footer.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/side-nav"
+      ],
+      "links": {
+        "contract": "./components/components-navigation-sidenav.json",
+        "overview": "../?path=/docs/components-navigation-sidenav-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-navigation-sidenav-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-navigation-sidenav-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-navigation-sidenav-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-navigation-stepper",
+      "name": "Stepper",
+      "category": "Navigation",
+      "tokenGroup": "navigation",
+      "kind": "component",
+      "aliases": [
+        "step indicator",
+        "steps"
+      ],
+      "purpose": "An ordered progress indicator that can allow return navigation to completed steps.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/stepper"
+      ],
+      "links": {
+        "contract": "./components/components-navigation-stepper.json",
+        "overview": "../?path=/docs/components-navigation-stepper-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-navigation-stepper-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-navigation-stepper-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-navigation-stepper-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-navigation-tabs",
+      "name": "Tabs",
+      "category": "Navigation",
+      "tokenGroup": "navigation",
+      "kind": "component",
+      "aliases": [],
+      "purpose": "A labeled set of peer views using Base UI tabs and associated content panels.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/tabs"
+      ],
+      "links": {
+        "contract": "./components/components-navigation-tabs.json",
+        "overview": "../?path=/docs/components-navigation-tabs-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-navigation-tabs-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-navigation-tabs-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-navigation-tabs-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-overlays-bottomsheet",
+      "name": "BottomSheet",
+      "category": "Surfaces",
+      "tokenGroup": "surface",
+      "kind": "component",
+      "aliases": [
+        "bottom drawer",
+        "mobile sheet"
+      ],
+      "purpose": "A bottom-only nonmodal panel for an existing bounded flex-column workspace.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/bottom-sheet"
+      ],
+      "links": {
+        "contract": "./components/components-overlays-bottomsheet.json",
+        "overview": "../?path=/docs/components-surfaces-bottomsheet-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-surfaces-bottomsheet-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-surfaces-bottomsheet-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-surfaces-bottomsheet-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-overlays-modal",
+      "name": "Modal",
+      "category": "Surfaces",
+      "tokenGroup": "surface",
+      "kind": "component",
+      "aliases": [
+        "dialog",
+        "modal dialog"
+      ],
+      "purpose": "A blocking dialog for a focused task, with a required title and independently scrollable content.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/modal"
+      ],
+      "links": {
+        "contract": "./components/components-overlays-modal.json",
+        "overview": "../?path=/docs/components-surfaces-modal-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-surfaces-modal-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-surfaces-modal-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-surfaces-modal-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-overlays-popover",
+      "name": "Popover",
+      "category": "Surfaces",
+      "tokenGroup": "surface",
+      "kind": "component",
+      "aliases": [
+        "anchored overlay",
+        "floating content"
+      ],
+      "purpose": "Anchored interactive content with optional header and footer outside the scrollable body.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/popover"
+      ],
+      "links": {
+        "contract": "./components/components-overlays-popover.json",
+        "overview": "../?path=/docs/components-surfaces-popover-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-surfaces-popover-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-surfaces-popover-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-surfaces-popover-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-overlays-sheet",
+      "name": "Sheet",
+      "category": "Surfaces",
+      "tokenGroup": "surface",
+      "kind": "component",
+      "aliases": [
+        "drawer",
+        "panel",
+        "sheet"
+      ],
+      "purpose": "A nonmodal, resizable panel that pushes content within its own bounded workspace.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/sheet"
+      ],
+      "links": {
+        "contract": "./components/components-overlays-sheet.json",
+        "overview": "../?path=/docs/components-surfaces-sheet-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-surfaces-sheet-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-surfaces-sheet-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-surfaces-sheet-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-overlays-sidesheet",
+      "name": "SideSheet",
+      "category": "Surfaces",
+      "tokenGroup": "surface",
+      "kind": "component",
+      "aliases": [
+        "side drawer",
+        "side panel"
+      ],
+      "purpose": "A right-side detail panel that can be modal or docked beside the workspace.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/side-sheet"
+      ],
+      "links": {
+        "contract": "./components/components-overlays-sidesheet.json",
+        "overview": "../?path=/docs/components-surfaces-sidesheet-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-surfaces-sidesheet-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-surfaces-sidesheet-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-surfaces-sidesheet-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-overlays-tooltip",
+      "name": "Tooltip",
+      "category": "Feedback",
+      "tokenGroup": "feedback",
+      "kind": "component",
+      "aliases": [
+        "hint",
+        "hover help"
+      ],
+      "purpose": "Brief supplementary information associated with a hoverable and keyboard-focusable trigger.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/tooltip"
+      ],
+      "links": {
+        "contract": "./components/components-overlays-tooltip.json",
+        "overview": "../?path=/docs/components-feedback-tooltip-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-feedback-tooltip-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-feedback-tooltip-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-feedback-tooltip-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-people-avatar",
+      "name": "Avatar",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "initials",
+        "person",
+        "profile image"
+      ],
+      "purpose": "A person or entity image with initials fallback and optional presence status.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/avatar"
+      ],
+      "links": {
+        "contract": "./components/components-people-avatar.json",
+        "overview": "../?path=/docs/components-data-display-avatar-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-avatar-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-avatar-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-avatar-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-surfaces-card",
+      "name": "Card",
+      "category": "Surfaces",
+      "tokenGroup": "surface",
+      "kind": "component",
+      "aliases": [
+        "container",
+        "content card",
+        "surface"
+      ],
+      "purpose": "A composable section surface with header, title, description, content, and footer slots.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/card"
+      ],
+      "links": {
+        "contract": "./components/components-surfaces-card.json",
+        "overview": "../?path=/docs/components-surfaces-card-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-surfaces-card-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-surfaces-card-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-surfaces-card-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-surfaces-separator",
+      "name": "Separator",
+      "category": "Layout",
+      "tokenGroup": "layout",
+      "kind": "component",
+      "aliases": [
+        "divider",
+        "rule"
+      ],
+      "purpose": "A horizontal or vertical divider for a meaningful boundary between adjacent content.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/separator"
+      ],
+      "links": {
+        "contract": "./components/components-surfaces-separator.json",
+        "overview": "../?path=/docs/components-layout-separator-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-layout-separator-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-layout-separator-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-layout-separator-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-tags-countbadge",
+      "name": "CountBadge",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "badge",
+        "count",
+        "counter"
+      ],
+      "purpose": "A compact count that can visually cap large values while preserving their full meaning.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/count-badge"
+      ],
+      "links": {
+        "contract": "./components/components-tags-countbadge.json",
+        "overview": "../?path=/docs/components-data-display-countbadge-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-countbadge-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-countbadge-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-countbadge-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-tags-kbd",
+      "name": "Kbd",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "keyboard shortcut",
+        "keycap"
+      ],
+      "purpose": "A visual keyboard-key label with native kbd semantics.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/kbd"
+      ],
+      "links": {
+        "contract": "./components/components-tags-kbd.json",
+        "overview": "../?path=/docs/components-data-display-kbd-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-kbd-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-kbd-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-kbd-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-tags-severitybadge",
+      "name": "SeverityBadge",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "badge",
+        "priority",
+        "severity label"
+      ],
+      "purpose": "A severity label using the shared critical, high, medium, low, and info scale.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/severity-badge"
+      ],
+      "links": {
+        "contract": "./components/components-tags-severitybadge.json",
+        "overview": "../?path=/docs/components-data-display-severitybadge-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-severitybadge-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-severitybadge-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-severitybadge-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-tags-statusbadge",
+      "name": "StatusBadge",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "badge",
+        "state label",
+        "status pill"
+      ],
+      "purpose": "A textual lifecycle status for new, in-review, in-progress, completed, or cancelled records.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/status-badge"
+      ],
+      "links": {
+        "contract": "./components/components-tags-statusbadge.json",
+        "overview": "../?path=/docs/components-data-display-statusbadge-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-statusbadge-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-statusbadge-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-statusbadge-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-tags-tag",
+      "name": "Tag",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "chip",
+        "chips",
+        "removable label",
+        "tag",
+        "tags"
+      ],
+      "purpose": "A compact label with distinct static, removable, interactive, counter, and status behaviors.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/tag"
+      ],
+      "links": {
+        "contract": "./components/components-tags-tag.json",
+        "overview": "../?path=/docs/components-data-display-tag-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-tag-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-tag-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-tag-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-utilities-scrollarea",
+      "name": "ScrollArea",
+      "category": "Layout",
+      "tokenGroup": "layout",
+      "kind": "component",
+      "aliases": [
+        "scroll container",
+        "scrollbar"
+      ],
+      "purpose": "A named, keyboard-focusable native scrolling region with a configurable maximum height.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/scroll-area"
+      ],
+      "links": {
+        "contract": "./components/components-utilities-scrollarea.json",
+        "overview": "../?path=/docs/components-layout-scrollarea-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-layout-scrollarea-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-layout-scrollarea-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-layout-scrollarea-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "foundations-icons",
+      "name": "Iconography",
+      "category": "Foundations",
+      "tokenGroup": "iconography",
+      "kind": "foundation",
+      "aliases": [],
+      "purpose": "A shared named icon adapter for consistent stroke-based interface artwork.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/icons"
+      ],
+      "links": {
+        "contract": "./components/foundations-icons.json",
+        "overview": "../?path=/docs/foundations-icons-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/foundations-icons-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/foundations-icons-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/foundations-icons-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-ai-aidiffreview",
+      "name": "AiDiffReview",
+      "category": "AI Assistance",
+      "tokenGroup": "ai-assistance",
+      "kind": "pattern",
+      "aliases": [
+        "ai review",
+        "approval",
+        "proposed changes"
+      ],
+      "purpose": "An explicit approve or reject boundary around an AI-proposed document change.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-ai-aidiffreview.json",
+        "overview": "../?path=/docs/patterns-ai-assistance-aidiffreview-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-ai-assistance-aidiffreview-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-ai-assistance-aidiffreview-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-ai-assistance-aidiffreview-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-ai-aipanel",
+      "name": "AiPanel",
+      "category": "AI Assistance",
+      "tokenGroup": "ai-assistance",
+      "kind": "pattern",
+      "aliases": [
+        "ai chat",
+        "assistant",
+        "conversation"
+      ],
+      "purpose": "A docked or overlay assistant workspace with a conversation, context-aware composer, and cancellable streaming.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-ai-aipanel.json",
+        "overview": "../?path=/docs/patterns-ai-assistance-aipanel-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-ai-assistance-aipanel-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-ai-assistance-aipanel-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-ai-assistance-aipanel-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-ai-promptinput",
+      "name": "PromptInput",
+      "category": "AI Assistance",
+      "tokenGroup": "ai-assistance",
+      "kind": "pattern",
+      "aliases": [
+        "ai prompt",
+        "chat input",
+        "composer"
+      ],
+      "purpose": "An AI message composer with removable context, slash commands, and send or stop controls.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-ai-promptinput.json",
+        "overview": "../?path=/docs/patterns-ai-assistance-promptinput-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-ai-assistance-promptinput-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-ai-assistance-promptinput-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-ai-assistance-promptinput-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-filterbar",
+      "name": "FilterBar",
+      "category": "Filtering",
+      "tokenGroup": "filtering",
+      "kind": "pattern",
+      "aliases": [
+        "applied filters",
+        "filter toolbar"
+      ],
+      "purpose": "A controlled search and table toolbar with mutually exclusive inline or sidebar filter editing.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-filterbar.json",
+        "overview": "../?path=/docs/patterns-filtering-filterbar-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-filtering-filterbar-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-filtering-filterbar-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-filtering-filterbar-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-filterpanel",
+      "name": "FilterPanel",
+      "category": "Filtering",
+      "tokenGroup": "filtering",
+      "kind": "pattern",
+      "aliases": [
+        "faceted filters",
+        "filter drawer"
+      ],
+      "purpose": "A record-filter sidebar with searchable checkbox facets, contextual counts, and collapsible groups.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-filterpanel.json",
+        "overview": "../?path=/docs/patterns-filtering-filterpanel-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-filtering-filterpanel-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-filtering-filterpanel-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-filtering-filterpanel-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-notificationcenter",
+      "name": "NotificationCenter",
+      "category": "Communication",
+      "tokenGroup": "communication",
+      "kind": "pattern",
+      "aliases": [
+        "inbox",
+        "notifications panel"
+      ],
+      "purpose": "A right-side notification panel with search, all/unread views, read state, and optional item actions.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-notificationcenter.json",
+        "overview": "../?path=/docs/patterns-communication-notificationcenter-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-communication-notificationcenter-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-communication-notificationcenter-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-communication-notificationcenter-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-onboardingchecklist",
+      "name": "OnboardingChecklist",
+      "category": "Workflows",
+      "tokenGroup": "workflow",
+      "kind": "pattern",
+      "aliases": [
+        "getting started",
+        "setup checklist"
+      ],
+      "purpose": "A host-controlled setup checklist with measurable progress and optional actions per step.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-onboardingchecklist.json",
+        "overview": "../?path=/docs/patterns-workflows-onboardingchecklist-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-workflows-onboardingchecklist-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-workflows-onboardingchecklist-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-workflows-onboardingchecklist-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-pageheader",
+      "name": "PageHeader",
+      "category": "Page Structure",
+      "tokenGroup": "page-structure",
+      "kind": "pattern",
+      "aliases": [
+        "page actions",
+        "page title"
+      ],
+      "purpose": "A consistent page title hierarchy with optional back navigation, breadcrumbs, metadata, actions, and secondary content.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-pageheader.json",
+        "overview": "../?path=/docs/patterns-page-structure-pageheader-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-page-structure-pageheader-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-page-structure-pageheader-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-page-structure-pageheader-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-unsavedchangesbar",
+      "name": "UnsavedChangesBar",
+      "category": "Workflows",
+      "tokenGroup": "workflow",
+      "kind": "pattern",
+      "aliases": [
+        "pending changes",
+        "save bar"
+      ],
+      "purpose": "An inline save/discard boundary for host-owned edited data.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-unsavedchangesbar.json",
+        "overview": "../?path=/docs/patterns-workflows-unsavedchangesbar-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-workflows-unsavedchangesbar-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-workflows-unsavedchangesbar-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-workflows-unsavedchangesbar-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-wizard-project-setup",
+      "name": "Project setup wizard",
+      "category": "Workflows",
+      "tokenGroup": "workflow",
+      "kind": "pattern",
+      "aliases": [
+        "multi step form",
+        "project setup",
+        "wizard"
+      ],
+      "purpose": "",
+      "importPaths": [
+        "@dimitriszoitas/aegis-ui/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-wizard-project-setup.json",
+        "overview": "../?path=/docs/patterns-workflows-project-setup-wizard-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-workflows-project-setup-wizard-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-workflows-project-setup-wizard-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-workflows-project-setup-wizard-overview--docs&docsTab=tokens"
+      }
+    }
+  ]
+}

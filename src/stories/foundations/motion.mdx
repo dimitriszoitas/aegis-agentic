@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { MotionTimingExamples } from './foundation-detail-examples';
+
+<Meta title="Foundations/Motion" id="foundations-motion" />
+
+# Motion
+
+Motion explains a change of state or position. Keep feedback immediate and transitions short enough that they do not delay the next action.
+
+## Duration and easing
+
+The semantic timing roles are `--semantic-motion-fast`, `--semantic-motion-base`, and `--semantic-motion-slide`; `--semantic-ease-out` supplies the settling curve. They reference primitive durations and curve coordinates directly. Components select them through group tokens such as `--group-trigger-button-motion-fast`. Choose a role that describes the transition rather than imposing one duration on every component.
+
+<MotionTimingExamples />
+
+The displayed values are the standard declarations from the token source. With reduced motion enabled, the runtime duration roles resolve to zero and the samples move directly to their destination.
+
+## Navigation and surfaces
+
+Sidebar width and padding use `--group-navigation-motion-fast`. Labels fade and clip without wrapping, and the toggle remains a stable target. Fundamental uses edge-aligned navigation and workspace panels. Fundamental Floating contains navigation and assistant panels with rounded corners and exterior insets.
+
+Switching presentation preserves font, size, spacing, content, and interaction state. Styling roles can map differently across the four configurations. Corner geometry is not animated. Opening a surface must also maintain its keyboard and focus behavior; animation alone does not provide that behavior.
+
+## Reduced motion
+
+Respect `prefers-reduced-motion` in every animation and transition. State changes must remain understandable when movement is removed. A loading or streaming indicator should explain progress without preventing interaction with the rest of the workspace.
+
+Avoid automatic decorative loops. When continuous movement is necessary, use the component's reduced-motion treatment and keep the underlying status available as text. The timing example above moves only after activation and leaves focus on its button.

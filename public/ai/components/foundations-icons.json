@@ -1,0 +1,240 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "foundations-icons",
+  "name": "Iconography",
+  "category": "Foundations",
+  "tokenGroup": "iconography",
+  "kind": "foundation",
+  "aliases": [],
+  "purpose": "A shared named icon adapter for consistent stroke-based interface artwork.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/icons"
+  ],
+  "links": {
+    "contract": "./foundations-icons.json",
+    "overview": "../../?path=/docs/foundations-icons-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/foundations-icons-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/foundations-icons-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/foundations-icons-overview--docs&docsTab=tokens"
+  },
+  "description": "Browse Hugeicons with search, paging, adjustable size and stroke width, and copyable imports. Counts include named exports and compatibility aliases. Local development additionally offers the installed Untitled UI reference pack; that pack and its selector are excluded from production builds. Application components use individual Hugeicons icons.",
+  "exports": [
+    "Search"
+  ],
+  "importStatements": [
+    "import { Search } from '@dimitriszoitas/aegis-ui/icons';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "16",
+        "20",
+        "24"
+      ]
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "A shared named icon adapter for consistent stroke-based interface artwork.",
+    "usage": [
+      "Import the specific named icons needed by a component. Keep full icon-pack namespace imports confined to the gallery.",
+      "Choose an icon that reinforces a visible action or concept, and use the component’s size and stroke controls rather than altering source SVG artwork."
+    ],
+    "accessibility": [
+      "Decorative icons beside text should be hidden from assistive technology. Icon-only actions need a named IconButton or equivalent control.",
+      "An icon does not supply interaction semantics or a tooltip by itself; its containing component owns those behaviors."
+    ],
+    "context": [
+      "Use the searchable gallery to inspect and copy the installed library’s supported names and imports."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-hidden"
+    ],
+    "nativeElements": [],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "react"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/icon/index.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/package/styles.css",
+    "src/stories/foundations/icons.stories.tsx",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "foundations-icons--all-icons",
+      "name": "All Icons",
+      "url": "../../?path=/story/foundations-icons--all-icons",
+      "sourceFile": "src/stories/foundations/icons.stories.tsx"
+    },
+    {
+      "id": "foundations-icons--library-preview",
+      "name": "Library Preview",
+      "url": "../../?path=/story/foundations-icons--library-preview",
+      "sourceFile": "src/stories/foundations/icons.stories.tsx"
+    },
+    {
+      "id": "foundations-icons--search-and-browse",
+      "name": "Search And Browse",
+      "url": "../../?path=/story/foundations-icons--search-and-browse",
+      "sourceFile": "src/stories/foundations/icons.stories.tsx"
+    },
+    {
+      "id": "foundations-icons--no-results",
+      "name": "No Results",
+      "url": "../../?path=/story/foundations-icons--no-results",
+      "sourceFile": "src/stories/foundations/icons.stories.tsx"
+    },
+    {
+      "id": "foundations-icons--library-switching",
+      "name": "Library Switching",
+      "url": "../../?path=/story/foundations-icons--library-switching",
+      "sourceFile": "src/stories/foundations/icons.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "owned",
+      "component": "Iconography",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

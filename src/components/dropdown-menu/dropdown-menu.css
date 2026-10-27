@@ -1,0 +1,151 @@
+.aegis-menu-positioner {
+  z-index: var(--group-trigger-overlay-z-dropdown);
+}
+.aegis-menu-content {
+  z-index: var(--group-trigger-overlay-z-dropdown);
+  min-width: var(--group-trigger-overlay-size-min-width-wide-panel-snug);
+  max-height: var(--available-height);
+  max-width: calc(
+    var(--group-trigger-overlay-size-max-width-100vw) -
+      var(--group-trigger-overlay-space-max-width-roomy)
+  );
+  overflow: auto;
+  padding: var(--group-trigger-overlay-space-padding-snug);
+  border: var(--group-trigger-overlay-border-width-hairline) solid
+    var(--group-trigger-overlay-color-border-subtle);
+  border-radius: var(--group-trigger-overlay-radius-border-radius-strong);
+  background: var(--group-trigger-overlay-color-surface-surface-raised);
+  color: var(--group-trigger-overlay-color-content-primary);
+  box-shadow: var(--group-trigger-overlay-shadow-floating);
+  font-family: var(--group-trigger-overlay-font-family-ui);
+  font-size: var(--group-trigger-overlay-font-size-body);
+  animation: aegis-menu-enter var(--group-trigger-overlay-motion-fast)
+    var(--group-trigger-overlay-ease-out);
+  transform-origin: var(--transform-origin);
+}
+.aegis-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--group-trigger-overlay-space-gap-compact);
+  position: relative;
+  min-height: var(--group-trigger-overlay-size-min-height-compact-content-small);
+  padding: var(--group-trigger-overlay-space-padding-compact)
+    var(--group-trigger-overlay-space-padding-regular);
+  border-radius: var(--group-trigger-overlay-radius-border-radius-strong);
+  cursor: default;
+  outline: none;
+  user-select: none;
+}
+.aegis-menu-item[data-highlighted],
+.aegis-menu-item[data-open] {
+  background: var(--group-trigger-overlay-color-surface-hover);
+}
+.aegis-menu-item[data-highlighted] {
+  box-shadow: inset var(--group-trigger-overlay-number-0) var(--group-trigger-overlay-number-0)
+    var(--group-trigger-overlay-number-0) var(--group-trigger-overlay-size-box-shadow-micro-compact)
+    var(--group-trigger-overlay-ring-focus);
+}
+.aegis-menu-item[data-disabled] {
+  color: var(--group-trigger-overlay-color-content-tertiary);
+  opacity: var(--group-trigger-overlay-opacity-strength-prominent);
+  pointer-events: none;
+}
+.aegis-menu-item-label {
+  flex: var(--group-trigger-overlay-flex-fill);
+}
+.aegis-menu-icon {
+  display: inline-flex;
+  flex: var(--group-trigger-overlay-flex-none) var(--group-trigger-overlay-flex-none) auto;
+  color: var(--group-trigger-overlay-color-content-secondary);
+}
+.aegis-menu-icon svg {
+  width: var(--group-trigger-measurement-icon-md);
+  height: var(--group-trigger-measurement-icon-md);
+}
+.aegis-menu-item kbd {
+  margin-left: var(--group-trigger-overlay-space-margin-left-roomy);
+  font-family: var(--group-trigger-overlay-font-family-code);
+  font-size: var(--group-trigger-overlay-font-size-annotation-s);
+  color: var(--group-trigger-overlay-color-content-tertiary);
+}
+.aegis-menu-sub-arrow {
+  margin-left: auto;
+  color: var(--group-trigger-overlay-color-content-secondary);
+}
+.aegis-menu-item-destroy,
+.aegis-menu-item-destroy .aegis-menu-icon {
+  color: var(--group-trigger-overlay-color-danger-foreground);
+}
+.aegis-menu-item-destroy[data-highlighted] {
+  background: var(--group-trigger-overlay-color-danger-soft);
+}
+.aegis-menu-checkable {
+  padding-inline-end: var(--group-trigger-overlay-size-padding-inline-end-compact-content-small);
+}
+.aegis-menu-indicator {
+  position: absolute;
+  inset-inline-end: var(--group-trigger-overlay-space-inset-inline-end-regular);
+  width: var(--group-trigger-overlay-size-width-glyph-comfortable);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--group-trigger-overlay-color-action-foreground);
+}
+.aegis-menu-label {
+  color: var(--group-trigger-overlay-color-content-secondary);
+  font-size: var(--group-trigger-overlay-font-size-annotation-s);
+  font-weight: var(--group-trigger-overlay-font-weight-semibold);
+  padding: var(--group-trigger-overlay-space-padding-compact)
+    var(--group-trigger-overlay-space-padding-regular)
+    var(--group-trigger-overlay-space-padding-snug);
+}
+.aegis-menu-separator {
+  height: var(--group-trigger-overlay-size-height-micro-small);
+  background: var(--group-trigger-overlay-color-border-subtle);
+  margin: var(--group-trigger-overlay-space-margin-snug);
+}
+@keyframes aegis-menu-enter {
+  from {
+    opacity: var(--group-trigger-overlay-opacity-hidden);
+    transform: translateY(var(--group-trigger-overlay-size-transform-negative-3));
+  }
+  to {
+    opacity: var(--group-trigger-overlay-opacity-visible);
+    transform: translateY(var(--group-trigger-overlay-number-0));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aegis-menu-content {
+    animation: none;
+  }
+}
+
+.aegis-menu-demo-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--group-trigger-overlay-space-gap-compact);
+  min-height: var(--group-trigger-overlay-size-min-height-compact-content-small);
+  padding: var(--group-trigger-overlay-space-padding-compact)
+    var(--group-trigger-overlay-space-padding-regular);
+  border: var(--group-trigger-overlay-border-width-hairline) solid
+    var(--group-trigger-overlay-color-border-default);
+  border-radius: var(--group-trigger-overlay-radius-border-radius-bold);
+  background: var(--group-trigger-overlay-color-surface-surface);
+  color: var(--group-trigger-overlay-color-content-primary);
+  font: inherit;
+  font-size: var(--group-trigger-overlay-font-size-body);
+  cursor: pointer;
+}
+.aegis-menu-demo-trigger:hover:not(:disabled) {
+  background: var(--group-trigger-overlay-color-surface-hover);
+}
+.aegis-menu-demo-trigger:focus-visible {
+  outline: var(--group-trigger-overlay-border-width-regular) solid
+    var(--group-trigger-overlay-ring-focus);
+  outline-offset: var(--group-trigger-overlay-size-outline-offset-micro-compact);
+}
+.aegis-menu-demo-trigger:disabled {
+  opacity: var(--group-trigger-overlay-opacity-strength-balanced);
+  cursor: not-allowed;
+}

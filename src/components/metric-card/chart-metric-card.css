@@ -1,0 +1,121 @@
+.aegis-chart-metric-card {
+  min-width: var(--group-data-viz-metric-card-number-0);
+  width: var(--group-data-viz-metric-card-size-width-full);
+  padding: var(--group-data-viz-metric-card-space-padding-roomy);
+}
+.aegis-chart-metric-header h3 {
+  margin: var(--group-data-viz-metric-card-number-0) var(--group-data-viz-metric-card-number-0)
+    var(--group-data-viz-metric-card-space-margin-compact);
+  font-size: var(--group-data-viz-metric-card-font-size-body);
+  font-weight: var(--group-data-viz-metric-card-font-weight-medium);
+  color: var(--group-data-viz-metric-card-color-content-primary);
+}
+.aegis-chart-metric-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--group-data-viz-metric-card-space-gap-compact)
+    var(--group-data-viz-metric-card-space-gap-comfortable);
+}
+.aegis-chart-metric-value {
+  min-width: var(--group-data-viz-metric-card-number-0);
+  max-width: var(--group-data-viz-metric-card-size-max-width-full);
+  font-size: var(--group-data-viz-metric-card-font-size-heading-xl);
+  line-height: var(--group-data-viz-metric-card-font-leading-display);
+  font-weight: var(--group-data-viz-metric-card-font-weight-semibold);
+  letter-spacing: var(--group-data-viz-metric-card-font-tracking-display);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.aegis-chart-metric-comparison,
+.aegis-chart-metric-delta {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-data-viz-metric-card-space-gap-snug);
+  font-size: var(--group-data-viz-metric-card-font-size-body);
+  color: var(--group-data-viz-metric-card-color-content-secondary);
+}
+.aegis-chart-metric-delta {
+  font-variant-numeric: tabular-nums;
+}
+.aegis-chart-metric-delta[data-trend='success'] {
+  color: var(--group-data-viz-metric-card-color-success-foreground);
+}
+.aegis-chart-metric-delta[data-trend='destroy'] {
+  color: var(--group-data-viz-metric-card-color-danger-foreground);
+}
+.aegis-chart-metric-latest {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--group-data-viz-metric-card-space-gap-regular);
+  margin-block: var(--group-data-viz-metric-card-space-margin-block-roomy)
+    var(--group-data-viz-metric-card-space-margin-block-compact);
+  font-size: var(--group-data-viz-metric-card-font-size-body);
+  color: var(--group-data-viz-metric-card-color-content-secondary);
+}
+.aegis-chart-metric-latest strong {
+  font-weight: var(--group-data-viz-metric-card-font-weight-medium);
+  font-variant-numeric: tabular-nums;
+  color: var(--group-data-viz-metric-card-color-content-primary);
+}
+.aegis-chart-metric-card .aegis-chart-metric-plot {
+  position: relative;
+  padding: var(--group-data-viz-metric-card-number-0);
+  border: var(--group-data-viz-metric-card-number-0);
+  background: var(--group-data-viz-metric-card-color-transparent);
+  box-shadow: var(--group-data-viz-metric-card-elevation-none);
+}
+/* Keep the chart figure's accessible name without repeating its visible metric heading. */
+.aegis-chart-metric-plot .aegis-chart-header {
+  position: absolute;
+  width: var(--group-data-viz-metric-card-size-width-micro-small);
+  height: var(--group-data-viz-metric-card-size-height-micro-small);
+  padding: var(--group-data-viz-metric-card-number-0);
+  margin: var(--group-data-viz-metric-card-size-margin-negative-1);
+  overflow: hidden;
+  clip-path: inset(var(--group-data-viz-metric-card-size-clip-path-half));
+  white-space: nowrap;
+}
+.aegis-chart-metric-mini {
+  min-width: var(--group-data-viz-metric-card-number-0);
+}
+.aegis-chart-metric-mini > .aegis-sparkline {
+  display: block;
+  width: var(--group-data-viz-metric-card-size-width-full);
+  max-width: var(--group-data-viz-metric-card-size-max-width-full);
+  height: auto;
+}
+.aegis-chart-metric-range {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--group-data-viz-metric-card-space-gap-compact);
+  margin-top: var(--group-data-viz-metric-card-space-margin-top-compact);
+  color: var(--group-data-viz-metric-card-color-content-secondary);
+  font-size: var(--group-data-viz-metric-card-font-size-label);
+}
+.aegis-chart-metric-card[data-variant='compact'] > .aegis-chart-data {
+  margin-top: var(--group-data-viz-metric-card-space-margin-top-comfortable);
+}
+.aegis-chart-metric-empty {
+  padding-block: var(--group-data-viz-metric-card-space-padding-block-roomy);
+  color: var(--group-data-viz-metric-card-color-content-secondary);
+  font-size: var(--group-data-viz-metric-card-font-size-body);
+}
+.aegis-chart-metric-showcase {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      min(
+        var(--group-data-viz-metric-card-size-grid-template-columns-full),
+        var(--group-data-viz-metric-card-size-grid-template-columns-canvas-tiny)
+      ),
+      var(--group-data-viz-metric-card-track-flex)
+    )
+  );
+  gap: var(--group-data-viz-metric-card-space-gap-roomy);
+  max-width: var(--group-data-viz-metric-card-size-max-width-extended-canvas-roomy);
+  align-items: start;
+}

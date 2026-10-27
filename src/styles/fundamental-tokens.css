@@ -1,0 +1,279 @@
+/* Fundamental has two base surface levels, plus a distinct transient overlay.
+   Light/dark values resolve at the consuming element, including scoped previews. */
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']),
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  :is(.dark, .aegis-theme-light) {
+  --font-ui: Figtree, system-ui, sans-serif;
+  --font-code: 'JetBrains Mono', ui-monospace, monospace;
+  --font-mono: var(--font-code);
+  --text-xs: 13px;
+  --text-sm: 14px;
+  --text-base: 14px;
+  --title-page-size: 26px;
+  --title-section-size: 16px;
+  --title-panel-size: 16px;
+  --title-weight: 600;
+  --metric-value-size: 28px;
+  /* More separation between content groups; table densities remain unchanged. */
+  --layout-page-padding: var(--space-7);
+  --layout-section-gap: var(--space-6);
+  --layout-card-padding: var(--space-5);
+  --layout-panel-padding: var(--space-6);
+  --color-bg-canvas: light-dark(#f6f7f8, #0d0d0e);
+  --color-bg-surface: light-dark(#ffffff, #171718);
+  --color-bg-surface-raised: var(--color-bg-surface);
+  --fundamental-nav-surface: light-dark(#ffffff, #09090a);
+  --fundamental-overlay-surface: light-dark(#ffffff, #212122);
+  --color-bg-hover: color-mix(in srgb, var(--color-text-primary) 4%, var(--color-bg-canvas));
+  --color-bg-selected: var(--color-bg-canvas);
+  --color-text-primary: light-dark(#202124, #f2f3f5);
+  --color-text-secondary: light-dark(#626670, #a6aab3);
+  --color-text-tertiary: light-dark(#6a6e77, #9399a3);
+  --fundamental-nav-selected: color-mix(
+    in srgb,
+    var(--color-text-primary) 6%,
+    var(--color-bg-canvas)
+  );
+  --color-border-subtle: light-dark(#eceef1, #212224);
+  --color-border-default: light-dark(#e3e5e9, #212224);
+  --fundamental-control-fill: light-dark(#ffffff, #1b1b1c);
+  --fundamental-control-border: light-dark(#eaebee, #2c2d2f);
+  --fundamental-control-border-hover: light-dark(#d8dae0, #38393c);
+  /* Small controls retain a recognizable boundary; structural borders stay quiet. */
+  --color-border-strong: light-dark(#7d828c, #727986);
+  --color-on-intent: light-dark(#ffffff, #08090a);
+  --color-scrim: light-dark(rgb(8 9 10 / 32%), rgb(8 9 10 / 65%));
+  --color-function-bg: light-dark(#356ac3, #7ba5ed);
+  --color-function-fg: light-dark(#356ac3, #7ba5ed);
+  --color-function-soft: color-mix(in srgb, var(--color-function-fg) 8%, var(--color-bg-surface));
+  --color-function-border: color-mix(
+    in srgb,
+    var(--color-function-fg) 24%,
+    var(--color-bg-surface)
+  );
+  --fundamental-action-hover: light-dark(#2c5caf, #93b7f2);
+  --ring-focus: var(--color-function-fg);
+  --color-destroy-bg: light-dark(#c72b2b, #ff4d4f);
+  --color-destroy-fg: var(--color-destroy-bg);
+  --color-success-bg: light-dark(#117e50, #18b85e);
+  --color-success-fg: var(--color-success-bg);
+  --color-warning-bg: light-dark(#986000, #eac000);
+  --color-warning-fg: var(--color-warning-bg);
+  --color-ai-lime-bg: #b9ef54;
+  --color-ai-lime-fg: light-dark(#466b09, #c6f76b);
+  --color-ai-bg: var(--color-ai-lime-bg);
+  --color-ai-fg: var(--color-ai-lime-fg);
+  --color-on-ai: #10181f;
+  --color-status-review-fg: light-dark(#7540dc, #b18aff);
+  /* Retain the original stop aliases for existing gradient consumers. */
+  --color-ai-pink-bg: var(--color-ai-blue-bg);
+  --color-ai-pink-fg: var(--color-ai-blue-fg);
+  --color-ai-blue-bg: #79a5ff;
+  --color-ai-blue-fg: light-dark(#2455c4, #8bb5ff);
+  --color-ai-purple-bg: #bf92ff;
+  --color-ai-purple-fg: light-dark(#7335b8, #c6a1ff);
+  --color-destroy-soft: color-mix(in srgb, var(--color-destroy-fg) 7%, var(--color-bg-surface));
+  --color-success-soft: color-mix(in srgb, var(--color-success-fg) 7%, var(--color-bg-surface));
+  --color-warning-soft: color-mix(in srgb, var(--color-warning-fg) 7%, var(--color-bg-surface));
+  --color-ai-soft: color-mix(in srgb, var(--color-ai-lime-bg) 14%, var(--color-bg-surface));
+  --color-ai-pink-soft: var(--color-ai-blue-soft);
+  --color-ai-blue-soft: color-mix(in srgb, var(--color-ai-blue-bg) 14%, var(--color-bg-surface));
+  --color-ai-purple-soft: color-mix(
+    in srgb,
+    var(--color-ai-purple-bg) 14%,
+    var(--color-bg-surface)
+  );
+  --color-ai-surface: var(--color-bg-surface);
+  --color-destroy-border: color-mix(in srgb, var(--color-destroy-fg) 24%, var(--color-bg-surface));
+  --color-success-border: color-mix(in srgb, var(--color-success-fg) 24%, var(--color-bg-surface));
+  --color-warning-border: color-mix(in srgb, var(--color-warning-fg) 24%, var(--color-bg-surface));
+  --color-ai-border: color-mix(in srgb, var(--color-ai-fg) 24%, var(--color-bg-surface));
+  --gradient-ai: linear-gradient(
+    115deg,
+    var(--color-ai-lime-bg) 8%,
+    var(--color-ai-blue-bg) 50%,
+    var(--color-ai-purple-bg) 92%
+  );
+  --gradient-ai-text: linear-gradient(
+    115deg,
+    var(--color-ai-lime-fg),
+    var(--color-ai-blue-fg),
+    var(--color-ai-purple-fg)
+  );
+  --gradient-ai-border: var(--gradient-ai-text);
+  --gradient-ai-soft: linear-gradient(
+    115deg,
+    var(--color-ai-soft),
+    var(--color-ai-blue-soft),
+    var(--color-ai-purple-soft)
+  );
+  --fundamental-ai-hover: linear-gradient(
+    115deg,
+    color-mix(in srgb, var(--color-ai-lime-bg) 92%, var(--color-on-ai)) 8%,
+    color-mix(in srgb, var(--color-ai-blue-bg) 92%, var(--color-on-ai)) 50%,
+    color-mix(in srgb, var(--color-ai-purple-bg) 92%, var(--color-on-ai)) 92%
+  );
+  --gradient-ai-surface: linear-gradient(
+    115deg,
+    color-mix(in srgb, var(--color-ai-lime-bg) 9%, var(--color-ai-surface)),
+    color-mix(in srgb, var(--color-ai-blue-bg) 9%, var(--color-ai-surface)),
+    color-mix(in srgb, var(--color-ai-purple-bg) 9%, var(--color-ai-surface))
+  );
+  --badge-border-strength: 45%;
+  --color-severity-critical-fg: light-dark(#d62b2b, #ff4d4f);
+  --color-severity-high-fg: light-dark(#c54f10, #ff8a3d);
+  --color-severity-medium-fg: light-dark(#9b6b00, #eac000);
+  --color-severity-low-fg: var(--color-function-fg);
+  --color-severity-info-fg: light-dark(#65707e, #00b8cc);
+  --color-severity-critical-bg: color-mix(
+    in srgb,
+    var(--color-severity-critical-fg) 8%,
+    var(--color-bg-surface)
+  );
+  --color-severity-critical-border: color-mix(
+    in srgb,
+    var(--color-severity-critical-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-high-bg: color-mix(
+    in srgb,
+    var(--color-severity-high-fg) 8%,
+    var(--color-bg-surface)
+  );
+  --color-severity-high-border: color-mix(
+    in srgb,
+    var(--color-severity-high-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-medium-bg: color-mix(
+    in srgb,
+    var(--color-severity-medium-fg) 8%,
+    var(--color-bg-surface)
+  );
+  --color-severity-medium-border: color-mix(
+    in srgb,
+    var(--color-severity-medium-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-low-bg: color-mix(
+    in srgb,
+    var(--color-severity-low-fg) 8%,
+    var(--color-bg-surface)
+  );
+  --color-severity-low-border: color-mix(
+    in srgb,
+    var(--color-severity-low-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-severity-info-bg: color-mix(
+    in srgb,
+    var(--color-severity-info-fg) 8%,
+    var(--color-bg-surface)
+  );
+  --color-severity-info-border: color-mix(
+    in srgb,
+    var(--color-severity-info-fg) var(--badge-border-strength),
+    var(--color-bg-surface)
+  );
+  --color-chart-1: var(--color-text-secondary);
+  --color-chart-2: var(--color-function-fg);
+  --color-chart-3: var(--color-ai-fg);
+  --color-chart-4: var(--color-destroy-fg);
+  --color-chart-5: var(--color-warning-fg);
+  --color-chart-6: var(--color-success-fg);
+  --color-chart-function: var(--color-chart-1);
+  --color-chart-ai: var(--color-ai-fg);
+  --color-chart-success: var(--color-success-fg);
+  --color-chart-warning: var(--color-warning-fg);
+  --color-chart-destroy: var(--color-destroy-fg);
+  --color-chart-severity-critical: var(--color-severity-critical-fg);
+  --color-chart-severity-high: var(--color-severity-high-fg);
+  --color-chart-severity-medium: var(--color-severity-medium-fg);
+  --color-chart-severity-low: var(--color-severity-low-fg);
+  --color-chart-severity-info: var(--color-severity-info-fg);
+  --color-code-surface: var(--color-bg-surface);
+  --color-syntax-key: var(--color-function-fg);
+  --color-syntax-keyword: var(--color-ai-fg);
+  --color-syntax-string: var(--color-success-fg);
+  --color-syntax-number: var(--color-warning-fg);
+  --color-syntax-comment: var(--color-text-tertiary);
+  --elevation-raised: none;
+  --elevation-floating: none;
+  --elevation-overlay: none;
+  --shadow-raised: none;
+  --shadow-floating: none;
+  --shadow-overlay: none;
+  --chrome-inset: 0px;
+  --chrome-gap: 0px;
+  --chrome-radius: 0px;
+  --chrome-shadow: none;
+  --chrome-overlay-shadow: none;
+  --chrome-nav-border-width: 0px;
+  --chrome-sheet-border-width: 0 0 0 1px;
+  --sidebar-radius-expanded: 0px;
+  --sidebar-radius-collapsed: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
+  --radius-2xl: 8px;
+  --radius-full: 999px;
+  --surface-radius: 8px;
+  --surface-radius-floating: 8px;
+  --surface-radius-nested: 6px;
+  --button-radius-sm: 5px;
+  --button-radius-md: 6px;
+  --button-radius-lg: 6px;
+  --control-radius-xs: 4px;
+  --control-radius-sm: 5px;
+  --control-radius-md: 6px;
+  --control-radius-lg: 6px;
+  --chip-radius: 4px;
+  --scrollbar-thumb: var(--color-border-default);
+  --scrollbar-thumb-hover: var(--color-border-strong);
+  --scrollbar-thumb-active: var(--color-text-secondary);
+  /* Rebind aliases so scoped previews and packaged utilities use these roles. */
+  --background: var(--color-bg-surface);
+  --foreground: var(--color-text-primary);
+  --card: var(--color-bg-surface);
+  --card-foreground: var(--color-text-primary);
+  --popover: var(--color-bg-surface);
+  --popover-foreground: var(--color-text-primary);
+  --primary: var(--color-function-bg);
+  --primary-foreground: var(--color-on-intent);
+  --secondary: var(--color-bg-canvas);
+  --secondary-foreground: var(--color-text-primary);
+  --muted: var(--color-bg-canvas);
+  --muted-foreground: var(--color-text-secondary);
+  --accent: var(--color-bg-canvas);
+  --accent-foreground: var(--color-text-primary);
+  --destructive: var(--color-destroy-bg);
+  --destructive-foreground: var(--color-on-intent);
+  --border: var(--color-border-default);
+  --input: var(--fundamental-control-border);
+  --ring: var(--ring-focus);
+  --radius: var(--radius-md);
+}
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']).dark,
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']) .dark {
+  color-scheme: dark;
+}
+:is(
+  [data-layout-theme='fundamental'],
+  [data-layout-theme='fundamental-floating']
+).aegis-theme-light,
+:is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+  .aegis-theme-light {
+  color-scheme: light;
+}
+@media (max-width: 640px) {
+  :is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating']),
+  :is([data-layout-theme='fundamental'], [data-layout-theme='fundamental-floating'])
+    :is(.dark, .aegis-theme-light) {
+    --layout-page-padding: var(--space-5);
+    --layout-section-gap: var(--space-5);
+    --layout-card-padding: var(--space-4);
+    --layout-panel-padding: var(--space-5);
+  }
+}

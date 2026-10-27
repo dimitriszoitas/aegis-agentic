@@ -1,0 +1,71 @@
+.aegis-radio-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-radio-group-space-gap-compact);
+}
+.aegis-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-radio-group-space-gap-regular);
+}
+.aegis-radio-group[data-orientation='horizontal'] {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--group-input-radio-group-space-gap-5);
+}
+.aegis-radio-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--group-input-radio-group-space-gap-compact);
+}
+.aegis-radio-control {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--group-input-radio-group-size-width-glyph-vast);
+  height: var(--group-input-radio-group-size-height-glyph-vast);
+  padding: var(--group-input-radio-group-number-0);
+  margin-top: var(--group-input-radio-group-size-margin-top-micro-small);
+  border: var(--group-input-radio-group-border-width-hairline) solid
+    var(--group-input-radio-group-color-border-strong);
+  border-radius: var(--group-input-radio-group-radius-border-radius-full);
+  background: var(--group-input-radio-group-color-surface-surface);
+  transition: border-color var(--group-input-radio-group-motion-fast)
+    var(--group-input-radio-group-ease-out);
+}
+.aegis-radio-control[data-checked],
+.aegis-radio-control:hover:not(:disabled) {
+  border-color: var(--group-input-radio-group-color-action-fill);
+}
+.aegis-radio-control[aria-invalid='true'] {
+  border-color: var(--group-input-radio-group-color-danger-foreground);
+}
+.aegis-radio-indicator {
+  width: var(--group-input-radio-group-size-width-glyph-small);
+  height: var(--group-input-radio-group-size-height-glyph-small);
+  border-radius: var(--group-input-radio-group-radius-border-radius-full);
+  background: var(--group-input-radio-group-color-action-fill);
+}
+.aegis-radio-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-radio-group-space-gap-snug);
+}
+.aegis-radio-label {
+  font-size: var(--group-input-radio-group-font-size-body);
+  line-height: var(--group-input-radio-group-font-leading-control);
+  color: var(--group-input-radio-group-color-content-primary);
+  cursor: pointer;
+}
+.aegis-radio-description {
+  color: var(--group-input-radio-group-color-content-secondary);
+  font-size: var(--group-input-radio-group-font-size-body);
+  line-height: var(--group-input-radio-group-font-leading-body);
+}
+.aegis-radio-option[data-disabled] .aegis-radio-control {
+  opacity: var(--group-input-radio-group-opacity-strength-prominent);
+}
+.aegis-radio-option[data-disabled] .aegis-radio-label {
+  cursor: not-allowed;
+}

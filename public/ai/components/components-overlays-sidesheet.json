@@ -1,0 +1,1322 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-overlays-sidesheet",
+  "name": "SideSheet",
+  "category": "Surfaces",
+  "tokenGroup": "surface",
+  "kind": "component",
+  "aliases": [
+    "side drawer",
+    "side panel"
+  ],
+  "purpose": "A right-side detail panel that can be modal or docked beside the workspace.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/side-sheet"
+  ],
+  "links": {
+    "contract": "./components-overlays-sidesheet.json",
+    "overview": "../../?path=/docs/components-surfaces-sidesheet-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-surfaces-sidesheet-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-surfaces-sidesheet-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-surfaces-sidesheet-overview--docs&docsTab=tokens"
+  },
+  "description": "The title and close control share the first header row. Optional `headerActions` appear below alongside result navigation; `actions` remains a compatible alias. Optional `footer` actions remain visible outside the scrollable body. Fundamental and Fundamental Floating share the same content and interactions.",
+  "exports": [
+    "SideSheet",
+    "SideSheetField",
+    "SideSheetSection"
+  ],
+  "importStatements": [
+    "import { SideSheet, SideSheetField, SideSheetSection } from '@dimitriszoitas/aegis-ui/side-sheet';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "SideSheet",
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Backward-compatible alias for headerActions."
+    },
+    {
+      "component": "SideSheet",
+      "name": "children",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "SideSheet",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "SideSheet",
+      "name": "closeLabel",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "SideSheet",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "SideSheet",
+      "name": "docked",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "SideSheet",
+      "name": "footer",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "SideSheet",
+      "name": "headerActions",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Optional calls to action below the title row, alongside result navigation."
+    },
+    {
+      "component": "SideSheet",
+      "name": "maxWidth",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "720px (var(--group-surface-measurement-side-sheet-max-width))"
+    },
+    {
+      "component": "SideSheet",
+      "name": "minWidth",
+      "type": "number | undefined",
+      "required": false,
+      "defaultValue": "320px (var(--group-surface-measurement-side-sheet-min-width))"
+    },
+    {
+      "component": "SideSheet",
+      "name": "onNext",
+      "type": "(() => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "SideSheet",
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "SideSheet",
+      "name": "onPrevious",
+      "type": "(() => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "SideSheet",
+      "name": "position",
+      "type": "number | undefined",
+      "required": false,
+      "description": "One-based position within the current filtered result set."
+    },
+    {
+      "component": "SideSheet",
+      "name": "resizable",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Allow pointer and keyboard resizing from the left edge on desktop."
+    },
+    {
+      "component": "SideSheet",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "SideSheet",
+      "name": "title",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "component": "SideSheet",
+      "name": "total",
+      "type": "number | undefined",
+      "required": false
+    },
+    {
+      "component": "SideSheet",
+      "name": "trigger",
+      "type": "ReactElement<unknown, string | JSXElementConstructor<any>> | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    },
+    {
+      "name": "docked",
+      "values": [
+        "false",
+        "true"
+      ],
+      "default": "false"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A right-side detail panel that can be modal or docked beside the workspace.",
+    "usage": [
+      "Use docked for parallel work in the application layout and the default overlay mode for a modal detail task.",
+      "Use headerActions and footer for persistent controls. position and total are one-based navigation context for onPrevious and onNext.",
+      "Enable resizable for adjustable desktop width and set bounds that leave the workspace usable."
+    ],
+    "accessibility": [
+      "Overlay mode uses dialog focus isolation; docked mode remains nonmodal. Both keep title and body relationships explicit.",
+      "The resize separator exposes width and supports keyboard adjustment. Previous and Next controls have record-specific navigation labels."
+    ],
+    "context": [
+      "Use for inspecting and editing one record while retaining its surrounding list context."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "region",
+      "separator"
+    ],
+    "ariaAttributes": [
+      "aria-controls",
+      "aria-describedby",
+      "aria-label",
+      "aria-labelledby",
+      "aria-live",
+      "aria-orientation",
+      "aria-valuemax",
+      "aria-valuemin",
+      "aria-valuenow",
+      "aria-valuetext"
+    ],
+    "nativeElements": [
+      "aside",
+      "button",
+      "code",
+      "div",
+      "footer",
+      "h2",
+      "h3",
+      "header",
+      "main",
+      "p",
+      "section",
+      "span"
+    ],
+    "keyboardKeys": [
+      "ArrowLeft",
+      "ArrowRight",
+      "End",
+      "Escape",
+      "Home"
+    ],
+    "dependencies": [
+      "@base-ui/react/dialog",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/icon/index.tsx",
+    "src/components/side-sheet/side-sheet.css",
+    "src/components/side-sheet/side-sheet.stories.tsx",
+    "src/components/side-sheet/side-sheet.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-floating.css",
+    "src/styles/fundamental-overlays.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-overlays-sidesheet--default",
+      "name": "Default",
+      "url": "../../?path=/story/components-overlays-sidesheet--default",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--open-sheet",
+      "name": "Open Sheet",
+      "url": "../../?path=/story/components-overlays-sidesheet--open-sheet",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--size-matrix",
+      "name": "Size Matrix",
+      "url": "../../?path=/story/components-overlays-sidesheet--size-matrix",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--record-navigation",
+      "name": "Record Navigation",
+      "url": "../../?path=/story/components-overlays-sidesheet--record-navigation",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--docked-push-layout",
+      "name": "Docked Push Layout",
+      "url": "../../?path=/story/components-overlays-sidesheet--docked-push-layout",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--header-actions",
+      "name": "Header Actions",
+      "url": "../../?path=/story/components-overlays-sidesheet--header-actions",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--footer-actions",
+      "name": "Footer Actions",
+      "url": "../../?path=/story/components-overlays-sidesheet--footer-actions",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--header-and-footer-actions",
+      "name": "Header And Footer Actions",
+      "url": "../../?path=/story/components-overlays-sidesheet--header-and-footer-actions",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--long-title",
+      "name": "Long Title",
+      "url": "../../?path=/story/components-overlays-sidesheet--long-title",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--floating-sheet",
+      "name": "Fundamental Floating sheet",
+      "url": "../../?path=/story/components-overlays-sidesheet--floating-sheet",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--fixed-sheet",
+      "name": "Fundamental sheet",
+      "url": "../../?path=/story/components-overlays-sidesheet--fixed-sheet",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--header-alignment-and-close",
+      "name": "Header Alignment And Close",
+      "url": "../../?path=/story/components-overlays-sidesheet--header-alignment-and-close",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    },
+    {
+      "id": "components-overlays-sidesheet--resize-focus",
+      "name": "Resize Focus",
+      "url": "../../?path=/story/components-overlays-sidesheet--resize-focus",
+      "sourceFile": "src/components/side-sheet/side-sheet.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus",
+    "--group-surface-appearance-overlay-surface",
+    "--group-surface-backdrop-blur",
+    "--group-surface-border-width-hairline",
+    "--group-surface-border-width-regular",
+    "--group-surface-chrome-radius",
+    "--group-surface-chrome-shadow",
+    "--group-surface-color-action-foreground",
+    "--group-surface-color-action-soft",
+    "--group-surface-color-border-default",
+    "--group-surface-color-border-subtle",
+    "--group-surface-color-content-primary",
+    "--group-surface-color-scrim",
+    "--group-surface-color-surface-surface",
+    "--group-surface-elevation-none",
+    "--group-surface-focus-offset",
+    "--group-surface-font-family-ui",
+    "--group-surface-font-leading-compact",
+    "--group-surface-font-leading-relaxed",
+    "--group-surface-font-leading-subheading",
+    "--group-surface-font-size-body",
+    "--group-surface-font-size-subheading",
+    "--group-surface-font-tracking-compact",
+    "--group-surface-measurement-icon-lg",
+    "--group-surface-measurement-icon-md",
+    "--group-surface-measurement-side-sheet-max-width",
+    "--group-surface-measurement-side-sheet-min-width",
+    "--group-surface-measurement-side-sheet-resize-step",
+    "--group-surface-measurement-side-sheet-resize-step-large",
+    "--group-surface-measurement-side-sheet-workspace-min-width",
+    "--group-surface-mix-70",
+    "--group-surface-motion-count-1",
+    "--group-surface-motion-disabled-duration",
+    "--group-surface-motion-reduced-duration",
+    "--group-surface-number-0",
+    "--group-surface-overlay-appearance-overlay-surface",
+    "--group-surface-overlay-border-width-hairline",
+    "--group-surface-overlay-border-width-regular",
+    "--group-surface-overlay-chrome-inset",
+    "--group-surface-overlay-chrome-overlay-shadow",
+    "--group-surface-overlay-chrome-radius",
+    "--group-surface-overlay-chrome-shadow",
+    "--group-surface-overlay-chrome-sheet-border-width",
+    "--group-surface-overlay-color-action-foreground",
+    "--group-surface-overlay-color-border-subtle",
+    "--group-surface-overlay-color-content-primary",
+    "--group-surface-overlay-color-content-secondary",
+    "--group-surface-overlay-color-scrim",
+    "--group-surface-overlay-color-surface-hover",
+    "--group-surface-overlay-color-surface-surface-raised",
+    "--group-surface-overlay-color-transparent",
+    "--group-surface-overlay-ease-out",
+    "--group-surface-overlay-elevation-none",
+    "--group-surface-overlay-flex-fill",
+    "--group-surface-overlay-flex-none",
+    "--group-surface-overlay-font-family-ui",
+    "--group-surface-overlay-font-leading-body",
+    "--group-surface-overlay-font-line-box-xxl",
+    "--group-surface-overlay-font-size-body",
+    "--group-surface-overlay-font-size-label",
+    "--group-surface-overlay-font-size-subheading",
+    "--group-surface-overlay-layer-local-2",
+    "--group-surface-overlay-motion-base",
+    "--group-surface-overlay-motion-slide",
+    "--group-surface-overlay-number-0",
+    "--group-surface-overlay-opacity-hidden",
+    "--group-surface-overlay-opacity-strength-medium",
+    "--group-surface-overlay-opacity-visible",
+    "--group-surface-overlay-radius-border-radius-bold",
+    "--group-surface-overlay-ring-focus",
+    "--group-surface-overlay-shadow-dialog",
+    "--group-surface-overlay-sheet-width",
+    "--group-surface-overlay-size-flex-100vw",
+    "--group-surface-overlay-size-flex-basis-100vw",
+    "--group-surface-overlay-size-grid-template-columns-36percent",
+    "--group-surface-overlay-size-grid-template-columns-wide-content-snug",
+    "--group-surface-overlay-size-height-full",
+    "--group-surface-overlay-size-height-regular",
+    "--group-surface-overlay-size-min-width-vast",
+    "--group-surface-overlay-size-outline-offset-micro-compact",
+    "--group-surface-overlay-size-outline-offset-negative-3",
+    "--group-surface-overlay-size-transform-full",
+    "--group-surface-overlay-size-width-100vw",
+    "--group-surface-overlay-size-width-micro-compact",
+    "--group-surface-overlay-size-width-micro-snug",
+    "--group-surface-overlay-size-width-micro-vast",
+    "--group-surface-overlay-size-width-regular",
+    "--group-surface-overlay-space-gap-comfortable",
+    "--group-surface-overlay-space-gap-compact",
+    "--group-surface-overlay-space-gap-regular",
+    "--group-surface-overlay-space-margin-compact",
+    "--group-surface-overlay-space-margin-regular",
+    "--group-surface-overlay-space-margin-top-regular",
+    "--group-surface-overlay-space-margin-top-roomy",
+    "--group-surface-overlay-space-padding-block-compact",
+    "--group-surface-overlay-space-padding-regular",
+    "--group-surface-overlay-space-padding-roomy",
+    "--group-surface-overlay-space-padding-top-roomy",
+    "--group-surface-overlay-title-weight",
+    "--group-surface-overlay-track-flex",
+    "--group-surface-overlay-z-sheet",
+    "--group-surface-ring-focus",
+    "--group-surface-stack-gap-compact",
+    "--group-surface-stack-gap-regular",
+    "--group-surface-title-weight",
+    "--sheet-resized-width"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-number-0",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-z-sheet",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-scrim",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-ease-out",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-motion-base",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-chrome-inset",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-sheet-width",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-width-100vw",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-border-subtle",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-chrome-sheet-border-width",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-chrome-radius",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-surface-surface-raised",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-content-primary",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-chrome-overlay-shadow",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-family-ui",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-motion-slide",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-flex-none",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-flex-100vw",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-height-full",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-chrome-shadow",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--sheet-resized-width",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-flex-basis-100vw",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-layer-local-2",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-width-micro-vast",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-width-micro-compact",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-transparent",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-action-foreground",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-width-micro-snug",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-padding-roomy",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-border-width-hairline",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-gap-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-flex-fill",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-gap-compact",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-margin-top-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-min-width-vast",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-content-secondary",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-size-label",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-width-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-height-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-surface-hover",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-opacity-strength-medium",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-border-width-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-ring-focus",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-size-subheading",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-title-weight",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-line-box-xxl",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-margin-compact",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-size-body",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-leading-body",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-outline-offset-negative-3",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-margin-top-roomy",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-padding-top-roomy",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-margin-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-grid-template-columns-36percent",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-grid-template-columns-wide-content-snug",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-track-flex",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-gap-comfortable",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-padding-block-compact",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-padding-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-opacity-hidden",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-transform-full",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-opacity-visible",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-surface-surface",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-border-width-hairline",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-border-subtle",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-chrome-radius",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-chrome-shadow",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-elevation-none",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-appearance-overlay-surface",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-shadow-dialog",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-appearance-overlay-surface",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-scrim",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-mix-70",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-backdrop-blur",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-elevation-none",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-surface-number-0",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-border-default",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-ring-focus",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-focus-offset",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-size-subheading",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-title-weight",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-tracking-compact",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-leading-subheading",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-size-body",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-leading-compact",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-stack-gap-compact",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-surface-measurement-side-sheet-workspace-min-width",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-side-sheet-resize-step",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-side-sheet-resize-step-large",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-icon-lg",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-icon-md",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-side-sheet-min-width",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-side-sheet-max-width",
+      "ownership": "owned",
+      "component": "SideSheet",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

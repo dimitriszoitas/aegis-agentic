@@ -1,0 +1,345 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-feedback-spinner",
+  "name": "Spinner",
+  "category": "Feedback",
+  "tokenGroup": "feedback",
+  "kind": "component",
+  "aliases": [
+    "loader",
+    "loading indicator"
+  ],
+  "purpose": "A small activity indicator that can be either decorative or a named loading status.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/spinner"
+  ],
+  "links": {
+    "contract": "./components-feedback-spinner.json",
+    "overview": "../../?path=/docs/components-feedback-spinner-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-feedback-spinner-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-feedback-spinner-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-feedback-spinner-overview--docs&docsTab=tokens"
+  },
+  "description": "Indicate brief work without shifting the surrounding layout.",
+  "exports": [
+    "Spinner"
+  ],
+  "importStatements": [
+    "import { Spinner } from '@dimitriszoitas/aegis-ui/spinner';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Spinner",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Omit the label when the containing button or status already describes loading."
+    },
+    {
+      "component": "Spinner",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "defaultValue": "\"md\""
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "A small activity indicator that can be either decorative or a named loading status.",
+    "usage": [
+      "Supply label when the spinner is the only explanation of pending work.",
+      "Omit label when the containing button or status already describes loading, avoiding duplicate announcements."
+    ],
+    "accessibility": [
+      "A labeled spinner has role=\"status\"; an unlabeled spinner is aria-hidden.",
+      "A spinner does not communicate completion percentage. Use ProgressBar when a measured value is available."
+    ],
+    "context": [
+      "Use inside compact controls and small loading regions, with descriptive text for longer waits."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "circle",
+      "path",
+      "span",
+      "svg"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/spinner/spinner.css",
+    "src/components/spinner/spinner.stories.tsx",
+    "src/components/spinner/spinner.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-feedback-spinner--sizes",
+      "name": "Sizes",
+      "url": "../../?path=/story/components-feedback-spinner--sizes",
+      "sourceFile": "src/components/spinner/spinner.stories.tsx"
+    },
+    {
+      "id": "components-feedback-spinner--inline-status",
+      "name": "Inline Status",
+      "url": "../../?path=/story/components-feedback-spinner--inline-status",
+      "sourceFile": "src/components/spinner/spinner.stories.tsx"
+    },
+    {
+      "id": "components-feedback-spinner--ai-intent",
+      "name": "Ai Intent",
+      "url": "../../?path=/story/components-feedback-spinner--ai-intent",
+      "sourceFile": "src/components/spinner/spinner.stories.tsx"
+    },
+    {
+      "id": "components-feedback-spinner--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-feedback-spinner--playground",
+      "sourceFile": "src/components/spinner/spinner.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-feedback-measurement-icon-stroke-strong",
+    "--group-feedback-measurement-spinner-track-opacity",
+    "--group-feedback-spinner-angle-360deg",
+    "--group-feedback-spinner-duration-900ms",
+    "--group-feedback-spinner-flex-none",
+    "--group-feedback-spinner-size-height-compact",
+    "--group-feedback-spinner-size-height-full",
+    "--group-feedback-spinner-size-height-glyph-comfortable",
+    "--group-feedback-spinner-size-height-regular",
+    "--group-feedback-spinner-size-width-compact",
+    "--group-feedback-spinner-size-width-full",
+    "--group-feedback-spinner-size-width-glyph-comfortable",
+    "--group-feedback-spinner-size-width-regular",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-flex-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-feedback-spinner-flex-none",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-width-glyph-comfortable",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-height-glyph-comfortable",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-width-compact",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-height-compact",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-width-regular",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-height-regular",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-width-full",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-size-height-full",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-duration-900ms",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-spinner-angle-360deg",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-flex-none",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-icon-stroke-strong",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-measurement-spinner-track-opacity",
+      "ownership": "owned",
+      "component": "Spinner",
+      "group": "feedback"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

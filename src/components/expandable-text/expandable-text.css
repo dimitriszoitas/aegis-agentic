@@ -1,0 +1,43 @@
+.aegis-expandable-text {
+  position: relative;
+  min-width: var(--group-data-display-expandable-text-number-0);
+  color: var(--group-data-display-expandable-text-color-content-primary);
+  font-family: var(--group-data-display-expandable-text-font-family-ui);
+  font-size: var(--group-data-display-expandable-text-font-size-body);
+  line-height: var(--group-data-display-expandable-text-font-leading-relaxed);
+}
+.aegis-expandable-text-copy {
+  position: relative;
+}
+.aegis-expandable-text-content,
+.aegis-expandable-text-measure {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.aegis-expandable-text-clamped {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.aegis-expandable-text-measure {
+  position: absolute;
+  top: var(--group-data-display-expandable-text-number-0);
+  inset-inline: var(--group-data-display-expandable-text-number-0);
+  visibility: hidden;
+  pointer-events: none;
+}
+.aegis-expandable-text-toggle {
+  margin-top: var(--group-data-display-expandable-text-space-margin-top-snug);
+  margin-inline-start: calc(
+    -1 * var(--group-data-display-expandable-text-space-margin-inline-start-compact)
+  );
+}
+.aegis-expandable-text-toggle :is(.button-label, .button-icon) {
+  color: var(--group-data-display-expandable-text-color-action-foreground);
+}
+.aegis-expandable-text-content:focus-visible {
+  outline: var(--group-data-display-expandable-text-border-width-regular) solid
+    var(--group-data-display-expandable-text-ring-focus);
+  outline-offset: var(--group-data-display-expandable-text-size-outline-offset-micro-compact);
+  border-radius: var(--group-data-display-expandable-text-radius-border-radius-soft);
+}

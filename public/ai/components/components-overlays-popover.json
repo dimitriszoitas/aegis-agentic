@@ -1,0 +1,956 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-overlays-popover",
+  "name": "Popover",
+  "category": "Surfaces",
+  "tokenGroup": "surface",
+  "kind": "component",
+  "aliases": [
+    "anchored overlay",
+    "floating content"
+  ],
+  "purpose": "Anchored interactive content with optional header and footer outside the scrollable body.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/popover"
+  ],
+  "links": {
+    "contract": "./components-overlays-popover.json",
+    "overview": "../../?path=/docs/components-surfaces-popover-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-surfaces-popover-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-surfaces-popover-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-surfaces-popover-overview--docs&docsTab=tokens"
+  },
+  "description": "Popover headers and footers are optional and have no divider lines. Use `showHeader={false}` for a body-only or footer-only layout; an existing title remains available to assistive technology. `density` is `regular` (16px padding) or `tight` (12px). The body scrolls independently while the close control and footer remain visible.\n\n`PopoverClose` closes its nearest parent popover and inherits native button props from Base UI. It must be rendered inside that parent.\n\n| PopoverClose prop | Type | Behavior |\n| --- | --- | --- |\n| asChild | `boolean` | Uses its single child as the close control instead of adding a button |\n| children | `ReactNode` | Button content or the single child when asChild is enabled |\n| disabled | `boolean` | Disables the close control |\n| onClick | `MouseEventHandler<HTMLButtonElement>` | Runs alongside the close behavior |\n| className / style | `string` / `CSSProperties` | Native presentation props |\n| aria-label | `string` | Accessible name for an icon-only control |\n",
+  "exports": [
+    "Popover",
+    "PopoverClose"
+  ],
+  "importStatements": [
+    "import { Popover, PopoverClose } from '@dimitriszoitas/aegis-ui/popover';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Popover",
+      "name": "align",
+      "type": "Align | undefined",
+      "required": false,
+      "defaultValue": "\"start\""
+    },
+    {
+      "component": "Popover",
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "component": "Popover",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false
+    },
+    {
+      "component": "Popover",
+      "name": "density",
+      "type": "\"regular\" | \"tight\" | undefined",
+      "required": false,
+      "defaultValue": "\"regular\""
+    },
+    {
+      "component": "Popover",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Popover",
+      "name": "footer",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Popover",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "defaultValue": "\"Details\""
+    },
+    {
+      "component": "Popover",
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "Popover",
+      "name": "showClose",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "Popover",
+      "name": "showHeader",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "true",
+      "description": "Keep the accessible title while hiding the visible header."
+    },
+    {
+      "component": "Popover",
+      "name": "side",
+      "type": "Side | undefined",
+      "required": false,
+      "defaultValue": "\"bottom\""
+    },
+    {
+      "component": "Popover",
+      "name": "title",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Popover",
+      "name": "trigger",
+      "type": "ReactElement<unknown, string | JSXElementConstructor<any>>",
+      "required": true
+    },
+    {
+      "component": "Popover",
+      "name": "width",
+      "type": "string | number | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "density",
+      "values": [
+        "regular",
+        "tight"
+      ],
+      "default": "regular"
+    },
+    {
+      "name": "side",
+      "values": [
+        "bottom",
+        "left",
+        "right",
+        "top"
+      ],
+      "default": "bottom"
+    },
+    {
+      "name": "align",
+      "values": [
+        "center",
+        "end",
+        "start"
+      ],
+      "default": "start"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "Anchored interactive content with optional header and footer outside the scrollable body.",
+    "usage": [
+      "Use regular or tight density for the available space. Headers and footers have no divider lines.",
+      "showHeader={false} hides the visual title while preserving its accessible label. Supply label when no title is provided.",
+      "Use footer for actions that must remain visible while the body scrolls."
+    ],
+    "accessibility": [
+      "The popover focuses an available control on opening, with its scrollable body as a fallback.",
+      "Escape and close controls dismiss it, and Base UI manages focus return. PopoverClose must be used inside its corresponding Popover."
+    ],
+    "context": [
+      "Use for compact filters, calendar controls, and contextual configuration that benefits from staying anchored to its trigger."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "region"
+    ],
+    "ariaAttributes": [
+      "aria-describedby",
+      "aria-label",
+      "aria-labelledby"
+    ],
+    "nativeElements": [
+      "button",
+      "div",
+      "footer",
+      "h3",
+      "header",
+      "label",
+      "p",
+      "textarea"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/popover",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/icon/index.tsx",
+    "src/components/popover/popover.css",
+    "src/components/popover/popover.stories.tsx",
+    "src/components/popover/popover.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/component-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-overlays.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/theme.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-overlays-popover--default",
+      "name": "Default",
+      "url": "../../?path=/story/components-overlays-popover--default",
+      "sourceFile": "src/components/popover/popover.stories.tsx"
+    },
+    {
+      "id": "components-overlays-popover--open-activity",
+      "name": "Open Activity",
+      "url": "../../?path=/story/components-overlays-popover--open-activity",
+      "sourceFile": "src/components/popover/popover.stories.tsx"
+    },
+    {
+      "id": "components-overlays-popover--placement-matrix",
+      "name": "Placement Matrix",
+      "url": "../../?path=/story/components-overlays-popover--placement-matrix",
+      "sourceFile": "src/components/popover/popover.stories.tsx"
+    },
+    {
+      "id": "components-overlays-popover--controlled-form",
+      "name": "Controlled Form",
+      "url": "../../?path=/story/components-overlays-popover--controlled-form",
+      "sourceFile": "src/components/popover/popover.stories.tsx"
+    },
+    {
+      "id": "components-overlays-popover--body-only",
+      "name": "Body Only",
+      "url": "../../?path=/story/components-overlays-popover--body-only",
+      "sourceFile": "src/components/popover/popover.stories.tsx"
+    },
+    {
+      "id": "components-overlays-popover--header-only",
+      "name": "Header Only",
+      "url": "../../?path=/story/components-overlays-popover--header-only",
+      "sourceFile": "src/components/popover/popover.stories.tsx"
+    },
+    {
+      "id": "components-overlays-popover--footer-only",
+      "name": "Footer Only",
+      "url": "../../?path=/story/components-overlays-popover--footer-only",
+      "sourceFile": "src/components/popover/popover.stories.tsx"
+    },
+    {
+      "id": "components-overlays-popover--header-and-footer",
+      "name": "Header And Footer",
+      "url": "../../?path=/story/components-overlays-popover--header-and-footer",
+      "sourceFile": "src/components/popover/popover.stories.tsx"
+    },
+    {
+      "id": "components-overlays-popover--density-matrix",
+      "name": "Density Matrix",
+      "url": "../../?path=/story/components-overlays-popover--density-matrix",
+      "sourceFile": "src/components/popover/popover.stories.tsx"
+    },
+    {
+      "id": "components-overlays-popover--scrollable-body",
+      "name": "Scrollable Body",
+      "url": "../../?path=/story/components-overlays-popover--scrollable-body",
+      "sourceFile": "src/components/popover/popover.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--available-height",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-surface-border-overlap",
+    "--group-surface-border-width-regular",
+    "--group-surface-color-action-foreground",
+    "--group-surface-color-action-soft",
+    "--group-surface-color-border-default",
+    "--group-surface-color-content-primary",
+    "--group-surface-divider-height",
+    "--group-surface-divider-width",
+    "--group-surface-elevation-none",
+    "--group-surface-focus-offset",
+    "--group-surface-font-family-ui",
+    "--group-surface-font-leading-compact",
+    "--group-surface-font-leading-relaxed",
+    "--group-surface-font-size-body",
+    "--group-surface-measurement-icon-md",
+    "--group-surface-measurement-overlay-collision-padding",
+    "--group-surface-measurement-popover-offset",
+    "--group-surface-motion-count-1",
+    "--group-surface-motion-disabled-duration",
+    "--group-surface-motion-reduced-duration",
+    "--group-surface-number-0",
+    "--group-surface-overlay-appearance-overlay-surface",
+    "--group-surface-overlay-border-width-hairline",
+    "--group-surface-overlay-border-width-regular",
+    "--group-surface-overlay-color-border-default",
+    "--group-surface-overlay-color-border-subtle",
+    "--group-surface-overlay-color-content-primary",
+    "--group-surface-overlay-color-content-secondary",
+    "--group-surface-overlay-color-surface-hover",
+    "--group-surface-overlay-color-surface-surface",
+    "--group-surface-overlay-color-surface-surface-raised",
+    "--group-surface-overlay-color-transparent",
+    "--group-surface-overlay-ease-out",
+    "--group-surface-overlay-elevation-none",
+    "--group-surface-overlay-flex-fill",
+    "--group-surface-overlay-flex-none",
+    "--group-surface-overlay-font-family-ui",
+    "--group-surface-overlay-font-leading-body",
+    "--group-surface-overlay-font-line-box-xxl",
+    "--group-surface-overlay-font-size-body",
+    "--group-surface-overlay-layer-local",
+    "--group-surface-overlay-motion-base",
+    "--group-surface-overlay-number-0",
+    "--group-surface-overlay-opacity-hidden",
+    "--group-surface-overlay-opacity-strength-balanced",
+    "--group-surface-overlay-opacity-visible",
+    "--group-surface-overlay-popover-gap",
+    "--group-surface-overlay-popover-padding",
+    "--group-surface-overlay-radius-border-radius-bold",
+    "--group-surface-overlay-radius-border-radius-strong",
+    "--group-surface-overlay-ring-focus",
+    "--group-surface-overlay-shadow-overlay",
+    "--group-surface-overlay-shadow-popover",
+    "--group-surface-overlay-size-height-regular",
+    "--group-surface-overlay-size-max-height-100dvh",
+    "--group-surface-overlay-size-max-width-100vw",
+    "--group-surface-overlay-size-min-height-compact-content-small",
+    "--group-surface-overlay-size-outline-offset-micro-compact",
+    "--group-surface-overlay-size-outline-offset-negative-3",
+    "--group-surface-overlay-size-transform-negative-4",
+    "--group-surface-overlay-size-width-canvas-tiny",
+    "--group-surface-overlay-size-width-regular",
+    "--group-surface-overlay-space-gap-compact",
+    "--group-surface-overlay-space-margin-snug",
+    "--group-surface-overlay-space-max-height-roomy",
+    "--group-surface-overlay-space-max-width-roomy",
+    "--group-surface-overlay-space-padding-compact",
+    "--group-surface-overlay-space-padding-regular",
+    "--group-surface-overlay-space-padding-top-7",
+    "--group-surface-overlay-title-weight",
+    "--group-surface-overlay-z-popover",
+    "--group-surface-ring-focus",
+    "--group-surface-stack-gap-compact",
+    "--group-surface-stack-gap-regular",
+    "--group-surface-title-weight",
+    "--transform-origin"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-surface-overlay-z-popover",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-width-canvas-tiny",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-max-width-100vw",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-max-width-roomy",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--available-height",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-max-height-100dvh",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-max-height-roomy",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-surface-surface-raised",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-content-primary",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-border-width-hairline",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-border-subtle",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-shadow-overlay",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-family-ui",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-size-body",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--transform-origin",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-ease-out",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-motion-base",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-number-0",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-popover-padding",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-popover-gap",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-flex-fill",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-title-weight",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-line-box-xxl",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-margin-snug",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-content-secondary",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-font-leading-body",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-border-width-regular",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-ring-focus",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-outline-offset-negative-3",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-gap-compact",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-flex-none",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-width-regular",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-height-regular",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-transparent",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-layer-local",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-padding-top-7",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-surface-hover",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-opacity-hidden",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-transform-negative-4",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-opacity-visible",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-size-min-height-compact-content-small",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-padding-compact",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-space-padding-regular",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-border-default",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-color-surface-surface",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-opacity-strength-balanced",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-appearance-overlay-surface",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-shadow-popover",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-overlay-elevation-none",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-surface-number-0",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-title-weight",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-leading-compact",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-stack-gap-compact",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-divider-width",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-divider-height",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-border-overlap",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-surface-measurement-popover-offset",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-overlay-collision-padding",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-icon-md",
+      "ownership": "owned",
+      "component": "Popover",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

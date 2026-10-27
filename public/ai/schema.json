@@ -1,0 +1,944 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Public component and token contracts",
+  "description": "Source extraction and authored guidance. These documents do not certify runtime behavior, accessibility, design parity, or agent performance.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/index"
+    },
+    {
+      "$ref": "#/$defs/component"
+    },
+    {
+      "$ref": "#/$defs/tokenGraph"
+    }
+  ],
+  "$defs": {
+    "package": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "contract": {
+          "type": "string"
+        },
+        "overview": {
+          "type": "string"
+        },
+        "anatomy": {
+          "type": "string"
+        },
+        "api": {
+          "type": "string"
+        },
+        "tokens": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract",
+        "overview",
+        "anatomy",
+        "api",
+        "tokens"
+      ],
+      "additionalProperties": false
+    },
+    "identity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "tokenGroup": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "component",
+            "pattern",
+            "foundation"
+          ]
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "importPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "links": {
+          "$ref": "#/$defs/links"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "category",
+        "tokenGroup",
+        "kind",
+        "aliases",
+        "purpose",
+        "importPaths",
+        "links"
+      ],
+      "additionalProperties": false
+    },
+    "navigationLink": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "id",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "generator": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "string"
+        },
+        "guidance": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "string"
+        },
+        "navigation": {
+          "type": "string"
+        },
+        "foundationTokens": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "tokenManifest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceDigest": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "generator",
+        "metadata",
+        "guidance",
+        "aliases",
+        "navigation",
+        "foundationTokens",
+        "tokenManifest",
+        "sourceDigest"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "api": {
+          "const": "source-extracted"
+        },
+        "guidance": {
+          "enum": [
+            "authored",
+            "not-authored"
+          ]
+        },
+        "runtimeVerification": {
+          "const": "not-included"
+        },
+        "designParity": {
+          "const": "not-recorded"
+        }
+      },
+      "required": [
+        "api",
+        "guidance",
+        "runtimeVerification",
+        "designParity"
+      ],
+      "additionalProperties": false
+    },
+    "prop": {
+      "type": "object",
+      "properties": {
+        "component": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "defaultValue": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "component",
+        "name",
+        "type",
+        "required"
+      ],
+      "additionalProperties": false
+    },
+    "variant": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "default": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "guidance": {
+      "type": "object",
+      "properties": {
+        "overview": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "intent": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "context": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "dependency": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "componentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "contracts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "resolution": {
+          "enum": [
+            "documented",
+            "not-in-index"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "componentIds",
+        "contracts",
+        "resolution"
+      ],
+      "additionalProperties": false
+    },
+    "story": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "sourceFile": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "tokenBinding": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "ownership": {
+          "enum": [
+            "owned",
+            "nested"
+          ]
+        },
+        "component": {
+          "type": "string"
+        },
+        "group": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "token",
+        "ownership",
+        "component",
+        "group"
+      ],
+      "additionalProperties": false
+    },
+    "sourceFacts": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "ariaAttributes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "nativeElements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "keyboardKeys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "roles",
+        "ariaAttributes",
+        "nativeElements",
+        "keyboardKeys",
+        "dependencies"
+      ],
+      "additionalProperties": false
+    },
+    "definition": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "type": "string"
+        },
+        "selector": {
+          "type": "string"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "source": {
+          "type": "string"
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "expression",
+        "selector",
+        "conditions",
+        "source",
+        "references"
+      ],
+      "additionalProperties": false
+    },
+    "token": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "declared",
+            "runtime-or-unresolved"
+          ]
+        },
+        "canonical": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string"
+        },
+        "tier": {
+          "enum": [
+            "primitive",
+            "semantic",
+            "group"
+          ]
+        },
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "mappings": {
+          "type": "object",
+          "properties": {
+            "fundamental.light": {
+              "type": "string"
+            },
+            "fundamental.dark": {
+              "type": "string"
+            },
+            "fundamental-floating.light": {
+              "type": "string"
+            },
+            "fundamental-floating.dark": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fundamental.light",
+            "fundamental.dark",
+            "fundamental-floating.light",
+            "fundamental-floating.dark"
+          ],
+          "additionalProperties": false
+        },
+        "family": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "invariant": {
+          "type": "boolean"
+        },
+        "scope": {
+          "enum": [
+            "local"
+          ]
+        },
+        "definitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/definition"
+          }
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "consumers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "status",
+        "canonical",
+        "definitions",
+        "references",
+        "consumers"
+      ],
+      "additionalProperties": false
+    },
+    "index": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "documentType": {
+          "const": "index"
+        },
+        "package": {
+          "$ref": "#/$defs/package"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "description": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "supportedThemes": {
+          "type": "object",
+          "properties": {
+            "color": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "presentation": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "color",
+            "presentation"
+          ],
+          "additionalProperties": false
+        },
+        "consumption": {
+          "type": "object",
+          "properties": {
+            "styled": {
+              "type": "object",
+              "properties": {
+                "stylesheetImport": {
+                  "type": "string"
+                },
+                "guidance": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stylesheetImport",
+                "guidance"
+              ],
+              "additionalProperties": false
+            },
+            "headless": {
+              "type": "object",
+              "properties": {
+                "importPath": {
+                  "type": "string"
+                },
+                "importStatement": {
+                  "type": "string"
+                },
+                "guidance": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "importPath",
+                "importStatement",
+                "guidance"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "styled",
+            "headless"
+          ],
+          "additionalProperties": false
+        },
+        "navigation": {
+          "type": "object",
+          "properties": {
+            "topLevel": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/navigationLink"
+              }
+            },
+            "foundations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/navigationLink"
+              }
+            },
+            "agenticSkills": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/navigationLink"
+              }
+            }
+          },
+          "required": [
+            "topLevel",
+            "foundations",
+            "agenticSkills"
+          ],
+          "additionalProperties": false
+        },
+        "tokenGraph": {
+          "type": "string"
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identity"
+          }
+        }
+      },
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "documentType",
+        "package",
+        "provenance",
+        "description",
+        "limitations",
+        "supportedThemes",
+        "consumption",
+        "navigation",
+        "tokenGraph",
+        "components"
+      ],
+      "additionalProperties": false
+    },
+    "component": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "documentType": {
+          "const": "component"
+        },
+        "package": {
+          "$ref": "#/$defs/package"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "tokenGroup": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "component",
+            "pattern",
+            "foundation"
+          ]
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "importPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "links": {
+          "$ref": "#/$defs/links"
+        },
+        "description": {
+          "type": "string"
+        },
+        "exports": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "importStatements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "stylesheetImport": {
+          "type": "string"
+        },
+        "props": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/prop"
+          }
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/variant"
+          }
+        },
+        "composition": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dependency"
+          }
+        },
+        "guidance": {
+          "$ref": "#/$defs/guidance"
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence"
+        },
+        "sourceFacts": {
+          "$ref": "#/$defs/sourceFacts"
+        },
+        "sourceFiles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "stories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/story"
+          }
+        },
+        "tokenRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "tokenBindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/tokenBinding"
+          }
+        },
+        "tokenGraph": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "documentType",
+        "package",
+        "id",
+        "name",
+        "category",
+        "tokenGroup",
+        "kind",
+        "aliases",
+        "purpose",
+        "importPaths",
+        "links",
+        "description",
+        "exports",
+        "importStatements",
+        "stylesheetImport",
+        "props",
+        "variants",
+        "composition",
+        "guidance",
+        "evidence",
+        "sourceFacts",
+        "sourceFiles",
+        "stories",
+        "tokenRefs",
+        "tokenBindings",
+        "tokenGraph"
+      ],
+      "additionalProperties": false
+    },
+    "tokenGraph": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "documentType": {
+          "const": "token-graph"
+        },
+        "package": {
+          "$ref": "#/$defs/package"
+        },
+        "description": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "configurations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "tokens": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/token"
+          }
+        }
+      },
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "documentType",
+        "package",
+        "description",
+        "limitations",
+        "configurations",
+        "tokens"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

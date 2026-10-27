@@ -1,0 +1,106 @@
+.component-docs .component-docs-playground-controls {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: var(--space-5);
+  min-width: var(--number-0);
+  margin: var(--number-0);
+  padding: var(--space-5);
+  border: var(--stroke-1) solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-canvas);
+}
+.component-docs-playground-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.component-docs .component-docs-playground-heading h3 {
+  margin: var(--number-0);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-1-5);
+}
+.component-docs .component-docs-playground-heading p,
+.component-docs .component-docs-playground-description,
+.component-docs .component-docs-playground-json-actions span,
+.component-docs .component-docs-playground-message {
+  margin: var(--number-0);
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+  line-height: var(--line-height-1-5);
+}
+.component-docs .component-docs-playground-heading p {
+  margin-top: var(--space-1);
+}
+.component-docs-playground-field {
+  display: grid;
+  gap: var(--space-2);
+  min-width: var(--number-0);
+}
+.component-docs .component-docs-playground-field > label,
+.component-docs .component-docs-playground-label,
+.component-docs .component-docs-playground-toggle {
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+}
+.component-docs
+  .component-docs-playground-field
+  :is(input:not([type='checkbox'], [type='radio']), select, textarea) {
+  box-sizing: border-box;
+  display: block;
+  width: var(--size-full);
+  min-width: var(--number-0);
+  min-height: var(--size-34);
+  padding: var(--space-2) var(--space-3);
+  border: var(--stroke-1) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: var(--line-height-1-5);
+}
+.component-docs .component-docs-playground-field textarea {
+  resize: vertical;
+}
+.component-docs .component-docs-playground-field textarea.component-docs-playground-json {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+.component-docs .component-docs-playground-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+}
+.component-docs-playground-toggle input {
+  width: var(--size-16);
+  height: var(--size-16);
+  margin: var(--number-0);
+  flex-shrink: var(--number-0);
+  accent-color: var(--color-function-bg);
+}
+.component-docs .component-docs-playground-field > :is(input, select, textarea):disabled,
+.component-docs .component-docs-playground-toggle input:disabled {
+  cursor: not-allowed;
+  opacity: var(--opacity-0-5);
+}
+.component-docs-playground-json-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.component-docs .component-docs-playground-error {
+  margin: var(--number-0);
+  color: var(--color-destroy-fg);
+  font-size: var(--text-xs);
+  line-height: var(--line-height-1-5);
+}
+.component-docs .component-docs-playground-field [aria-invalid='true'] {
+  border-color: var(--color-destroy-fg);
+}

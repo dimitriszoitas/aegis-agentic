@@ -1,0 +1,632 @@
+{
+  "name": "@dimitriszoitas/aegis-ui",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "pnpm@11.19.0",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "storybook": "storybook dev -p 6006 --host 0.0.0.0",
+    "build-storybook": "storybook build --disable-telemetry",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . && npm run tokens:check && npm run headless:check",
+    "test": "vitest run src",
+    "format": "prettier --write .",
+    "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm docs:check && pnpm build-storybook",
+    "test:stories": "node scripts/verify-stories.mjs",
+    "test:docs": "node scripts/verify-documentation.mjs",
+    "test:foundations": "node scripts/verify-foundation-docs.mjs",
+    "build:package": "node scripts/build-package.mjs",
+    "test:package": "node scripts/verify-package.mjs",
+    "docs:check": "node scripts/check-component-docs.mjs && node --test scripts/component-story-args.test.mjs && npm run ai:check",
+    "prepack": "npm run build:package",
+    "docs:generate": "node scripts/generate-component-docs.mjs && npm run ai:generate",
+    "test:anatomy": "node scripts/verify-anatomy.mjs",
+    "tokens:check": "node scripts/generate-token-hierarchy.mjs --check && node scripts/check-token-hierarchy.mjs && node --test scripts/check-token-hierarchy.test.mjs && node scripts/check-tokens.mjs && node scripts/check-component-css-tokens.mjs --self-test && node scripts/check-component-runtime-tokens.mjs",
+    "ai:generate": "node scripts/generate-ai-contracts.mjs",
+    "ai:check": "node scripts/generate-ai-contracts.mjs --check && node --test scripts/generate-ai-contracts.test.mjs",
+    "headless:check": "node scripts/check-headless-boundary.mjs",
+    "tokens:generate": "node scripts/generate-color-palettes.mjs && node scripts/generate-token-hierarchy.mjs"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.9.0",
+    "@codemirror/lang-json": "^6.0.2",
+    "@codemirror/lang-yaml": "^6.1.3",
+    "@codemirror/language": "~6.12.4",
+    "@codemirror/merge": "^6.12.2",
+    "@codemirror/state": "^6.7.6",
+    "@codemirror/view": "^6.43.13",
+    "@hugeicons/core-free-icons": "^4.3.5",
+    "@hugeicons/react": "^1.1.10",
+    "@lezer/highlight": "^1.2.5",
+    "@tanstack/react-table": "^8.21.3",
+    "@tanstack/react-virtual": "^3.14.13",
+    "@uiw/react-codemirror": "^4.25.12",
+    "clsx": "^2.1.1",
+    "react-day-picker": "^10.0.2",
+    "react-markdown": "^10.1.0",
+    "react-resizable-panels": "^4.14.2",
+    "recharts": "^3.10.1",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^3.7.0",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@eslint/js": "^10.0.1",
+    "@fontsource/figtree": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@playwright/test": "^1.63.0",
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/addon-themes": "^10.6.1",
+    "@storybook/react-vite": "^10.6.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@untitledui/icons": "^0.0.23",
+    "@vitejs/plugin-react": "^6.1.1",
+    "class-variance-authority": "^0.7.1",
+    "cn": "^0.4.0",
+    "date-fns": "^4.4.0",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.9",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remark-gfm": "^4.0.1",
+    "storybook": "^10.6.1",
+    "tailwindcss": "^4.3.3",
+    "tw-animate-css": "^1.4.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.71.0",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3",
+    "radix-ui": "^1.6.7"
+  },
+  "description": "React components, tokens, and patterns for applications, dashboards, and developer tools.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimitriszoitas/aegis-ui.git"
+  },
+  "homepage": "https://dimitriszoitas.github.io/aegis-ui/",
+  "bugs": {
+    "url": "https://github.com/dimitriszoitas/aegis-ui/issues"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "design-system",
+    "components",
+    "applications",
+    "dashboards",
+    "developer-tools"
+  ],
+  "files": [
+    "lib-dist",
+    "LICENSE",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./lib-dist/index.js",
+  "module": "./lib-dist/index.js",
+  "types": "./lib-dist/types/index.d.ts",
+  "style": "./lib-dist/styles.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib-dist/types/index.d.ts",
+      "import": "./lib-dist/index.js",
+      "default": "./lib-dist/index.js"
+    },
+    "./icons": {
+      "types": "./lib-dist/types/components/icon/index.d.ts",
+      "import": "./lib-dist/icons.js",
+      "default": "./lib-dist/icons.js"
+    },
+    "./theme": {
+      "types": "./lib-dist/types/package/theme.d.ts",
+      "import": "./lib-dist/theme.js",
+      "default": "./lib-dist/theme.js"
+    },
+    "./ai": {
+      "types": "./lib-dist/types/lib/ai.d.ts",
+      "import": "./lib-dist/ai.js",
+      "default": "./lib-dist/ai.js"
+    },
+    "./types": {
+      "types": "./lib-dist/types/package/types.d.ts",
+      "import": "./lib-dist/types.js",
+      "default": "./lib-dist/types.js"
+    },
+    "./patterns": {
+      "types": "./lib-dist/types/package/patterns.d.ts",
+      "import": "./lib-dist/patterns.js",
+      "default": "./lib-dist/patterns.js"
+    },
+    "./filters": {
+      "types": "./lib-dist/types/lib/filters.d.ts",
+      "import": "./lib-dist/filters.js",
+      "default": "./lib-dist/filters.js"
+    },
+    "./time-range": {
+      "types": "./lib-dist/types/lib/time-range.d.ts",
+      "import": "./lib-dist/time-range.js",
+      "default": "./lib-dist/time-range.js"
+    },
+    "./utils": {
+      "types": "./lib-dist/types/lib/utils.d.ts",
+      "import": "./lib-dist/utils.js",
+      "default": "./lib-dist/utils.js"
+    },
+    "./accordion": {
+      "types": "./lib-dist/types/components/accordion/index.d.ts",
+      "import": "./lib-dist/accordion.js",
+      "default": "./lib-dist/accordion.js"
+    },
+    "./ai-card": {
+      "types": "./lib-dist/types/components/ai-card/index.d.ts",
+      "import": "./lib-dist/ai-card.js",
+      "default": "./lib-dist/ai-card.js"
+    },
+    "./ai-inline-suggestion": {
+      "types": "./lib-dist/types/components/ai-inline-suggestion/index.d.ts",
+      "import": "./lib-dist/ai-inline-suggestion.js",
+      "default": "./lib-dist/ai-inline-suggestion.js"
+    },
+    "./ai-message": {
+      "types": "./lib-dist/types/components/ai-message/index.d.ts",
+      "import": "./lib-dist/ai-message.js",
+      "default": "./lib-dist/ai-message.js"
+    },
+    "./avatar": {
+      "types": "./lib-dist/types/components/avatar/index.d.ts",
+      "import": "./lib-dist/avatar.js",
+      "default": "./lib-dist/avatar.js"
+    },
+    "./aws-logo": {
+      "types": "./lib-dist/types/components/aws-logo/index.d.ts",
+      "import": "./lib-dist/aws-logo.js",
+      "default": "./lib-dist/aws-logo.js"
+    },
+    "./banner": {
+      "types": "./lib-dist/types/components/banner/index.d.ts",
+      "import": "./lib-dist/banner.js",
+      "default": "./lib-dist/banner.js"
+    },
+    "./bottom-sheet": {
+      "types": "./lib-dist/types/components/bottom-sheet/index.d.ts",
+      "import": "./lib-dist/bottom-sheet.js",
+      "default": "./lib-dist/bottom-sheet.js"
+    },
+    "./breadcrumb": {
+      "types": "./lib-dist/types/components/breadcrumb/index.d.ts",
+      "import": "./lib-dist/breadcrumb.js",
+      "default": "./lib-dist/breadcrumb.js"
+    },
+    "./bulk-actions-bar": {
+      "types": "./lib-dist/types/components/bulk-actions-bar/index.d.ts",
+      "import": "./lib-dist/bulk-actions-bar.js",
+      "default": "./lib-dist/bulk-actions-bar.js"
+    },
+    "./button": {
+      "types": "./lib-dist/types/components/button/index.d.ts",
+      "import": "./lib-dist/button.js",
+      "default": "./lib-dist/button.js"
+    },
+    "./button-group": {
+      "types": "./lib-dist/types/components/button-group/index.d.ts",
+      "import": "./lib-dist/button-group.js",
+      "default": "./lib-dist/button-group.js"
+    },
+    "./card": {
+      "types": "./lib-dist/types/components/card/index.d.ts",
+      "import": "./lib-dist/card.js",
+      "default": "./lib-dist/card.js"
+    },
+    "./charts": {
+      "types": "./lib-dist/types/components/charts/index.d.ts",
+      "import": "./lib-dist/charts.js",
+      "default": "./lib-dist/charts.js"
+    },
+    "./checkbox": {
+      "types": "./lib-dist/types/components/checkbox/index.d.ts",
+      "import": "./lib-dist/checkbox.js",
+      "default": "./lib-dist/checkbox.js"
+    },
+    "./code-editor": {
+      "types": "./lib-dist/types/components/code-editor/index.d.ts",
+      "import": "./lib-dist/code-editor.js",
+      "default": "./lib-dist/code-editor.js"
+    },
+    "./command-palette": {
+      "types": "./lib-dist/types/components/command-palette/index.d.ts",
+      "import": "./lib-dist/command-palette.js",
+      "default": "./lib-dist/command-palette.js"
+    },
+    "./confidence-badge": {
+      "types": "./lib-dist/types/components/confidence-badge/index.d.ts",
+      "import": "./lib-dist/confidence-badge.js",
+      "default": "./lib-dist/confidence-badge.js"
+    },
+    "./context-menu": {
+      "types": "./lib-dist/types/components/context-menu/index.d.ts",
+      "import": "./lib-dist/context-menu.js",
+      "default": "./lib-dist/context-menu.js"
+    },
+    "./copy-button": {
+      "types": "./lib-dist/types/components/copy-button/index.d.ts",
+      "import": "./lib-dist/copy-button.js",
+      "default": "./lib-dist/copy-button.js"
+    },
+    "./count-badge": {
+      "types": "./lib-dist/types/components/count-badge/index.d.ts",
+      "import": "./lib-dist/count-badge.js",
+      "default": "./lib-dist/count-badge.js"
+    },
+    "./data-grid": {
+      "types": "./lib-dist/types/components/data-grid/index.d.ts",
+      "import": "./lib-dist/data-grid.js",
+      "default": "./lib-dist/data-grid.js"
+    },
+    "./data-grid-cells": {
+      "types": "./lib-dist/types/components/data-grid-cells/index.d.ts",
+      "import": "./lib-dist/data-grid-cells.js",
+      "default": "./lib-dist/data-grid-cells.js"
+    },
+    "./date-picker": {
+      "types": "./lib-dist/types/components/date-picker/index.d.ts",
+      "import": "./lib-dist/date-picker.js",
+      "default": "./lib-dist/date-picker.js"
+    },
+    "./diff-view": {
+      "types": "./lib-dist/types/components/diff-view/index.d.ts",
+      "import": "./lib-dist/diff-view.js",
+      "default": "./lib-dist/diff-view.js"
+    },
+    "./dropdown-menu": {
+      "types": "./lib-dist/types/components/dropdown-menu/index.d.ts",
+      "import": "./lib-dist/dropdown-menu.js",
+      "default": "./lib-dist/dropdown-menu.js"
+    },
+    "./empty-state": {
+      "types": "./lib-dist/types/components/empty-state/index.d.ts",
+      "import": "./lib-dist/empty-state.js",
+      "default": "./lib-dist/empty-state.js"
+    },
+    "./event-histogram": {
+      "types": "./lib-dist/types/components/event-histogram/index.d.ts",
+      "import": "./lib-dist/event-histogram.js",
+      "default": "./lib-dist/event-histogram.js"
+    },
+    "./expandable-text": {
+      "types": "./lib-dist/types/components/expandable-text/index.d.ts",
+      "import": "./lib-dist/expandable-text.js",
+      "default": "./lib-dist/expandable-text.js"
+    },
+    "./field": {
+      "types": "./lib-dist/types/components/field/index.d.ts",
+      "import": "./lib-dist/field.js",
+      "default": "./lib-dist/field.js"
+    },
+    "./icon-button": {
+      "types": "./lib-dist/types/components/icon-button/index.d.ts",
+      "import": "./lib-dist/icon-button.js",
+      "default": "./lib-dist/icon-button.js"
+    },
+    "./json-viewer": {
+      "types": "./lib-dist/types/components/json-viewer/index.d.ts",
+      "import": "./lib-dist/json-viewer.js",
+      "default": "./lib-dist/json-viewer.js"
+    },
+    "./kbd": {
+      "types": "./lib-dist/types/components/kbd/index.d.ts",
+      "import": "./lib-dist/kbd.js",
+      "default": "./lib-dist/kbd.js"
+    },
+    "./list": {
+      "types": "./lib-dist/types/components/list/index.d.ts",
+      "import": "./lib-dist/list.js",
+      "default": "./lib-dist/list.js"
+    },
+    "./metric-card": {
+      "types": "./lib-dist/types/components/metric-card/index.d.ts",
+      "import": "./lib-dist/metric-card.js",
+      "default": "./lib-dist/metric-card.js"
+    },
+    "./mini-bar-chart": {
+      "types": "./lib-dist/types/components/mini-bar-chart/index.d.ts",
+      "import": "./lib-dist/mini-bar-chart.js",
+      "default": "./lib-dist/mini-bar-chart.js"
+    },
+    "./modal": {
+      "types": "./lib-dist/types/components/modal/index.d.ts",
+      "import": "./lib-dist/modal.js",
+      "default": "./lib-dist/modal.js"
+    },
+    "./multi-combobox": {
+      "types": "./lib-dist/types/components/multi-combobox/index.d.ts",
+      "import": "./lib-dist/multi-combobox.js",
+      "default": "./lib-dist/multi-combobox.js"
+    },
+    "./notification": {
+      "types": "./lib-dist/types/components/notification/index.d.ts",
+      "import": "./lib-dist/notification.js",
+      "default": "./lib-dist/notification.js"
+    },
+    "./pagination": {
+      "types": "./lib-dist/types/components/pagination/index.d.ts",
+      "import": "./lib-dist/pagination.js",
+      "default": "./lib-dist/pagination.js"
+    },
+    "./popover": {
+      "types": "./lib-dist/types/components/popover/index.d.ts",
+      "import": "./lib-dist/popover.js",
+      "default": "./lib-dist/popover.js"
+    },
+    "./progress-bar": {
+      "types": "./lib-dist/types/components/progress-bar/index.d.ts",
+      "import": "./lib-dist/progress-bar.js",
+      "default": "./lib-dist/progress-bar.js"
+    },
+    "./radio-group": {
+      "types": "./lib-dist/types/components/radio-group/index.d.ts",
+      "import": "./lib-dist/radio-group.js",
+      "default": "./lib-dist/radio-group.js"
+    },
+    "./relative-time": {
+      "types": "./lib-dist/types/components/relative-time/index.d.ts",
+      "import": "./lib-dist/relative-time.js",
+      "default": "./lib-dist/relative-time.js"
+    },
+    "./resizable-panels": {
+      "types": "./lib-dist/types/components/resizable-panels/index.d.ts",
+      "import": "./lib-dist/resizable-panels.js",
+      "default": "./lib-dist/resizable-panels.js"
+    },
+    "./scroll-area": {
+      "types": "./lib-dist/types/components/scroll-area/index.d.ts",
+      "import": "./lib-dist/scroll-area.js",
+      "default": "./lib-dist/scroll-area.js"
+    },
+    "./search-input": {
+      "types": "./lib-dist/types/components/search-input/index.d.ts",
+      "import": "./lib-dist/search-input.js",
+      "default": "./lib-dist/search-input.js"
+    },
+    "./select": {
+      "types": "./lib-dist/types/components/select/index.d.ts",
+      "import": "./lib-dist/select.js",
+      "default": "./lib-dist/select.js"
+    },
+    "./separator": {
+      "types": "./lib-dist/types/components/separator/index.d.ts",
+      "import": "./lib-dist/separator.js",
+      "default": "./lib-dist/separator.js"
+    },
+    "./severity-badge": {
+      "types": "./lib-dist/types/components/severity-badge/index.d.ts",
+      "import": "./lib-dist/severity-badge.js",
+      "default": "./lib-dist/severity-badge.js"
+    },
+    "./side-nav": {
+      "types": "./lib-dist/types/components/side-nav/index.d.ts",
+      "import": "./lib-dist/side-nav.js",
+      "default": "./lib-dist/side-nav.js"
+    },
+    "./sheet": {
+      "types": "./lib-dist/types/components/sheet/index.d.ts",
+      "import": "./lib-dist/sheet.js",
+      "default": "./lib-dist/sheet.js"
+    },
+    "./side-sheet": {
+      "types": "./lib-dist/types/components/side-sheet/index.d.ts",
+      "import": "./lib-dist/side-sheet.js",
+      "default": "./lib-dist/side-sheet.js"
+    },
+    "./skeleton": {
+      "types": "./lib-dist/types/components/skeleton/index.d.ts",
+      "import": "./lib-dist/skeleton.js",
+      "default": "./lib-dist/skeleton.js"
+    },
+    "./slider": {
+      "types": "./lib-dist/types/components/slider/index.d.ts",
+      "import": "./lib-dist/slider.js",
+      "default": "./lib-dist/slider.js"
+    },
+    "./sparkline": {
+      "types": "./lib-dist/types/components/sparkline/index.d.ts",
+      "import": "./lib-dist/sparkline.js",
+      "default": "./lib-dist/sparkline.js"
+    },
+    "./spinner": {
+      "types": "./lib-dist/types/components/spinner/index.d.ts",
+      "import": "./lib-dist/spinner.js",
+      "default": "./lib-dist/spinner.js"
+    },
+    "./status-badge": {
+      "types": "./lib-dist/types/components/status-badge/index.d.ts",
+      "import": "./lib-dist/status-badge.js",
+      "default": "./lib-dist/status-badge.js"
+    },
+    "./stepper": {
+      "types": "./lib-dist/types/components/stepper/index.d.ts",
+      "import": "./lib-dist/stepper.js",
+      "default": "./lib-dist/stepper.js"
+    },
+    "./streaming-skeleton": {
+      "types": "./lib-dist/types/components/streaming-skeleton/index.d.ts",
+      "import": "./lib-dist/streaming-skeleton.js",
+      "default": "./lib-dist/streaming-skeleton.js"
+    },
+    "./switch": {
+      "types": "./lib-dist/types/components/switch/index.d.ts",
+      "import": "./lib-dist/switch.js",
+      "default": "./lib-dist/switch.js"
+    },
+    "./tabs": {
+      "types": "./lib-dist/types/components/tabs/index.d.ts",
+      "import": "./lib-dist/tabs.js",
+      "default": "./lib-dist/tabs.js"
+    },
+    "./tag": {
+      "types": "./lib-dist/types/components/tag/index.d.ts",
+      "import": "./lib-dist/tag.js",
+      "default": "./lib-dist/tag.js"
+    },
+    "./text-input": {
+      "types": "./lib-dist/types/components/text-input/index.d.ts",
+      "import": "./lib-dist/text-input.js",
+      "default": "./lib-dist/text-input.js"
+    },
+    "./textarea": {
+      "types": "./lib-dist/types/components/textarea/index.d.ts",
+      "import": "./lib-dist/textarea.js",
+      "default": "./lib-dist/textarea.js"
+    },
+    "./thinking-indicator": {
+      "types": "./lib-dist/types/components/thinking-indicator/index.d.ts",
+      "import": "./lib-dist/thinking-indicator.js",
+      "default": "./lib-dist/thinking-indicator.js"
+    },
+    "./time-range-picker": {
+      "types": "./lib-dist/types/components/time-range-picker/index.d.ts",
+      "import": "./lib-dist/time-range-picker.js",
+      "default": "./lib-dist/time-range-picker.js"
+    },
+    "./timeline": {
+      "types": "./lib-dist/types/components/timeline/index.d.ts",
+      "import": "./lib-dist/timeline.js",
+      "default": "./lib-dist/timeline.js"
+    },
+    "./toast": {
+      "types": "./lib-dist/types/components/toast/index.d.ts",
+      "import": "./lib-dist/toast.js",
+      "default": "./lib-dist/toast.js"
+    },
+    "./tooltip": {
+      "types": "./lib-dist/types/components/tooltip/index.d.ts",
+      "import": "./lib-dist/tooltip.js",
+      "default": "./lib-dist/tooltip.js"
+    },
+    "./tree-view": {
+      "types": "./lib-dist/types/components/tree-view/index.d.ts",
+      "import": "./lib-dist/tree-view.js",
+      "default": "./lib-dist/tree-view.js"
+    },
+    "./yaml-presenter": {
+      "types": "./lib-dist/types/components/yaml-presenter/index.d.ts",
+      "import": "./lib-dist/yaml-presenter.js",
+      "default": "./lib-dist/yaml-presenter.js"
+    },
+    "./patterns/ai-diff-review": {
+      "types": "./lib-dist/types/patterns/ai-diff-review/index.d.ts",
+      "import": "./lib-dist/patterns/ai-diff-review.js",
+      "default": "./lib-dist/patterns/ai-diff-review.js"
+    },
+    "./patterns/ai-panel": {
+      "types": "./lib-dist/types/patterns/ai-panel/index.d.ts",
+      "import": "./lib-dist/patterns/ai-panel.js",
+      "default": "./lib-dist/patterns/ai-panel.js"
+    },
+    "./patterns/filter-bar": {
+      "types": "./lib-dist/types/patterns/filter-bar/index.d.ts",
+      "import": "./lib-dist/patterns/filter-bar.js",
+      "default": "./lib-dist/patterns/filter-bar.js"
+    },
+    "./patterns/filter-panel": {
+      "types": "./lib-dist/types/patterns/filter-panel/index.d.ts",
+      "import": "./lib-dist/patterns/filter-panel.js",
+      "default": "./lib-dist/patterns/filter-panel.js"
+    },
+    "./patterns/prompt-input": {
+      "types": "./lib-dist/types/patterns/prompt-input/index.d.ts",
+      "import": "./lib-dist/patterns/prompt-input.js",
+      "default": "./lib-dist/patterns/prompt-input.js"
+    },
+    "./patterns/wizard": {
+      "types": "./lib-dist/types/patterns/wizard/index.d.ts",
+      "import": "./lib-dist/patterns/wizard.js",
+      "default": "./lib-dist/patterns/wizard.js"
+    },
+    "./styles.css": "./lib-dist/styles.css",
+    "./fonts.css": "./lib-dist/fonts.css",
+    "./reset.css": "./lib-dist/reset.css",
+    "./tokens.css": "./lib-dist/tokens.css",
+    "./package.json": "./package.json",
+    "./segmented-control": {
+      "types": "./lib-dist/types/components/segmented-control/index.d.ts",
+      "import": "./lib-dist/segmented-control.js",
+      "default": "./lib-dist/segmented-control.js"
+    },
+    "./description-list": {
+      "types": "./lib-dist/types/components/description-list/index.d.ts",
+      "import": "./lib-dist/description-list.js",
+      "default": "./lib-dist/description-list.js"
+    },
+    "./copyable-field": {
+      "types": "./lib-dist/types/components/copyable-field/index.d.ts",
+      "import": "./lib-dist/copyable-field.js",
+      "default": "./lib-dist/copyable-field.js"
+    },
+    "./gantt-chart": {
+      "types": "./lib-dist/types/components/gantt-chart/index.d.ts",
+      "import": "./lib-dist/gantt-chart.js",
+      "default": "./lib-dist/gantt-chart.js"
+    },
+    "./link": {
+      "types": "./lib-dist/types/components/link/index.d.ts",
+      "import": "./lib-dist/link.js",
+      "default": "./lib-dist/link.js"
+    },
+    "./split-button": {
+      "types": "./lib-dist/types/components/split-button/index.d.ts",
+      "import": "./lib-dist/split-button.js",
+      "default": "./lib-dist/split-button.js"
+    },
+    "./file-upload": {
+      "types": "./lib-dist/types/components/file-upload/index.d.ts",
+      "import": "./lib-dist/file-upload.js",
+      "default": "./lib-dist/file-upload.js"
+    },
+    "./patterns/unsaved-changes-bar": {
+      "types": "./lib-dist/types/patterns/unsaved-changes-bar/index.d.ts",
+      "import": "./lib-dist/patterns/unsaved-changes-bar.js",
+      "default": "./lib-dist/patterns/unsaved-changes-bar.js"
+    },
+    "./patterns/page-header": {
+      "types": "./lib-dist/types/patterns/page-header/index.d.ts",
+      "import": "./lib-dist/patterns/page-header.js",
+      "default": "./lib-dist/patterns/page-header.js"
+    },
+    "./patterns/notification-center": {
+      "types": "./lib-dist/types/patterns/notification-center/index.d.ts",
+      "import": "./lib-dist/patterns/notification-center.js",
+      "default": "./lib-dist/patterns/notification-center.js"
+    },
+    "./patterns/onboarding-checklist": {
+      "types": "./lib-dist/types/patterns/onboarding-checklist/index.d.ts",
+      "import": "./lib-dist/patterns/onboarding-checklist.js",
+      "default": "./lib-dist/patterns/onboarding-checklist.js"
+    },
+    "./primitives": {
+      "types": "./lib-dist/types/package/primitives.d.ts",
+      "import": "./lib-dist/primitives.js",
+      "default": "./lib-dist/primitives.js"
+    },
+    "./token-manifest.json": "./lib-dist/token-manifest.json"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

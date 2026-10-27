@@ -1,0 +1,589 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-actions-link",
+  "name": "Link",
+  "category": "Triggers",
+  "tokenGroup": "trigger",
+  "kind": "component",
+  "aliases": [
+    "anchor",
+    "hyperlink",
+    "navigation link"
+  ],
+  "purpose": "A native anchor for navigation, with optional icons and explicit external-link behavior.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/link"
+  ],
+  "links": {
+    "contract": "./components-actions-link.json",
+    "overview": "../../?path=/docs/components-triggers-link-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-triggers-link-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-triggers-link-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-triggers-link-overview--docs&docsTab=tokens"
+  },
+  "description": "Use Link for navigation and Button for actions. It renders a native anchor with normal browser behavior, including modifier-click and context menus. Disabled links have no destination and leave the tab sequence. External links open a new tab by default, announce that behavior, and include noopener/noreferrer. Keep link text descriptive; size changes text, not a button-like hit area.",
+  "exports": [
+    "Link"
+  ],
+  "importStatements": [
+    "import { Link } from '@dimitriszoitas/aegis-ui/link';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Link",
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    },
+    {
+      "component": "Link",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false"
+    },
+    {
+      "component": "Link",
+      "name": "external",
+      "type": "boolean | undefined",
+      "required": false,
+      "defaultValue": "false",
+      "description": "Opens a new tab by default and displays an external-link icon."
+    },
+    {
+      "component": "Link",
+      "name": "href",
+      "type": "string",
+      "required": true
+    },
+    {
+      "component": "Link",
+      "name": "intent",
+      "type": "\"function\" | \"default\" | undefined",
+      "required": false,
+      "defaultValue": "\"function\""
+    },
+    {
+      "component": "Link",
+      "name": "leadingIcon",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Link",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "Link",
+      "name": "trailingIcon",
+      "type": "ReactNode",
+      "required": false
+    },
+    {
+      "component": "Link",
+      "name": "underline",
+      "type": "\"none\" | \"hover\" | \"always\" | undefined",
+      "required": false,
+      "defaultValue": "\"always\""
+    }
+  ],
+  "variants": [
+    {
+      "name": "intent",
+      "values": [
+        "default",
+        "function"
+      ],
+      "default": "function"
+    },
+    {
+      "name": "size",
+      "values": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    },
+    {
+      "name": "underline",
+      "values": [
+        "always",
+        "hover",
+        "none"
+      ],
+      "default": "always"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A native anchor for navigation, with optional icons and explicit external-link behavior.",
+    "usage": [
+      "Supply a real href and link text that describes the destination. Use Button for an action that does not navigate.",
+      "external defaults the target to a new tab, adds safe rel values, and displays an external-link icon.",
+      "Disabled links remove href and leave the tab sequence. Prefer explaining why a destination is unavailable rather than relying on its appearance."
+    ],
+    "accessibility": [
+      "An enabled link is reached with Tab and activated with Enter. It retains native browser link behavior.",
+      "External links include a screen-reader announcement that they open in a new tab; icons supplement the text."
+    ],
+    "intent": [
+      "Function emphasizes navigation; default inherits neutral hierarchy. Underline options control presentation without changing link semantics."
+    ],
+    "context": [
+      "Use in prose, supporting resource links, and PageHeader back navigation to a known URL."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-disabled",
+      "aria-hidden"
+    ],
+    "nativeElements": [
+      "a",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/icon/index.tsx",
+    "src/components/link/link.css",
+    "src/components/link/link.stories.tsx",
+    "src/components/link/link.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-actions-link--matrix",
+      "name": "Matrix",
+      "url": "../../?path=/story/components-actions-link--matrix",
+      "sourceFile": "src/components/link/link.stories.tsx"
+    },
+    {
+      "id": "components-actions-link--inline-and-long-text",
+      "name": "Inline And Long Text",
+      "url": "../../?path=/story/components-actions-link--inline-and-long-text",
+      "sourceFile": "src/components/link/link.stories.tsx"
+    },
+    {
+      "id": "components-actions-link--keyboard-navigation",
+      "name": "Keyboard Navigation",
+      "url": "../../?path=/story/components-actions-link--keyboard-navigation",
+      "sourceFile": "src/components/link/link.stories.tsx"
+    },
+    {
+      "id": "components-actions-link--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-actions-link--playground",
+      "sourceFile": "src/components/link/link.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-trigger-link-border-width-regular",
+    "--group-trigger-link-color-action-foreground",
+    "--group-trigger-link-color-content-primary",
+    "--group-trigger-link-color-content-tertiary",
+    "--group-trigger-link-font-leading-body",
+    "--group-trigger-link-font-size-body",
+    "--group-trigger-link-font-size-label",
+    "--group-trigger-link-number-0",
+    "--group-trigger-link-radius-border-radius-soft",
+    "--group-trigger-link-ring-focus",
+    "--group-trigger-link-size-height-1em",
+    "--group-trigger-link-size-max-width-full",
+    "--group-trigger-link-size-outline-offset-micro-compact",
+    "--group-trigger-link-size-text-decoration-thickness-micro-small",
+    "--group-trigger-link-size-text-underline-offset-0-18em",
+    "--group-trigger-link-size-width-1em",
+    "--group-trigger-link-space-gap-snug",
+    "--group-trigger-measurement-icon-sm",
+    "--group-trigger-surface-border-overlap",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-divider-height",
+    "--group-trigger-surface-divider-width",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-link-underline-offset",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-trigger-link-space-gap-snug",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-max-width-full",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-color-action-foreground",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-font-size-body",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-font-leading-body",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-text-underline-offset-0-18em",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-text-decoration-thickness-micro-small",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-color-content-primary",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-font-size-label",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-number-0",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-border-width-regular",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-ring-focus",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-outline-offset-micro-compact",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-color-content-tertiary",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-width-1em",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-height-1em",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-link-underline-offset",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-divider-width",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-divider-height",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-overlap",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-sm",
+      "ownership": "owned",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

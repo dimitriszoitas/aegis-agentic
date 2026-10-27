@@ -1,0 +1,11 @@
+.aegis-story-console-viewport {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+.aegis-story-console-canvas {
+  width: 100%;
+  min-width: 0;
+  max-width: 2160px;
+  margin-inline: auto;
+}

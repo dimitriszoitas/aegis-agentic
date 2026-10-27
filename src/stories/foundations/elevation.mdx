@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import {
+  DropShadowExamples,
+  ElevationExamples,
+  ShadowGeometryExamples,
+} from './foundation-detail-examples';
+
+<Meta title="Foundations/Elevation" id="foundations-elevation" />
+
+# Elevation
+
+Elevation separates overlapping content from its surroundings. Use a shadow role when a surface needs depth; use spacing, surface color, and hierarchy when it does not.
+
+## Box shadow roles
+
+The canonical `--semantic-elevation-0` through `--semantic-elevation-3` roles each map directly to primitives. They do not form a chain of semantic aliases. The current four configurations resolve these general surface roles to `none`.
+
+Transient overlays have explicit `--semantic-shadow-popover` and `--semantic-shadow-dialog` mappings. Components consume them through `--group-surface-overlay-shadow-popover` and `--group-surface-overlay-shadow-dialog`. The examples show the source roles without adding decorative shadows to flat surfaces.
+
+<ElevationExamples />
+
+## Drop shadows
+
+`--semantic-drop-shadow-sm`, `--semantic-drop-shadow-md`, and `--semantic-drop-shadow-lg` contain single shadow values intended for the CSS `drop-shadow()` filter. These opt-in roles follow the painted shape, including the transparent area around an icon or illustration. These specimens inspect the semantic values. A production component must expose an appropriate group role before consuming a drop shadow; adding a semantic role does not apply it automatically.
+
+<DropShadowExamples />
+
+## Box boundary and painted shape
+
+The following comparison uses the same single-shadow value on the same transparent graphic. `box-shadow` follows the rectangular element boundary; `drop-shadow()` follows its painted pixels. The different outlines are intentional.
+
+<ShadowGeometryExamples />
+
+The value grammars overlap, but they are not interchangeable in general. Box shadows can include spread, inset, and comma-separated layers. `drop-shadow()` accepts a single shadow without spread or inset; compose multiple filter functions when that effect is required. Do not pass a layered popover or dialog value into one `drop-shadow()` function.
+
+## Usage
+
+Prefer the existing component shadow role instead of selecting a new depth for each instance. A menu or dialog also needs its existing focus, dismissal, and layering behavior; a shadow alone does not create an overlay. Check separation against both light and dark surfaces, including neighboring content and translucent backdrops.
+
+Shadow color and strength come from the shared tokens. Use <a className="foundation-detail-link" href="./?path=/docs/foundations-colors--docs" target="_top">Colors</a> for semantic surface roles and <a className="foundation-detail-link" href="./?path=/docs/foundations-border--docs" target="_top">Border</a> for corners and explicit boundaries.

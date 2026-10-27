@@ -1,0 +1,491 @@
+/* The workflow is the hero: readable UI, with its own local color mode. */
+.marketing-workflow-stage {
+  border: 1px solid var(--marketing-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--marketing-bg);
+  color: var(--marketing-text);
+}
+.marketing-stage-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--marketing-line);
+  color: var(--marketing-muted);
+  font: 10px/1.5 var(--font-mono);
+  letter-spacing: 0.04em;
+}
+.marketing-stage-topline > span:first-child {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.marketing-stage-topline i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--marketing-accent);
+}
+.marketing-showcase-tabs > .aegis-tabs-overflow {
+  padding: 0;
+  mask-image: none;
+}
+.marketing-showcase-tab-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  border-bottom: 1px solid var(--marketing-line);
+  gap: 0;
+}
+.marketing-showcase-tab-list .aegis-tabs-trigger {
+  justify-content: center;
+  min-height: 58px;
+  gap: 9px;
+  border-radius: 0;
+  padding: 14px 12px;
+  color: var(--marketing-muted);
+  font-size: 13px;
+}
+.marketing-showcase-tab-list .aegis-tabs-trigger[data-active] {
+  color: var(--marketing-accent);
+  background: var(--marketing-surface);
+  border-bottom-color: var(--marketing-accent);
+}
+.marketing-showcase-tab-list .aegis-tabs-trigger::after {
+  background: var(--marketing-accent);
+}
+.marketing-showcase-tab-list .aegis-tabs-trigger:focus-visible {
+  outline-offset: -5px;
+  outline-color: var(--marketing-accent);
+}
+.marketing-showcase-tab-panel {
+  padding: 0;
+  background: transparent;
+}
+.marketing-showcase-preview {
+  container-type: inline-size;
+  min-width: 0;
+  min-height: 484px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--surface-radius-floating);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  box-shadow: 0 22px 60px color-mix(in srgb, var(--marketing-bg) 55%, transparent);
+}
+.marketing-showcase-preview-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 53px;
+  padding: 12px 20px;
+  background: var(--color-bg-canvas);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.marketing-showcase-preview-bar > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  font: 9px/1.5 var(--font-mono);
+  letter-spacing: 0.04em;
+}
+.marketing-showcase-preview-bar > span > i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-success-fg);
+}
+.marketing-showcase-preview .aegis-switch-label {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+.marketing-showcase-preview .aegis-switch-field {
+  align-items: center;
+  gap: 7px;
+}
+.marketing-showcase-preview-body {
+  padding: 23px 24px 16px;
+}
+.marketing-showcase-view-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 21px;
+}
+.marketing-showcase-overline {
+  display: block;
+  color: var(--color-text-tertiary);
+  font: 9px/1.5 var(--font-mono);
+  letter-spacing: 0.08em;
+  margin-bottom: 7px;
+}
+.marketing-showcase-view-heading h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.35;
+}
+.marketing-showcase-filter-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 17px;
+}
+.marketing-showcase-filter-row > span {
+  color: var(--color-text-tertiary);
+  font-size: 10px;
+}
+.marketing-showcase-queue-head,
+.marketing-showcase-queue > li {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr) 80px 53px;
+  gap: 13px;
+  align-items: center;
+}
+.marketing-showcase-queue-head {
+  padding: 0 8px 10px;
+  color: var(--color-text-tertiary);
+  font-size: 10px;
+  border-bottom: 1px solid var(--color-border-default);
+}
+.marketing-showcase-queue {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.marketing-showcase-queue > li {
+  padding: 13px 8px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition: background var(--motion-fast);
+}
+.marketing-showcase-queue > li[data-selected='true'] {
+  background: var(--color-function-soft);
+}
+.marketing-showcase-signal[data-compact='true'] .marketing-showcase-queue > li {
+  padding-block: 8px;
+}
+.marketing-showcase-signal-copy {
+  min-width: 0;
+}
+.marketing-showcase-signal-copy > strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.45;
+  margin-bottom: 5px;
+}
+.marketing-showcase-signal-copy > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.marketing-showcase-signal-copy > div > span:last-child:not(.severity-badge) {
+  color: var(--color-text-secondary);
+  font-size: 10px;
+}
+.marketing-showcase-queue > li > .status-badge {
+  justify-self: start;
+}
+.marketing-showcase-queue time {
+  color: var(--color-text-secondary);
+  font: 10px/1.5 var(--font-mono);
+}
+.marketing-showcase-preview-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 16px;
+}
+.marketing-showcase-preview-actions > span {
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+.marketing-showcase-preview-actions > div:last-child {
+  display: flex;
+  gap: 7px;
+}
+.marketing-showcase-case-heading {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 22px 0 16px;
+}
+.marketing-showcase-entity-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  height: 42px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 8px;
+  background: var(--color-bg-canvas);
+  color: var(--color-text-secondary);
+}
+.marketing-showcase-case-heading h3 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+.marketing-showcase-case-heading p {
+  margin: 5px 0 0;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+.marketing-showcase-case-heading p > span {
+  padding-inline: 4px;
+}
+.marketing-showcase-case-tags,
+.marketing-showcase-ai-tags {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.marketing-showcase-metadata {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0 15px;
+  padding: 16px 0;
+  border-block: 1px solid var(--color-border-subtle);
+}
+.marketing-showcase-metadata dt {
+  margin-bottom: 7px;
+  color: var(--color-text-tertiary);
+  font-size: 10px;
+}
+.marketing-showcase-metadata dd {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+  margin: 0;
+  font-size: 11px;
+}
+.marketing-showcase-preview .aegis-accordion-trigger {
+  padding-block: 12px;
+}
+.marketing-showcase-preview .aegis-accordion-title {
+  font-size: 12px;
+}
+.marketing-showcase-process {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--color-text-secondary);
+}
+.marketing-showcase-process code {
+  padding: 5px 7px;
+  border-radius: 4px;
+  background: var(--color-bg-canvas);
+  font: 10px/1.5 var(--font-mono);
+  color: var(--color-text-primary);
+}
+.marketing-showcase-process p {
+  flex-basis: 100%;
+  margin: 5px 0 0;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.marketing-showcase-evidence-copy {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.marketing-showcase-review .aegis-ai-card {
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.marketing-showcase-review .aegis-ai-card-title {
+  font-size: 17px;
+}
+.marketing-showcase-review .aegis-ai-card-content > p {
+  font-size: 13px;
+  line-height: 1.75;
+  margin: 13px 0;
+}
+.marketing-showcase-review .aegis-ai-card-content strong {
+  font-weight: 500;
+}
+.marketing-showcase-review .aegis-ai-provenance {
+  font-size: 10px;
+}
+.marketing-showcase-evidence-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.marketing-showcase-evidence-list li {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.marketing-showcase-evidence-list time {
+  font: 10px/1.75 var(--font-mono);
+  color: var(--color-text-secondary);
+}
+.marketing-showcase-decision {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 17px 0;
+  min-height: 22px;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.marketing-showcase-decision[data-decision='accepted'] {
+  color: var(--color-success-fg);
+}
+.marketing-showcase-decision-dot {
+  flex: 0 0 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-text-tertiary);
+}
+.marketing-showcase-review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.marketing-workflow-stage .marketing-showcase-preview {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 580px;
+}
+.marketing-workflow-stage .marketing-showcase-preview-body {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 28px 40px;
+}
+.marketing-workflow-stage .marketing-showcase-preview-bar {
+  padding: 12px 24px;
+}
+.marketing-workflow-stage .marketing-showcase-preview :focus-visible {
+  outline-color: var(--ring-focus);
+  outline-offset: 2px;
+}
+.marketing-stage-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 24px;
+  color: var(--marketing-muted);
+  border-top: 1px solid var(--marketing-line);
+}
+.marketing-stage-caption p {
+  font-size: 12px;
+  margin: 0;
+}
+.marketing-stage-caption a {
+  font-size: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
+  color: var(--marketing-accent);
+}
+@container (max-width: 520px) {
+  .marketing-showcase-preview-bar {
+    padding-inline: 14px;
+  }
+  .marketing-showcase-sample-label {
+    display: none;
+  }
+  .marketing-showcase-preview-body {
+    padding: 20px 14px 16px;
+  }
+  .marketing-showcase-view-heading {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .marketing-showcase-queue-head,
+  .marketing-showcase-queue > li {
+    grid-template-columns: 16px minmax(0, 1fr) 63px;
+    gap: 10px;
+    padding-inline: 2px;
+  }
+  .marketing-showcase-queue-head > span:last-child,
+  .marketing-showcase-queue time {
+    display: none;
+  }
+  .marketing-showcase-signal-copy > div {
+    gap: 5px;
+  }
+  .marketing-showcase-queue > li > .status-badge {
+    font-size: 10px;
+  }
+  .marketing-showcase-metadata {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .marketing-showcase-review .aegis-ai-card {
+    padding: 15px;
+  }
+  .marketing-showcase-review .aegis-ai-card-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .marketing-stage-topline {
+    padding: 14px 16px;
+    font-size: 8px;
+  }
+  .marketing-stage-topline > span:last-child {
+    display: none;
+  }
+  .marketing-workflow-stage .marketing-showcase-preview-body {
+    padding: 20px 14px;
+  }
+  .marketing-workflow-stage .marketing-showcase-preview {
+    min-height: 620px;
+  }
+  .marketing-showcase-tab-list .aegis-tabs-trigger {
+    font-size: 11px;
+    gap: 6px;
+    padding: 12px 7px;
+    min-height: 54px;
+  }
+  .marketing-showcase-tab-list .aegis-tabs-trigger svg {
+    width: 14px;
+    height: 14px;
+  }
+  .marketing-stage-caption {
+    padding: 16px;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marketing-showcase-queue > li {
+    transition: none;
+  }
+}

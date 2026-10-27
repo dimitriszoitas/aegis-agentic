@@ -1,0 +1,516 @@
+.business-app {
+  display: flex;
+  position: relative;
+  width: var(--group-application-business-app-size-width-full);
+  max-width: var(--group-application-business-app-size-max-width-extended-canvas-large);
+  margin-inline: auto;
+  height: var(--console-height, var(--group-application-business-app-size-height-100dvh));
+  min-height: var(--group-application-business-app-number-0);
+  overflow: hidden;
+  color: var(--group-application-business-app-color-content-primary);
+  background: var(--group-application-business-app-color-surface-canvas);
+}
+.business-workspace {
+  flex: var(--group-application-business-app-flex-fill);
+  min-width: var(--group-application-business-app-number-0);
+  min-height: var(--group-application-business-app-number-0);
+  display: flex;
+}
+.business-main {
+  flex: var(--group-application-business-app-flex-fill);
+  min-width: var(--group-application-business-app-number-0);
+  overflow: auto;
+  padding: var(--group-application-business-app-space-padding-roomy)
+    var(--group-application-business-app-layout-page-padding);
+  outline: none;
+  container-type: inline-size;
+}
+.business-main > [hidden] {
+  display: none !important;
+}
+.business-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--group-application-business-app-size-min-height-comfortable);
+  gap: var(--group-application-business-app-space-gap-regular);
+  margin-bottom: var(--group-application-business-app-space-margin-bottom-5);
+}
+.business-topbar > div:last-child {
+  display: flex;
+  gap: var(--group-application-business-app-space-gap-compact);
+  flex-shrink: var(--group-application-business-app-flex-none);
+}
+.business-topbar .aegis-breadcrumb li,
+.business-workspace-label {
+  font-size: var(--group-application-business-app-font-size-caption);
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.business-topbar .aegis-breadcrumb-separator {
+  width: var(--group-application-business-app-size-width-tiny);
+  height: var(--group-application-business-app-size-height-tiny);
+}
+.business-page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-gap-5);
+  margin-bottom: var(--group-application-business-app-space-margin-bottom-roomy);
+}
+.business-page-heading h1 {
+  font-size: var(--group-application-business-app-font-size-title-page);
+  font-weight: var(--group-application-business-app-title-weight);
+  margin: var(--group-application-business-app-number-0)
+    var(--group-application-business-app-number-0)
+    var(--group-application-business-app-space-margin-compact);
+  outline: none;
+}
+.business-page-heading p {
+  margin: var(--group-application-business-app-number-0);
+  font-size: var(--group-application-business-app-font-size-body);
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.business-date {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-gap-compact);
+  white-space: nowrap;
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-label);
+}
+.business-overview-header {
+  padding-bottom: var(--group-application-business-app-space-padding-roomy);
+  border-bottom: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.business-ai-hub {
+  width: min(
+    var(--group-application-business-app-size-width-full),
+    var(--group-application-business-app-size-width-wide-canvas-vast)
+  );
+  margin: var(--group-application-business-app-ai-space-expansive) auto;
+}
+.business-ai-intro {
+  text-align: center;
+  margin-bottom: var(--group-application-business-app-space-margin-spacious);
+}
+.business-ai-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-gap-compact);
+  color: var(--group-application-business-app-color-ai-foreground);
+  font-size: var(--group-application-business-app-font-size-body);
+  font-weight: var(--group-application-business-app-title-weight);
+}
+.business-ai-intro h2 {
+  margin: var(--group-application-business-app-space-margin-regular)
+    var(--group-application-business-app-number-0)
+    var(--group-application-business-app-space-margin-compact);
+  font-size: clamp(
+    var(--group-application-business-app-font-size-display),
+    calc(
+      var(--group-application-business-app-size-font-size-3cqi) +
+        var(--group-application-business-app-font-size-body)
+    ),
+    var(--group-application-business-app-ai-heading-size-large)
+  );
+  font-weight: var(--group-application-business-app-ai-heading-weight);
+  line-height: var(--group-application-business-app-font-leading-heading);
+  letter-spacing: var(--group-application-business-app-font-tracking-heading);
+}
+.business-ai-intro p {
+  margin: var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-subheading);
+}
+.business-metrics {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--group-application-business-app-columns-four),
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    )
+  );
+  gap: var(--group-application-business-app-space-gap-comfortable);
+  margin-bottom: var(--group-application-business-app-space-margin-bottom-7);
+}
+.business-metric {
+  background: var(--group-application-business-app-color-surface-surface);
+  border-radius: var(--group-application-business-app-radius-border-radius-strong);
+  min-width: var(--group-application-business-app-number-0);
+  overflow: hidden;
+}
+.business-metric .aegis-metric-card {
+  padding: var(--group-application-business-app-space-padding-5)
+    var(--group-application-business-app-space-padding-5)
+    var(--group-application-business-app-space-padding-regular);
+  background: var(--group-application-business-app-color-transparent);
+}
+.business-metric-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-gap-compact);
+  width: var(--group-application-business-app-size-width-full);
+  padding: var(--group-application-business-app-space-padding-snug)
+    var(--group-application-business-app-space-padding-5)
+    var(--group-application-business-app-space-padding-comfortable);
+  text-align: left;
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-label);
+  background: var(--group-application-business-app-color-transparent);
+  border: var(--group-application-business-app-number-0);
+  cursor: pointer;
+}
+.business-metric-link:hover {
+  color: var(--group-application-business-app-color-action-foreground);
+}
+.business-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-gap-regular);
+  margin-bottom: var(--group-application-business-app-space-margin-bottom-comfortable);
+}
+.business-section-heading h2,
+.business-settings h2 {
+  font-size: var(--group-application-business-app-font-size-subheading);
+  font-weight: var(--group-application-business-app-title-weight);
+  margin: var(--group-application-business-app-number-0);
+}
+.business-section-heading .aegis-select-field {
+  width: var(--group-application-business-app-size-width-panel-roomy);
+}
+.business-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--group-application-business-app-columns-two),
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    )
+  );
+  gap: var(--group-application-business-app-space-gap-5);
+  margin-bottom: var(--group-application-business-app-space-margin-bottom-7);
+}
+.business-chart-grid .aegis-chart-metric-card {
+  padding: var(--group-application-business-app-space-padding-5);
+  background: var(--group-application-business-app-color-surface-surface);
+}
+.business-lower-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-wide)
+    )
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  gap: var(--group-application-business-app-space-gap-5);
+}
+.business-lower-grid > section {
+  min-width: var(--group-application-business-app-number-0);
+}
+.business-priorities {
+  padding: var(--group-application-business-app-space-padding-compact);
+  background: var(--group-application-business-app-color-surface-surface) !important;
+}
+.business-priorities > button {
+  display: grid;
+  grid-template-columns:
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    )
+    auto var(--group-application-business-app-size-grid-template-columns-content-regular) var(
+      --group-application-business-app-size-grid-template-columns-compact-content-small
+    );
+  align-items: center;
+  gap: var(--group-application-business-app-space-gap-regular);
+  width: var(--group-application-business-app-size-width-full);
+  padding: var(--group-application-business-app-space-padding-comfortable)
+    var(--group-application-business-app-space-padding-regular);
+  background: var(--group-application-business-app-color-transparent);
+  border: var(--group-application-business-app-number-0);
+  color: inherit;
+  text-align: left;
+  border-radius: var(--group-application-business-app-radius-border-radius-bold);
+  cursor: pointer;
+}
+.business-priorities > button:hover {
+  background: var(--group-application-business-app-color-surface-hover);
+}
+.business-priority-copy {
+  display: grid;
+  min-width: var(--group-application-business-app-number-0);
+  gap: var(--group-application-business-app-space-gap-snug);
+}
+.business-priority-copy strong {
+  font-size: var(--group-application-business-app-font-size-body);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.business-priority-copy > span,
+.business-priorities .mono {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-label);
+}
+.business-priority-copy > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.business-activity-card,
+.business-activity-page {
+  padding: var(--group-application-business-app-space-padding-5);
+  background: var(--group-application-business-app-color-surface-surface) !important;
+}
+.business-activity-page {
+  max-width: var(--group-application-business-app-size-max-width-extended-canvas-regular);
+}
+.business-toolbar {
+  display: flex;
+  gap: var(--group-application-business-app-space-gap-regular);
+  align-items: center;
+  margin-bottom: var(--group-application-business-app-space-margin-bottom-roomy);
+}
+.business-toolbar > .aegis-input {
+  flex: var(--group-application-business-app-flex-fill);
+}
+.business-toolbar .aegis-select-field {
+  width: var(--group-application-business-app-size-width-wide-panel-small);
+}
+.business-settings {
+  max-width: var(--group-application-business-app-size-max-width-extended-canvas-tiny);
+}
+.business-settings > section {
+  padding: var(--group-application-business-app-space-padding-roomy)
+    var(--group-application-business-app-number-0);
+  border-bottom: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.business-settings > section:first-child {
+  padding-top: var(--group-application-business-app-number-0);
+}
+.business-settings p {
+  font-size: var(--group-application-business-app-font-size-body);
+}
+.business-settings-form {
+  display: grid;
+  gap: var(--group-application-business-app-space-gap-comfortable);
+  max-width: var(--group-application-business-app-size-max-width-canvas-large);
+  margin-top: var(--group-application-business-app-space-margin-top-5);
+}
+.business-settings-form > button {
+  justify-self: start;
+}
+.business-settings-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--group-application-business-app-space-gap-regular);
+  margin-top: var(--group-application-business-app-space-margin-top-comfortable);
+}
+.business-settings h2 {
+  margin-bottom: var(--group-application-business-app-space-margin-bottom-regular);
+}
+.business-account-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-application-business-app-space-gap-regular);
+}
+.business-account-copy {
+  display: grid;
+  flex: var(--group-application-business-app-flex-fill);
+  min-width: var(--group-application-business-app-number-0);
+  gap: var(--group-application-business-app-space-gap-snug);
+}
+.business-account-row small {
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.business-sample-note {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-label) !important;
+  margin-top: var(--group-application-business-app-space-margin-top-5);
+}
+.business-nav-footer {
+  display: grid;
+  gap: var(--group-application-business-app-space-gap-comfortable);
+}
+.business-profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-gap-regular);
+  padding: var(--group-application-business-app-space-padding-compact);
+  border: var(--group-application-business-app-number-0);
+  border-radius: var(--group-application-business-app-radius-border-radius-strong);
+  background: var(--group-application-business-app-color-transparent);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  width: var(--group-application-business-app-size-width-full);
+}
+.business-profile-trigger:hover {
+  background: var(--group-application-business-app-color-surface-hover);
+}
+.business-profile-trigger > span {
+  display: grid;
+  min-width: var(--group-application-business-app-number-0);
+  gap: var(--group-application-business-app-size-gap-micro-compact);
+}
+.business-profile-trigger strong {
+  font-size: var(--group-application-business-app-font-size-label);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.business-profile-trigger small {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+}
+.business-assistant.aegis-sheet-docked {
+  height: calc(
+    var(--group-application-business-app-size-height-full) - 2 *
+      var(--group-application-business-app-chrome-inset)
+  );
+  flex-basis: var(--group-application-business-app-size-flex-basis-canvas-snug);
+  width: var(--group-application-business-app-size-width-canvas-snug);
+}
+.business-skip {
+  position: fixed;
+  left: var(--group-application-business-app-space-left-comfortable);
+  top: var(--group-application-business-app-size-top-negative-100);
+  z-index: var(--group-application-business-app-z-toast);
+  padding: var(--group-application-business-app-space-padding-regular);
+  border-radius: var(--group-application-business-app-radius-border-radius-bold);
+  background: var(--group-application-business-app-color-surface-surface);
+}
+.business-skip:focus {
+  top: var(--group-application-business-app-space-top-comfortable);
+}
+.business-empty {
+  padding: var(--group-application-business-app-space-padding-spacious);
+  text-align: center;
+  background: var(--group-application-business-app-color-surface-surface);
+}
+.business-empty p {
+  color: var(--group-application-business-app-color-content-secondary);
+}
+@container (max-width: 1000px) {
+  .business-lower-grid {
+    grid-template-columns: minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  }
+  .business-priorities > button {
+    grid-template-columns:
+      minmax(
+        var(--group-application-business-app-number-0),
+        var(--group-application-business-app-track-flex)
+      )
+      auto var(--group-application-business-app-size-grid-template-columns-wide-content-small)
+      var(--group-application-business-app-size-grid-template-columns-compact-content-small);
+  }
+}
+@container (max-width: 760px) {
+  .business-metrics {
+    grid-template-columns: repeat(
+      var(--group-application-business-app-columns-two),
+      minmax(
+        var(--group-application-business-app-number-0),
+        var(--group-application-business-app-track-flex)
+      )
+    );
+  }
+  .business-chart-grid {
+    grid-template-columns: minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  }
+  .business-page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--group-application-business-app-space-gap-regular);
+  }
+}
+@container (max-width: 460px) {
+  .business-ai-hub {
+    margin-block: var(--group-application-business-app-space-margin-block-5)
+      var(--group-application-business-app-space-margin-block-7);
+  }
+  .business-metrics {
+    gap: var(--group-application-business-app-space-gap-compact);
+  }
+  .business-metric .aegis-metric-card {
+    padding: var(--group-application-business-app-space-padding-comfortable)
+      var(--group-application-business-app-space-padding-regular)
+      var(--group-application-business-app-space-padding-compact);
+  }
+  .business-metric-link {
+    padding-inline: var(--group-application-business-app-space-padding-inline-regular);
+  }
+  .business-metric .aegis-metric-value {
+    font-size: var(--group-application-business-app-font-size-heading-m);
+  }
+  .business-priorities > button {
+    grid-template-columns:
+      minmax(
+        var(--group-application-business-app-number-0),
+        var(--group-application-business-app-track-flex)
+      )
+      auto;
+  }
+  .business-priorities > button > .aegis-progress,
+  .business-priorities > button > .mono {
+    display: none;
+  }
+  .business-topbar > .business-workspace-label {
+    display: none;
+  }
+  .business-topbar {
+    justify-content: flex-end;
+  }
+  .business-toolbar {
+    flex-wrap: wrap;
+  }
+  .business-toolbar > .aegis-select-field {
+    width: var(--group-application-business-app-size-width-full);
+  }
+  .business-page-heading h1 {
+    font-size: var(--group-application-business-app-font-size-heading-l);
+  }
+}
+@media (max-width: 1000px) {
+  .business-app > .side-nav {
+    position: absolute;
+    z-index: var(--group-application-business-app-z-dropdown);
+    left: var(--group-application-business-app-number-0);
+    top: var(--group-application-business-app-number-0);
+  }
+  .business-app > .side-nav + .business-workspace {
+    margin-inline-start: calc(
+      var(--group-application-business-app-sidebar-collapsed) +
+        var(--group-application-business-app-chrome-inset)
+    );
+  }
+}
+@media (max-width: 640px) {
+  .business-main {
+    padding: var(--group-application-business-app-space-padding-comfortable)
+      var(--group-application-business-app-space-padding-regular);
+  }
+}
+
+.business-project-timeline {
+  padding: var(--group-application-business-app-space-padding-5);
+  margin-bottom: var(--group-application-business-app-space-margin-bottom-7);
+  background: var(--group-application-business-app-color-surface-surface);
+}

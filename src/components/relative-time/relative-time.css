@@ -1,0 +1,7 @@
+.aegis-relative-time {
+  font-family: var(--group-data-display-relative-time-font-family-code);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  font-size: var(--group-data-display-relative-time-font-size-label);
+  border-radius: var(--group-data-display-relative-time-radius-border-radius-soft);
+}

@@ -1,0 +1,81 @@
+.aegis-progress {
+  --group-feedback-progress-bar-progress-color: var(
+    --semantic-part-progress-bar-progress-color-default
+  );
+  min-width: var(--group-feedback-progress-bar-size-min-width-wide-content-vast);
+  width: var(--group-feedback-progress-bar-size-width-full);
+}
+.aegis-progress[data-intent='success'] {
+  --group-feedback-progress-bar-progress-color: var(
+    --semantic-part-progress-bar-progress-color-success
+  );
+}
+.aegis-progress[data-intent='warning'] {
+  --group-feedback-progress-bar-progress-color: var(
+    --semantic-part-progress-bar-progress-color-warning
+  );
+}
+.aegis-progress[data-intent='destroy'] {
+  --group-feedback-progress-bar-progress-color: var(
+    --semantic-part-progress-bar-progress-color-destroy
+  );
+}
+.aegis-progress[data-intent='ai'] {
+  --group-feedback-progress-bar-progress-color: var(--semantic-part-progress-bar-progress-color-ai);
+}
+.aegis-progress-label {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--group-feedback-progress-bar-space-gap-comfortable);
+  font-size: var(--group-feedback-progress-bar-font-size-body);
+  color: var(--group-feedback-progress-bar-color-content-secondary);
+  margin-bottom: var(--group-feedback-progress-bar-space-margin-bottom-compact);
+}
+.aegis-progress-track {
+  height: var(--group-feedback-progress-bar-space-height-compact);
+  width: var(--group-feedback-progress-bar-size-width-full);
+  background: var(--group-feedback-progress-bar-color-surface-selected);
+  border-radius: var(--group-feedback-progress-bar-radius-border-radius-full);
+  overflow: hidden;
+}
+.aegis-progress[data-size='sm'] .aegis-progress-track {
+  height: var(--group-feedback-progress-bar-space-height-snug);
+}
+.aegis-progress-fill {
+  display: block;
+  height: var(--group-feedback-progress-bar-size-height-full);
+  border-radius: inherit;
+  background: var(--group-feedback-progress-bar-progress-color);
+  transition: width var(--group-feedback-progress-bar-motion-base)
+    var(--group-feedback-progress-bar-ease-out);
+}
+.aegis-progress[data-intent='ai'] .aegis-progress-fill {
+  background: var(--group-feedback-progress-bar-gradient-ai);
+}
+.aegis-progress-track[data-indeterminate='true'] .aegis-progress-fill {
+  animation: aegis-progress-sweep var(--group-feedback-progress-bar-duration-1600ms) ease-in-out
+    infinite;
+}
+@keyframes aegis-progress-sweep {
+  from {
+    transform: translateX(var(--group-feedback-progress-bar-size-transform-negative-100percent));
+  }
+  to {
+    transform: translateX(var(--group-feedback-progress-bar-size-transform-390percent));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aegis-progress-fill {
+    transition: none;
+  }
+  .aegis-progress-track[data-indeterminate='true'] .aegis-progress-fill {
+    animation: none;
+    transform: translateX(var(--group-feedback-progress-bar-size-transform-90percent));
+  }
+}
+
+/* Business list composition keeps child styling in its owning category. */
+.aegis-business-progress > .aegis-progress {
+  flex: var(--group-feedback-progress-bar-flex-fill);
+  min-width: var(--group-feedback-progress-bar-size-min-width-large);
+}

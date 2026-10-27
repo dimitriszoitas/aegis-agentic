@@ -1,0 +1,727 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-ui",
+    "version": "0.1.0"
+  },
+  "id": "components-lists-accordion",
+  "name": "Accordion",
+  "category": "Surfaces",
+  "tokenGroup": "surface",
+  "kind": "component",
+  "aliases": [
+    "collapsible sections",
+    "disclosure"
+  ],
+  "purpose": "A set of labeled disclosure rows for content that can be explored independently.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-ui/accordion"
+  ],
+  "links": {
+    "contract": "./components-lists-accordion.json",
+    "overview": "../../?path=/docs/components-surfaces-accordion-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-surfaces-accordion-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-surfaces-accordion-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-surfaces-accordion-overview--docs&docsTab=tokens"
+  },
+  "description": "Compact 36px disclosure headers use a quiet hover surface, subtle dividers, optional icons and counts, and a 12px nested-content inset. Use single mode for one open section or multiple mode for independent groups. Arrow keys, Home, and End move between enabled headers; Enter and Space toggle them. Keep form values outside collapsing content when they must persist.",
+  "exports": [
+    "Accordion"
+  ],
+  "importStatements": [
+    "import { Accordion } from '@dimitriszoitas/aegis-ui/accordion';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-ui/styles.css';",
+  "props": [
+    {
+      "component": "Accordion",
+      "name": "collapsible",
+      "type": "boolean | undefined | undefined",
+      "required": false
+    },
+    {
+      "component": "Accordion",
+      "name": "defaultValue",
+      "type": "string | undefined | string[] | undefined",
+      "required": false
+    },
+    {
+      "component": "Accordion",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false
+    },
+    {
+      "component": "Accordion",
+      "name": "items",
+      "type": "AccordionItem[]",
+      "required": true
+    },
+    {
+      "component": "Accordion",
+      "name": "onValueChange",
+      "type": "((value: string) => void) | undefined | ((value: string[]) => void) | undefined",
+      "required": false
+    },
+    {
+      "component": "Accordion",
+      "name": "orientation",
+      "type": "\"horizontal\" | \"vertical\" | undefined",
+      "required": false
+    },
+    {
+      "component": "Accordion",
+      "name": "type",
+      "type": "\"multiple\" | \"single\"",
+      "required": true
+    },
+    {
+      "component": "Accordion",
+      "name": "value",
+      "type": "string | undefined | string[] | undefined",
+      "required": false
+    },
+    {
+      "component": "Accordion",
+      "name": "variant",
+      "type": "\"divided\" | \"contained\" | undefined",
+      "required": false
+    }
+  ],
+  "variants": [
+    {
+      "name": "type",
+      "values": [
+        "multiple",
+        "single"
+      ]
+    },
+    {
+      "name": "variant",
+      "values": [
+        "contained",
+        "divided"
+      ]
+    },
+    {
+      "name": "orientation",
+      "values": [
+        "horizontal",
+        "vertical"
+      ]
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A set of labeled disclosure rows for content that can be explored independently.",
+    "usage": [
+      "Use type=\"single\" for one open section or type=\"multiple\" for independent sections. In single mode, set collapsible when closing every section should be allowed.",
+      "Give each item a stable value and a short title. Put explanations and controls in content, not inside the trigger title.",
+      "Use nested accordions sparingly; the content inset already establishes the next level of hierarchy."
+    ],
+    "accessibility": [
+      "Base UI supplies trigger buttons, expanded state, content relationships, and arrow-key navigation. Keep the heading and trigger structure intact.",
+      "Disabled items remain readable but cannot be opened. Essential instructions should remain outside a disabled disclosure."
+    ],
+    "intent": [
+      "Divided and contained are structural treatments, not success or error states.",
+      "Counts describe the section contents; include their meaning in the title when it is not obvious."
+    ],
+    "context": [
+      "Use for filter categories, settings groups, and optional explanations inside a detail view."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-disabled",
+      "aria-hidden"
+    ],
+    "nativeElements": [
+      "button",
+      "div",
+      "span"
+    ],
+    "keyboardKeys": [
+      "End",
+      "Home"
+    ],
+    "dependencies": [
+      "@base-ui/react/accordion",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/accordion/accordion.css",
+    "src/components/accordion/accordion.stories.tsx",
+    "src/components/accordion/accordion.tsx",
+    "src/components/icon/index.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-lists-accordion--single",
+      "name": "Single",
+      "url": "../../?path=/story/components-lists-accordion--single",
+      "sourceFile": "src/components/accordion/accordion.stories.tsx"
+    },
+    {
+      "id": "components-lists-accordion--multiple",
+      "name": "Multiple",
+      "url": "../../?path=/story/components-lists-accordion--multiple",
+      "sourceFile": "src/components/accordion/accordion.stories.tsx"
+    },
+    {
+      "id": "components-lists-accordion--contained",
+      "name": "Contained",
+      "url": "../../?path=/story/components-lists-accordion--contained",
+      "sourceFile": "src/components/accordion/accordion.stories.tsx"
+    },
+    {
+      "id": "components-lists-accordion--disabled",
+      "name": "Disabled",
+      "url": "../../?path=/story/components-lists-accordion--disabled",
+      "sourceFile": "src/components/accordion/accordion.stories.tsx"
+    },
+    {
+      "id": "components-lists-accordion--keyboard",
+      "name": "Keyboard",
+      "url": "../../?path=/story/components-lists-accordion--keyboard",
+      "sourceFile": "src/components/accordion/accordion.stories.tsx"
+    },
+    {
+      "id": "components-lists-accordion--nested",
+      "name": "Nested",
+      "url": "../../?path=/story/components-lists-accordion--nested",
+      "sourceFile": "src/components/accordion/accordion.stories.tsx"
+    },
+    {
+      "id": "components-lists-accordion--controlled",
+      "name": "Controlled",
+      "url": "../../?path=/story/components-lists-accordion--controlled",
+      "sourceFile": "src/components/accordion/accordion.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--accordion-panel-height",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-surface-accordion-angle-180deg",
+    "--group-surface-accordion-border-width-hairline",
+    "--group-surface-accordion-border-width-regular",
+    "--group-surface-accordion-color-border-subtle",
+    "--group-surface-accordion-color-content-primary",
+    "--group-surface-accordion-color-content-secondary",
+    "--group-surface-accordion-color-content-tertiary",
+    "--group-surface-accordion-color-surface-hover",
+    "--group-surface-accordion-color-surface-surface",
+    "--group-surface-accordion-color-transparent",
+    "--group-surface-accordion-ease-out",
+    "--group-surface-accordion-flex-fill",
+    "--group-surface-accordion-flex-none",
+    "--group-surface-accordion-font-family-ui",
+    "--group-surface-accordion-font-leading-body",
+    "--group-surface-accordion-font-leading-compact",
+    "--group-surface-accordion-font-size-body",
+    "--group-surface-accordion-font-size-label",
+    "--group-surface-accordion-font-weight-medium",
+    "--group-surface-accordion-font-weight-regular",
+    "--group-surface-accordion-layer-local",
+    "--group-surface-accordion-motion-fast",
+    "--group-surface-accordion-nested-inset",
+    "--group-surface-accordion-number-0",
+    "--group-surface-accordion-opacity-hidden",
+    "--group-surface-accordion-opacity-strength-emphasized",
+    "--group-surface-accordion-opacity-visible",
+    "--group-surface-accordion-radius-border-radius-bold",
+    "--group-surface-accordion-radius-border-radius-soft",
+    "--group-surface-accordion-ring-focus",
+    "--group-surface-accordion-size-flex-small",
+    "--group-surface-accordion-size-min-height-roomy",
+    "--group-surface-accordion-size-outline-offset-negative-2",
+    "--group-surface-accordion-size-width-full",
+    "--group-surface-accordion-space-gap-compact",
+    "--group-surface-accordion-space-padding-compact",
+    "--group-surface-accordion-space-padding-regular",
+    "--group-surface-accordion-space-padding-snug",
+    "--group-surface-border-width-regular",
+    "--group-surface-color-action-foreground",
+    "--group-surface-color-action-soft",
+    "--group-surface-color-border-default",
+    "--group-surface-color-content-primary",
+    "--group-surface-elevation-none",
+    "--group-surface-focus-offset",
+    "--group-surface-font-family-ui",
+    "--group-surface-font-size-body",
+    "--group-surface-measurement-icon-md",
+    "--group-surface-motion-count-1",
+    "--group-surface-motion-disabled-duration",
+    "--group-surface-motion-reduced-duration",
+    "--group-surface-number-0",
+    "--group-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-surface-accordion-size-width-full",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-number-0",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-color-content-primary",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-font-family-ui",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-border-width-hairline",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-color-border-subtle",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-space-gap-compact",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-size-min-height-roomy",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-space-padding-compact",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-space-padding-snug",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-radius-border-radius-soft",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-color-transparent",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-font-size-body",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-font-weight-medium",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-font-leading-compact",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-ease-out",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-motion-fast",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-color-surface-hover",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-layer-local",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-border-width-regular",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-ring-focus",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-size-outline-offset-negative-2",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-color-content-tertiary",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-flex-fill",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-flex-none",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-size-flex-small",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-color-content-secondary",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-measurement-icon-md",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-font-size-label",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-font-weight-regular",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-angle-180deg",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-opacity-strength-emphasized",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-font-leading-body",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-nested-inset",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-space-padding-regular",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-radius-border-radius-bold",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-color-surface-surface",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-opacity-hidden",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--accordion-panel-height",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-accordion-opacity-visible",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-surface-number-0",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Accordion",
+      "group": "surface"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

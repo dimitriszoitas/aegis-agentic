@@ -1,0 +1,413 @@
+/* Storybook exposes labels and filtering, but not navigation icon rendering.
+   Scope the visual adjustment to its stable sidebar classes and SVG symbols.
+   Native chevrons, focus behavior, status evidence and keyboard navigation remain. */
+.sidebar-container
+  svg:has(
+    use:is(
+      [*|href='#icon--group'],
+      [*|href='#icon--component'],
+      [*|href='#icon--document'],
+      [*|href='#icon--story'],
+      [*|href='#icon--test']
+    )
+  ) {
+  display: none;
+}
+
+/* Authoring controls have no public visibility option in Storybook 10.6.
+   Accessible labels/data-action are observed shell hooks, not generated classes. */
+.sidebar-container button[aria-label='Create a new story'],
+.sidebar-container button[aria-label='Tag filters'],
+.sidebar-container .sidebar-subheading-action[data-action='expand-all'] {
+  display: none;
+}
+
+.sidebar-container [aria-label='Settings']::before,
+.sidebar-container [aria-label='Settings']::after {
+  content: none;
+}
+
+/* Storybook rings its search wrapper on focus-within, and text inputs match
+   focus-visible even after a click. Pointer activation keeps a stronger boundary;
+   navigation keys restore the ring without treating ordinary typing as navigation. */
+html[data-aegis-manager-focus='pointer'] .sidebar-container .search-field:focus-within {
+  outline: none;
+  box-shadow: inset 0 0 0 1px var(--manager-search-active-border);
+}
+
+html[data-aegis-manager-focus='keyboard'] .sidebar-container .search-field:focus-within {
+  outline: 2px solid var(--manager-search-focus);
+  outline-offset: 2px;
+}
+
+/* Remove the empty icon wrapper on leaf links, preserving branch chevrons. */
+.sidebar-container .sidebar-item > a > div:has(> svg > use) {
+  display: none;
+}
+
+.sidebar-container .sidebar-item > :is(a, button) {
+  align-items: center;
+  min-height: 32px;
+  padding-block: 7px;
+  font-size: 13px;
+  line-height: 18px;
+  border-radius: 5px;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Native wrappers reserve a two-pixel baseline offset for the type icons. With
+   those icons removed, center the actual chevron in the same row as its label. */
+.sidebar-container .sidebar-item > button > div:has(svg) {
+  align-items: center;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+.sidebar-container .sidebar-subheading > button[data-action='collapse-root'] {
+  align-items: center;
+  line-height: 18px;
+}
+
+.sidebar-container .sidebar-item[data-nodetype='group'] > button {
+  font-weight: 500;
+}
+
+.sidebar-container .sidebar-item[data-nodetype='document'] > a,
+.sidebar-container .sidebar-item[data-nodetype='story'] > a {
+  font-weight: 400;
+}
+
+.sidebar-container .sidebar-item[data-selected='true'] > a {
+  font-weight: 600;
+}
+
+/* Compatibility skill routes remain indexed below this single public leaf.
+   Native hoisting retains their depth; the hub is a peer of the intro links. */
+.sidebar-container .sidebar-item[data-item-id='agentic-skills-component-creation--docs'] > a {
+  padding-inline-start: 4px;
+}
+
+.sidebar-container .sidebar-subheading {
+  margin-top: 24px;
+  margin-bottom: 6px;
+}
+
+.sidebar-container .sidebar-subheading > button:first-child {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* Foundations is a browsable group beside the introductory links. Keep the
+   later component, pattern and console section headings visually distinct. */
+.sidebar-container .sidebar-subheading[data-item-id='foundations'] {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.sidebar-container .sidebar-subheading[data-item-id='foundations'] > button:first-child {
+  min-height: 32px;
+  padding-block: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* The footer is a flex sibling of the native scroll area, so it remains visible
+   without covering the final navigation items. */
+.sidebar-container > :has(.sidebar-header) {
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.aegis-manager-footer {
+  flex: 0 0 auto;
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border-top: 1px solid var(--manager-footer-border);
+  color: var(--manager-footer-text);
+  background: var(--manager-footer-background);
+  font:
+    13px/1.4 Figtree,
+    sans-serif;
+}
+
+.aegis-manager-theme-label {
+  display: grid;
+  gap: 5px;
+  color: var(--manager-footer-muted);
+  font-size: 12px;
+}
+
+.aegis-manager-footer button,
+.aegis-manager-sidebar-toggle,
+.aegis-manager-reopen {
+  min-height: 32px;
+  border: 1px solid var(--manager-footer-border);
+  border-radius: 5px;
+  color: var(--manager-footer-text);
+  background: var(--manager-footer-control);
+  font:
+    13px/1.4 Figtree,
+    sans-serif;
+}
+
+.aegis-manager-footer .aegis-manager-theme-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px 12px;
+  text-align: left;
+  font-weight: 400;
+  box-shadow: none;
+}
+
+.aegis-manager-theme-value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.aegis-manager-theme-chevron,
+.aegis-manager-theme-check {
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.aegis-manager-theme-chevron {
+  color: var(--manager-footer-muted);
+}
+
+.aegis-manager-theme-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  font:
+    13px/1.4 Figtree,
+    sans-serif;
+}
+
+[role='option']:not([aria-selected='true']) .aegis-manager-theme-check {
+  visibility: hidden;
+}
+
+/* The manager Select portals its themed list outside the sidebar. Keep pointer
+   activation border-only there too, while preserving keyboard focus feedback. */
+html[data-aegis-manager-focus='pointer'] [role='option']:has(.aegis-manager-theme-option):focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.aegis-manager-footer .aegis-manager-theme-trigger:is(:focus, [aria-expanded='true']) {
+  border-color: var(--manager-footer-accent);
+}
+
+.aegis-manager-footer button,
+.aegis-manager-sidebar-toggle,
+.aegis-manager-reopen {
+  cursor: pointer;
+}
+
+html[data-aegis-manager-focus='keyboard'] .aegis-manager-footer button:focus-visible,
+html[data-aegis-manager-focus='keyboard'] .aegis-manager-sidebar-toggle:focus-visible,
+html[data-aegis-manager-focus='keyboard'] .aegis-manager-reopen:focus-visible {
+  outline: 2px solid var(--manager-footer-accent);
+  outline-offset: 2px;
+}
+
+/* Use the same input modality as search for every sidebar control, including
+   native gear and navigation buttons, without changing keyboard focus styles. */
+html[data-aegis-manager-focus='pointer']
+  .sidebar-container
+  :is(button, select, input, a, [tabindex]):focus,
+html[data-aegis-manager-focus='pointer'] .aegis-manager-reopen:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.aegis-manager-color-mode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.aegis-manager-footer .aegis-manager-mode-switch {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 36px;
+  min-height: 24px;
+  height: 24px;
+  padding: 2px;
+  border-radius: 999px;
+  border-color: var(--manager-footer-muted);
+  background: var(--manager-footer-control);
+}
+
+.aegis-manager-switch-thumb {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--manager-footer-muted);
+  transition: transform 120ms ease;
+}
+
+.aegis-manager-mode-switch[aria-checked='true'] {
+  border-color: var(--manager-footer-accent);
+}
+
+.aegis-manager-mode-switch[aria-checked='true'] .aegis-manager-switch-thumb {
+  transform: translateX(12px);
+  background: var(--manager-footer-accent);
+}
+
+.aegis-manager-footer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--manager-footer-muted);
+  font-size: 11px;
+}
+
+/* Keep the native settings control, with the collapse control directly beside it. */
+.sidebar-header {
+  gap: 4px;
+}
+
+.aegis-manager-sidebar-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  width: 28px;
+  min-height: 28px;
+  padding: 0;
+  border-color: transparent;
+  background: transparent;
+  color: var(--manager-footer-muted);
+}
+
+.aegis-manager-sidebar-toggle:hover {
+  color: var(--manager-footer-text);
+  background: var(--manager-footer-control);
+}
+
+/* A desktop rail is a real 64px native sidebar, not an overlay on the preview.
+   Display:none removes hidden navigation and search controls from keyboard order. */
+.sidebar-container[data-aegis-collapsed='true'] .sidebar-header > :is(a, div),
+.sidebar-container[data-aegis-collapsed='true'] :has(> .sidebar-header) ~ *,
+.sidebar-container[data-aegis-collapsed='true'] .aegis-manager-mode-label {
+  display: none;
+}
+
+.sidebar-container[data-aegis-collapsed='true'] div:has(> div > .sidebar-header) {
+  padding: 12px 4px;
+}
+
+.sidebar-container[data-aegis-collapsed='true'] .sidebar-header {
+  padding-inline: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-container[data-aegis-collapsed='true'] .aegis-manager-sidebar-toggle {
+  order: -1;
+}
+
+.sidebar-container[data-aegis-collapsed='true'] .aegis-manager-footer {
+  justify-items: center;
+  padding: 12px 2px;
+}
+
+.sidebar-container[data-aegis-collapsed='true'] .aegis-manager-footer-meta {
+  font-size: 9px;
+}
+
+.sidebar-container[data-aegis-collapsed='true'] .aegis-manager-mode-switch {
+  width: 32px;
+}
+
+.sidebar-container[data-aegis-collapsed='true']
+  .aegis-manager-mode-switch[aria-checked='true']
+  .aegis-manager-switch-thumb {
+  transform: translateX(8px);
+}
+
+.sidebar-container[data-manager-layout='fundamental-floating'] {
+  inset: 12px;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  border: 1px solid var(--manager-footer-border);
+  border-radius: 12px;
+  background: var(--manager-sidebar-surface);
+  box-shadow: var(--manager-sidebar-shadow);
+}
+
+.sidebar-container[data-manager-layout='fundamental-floating'][data-aegis-collapsed='true'] {
+  border-radius: 8px;
+}
+
+@media (min-width: 600px) {
+  /* Stable native slot ancestry, avoiding Storybook's generated class names. */
+  div:has(> div > .sidebar-container[data-manager-layout='fundamental-floating']) {
+    border-right: 0;
+  }
+  div:has(> div > .sidebar-container[data-aegis-collapsed='true']) > [role='separator'] {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aegis-manager-switch-thumb {
+    transition: none;
+  }
+}
+
+.aegis-manager-reopen {
+  position: fixed;
+  z-index: 20;
+  top: 12px;
+  left: 12px;
+  padding: 6px 12px;
+  background: var(--manager-footer-background);
+}
+
+.aegis-manager-reopen[hidden] {
+  display: none;
+}
+
+/* One original emblem, paired with a real text wordmark for crisp scaling. */
+.aegis-storybook-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: inherit;
+  font-family: Figtree, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+.aegis-storybook-brand img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  flex: none;
+}
