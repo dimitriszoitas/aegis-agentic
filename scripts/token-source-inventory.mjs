@@ -8,6 +8,7 @@ export const productionConsumerDirectories = [
   'src/components',
   'src/patterns',
   'src/agentic/components',
+  'src/product',
 ];
 export const productionConsumerEntries = [
   'src/agentic/workbench.tsx',

@@ -52145,6 +52145,50 @@
           ]
         }
       ]
+    },
+    {
+      "file": "src/product/commerce.css",
+      "family": "application"
+    },
+    {
+      "file": "src/product/dashboard.tsx",
+      "family": "application"
+    },
+    {
+      "file": "src/product/forma-app.tsx",
+      "family": "application"
+    },
+    {
+      "file": "src/product/forma.css",
+      "family": "application"
+    },
+    {
+      "file": "src/product/invoices.tsx",
+      "family": "application"
+    },
+    {
+      "file": "src/product/model.ts",
+      "family": "application"
+    },
+    {
+      "file": "src/product/products.tsx",
+      "family": "application"
+    },
+    {
+      "file": "src/product/settings.tsx",
+      "family": "application"
+    },
+    {
+      "file": "src/product/types.ts",
+      "family": "application"
+    },
+    {
+      "file": "src/product/users.tsx",
+      "family": "application"
+    },
+    {
+      "file": "src/product/filter-toolbar.tsx",
+      "family": "application"
     }
   ],
   "dynamicVariables": [

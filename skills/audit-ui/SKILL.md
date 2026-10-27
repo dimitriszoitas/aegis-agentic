@@ -5,7 +5,7 @@ description: Audit or remediate Aegis Agentic interfaces using reproducible evid
 
 # Audit and remediate
 
-Read `../references/agentic-contract.md`. Record kit/profile/registry versions and the failing scenario before changing anything.
+Read [the agentic contract](../references/agentic-contract.md). Include its [product pattern decisions](../references/agentic-contract.md#product-pattern-decisions) when comparing related pages. Record kit/profile/registry versions and the failing scenario before changing anything.
 
 1. Check contract validity, token graph/ownership, expected variants, required anatomy and behavior. Inspect both light/dark and both presentations at relevant widths.
 2. Classify findings as derived drift, implementation defect, missing capability, design-language change or uncertain diagnosis. Distinguish observed failure from a fixture scenario.

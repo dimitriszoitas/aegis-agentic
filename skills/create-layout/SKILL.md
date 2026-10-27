@@ -7,6 +7,8 @@ description: "Compose responsive application pages and reusable layout patterns 
 
 Read [the shared design contract](../references/design-contract.md) before choosing containers, spacing, or theme behavior.
 
+Apply the [product pattern decisions](../references/agentic-contract.md#product-pattern-decisions) before composing pages; use the product's recorded shared patterns and permitted variants.
+
 ## Start with content and existing patterns
 
 Identify the page's primary task, information hierarchy, navigation, state ownership, and responsive constraints. Inspect existing page headers, navigation, filtering, wizard, notification, and AI patterns before introducing another shell. Reuse a pattern when its responsibility matches; do not copy a whole demonstration application to obtain one layout.

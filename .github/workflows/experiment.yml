@@ -22,6 +22,7 @@ jobs:
       - run: pnpm check
       - run: pnpm exec playwright install --with-deps chromium
       - run: npm run agentic:browser
+      - run: npm run product:browser
       - uses: actions/upload-artifact@v4
         if: always()
         with:
