@@ -13,6 +13,14 @@ npm run dev -- --host 127.0.0.1 --port 4175 --strictPort
 
 The root opens the workbench: Configure, Compose, Registry, Maintain, Export, and Infrastructure. The inherited examples remain available at `?view=console`, `?view=components` and `?view=marketing`. Browser profile edits persist locally. Infrastructure shows a disconnected state until its project service is started; browser examples do not create usage data or imply a connected model.
 
+## Forma product pilot
+
+Open `?view=product` for a five-section product built with Aegis: Dashboard, Users, Products, Invoices and Settings. It defaults to a dark, elevated presentation and also supports light mode. Users have a searchable, sortable grid, bulk actions, a detail side panel and a validated creation modal. Products and invoices support local creation, updates and CSV exports; settings persist appearance, density and workspace details.
+
+This is a browser-local demo. It does not authenticate users, send invitations or invoices, process payments, or connect to a backend. Settings can export all workspace data or restore the sample records.
+
+The [product pattern policy](src/product/pattern-policy.json) records shared headers, filters, grid controls and form conventions. `npm run product:patterns` checks shared implementation use; `npm run product:browser` starts an isolated preview and checks cross-page layout consistency, workflows, accessibility, light/dark and mobile behavior. Set `FORMA_URL` to test an existing preview instead. Screenshots and reports are written under `artifacts/forma-*`.
+
 ## Start the infrastructure service
 
 Build the kit, initialize a new project directory, and start its local service:

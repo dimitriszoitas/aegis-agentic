@@ -5,7 +5,7 @@ description: Select and configure canonical Aegis Agentic patterns while preserv
 
 # Compose a pattern
 
-Read `../references/agentic-contract.md` and discover the applicable pattern in the kit registry.
+Read [the agentic contract](../references/agentic-contract.md) and discover the applicable pattern in the kit registry. Resolve the [product pattern decisions](../references/agentic-contract.md#product-pattern-decisions) before selecting page-specific variants.
 
 1. Specify the task, state owner, loading/empty/error handling and content constraints.
 2. Separate invariants from allowed variants. For filtering, identify immediate versus explicit application, draft/applied state, clear-all behavior and result synchronization.

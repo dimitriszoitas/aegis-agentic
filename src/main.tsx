@@ -12,6 +12,9 @@ const BusinessApp = lazy(() =>
 const ComponentsPage = lazy(() =>
   import('@/marketing/components-page').then((module) => ({ default: module.ComponentsPage })),
 );
+const FormaApp = lazy(() =>
+  import('./product/forma-app').then((module) => ({ default: module.FormaApp })),
+);
 
 function ConsoleApp() {
   useEffect(() => {
@@ -31,6 +34,18 @@ function ConsoleApp() {
 function App() {
   useAutoHideScrollbars();
   const view = new URLSearchParams(window.location.search).get('view');
+  if (view === 'product' || view === 'forma')
+    return (
+      <Suspense
+        fallback={
+          <div className="app-loading" role="status">
+            Opening Forma…
+          </div>
+        }
+      >
+        <FormaApp />
+      </Suspense>
+    );
   if (!view || view === 'agentic') return <AgenticWorkbench />;
   return view === 'console' || view === 'components' ? (
     <Suspense

@@ -175,6 +175,7 @@
       "title": "Console/Application Demo",
       "prefixes": [
         "src/patterns/business-app/",
+        "src/product/",
         "src/agentic/workbench.tsx",
         "src/agentic/workbench.css",
         "src/agentic/infrastructure-panel.tsx",

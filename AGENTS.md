@@ -20,3 +20,7 @@ Use the relevant repository skill when changing the design system:
 Each skill references `skills/references/design-contract.md`. Follow its strict Primitive → Semantic → Group dependency rules, four semantic theme/mode mappings, and family-relative naming conventions. Component styling consumes group tokens. Keep Base UI behavior independent of styling.
 
 Storybook renders the skill files directly under Agentic Skills. Edit the source skill and shared contract rather than creating a separate copy of the instructions.
+
+## Product pilot
+
+For changes to the Forma product in `src/product`, read `src/product/pattern-policy.json` and follow the [product pattern decisions](skills/references/agentic-contract.md#product-pattern-decisions). Run `npm run product:patterns` and the relevant scenarios in `npm run product:browser` when editing the pilot. Keep its shared implementations, policy and verification aligned with the requested behavior.

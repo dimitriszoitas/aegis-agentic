@@ -1,0 +1,86 @@
+.forma-product-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      min(
+        var(--group-application-business-app-size-width-full),
+        var(--group-application-business-app-size-width-wide-panel-vast)
+      ),
+      var(--group-application-business-app-track-flex)
+    )
+  );
+  gap: var(--group-application-business-app-space-gap-comfortable);
+}
+.forma-product-card {
+  display: flex;
+  flex-direction: column;
+}
+.forma-product-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--group-application-business-app-space-margin-bottom-regular);
+}
+.forma-product-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--group-application-business-app-space-padding-compact);
+  color: var(--group-application-business-app-color-action-foreground);
+  background: var(--group-application-business-app-color-surface-hover);
+  border-radius: var(--group-application-business-app-radius-border-radius-bold);
+}
+.forma-product-category,
+.forma-product-sku {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.forma-product-price-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-gap-snug);
+  flex: var(--group-application-business-app-flex-fill);
+}
+.forma-product-price {
+  font-size: var(--group-application-business-app-font-size-title-page);
+  font-weight: var(--group-application-business-app-title-weight);
+  letter-spacing: var(--group-application-business-app-font-tracking-heading);
+}
+.forma-product-sku {
+  margin-top: var(--group-application-business-app-space-margin-top-comfortable);
+}
+.forma-invoice-lines {
+  width: var(--group-application-business-app-size-width-full);
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--group-application-business-app-font-size-body);
+}
+.forma-invoice-lines th,
+.forma-invoice-lines td {
+  padding-block: var(--group-application-business-app-space-padding-regular);
+  padding-inline: var(--group-application-business-app-space-padding-snug);
+  border-bottom: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.forma-invoice-lines th {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.forma-invoice-lines th:last-child,
+.forma-invoice-lines td:last-child {
+  text-align: right;
+}
+.forma-invoice-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-gap-regular);
+  padding-block: var(--group-application-business-app-space-padding-comfortable);
+  font-size: var(--group-application-business-app-font-size-subheading);
+}
+.forma-invoice-note {
+  margin: var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}

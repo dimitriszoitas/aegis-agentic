@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "product": "forma",
+  "revision": 1,
+  "scope": "src/product",
+  "route": "?view=product",
+  "mode": { "default": "dark", "supported": ["dark", "light"] },
+  "pages": [
+    { "id": "dashboard", "title": "Dashboard", "source": "src/product/dashboard.tsx" },
+    { "id": "users", "title": "Users", "source": "src/product/users.tsx", "collection": "grid" },
+    {
+      "id": "products",
+      "title": "Products",
+      "source": "src/product/products.tsx",
+      "collection": "cards"
+    },
+    {
+      "id": "invoices",
+      "title": "Invoices",
+      "source": "src/product/invoices.tsx",
+      "collection": "grid"
+    },
+    { "id": "settings", "title": "Settings", "source": "src/product/settings.tsx" }
+  ],
+  "patterns": {
+    "pageHeader": {
+      "export": "PageHeader",
+      "module": "@/patterns/page-header",
+      "invariants": [
+        "One page title and description",
+        "Shared shell owns page padding",
+        "Actions use the actions slot",
+        "No page-header eyebrows"
+      ],
+      "allowedVariations": [
+        "Title and description content",
+        "Relevant primary and secondary actions"
+      ]
+    },
+    "collectionFilters": {
+      "export": "FormaFilterToolbar",
+      "module": "./filter-toolbar",
+      "source": "src/product/filter-toolbar.tsx",
+      "desktopSearchWidthToken": "--group-application-business-app-size-width-wide-panel-vast",
+      "mobileSearchWidth": "available-content-width",
+      "invariants": [
+        "Search first, then filters",
+        "Immediate filtering",
+        "One shared search width at each breakpoint",
+        "Filters sit before the collection"
+      ],
+      "allowedVariations": [
+        "Filter fields required by the domain",
+        "Optional result count and clear action"
+      ]
+    },
+    "dataGrid": {
+      "export": "DataGrid",
+      "module": "@/components/data-grid",
+      "invariants": [
+        "Use default column and density controls",
+        "Honor workspace density",
+        "Use pagination",
+        "Selected count and clear-selection action",
+        "Row details use SideSheet"
+      ]
+    },
+    "forms": {
+      "invariants": [
+        "Field owns labels and errors",
+        "New records use Modal",
+        "Validate before saving",
+        "Primary submit and secondary cancel actions",
+        "Return focus on dismissal"
+      ]
+    }
+  },
+  "exceptions": [],
+  "checks": ["npm run product:patterns", "npm run product:browser"],
+  "changePolicy": "Reuse these product-local patterns. Record a justified variant here when the task requires it and update affected pages and checks together. This policy does not promote a pattern into the shared Aegis registry."
+}
