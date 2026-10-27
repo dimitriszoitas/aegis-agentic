@@ -1,0 +1,107 @@
+{
+  "base": "http://127.0.0.1:4176",
+  "evidence": "actual-signed-shared-workspace-browser-verification",
+  "scope": "Scoped viewer; GET-only inspection. No mocked routes, usage ingestion, settings changes, repair, retention, AI, or release activation.",
+  "checks": [
+    "A real scoped viewer authenticates through the same-origin proxy and sees exactly the permitted project list.",
+    "Project switching renders real verified release identity, exact revisions/generation history, complete component inventory, zero usage, and disabled viewer mutations.",
+    "Desktop/mobile accessibility and overflow checks pass; disconnect clears credentials; only GETs occurred and project identity, usage, AI, and service runs stayed unchanged."
+  ],
+  "projects": [
+    {
+      "id": "aegis-lab",
+      "name": "Aegis infrastructure lab",
+      "health": "healthy",
+      "revision": 3,
+      "generationId": "a262511a-e097-4423-b1f3-cb3f0bde4771",
+      "generationCount": 3,
+      "releaseVerified": true,
+      "kitDigest": "b0c3b24f5a7f61b423e1b9a9eead35f9c47d57efab4ab5d8290836035389ccd7",
+      "componentCount": 102,
+      "eventCount": 0,
+      "telemetryEnabled": false,
+      "aiConfigured": false
+    },
+    {
+      "id": "atlas-lab",
+      "name": "Atlas infrastructure lab",
+      "health": "healthy",
+      "revision": 1,
+      "generationId": "c2617ada-6bda-4606-b620-b221310f1090",
+      "generationCount": 1,
+      "releaseVerified": true,
+      "kitDigest": "b0c3b24f5a7f61b423e1b9a9eead35f9c47d57efab4ab5d8290836035389ccd7",
+      "componentCount": 102,
+      "eventCount": 0,
+      "telemetryEnabled": false,
+      "aiConfigured": false
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/aegis/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/aegis/configurability"
+    },
+    {
+      "method": "GET",
+      "path": "/api/aegis/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/aegis/configurability"
+    },
+    {
+      "method": "GET",
+      "path": "/api/aegis-workspace/projects"
+    },
+    {
+      "method": "GET",
+      "path": "/api/aegis-workspace/projects/aegis-lab/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/aegis-workspace/projects/aegis-lab/configurability"
+    },
+    {
+      "method": "GET",
+      "path": "/api/aegis-workspace/projects/aegis-lab/generations"
+    },
+    {
+      "method": "GET",
+      "path": "/api/aegis-workspace/projects/atlas-lab/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/aegis-workspace/projects/atlas-lab/configurability"
+    },
+    {
+      "method": "GET",
+      "path": "/api/aegis-workspace/projects/atlas-lab/generations"
+    }
+  ],
+  "accessibility": [
+    {
+      "label": "aegis-lab desktop viewer",
+      "violations": []
+    },
+    {
+      "label": "atlas-lab desktop viewer",
+      "violations": []
+    },
+    {
+      "label": "Shared workspace mobile viewer",
+      "violations": []
+    }
+  ],
+  "screenshots": [
+    "artifacts/agentic-ui/shared-workspace-aegis-lab-live.png",
+    "artifacts/agentic-ui/shared-workspace-atlas-lab-live.png",
+    "artifacts/agentic-ui/shared-workspace-mobile-live.png"
+  ],
+  "browserErrors": [],
+  "result": "passed"
+}

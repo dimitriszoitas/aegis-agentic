@@ -20,3 +20,8 @@ agentic-dist/
 .aegis-workspace/
 
 !experiments/evidence/*.log
+
+.aegis-shared/
+.aegis-release-keys/
+.aegis-release.json
+*.token

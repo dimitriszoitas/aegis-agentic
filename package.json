@@ -1,6 +1,6 @@
 {
   "name": "@dimitriszoitas/aegis-agentic",
-  "version": "0.1.0-experiment.0",
+  "version": "0.2.0-experiment.0",
   "type": "module",
   "license": "MIT",
   "packageManager": "pnpm@11.19.0",
@@ -37,6 +37,7 @@
     "legacy:check": "pnpm typecheck && pnpm lint && pnpm test && pnpm docs:check && pnpm build-storybook",
     "agentic:browser": "node scripts/run-agentic-browser.mjs",
     "infrastructure": "node scripts/infrastructure.mjs",
+    "workspace": "node scripts/workspace.mjs",
     "infrastructure:test": "node --test scripts/infrastructure/*.test.mjs"
   },
   "dependencies": {

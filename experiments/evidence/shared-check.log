@@ -1,0 +1,370 @@
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 check
+> npm run agentic:check
+
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 agentic:check
+> npm run typecheck && npm run lint && npm test && npm run ai:check && npm run agentic:kit && npm run agentic:consumer && npm run infrastructure:test && npm run build && npm run build:package
+
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 typecheck
+> tsc --noEmit
+
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 lint
+> eslint . && npm run tokens:check && npm run headless:check
+
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 tokens:check
+> node scripts/generate-token-hierarchy.mjs --check && node scripts/check-token-hierarchy.mjs && node --test scripts/check-token-hierarchy.test.mjs && node scripts/check-tokens.mjs && node scripts/check-component-css-tokens.mjs --self-test && node scripts/check-component-runtime-tokens.mjs
+
+Token hierarchy: 1216 primitives, 715 semantics, 3805 group tokens.
+Token hierarchy: 5736 tokens, 7031 references, 301 consumer files; 0 violations, 0 unresolved source expressions.
+✔ valid four-configuration three-tier graph passes (1.837209ms)
+✔ nested fallbacks are dependencies while comments and quoted content are ignored (0.264625ms)
+✔ primitive aliases, semantic aliases and group aliases are forbidden (0.224334ms)
+✔ unknown references and graph cycles are reported (0.157ms)
+✔ all four mappings are required and extra configurations rejected (0.19725ms)
+✔ invariant typography, spacing and sizing cannot vary by mode (0.380417ms)
+✔ styling roles can vary across the four configurations (0.085209ms)
+✔ semantic and group values reject literals and hidden raw fallbacks (0.493792ms)
+✔ CSS color composition and structural token arithmetic remain valid (0.382417ms)
+✔ duplicate paths and design/runtime name collisions fail (0.183625ms)
+✔ paths may repeat across tiers because the tier provides their namespace (0.118958ms)
+✔ consumer properties accept only their group and explicit runtime geometry (0.165833ms)
+✔ consumer group declarations may reference semantics but not runtime or primitives (0.113ms)
+✔ category ownership rejects borrowing, including shared icon tokens (0.083875ms)
+✔ group prefixes must match their sidebar category (0.163ms)
+✔ CSS and runtime helper source auditing uses actual CSS names and reports unresolved expressions (11.549958ms)
+✔ runtime template exceptions require an exact expression and owning source path (3.150208ms)
+✔ the central category map uses longest prefixes and exact file matches (0.259291ms)
+✔ consumer categories cannot be relabeled or overridden to borrow tokens (1.613333ms)
+✔ shared CSS requires exact per-rule owners without a file-wide family fallback (2.835625ms)
+✔ shared CSS owner metadata rejects duplicate, stale, and unknown category entries (1.242041ms)
+✔ shared helper selectors retain independent owners in exact scoped contexts (1.91075ms)
+✔ shared context must match the complete ordered ancestry and rejects malformed metadata (3.110125ms)
+✔ shared keyframes are owned by exact name, not generic from/to selectors (1.700167ms)
+✔ new production CSS and TS files cannot bypass ownership by omitting manifest registration (5.142167ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 252.275167
+Checked 21 palettes, 294 opaque colors, 588 alpha colors, 16 opacity constants, 3 absolute endpoints and the exact semantic color map.
+Semantic color token check passed.
+Component CSS audit: 22 parser and exception checks passed.
+Component CSS tokens: 103 files, 9312 declarations, 0 fixed-value violations.
+Constrained structural exceptions: {
+  'runtime arithmetic coefficient': 24,
+  'one-based runtime tree depth': 1
+}
+Checked 199 runtime component/pattern files; no fixed values found in audited visual attributes, properties, defaults, or CSS-in-JS lengths. Dynamic/data math and intrinsic SVG path/viewBox coordinates are excluded. Generated CSS matches 267 tokens.
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 headless:check
+> node scripts/check-headless-boundary.mjs
+
+Headless boundary passed for 215 files and 883 imports. Unrelated local review prototypes are outside the production boundary.
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 test
+> vitest run src
+
+
+ RUN  v5.0.3 /private/tmp/aegis-agentic-experiment
+
+
+ Test Files  29 passed (29)
+      Tests  283 passed (283)
+   Start at  22:12:38
+   Duration  1.64s (transform 57%, tests 31%, import 11%, worker 2%)
+
+  Transform  transforming modules took 2.87s · 57% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 ai:check
+> node scripts/generate-ai-contracts.mjs --check && node --test scripts/generate-ai-contracts.test.mjs
+
+Checked 102 compact component contracts, shared token graph, schema, index and llms.txt.
+✔ contracts include own API and authored guidance without inventing verification (9.888542ms)
+✔ token graph deduplicates declarations and retains unresolved references and source context (0.736ms)
+✔ legacy-only theme declarations and sources are excluded while common tokens remain (0.716125ms)
+✔ output is deterministic and deployment-safe under a nested public path (1.163209ms)
+✔ unknown aliases and unpublished package import paths are rejected (0.251334ms)
+✔ missing graph references and broken artifact links cannot pass validation (1.488791ms)
+✔ documentation links target one canonical hub while direct stories retain stable routes (0.535375ms)
+✔ renamed Icons family preserves its canonical and legacy documentation routes (0.735125ms)
+✔ contract validation rejects unknown tabs and section-only navigation links (1.988667ms)
+✔ machine navigation matches the visible foundation structure and retains public destinations (0.931917ms)
+✔ unused foundation primitives and alpha aliases stay in the public token graph (0.5435ms)
+✔ canonical manifest supplies explicit tiers, paths, groups and four mappings without classifying compatibility aliases (0.701208ms)
+✔ category bindings distinguish real nested components from registry definitions (0.876541ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 312.326917
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 agentic:kit
+> node scripts/build-agent-kit.mjs
+
+{
+  "kit": "/private/tmp/aegis-agentic-experiment/agent-kit",
+  "version": "0.2.0-experiment.0",
+  "files": 152,
+  "profiles": [
+    {
+      "id": "aegis",
+      "name": "Aegis Original",
+      "hash": "v1-00d0086d"
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas Precision",
+      "hash": "v1-fd94ef94"
+    },
+    {
+      "id": "solstice",
+      "name": "Solstice Studio",
+      "hash": "v1-6a5bfe6f"
+    }
+  ],
+  "registryRevision": 1
+}
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 agentic:consumer
+> node scripts/verify-agent-kit.mjs
+
+{
+  "status": "passed",
+  "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-agentic-consumer-eYsSQn",
+  "checks": [
+    "aegis: standalone compilation and clean scan",
+    "atlas: standalone compilation and clean scan",
+    "solstice: standalone compilation and clean scan",
+    "Invalid profile rejected",
+    "Custom team profile compiles with its own identity, brand, radius, typography and density",
+    "Deterministic composition, invalid variants and mismatched profile pin",
+    "Discovery, duplicate conflict detection, proposal reservation, stale write refusal",
+    "Real drift detected, repaired, backed up and independently rescanned",
+    "Changed approved source blocks automatic repair",
+    "Output symlink refused"
+  ],
+  "scope": "Standalone exported kit in a fresh directory with no source checkout or npm modules. Owner promotion is not performed by this test."
+}
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 infrastructure:test
+> node --test scripts/infrastructure/*.test.mjs
+
+✔ provider uses stateless structured output and returns evidence-bound proposals only (1.150541ms)
+✔ unknown components, invented evidence and executable extra fields are rejected (1.510208ms)
+✔ refusal, truncation, non-JSON and provider failures do not become successful plans (0.810292ms)
+✔ no implicit model or missing credential can initiate a request (0.079625ms)
+(node:99599) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ workspace creation is explicit, exclusive and private; reopen preserves projects and schema (18.876042ms)
+✔ raw opaque tokens are returned once, hashed in SQLite, and absent from metadata, audit and database bytes (11.298458ms)
+✔ role permissions are explicit and project-scoped, including ingest access to only its active generation (35.124041ms)
+✔ actors cannot be fabricated, copied, mutated or reused across catalogue handles (7.676166ms)
+✔ expiry and revocation are rechecked on every request and remain effective after restart (16.688792ms)
+✔ bootstrap remains unavailable after expiry or revoking every existing token (5.902292ms)
+✔ activation uses a durable compare-and-swap revision across independent connections (7.8955ms)
+✔ audit insertion failure rolls back the generation and project pointer in the same transaction (16.803458ms)
+✔ foreign/reused generations, path injection and malformed fields cannot alter project state (6.819541ms)
+✔ token scope and expiry validation reject escalation, missing projects and unknown fields atomically (7.748875ms)
+✔ manager audit is scoped and accepts only bounded technical fields, with stable cursor pagination (8.525292ms)
+✔ retained audit history and returned pages are bounded (21.245083ms)
+✔ generation and token row capacities refuse writes without consuming revisions or audit entries (19.879958ms)
+▶ workspace, database, WAL and generation-root symlinks or hardlinks fail closed
+  ✔ workspace (4.10775ms)
+  ✔ database (5.519417ms)
+  ✔ wal (4.591833ms)
+  ✔ hardlink (4.31225ms)
+  ✔ generation-root (4.141166ms)
+✔ workspace, database, WAL and generation-root symlinks or hardlinks fail closed (23.078042ms)
+✔ replacing an open workspace path and unknown database versions require explicit review (6.053333ms)
+✔ invalid clocks roll back bootstrap and cannot create an unusable credential (5.138292ms)
+✔ release inspection hashes the complete sorted integrity map and returns metadata from hashed bytes (31.698791ms)
+✔ release key generation returns distinct in-memory Ed25519 PEM pairs and SPKI fingerprints (0.739417ms)
+✔ detached signing is deterministic for identical metadata, verifies, and writes no files (20.685917ms)
+✔ signing default createdAt is canonical UTC and PEM line endings do not change key identity (12.843875ms)
+✔ unsigned kits require explicit development mode and still undergo complete integrity inspection (15.748833ms)
+✔ unknown signers, wrong key fingerprints and duplicate trust entries are rejected (8.783458ms)
+✔ a different trusted key cannot claim another key signature (8.130792ms)
+✔ tampering signed metadata or signatures fails even when unsigned mode is enabled (4.919959ms)
+✔ signatures use the release domain and cannot be substituted with signatures over raw payload JSON (5.74475ms)
+✔ changing a file is rejected before it can become a verified release (6.760916ms)
+✔ editing both a file and its integrity hash still cannot pass an existing signature (16.074ms)
+✔ reformatted integrity JSON preserves release identity but changed kit metadata does not (7.186708ms)
+✔ extra files, including an in-kit attestation, are never silently ignored (9.82425ms)
+✔ missing files and missing integrity manifests fail closed (6.227375ms)
+✔ integrity map schema rejects arrays, nested hashes, missing identity and invalid hash encodings (9.016125ms)
+✔ integrity paths reject traversal, absolute paths, separators and cross-platform aliases (21.073583ms)
+✔ duplicate manifest JSON keys and escaped duplicate spellings are rejected (4.46ms)
+✔ malformed, invalid UTF-8 and oversized integrity JSON is rejected (10.2765ms)
+✔ kit identity metadata rejects unsupported versions, malformed identities and duplicate keys (17.167333ms)
+✔ file, directory, manifest and root symlink escapes are refused (5.269709ms)
+✔ hard links cannot alias outside files into a signed kit (2.978583ms)
+✔ release attestation schemas reject unknown fields, versions, algorithms and malformed signatures (5.366708ms)
+✔ release options and trust entries reject unsupported fields and accessor properties without reading them (4.513292ms)
+✔ non-Ed25519 keys, private keys in trust entries and malformed PEM cannot sign or establish trust (4.433084ms)
+✔ idle retention physically prunes expired/excess usage and proposals, preserves receipts and repair evidence, and audits only counts (1473.164916ms)
+✔ cutoff is inclusive and equal-date proposal eviction is deterministic regardless of directory order (391.090458ms)
+✔ malformed proposals, invalid usage, future events, and changed approved sources prevent all retention mutations (520.12325ms)
+✔ retention rejects symlink files/directories and an existing operation lock without touching external targets (484.965792ms)
+✔ three consecutive failed repairs open the circuit; retention continues, healthy cycles do not resume it, and explicit resume restores repair (0.489209ms)
+✔ successful cycles reset consecutive failures and retention/health failures prevent repair (0.125458ms)
+✔ a pending cycle never overlaps, resume is explicit while idle, and stop prevents later phases and clears its timer (0.149917ms)
+✔ a new explicitly created loop has independent circuit state and malformed scheduler configuration is rejected (0.115125ms)
+✔ HTTP status and configurability return service data with non-cacheable JSON headers (16.161542ms)
+✔ HTTP allowed origins receive exact CORS headers; forbidden and opaque origins cannot call services (5.051459ms)
+✔ HTTP origin allowlists can be explicitly replaced (2.595834ms)
+✔ HTTP Host must name localhost or 127.0.0.1 with the actual bound port (3.973958ms)
+✔ HTTP preflight requires an allowed origin and only advertises supported headers and methods (1.659708ms)
+✔ HTTP rejects non-local URL forms and handles malformed percent paths without crashing (3.31175ms)
+✔ HTTP mutations require an explicit sdk or console client marker (2.883291ms)
+✔ HTTP mutations accept the JSON media type with parameters and reject lookalikes (3.572ms)
+✔ HTTP malformed JSON and non-object envelopes never reach service methods (5.129625ms)
+✔ HTTP unsupported fields and incorrect top-level field types are rejected atomically (3.789208ms)
+✔ HTTP approved routes forward only their explicit arguments to stub services (2.349792ms)
+✔ HTTP body cap accepts exactly 65536 bytes and rejects 65537 bytes before ingestion (1.783ms)
+✔ HTTP body limit counts encoded bytes rather than JavaScript string length (0.945625ms)
+✔ HTTP unknown endpoints and unsupported methods cannot trigger service operations (1.379084ms)
+✔ HTTP rejected service operations return a controlled conflict and do not kill the listener (0.7375ms)
+✔ HTTP SDK and persisted service preserve batch identity across lost acknowledgments and honor opt-out (1364.364708ms)
+✔ initialization pins a healthy release, disables collection and AI, and never overwrites an existing project (752.454ms)
+✔ usage needs opt-in, rejects a whole invalid batch, persists dedup receipts across restart, and clears on opt-out (1423.130459ms)
+✔ pin disagreement blocks ingestion and update planning before persistent usage changes (569.947042ms)
+✔ repair restores only known derived drift and missing outputs while preserving all approved inputs (1352.416167ms)
+✔ changed approved profile source requires review and cannot be silently repaired or sent to AI (573.752542ms)
+✔ a separately recompiled generated profile cannot replace the project approved profile (606.1265ms)
+✔ changed release metadata is filtered from summaries and blocks remote evidence before budget consumption (548.772709ms)
+✔ a generated directory symlink cannot redirect repair outside its project (478.329791ms)
+✔ a plans directory symlink cannot redirect a plan write or consume an AI request (392.943041ms)
+✔ an evidence directory symlink cannot redirect repair backups outside its project (418.793666ms)
+✔ corrupt, future and exhausted budgets fail closed, while a valid earlier day rolls over (1869.72975ms)
+✔ provider failures consume budget, leave no plan, and cannot exceed the daily request limit (1536.21125ms)
+✔ AI receives selected aggregates without project text, raw events, profile IDs or configurable prop values (731.090917ms)
+✔ malformed paths are handled as requests and local cross-origin guards run before service calls (0.642167ms)
+(node:99604) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ workspace CLI help and parsing never initialize or modify a workspace (0.840333ms)
+✔ workspace CLI signed initialization requires trust; bootstrap credentials stay in a 0600 file (51.417584ms)
+✔ workspace CLI token issue/list/revoke persists no raw token in output and refuses overwrite (31.003333ms)
+✔ workspace CLI rejects public, linked and oversized credential files before opening state (2.890291ms)
+✔ workspace CLI signs and verifies the actual portable kit without exposing the signing key (149.228666ms)
+✔ workspace CLI only requests AI when plan explicitly includes --use-ai (2.334084ms)
+✔ workspace CLI installs, creates, inspects, prepares and explicitly activates a real project generation (4262.272ms)
+✔ workspace CLI requires exact activation fields and forwards revision-bound preparation inputs (2.369166ms)
+✔ workspace CLI rejects unsafe serving and invalid numeric limits before creating a listener (3.760709ms)
+✔ workspace CLI wires optional maintenance status/resume and closes state after shutdown (1.273ms)
+✔ workspace maintenance discovers current projects, retains first, repairs derived drift and never plans (0.395292ms)
+✔ workspace aggregate maintenance pauses repair after repeated failure while retention continues (0.160375ms)
+(node:99605) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ signed installation creates isolated pinned projects, with disabled collection and AI (1829.521875ms)
+✔ ingestion-only credentials can submit allowed facts without reading or reconfiguring a project (1403.940833ms)
+✔ updates stay inactive until owner activation and stale competing plans cannot win (2986.059458ms)
+✔ rollback prepares a fresh generation and preserves activation history (3232.469417ms)
+✔ expired, edited, and drifted preparations cannot be activated (3376.876166ms)
+✔ changed installed release is rejected before loading or using runtime code (707.039541ms)
+✔ opt-out clears usage in retained generations and reopening retains revision and role boundaries (2141.893375ms)
+✔ HTTP authentication, project scope, consent roles, revocation, and non-disclosure are enforced (849.536667ms)
+✔ HTTP rejects hostile origins, hosts, unsupported bodies, and excess request rates (1173.430625ms)
+✔ replaced workspace directories cannot redirect installation, attestation or update writes (2008.68525ms)
+ℹ tests 109
+ℹ suites 0
+ℹ pass 109
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19903.744458
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 7868 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                     1.64 kB │ gzip:   0.67 kB
+dist/assets/jetbrains-mono-greek-400-normal-C190GLew.woff2          4.22 kB
+dist/assets/jetbrains-mono-cyrillic-400-normal-BEIGL1Tu.woff2       5.32 kB
+dist/assets/jetbrains-mono-vietnamese-400-normal-CqNFfHCs.woff      5.37 kB
+dist/assets/jetbrains-mono-greek-400-normal-B9oWc5Lo.woff           5.66 kB
+dist/assets/figtree-latin-ext-500-normal-Du0rIuHj.woff2             6.15 kB
+dist/assets/figtree-latin-ext-700-normal-CS4sQkGV.woff2             6.17 kB
+dist/assets/figtree-latin-ext-400-normal-CXAzuTZb.woff2             6.18 kB
+dist/assets/figtree-latin-ext-600-normal-DJlfifZj.woff2             6.24 kB
+dist/assets/jetbrains-mono-cyrillic-400-normal-ugxPyKxw.woff        6.97 kB
+dist/assets/jetbrains-mono-latin-ext-400-normal-Bc8Ftmh3.woff2      7.33 kB
+dist/assets/figtree-latin-ext-500-normal-BOEJvrb_.woff              8.32 kB
+dist/assets/figtree-latin-ext-400-normal-Gbh-3PTk.woff              8.33 kB
+dist/assets/figtree-latin-ext-700-normal-BoDi4KL2.woff              8.35 kB
+dist/assets/figtree-latin-ext-600-normal-CQqsimlV.woff              8.36 kB
+dist/assets/jetbrains-mono-latin-ext-400-normal-fXTG6kC5.woff      10.12 kB
+dist/assets/figtree-latin-700-normal-th6qEP7c.woff2                11.37 kB
+dist/assets/figtree-latin-400-normal-g7Dtegnw.woff2                11.38 kB
+dist/assets/figtree-latin-500-normal-BWnGEVsr.woff2                11.43 kB
+dist/assets/figtree-latin-600-normal-Cv_xCTDl.woff2                11.54 kB
+dist/assets/figtree-latin-400-normal-BD4aNku5.woff                 15.03 kB
+dist/assets/figtree-latin-500-normal-B_yy1phn.woff                 15.04 kB
+dist/assets/figtree-latin-700-normal-BCCt2T1q.woff                 15.16 kB
+dist/assets/figtree-latin-600-normal-BM_oTo4n.woff                 15.21 kB
+dist/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2         21.16 kB
+dist/assets/inter-latin-400-C38fXH4l.woff2                         23.66 kB
+dist/assets/inter-latin-500-Cerq10X2.woff2                         24.27 kB
+dist/assets/inter-latin-700-Yt3aPRUw.woff2                         24.35 kB
+dist/assets/inter-latin-600-LgqL8muc.woff2                         24.45 kB
+dist/assets/jetbrains-mono-latin-400-normal-6-qcROiO.woff          27.49 kB
+dist/assets/code-editor-BAVcSd_6.css                                1.76 kB │ gzip:   0.47 kB
+dist/assets/yaml-presenter-BUqAObNv.css                             2.08 kB │ gzip:   0.46 kB
+dist/assets/diff-view-BZw1Up8W.css                                  7.45 kB │ gzip:   1.22 kB
+dist/assets/ai-message-1G2his3Z.css                                 7.52 kB │ gzip:   1.45 kB
+dist/assets/with-selector-Djfl6wxY.css                              8.58 kB │ gzip:   1.32 kB
+dist/assets/side-sheet-ChfWur2y.css                                 9.35 kB │ gzip:   1.62 kB
+dist/assets/components-page-DNU8PuyW.css                           16.40 kB │ gzip:   3.24 kB
+dist/assets/data-grid-DzEqvCSc.css                                 22.09 kB │ gzip:   2.88 kB
+dist/assets/timeline-01G1KCtZ.css                                  57.88 kB │ gzip:   7.48 kB
+dist/assets/business-app-DCbfpunh.css                              81.46 kB │ gzip:   8.73 kB
+dist/assets/catalogue-previews-C_YRZs8O.css                        87.60 kB │ gzip:  11.32 kB
+dist/assets/index-I9JFw4xG.css                                  1,132.66 kB │ gzip: 128.34 kB
+dist/assets/event-histogram-CWizt1kw.js                             1.36 kB │ gzip:   0.74 kB
+dist/assets/yaml-presenter-B8qCPqOX.js                              1.73 kB │ gzip:   0.80 kB
+dist/assets/code-editor-BsD8Z8AB.js                                 2.29 kB │ gzip:   1.20 kB
+dist/assets/side-sheet-CoRFlxcO.js                                  7.42 kB │ gzip:   2.59 kB
+dist/assets/useScrollLock-OujtI562.js                              23.58 kB │ gzip:   8.72 kB
+dist/assets/diff-view-BTFO4fNj.js                                  35.18 kB │ gzip:  12.25 kB
+dist/assets/usePositioner-sHmbNyJq.js                              36.47 kB │ gzip:  13.54 kB
+dist/assets/DirectionContext-DY0-4BHQ.js                           45.31 kB │ gzip:  16.27 kB
+dist/assets/components-page-zPu59VNs.js                            65.10 kB │ gzip:  21.57 kB
+dist/assets/with-selector-CJ8YrghF.js                              65.95 kB │ gzip:  19.43 kB
+dist/assets/utils-BXr91y5p.js                                      67.04 kB │ gzip:  16.55 kB
+dist/assets/data-grid-CEqvcjYP.js                                  99.07 kB │ gzip:  27.79 kB
+dist/assets/business-app-N_PuAQ88.js                               99.83 kB │ gzip:  28.07 kB
+dist/assets/ai-message-7AavL6CX.js                                122.25 kB │ gzip:  37.14 kB
+dist/assets/catalogue-previews-C_Pft-0x.js                        223.14 kB │ gzip:  69.14 kB
+dist/assets/code-theme-5IhyG2MD.js                                449.67 kB │ gzip: 146.67 kB
+dist/assets/timeline-C1QqqlYo.js                                  524.33 kB │ gzip: 150.57 kB
+dist/assets/index-BGiH4DX3.js                                   3,498.12 kB │ gzip: 296.18 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 921ms
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 build:package
+> node scripts/build-package.mjs
+
+Checked 102 compact component contracts, shared token graph, schema, index and llms.txt.
+Built @dimitriszoitas/aegis-agentic@0.2.0-experiment.0: 107 public entries, 1426 files.

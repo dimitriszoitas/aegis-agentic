@@ -1,0 +1,22 @@
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 agentic:browser
+> node scripts/run-agentic-browser.mjs
+
+✓ Three profile swatches show their source colors; all 12 profile/presentation/mode combinations preserve control geometry and content.
+✓ Profile and mode changes preserve drafts; dark dialogs and menus inherit the active document profile with Escape/focus return.
+✓ Canonical filtering renderer: immediate/explicit apply, reset, empty state, mode draft preservation and contradictory spec rejection.
+✓ Two TokenInput proposals follow their declared keys and duplicate policies; rejected paste is atomic and preserves the full draft; consolidation remains owner-gated.
+✓ Illustrative maintenance evidence yields review-only plans and a bounded attempt budget.
+✓ Profile and JSON exports download real files; bundle preserves the edited composition and pins its active profile.
+✓ 390px workbench and filtering preview have no document overflow; the result table owns horizontal scrolling.
+✓ TokenInput validates batches atomically, preserves rejected/throwing/host-refused drafts, waits for controlled acceptance, guards IME, requires two-step Backspace, preserves newer drafts and focus on delayed acknowledgement, supports explicit blur commit, and keeps disabled state inert.
+Verified 8 workbench checks and 7 accessibility scans.
+✓ Disconnected, HTML fallback, and malformed API responses show honest unavailable states without invented metrics or mutations.
+✓ Live-shaped status and searchable inventory distinguish estimated combinations from zero verified configurations; inspection causes no writes.
+✓ Usage collection changes only after explicit opt-in; maintenance defaults to local rules and renders evidence as proposal-only.
+✓ AI runs only after explicit configured opt-in, failures do not display stale plans, and bounded repair appears only for drift.
+✓ Mobile layout stays within the viewport; connection loss labels the retained snapshot stale and blocks new actions.
+✓ Shared workspace connects only after submission, scopes reads to the authorized project, and makes viewer controls read-only.
+✓ Project selection clears prior evidence, preserves signature distinctions, and ignores delayed responses from another project.
+✓ Operator mutations use project-scoped headers and endpoints; revoked access blocks actions, mismatched identity is rejected, and reload clears credentials.
+Infrastructure console verified: 8 checks; 5 accessibility scans.

@@ -4,6 +4,7 @@ import { resolve, join } from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { requestAdvisory } from './ai.mjs';
+import { planRetention } from './retention.mjs';
 
 const execute = promisify(execFile);
 const encode = value => JSON.stringify(value, null, 2) + '\n';
@@ -226,6 +227,70 @@ export function createInfrastructure({ kitDirectory, projectDirectory, core, env
       return { status: verified ? 'verified' : 'review-required', summary, health: after };
     });
   }
+  async function maintainRetention() {
+    return lock(async () => {
+      const observed = new Map();
+      let path = 'project.json';
+      let usageRewritten = false;
+      let plansRemoved = 0;
+      const review = (code, message) => ({ status: 'review-required', issues: [{ code, path, message }], applied: { usageRewritten, plansRemoved } });
+      const readObserved = async relative => {
+        path = relative.startsWith('plans/') ? 'plans' : relative;
+        const target = file(relative);
+        await regular(target);
+        const text = await readFile(target, 'utf8');
+        observed.set(relative, text);
+        return JSON.parse(text);
+      };
+      try {
+        const config = validateConfig(await readObserved('project.json'));
+        const release = await readObserved('release.json');
+        const profile = await readObserved('profile.json');
+        if (sha(core.canonicalJson(release)) !== config.releaseSha256 || sha(core.canonicalJson(profile)) !== config.profileSha256 || core.canonicalJson(config.pin) !== core.canonicalJson(release.pin)) {
+          path = 'project.json';
+          return review('retention-source', 'Pinned source identity requires review before retention.');
+        }
+        const policy = await readObserved('usage-policy.json');
+        const usage = await readObserved('usage.json');
+        const history = await readObserved('runs.json');
+        if (!Array.isArray(history) || history.some(run => !object(run) || ['id', 'kind', 'createdAt', 'status', 'summary'].some(key => typeof run[key] !== 'string'))) return review('retention-history', 'Operation history needs review before retention.');
+        path = 'plans';
+        await directory(file('plans'));
+        const names = (await readdir(file('plans'))).sort();
+        const plans = [];
+        for (const name of names) {
+          if (!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\.json$/i.test(name)) return review('retention-plan-file', 'An unknown proposal-directory entry requires review.');
+          plans.push({ name, value: await readObserved(`plans/${name}`) });
+        }
+        const decision = planRetention({ usage, plans, policy, registryRevision: config.pin.registryRevision, core, now: clock() });
+        if (decision.status === 'review-required') return { status: decision.status, issues: decision.issues, applied: { usageRewritten, plansRemoved } };
+        // Validate every candidate before any write; service writers share this lock.
+        for (const [relative, expected] of observed) {
+          path = relative.startsWith('plans/') ? 'plans' : relative;
+          await regular(file(relative));
+          if (await readFile(file(relative), 'utf8') !== expected) return review('retention-race', 'Project state changed during retention preflight. Retry after review.');
+        }
+        await directory(file('plans'));
+        if (JSON.stringify((await readdir(file('plans'))).sort()) !== JSON.stringify(names)) return review('retention-race', 'Proposal entries changed during retention preflight. Retry after review.');
+        if (decision.counts.usage.retained !== decision.counts.usage.before) {
+          path = 'usage.json';
+          await atomic(file('usage.json'), decision.usage);
+          usageRewritten = true;
+        }
+        for (const name of decision.removePlans) {
+          path = 'plans';
+          await regular(file(`plans/${name}`));
+          await unlink(file(`plans/${name}`));
+          plansRemoved++;
+        }
+        path = 'runs.json';
+        await appendRun('retention', decision.status, decision.status === 'maintained' ? 'Expired or excess usage and proposals were pruned under the retention policy.' : 'Stored usage and proposals already meet the retention policy.', { counts: decision.counts });
+        return { status: decision.status, ...decision.counts, issues: [] };
+      } catch {
+        return review(usageRewritten || plansRemoved ? 'retention-io' : 'retention-preflight', usageRewritten || plansRemoved ? 'Retention encountered an I/O failure after partial work. Inspect the reported mutation counts before retrying.' : 'Unreadable, malformed, or unsafe project state was preserved for review.');
+      }
+    });
+  }
   async function setAI({ enabled, model }) {
     if (typeof enabled !== 'boolean' || (enabled && (typeof model !== 'string' || !/^[a-zA-Z0-9._:-]{1,128}$/.test(model)))) throw new Error('Enabling remote AI requires an explicit compatible model.');
     return lock(async () => { const { config } = await load(); config.ai.allowRemote = enabled; config.ai.model = enabled ? model : null; await atomic(file('project.json'), config); await appendRun('ai-setting', 'updated', enabled ? 'External AI advisory enabled for aggregate evidence, with a daily request budget.' : 'External AI advisory disabled.'); return { enabled, model: config.ai.model }; });
@@ -272,5 +337,5 @@ export function createInfrastructure({ kitDirectory, projectDirectory, core, env
     const result = core.planInfrastructureUpdate(release, target, { projectId: config.id, pinnedReleaseId: config.pin.releaseId, usageCounts: core.summarizeUsage(usage.events, usage.policy).byComponent, supportedKitVersions: [config.pin.kitVersion] });
     return result;
   }
-  return { initialize, status, health, inventory, setTelemetry, ingest, reconcile, setAI, plan, updatePlan, location: project };
+  return { initialize, status, health, inventory, setTelemetry, ingest, reconcile, maintainRetention, setAI, plan, updatePlan, location: project };
 }

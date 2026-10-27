@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "scope": "actual-local-shared-workspace-experiment",
+  "simulatedProvider": false,
+  "providerCalled": false,
+  "signedRelease": {
+    "digest": "b0c3b24f5a7f61b423e1b9a9eead35f9c47d57efab4ab5d8290836035389ccd7",
+    "verified": true,
+    "version": "0.2.0-experiment.0"
+  },
+  "projects": [
+    {
+      "id": "aegis-lab",
+      "health": "healthy",
+      "workspace": {
+        "projectRevision": 3,
+        "generationId": "a262511a-e097-4423-b1f3-cb3f0bde4771",
+        "kitDigest": "b0c3b24f5a7f61b423e1b9a9eead35f9c47d57efab4ab5d8290836035389ccd7",
+        "releaseVerified": true,
+        "signingKeyId": "514b6292039549e3f3b246e277f8d8773afb31ac66a7c66c48a680cdb1940336"
+      },
+      "telemetry": false,
+      "events": 0,
+      "ai": false
+    },
+    {
+      "id": "atlas-lab",
+      "health": "healthy",
+      "workspace": {
+        "projectRevision": 1,
+        "generationId": "c2617ada-6bda-4606-b620-b221310f1090",
+        "kitDigest": "b0c3b24f5a7f61b423e1b9a9eead35f9c47d57efab4ab5d8290836035389ccd7",
+        "releaseVerified": true,
+        "signingKeyId": "514b6292039549e3f3b246e277f8d8773afb31ac66a7c66c48a680cdb1940336"
+      },
+      "telemetry": false,
+      "events": 0,
+      "ai": false
+    }
+  ],
+  "activationAndRollbackVerified": true
+}

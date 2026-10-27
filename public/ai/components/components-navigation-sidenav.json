@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.1.0-experiment.0"
+    "version": "0.2.0-experiment.0"
   },
   "id": "components-navigation-sidenav",
   "name": "SideNav",

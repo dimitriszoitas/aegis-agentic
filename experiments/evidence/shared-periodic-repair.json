@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "scope": "actual-local-shared-maintenance",
+  "project": "atlas-lab",
+  "restoredExactly": true,
+  "protectedInputsUnchanged": true,
+  "elapsedMs": 25237,
+  "health": "healthy",
+  "telemetry": false,
+  "eventCount": 0,
+  "AIConfigured": false,
+  "maintenance": {
+    "schemaVersion": 1,
+    "loop": {
+      "running": false,
+      "stopped": false,
+      "repairPaused": false,
+      "consecutiveFailures": 0,
+      "failureLimit": 3,
+      "lastCycle": {
+        "startedAt": 1793132137108,
+        "finishedAt": 1793132138214,
+        "status": "completed",
+        "retentionStatus": "no-op",
+        "healthStatus": "drift",
+        "repairStatus": "verified",
+        "failurePhase": null
+      }
+    }
+  }
+}

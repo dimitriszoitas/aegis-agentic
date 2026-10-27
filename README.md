@@ -1,6 +1,6 @@
 # Aegis Agentic
 
-A configurable, contract-driven design system with a local infrastructure service. A designer chooses the visual language; consumers pin its release, report explicitly permitted usage, inspect configuration boundaries, and prepare maintenance or update proposals. A portable kit gives coding agents the contracts and tools to reuse components, compose interfaces, and propose missing capabilities. The project is an independent snapshot of [Aegis](https://github.com/dimitriszoitas/aegis-ui), baseline `12e4f6b218c6cc68aba303feec211ba91aaeb20a`.
+A configurable, contract-driven design system with local and authenticated shared infrastructure services. A designer chooses the visual language; consumers pin its release, report explicitly permitted usage, inspect configuration boundaries, and prepare maintenance or update proposals. A portable kit gives coding agents the contracts and tools to reuse components, compose interfaces, and propose missing capabilities. The project is an independent snapshot of [Aegis](https://github.com/dimitriszoitas/aegis-ui), baseline `12e4f6b218c6cc68aba303feec211ba91aaeb20a`.
 
 ## Run the experiment
 
@@ -27,6 +27,10 @@ Open **Infrastructure** in the workbench to inspect the actual project. Telemetr
 
 [Infrastructure guide](docs/INFRASTRUCTURE.md) covers the usage SDK, consent, CLI/API, configuration evidence, release planning, optional AI, and operational limits.
 
+## Share infrastructure across projects
+
+The authenticated workspace adds scoped roles, signed portable releases, multiple project generations, reviewed activation and rollback, and a durable SQLite catalogue. Follow the [shared workspace guide](docs/SHARED-WORKSPACE.md) to initialize signing keys and a workspace, install a verified kit, create projects and connect the console. It runs on one host; no external hosting or SSO is provisioned.
+
 ## What works
 
 - **Profiles:** Aegis Original, Atlas Precision and Solstice Studio; editable brand, neutrals, semantic colors, corner family, typography and default density. A single compiler produces explicit Fundamental/Floating × light/dark mappings through the existing Primitive → Semantic → Group hierarchy. The original profile preserves the baseline manifest. Static contrast evidence identifies its limited scope.
@@ -34,9 +38,10 @@ Open **Infrastructure** in the workbench to inspect the actual project. Telemetr
 - **Registry:** capability discovery, validated proposals, behavioral conflict comparison and explicit consolidation plans. Atomic local submission/promotion commands reject stale revisions. A shared Git repository and review workflow coordinate branches; the browser alone is not a collaboration server.
 - **Missing component:** experimental TokenInput supports free-text values, validation, paste, suggestions and explicit duplicate/commit behavior. Existing Aegis components and Base UI remain the behavioral foundation. Illustrative proposal fixtures are labeled and never treated as verified independent generation.
 - **Infrastructure:** a loopback HTTP service and CLI manage one pinned local project. The console displays real health, release, capability counts, usage evidence, and recent runs. It handles unavailable or stale service data explicitly.
+- **Shared operations:** authenticated project scopes, hashed expiring credentials, detached Ed25519 release attestations, immutable installed kits, prepared updates, revision-checked activation and retained-generation rollback. The console selects projects and enforces role-aware controls; update activation is available through the CLI/API.
 - **Usage:** a disabled-by-default SDK records only caller-supplied, allowlisted facts and flushes explicitly. Local retention and recent batch receipts are bounded. Counts describe instrumented surfaces; there is no inferred user/session analytics or globally exactly-once delivery.
 - **Configurability:** source-derived component dimensions, choices, defaults, and unbounded props are inspectable. Finite combination estimates remain separate from explicit verification records.
-- **Maintenance and updates:** actual derived drift can be repaired from unchanged pinned inputs, with evidence and a rescan. An optional service loop repeats health checks. Changed sources, behavior, contracts, and releases require owner review; update comparison produces a plan without applying a migration.
+- **Maintenance and updates:** actual derived drift can be repaired from unchanged pinned inputs, with evidence and a rescan. An optional service loop enforces physical retention and repeats health checks, pausing repair after three failed cycles. Changed sources, behavior, contracts, and releases require owner review; update comparison produces a plan without applying a migration.
 - **Optional AI advisory:** a server-side key, explicit model, project opt-in, and per-request selection enable a bounded remote proposal request. Selected aggregate evidence is sent with `store: false`; responses are validated and never executed. Live AI has not been verified in this experiment.
 - **Portable kit:** contracts, schemas, profiles, registry, source skills, reference API metadata and a dependency-free core/CLI run outside this repository.
 
@@ -73,7 +78,8 @@ npm run agentic:browser
 ## Read the design
 
 - [Product specification](docs/PRD.md)
-- [Infrastructure architecture and operations](docs/INFRASTRUCTURE.md)
+- [Shared workspace operations](docs/SHARED-WORKSPACE.md) and [authenticated HTTP contract](contracts/workspace-api.json)
+- [Single-project infrastructure operations](docs/INFRASTRUCTURE.md)
 - [Infrastructure HTTP contract](contracts/infrastructure-api.json) and [project schema](schemas/project.schema.json)
 - [What a contract means](docs/CONTRACTS.md)
 - [Portable agent contract](skills/references/agentic-contract.md)

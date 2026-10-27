@@ -224,3 +224,16 @@
     );
   }
 }
+
+.aip-credential {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-comfortable);
+}
+.aip-history {
+  max-height: var(--group-application-business-app-size-max-height-canvas-huge);
+  overflow-y: auto;
+  margin-top: var(--group-application-business-app-space-padding-comfortable);
+}
+.aip-history strong {
+  overflow-wrap: anywhere;
+}

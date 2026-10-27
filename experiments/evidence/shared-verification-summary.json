@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "version": "0.2.0-experiment.0",
+  "date": "2026-10-27",
+  "checks": {
+    "fullCheck": "passed",
+    "sourceTests": 283,
+    "sourceTestFiles": 29,
+    "infrastructureTests": 109,
+    "browserScenarioGroups": 16,
+    "browserAccessibilityScans": 12,
+    "freshPackageImports": 100,
+    "publicPackageEntries": 107,
+    "originalAegisUnchanged": true,
+    "realSharedServiceAccessibilityScans": 3
+  },
+  "coverageBoundaries": [
+    "Single host and local filesystem; no production availability or performance benchmark.",
+    "Browser API failure/role scenarios use explicit mocks; real shared-service evidence is separately recorded.",
+    "No live remote AI provider calls or public deployment.",
+    "No inherited configuration verification or automatic consumer migration."
+  ],
+  "liveEvidence": [
+    "shared-workspace-live.json",
+    "shared-periodic-repair.json",
+    "shared-workspace/shared-workspace-live-report.json"
+  ]
+}
