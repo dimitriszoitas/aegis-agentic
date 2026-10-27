@@ -1,3 +1,4 @@
+import { version as packageVersion } from '../../package.json';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Button } from '@/components/button';
 import {
@@ -268,7 +269,7 @@ export function AgenticWorkbench() {
     if (!issues.length)
       try {
         localStorage.setItem(storageKey, JSON.stringify(profile));
-        setStorageStatus('Saved on this device');
+        setStorageStatus('Profile saved on this device');
       } catch {
         setStorageStatus('Session only');
       }
@@ -350,7 +351,7 @@ export function AgenticWorkbench() {
               <p>Rules, contracts, and evidence travel with your system.</p>
             </div>
             <div className="aw-version">
-              <span className="aw-project-dot" /> Experimental build <span>v0.1</span>
+              <span className="aw-project-dot" /> Experimental build <span>v{packageVersion.split('.').slice(0, 2).join('.')}</span>
             </div>
           </div>
         </aside>
