@@ -2,7 +2,7 @@
 
 Aegis Agentic now includes a local service for operating an installed design system. It pins a release and design profile, inventories component configuration, accepts explicitly permitted usage events, checks generated output, and prepares maintenance or update proposals. The profile compiler, component contracts, registry, composition renderer, and portable agent skills remain its foundation.
 
-This is a single-project local implementation. The operator console reflects service responses; an unavailable service produces a disconnected state. Starting the workbench alone does not enable collection, call a model, or start a repair loop.
+This guide documents the single-project local service. The separate [shared workspace](SHARED-WORKSPACE.md) adds authenticated multi-project operation, signed releases and reviewed activation/rollback. The operator console reflects service responses; an unavailable service produces a disconnected state. Starting the workbench alone does not enable collection, call a model, or start a repair loop.
 
 ## Architecture
 
@@ -144,7 +144,7 @@ Telemetry uses public API inventory IDs such as `components-actions-button`, as 
 
 An uncertain delivery retains the exact batch ID and body for a caller-requested retry. The server remembers the last 1,000 batch receipts, rejects reuse of an ID with different content, and acknowledges recognized duplicates. This is bounded deduplication, not global exactly-once delivery: after receipt eviction or clearing, the same batch can be accepted again. The queue is memory-only and does not survive a page reload. Disabling or clearing the client cancels pending work as far as possible, but cannot retract a batch already accepted by the server. A server-disabled receipt also disables and clears the client; resumption requires explicit opt-in again.
 
-The server accepts up to 100 events per batch, rejects the entire batch if an event is invalid, validates the pinned registry revision, and limits reported events to the previous 30 days and at most 10,000 entries. Reporting filters expired entries; successful ingestion rewrites the pruned buffer. There is no independent timed disk-purge job. For controlled CLI ingestion, `usage-ingest --file events.json` expects an array of complete version-1 `UsageEvent` objects, including timestamps, rather than an export envelope.
+The server accepts up to 100 events per batch, rejects the entire batch if an event is invalid, validates the pinned registry revision, and limits reported events to the previous 30 days and at most 10,000 entries. Reporting filters expired entries; successful ingestion rewrites the pruned buffer. The optional maintenance loop also physically prunes expired data without new ingestion. For controlled CLI ingestion, `usage-ingest --file events.json` expects an array of complete version-1 `UsageEvent` objects, including timestamps, rather than an export envelope.
 
 ## Deterministic maintenance and periodic repair
 
@@ -161,7 +161,7 @@ Periodic checks are optional:
 npm run infrastructure -- serve --project .aegis-workspace --port 4177 --reconcile-interval 60
 ```
 
-The interval is in seconds, from 30 through 86,400. Each cycle checks health and invokes repair only for `drift`; cycles do not overlap. A repair is bounded to the existing deterministic regeneration operation and its validation. A service left running may attempt eligible drift again on a later cycle, so this is not a global retry limit. No periodic AI analysis, arbitrary code repair, commit, or release occurs. The loop stops when the process stops; it is not installed as an operating-system service or scheduler.
+The interval is in seconds, from 30 through 86,400. Each cycle checks health and invokes repair only for `drift`; cycles do not overlap. A repair is bounded to the existing deterministic regeneration operation and its validation. Three consecutive failed cycles pause repair until explicit resume; retention continues. This circuit is process-local and resets on restart. No periodic AI analysis, arbitrary code repair, commit, or release occurs. The loop stops when the process stops; it is not installed as an operating-system service or scheduler.
 
 ## Proposed release updates
 
@@ -173,7 +173,7 @@ The target is an `InfrastructureUpdateSnapshot`, with the same project identity 
 
 Every update plan is `plan-only`, with `applied: false`; it performs no migration and inherits no verification coverage. The current service only declares the project's pinned kit version supported, so a different version may be blocked until compatibility support and owner review are provided.
 
-There is no in-place release/profile adoption command in this experiment. Review changed sources and target artifacts, then initialize a new project directory for the accepted inputs while preserving the previous project and evidence. Do not edit hashes or pin files to bypass review. Distribution, Git review, publishing, and consumer adoption remain deliberate steps outside this service.
+This single-project service has no in-place release/profile adoption command; the shared workspace provides reviewed generation activation and rollback. Review changed sources and target artifacts, then initialize a new project directory for the accepted inputs while preserving the previous project and evidence. Do not edit hashes or pin files to bypass review. Distribution, Git review, publishing, and consumer adoption remain deliberate steps outside this service.
 
 ## Optional AI advisory
 
@@ -218,6 +218,10 @@ The infrastructure tests exercise service state, integrity refusal, bounded repa
 
 With the service and Vite running, `node scripts/verify-infrastructure-live.mjs` performs a real read-only console check. Set `INFRASTRUCTURE_TEST_PLAN=1` only when intentionally allowing that check to persist one local rules-based plan. The checked live service showed its real inventory, zero usage, and an unconfigured AI adapter; no paid AI call was verified.
 
-Current limits are one local project per service, local files and locks, manual consumer instrumentation, bounded receipt deduplication, and explicit source/release review. There is no hosted multi-user control plane, enterprise authentication, distributed coordination, automatic update adoption, universal coverage certification, or globally exactly-once telemetry. Maintenance plans and repair evidence need normal project storage management. These are implementation boundaries of the current experiment, not capabilities implied by the word “agentic.”
+Current limits are one local project per service, local files and locks, manual consumer instrumentation, bounded receipt deduplication, and explicit source/release review. There is no hosted multi-user control plane, enterprise authentication, distributed coordination, automatic update adoption, universal coverage certification, or globally exactly-once telemetry. Maintenance plans have bounded retention; repair evidence still needs reviewed storage management. These are implementation boundaries of the current experiment, not capabilities implied by the word “agentic.”
 
 Potential next phases are authenticated hosting with durable shared storage, signed release distribution, and reviewed migrations between pins with rollback and fresh consumer verification. Those require separate architecture and acceptance work; they are not features delivered by this local service.
+
+## Retention maintenance
+
+`npm run infrastructure -- retention --project .aegis-workspace` physically prunes usage to 30 days/10,000 events and maintenance plans to 30 days/100 files. The optional reconciliation loop performs this maintenance each cycle. Invalid files or identities require review; repair evidence is retained. Three consecutive failed maintenance cycles pause repair until resume/restart. The circuit is process-local, and retention continues while repair is paused.

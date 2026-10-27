@@ -4,6 +4,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readFile } from 'node:fs/promises';
 import { createInfrastructure } from './store.mjs';
 import { createInfrastructureServer } from './server.mjs';
+import { createMaintenanceLoop } from './retention.mjs';
 
 const kitDirectory = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const [command = 'help', ...args] = process.argv.slice(2);
@@ -14,6 +15,7 @@ status --project <directory>
 inventory --project <directory>
 plan --project <directory> [--ai]
 reconcile --project <directory>
+retention --project <directory>
 usage-enable --project <directory>
 usage-disable --project <directory>  (also clears retained events)
 usage-ingest --project <directory> --file <events.json>
@@ -26,6 +28,8 @@ AI requires OPENAI_API_KEY on the server plus an explicit project opt-in and mod
 Only aggregate evidence is sent; AI results are proposals, never executed changes.
 The service binds to 127.0.0.1 only. Reconciliation repairs unchanged-input derived
 drift; source, behavior, version and release changes require reviewed updates.
+An optional loop prunes usage/proposals and pauses repair after three failed cycles.
+Circuit state is process-local; the shared loop API exposes status and explicit resume.
 `;
 function parse() {
   const options = {};
@@ -37,7 +41,7 @@ function parse() {
   }
   const commandOptions = {
     init: ['--id', '--profile', '--name'], status: [], inventory: [],
-    plan: ['--ai'], reconcile: [], 'usage-enable': [], 'usage-disable': [],
+    plan: ['--ai'], reconcile: [], retention: [], 'usage-enable': [], 'usage-disable': [],
     'usage-ingest': ['--file'], 'ai-enable': ['--model'], 'ai-disable': [],
     updates: ['--target'], serve: ['--port', '--reconcile-interval'],
   };
@@ -60,6 +64,7 @@ try {
       case 'inventory': result = await service.inventory(); break;
       case 'plan': result = await service.plan({ useAI: options['--ai'] === true }); break;
       case 'reconcile': result = await service.reconcile(); break;
+      case 'retention': result = await service.maintainRetention(); break;
       case 'usage-enable': result = await service.setTelemetry(true); break;
       case 'usage-disable': result = await service.setTelemetry(false); break;
       case 'usage-ingest':
@@ -77,17 +82,10 @@ try {
         await service.status();
         const server = createInfrastructureServer(service, { port });
         await new Promise((resolveReady, reject) => { server.once('error', reject); server.listen(port, '127.0.0.1', resolveReady); });
-        let busy = false;
-        const timer = interval === null ? null : setInterval(async () => {
-          if (busy) return;
-          busy = true;
-          try { const state = await service.health(); if (state.status === 'drift') await service.reconcile(); }
-          catch { console.error('Reconciliation check failed; inspect project health.'); }
-          finally { busy = false; }
-        }, interval * 1000);
-        const stop = () => { if (timer) clearInterval(timer); server.close(); };
+        const maintenance = interval === null ? null : createMaintenanceLoop({ service, intervalMs: interval * 1000 });
+        const stop = () => { maintenance?.stop(); server.close(); };
         process.once('SIGINT', stop); process.once('SIGTERM', stop);
-        console.log(JSON.stringify({ status: 'listening', url: `http://127.0.0.1:${port}/api/aegis/status`, project: service.location, automaticDerivedRepair: interval !== null }));
+        console.log(JSON.stringify({ status: 'listening', url: `http://127.0.0.1:${port}/api/aegis/status`, project: service.location, automaticDerivedRepair: interval !== null, maintenance: maintenance?.status() ?? null }));
         break;
       }
       default: throw new Error('Unknown command. Run help.');

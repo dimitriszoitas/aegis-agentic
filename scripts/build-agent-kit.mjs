@@ -34,13 +34,17 @@ await cp(
   join(root, 'skills/references/agentic-contract.md'),
   join(out, 'skills/references/agentic-contract.md'),
 );
-await cp(join(root, 'skills/references/design-contract.md'), join(out, 'skills/references/design-contract.md'));
+await cp(
+  join(root, 'skills/references/design-contract.md'),
+  join(out, 'skills/references/design-contract.md'),
+);
 await mkdir(join(out, 'tokens'), { recursive: true });
 for (const name of ['design-tokens.json', 'component-categories.json']) {
   await cp(join(root, 'tokens', name), join(out, 'tokens', name));
 }
 await cp(join(root, 'scripts/infrastructure'), join(out, 'infrastructure'), {
-  recursive: true, filter: path => !path.endsWith('.test.mjs'),
+  recursive: true,
+  filter: (path) => !path.endsWith('.test.mjs'),
 });
 await mkdir(join(out, 'bin'), { recursive: true });
 await cp(join(root, 'scripts/agentic-cli.mjs'), join(out, 'bin/aegis.mjs'));
@@ -71,7 +75,14 @@ const manifest = {
   entry: 'skills/build-ui/SKILL.md',
   cli: 'bin/aegis.mjs',
   runtime: 'runtime/core.mjs',
-  infrastructure: { cli: 'infrastructure/cli.mjs', protocolVersion: 1, deployment: 'local-single-project' },
+  infrastructure: {
+    cli: 'infrastructure/cli.mjs',
+    protocolVersion: 1,
+    deployment: 'local-single-project',
+    workspaceCli: 'infrastructure/workspace-cli.mjs',
+    workspaceProtocol: 'contracts/workspace-api.json',
+    workspaceDeployment: 'authenticated-single-host',
+  },
   profiles: core.designProfiles.map((profile) => ({
     id: profile.id,
     name: profile.name,
@@ -79,7 +90,7 @@ const manifest = {
   })),
   limits: [
     'Initial experiment: one executable composition pattern and TokenInput extension schema.',
-    'Local project service only: no hosted multi-tenant authentication, distributed coordination or automatic release.',
+    'Authenticated multi-project workspace on one local filesystem host; no managed hosting, SSO, distributed coordination or automatic release.',
     'Optional remote AI advisory requires explicit model, server credentials and project opt-in; proposals never execute automatically.',
     'Periodic reconciliation repairs derived artifacts only while the local service is running; no operating-system daemon is installed.',
     'Selected static contrast checks do not establish full accessibility.',
@@ -95,9 +106,13 @@ await writeFile(
       version: packageInfo.version,
       private: true,
       type: 'module',
-      bin: { 'aegis-agentic': './bin/aegis.mjs', 'aegis-infra': './infrastructure/cli.mjs' },
+      bin: {
+        'aegis-agentic': './bin/aegis.mjs',
+        'aegis-infra': './infrastructure/cli.mjs',
+        'aegis-workspace': './infrastructure/workspace-cli.mjs',
+      },
       exports: './runtime/core.mjs',
-      engines: { node: '>=22' },
+      engines: { node: '>=24 <25' },
     },
     null,
     2,
@@ -105,7 +120,7 @@ await writeFile(
 );
 await writeFile(
   join(out, 'README.md'),
-  '# Aegis Agentic portable kit\n\nStart with `skills/build-ui/SKILL.md`. Run `node bin/aegis.mjs help` for commands. The core runtime has no npm dependencies. Keep this folder together. React component implementations are provided separately by the Aegis Agentic package; this kit defines and validates the design language.\n\nCompile a profile into a consuming project: `node bin/aegis.mjs profile compile profiles/aegis.json --out /path/to/project/agentic-dist`. Apply the emitted CSS after the base Aegis styles and set the documented profile attribute at the document root.\n\nInfrastructure: `node infrastructure/cli.mjs help`. Initialize a new local project with `node infrastructure/cli.mjs init --project /path/to/new-project --id my-project --profile profiles/aegis.json`; inspect `status`, `inventory`, and `plan`. The optional loopback service uses `serve --project /path/to/new-project --reconcile-interval 60`. Its HTTP shapes and limits are in `contracts/infrastructure-api.json`. Telemetry and remote AI start disabled. The runtime exports an explicit usage client; an AI provider is never required for component rendering.\n',
+  '# Aegis Agentic portable kit\n\nStart with `skills/build-ui/SKILL.md`. Run `node bin/aegis.mjs help` for commands. The core runtime has no npm dependencies. Keep this folder together. React component implementations are provided separately by the Aegis Agentic package; this kit defines and validates the design language.\n\nCompile a profile into a consuming project: `node bin/aegis.mjs profile compile profiles/aegis.json --out /path/to/project/agentic-dist`. Apply the emitted CSS after the base Aegis styles and set the documented profile attribute at the document root.\n\nInfrastructure: `node infrastructure/cli.mjs help`. Initialize a new local project with `node infrastructure/cli.mjs init --project /path/to/new-project --id my-project --profile profiles/aegis.json`; inspect `status`, `inventory`, and `plan`. The optional loopback service uses `serve --project /path/to/new-project --reconcile-interval 60`. Its HTTP shapes and limits are in `contracts/infrastructure-api.json`. Telemetry and remote AI start disabled. The runtime exports an explicit usage client; an AI provider is never required for component rendering.\n\nShared workspace (Node 24): `node infrastructure/workspace-cli.mjs help`. Supports signed kit installation, scoped bearer credentials, multiple projects, reviewed generation activation and rollback. Protocol: `contracts/workspace-api.json`. Single-host local filesystem only; no SSO or managed hosting.\n',
 );
 async function files(directory) {
   const entries = await readdir(directory, { withFileTypes: true });

@@ -72,7 +72,7 @@ describe('configurability inventory from supplied API facts', () => {
   it('consumes actual public API component metadata without loading a catalogue into core', () => {
     const result = buildConfigurabilityInventory({
       schemaVersion: 1,
-      pin,
+      pin: { ...pin, kitVersion: buttonFacts.package.version },
       components: [buttonFacts],
     });
     expect(result.status).toBe('ready');

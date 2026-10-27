@@ -141,6 +141,100 @@ await page.route('**/api/aegis/**', async (route) => {
   }
   return reply({ error: 'Unexpected test endpoint.' }, 404);
 });
+// These are synthetic test credentials, never real workspace secrets.
+const workspaceToken = 'synthetic-workspace-token-for-browser-checks-0001';
+const workspaceRequests = [];
+let workspaceRole = 'viewer';
+let workspaceError = '';
+let mismatchedProject = false;
+let delayProjectA = false;
+let releaseDelayedA;
+const projects = [
+  {
+    id: 'project-a',
+    name: 'Workspace Alpha',
+    revision: 2,
+    currentGeneration: '00000000-0000-4000-8000-000000000001',
+  },
+  {
+    id: 'project-b',
+    name: 'Workspace Beta',
+    revision: 1,
+    currentGeneration: '00000000-0000-4000-8000-000000000002',
+  },
+];
+const workspaceStatus = (id) => ({
+  ...status,
+  project: { id, name: projects.find((project) => project.id === id).name },
+  health: { status: 'drift', issues: [{ id: 'fixture-drift', kind: 'derived' }] },
+  workspace: {
+    projectRevision: id === 'project-a' ? 2 : 1,
+    generationId: projects.find((project) => project.id === id).currentGeneration,
+    kitDigest: 'a'.repeat(64),
+    releaseVerified: id === 'project-a',
+    signingKeyId: id === 'project-a' ? 'test-signing-key' : null,
+  },
+});
+await page.route('**/api/aegis-workspace/**', async (route) => {
+  const req = route.request();
+  assert.equal(req.headers().authorization, `Bearer ${workspaceToken}`);
+  assert.equal(req.headers()['x-aegis-client'], 'console');
+  assert.equal(new URL(req.url()).search, '');
+  assert.ok(!req.url().includes(workspaceToken));
+  assert.ok(!req.postData()?.includes(workspaceToken));
+  const endpoint = new URL(req.url()).pathname.replace('/api/aegis-workspace', '');
+  const body = req.method() === 'POST' ? req.postDataJSON() : null;
+  workspaceRequests.push({ endpoint, method: req.method(), body });
+  const reply = (value, code = 200) =>
+    route.fulfill({ status: code, contentType: 'application/json', body: JSON.stringify(value) });
+  if (workspaceError) return reply({ error: workspaceError }, 403);
+  if (endpoint === '/projects')
+    return reply({
+      schemaVersion: 1,
+      actor: { label: 'Browser verification', role: workspaceRole },
+      projects,
+    });
+  const [, , id, action] = endpoint.split('/');
+  if (!projects.some((project) => project.id === id))
+    return reply({ error: 'No project scope.' }, 403);
+  if (action === 'status') {
+    if (id === 'project-a' && delayProjectA)
+      await new Promise((resolve) => {
+        releaseDelayedA = resolve;
+      });
+    return reply(workspaceStatus(mismatchedProject ? 'project-b' : id));
+  }
+  if (action === 'configurability') return reply(inventory);
+  if (action === 'generations')
+    return reply({
+      schemaVersion: 1,
+      generations: [
+        {
+          id: projects.find((project) => project.id === id).currentGeneration,
+          projectId: id,
+          kitDigest: 'a'.repeat(64),
+          profileSha256: 'b'.repeat(64),
+          createdAt: 1793098800000,
+        },
+      ],
+    });
+  if (workspaceRole === 'viewer') return reply({ error: 'Viewer cannot mutate.' }, 403);
+  if (action === 'plan')
+    return reply({
+      id: 'workspace-plan',
+      status: 'no-action',
+      createdAt: '2026-10-27T12:00:00.000Z',
+      source: 'rules',
+      summary: `Project ${id} rules proposal.`,
+      proposals: [],
+      deterministic: {},
+      verification: 'proposal-only',
+    });
+  if (action === 'telemetry') status.usage.telemetryEnabled = body.enabled;
+  if (['telemetry', 'retention', 'reconcile'].includes(action))
+    return reply({ status: 'no-op', summary: `Scoped ${action} result.` });
+  return reply({ error: 'Unexpected workspace endpoint.' }, 404);
+});
 const passed = (name) => {
   report.checks.push(name);
   console.log(`✓ ${name}`);
@@ -290,6 +384,124 @@ try {
   await expect(telemetry).toBeDisabled();
   passed(
     'Mobile layout stays within the viewport; connection loss labels the retained snapshot stale and blocks new actions.',
+  );
+  await page.setViewportSize({ width: 1512, height: 1100 });
+  await page.getByRole('radio', { name: 'Shared workspace', exact: true }).check();
+  const tokenInput = page.getByLabel('Workspace access token', { exact: true });
+  await expect(tokenInput).toHaveAttribute('type', 'password');
+  assert.equal(
+    workspaceRequests.length,
+    0,
+    'Switching mode does not transmit credentials or connect',
+  );
+  await tokenInput.fill(workspaceToken);
+  assert.equal(workspaceRequests.length, 0, 'Entering a token does not start a request');
+  await page.getByRole('button', { name: 'Connect workspace', exact: true }).click();
+  await expect(page.getByTestId('workspace-role')).toHaveText('viewer');
+  await expect(page.getByTestId('workspace-release')).toContainText('Verified release signature');
+  await expect(page.getByTestId('workspace-release')).toContainText('test-signing-key');
+  await expect(page.getByRole('button', { name: 'Plan maintenance', exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Repair derived drift' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Run retention' })).toBeDisabled();
+  await expect(telemetry).toBeDisabled();
+  await page.getByText('Generation history (1)', { exact: true }).click();
+  await expect(page.locator('.aip-history')).toContainText('Active');
+  await expect(page.locator('.aip-history')).toContainText('Profile ' + 'b'.repeat(64));
+  assert.equal(workspaceRequests.filter((item) => item.method === 'POST').length, 0);
+  await axe('Shared workspace viewer');
+  await capture('infrastructure-workspace-viewer-mocked');
+  passed(
+    'Shared workspace connects only after submission, scopes reads to the authorized project, and makes viewer controls read-only.',
+  );
+
+  await page.getByRole('combobox', { name: 'Workspace project' }).click();
+  await page.getByRole('option', { name: 'Workspace Beta', exact: true }).click();
+  await expect(page.getByTestId('workspace-release')).toContainText('Release signature unverified');
+  await expect(page.getByTestId('workspace-release')).toContainText(projects[1].currentGeneration);
+  await expect(page.getByTestId('infrastructure-plan')).toHaveCount(0);
+  await expect(page.getByTestId('workspace-release')).not.toContainText('test-signing-key');
+  // A slow previous project's request must never replace the newly selected project.
+  delayProjectA = true;
+  await page.getByRole('combobox', { name: 'Workspace project' }).click();
+  await page.getByRole('option', { name: 'Workspace Alpha', exact: true }).click();
+  await expect.poll(() => typeof releaseDelayedA).toBe('function');
+  await page.getByRole('combobox', { name: 'Workspace project' }).click();
+  await page.getByRole('option', { name: 'Workspace Beta', exact: true }).click();
+  await expect(page.getByTestId('workspace-release')).toContainText(projects[1].currentGeneration);
+  releaseDelayedA();
+  delayProjectA = false;
+  await expect(page.getByTestId('workspace-release')).toContainText(projects[1].currentGeneration);
+  await page.getByRole('button', { name: 'Disconnect workspace' }).click();
+  await expect(tokenInput).toHaveValue('');
+  await expect(page.getByTestId('workspace-release')).toHaveCount(0);
+  await expect(page.getByRole('combobox', { name: 'Workspace project' })).toHaveCount(0);
+  passed(
+    'Project selection clears prior evidence, preserves signature distinctions, and ignores delayed responses from another project.',
+  );
+
+  workspaceRole = 'operator';
+  await tokenInput.fill(workspaceToken);
+  await page.getByRole('button', { name: 'Connect workspace', exact: true }).click();
+  await expect(page.getByTestId('workspace-role')).toHaveText('operator');
+  await expect(page.getByRole('button', { name: 'Plan maintenance', exact: true })).toBeEnabled();
+  await page.getByRole('button', { name: 'Plan maintenance', exact: true }).click();
+  await expect(page.getByTestId('infrastructure-plan')).toContainText(
+    'Project project-a rules proposal.',
+  );
+  await telemetry.click();
+  await expect(telemetry).not.toBeChecked();
+  await page.getByRole('button', { name: 'Run retention' }).click();
+  await expect(page.getByRole('button', { name: 'Run retention' })).toBeEnabled();
+  const writes = workspaceRequests.filter((item) => item.method === 'POST');
+  assert.deepEqual(
+    writes.map((item) => item.endpoint),
+    ['/projects/project-a/plan', '/projects/project-a/telemetry', '/projects/project-a/retention'],
+  );
+  assert.deepEqual(writes[0].body, { useAI: false });
+  assert.deepEqual(writes[1].body, { enabled: false });
+  const storage = await page.evaluate(() => ({
+    local: JSON.stringify(localStorage),
+    session: JSON.stringify(sessionStorage),
+    url: location.href,
+  }));
+  assert.ok(
+    !JSON.stringify(storage).includes(workspaceToken),
+    'Credential never persists in storage or URL',
+  );
+  await capture('infrastructure-workspace-operator-mocked');
+  await page.setViewportSize({ width: 390, height: 844 });
+  assert.equal(
+    await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+    true,
+    'Shared workspace fits mobile viewport',
+  );
+  await axe('Shared workspace mobile operator');
+  await capture('infrastructure-workspace-mobile-mocked');
+  workspaceError = 'This credential cannot perform that action.';
+  await refresh();
+  await expect(page.getByRole('alert')).toContainText(workspaceError);
+  await expect(page.getByRole('button', { name: 'Run retention' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Plan maintenance', exact: true })).toBeDisabled();
+  await page.getByRole('button', { name: 'Disconnect workspace' }).click();
+  await expect(tokenInput).toHaveValue('');
+  workspaceError = '';
+  mismatchedProject = true;
+  await tokenInput.fill(workspaceToken);
+  await page.getByRole('button', { name: 'Connect workspace', exact: true }).click();
+  await expect(page.getByRole('alert')).toContainText(
+    'does not match the selected workspace project',
+  );
+  await expect(page.getByTestId('workspace-release')).toHaveCount(0);
+  await page.reload();
+  await page
+    .getByRole('navigation', { name: 'Workbench sections' })
+    .getByRole('button', { name: /Infrastructure/ })
+    .click();
+  await page.getByRole('radio', { name: 'Shared workspace', exact: true }).check();
+  await expect(tokenInput).toHaveValue('');
+  await expect(page.getByRole('button', { name: 'Connect workspace', exact: true })).toBeDisabled();
+  passed(
+    'Operator mutations use project-scoped headers and endpoints; revoked access blocks actions, mismatched identity is rejected, and reload clears credentials.',
   );
   assert.deepEqual(report.browserErrors, []);
 } finally {

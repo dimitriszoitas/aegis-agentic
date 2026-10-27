@@ -1,0 +1,21 @@
+
+> @dimitriszoitas/aegis-agentic@0.2.0-experiment.0 test:package
+> node scripts/verify-package.mjs
+
+Packing the existing package build…
+Installing the tarball into a fresh consumer…
+✓ Tarball installs with React peers and all public export files
+✓ Token-only export includes all primitive/alpha colors, opacity stops and elevation aliases
+✓ Canonical token manifest and four-configuration token CSS are packaged together
+✓ Strict consumer TypeScript resolves 100 public entry points
+✓ Direct Button entry renders on the server without DOM globals
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ Production Vite bundle uses only published package imports and CSS
+✓ Light/dark behavior, Field semantics, Select keyboard, Modal focus trap, SVG/fonts, and accessibility
+✓ Headless Button/Checkbox production graph contains no styled package modules or CSS assets
+✓ Unstyled primitives retain keyboard, label, controlled state, native form and accessibility behavior without styles or tokens
+Package smoke test passed for @dimitriszoitas/aegis-agentic@0.2.0-experiment.0.

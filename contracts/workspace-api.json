@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "name": "Aegis authenticated shared workspace protocol",
+  "basePath": "/api/aegis-workspace",
+  "deployment": "single-host-local-filesystem",
+  "defaultPort": 4178,
+  "authentication": {
+    "scheme": "Bearer",
+    "transport": "Authorization header only",
+    "storage": "SHA-256 token hash",
+    "roles": ["admin", "owner", "operator", "viewer", "ingest"],
+    "expiryRequired": true
+  },
+  "requestRules": {
+    "maximumBodyBytes": 65536,
+    "maximumRequestsPerMinutePerConnectionAddress": 240,
+    "unknownFields": "reject",
+    "queries": "reject",
+    "mutations": { "Content-Type": "application/json", "X-Aegis-Client": ["console", "sdk"] }
+  },
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/healthz",
+      "relativeTo": "service-root",
+      "authentication": false,
+      "response": "minimal readiness only"
+    },
+    {
+      "method": "GET",
+      "path": "/projects",
+      "role": "read-capable",
+      "response": "scoped projects and actor label/role"
+    },
+    {
+      "method": "POST",
+      "path": "/projects",
+      "role": "admin",
+      "body": ["id", "name", "kitDigest", "profile"]
+    },
+    { "method": "GET", "path": "/kits", "role": "admin" },
+    { "method": "GET", "path": "/audit", "role": "admin" },
+    { "method": "GET", "path": "/maintenance", "role": "admin" },
+    { "method": "POST", "path": "/maintenance", "role": "admin", "body": { "action": "resume" } },
+    { "method": "GET", "path": "/projects/:id/status", "role": "scoped-reader" },
+    { "method": "GET", "path": "/projects/:id/configurability", "role": "scoped-reader" },
+    { "method": "GET", "path": "/projects/:id/generations", "role": "scoped-reader" },
+    { "method": "GET", "path": "/projects/:id/audit", "role": "scoped-reader" },
+    {
+      "method": "POST",
+      "path": "/projects/:id/plan",
+      "role": "scoped-operator",
+      "optionalBody": ["useAI"]
+    },
+    { "method": "POST", "path": "/projects/:id/reconcile", "role": "scoped-operator", "body": [] },
+    { "method": "POST", "path": "/projects/:id/retention", "role": "scoped-operator", "body": [] },
+    {
+      "method": "POST",
+      "path": "/projects/:id/telemetry",
+      "role": "scoped-operator",
+      "body": ["enabled"]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/:id/usage",
+      "role": "admin-or-scoped-ingest",
+      "body": ["events", "batchId"]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/:id/updates",
+      "role": "scoped-owner",
+      "body": ["expectedRevision", "kitDigest", "profile"]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/:id/rollback",
+      "role": "scoped-owner",
+      "body": ["generationId", "expectedRevision"]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/:id/activate",
+      "role": "scoped-owner",
+      "body": ["planId", "planDigest", "expectedRevision", "reason"]
+    }
+  ],
+  "invariants": [
+    "kits verified before runtime import",
+    "signed releases required by default",
+    "prepared plans expire after 24 hours",
+    "activation uses compare-and-swap revision and new generation",
+    "activation disables collection and AI",
+    "rollback is prepared then reviewed",
+    "service never auto-activates updates",
+    "no remote model calls from maintenance loops"
+  ],
+  "errors": {
+    "400": "invalid request",
+    "401": "missing, expired or revoked credential",
+    "403": "role/scope/origin/host/client marker refused",
+    "409": "integrity, revision, lock or validation conflict",
+    "413": "body too large",
+    "415": "not JSON",
+    "429": "request budget exceeded"
+  }
+}
