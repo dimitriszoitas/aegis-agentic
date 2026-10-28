@@ -22,6 +22,7 @@ jobs:
       - run: npm run mcp:setup
       - run: pnpm check
       - run: pnpm exec playwright install --with-deps chromium
+      - run: npm run repair -- scan
       - run: npm run agentic:browser
       - run: npm run product:browser
       - run: npm run page-layout:browser
@@ -39,4 +40,7 @@ jobs:
         if: always()
         with:
           name: experiment-evidence
-          path: artifacts/
+          path: |
+            artifacts/
+            .aegis-repair/*/report.json
+            .aegis-repair/*/before/audit.json

@@ -33,7 +33,7 @@
     "agentic": "node scripts/agentic.mjs",
     "agentic:test": "vitest run src/agentic",
     "agentic:consumer": "node scripts/verify-agent-kit.mjs",
-    "agentic:check": "npm run typecheck && npm run product:patterns && npm run lint && npm test && npm run ai:check && npm run agentic:kit && npm run agentic:consumer && npm run mcp:test && npm run infrastructure:test && npm run build && npm run build:package",
+    "agentic:check": "npm run typecheck && npm run product:patterns && npm run lint && npm test && npm run ai:check && npm run agentic:kit && npm run agentic:consumer && npm run mcp:test && npm run infrastructure:test && npm run repair:test && npm run build && npm run build:package",
     "legacy:check": "pnpm typecheck && pnpm lint && pnpm test && pnpm docs:check && pnpm build-storybook",
     "agentic:browser": "node scripts/run-agentic-browser.mjs",
     "infrastructure": "node scripts/infrastructure.mjs",
@@ -57,7 +57,10 @@
     "coverage:check": "node scripts/check-agentic-coverage.mjs --check && node --test scripts/check-agentic-coverage.test.mjs",
     "library-completion:browser": "node scripts/verify-library-expansion-storybook.mjs",
     "library-completion:source": "node scripts/fixtures/complete-inputs/verify.mjs && node scripts/verify-interactive-expansion-source.mjs && node scripts/verify-complete-patterns-source.mjs && node scripts/verify-accordion-nested-source.mjs",
-    "library-completion:package": "node scripts/verify-library-expansion-package.mjs"
+    "library-completion:package": "node scripts/verify-library-expansion-package.mjs",
+    "repair": "node scripts/repair-worker.mjs",
+    "repair:test": "node --test scripts/repair-worker/*.test.mjs",
+    "repair:live": "node scripts/repair-worker/verify-live.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
