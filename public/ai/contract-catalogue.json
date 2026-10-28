@@ -5,7 +5,7 @@
     "version": "0.5.0-experiment.0"
   },
   "registryRevision": 3,
-  "sourceDigest": "144fc22018893ee12fd568ff2eaee67a3b894aa6ad5b5ad2b4622691a03c0d3a",
+  "sourceDigest": "34a218879be5b70fcc73a43865b369a94512daa4109a1e70344e78ccf30d6dfe",
   "sources": [
     {
       "path": "contracts/agentic/button.json",
@@ -569,7 +569,7 @@
     },
     {
       "path": "scripts/verify-agentic-workbench.mjs",
-      "sha256": "73c381675b9664a2765df1a2d332a1691e6070aa119ffb29c561e9aa371b7fed"
+      "sha256": "9f213da56a021e285c67527a231b366f95054d81b03b4ba11c890533c0c0a5ec"
     },
     {
       "path": "scripts/verify-token-input-adoption.mjs",
@@ -7582,7 +7582,7 @@
       "checks": [
         {
           "path": "scripts/verify-agentic-workbench.mjs",
-          "sha256": "73c381675b9664a2765df1a2d332a1691e6070aa119ffb29c561e9aa371b7fed",
+          "sha256": "9f213da56a021e285c67527a231b366f95054d81b03b4ba11c890533c0c0a5ec",
           "label": "Workbench browser scenarios",
           "scope": "Includes immediate/explicit filtering and draft preservation in the local workbench; a linked script is not a passing result."
         },
