@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-data-datagrid",
   "name": "DataGrid",
@@ -41,31 +41,56 @@
       "component": "DataGrid",
       "name": "canExpandRow",
       "type": "((row: T) => boolean) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "columns",
       "type": "ColumnDef<T>[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "data",
       "type": "T[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "defaultExpandedRowIds",
       "type": "string[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[]"
     },
     {
@@ -73,50 +98,90 @@
       "name": "defaultSelectedRowIds",
       "type": "string[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[]"
     },
     {
       "component": "DataGrid",
       "name": "density",
       "type": "GridDensity | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "emptyDescription",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "emptyTitle",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "enableSelection",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
       "component": "DataGrid",
       "name": "error",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "getRowId",
       "type": "(row: T) => string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "height",
       "type": "string | number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "520px (var(--group-data-display-measurement-grid-height))"
     },
     {
@@ -124,6 +189,11 @@
       "name": "initialColumnVisibility",
       "type": "VisibilityState | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "{}"
     },
     {
@@ -131,6 +201,11 @@
       "name": "initialSorting",
       "type": "SortingState | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[]"
     },
     {
@@ -138,6 +213,11 @@
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Records\""
     },
     {
@@ -145,6 +225,11 @@
       "name": "loading",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -152,6 +237,11 @@
       "name": "noun",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"records\"",
       "description": "Plural record name displayed in the pagination summary."
     },
@@ -159,31 +249,56 @@
       "component": "DataGrid",
       "name": "onDensityChange",
       "type": "((density: GridDensity) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "onRetry",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "onRowClick",
       "type": "((row: T) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "onSelectedRowsChange",
       "type": "((ids: string[], rows: T[]) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "pageSize",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "25"
     },
     {
@@ -191,43 +306,78 @@
       "name": "pagination",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
       "component": "DataGrid",
       "name": "renderBulkActions",
       "type": "((selected: T[], clear: () => void) => ReactNode) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "renderExpandedRow",
       "type": "((row: T) => ReactNode) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "renderToolbar",
       "type": "((api: DataGridToolbarApi) => ReactNode) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "rowLabel",
       "type": "((row: T) => string) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "selectedRowIds",
       "type": "string[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DataGrid",
       "name": "virtualize",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid/data-grid.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

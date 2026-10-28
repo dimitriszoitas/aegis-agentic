@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-treeview",
   "name": "TreeView",
@@ -40,6 +40,11 @@
       "name": "defaultExpandedIds",
       "type": "readonly string[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tree-view/tree-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[]"
     },
     {
@@ -47,56 +52,101 @@
       "name": "defaultSelectedIds",
       "type": "readonly string[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tree-view/tree-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[]"
     },
     {
       "component": "TreeView",
       "name": "disabled",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tree-view/tree-view.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TreeView",
       "name": "emptyLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tree-view/tree-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"No matching sources\""
     },
     {
       "component": "TreeView",
       "name": "expandedIds",
       "type": "readonly string[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tree-view/tree-view.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TreeView",
       "name": "items",
       "type": "readonly TreeViewItem[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tree-view/tree-view.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TreeView",
       "name": "label",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tree-view/tree-view.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TreeView",
       "name": "onExpandedChange",
       "type": "((expandedIds: string[]) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tree-view/tree-view.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TreeView",
       "name": "onSelectedChange",
       "type": "((selectedIds: string[]) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tree-view/tree-view.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TreeView",
       "name": "selectedIds",
       "type": "readonly string[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tree-view/tree-view.tsx",
+        "kind": "design-system"
+      },
       "description": "Selected leaf IDs. Branch states are derived from selectable descendants."
     }
   ],

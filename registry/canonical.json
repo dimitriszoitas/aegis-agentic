@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": 3,
+  "revision": 4,
   "entries": [
     {
       "id": "button",
@@ -553,6 +553,90 @@
       "provenance": {
         "origin": "existing-aegis",
         "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "password-input",
+      "name": "PasswordInput",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["password field", "show password", "reveal password"],
+      "capabilities": [
+        "password-entry",
+        "reveal-conceal-value",
+        "controlled-value",
+        "native-form-control",
+        "field-association"
+      ],
+      "contract": "contracts/agentic/password-input.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/password-input",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/password-input/password-input.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "number-input",
+      "name": "NumberInput",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["number field", "numeric input", "quantity input", "numeric stepper"],
+      "capabilities": [
+        "nullable-numeric-entry",
+        "locale-number-formatting",
+        "numeric-step-controls",
+        "controlled-value",
+        "native-form-input",
+        "read-only-state",
+        "field-association"
+      ],
+      "contract": "contracts/agentic/number-input.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/number-input",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/number-input/number-input.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "collection-toolbar",
+      "name": "CollectionToolbar",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["collection search", "collection controls", "generic result toolbar"],
+      "capabilities": [
+        "controlled-collection-query",
+        "host-filter-slots",
+        "result-status",
+        "responsive-control-layout"
+      ],
+      "contract": "contracts/agentic/collection-toolbar.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns/collection-toolbar",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/patterns/collection-toolbar/collection-toolbar.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "form-section",
+      "name": "FormSection",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["form group", "fieldset section", "responsive form fields"],
+      "capabilities": [
+        "native-field-group",
+        "associated-description",
+        "responsive-field-grid",
+        "native-disabled-boundary"
+      ],
+      "contract": "contracts/agentic/form-section.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns/form-section",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/patterns/form-section/form-section.tsx",
         "reviewedBy": null
       }
     }

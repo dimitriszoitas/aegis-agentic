@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-actions-buttongroup",
   "name": "ButtonGroup",
@@ -40,6 +40,11 @@
       "name": "aria-label",
       "type": "string",
       "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/button-group/button-group.tsx",
+        "kind": "design-system"
+      },
       "description": "Defines a string value that labels the current element."
     }
   ],

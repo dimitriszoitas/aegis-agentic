@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-overlays-sidesheet",
   "name": "SideSheet",
@@ -42,50 +42,90 @@
       "name": "actions",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      },
       "description": "Backward-compatible alias for headerActions."
     },
     {
       "component": "SideSheet",
       "name": "children",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SideSheet",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SideSheet",
       "name": "closeLabel",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SideSheet",
       "name": "description",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SideSheet",
       "name": "docked",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "SideSheet",
       "name": "footer",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SideSheet",
       "name": "headerActions",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      },
       "description": "Optional calls to action below the title row, alongside result navigation."
     },
     {
@@ -93,6 +133,11 @@
       "name": "maxWidth",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "720px (var(--group-surface-measurement-side-sheet-max-width))"
     },
     {
@@ -100,31 +145,56 @@
       "name": "minWidth",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "320px (var(--group-surface-measurement-side-sheet-min-width))"
     },
     {
       "component": "SideSheet",
       "name": "onNext",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SideSheet",
       "name": "onOpenChange",
       "type": "((open: boolean) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SideSheet",
       "name": "onPrevious",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SideSheet",
       "name": "position",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      },
       "description": "One-based position within the current filtered result set."
     },
     {
@@ -132,6 +202,11 @@
       "name": "resizable",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false",
       "description": "Allow pointer and keyboard resizing from the left edge on desktop."
     },
@@ -140,25 +215,197 @@
       "name": "size",
       "type": "\"sm\" | \"md\" | \"lg\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\""
     },
     {
       "component": "SideSheet",
       "name": "title",
       "type": "ReactNode",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SideSheet",
       "name": "total",
       "type": "number | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SideSheet",
       "name": "trigger",
       "type": "ReactElement<unknown, string | JSXElementConstructor<any>> | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SideSheet",
+      "name": "actionsRef",
+      "type": "React.RefObject<DialogRootActions | null> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "A ref to imperative actions.\n- `unmount`: Ends the closing phase of the dialog after an externally controlled closing animation finishes.\nCall `preventUnmountOnClose()` in `onOpenChange` first, otherwise the dialog completes closing on its own.\nWhether it leaves the DOM is decided by `keepMounted` on the portal.\n- `close`: Closes the dialog imperatively when called."
+    },
+    {
+      "component": "SideSheet",
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "defaultValue": "false",
+      "description": "Whether the dialog is initially open.\n\nTo render a controlled dialog, use the `open` prop instead."
+    },
+    {
+      "component": "SideSheet",
+      "name": "defaultTriggerId",
+      "type": "string | null | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "ID of the trigger that the dialog is associated with.\nThis is useful in conjunction with the `defaultOpen` prop to create an initially open dialog."
+    },
+    {
+      "component": "SideSheet",
+      "name": "disablePointerDismissal",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether to prevent the dialog from closing on outside presses.\nFor non-modal dialogs, this also prevents the dialog from closing when focus moves outside of it."
+    },
+    {
+      "component": "SideSheet",
+      "name": "handle",
+      "type": "DialogHandle<unknown> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "A handle to associate the dialog with a trigger.\nIf specified, allows external triggers to control the dialog's open state.\nCan be created with the Dialog.createHandle() method."
+    },
+    {
+      "component": "SideSheet",
+      "name": "onOpenChangeComplete",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Event handler called after any animations complete when the dialog is opened or closed."
+    },
+    {
+      "component": "SideSheet",
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether the dialog is currently open."
+    },
+    {
+      "component": "SideSheet",
+      "name": "triggerId",
+      "type": "string | null | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "ID of the trigger that the dialog is associated with.\nThis is useful in conjunction with the `open` prop to create a controlled dialog.\nThere's no need to specify this prop when the dialog is uncontrolled (that is, when the `open` prop is not set)."
+    },
+    {
+      "component": "SideSheetSection",
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SideSheetSection",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SideSheetSection",
+      "name": "title",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SideSheetField",
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SideSheetField",
+      "name": "label",
+      "type": "ReactNode",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

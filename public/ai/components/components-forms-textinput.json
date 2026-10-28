@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-textinput",
   "name": "TextInput",
@@ -42,6 +42,11 @@
       "name": "clearable",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -49,6 +54,11 @@
       "name": "clearLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Clear input\""
     },
     {
@@ -56,63 +66,113 @@
       "name": "defaultValue",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"\""
     },
     {
       "component": "TextInput",
       "name": "inputClassName",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TextInput",
       "name": "invalid",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TextInput",
       "name": "label",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
       "description": "Visible standalone label. Inside Field, its label is used automatically."
     },
     {
       "component": "TextInput",
       "name": "onClear",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TextInput",
       "name": "onValueChange",
       "type": "((value: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TextInput",
       "name": "prefix",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TextInput",
       "name": "size",
       "type": "TextInputSize | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\""
     },
     {
       "component": "TextInput",
       "name": "suffix",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TextInput",
       "name": "value",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

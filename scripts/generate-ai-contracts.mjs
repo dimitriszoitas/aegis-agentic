@@ -1,3 +1,4 @@
+import { isComponentProp } from './component-prop-origin.mjs';
 /** Publish compact, source-derived contracts without executing component implementations. */
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
@@ -190,6 +191,11 @@ export function contractSchema() {
           name: string,
           type: string,
           required: { type: 'boolean' },
+          inherited: { type: 'boolean' },
+          declaration: object({
+            source: string,
+            kind: { enum: ['design-system', 'dependency', 'platform'] },
+          }),
           defaultValue: string,
           description: string,
         },
@@ -458,16 +464,16 @@ export function buildArtifacts({
           .map(([specifier, names]) => `import { ${names.join(', ')} } from '${specifier}';`),
       ],
       stylesheetImport: `import '${manifest.name}/styles.css';`,
-      props: meta.props
-        .filter((prop) => !prop.inherited)
-        .map((prop) => ({
-          component: prop.component,
-          name: prop.name,
-          type: prop.type,
-          required: prop.required,
-          ...(prop.defaultValue === undefined ? {} : { defaultValue: prop.defaultValue }),
-          ...(prop.description ? { description: prop.description } : {}),
-        })),
+      props: meta.props.filter(isComponentProp).map((prop) => ({
+        component: prop.component,
+        name: prop.name,
+        type: prop.type,
+        required: prop.required,
+        ...(prop.inherited === undefined ? {} : { inherited: prop.inherited }),
+        ...(prop.declaration ? { declaration: prop.declaration } : {}),
+        ...(prop.defaultValue === undefined ? {} : { defaultValue: prop.defaultValue }),
+        ...(prop.description ? { description: prop.description } : {}),
+      })),
       variants: meta.variants.map((variant) => ({ ...variant, values: unique(variant.values) })),
       composition: unique(meta.relatedComponents ?? []).map((name) => {
         const ids = (allNames.get(name) ?? []).filter((id) => id !== meta.id);

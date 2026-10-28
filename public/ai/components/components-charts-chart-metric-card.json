@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-charts-chart-metric-card",
   "name": "Chart metric card",
@@ -40,6 +40,11 @@
       "name": "color",
       "type": "ChartColor | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/chart-metric-card.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"chart-2\"",
       "description": "Shared semantic color for the series. Individual full-size bars may override it through data.color."
     },
@@ -48,6 +53,11 @@
       "name": "data",
       "type": "readonly ChartMetricDatum[]",
       "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/chart-metric-card.tsx",
+        "kind": "design-system"
+      },
       "description": "Ordered oldest to newest. Compact bars require non-negative values."
     },
     {
@@ -55,6 +65,11 @@
       "name": "delta",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/chart-metric-card.tsx",
+        "kind": "design-system"
+      },
       "description": "Percentage change; its desirability is independent of its direction."
     },
     {
@@ -62,32 +77,57 @@
       "name": "height",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/chart-metric-card.tsx",
+        "kind": "design-system"
+      },
       "description": "Plot height in pixels; defaults to 220, or 80 for compact bars."
     },
     {
       "component": "ChartMetricCard",
       "name": "label",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/chart-metric-card.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "ChartMetricCard",
       "name": "metric",
       "type": "string | number",
       "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/chart-metric-card.tsx",
+        "kind": "design-system"
+      },
       "description": "Summary metric, which may be a total, rate, or other caller-defined aggregation."
     },
     {
       "component": "ChartMetricCard",
       "name": "period",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/chart-metric-card.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "ChartMetricCard",
       "name": "trendIsPositive",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/chart-metric-card.tsx",
+        "kind": "design-system"
+      },
       "description": "Omit for a neutral change. Set explicitly when the change is favorable or unfavorable."
     },
     {
@@ -95,6 +135,11 @@
       "name": "valueFormatter",
       "type": "((value: number) => string) | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/chart-metric-card.tsx",
+        "kind": "design-system"
+      },
       "description": "Formats numeric summary, latest value, chart ticks, and tooltips. The data table stays exact."
     },
     {
@@ -102,7 +147,23 @@
       "name": "variant",
       "type": "ChartMetricCardVariant | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/chart-metric-card.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"bar\""
+    },
+    {
+      "component": "ChartMetricCard",
+      "name": "elevation",
+      "type": "\"flat\" | \"raised\" | \"floating\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/card/card.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [
@@ -136,6 +197,14 @@
         "warning"
       ],
       "default": "chart-2"
+    },
+    {
+      "name": "elevation",
+      "values": [
+        "flat",
+        "floating",
+        "raised"
+      ]
     }
   ],
   "composition": [

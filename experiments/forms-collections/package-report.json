@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "packageVersion": "0.6.0-experiment.0",
+  "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-form-collection-consumer-GTAdXJ",
+  "checks": [
+    "The four direct public subpaths, root component exports and pattern barrel compile with public prop and callback types.",
+    "Installed module server rendering preserves concealed passwords, localized numbers with raw form values, collection status and native fieldset semantics.",
+    "A source-independent Vite production build includes all four components and their packaged styles.",
+    "The packed kit discovers all four API families and exact schema-2 contracts."
+  ],
+  "limits": [
+    "Installs the actual npm tarball while reusing local third-party dependencies; a fresh registry installation is not verified.",
+    "Public types, module loading, server markup and production bundling are checked here. Browser interaction and accessibility are separate Storybook evidence."
+  ],
+  "tarballSha256": "28f5570dd47f5ef09cbdb18b8696eaf47f04b19f17d7ca969e8558efb2fe45f8"
+}

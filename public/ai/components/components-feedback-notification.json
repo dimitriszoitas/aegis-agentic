@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-feedback-notification",
   "name": "Notification",
@@ -41,26 +41,46 @@
       "component": "Notification",
       "name": "action",
       "type": "NotificationAction | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/notification/notification.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Notification",
       "name": "actions",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/notification/notification.tsx",
+        "kind": "design-system"
+      },
       "description": "Custom or multiple action controls."
     },
     {
       "component": "Notification",
       "name": "description",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/notification/notification.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Notification",
       "name": "dismissLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/notification/notification.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Dismiss notification\""
     },
     {
@@ -68,6 +88,11 @@
       "name": "icon",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/notification/notification.tsx",
+        "kind": "design-system"
+      },
       "description": "Set null to omit the leading icon."
     },
     {
@@ -75,26 +100,277 @@
       "name": "intent",
       "type": "NotificationIntent | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/notification/notification.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"info\""
     },
     {
       "component": "Notification",
       "name": "onDismiss",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/notification/notification.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Notification",
       "name": "title",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/notification/notification.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Notification",
       "name": "variant",
       "type": "\"inline\" | \"floating\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/notification/notification.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"inline\""
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "closeButton",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "containerAriaLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "customAriaLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "dir",
+      "type": "\"auto\" | \"rtl\" | \"ltr\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "duration",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "expand",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "gap",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "hotkey",
+      "type": "string[] | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "icons",
+      "type": "ToastIcons | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "id",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "invert",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "mobileOffset",
+      "type": "Offset | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "offset",
+      "type": "Offset | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "position",
+      "type": "Position | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "richColors",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "style",
+      "type": "React.CSSProperties | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "swipeDirections",
+      "type": "SwipeDirection[] | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "theme",
+      "type": "\"dark\" | \"light\" | \"system\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "toastOptions",
+      "type": "ToastOptions | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "NotificationViewport",
+      "name": "visibleToasts",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/sonner@2.0.8_@types+react@19.3.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/sonner/dist/index.d.mts",
+        "kind": "dependency"
+      }
     }
   ],
   "variants": [
@@ -117,6 +393,33 @@
         "warning"
       ],
       "default": "info"
+    },
+    {
+      "name": "dir",
+      "values": [
+        "auto",
+        "ltr",
+        "rtl"
+      ]
+    },
+    {
+      "name": "position",
+      "values": [
+        "bottom-center",
+        "bottom-left",
+        "bottom-right",
+        "top-center",
+        "top-left",
+        "top-right"
+      ]
+    },
+    {
+      "name": "theme",
+      "values": [
+        "dark",
+        "light",
+        "system"
+      ]
     }
   ],
   "composition": [

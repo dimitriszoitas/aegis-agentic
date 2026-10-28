@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "patterns-pagelayout",
   "name": "PageLayout",
@@ -38,109 +38,199 @@
       "component": "PageLayout",
       "name": "actions",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "archetype",
       "type": "\"collection\" | \"detail\" | \"detail\" | \"settings\" | \"dashboard\"",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "aside",
       "type": "ReactNode | undefined | undefined | undefined | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "asideLabel",
       "type": "string | undefined | undefined | undefined | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "back",
       "type": "PageHeaderBack | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "breadcrumbs",
       "type": "readonly BreadcrumbItem[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "children",
       "type": "ReactNode",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "description",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "filters",
       "type": "ReactNode | undefined | undefined | undefined | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "footer",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "headingId",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "headingLevel",
       "type": "2 | 3 | 1 | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "leading",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "maxColumns",
       "type": "ContentGridColumns | undefined | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "measure",
       "type": "ReadingMeasure | undefined | undefined | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "metadata",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "minItemWidth",
       "type": "ContentGridMinimum | undefined | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageLayout",
       "name": "title",
       "type": "ReactNode",
       "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      },
       "description": "PageHeader renders the page title and the following optional header slots."
     },
     {
@@ -148,6 +238,11 @@
       "name": "measure",
       "type": "ReadingMeasure | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"comfortable\"",
       "description": "A starting measure for prose or forms; never a blanket limit for data grids."
     },
@@ -156,6 +251,11 @@
       "name": "maxColumns",
       "type": "ContentGridColumns | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "4",
       "description": "The number of columns is a maximum, and adapts to the available container width."
     },
@@ -164,6 +264,11 @@
       "name": "minItemWidth",
       "type": "ContentGridMinimum | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-layout/page-layout.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"regular\"",
       "description": "Known minimum item sizes, selected through Page Structure group tokens."
     }

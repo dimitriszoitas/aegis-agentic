@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-tags-countbadge",
   "name": "CountBadge",
@@ -40,19 +40,34 @@
       "component": "CountBadge",
       "name": "count",
       "type": "number",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/count-badge/count-badge.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "CountBadge",
       "name": "label",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/count-badge/count-badge.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "CountBadge",
       "name": "max",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/count-badge/count-badge.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "99"
     },
     {
@@ -60,6 +75,11 @@
       "name": "size",
       "type": "\"sm\" | \"md\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/count-badge/count-badge.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\"",
       "description": "Compact counters for icon buttons and dense rows."
     },
@@ -68,6 +88,11 @@
       "name": "variant",
       "type": "\"default\" | \"inverted\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/count-badge/count-badge.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"default\""
     }
   ],

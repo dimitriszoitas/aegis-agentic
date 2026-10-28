@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-multicombobox",
   "name": "MultiCombobox",
@@ -40,19 +40,34 @@
       "component": "MultiCombobox",
       "name": "aria-label",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MultiCombobox",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MultiCombobox",
       "name": "defaultOpen",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -60,6 +75,11 @@
       "name": "defaultValue",
       "type": "readonly string[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[]"
     },
     {
@@ -67,6 +87,11 @@
       "name": "emptyLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"No matching sources\""
     },
     {
@@ -74,6 +99,11 @@
       "name": "filterOptions",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true",
       "description": "Disable local filtering when results are supplied by a remote search."
     },
@@ -81,13 +111,23 @@
       "component": "MultiCombobox",
       "name": "label",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MultiCombobox",
       "name": "loading",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -95,6 +135,11 @@
       "name": "loadingLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Loading available sources\""
     },
     {
@@ -102,62 +147,112 @@
       "name": "maxVisible",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "3"
     },
     {
       "component": "MultiCombobox",
       "name": "name",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MultiCombobox",
       "name": "onOpenChange",
       "type": "((open: boolean) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MultiCombobox",
       "name": "onSearchChange",
       "type": "((search: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MultiCombobox",
       "name": "onValueChange",
       "type": "((value: string[]) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MultiCombobox",
       "name": "open",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MultiCombobox",
       "name": "options",
       "type": "readonly MultiComboboxOption[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MultiCombobox",
       "name": "placeholder",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Choose sources\""
     },
     {
       "component": "MultiCombobox",
       "name": "search",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MultiCombobox",
       "name": "searchPlaceholder",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Search sources\""
     },
     {
@@ -165,13 +260,67 @@
       "name": "size",
       "type": "\"sm\" | \"md\" | \"lg\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\""
     },
     {
       "component": "MultiCombobox",
       "name": "value",
       "type": "readonly string[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "id",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "MultiCombobox",
+      "name": "required",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

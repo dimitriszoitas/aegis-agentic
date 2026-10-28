@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 2,
+  "id": "form-section",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Group related labeled form controls in a native fieldset with an associated description and responsive field layout.",
+  "anatomy": [
+    "native fieldset",
+    "legend",
+    "optional associated description",
+    "shared ContentGrid fields",
+    "optional host action slot"
+  ],
+  "states": [
+    "enabled",
+    "native disabled",
+    "single column",
+    "responsive multiple columns",
+    "description present or absent",
+    "actions present or absent"
+  ],
+  "tokenGroup": "page-structure",
+  "behaviorProvider": "Native fieldset/legend and ContentGrid; nested field controls and the surrounding host form retain their behavior.",
+  "ownership": {
+    "component": [
+      "native group semantics and description ids",
+      "responsive grid delegation",
+      "native disabled boundary and explicit slot order"
+    ],
+    "host": [
+      "field values, names, labels and validation",
+      "surrounding form, submission/reset and persistence",
+      "portaled/custom-control disabled state and action semantics"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "native-group",
+      "kind": "component",
+      "statement": "Render a native fieldset with the supplied legend as its first child. Render no nested form and add no synthetic form submission handler.",
+      "sources": ["src/patterns/form-section/form-section.tsx"]
+    },
+    {
+      "id": "description-association",
+      "kind": "component",
+      "statement": "Give a present description a unique id and merge it with the caller aria-describedby through the shared deduplication helper.",
+      "sources": ["src/patterns/form-section/form-section.tsx"]
+    },
+    {
+      "id": "responsive-fields",
+      "kind": "component",
+      "statement": "Render direct children through ContentGrid, default maxColumns to one and minItemWidth to regular. Use its existing accepted column caps and minimum-width options and let it collapse with container width.",
+      "sources": ["src/patterns/form-section/form-section.tsx"]
+    },
+    {
+      "id": "disabled-native-boundary",
+      "kind": "component",
+      "statement": "Forward disabled to the native fieldset and keep the field grid and optional action region inside it. Do not clone children or write disabled props into their component state.",
+      "sources": ["src/patterns/form-section/form-section.tsx"]
+    },
+    {
+      "id": "disabled-exceptions",
+      "kind": "host",
+      "statement": "Keep legend content noninteractive. Native fieldset rules exempt first-legend descendants and do not automatically cover portaled/custom widgets; pass explicit disabled props to those controls as needed.",
+      "sources": ["src/patterns/form-section/form-section.tsx"]
+    },
+    {
+      "id": "field-labels",
+      "kind": "host",
+      "statement": "Provide individual Field labels or other accessible names and native field names/constraints. A group legend and description do not replace each control label or validation message.",
+      "sources": ["src/patterns/form-section/form-section.tsx"]
+    },
+    {
+      "id": "action-ownership",
+      "kind": "host",
+      "statement": "Own the action slot behavior. Set type=submit only for intentional submission of the surrounding form, and type=button for ordinary actions; the section does not supply Save/Cancel or reset policy.",
+      "sources": ["src/patterns/form-section/form-section.tsx"]
+    },
+    {
+      "id": "draft-and-form-ownership",
+      "kind": "host",
+      "statement": "Keep controlled drafts, validation, reset, loading/error/success state and data persistence in the form owner. Closing or disabling this group does not save, reset or validate fields.",
+      "sources": ["src/patterns/form-section/form-section.tsx"]
+    },
+    {
+      "id": "transparent-structure",
+      "kind": "component",
+      "statement": "Keep legend, description, field grid and actions in document order, with no added surface, sticky footer or child-control style overrides.",
+      "sources": ["src/patterns/form-section/form-section.tsx"]
+    },
+    {
+      "id": "page-structure-tokens",
+      "kind": "design",
+      "statement": "Use page-structure group tokens for owned type and spacing, preserve nested control token ownership, and keep geometry consistent across all four theme/mode mappings.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "tokens/component-categories.json",
+        "skills/create-layout/SKILL.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "The disabled boundary is the native fieldset boundary, not an assurance that arbitrary portaled controls are disabled.",
+    "ContentGrid caps columns rather than forcing them; deeply nested fields remain the host composition responsibility.",
+    "No form element, validation engine, field-state store, persistence or automatic reset is provided."
+  ]
+}

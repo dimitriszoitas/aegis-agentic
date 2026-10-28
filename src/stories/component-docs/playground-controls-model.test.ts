@@ -133,3 +133,159 @@ describe('playground controls', () => {
     expect(result.some((control) => control.name === 'checked')).toBe(true);
   });
 });
+
+describe('inherited component controls', () => {
+  const component: ComponentMetadata = {
+    ...meta,
+    name: 'PasswordInput',
+    exportNames: ['PasswordInput'],
+    variants: [{ name: 'size', values: ['sm', 'md', 'lg'] }],
+    props: [
+      {
+        component: 'PasswordInput',
+        name: 'label',
+        type: 'ReactNode',
+        required: false,
+        inherited: true,
+        declaration: { source: 'src/components/text-input/text-input.tsx', kind: 'design-system' },
+      },
+      {
+        component: 'PasswordInput',
+        name: 'size',
+        type: 'TextInputSize | undefined',
+        required: false,
+        inherited: true,
+        declaration: { source: 'src/components/text-input/text-input.tsx', kind: 'design-system' },
+      },
+      {
+        component: 'PasswordInput',
+        name: 'invalid',
+        type: 'boolean | undefined',
+        required: false,
+        inherited: true,
+        declaration: { source: 'src/components/text-input/text-input.tsx', kind: 'design-system' },
+      },
+      {
+        component: 'PasswordInput',
+        name: 'value',
+        type: 'string | undefined',
+        required: false,
+        inherited: true,
+        declaration: { source: 'src/components/text-input/text-input.tsx', kind: 'design-system' },
+      },
+      {
+        component: 'PasswordInput',
+        name: 'prefix',
+        type: 'ReactNode',
+        required: false,
+        inherited: true,
+        declaration: { source: 'src/components/text-input/text-input.tsx', kind: 'design-system' },
+      },
+      {
+        component: 'PasswordInput',
+        name: 'disabled',
+        type: 'boolean | undefined',
+        required: false,
+        inherited: true,
+        declaration: { source: 'node_modules/@types/react/index.d.ts', kind: 'platform' },
+      },
+      {
+        component: 'PasswordInput',
+        name: 'draggable',
+        type: 'boolean | undefined',
+        required: false,
+        inherited: true,
+        declaration: { source: 'node_modules/@types/react/index.d.ts', kind: 'platform' },
+      },
+    ],
+  };
+  it('honors authored label, size and invalid controls without exposing native HTML props', () => {
+    const args = {
+      label: 'Account password',
+      size: 'lg',
+      invalid: true,
+      value: 'edited secret',
+      draggable: false,
+    };
+    const before = structuredClone(args);
+    const result = playgroundControls(
+      component,
+      {
+        label: { control: 'text' },
+        size: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
+        invalid: { control: 'boolean' },
+        draggable: { control: 'boolean' },
+      },
+      args,
+    );
+    expect(result.map((item) => item.name).sort()).toEqual([
+      'disabled',
+      'invalid',
+      'label',
+      'size',
+      'value',
+    ]);
+    expect(result.find((item) => item.name === 'label')).toMatchObject({
+      type: 'text',
+      defaultValue: 'Account password',
+    });
+    expect(
+      result.find((item) => item.name === 'size')?.options?.map((option) => option.value),
+    ).toEqual(['sm', 'md', 'lg']);
+    expect(result.find((item) => item.name === 'invalid')).toMatchObject({
+      type: 'boolean',
+      defaultValue: true,
+    });
+    expect(result.find((item) => item.name === 'value')).toMatchObject({
+      defaultValue: 'edited secret',
+    });
+    expect(args).toEqual(before);
+  });
+  it('retains explicit exclusions and includes primitive component configuration without callback controls', () => {
+    const extended = {
+      ...component,
+      props: [
+        ...component.props,
+        {
+          component: 'PasswordInput',
+          name: 'smallStep',
+          type: 'number | undefined',
+          required: false,
+          inherited: true,
+          declaration: {
+            source: 'node_modules/@base-ui/react/number-field/root/NumberFieldRoot.d.ts',
+            kind: 'dependency' as const,
+          },
+        },
+        {
+          component: 'PasswordInput',
+          name: 'onValueChange',
+          type: '(value: number) => void',
+          required: false,
+          inherited: true,
+          declaration: {
+            source: 'node_modules/@base-ui/react/number-field/root/NumberFieldRoot.d.ts',
+            kind: 'dependency' as const,
+          },
+        },
+      ],
+    };
+    const result = playgroundControls(
+      extended,
+      {
+        label: { control: false },
+        invalid: { table: { disable: true } },
+        onValueChange: { control: 'object' },
+        smallStep: { control: 'number' },
+      },
+      { label: 'Hidden', value: 'unchanged', invalid: true, smallStep: 0.5 },
+    );
+    for (const name of ['label', 'invalid', 'onValueChange'])
+      expect(result.some((item) => item.name === name)).toBe(false);
+    expect(result.find((item) => item.name === 'smallStep')).toMatchObject({
+      type: 'number',
+      defaultValue: 0.5,
+    });
+    expect(result.find((item) => item.name === 'value')?.defaultValue).toBe('unchanged');
+  });
+});

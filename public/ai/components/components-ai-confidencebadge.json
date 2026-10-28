@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-ai-confidencebadge",
   "name": "ConfidenceBadge",
@@ -36,7 +36,12 @@
       "component": "ConfidenceBadge",
       "name": "confidence",
       "type": "ConfidenceLevel",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/confidence-badge/confidence-badge.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

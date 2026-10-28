@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-tags-kbd",
   "name": "Kbd",
@@ -40,6 +40,11 @@
       "name": "size",
       "type": "\"sm\" | \"md\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/kbd/kbd.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"sm\""
     }
   ],

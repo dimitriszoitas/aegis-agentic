@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-datepicker",
   "name": "DatePicker",
@@ -39,55 +39,133 @@
       "component": "DatePicker",
       "name": "defaultOpen",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/date-picker/date-picker.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DatePicker",
       "name": "defaultValue",
       "type": "Date | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/date-picker/date-picker.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DatePicker",
       "name": "disabled",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/date-picker/date-picker.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DatePicker",
       "name": "disabledDates",
       "type": "Matcher | Matcher[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/date-picker/date-picker.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DatePicker",
       "name": "label",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/date-picker/date-picker.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DatePicker",
       "name": "onValueChange",
       "type": "((date: Date | undefined) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/date-picker/date-picker.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DatePicker",
       "name": "size",
       "type": "\"sm\" | \"md\" | \"lg\" | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/date-picker/date-picker.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DatePicker",
       "name": "timeZone",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/date-picker/date-picker.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DatePicker",
       "name": "value",
       "type": "Date | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/date-picker/date-picker.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "DatePicker",
+      "name": "id",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "DatePicker",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "DatePicker",
+      "name": "required",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

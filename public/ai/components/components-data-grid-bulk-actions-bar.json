@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-data-grid-bulk-actions-bar",
   "name": "Bulk actions bar",
@@ -37,50 +37,90 @@
       "name": "loading",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "BulkActionsBar",
       "name": "onAssign",
       "type": "(ownerId: string | null) => void | Promise<void>",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "BulkActionsBar",
       "name": "onClear",
       "type": "() => void",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "BulkActionsBar",
       "name": "onStatusChange",
       "type": "(status: RecordStatus) => void | Promise<void>",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "BulkActionsBar",
       "name": "onSummarize",
       "type": "() => void | Promise<void>",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "BulkActionsBar",
       "name": "owners",
       "type": "readonly BulkActionOwner[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "BulkActionsBar",
       "name": "position",
       "type": "\"fixed\" | \"inline\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"fixed\""
     },
     {
       "component": "BulkActionsBar",
       "name": "selectedCount",
       "type": "number",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

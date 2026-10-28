@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-timerangepicker",
   "name": "TimeRangePicker",
@@ -40,6 +40,11 @@
       "name": "defaultOpen",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/time-range-picker/time-range-picker.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -47,6 +52,11 @@
       "name": "defaultValue",
       "type": "TimeRange | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/time-range-picker/time-range-picker.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "{ mode: 'relative', preset: '24h' }"
     },
     {
@@ -54,6 +64,11 @@
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/time-range-picker/time-range-picker.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Time range\"",
       "description": "Accessible standalone label. A surrounding Field supplies its own label."
     },
@@ -61,19 +76,78 @@
       "component": "TimeRangePicker",
       "name": "now",
       "type": "number | Date | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/time-range-picker/time-range-picker.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TimeRangePicker",
       "name": "onValueChange",
       "type": "((range: TimeRange) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/time-range-picker/time-range-picker.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TimeRangePicker",
       "name": "value",
       "type": "TimeRange | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/time-range-picker/time-range-picker.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "TimeRangePicker",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "TimeRangePicker",
+      "name": "id",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "TimeRangePicker",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "TimeRangePicker",
+      "name": "required",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

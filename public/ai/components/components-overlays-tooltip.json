@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-overlays-tooltip",
   "name": "Tooltip",
@@ -41,31 +41,56 @@
       "name": "align",
       "type": "Align | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"center\""
     },
     {
       "component": "Tooltip",
       "name": "children",
       "type": "ReactElement<unknown, string | JSXElementConstructor<any>>",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tooltip",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tooltip",
       "name": "content",
       "type": "ReactNode",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tooltip",
       "name": "defaultOpen",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -73,6 +98,11 @@
       "name": "delayDuration",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "300ms (var(--group-feedback-measurement-tooltip-delay))"
     },
     {
@@ -80,25 +110,45 @@
       "name": "disabled",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "Tooltip",
       "name": "onOpenChange",
       "type": "((open: boolean) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tooltip",
       "name": "open",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tooltip",
       "name": "side",
       "type": "Side | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"top\""
     },
     {
@@ -106,7 +156,155 @@
       "name": "variant",
       "type": "\"default\" | \"inverted\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"default\""
+    },
+    {
+      "component": "RichTooltip",
+      "name": "align",
+      "type": "Align | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "children",
+      "type": "ReactElement<unknown, string | JSXElementConstructor<any>>",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "delayDuration",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "description",
+      "type": "ReactNode",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "shortcut",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "side",
+      "type": "Side | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "RichTooltip",
+      "name": "variant",
+      "type": "\"default\" | \"inverted\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tooltip/tooltip.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

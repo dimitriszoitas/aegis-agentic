@@ -1,6 +1,7 @@
 import type { PlaygroundControl, PlaygroundControlValue } from './playground-controls';
 import { isRecord, type SpecimenArgs } from './specimen-args-protocol';
 import type { ComponentMetadata } from './types';
+import { isComponentProp } from './prop-origin';
 
 const nativeOptions = new Set([
   'children',
@@ -54,7 +55,7 @@ export function playgroundControls(
     ...Object.keys(argTypes),
     ...Object.keys(args),
     ...[...props.values()]
-      .filter((prop) => !prop.inherited || nativeOptions.has(prop.name))
+      .filter((prop) => isComponentProp(prop) || nativeOptions.has(prop.name))
       .map((prop) => prop.name),
   ]);
   const controls: PlaygroundControl[] = [];
@@ -66,7 +67,7 @@ export function playgroundControls(
     const arg = argTypes[name] ?? {};
     const table = isRecord(arg.table) ? arg.table : {};
     if (arg.control === false || table.disable === true) continue;
-    if (prop?.inherited && !nativeOptions.has(name)) continue;
+    if (prop && !isComponentProp(prop) && !nativeOptions.has(name)) continue;
     if (!prop && !Object.hasOwn(args, name) && !arg.control) continue;
     const configuration = isRecord(arg.control) ? arg.control : {};
     const kind = typeof arg.control === 'string' ? arg.control : configuration.type;

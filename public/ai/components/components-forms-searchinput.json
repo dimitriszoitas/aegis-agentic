@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-searchinput",
   "name": "SearchInput",
@@ -40,19 +40,148 @@
       "name": "debounceMs",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/search-input/search-input.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "250"
     },
     {
       "component": "SearchInput",
       "name": "onSearch",
       "type": "((query: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/search-input/search-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SearchInput",
       "name": "shortcut",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/search-input/search-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SearchInput",
+      "name": "clearable",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "true"
+    },
+    {
+      "component": "SearchInput",
+      "name": "clearLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"Clear search\""
+    },
+    {
+      "component": "SearchInput",
+      "name": "defaultValue",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"\""
+    },
+    {
+      "component": "SearchInput",
+      "name": "inputClassName",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SearchInput",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SearchInput",
+      "name": "label",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
+      "description": "Visible standalone label. Inside Field, its label is used automatically."
+    },
+    {
+      "component": "SearchInput",
+      "name": "onClear",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SearchInput",
+      "name": "onValueChange",
+      "type": "((value: string) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SearchInput",
+      "name": "size",
+      "type": "TextInputSize | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SearchInput",
+      "name": "value",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

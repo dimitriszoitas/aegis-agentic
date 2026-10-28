@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-tags-statusbadge",
   "name": "StatusBadge",
@@ -41,7 +41,34 @@
       "component": "StatusBadge",
       "name": "status",
       "type": "RecordStatus",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/status-badge/status-badge.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "StatusDot",
+      "name": "label",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/status-badge/status-badge.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "StatusDot",
+      "name": "status",
+      "type": "RecordStatus",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/status-badge/status-badge.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

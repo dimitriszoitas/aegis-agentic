@@ -437,6 +437,100 @@
       "exportName": "DropdownMenu",
       "checks": [],
       "evidence": []
+    },
+    {
+      "contractId": "password-input",
+      "path": "contracts/agentic/password-input.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-passwordinput",
+      "implementation": "src/components/password-input/password-input.tsx",
+      "exportName": "PasswordInput",
+      "checks": [
+        {
+          "path": "src/components/password-input/password-input.test.tsx",
+          "label": "PasswordInput initial rendering tests",
+          "scope": "Default concealment, Field associations, disabled/read-only states and native prop forwarding; static rendering only."
+        },
+        {
+          "path": "src/components/password-input/password-input.stories.tsx",
+          "label": "PasswordInput interaction stories",
+          "scope": "Play assertions cover typing, forwarded input focus, both change channels, reveal/conceal without submission, native FormData and read-only reveal; source linkage is not a passing result."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "number-input",
+      "path": "contracts/agentic/number-input.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-numberinput",
+      "implementation": "src/components/number-input/number-input.tsx",
+      "exportName": "NumberInput",
+      "checks": [
+        {
+          "path": "src/components/number-input/number-input.test.tsx",
+          "label": "NumberInput render semantics",
+          "scope": "Five static checks cover null/zero distinction, exact form naming, localized display/raw form separation, Field associations, locks and shared optional buttons; browser interaction is separate."
+        },
+        {
+          "path": "src/components/number-input/number-input.stories.tsx",
+          "label": "NumberInput interaction stories",
+          "scope": "Keyboard and bounds, controlled empty values and callbacks, German form entry, Field/locked states and cancellation. A linked story is not a passing run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "collection-toolbar",
+      "path": "contracts/agentic/collection-toolbar.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-collectiontoolbar",
+      "implementation": "src/patterns/collection-toolbar/collection-toolbar.tsx",
+      "exportName": "CollectionToolbar",
+      "checks": [
+        {
+          "path": "src/patterns/collection-toolbar/collection-toolbar.test.tsx",
+          "label": "CollectionToolbar ownership checks",
+          "scope": "Focused structural and boundary assertions; not current browser or human acceptance."
+        },
+        {
+          "path": "src/patterns/collection-toolbar/collection-toolbar.stories.tsx",
+          "label": "CollectionToolbar interaction stories",
+          "scope": "Local filtering/clearing or native form submission and disabled assertions."
+        },
+        {
+          "path": "scripts/verify-form-collection-source.mjs",
+          "label": "Collection and form pattern browser fixture",
+          "scope": "Local workflows, disabled boundaries, four-mode geometry, narrow adaptation and automated accessibility; arbitrary host controls are outside scope."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "form-section",
+      "path": "contracts/agentic/form-section.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-formsection",
+      "implementation": "src/patterns/form-section/form-section.tsx",
+      "exportName": "FormSection",
+      "checks": [
+        {
+          "path": "src/patterns/form-section/form-section.test.tsx",
+          "label": "FormSection ownership checks",
+          "scope": "Focused structural and boundary assertions; not current browser or human acceptance."
+        },
+        {
+          "path": "src/patterns/form-section/form-section.stories.tsx",
+          "label": "FormSection interaction stories",
+          "scope": "Local filtering/clearing or native form submission and disabled assertions."
+        },
+        {
+          "path": "scripts/verify-form-collection-source.mjs",
+          "label": "Collection and form pattern browser fixture",
+          "scope": "Local workflows, disabled boundaries, four-mode geometry, narrow adaptation and automated accessibility; arbitrary host controls are outside scope."
+        }
+      ],
+      "evidence": []
     }
   ],
   "protocols": [

@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-navigation-tabs",
   "name": "Tabs",
@@ -37,69 +37,124 @@
       "name": "activationMode",
       "type": "\"manual\" | \"automatic\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tabs/tabs.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"automatic\""
     },
     {
       "component": "Tabs",
       "name": "contentClassName",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tabs/tabs.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tabs",
       "name": "defaultValue",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tabs/tabs.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tabs",
       "name": "items",
       "type": "TabItem[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tabs/tabs.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tabs",
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tabs/tabs.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Views\""
     },
     {
       "component": "Tabs",
       "name": "listClassName",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tabs/tabs.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tabs",
       "name": "onValueChange",
       "type": "((value: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tabs/tabs.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tabs",
       "name": "orientation",
       "type": "\"horizontal\" | \"vertical\" | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tabs/tabs.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tabs",
       "name": "sharedContent",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tabs/tabs.tsx",
+        "kind": "design-system"
+      },
       "description": "One persistent workspace whose data changes with the selected tab. Preserves its local state."
     },
     {
       "component": "Tabs",
       "name": "value",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tabs/tabs.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tabs",
       "name": "variant",
       "type": "\"line\" | \"pill\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tabs/tabs.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"line\""
     }
   ],

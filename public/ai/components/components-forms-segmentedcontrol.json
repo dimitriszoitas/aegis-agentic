@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-segmentedcontrol",
   "name": "SegmentedControl",
@@ -39,62 +39,112 @@
       "component": "SegmentedControl",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/segmented-control/segmented-control.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SegmentedControl",
       "name": "defaultValue",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/segmented-control/segmented-control.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SegmentedControl",
       "name": "disabled",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/segmented-control/segmented-control.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SegmentedControl",
       "name": "fullWidth",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/segmented-control/segmented-control.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SegmentedControl",
       "name": "label",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/segmented-control/segmented-control.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SegmentedControl",
       "name": "onValueChange",
       "type": "((value: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/segmented-control/segmented-control.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SegmentedControl",
       "name": "options",
       "type": "readonly SegmentOption[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/segmented-control/segmented-control.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SegmentedControl",
       "name": "size",
       "type": "\"sm\" | \"md\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/segmented-control/segmented-control.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\""
     },
     {
       "component": "SegmentedControl",
       "name": "value",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/segmented-control/segmented-control.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SegmentedControl",
       "name": "wrap",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/segmented-control/segmented-control.tsx",
+        "kind": "design-system"
+      },
       "description": "Allow short option sets to wrap within narrow settings panels."
     }
   ],

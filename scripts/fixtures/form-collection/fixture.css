@@ -1,0 +1,7 @@
+.collection-pattern-fixture {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-gap-regular);
+  padding: var(--group-application-business-app-space-padding-comfortable);
+  min-inline-size: var(--group-application-business-app-number-0);
+}

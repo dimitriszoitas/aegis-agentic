@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-data-display-descriptionlist",
   "name": "DescriptionList",
@@ -40,13 +40,23 @@
       "component": "DescriptionList",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/description-list/description-list.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DescriptionList",
       "name": "columns",
       "type": "2 | 3 | 1 | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/description-list/description-list.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "1"
     },
     {
@@ -54,19 +64,34 @@
       "name": "emptyValue",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/description-list/description-list.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Not provided\""
     },
     {
       "component": "DescriptionList",
       "name": "items",
       "type": "readonly DescriptionItem[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/description-list/description-list.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DescriptionList",
       "name": "orientation",
       "type": "\"horizontal\" | \"stacked\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/description-list/description-list.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"stacked\""
     }
   ],

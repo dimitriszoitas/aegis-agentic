@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-utilities-scrollarea",
   "name": "ScrollArea",
@@ -40,6 +40,11 @@
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/scroll-area/scroll-area.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Scrollable content\""
     },
     {
@@ -47,6 +52,11 @@
       "name": "maxHeight",
       "type": "string | number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/scroll-area/scroll-area.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "360px (var(--group-layout-measurement-scroll-area-max-height))"
     }
   ],

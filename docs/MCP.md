@@ -33,14 +33,15 @@ Configure a compatible MCP client explicitly using its own configuration format.
 
 All project paths after the root are normalized relative paths. The adapter binds one root at startup. MCP callers cannot change the root or supply arbitrary file paths. Omitting `--kit` from the bundled entry selects its containing kit; source development should pass `--kit` explicitly. Omitting `--project` enables **unbound discovery**, which reports that no product policy or project/profile pin has been verified. Project-specific arguments without a root fail startup.
 
-This adapter explicitly supports these kit/registry pairs, both with compiler `1` and catalogue schema `1`:
+This adapter explicitly supports these kit/registry pairs, all with compiler `1` and catalogue schema `1`:
 
 | Kit version          | Registry revision |
 | -------------------- | ----------------- |
 | `0.4.0-experiment.0` | `2`               |
 | `0.5.0-experiment.0` | `3`               |
+| `0.6.0-experiment.0` | `4`               |
 
-Mixed pairs are rejected: a 0.4 kit with revision 3 or a 0.5 kit with revision 2 is not supported. The loaded core registry and catalogue package/version/revision must match the selected kit. Supporting the two pairs does not migrate a project's lock or activate a newer release. Future versions need an intentional compatibility update and verification. Two existing lock formats are supported:
+Mixed pairs are rejected: a 0.4 kit with revision 3 or a 0.5 kit with revision 2 is not supported. The loaded core registry and catalogue package/version/revision must match the selected kit. Supporting these pairs does not migrate a project's lock or activate a newer release. Future versions need an intentional compatibility update and verification. Two existing lock formats are supported:
 
 - A consumer `aegis-lock.json` (schema 1) must match package name/version, registry revision, the installed kit's `integrity.json` SHA-256, and the actual configured profile ID/hash. Its recorded tarball digest and dependency source are returned as provenance; the adapter does not have or verify tarball bytes.
 - A compiled `profile-lock.json` (schema 1) must match kit version, registry revision, loaded core runtime SHA-256, canonical profile-source SHA-256 and compiled profile hash. Pass its relative location with `--lock`, normally `profile/profile-lock.json`.
@@ -65,7 +66,7 @@ Resources use fixed `aegis://` identities:
 
 Clients should list resources and follow returned identities rather than guess names. The catalogue distinguishes authored behavior, system protocols, API documentation, linked checks and historical evidence; a linked check or passed historical report does not certify the current product. Exact file resources are checked against the installed integrity manifest and catalogue source hash when one is provided. These hashes establish snapshot consistency, not publisher authentication or human approval.
 
-The 0.5 catalogue adds 20 source-backed requirement documents: 27 authored component/pattern contracts in total, 25 mapped to the 103 API families, with 78 families still API-only and two authored-only entries. Schema-2 contracts distinguish component responsibilities, host obligations and design guidance using stable requirement ids and cited sources. The catalogue wrapper remains schema 1; the document returned by `aegis://contracts/<id>` retains its own contract schema and version. Referenced source hashes identify the supporting snapshot, not executed acceptance evidence. See [contract semantics and coverage](CONTRACTS.md).
+The 0.6 catalogue includes 31 authored component/pattern contracts in total, 29 mapped to the 107 API families, with 78 families still API-only and two authored-only entries. This includes the 20 contracts added in 0.5 and four new component/pattern implementations in 0.6. Schema-2 contracts distinguish component responsibilities, host obligations and design guidance using stable requirement ids and cited sources. The catalogue wrapper remains schema 1; the document returned by `aegis://contracts/<id>` retains its own contract schema and version. Referenced source hashes identify the supporting snapshot, not executed acceptance evidence. See [contract semantics and coverage](CONTRACTS.md).
 
 Tools are `search_contracts`, `inspect_project_context`, `validate_page_recipe`, `validate_composition` and `audit_product_patterns`. Search delegates to the installed core catalogue helper, including curated capability aliases. Recipe and composition checks call the same pure engines as the kit CLI. Product audit uses the same installed static pattern-policy engine, reading only explicitly declared sources inside the bound policy scope. The adapter has no write, install, repair, promotion, instrumentation or network-fetch tools.
 

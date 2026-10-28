@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "sourceDigest": "26bbef52b8022d3c0f742018c3c7380527d7f2561cf4b0d660121ec143164911",
+  "coverage": {
+    "apiFamilies": 107,
+    "apiFamiliesWithAuthoredBehavior": 29,
+    "apiFamiliesWithoutAuthoredBehavior": 78,
+    "authoredComponentPatternContracts": 31,
+    "authoredOnlyEntries": 2,
+    "systemProtocolContracts": 2,
+    "entriesWithLinkedChecks": 27,
+    "entriesWithLinkedEvidence": 1,
+    "entriesWithReportedEvidence": 1
+  },
+  "checks": [
+    "All API families and authored-only entries are discoverable; coverage filters, empty results and reset report exact counts.",
+    "An API-only family states its behavioral coverage gap and copies the exact served API JSON without a success/certification badge.",
+    "Authored requirements remain separate from verification, raw copy/download preserve canonical bytes, and repeated selection restores detail focus.",
+    "DataGrid schema-2 requirements preserve stable IDs, distinguish component/caller/design responsibility, expose matching source paths and hashes, and copy/download canonical source bytes without certification claims.",
+    "Authored-only TokenInput is searchable; reported evidence status and source comparison are both visible and do not become verified badges.",
+    "System protocols are separate from component coverage; changing sections clears selection and its URL so refresh cannot resurrect it.",
+    "Search/filter state and geometry survive an asserted light/dark/light roundtrip; the coverage Tag fits its cell, the narrow page avoids document overflow, and the populated catalogue passes the focused accessibility scan.",
+    "Per-family Contract tabs render the same authored/API-only coverage and preserve their direct route on refresh.",
+    "MCP integration renders from docs/MCP.md and copies its exact canonical source."
+  ],
+  "browserErrors": [],
+  "accessibility": [
+    {
+      "scope": "filtered catalogue",
+      "violations": []
+    }
+  ],
+  "presentation": [
+    {
+      "mode": "light",
+      "switchChecked": "false",
+      "theme": "light",
+      "docsTheme": "light",
+      "colorScheme": "light",
+      "bodyBackground": "rgb(246, 247, 248)"
+    },
+    {
+      "mode": "dark",
+      "switchChecked": "true",
+      "theme": "dark",
+      "docsTheme": "dark",
+      "colorScheme": "dark",
+      "bodyBackground": "rgb(13, 13, 14)"
+    },
+    {
+      "mode": "light",
+      "switchChecked": "false",
+      "theme": "light",
+      "docsTheme": "light",
+      "colorScheme": "light",
+      "bodyBackground": "rgb(246, 247, 248)"
+    }
+  ],
+  "screenshots": [
+    "authored-contract.png",
+    "schema-two-requirements.png",
+    "catalogue-dark.png",
+    "catalogue-narrow.png",
+    "catalogue-light.png",
+    "mcp-integration.png"
+  ],
+  "limits": [
+    "Focused Chromium checks of catalogue, one complete schema-2 requirement list, three component Contract tabs, and MCP documentation. Source hashes establish provenance only; evidence labels do not establish current execution or approval."
+  ]
+}

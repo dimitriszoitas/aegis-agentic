@@ -9,9 +9,9 @@ import {
 describe('canonical contract discovery', () => {
   it('reports API documentation and authored requirements separately', () => {
     const coverage = getContractCoverage();
-    expect(coverage.apiFamilies).toBe(103);
-    expect(coverage.authoredComponentPatternContracts).toBe(27);
-    expect(coverage.apiFamiliesWithAuthoredBehavior).toBe(25);
+    expect(coverage.apiFamilies).toBe(107);
+    expect(coverage.authoredComponentPatternContracts).toBe(31);
+    expect(coverage.apiFamiliesWithAuthoredBehavior).toBe(29);
     expect(coverage.apiFamiliesWithoutAuthoredBehavior).toBe(78);
     expect(coverage.authoredOnlyEntries).toBe(2);
     expect(coverage.systemProtocolContracts).toBe(2);

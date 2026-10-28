@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-actions-copybutton",
   "name": "CopyButton",
@@ -39,26 +39,101 @@
       "component": "CopyButton",
       "name": "aria-label",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/copy-button/copy-button.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "CopyButton",
       "name": "notify",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/copy-button/copy-button.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "CopyButton",
       "name": "onCopy",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/copy-button/copy-button.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "CopyButton",
       "name": "text",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/copy-button/copy-button.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "CopyButton",
+      "name": "emphasis",
+      "type": "\"primary\" | \"secondary\" | \"tertiary\" | \"ghost\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/button/button.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "CopyButton",
+      "name": "intent",
+      "type": "Intent | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/button/button.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "CopyButton",
+      "name": "loading",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/button/button.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "CopyButton",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/button/button.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "CopyButton",
+      "name": "tooltip",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/icon-button/icon-button.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [
@@ -68,6 +143,24 @@
         "lg",
         "md",
         "sm"
+      ]
+    },
+    {
+      "name": "emphasis",
+      "values": [
+        "ghost",
+        "primary",
+        "secondary",
+        "tertiary"
+      ]
+    },
+    {
+      "name": "intent",
+      "values": [
+        "ai",
+        "default",
+        "destroy",
+        "function"
       ]
     }
   ],

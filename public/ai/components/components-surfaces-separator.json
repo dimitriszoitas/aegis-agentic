@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-surfaces-separator",
   "name": "Separator",
@@ -40,6 +40,11 @@
       "name": "decorative",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/separator/separator.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
@@ -47,6 +52,11 @@
       "name": "emphasis",
       "type": "\"normal\" | \"light\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/separator/separator.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"normal\""
     },
     {
@@ -54,6 +64,11 @@
       "name": "orientation",
       "type": "\"horizontal\" | \"vertical\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/separator/separator.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"horizontal\""
     },
     {
@@ -61,6 +76,11 @@
       "name": "variant",
       "type": "\"line\" | \"dot\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/separator/separator.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"line\""
     }
   ],

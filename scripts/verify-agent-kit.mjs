@@ -33,9 +33,9 @@ assert.deepEqual(
 assert.deepEqual(run(['contracts', 'coverage']), catalogue.coverage);
 assert.equal(catalogue.package.version, kitInfo.version);
 assert.equal(catalogue.registryRevision, kitInfo.registryRevision);
-assert.equal(catalogue.coverage.apiFamilies, 103);
-assert.equal(catalogue.coverage.authoredComponentPatternContracts, 27);
-assert.equal(catalogue.coverage.apiFamiliesWithAuthoredBehavior, 25);
+assert.equal(catalogue.coverage.apiFamilies, 107);
+assert.equal(catalogue.coverage.authoredComponentPatternContracts, 31);
+assert.equal(catalogue.coverage.apiFamiliesWithAuthoredBehavior, 29);
 assert.equal(catalogue.coverage.systemProtocolContracts, 2);
 const contractButton = run(['contracts', 'get', 'button']);
 assert.equal(contractButton.apiFamilyId, 'components-actions-button');

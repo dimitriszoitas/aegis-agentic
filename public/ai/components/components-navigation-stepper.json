@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-navigation-stepper",
   "name": "Stepper",
@@ -40,6 +40,11 @@
       "name": "currentStep",
       "type": "number",
       "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/stepper/stepper.tsx",
+        "kind": "design-system"
+      },
       "description": "Zero-based current step."
     },
     {
@@ -47,26 +52,46 @@
       "name": "disabled",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/stepper/stepper.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "Stepper",
       "name": "onStepChange",
       "type": "((index: number) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/stepper/stepper.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Stepper",
       "name": "orientation",
       "type": "\"horizontal\" | \"vertical\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/stepper/stepper.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"horizontal\""
     },
     {
       "component": "Stepper",
       "name": "steps",
       "type": "readonly StepperStep[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/stepper/stepper.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

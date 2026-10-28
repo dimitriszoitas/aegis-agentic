@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "patterns-onboardingchecklist",
   "name": "OnboardingChecklist",
@@ -40,6 +40,11 @@
       "name": "completionMessage",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Your workspace is ready.\""
     },
     {
@@ -47,6 +52,11 @@
       "name": "defaultCollapsed",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -54,56 +64,101 @@
       "name": "description",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Complete these steps to get your team ready.\""
     },
     {
       "component": "OnboardingChecklist",
       "name": "error",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "OnboardingChecklist",
       "name": "items",
       "type": "readonly OnboardingStep[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "OnboardingChecklist",
       "name": "loading",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "OnboardingChecklist",
       "name": "onCompletedChange",
       "type": "((id: string, completed: boolean) => void | Promise<void>) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "OnboardingChecklist",
       "name": "onDismiss",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "OnboardingChecklist",
       "name": "onReset",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "OnboardingChecklist",
       "name": "onRetry",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "OnboardingChecklist",
       "name": "title",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Set up your workspace\""
     }
   ],

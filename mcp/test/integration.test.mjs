@@ -193,7 +193,7 @@ test('fails closed if bound profile/lock or loaded runtime changes after startup
 
 test('rejects unsupported kit/compiler and inconsistent catalogue identities even with recomputed file hash', async () => {
   const changedKit = await copyKit();
-  for (const change of [{ version: '0.5.0-unknown' }, { compilerVersion: '99' }, { version: '0.4.0-experiment.0', registryRevision: 3 }, { version: '0.5.0-experiment.0', registryRevision: 2 }]) {
+  for (const change of [{ version: '0.6.0-unknown' }, { compilerVersion: '99' }, { version: '0.4.0-experiment.0', registryRevision: 3 }, { version: '0.5.0-experiment.0', registryRevision: 2 }, { version: '0.6.0-experiment.0', registryRevision: 2 }, { version: '0.6.0-experiment.0', registryRevision: 3 }, { version: '0.4.0-experiment.0', registryRevision: 4 }, { version: '0.5.0-experiment.0', registryRevision: 4 }]) {
     await replaceCovered(changedKit, 'kit.json', JSON.stringify({ ...manifest, ...change }));
     await assert.rejects(connect([], changedKit), /Unsupported kit identity/);
   }
@@ -205,7 +205,7 @@ test('rejects unsupported kit/compiler and inconsistent catalogue identities eve
   // The bundled data contains this exact sourceDigest; altering registry identity via a wrapper avoids textual bundle assumptions.
   await writeFile(join(changedKit, 'runtime/original-core.mjs'), runtime);
   assert.ok(sourceCatalogue.entries.length > 0);
-  for (const patch of ['schemaVersion:99', 'registryRevision:99', "package:{name:'unknown',version:'0.4.0-experiment.0'}", "package:{name:'@dimitriszoitas/aegis-agentic',version:'0.5.0-unknown'}"]) {
+  for (const patch of ['schemaVersion:99', 'registryRevision:99', "package:{name:'unknown',version:'0.4.0-experiment.0'}", "package:{name:'@dimitriszoitas/aegis-agentic',version:'0.6.0-unknown'}"]) {
     const wrapper = `import * as source from './original-core.mjs';\nexport * from './original-core.mjs';\nexport const contractCatalogue = {...source.contractCatalogue, ${patch}};\n`;
     await replaceCovered(changedKit, 'runtime/core.mjs', wrapper);
     await assert.rejects(connect([], changedKit), /catalogue\/registry does not match/);
@@ -241,11 +241,12 @@ test('audit file-count/total-byte bounds and nonregular startup files fail witho
 
 
 test('schema2 authored contracts retain requirements and source references through read-only MCP discovery', async () => {
-  assert.equal(manifest.version, '0.5.0-experiment.0', 'Build the new contract-bearing kit before this suite.');
-  assert.equal(manifest.registryRevision, 3);
+  assert.equal(manifest.version, '0.6.0-experiment.0', 'Build the expanded form and collection kit before this suite.');
+  assert.equal(manifest.registryRevision, 4);
   const { client, close } = await connect();
   const catalogue = JSON.parse((await client.readResource({ uri: 'aegis://catalogue' })).contents[0].text);
-  const required = ['data-grid', 'filter-bar', 'page-header', 'side-nav', 'tabs', 'pagination', 'metric-card', 'sparkline', 'description-list', 'empty-state', 'text-input', 'textarea', 'search-input', 'select', 'checkbox', 'switch', 'segmented-control', 'side-sheet', 'popover', 'dropdown-menu'];
+  const required = ['data-grid', 'filter-bar', 'page-header', 'side-nav', 'tabs', 'pagination', 'metric-card', 'sparkline', 'description-list', 'empty-state', 'text-input', 'textarea', 'search-input', 'select', 'checkbox', 'switch', 'segmented-control', 'side-sheet', 'popover', 'dropdown-menu', 'number-input', 'password-input', 'collection-toolbar', 'form-section'];
+  assert.equal(required.length, 24);
   for (const id of required) {
     const entry = core.getContractEntry(id);
     assert.ok(entry?.contract, `Missing authored contract ${id}`);

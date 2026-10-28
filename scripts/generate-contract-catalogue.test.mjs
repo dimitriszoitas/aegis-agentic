@@ -24,15 +24,15 @@ const schema = JSON.parse(original.files['schemas/component-contract.schema.json
 
 test('catalogue accounts for every API family, authored-only entry and separate protocol', () => {
   const output = buildContractCatalogue(fixture());
-  assert.equal(output.entries.length, 107);
+  assert.equal(output.entries.length, 111);
   assert.deepEqual(output.coverage, {
-    apiFamilies: 103,
-    apiFamiliesWithAuthoredBehavior: 25,
+    apiFamilies: 107,
+    apiFamiliesWithAuthoredBehavior: 29,
     apiFamiliesWithoutAuthoredBehavior: 78,
-    authoredComponentPatternContracts: 27,
+    authoredComponentPatternContracts: 31,
     authoredOnlyEntries: 2,
     systemProtocolContracts: 2,
-    entriesWithLinkedChecks: 23,
+    entriesWithLinkedChecks: 27,
     entriesWithLinkedEvidence: 1,
     entriesWithReportedEvidence: 1,
   });

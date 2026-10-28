@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-code-diffview",
   "name": "DiffView",
@@ -37,6 +37,11 @@
       "name": "collapseUnchanged",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -44,6 +49,11 @@
       "name": "defaultMode",
       "type": "DiffMode | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"split\""
     },
     {
@@ -51,6 +61,11 @@
       "name": "focusFirstChange",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false",
       "description": "Scroll the editor to the first change without moving keyboard focus."
     },
@@ -59,6 +74,11 @@
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Document changes\""
     },
     {
@@ -66,6 +86,11 @@
       "name": "language",
       "type": "CodeLanguage | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"yaml\""
     },
     {
@@ -73,6 +98,11 @@
       "name": "maxHeight",
       "type": "string | number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "560px (var(--group-code-measurement-diff-max-height))"
     },
     {
@@ -80,25 +110,45 @@
       "name": "minHeight",
       "type": "string | number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "160px (var(--group-code-measurement-code-min-height))"
     },
     {
       "component": "DiffView",
       "name": "mode",
       "type": "DiffMode | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DiffView",
       "name": "modified",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DiffView",
       "name": "modifiedIntent",
       "type": "\"default\" | \"ai\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"default\"",
       "description": "Marks provenance separately from green additions and red removals."
     },
@@ -107,31 +157,56 @@
       "name": "modifiedLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Proposed\""
     },
     {
       "component": "DiffView",
       "name": "onModeChange",
       "type": "((mode: DiffMode) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DiffView",
       "name": "onModifiedChange",
       "type": "((value: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DiffView",
       "name": "original",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DiffView",
       "name": "originalLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Original\""
     },
     {
@@ -139,6 +214,11 @@
       "name": "readOnly",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
@@ -146,6 +226,11 @@
       "name": "showModeToggle",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
@@ -153,6 +238,11 @@
       "name": "wrapLines",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/diff-view/diff-view.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     }
   ],

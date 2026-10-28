@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "patterns-ai-aidiffreview",
   "name": "AiDiffReview",
@@ -41,6 +41,11 @@
       "name": "confidence",
       "type": "\"high\" | \"medium\" | \"low\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"medium\""
     },
     {
@@ -48,6 +53,11 @@
       "name": "defaultMode",
       "type": "DiffMode | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"split\""
     },
     {
@@ -55,6 +65,11 @@
       "name": "disabled",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -62,6 +77,11 @@
       "name": "documentName",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Configuration\""
     },
     {
@@ -69,6 +89,11 @@
       "name": "language",
       "type": "CodeLanguage | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"yaml\""
     },
     {
@@ -76,62 +101,112 @@
       "name": "maxHeight",
       "type": "string | number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "420px (var(--group-ai-assistance-measurement-ai-diff-max-height))"
     },
     {
       "component": "AiDiffReview",
       "name": "now",
       "type": "number | Date | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiDiffReview",
       "name": "onApprove",
       "type": "((content: string, context: AiReviewActionContext) => void | Promise<void>) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiDiffReview",
       "name": "onReject",
       "type": "((context: AiReviewActionContext) => void | Promise<void>) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiDiffReview",
       "name": "onStatusChange",
       "type": "((status: AiReviewStatus) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiDiffReview",
       "name": "original",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiDiffReview",
       "name": "proposed",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiDiffReview",
       "name": "provenance",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Generated from the supplied configuration and review context.\""
     },
     {
       "component": "AiDiffReview",
       "name": "reviewedAt",
       "type": "number | Date | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiDiffReview",
       "name": "reviewer",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"You\""
     },
     {
@@ -139,6 +214,11 @@
       "name": "status",
       "type": "AiReviewStatus | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"pending\"",
       "description": "External review state. A document change always requires a fresh review."
     },
@@ -146,7 +226,12 @@
       "component": "AiDiffReview",
       "name": "summary",
       "type": "ReactNode",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-lists-list",
   "name": "List",
@@ -38,6 +38,11 @@
       "name": "density",
       "type": "\"default\" | \"compact\" | \"comfortable\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      },
       "description": "Nested lists inherit their parent's density unless explicitly set."
     },
     {
@@ -45,7 +50,192 @@
       "name": "divided",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
+    },
+    {
+      "component": "ListItem",
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ListItem",
+      "name": "avatar",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ListItem",
+      "name": "checkbox",
+      "type": "ListItemCheckboxProps | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ListItem",
+      "name": "counter",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      },
+      "description": "Compact counter at the end of the row. Zero remains visible."
+    },
+    {
+      "component": "ListItem",
+      "name": "counterLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ListItem",
+      "name": "counterMax",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ListItem",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      },
+      "description": "Compatibility alias for subtitle."
+    },
+    {
+      "component": "ListItem",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ListItem",
+      "name": "icon",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ListItem",
+      "name": "meta",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ListItem",
+      "name": "onSelect",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ListItem",
+      "name": "selectable",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ListItem",
+      "name": "selected",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ListItem",
+      "name": "subtitle",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      },
+      "description": "Supporting second line. Takes precedence over the description alias."
+    },
+    {
+      "component": "ListItem",
+      "name": "tags",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      },
+      "description": "Optional Tag components, including interactive or removable tags."
+    },
+    {
+      "component": "ListItem",
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/list/list.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

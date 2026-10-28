@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-tags-severitybadge",
   "name": "SeverityBadge",
@@ -41,6 +41,11 @@
       "name": "className",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/severity-badge/severity-badge.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"\""
     },
     {
@@ -48,13 +53,23 @@
       "name": "compact",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/severity-badge/severity-badge.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "SeverityBadge",
       "name": "severity",
       "type": "Severity",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/severity-badge/severity-badge.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

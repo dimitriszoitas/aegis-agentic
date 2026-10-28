@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "patterns-ai-aipanel",
   "name": "AiPanel",
@@ -40,25 +40,45 @@
       "component": "AiPanel",
       "name": "availableContext",
       "type": "AiContextItem[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiPanel",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiPanel",
       "name": "context",
       "type": "AiContextItem[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiPanel",
       "name": "defaultOpen",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -66,6 +86,11 @@
       "name": "docked",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -73,6 +98,11 @@
       "name": "initialMessages",
       "type": "AiMessageData[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[]"
     },
     {
@@ -80,43 +110,78 @@
       "name": "modelLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Assistant · Local demo\""
     },
     {
       "component": "AiPanel",
       "name": "onEvidenceClick",
       "type": "((context: AiContextItem) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiPanel",
       "name": "onFeedback",
       "type": "((message: AiMessageData, feedback: AiFeedback) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiPanel",
       "name": "onOpenChange",
       "type": "((open: boolean) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiPanel",
       "name": "open",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiPanel",
       "name": "renderResultCards",
       "type": "((message: AiMessageData) => ReactNode) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiPanel",
       "name": "request",
       "type": "AiRequest | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      },
       "description": "Each unique request id is submitted once when the panel is open."
     },
     {
@@ -124,6 +189,11 @@
       "name": "resizable",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true",
       "description": "Resizing preserves the conversation and composer; narrow screens remain viewport-fit."
     },
@@ -132,6 +202,11 @@
       "name": "scopeLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Current context\""
     },
     {
@@ -139,26 +214,46 @@
       "name": "size",
       "type": "\"sm\" | \"md\" | \"lg\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"sm\""
     },
     {
       "component": "AiPanel",
       "name": "streamResponse",
       "type": "AiStreamFactory | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiPanel",
       "name": "title",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Aegis AI\""
     },
     {
       "component": "AiPanel",
       "name": "trigger",
       "type": "ReactElement<unknown, string | JSXElementConstructor<any>> | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

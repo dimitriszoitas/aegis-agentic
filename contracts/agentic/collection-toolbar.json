@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 2,
+  "id": "collection-toolbar",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Compose generic controlled collection search, host filter/action slots and a result status without assuming a record model.",
+  "anatomy": [
+    "named section",
+    "shared search control",
+    "optional filter slot",
+    "optional action slot",
+    "atomic result status"
+  ],
+  "states": [
+    "query empty or populated",
+    "results zero one or many",
+    "busy",
+    "disabled",
+    "wrapped controls"
+  ],
+  "tokenGroup": "filtering",
+  "behaviorProvider": "Native named section and shared SearchInput; host-rendered filter/action controls retain their behavior.",
+  "ownership": {
+    "component": [
+      "controlled query callbacks",
+      "owned search disabled state",
+      "result message and responsive slot layout"
+    ],
+    "host": [
+      "apply criteria and compute resultCount",
+      "fetching, race handling and result states",
+      "wire slot disabled state and actual actions"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "controlled-query",
+      "kind": "component",
+      "statement": "Render the shared SearchInput from query and emit immediate edits through onQueryChange, without keeping a second query state.",
+      "sources": ["src/patterns/collection-toolbar/collection-toolbar.tsx"]
+    },
+    {
+      "id": "host-results",
+      "kind": "host",
+      "statement": "Accept query changes, apply filters or requests, compute resultCount and render results. This toolbar has no WorkRecord dependency, fetching, filtering, stale-response handling or result table.",
+      "sources": ["src/patterns/collection-toolbar/collection-toolbar.tsx"]
+    },
+    {
+      "id": "count-validation",
+      "kind": "component",
+      "statement": "Reject counts that are not nonnegative safe integers. Render singular/plural result text by default, or the complete supplied resultText, in an atomic status region.",
+      "sources": ["src/patterns/collection-toolbar/collection-toolbar.tsx"]
+    },
+    {
+      "id": "busy-boundary",
+      "kind": "component",
+      "statement": "busy sets aria-busy on the region and replaces the visible count with busyLabel. It does not disable editing or reset query/filter state; assistive technologies may defer status announcements while the region is busy.",
+      "sources": ["src/patterns/collection-toolbar/collection-toolbar.tsx"]
+    },
+    {
+      "id": "disabled-owned-control",
+      "kind": "component",
+      "statement": "disabled directly disables the owned SearchInput and is passed, with busy, to both optional slot render functions.",
+      "sources": ["src/patterns/collection-toolbar/collection-toolbar.tsx"]
+    },
+    {
+      "id": "disabled-slots",
+      "kind": "host",
+      "statement": "Apply the supplied disabled state to filter/action controls, including portaled controls. The pattern does not clone arbitrary children or guarantee a complete lock merely by passing slot state.",
+      "sources": ["src/patterns/collection-toolbar/collection-toolbar.tsx"]
+    },
+    {
+      "id": "named-native-flow",
+      "kind": "component",
+      "statement": "Render a section named by label and a search control named by searchLabel, optionally linked to resultsId. Keep normal Tab order; do not expose ARIA toolbar or roving-key semantics.",
+      "sources": ["src/patterns/collection-toolbar/collection-toolbar.tsx"]
+    },
+    {
+      "id": "responsive-order",
+      "kind": "component",
+      "statement": "Keep search, filters, actions and count in that source order. Use a shared token-backed non-growing search basis and natural flex wrapping; do not impose a viewport breakpoint.",
+      "sources": ["src/patterns/collection-toolbar/collection-toolbar.tsx"]
+    },
+    {
+      "id": "host-names-and-policy",
+      "kind": "host",
+      "statement": "Supply meaningful region/search names, a valid result target id when used, localized resultText/busyLabel where needed, and real action behavior. Record the chosen shared pattern for comparable collection pages.",
+      "sources": [
+        "src/patterns/collection-toolbar/collection-toolbar.tsx",
+        "skills/references/page-composition.md"
+      ]
+    },
+    {
+      "id": "filtering-token-ownership",
+      "kind": "design",
+      "statement": "Use filtering group tokens for owned geometry and status styling. Keep nested SearchInput and caller controls in their own groups; do not override internal control styling.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "No automatic dataset wiring, search request debounce or persistence is supplied.",
+    "Busy is informational; only disabled locks the owned search, and the host must explicitly disable its slots.",
+    "This pattern does not replace DataGrid selection/density/column controls or the WorkRecord-specific FilterBar."
+  ]
+}

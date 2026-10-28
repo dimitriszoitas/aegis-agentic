@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "adapterSha256": "b24beefa64282a79dc2e9bd8a1089359e361b3361685fc5f567806b74403b070",
+  "adapterVersion": "0.6.0-experiment.0",
+  "workspace": "/private/tmp/aegis-mcp-v06-compat-HDhXtu",
+  "runs": [
+    {
+      "kit": "/private/tmp/aegis-mcp-prior-kit-BN7x7g",
+      "version": "0.4.0-experiment.0",
+      "registryRevision": 2,
+      "status": "passed",
+      "catalogueEntries": 107,
+      "resourceEnvelopeBytes": 72223,
+      "kitIntegritySha256": "a2cac239ee5a847181988fa653fe9e10f8193ab558d1b0247976ca305d3585ed",
+      "sourceSnapshotSha256": "5746fe29b778324d48baac3e2beb28bed0fd41b204dd60de68bac6836b691ed2",
+      "checks": [
+        "SDK connection and five tools",
+        "actual old bound project lock",
+        "exact legacy contract",
+        "catalogue metadata and source references",
+        "search parity",
+        "page recipe validator parity",
+        "composition validator parity",
+        "unchanged kit bytes"
+      ]
+    },
+    {
+      "kit": "/private/tmp/aegis-mcp-prior-v05-kit",
+      "version": "0.5.0-experiment.0",
+      "registryRevision": 3,
+      "status": "passed",
+      "catalogueEntries": 107,
+      "resourceEnvelopeBytes": 96008,
+      "kitIntegritySha256": "f185faae48502746a511208c10189ece2a1a2e826382af18773cbb6dec085a13",
+      "sourceSnapshotSha256": "33404b6611801b82df2f7d78a02fa9ee98a4bbcc93a6832f0be424af82d263c0",
+      "checks": [
+        "SDK connection and five tools",
+        "actual old bound project lock",
+        "exact legacy contract",
+        "catalogue metadata and source references",
+        "search parity",
+        "page recipe validator parity",
+        "composition validator parity",
+        "unchanged kit bytes"
+      ]
+    }
+  ],
+  "recordedAt": "2026-10-28T20:30:09.665Z",
+  "nodeVersion": "v24.1.0",
+  "harness": {
+    "path": "artifacts/forms-collections-mcp/compatibility-runner.mjs",
+    "sha256": "a8d6bb760b34666cfd3dfa1f0bfc781a8f8d246c62bd65b7f24642e4d8f49f11"
+  },
+  "limits": [
+    "Uses the new 0.6 adapter against preserved real 0.4 and 0.5 kit snapshots, with synthetic project locks; this is not a fresh npm registry installation.",
+    "Checks are bounded SDK discovery/read/validation compatibility and byte preservation, not browser interaction or arbitrary client interoperability."
+  ]
+}

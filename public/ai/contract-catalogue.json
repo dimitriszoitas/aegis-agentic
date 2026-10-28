@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
-  "registryRevision": 3,
-  "sourceDigest": "34a218879be5b70fcc73a43865b369a94512daa4109a1e70344e78ccf30d6dfe",
+  "registryRevision": 4,
+  "sourceDigest": "26bbef52b8022d3c0f742018c3c7380527d7f2561cf4b0d660121ec143164911",
   "sources": [
     {
       "path": "contracts/agentic/button.json",
@@ -18,6 +18,10 @@
     {
       "path": "contracts/agentic/checkbox.json",
       "sha256": "3006efa0bcd632f4336dd0a350f7bcefeee1305b7e29ed6819e366387e340bd6"
+    },
+    {
+      "path": "contracts/agentic/collection-toolbar.json",
+      "sha256": "ad76e90b812572f0c640bdd57dba9a54c9703021ade94a13d090fb26a9126b18"
     },
     {
       "path": "contracts/agentic/data-grid.json",
@@ -52,8 +56,16 @@
       "sha256": "928b41533100a18a2cde0240f6da10dc8028f48d30420d6f3bc0eeaf80de0b86"
     },
     {
+      "path": "contracts/agentic/form-section.json",
+      "sha256": "05a2bca907609357ea0fe4672d311dd9f36744db15162b42967e89420fff8135"
+    },
+    {
       "path": "contracts/agentic/metric-card.json",
       "sha256": "f6d6aab12d0cc35696d8efdd31fdb678d8e267ed0016431ef2261017dbb19465"
+    },
+    {
+      "path": "contracts/agentic/number-input.json",
+      "sha256": "7af866f02178f042070898a6f47d66d810b1a049c78c862161e98b88cc466d8e"
     },
     {
       "path": "contracts/agentic/page-header.json",
@@ -66,6 +78,10 @@
     {
       "path": "contracts/agentic/pagination.json",
       "sha256": "9d94c57a4ca1fb712d4c38d1694f2f6dcb004f1bdce94b242e1fdbffa516c51a"
+    },
+    {
+      "path": "contracts/agentic/password-input.json",
+      "sha256": "ca536f63346aae0a33ed28327487c34610d182ecbd36362f1679db04bc58feb4"
     },
     {
       "path": "contracts/agentic/popover.json",
@@ -117,7 +133,7 @@
     },
     {
       "path": "contracts/catalogue-bindings.json",
-      "sha256": "8680f1e173300aa6c14cddbeeb393be7cb386ddf75df5147f89662b7293e8785"
+      "sha256": "189a08503baaacb93e4dadf3ab1e57e51ff54c951469a1ae5fcee001c0271550"
     },
     {
       "path": "contracts/infrastructure-api.json",
@@ -133,423 +149,439 @@
     },
     {
       "path": "public/ai/components/components-actions-button.json",
-      "sha256": "5c54b3066c4d81b0af281bb27d5947b2b1b547a8b0fd1c4531c622f1145b5bb7"
+      "sha256": "54ea77d185b6afbd6581d3d998a3b07b65ca1ca98acaafa93a63189fe16da8ee"
     },
     {
       "path": "public/ai/components/components-actions-buttongroup.json",
-      "sha256": "d39eec8eaa776b9456c4c2c0e48adca07c955b4659d385a4e8c9dba12da9b79b"
+      "sha256": "1a8644f8ade32e4101c56ab1fe1ca37c144c265128c61f39a907461716f78252"
     },
     {
       "path": "public/ai/components/components-actions-copybutton.json",
-      "sha256": "9126193db5daa2fe4f791814adafca7fb12ce83c42ed0db6449fc04c1eb4ec7c"
+      "sha256": "1a1ffe69e6cbebc40e2d53359d63b787ae7f9d72cc1f160fbc3a5601a43fca6a"
     },
     {
       "path": "public/ai/components/components-actions-iconbutton.json",
-      "sha256": "063b4481dfa0aea56883af61caba93bd5ac893c99f2be5eac9b2d4b748d95f6f"
+      "sha256": "b36f5f8342f7e244724559f26665d234f3b7498fd823b2786ecf298687aa5d9a"
     },
     {
       "path": "public/ai/components/components-actions-link.json",
-      "sha256": "e4932a0d61ed5873f6cd12778f4f05ac0aafd461dd89675c4f45f84c8966a787"
+      "sha256": "b6e8cc9dfec1ca94417455501713982194e35d809c6764364a71ee6cf0eb3b63"
     },
     {
       "path": "public/ai/components/components-actions-splitbutton.json",
-      "sha256": "47e5331f417a43ef5418a4fcf3c2e504f1513a93e3c417476297821ae6a773de"
+      "sha256": "a1e65490ce8ada02dd4017cdc3ee0783860ef34de177b6315b714608f71f6119"
     },
     {
       "path": "public/ai/components/components-ai-aicard.json",
-      "sha256": "422a656629d7c4f367be10a4722479bc5e1375014b92b418cfb390cf12e15500"
+      "sha256": "8e409ba2e5ae5424650d317d08868a33ed07da2133c1c1e37fc3325adc969c22"
     },
     {
       "path": "public/ai/components/components-ai-aihighlight.json",
-      "sha256": "60db0156e331f277ba1881ae4bdead23d47304d9c469c3fb5c89f63141e65dee"
+      "sha256": "e2b5cc1786db442171e0286522a4d96f943e861751e180943b6aa51d4e39e5b5"
     },
     {
       "path": "public/ai/components/components-ai-aiinlinesuggestion.json",
-      "sha256": "20c3b9f364fed62943b7a3539131eb513bc5b5c26647c44b6789bea58f2d12d5"
+      "sha256": "f6f85e11f4a7d28d0dd39861a089f3200f3280359d9b5401c8b2be5748f85f5b"
     },
     {
       "path": "public/ai/components/components-ai-aimessage.json",
-      "sha256": "f63523d299455d7d5f0757457e6a07efb21499b068cb742d9009764283b156fe"
+      "sha256": "71f7e1ab27a1a9627f93fb5ff1b718098eff247360cafb8483cfdb1181e9fde0"
     },
     {
       "path": "public/ai/components/components-ai-confidencebadge.json",
-      "sha256": "be592286fc11e58125479c2ff5b3a838acf77c066378e4ca193635c4085adcd8"
+      "sha256": "d986b319861f7afb26599ed5160e7125b05f9d68e6984b95262f46cd36b6eebb"
     },
     {
       "path": "public/ai/components/components-ai-streamingskeleton.json",
-      "sha256": "d67e699ac67260489da8e65dc2b6ac9b252e84de8ee1e06148f272fc04c6cd0a"
+      "sha256": "eddddf26948ec09fc037e3e24fb2e2284a33fba2fd31d831f3a4d29af4d055d8"
     },
     {
       "path": "public/ai/components/components-ai-thinkingindicator.json",
-      "sha256": "b358ee613814f0d9445549a7e9ed48dc5a245efdcbd41ae842effc36bb0c3659"
+      "sha256": "f8538b0db6bccd949bb0794b27729f6fcf1a8fe0e591c0a236a599f281eb4e62"
     },
     {
       "path": "public/ai/components/components-charts-area-chart.json",
-      "sha256": "3e02e6342cdc558af39aa85eef0bbe5232c54aee97f9dadcfe5dcbdf7a67d8c0"
+      "sha256": "05a97112c90bfd3951dc5d10e88e9b314db94d1f1b310a6c512e0d3bdcf7ee82"
     },
     {
       "path": "public/ai/components/components-charts-bar-chart.json",
-      "sha256": "52a68dc48c6c467b8677b9c75c596d00e05dd449a8856281b5fdb5a8f9dae8da"
+      "sha256": "eabbb5244c34f12170c847085b68b99475ab99058acae646647e6a86a4de98cd"
     },
     {
       "path": "public/ai/components/components-charts-chart-container.json",
-      "sha256": "d1f99731a8b14711d279d678a4899ede4e761ef1465ce0ea9ea16b76d3aa6278"
+      "sha256": "6d2d0da08d51fc061d78fe03a5eab258767bc5b9af6ce2d96e59a2021bf15a1b"
     },
     {
       "path": "public/ai/components/components-charts-chart-metric-card.json",
-      "sha256": "65f58f253016497a8d71d9063f62e8280ee2d02a334fa67e37f63420e1e6a61e"
+      "sha256": "259bb17a93933ffb854954981b11b613be6bcb9ce21ecaa81e2520c310de6180"
     },
     {
       "path": "public/ai/components/components-charts-donut-chart.json",
-      "sha256": "f82280196604a2c7b15229d302556ffda673e194db2e6533c6587826b5dbac5f"
+      "sha256": "986302aadd5c09c60f4549c089863657b36103ed13bf2ba52cadeb98a99bef00"
     },
     {
       "path": "public/ai/components/components-charts-event-histogram.json",
-      "sha256": "d3bd4b204a219e21e932b494fead689ad4884edc832b67f5691bfc53927673ea"
+      "sha256": "64d6abd7b63fa7389738512baa4ceb5bf53e6f49c8d573f3d04f89f78fa5db26"
     },
     {
       "path": "public/ai/components/components-charts-ganttchart.json",
-      "sha256": "1d50c0d1d24aa429c87f04f712abd058269422b2f33f66a1ed8ac6457f1e1990"
+      "sha256": "381915702188768e38915b80d51425226f08dc2a64983385d68c0aa513ad97c3"
     },
     {
       "path": "public/ai/components/components-charts-line-chart.json",
-      "sha256": "fc551b36a5c0f1bea12ca3cb3dd5066764288eb0ed1f5b9fca07dedd6b72515e"
+      "sha256": "fbb4b988cf9a6a262cfe885b080abbaa0348d98d2efab8639add4dd150236507"
     },
     {
       "path": "public/ai/components/components-charts-metric-card.json",
-      "sha256": "150e247f7d8c1063d428f7e9790219f1ddc5d611d7d912e825429eb5852e81ba"
+      "sha256": "426bcc601b3d85465859d393ea33e101c5f55c7e2b6f94add5daa0153edd3777"
     },
     {
       "path": "public/ai/components/components-charts-mini-bar-chart.json",
-      "sha256": "cc204fd812b66104a8b32721ef24a3f9febcdc1ef05e9e26f93eeb7002c567cc"
+      "sha256": "dcdd2d6c244eb4f22dbe3ac4c9ac174b4f6c921e707999519a44b9260b32810f"
     },
     {
       "path": "public/ai/components/components-charts-sparkline.json",
-      "sha256": "84df7f8fe8845643b40398c441f877fc335dc2454adda9b564d6b62a09fa91ba"
+      "sha256": "695d0a6c3c5fbfd7e79bfbd8cdfc4991fbc7cbc86e98f0a60c3ef88cefeba45e"
     },
     {
       "path": "public/ai/components/components-code-codeeditor.json",
-      "sha256": "3933ac2d26024996556331d2101108e26e6d1a97b99a8aac1c08bc35d7fa52f2"
+      "sha256": "7a2b206a57a8e75d34c8e391fffb2e296f28f7f585bc56f115afb4b95958f72f"
     },
     {
       "path": "public/ai/components/components-code-diffview.json",
-      "sha256": "e1783b149c8920b153d54502b6ee2bda4666721d21a1822572a707601cb77132"
+      "sha256": "8cfb7bfc63b2801ac860a115201f102fbc1459d098145640a8bfbe5699eb002a"
     },
     {
       "path": "public/ai/components/components-code-yamlpresenter.json",
-      "sha256": "ca5172b45b1fb1772653e67a64c658dbd768bfabb65c973bce05c00119695604"
+      "sha256": "748ab385b67aed33a33d61366ddcb45d5e3a995dd5699e57c6a15e3a499eeae1"
     },
     {
       "path": "public/ai/components/components-content-expandabletext.json",
-      "sha256": "31e25d52e5e1cb4b63852159e527283a697a3ecfbf69b2f7b6278db352983426"
+      "sha256": "37273a31354f27ea6f803edcdd5183c5c71ae833ad78897752ce08f2f0e3613d"
     },
     {
       "path": "public/ai/components/components-data-datagrid.json",
-      "sha256": "19db6849d4462c8428377a3ee37ba0f0e8ce47f2d30e04b6a96f1fd5c947f95e"
+      "sha256": "fd95ce354f7753a4af2ae3a1f3a714163667c2bb2952647f7f6725615975d10e"
     },
     {
       "path": "public/ai/components/components-data-display-descriptionlist.json",
-      "sha256": "8f570ad3a671b3a3d78fe1e14cc1a2f8477f1c4339fe2677f823222f3c35b901"
+      "sha256": "20a86264455ebe79befb858a3367cbb183c4fb6ea011b4daf50708815f10fcec"
     },
     {
       "path": "public/ai/components/components-data-grid-actions-cell.json",
-      "sha256": "f9414e6d1e5af29a6a6ceaa400075c841c2babdf68c8af68c173541d9e5a626d"
+      "sha256": "30ba71ff4023be5060628abd07eaf153e91f63cf12b550ada60540d0638741a2"
     },
     {
       "path": "public/ai/components/components-data-grid-ai-verdict-cell.json",
-      "sha256": "4086f108641aee26b4170a193169b063754f744f77ab572d34da7c929d05f113"
+      "sha256": "df1a80435e97d60e4e5240f2f134ffdf9964ff381eb83d1dba75286f82d123f8"
     },
     {
       "path": "public/ai/components/components-data-grid-bulk-actions-bar.json",
-      "sha256": "0828aeb3e4cfac223f05c2b2b58e95df5a8e0591b229539f769aa7d7f14ce9e2"
+      "sha256": "a5519925d44b347f80602d53d9d64264e498e5f4a791bc6c23c09a76bd69c449"
     },
     {
       "path": "public/ai/components/components-data-grid-cells.json",
-      "sha256": "15b0337b15be9e926dba2c11d7f8d1dc868055f09005f080a064875dfa1a01a5"
+      "sha256": "dd8bf802bd98a276a928cf65be8de74cc5b268ff291d1e09ebae196f459174c9"
     },
     {
       "path": "public/ai/components/components-data-grid-expand-cell.json",
-      "sha256": "11f8ecc061c5deeb4d43d0721026fac9ad3b9d8e0979abd5d92548ce94204d4f"
+      "sha256": "9647d364318be9b460af1a604e6681645fd941de96a0f783342da0f8c9de5a76"
     },
     {
       "path": "public/ai/components/components-data-grid-number-cell.json",
-      "sha256": "271c447b1fcf007b2444937c02ec6e1dbbd4d189f6b2e3dcef8a5589b8f99334"
+      "sha256": "ad04b85dd10bb25a0589dc6540d247eed01c18284c171ccd08ad15ba1d264826"
     },
     {
       "path": "public/ai/components/components-data-grid-severity-cell.json",
-      "sha256": "88bc29381ef22f54a038e2ffaa7fafd31c836e99aa826d9117d86fb1c7645d03"
+      "sha256": "3b6256fd47ead0e82b188491e41f6fdce6ed3b02eea3487125352d8c716ef285"
     },
     {
       "path": "public/ai/components/components-data-grid-sparkline-cell.json",
-      "sha256": "75c3d72e5769ce1d1e62d5faec319cd837a759b877a9f66b7de0c5ebfb75179c"
+      "sha256": "60e38d74d2136b7fb5a8f36058918a3d223fd61161bc6e7da43ed2597f5d484f"
     },
     {
       "path": "public/ai/components/components-data-grid-status-cell.json",
-      "sha256": "2dff61a33ff780dd5cbcb3d235610d5758fc20a4e010be7281c687dd93f88154"
+      "sha256": "12ec354275f1a1eb77c87a654e727387a2b2499be8e3916513ad81992add9d7c"
     },
     {
       "path": "public/ai/components/components-data-grid-tags-cell.json",
-      "sha256": "a9b31073400425d69240ad31d7a0f4f1d99499e59e412eda654d6361726a5f4a"
+      "sha256": "5d7bb6b3e1575314a75359d1da13edd4b4bccb1aa6d988be90b584bb7f4df824"
     },
     {
       "path": "public/ai/components/components-data-grid-time-cell.json",
-      "sha256": "fe629c6aadfc10bec58c1149230377ef68b729d8afbb7bd792e2c07d0c800e1d"
+      "sha256": "b9028621e29c602810a03bcd4dc2aeff53d2aa76e9b07a353f2e65c3e635506c"
     },
     {
       "path": "public/ai/components/components-data-jsonviewer.json",
-      "sha256": "eae39f34950092341c193cef338d20cba558154be14e8b22da9812781fd4003c"
+      "sha256": "ccd8ce6bb8c4ee1dbf67f0529cbec061c6fefccc265703d8265dbe3a2aec7846"
     },
     {
       "path": "public/ai/components/components-data-relativetime.json",
-      "sha256": "efba49a383b9e39e87eb19db1b262d1db06c5822c0e1fb690d01773742c8d4d4"
+      "sha256": "409afeb551f46fb23de7e12d227db7cbe877cc2cc5d64c8307db65b13e424535"
     },
     {
       "path": "public/ai/components/components-data-timeline.json",
-      "sha256": "353942e2514da373abbcded21db8a067d11039b140c66d2cd12acfaa5e16e541"
+      "sha256": "bc6d1bcde3243ebd805420c52a083bb5be8d40efcfdaf3c824f05a52fce7980d"
     },
     {
       "path": "public/ai/components/components-feedback-empty-state.json",
-      "sha256": "a122db98ca6ffcfb19be8058cfbf121d30eb5cfac619ebda10b9d343dc39c557"
+      "sha256": "6c34030a4b7da3ebf4a805794d8bc65f72a1c66cc910d004b1cbfbc6e81c9fa8"
     },
     {
       "path": "public/ai/components/components-feedback-notification.json",
-      "sha256": "fbd82d5c5bf19c0e8d1c1e831e90e6de7b969d3d813ce393fee06ff18403890d"
+      "sha256": "74558bf26f239f3ccbb627d20b0d443d33a112da97b5809a8351a415df7763de"
     },
     {
       "path": "public/ai/components/components-feedback-progress-bar.json",
-      "sha256": "924d4575a26f28a000ec9845867d4346a81f743d4477fcc8ac226c47d181dd91"
+      "sha256": "89d2339114d374f43d6b74c5e66fee83fc60ed621d9062f241c558425a45b99b"
     },
     {
       "path": "public/ai/components/components-feedback-skeleton.json",
-      "sha256": "4972a527eac46680395326f42072063d2f60322fe5e40e22c382d194d22dd839"
+      "sha256": "69694cb3ada29e5e4bf8948c5770f6e483aa43d250307867e616e83d32deb8bb"
     },
     {
       "path": "public/ai/components/components-feedback-spinner.json",
-      "sha256": "99cc06ca693f8b6a8c9b18a56d56c15a91591871284093159687524a0aeb0b3f"
+      "sha256": "0c594dc408d70b1a56005afdbe237ba93141f80fb1a818ae5391cd04d0e9c3aa"
     },
     {
       "path": "public/ai/components/components-forms-checkbox.json",
-      "sha256": "5123bf7e86d57ffd61f317044d3c79ffed0caf65e2bbae990101c5dce9d9a4ac"
+      "sha256": "90ecaf32e9f16f6e8fd50e7766c09d7bafa094a07038e8bc44d0c09070a6ec46"
     },
     {
       "path": "public/ai/components/components-forms-copyablefield.json",
-      "sha256": "bdc5094c2a15dfe51688bedb59f0ffcb5afbe94dec777d7bff46f2f2fcb4fede"
+      "sha256": "d7f4e965333b50db132f64b136f99501a5140e3468bcb25cb7054984e6479fca"
     },
     {
       "path": "public/ai/components/components-forms-datepicker.json",
-      "sha256": "5ed990204b857ba77f8e5f5c50b75fe82724bc13dc54e63dda0dac1092aa04a0"
+      "sha256": "b8e2338a44dbd22fa0290e8eef215ea80678e94cf5b8cca29828d8f44f45e567"
     },
     {
       "path": "public/ai/components/components-forms-field.json",
-      "sha256": "79d510686db2be6eacfdb87f8f8ebe1e6f30d79877c333604d96697fd6d703e0"
+      "sha256": "1261b191e5f93924281c68bb93ba7d77de1932f845db38e058d3c224754fa39b"
     },
     {
       "path": "public/ai/components/components-forms-fileupload.json",
-      "sha256": "3a11ea2539bf6501890c1a6df52b1d00b8b9d0f7e1c1425cd14d3398c52b84b2"
+      "sha256": "d400f592520b9d184f87ce905489b0098de5d8057c102412860cc79ca773b6bd"
     },
     {
       "path": "public/ai/components/components-forms-multicombobox.json",
-      "sha256": "72655bd0c682ecd66d7b3b91d380981fbe5cf3dcbf6b4edd4c709b8a6a9a8433"
+      "sha256": "5a78be5f0b978b0d637f8fc6efc98c976ff3709392e36a2331e98d4221c1640a"
+    },
+    {
+      "path": "public/ai/components/components-forms-numberinput.json",
+      "sha256": "f688dad1fba505a7dc6e26fed8ada8b8b3fb1a38f7b79a01d853b5db63db051e"
+    },
+    {
+      "path": "public/ai/components/components-forms-passwordinput.json",
+      "sha256": "82be24d2b779492801f9af768bbe4f92fd83b170e11e90bf508eb050dcd2e29a"
     },
     {
       "path": "public/ai/components/components-forms-radiogroup.json",
-      "sha256": "6f7d1dfbf14d353c5e86b28919fadb150b36590ec79f1a83e7f4d079a1d3169a"
+      "sha256": "c7b1924b525042b5ffec1ac72301602e7ec956ed1e86ee0d1646d4b2056862c7"
     },
     {
       "path": "public/ai/components/components-forms-searchinput.json",
-      "sha256": "11891b99b82b09f355b3c17b00f7766a5b877f950bc1d59e8dd41ec5e606e0bf"
+      "sha256": "4ad4fbab3601c6418f4874bd509875911cca30f8563390b1a7e3a931cc406ab2"
     },
     {
       "path": "public/ai/components/components-forms-segmentedcontrol.json",
-      "sha256": "7e7e5866fcf90ae4c35f62bf1cc244b47642af382e69d64b59e2d6b0054cba78"
+      "sha256": "1e99e3719a418ffcff5a60617b94356bd2f81f9fd66781533c3a19c4e794723e"
     },
     {
       "path": "public/ai/components/components-forms-select.json",
-      "sha256": "d54444fbc85cf16875f9afca1fe43a218bb1a30345f5d69ca3dc7d16ec0d2e0d"
+      "sha256": "e5ec2358da057c5f11aabef121742e2ab28fc2c4fdefe47ff89c445905cb4438"
     },
     {
       "path": "public/ai/components/components-forms-slider.json",
-      "sha256": "7857dea37e70f9314a2e2707edb4bf04039cdc6fa9e8be1c1b67585f7514b4ce"
+      "sha256": "9a55293e954903eb8898c5bd440450c95b4c72ec6bed333af13cd879613fc977"
     },
     {
       "path": "public/ai/components/components-forms-switch.json",
-      "sha256": "e32720ced34c08f75b8c2157dff809473fd8482f04c3cd99562d0ca699a5a1f7"
+      "sha256": "eb47aa40f8dd5f3edb19f83e97ab1537998a575085467fa92871d893ae447d8e"
     },
     {
       "path": "public/ai/components/components-forms-textarea.json",
-      "sha256": "b6958c3213ba93a75386a0cc58b57a8baf3ac8b9906f01a4a7f23c56b221bce7"
+      "sha256": "3d87df9c7ff80b6d8d13ee2160e802fb1fff94bc903342100f2565a8a65c1d50"
     },
     {
       "path": "public/ai/components/components-forms-textinput.json",
-      "sha256": "a521ab742d7c5c249f096255b9a05174c0711e78591641880e83731414bce60f"
+      "sha256": "1ad9fbaf73651cd5b1c9bc76c6d2289403a6cec8aba19b45d7d393f1c52c5c01"
     },
     {
       "path": "public/ai/components/components-forms-timerangepicker.json",
-      "sha256": "e0fc77c04103e8964b9cec98941817049fc97e82503405184f2801c7350e8f28"
+      "sha256": "f94f49103ccc72b70ccbf5946e835393fcafdfb1d80d2ac3eba08cfef08ccfee"
     },
     {
       "path": "public/ai/components/components-forms-treeview.json",
-      "sha256": "9a35a3da80fa1adf107692d386cf9b92093fe6ba44d33ba804a706f25451d2c1"
+      "sha256": "0266f5645bc72a3bfa3c8c52425ca668a917c34adfe53100be25e5a705dc360b"
     },
     {
       "path": "public/ai/components/components-layout-resizablepanels.json",
-      "sha256": "8531de4a13e00ef1becb2accac0274e06f9457eebebc7a5aad433b06a9a37e09"
+      "sha256": "060c567fbfd015ffc13afdf969dd8946312ff3c4761df6923df1dd9f39a7c454"
     },
     {
       "path": "public/ai/components/components-lists-accordion.json",
-      "sha256": "128d930542c5d663380c66a21b93e4598e82535e490022d77f9f22a9c81253e6"
+      "sha256": "6310383269bf276e1bb48804026767334977329ac105cca34c75d6ab0bbc27af"
     },
     {
       "path": "public/ai/components/components-lists-contextmenu.json",
-      "sha256": "1a20f8bf986a7b0937761029e221cde74be0926832008374ccb0b7e4cc92a524"
+      "sha256": "26ce5b63ad3f725c90b6fa8e008cf920a67e1b41953779aaea73d84c67601aa2"
     },
     {
       "path": "public/ai/components/components-lists-dropdownmenu.json",
-      "sha256": "9e1ab3e738f0482c86f56209d89fec9746fee6ef68dc28b84ae47779d672fb7c"
+      "sha256": "bd568a744371cfbdbc0d48553ab95584afd798b6614683f98ccb840f23c9dab0"
     },
     {
       "path": "public/ai/components/components-lists-list.json",
-      "sha256": "650fb4191666a080525ca277bde7243984726372bb0d32bdbcc31c6bc5820cbf"
+      "sha256": "440cdd30113a7e1a2c4d2142d5ec26d48fca7ab79c2ff55194763ac17039c122"
     },
     {
       "path": "public/ai/components/components-navigation-breadcrumb.json",
-      "sha256": "7c3d6c30121e959805a24f12e58b9353c694660231db64201899cf7d12a95b0b"
+      "sha256": "3ed8c7a554489bde44dff1a920200bdfa824f13094b95468c48a2385a3973297"
     },
     {
       "path": "public/ai/components/components-navigation-commandpalette.json",
-      "sha256": "3df8761ba4d670769caae93751224e6c4e004c9908c26641b986e27bf34cd50f"
+      "sha256": "e8fc067c728bc701ab9349a2b3f2d10b216c9e8469bf4d78b07da6257bc083f6"
     },
     {
       "path": "public/ai/components/components-navigation-pagination.json",
-      "sha256": "8893c72b3afe6a89e3cbf54738f77aacb5d3e4ace3bdef879dc500c9386d25be"
+      "sha256": "e9517ffe25b093b597dfd143bb53581a5cd9f6998fcf803a5a7baa10c303afa9"
     },
     {
       "path": "public/ai/components/components-navigation-sidenav.json",
-      "sha256": "65f5e12c0370bc7c103ffa664cb4cdaf84002eb90e20f5499179fc7b6b34f0e1"
+      "sha256": "eb083e66a7a256c913b2e61285c1c816bac973773c27d4d516fbee0c27e4d147"
     },
     {
       "path": "public/ai/components/components-navigation-stepper.json",
-      "sha256": "3663bc8b645193987d9b776851299e3875aa8c64d0d360a669d13146816e286b"
+      "sha256": "a7fc15dd924324871b2757e17f01842b32195ecf3d45455e1f44a191dca9e7e8"
     },
     {
       "path": "public/ai/components/components-navigation-tabs.json",
-      "sha256": "6bcb5538cc30db275b856a0de953cb907f657eff53c91768d92289142ce29468"
+      "sha256": "cd896169a89600d2506a59909d34edb1ec7feb3509813f6a376ed879c80ef494"
     },
     {
       "path": "public/ai/components/components-overlays-bottomsheet.json",
-      "sha256": "03603c57a2aa4668dcd70145d46ff2fc6a54e768edade6655489883c844d1144"
+      "sha256": "507231667019621b31c4be517432b1068ba785167f510b106a7a0d94d69dfd6d"
     },
     {
       "path": "public/ai/components/components-overlays-modal.json",
-      "sha256": "26640cff25c46c54ecc2d4c3125da5092e5928f79df8b25249d5f52b2baa6042"
+      "sha256": "b9d9acb02b1085fb1194a95d117e147a3b3396bde3d9848f1d779a29da44cb81"
     },
     {
       "path": "public/ai/components/components-overlays-popover.json",
-      "sha256": "10346334e879593c86f868e247db94ee808179914a2b5952207f6bc596cab90c"
+      "sha256": "259e1ffd3d3f70df464d35556dd6cf16a9b0103f81fa8795dbce492312d898de"
     },
     {
       "path": "public/ai/components/components-overlays-sheet.json",
-      "sha256": "35d3e5aadc3d0c877eaf0a710b364ba67e231aeed6c11494841baaddbbf390bf"
+      "sha256": "e3eb890260f0e86c62d7909aa5ae463c1df78d8f58c707c62e82e8499be48716"
     },
     {
       "path": "public/ai/components/components-overlays-sidesheet.json",
-      "sha256": "328c411a7b7ff4bdac7735abea7a650bd0789f2c8a3d47fa661c5a4a22b4c909"
+      "sha256": "e0727d50868dde70467cc59cc0c120f459727e704e8c49adaea75b175b70817a"
     },
     {
       "path": "public/ai/components/components-overlays-tooltip.json",
-      "sha256": "2909bcce64a04c116cbc19aa51fad23d65d2caa4aad40a3bfd601ac6ede6cca8"
+      "sha256": "7bc8347b477a62419f427542d3b66426ecb94a7603b09049267e5405d1979410"
     },
     {
       "path": "public/ai/components/components-people-avatar.json",
-      "sha256": "9ab8e0164c9b4c58aceec410894d4f30e6db14beaf4d2adec5ec3077396488f0"
+      "sha256": "ae6524525265b0871a9408355076f7727199fbbb6fcb302d73914327fb8c071d"
     },
     {
       "path": "public/ai/components/components-surfaces-card.json",
-      "sha256": "b1ce59355419b59b29b61ac779ccfbc9e44a7a01c576e604be64fcee967ee1b8"
+      "sha256": "9ba777a2473415a65236ed4da10139d247dbbb68b3b165cd970132f9da79bf2f"
     },
     {
       "path": "public/ai/components/components-surfaces-separator.json",
-      "sha256": "178c7a2f8a54e895d68bad5aa5a33593ad57862aab4ba62d63012364cc72d2c4"
+      "sha256": "ba5118e65dd752fc34de47c89b4c78048d34eabc0c19f9f593183a5aa6cfbfa9"
     },
     {
       "path": "public/ai/components/components-tags-countbadge.json",
-      "sha256": "6de4842ad298623d9fd298d34468d7e77816d18276aa89d1a179852cf2342245"
+      "sha256": "a3adb67e66d9e43fa99556976b229deed3efaf0d448acb856b78324960fe588d"
     },
     {
       "path": "public/ai/components/components-tags-kbd.json",
-      "sha256": "11fdcc6e84c3e3135f11fb54b0782840cdb1c437a5d7523d205b85aa9dc1fb43"
+      "sha256": "112aa49fb32d1152efa14f439829be1e0fe5624c72750bd5f3786d0203fb0a96"
     },
     {
       "path": "public/ai/components/components-tags-severitybadge.json",
-      "sha256": "15801ecc5527a1131e4e1bd8c05601bd4099a83536ae474df664428a2fae977a"
+      "sha256": "6bd3cd0d00512f9bd5191f5ce4b9641dcbd5077a6d88b4014a63e2d34b3c1d1a"
     },
     {
       "path": "public/ai/components/components-tags-statusbadge.json",
-      "sha256": "79fbd15989d7a68a9f47cf734d6a1603df65fd978cca0d0c60f7167a1e12545e"
+      "sha256": "c3582c46b51b03168df13d964b234e431c85bc1e2d2cbdfa08ee2c29c54c98b7"
     },
     {
       "path": "public/ai/components/components-tags-tag.json",
-      "sha256": "18fd4aef48e744cb1b97813f4a16e1ed13bfaaf5c1dda09a843d5f646ced8395"
+      "sha256": "71abe219002c7f84ca4196f05c49c65940708c17bdc6c36a0a4c8d28211aa515"
     },
     {
       "path": "public/ai/components/components-utilities-scrollarea.json",
-      "sha256": "3d39344fbea5422067f6ec66e202898c939129d857ec364373220d5c8998cff3"
+      "sha256": "d24ccce3dd49268a2ef958a006024d5fdfaa7b1408b16d792a8b14ecd3784817"
     },
     {
       "path": "public/ai/components/foundations-icons.json",
-      "sha256": "ab05e330678ee7159dfe4681fc53b8c4f7cfcf1b0006eb44f34cb36e9530a9c2"
+      "sha256": "7e34c0df0ee3544f41654f47e93d67857337f261c9f6ea18e3c4efb58bde1363"
     },
     {
       "path": "public/ai/components/patterns-ai-aidiffreview.json",
-      "sha256": "dacfb02712002c90025d5b154554fce1b8511239f9a9f0dcddd6973ca5b6959f"
+      "sha256": "cbad402716183ab9ec8c0d240d3174b81bcc308bc54182685f30dd08dbea8081"
     },
     {
       "path": "public/ai/components/patterns-ai-aipanel.json",
-      "sha256": "c9f183490503d24dfde800442d8740fff63bb5e7ae64dab562880de0bd71d430"
+      "sha256": "f3485b44bbdd46a7cbbbd606a5238c78dae397bda758fe52e252556b78da382e"
     },
     {
       "path": "public/ai/components/patterns-ai-promptinput.json",
-      "sha256": "d0721e9632924e54bdd10a57058070d7cfe87b149a337d81e0868ea8f34b9d71"
+      "sha256": "884b0805650ef1f9e973c89aa8adf3d75f682a03383f1493603e9418af8fb2b9"
+    },
+    {
+      "path": "public/ai/components/patterns-collectiontoolbar.json",
+      "sha256": "bdff0273173f7ea10e82d21e65af697db5a8db5d4399a8e9eadf81d85f82883d"
     },
     {
       "path": "public/ai/components/patterns-filterbar.json",
-      "sha256": "9a017a7bb3314680957a0a493796566e2974ea63cbceb65f6dc8ebf95d3bafd8"
+      "sha256": "81d1c516d00bce87c46eb4fab9c2da912d75b0d2e66e964adc6a7e078988e6d3"
     },
     {
       "path": "public/ai/components/patterns-filterpanel.json",
-      "sha256": "98d785153836ebb2bdc4d8e115a03d329b831d2909715162d4e0b41d1b5bf924"
+      "sha256": "9c3b3c8b317aa8de44e618c32ebec18f4af7011180c09e4f4f6f179f5c7e90ca"
+    },
+    {
+      "path": "public/ai/components/patterns-formsection.json",
+      "sha256": "5e0ca38d969007a3b0eced29bfee461351845bd295b6fca8adf68bdda54c05d5"
     },
     {
       "path": "public/ai/components/patterns-notificationcenter.json",
-      "sha256": "55db89f0fc20d7780e73c8960fa2ff39f5206cbba77231b590c0a7aaaa38c529"
+      "sha256": "cc9548d638d853518d26fe5c2a7d6f2b0e9332d5702f01517606d04c879d62c8"
     },
     {
       "path": "public/ai/components/patterns-onboardingchecklist.json",
-      "sha256": "0b0dd3de674999df7411a9d0a92616ce4cde932ae576cd1fb799aa96a6b4aecc"
+      "sha256": "498f29b258bf3b17964a83cbe8ca0472b94bf7de14890ad696474386b1204faf"
     },
     {
       "path": "public/ai/components/patterns-pageheader.json",
-      "sha256": "a7fec2315cd4cf02cb5accf3e35a8504c384710817d59890672ea5ee79192b7b"
+      "sha256": "e2b01b4b837a1dfba1b46c72ee0d0f2ef1bc8d8376d375e1b43b0851c2d59c91"
     },
     {
       "path": "public/ai/components/patterns-pagelayout.json",
-      "sha256": "936b7d0a842abe4d943677a4907c50402c7edff54e740c8cf0f19e01e8ea1876"
+      "sha256": "870db1dfa5d470e6a6a475c5594359a1278d20927c0957e73521e4eb8417a652"
     },
     {
       "path": "public/ai/components/patterns-unsavedchangesbar.json",
-      "sha256": "83220ad2d24d7a10f796d3dd3f00e012eb47bdb1e6c56901e2f699bc99dc4119"
+      "sha256": "a3b8ab33623e2aa17adc11a0e5f9d74c804a34e939b1b4272b6573c88056e32d"
     },
     {
       "path": "public/ai/components/patterns-wizard-project-setup.json",
-      "sha256": "27f6b70e7cec5461dfd4251f20179b1e8683b1f69db6d45dba3f55b250eca3d4"
+      "sha256": "35bbe289e78785fecbde6437c094dca2a1aab8d9306d9d567476f5d75f0f7da1"
     },
     {
       "path": "public/ai/index.json",
-      "sha256": "ea79d1fca9f9af26f19c991ddf8f07eaa92c2ca78347aed78f2fc2ebb849e33b"
+      "sha256": "54e11f2816451bb60cb1a4d045cd7c763160825be3302069e1db70d67079524a"
     },
     {
       "path": "registry/canonical.json",
-      "sha256": "3b61a9abbe21cf1e080e4b982dc24bbe26eaa11b8a837c1235e828afb0f408f3"
+      "sha256": "eed713240b27eef0feb46f7e91931de162f12cf6d1460c6f7c2582c32f9eba73"
     },
     {
       "path": "schemas/component-contract.schema.json",
@@ -572,6 +604,10 @@
       "sha256": "9f213da56a021e285c67527a231b366f95054d81b03b4ba11c890533c0c0a5ec"
     },
     {
+      "path": "scripts/verify-form-collection-source.mjs",
+      "sha256": "88693a94ea65ea9a6c39a40dbc1827d2b49c0918698548228d7af3528e34374b"
+    },
+    {
       "path": "scripts/verify-token-input-adoption.mjs",
       "sha256": "e09a67df21177df30e0b6254ee0a18848e412f3b92f264df3b12457990bd20f7"
     },
@@ -590,6 +626,10 @@
     {
       "path": "skills/references/design-contract.md",
       "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+    },
+    {
+      "path": "skills/references/page-composition.md",
+      "sha256": "dcd9224ea9d54006da49f9840eb571cac2be7ba3f47aa6ce091e1517a888e5b3"
     },
     {
       "path": "src/agentic/components/FilteredDataset.tsx",
@@ -676,6 +716,10 @@
       "sha256": "40235e4e9a6870588300293e8986247d4597301bb93dcfa2a26a5745b5a41c0c"
     },
     {
+      "path": "src/components/icon-button/icon-button.tsx",
+      "sha256": "a4af13b1b738cdfa0b6d94d6001428d6996636797c8b8c21c2ef71acdb71955e"
+    },
+    {
       "path": "src/components/metric-card/metric-card.tsx",
       "sha256": "87e20e5e108b871853050d7a021a06a6ecf2416ee3c35ad9fe8b83ba08a69601"
     },
@@ -684,8 +728,48 @@
       "sha256": "8dc5b454b36c6723e235cd9c3853f214662368495e1c04fa7aebc2c6a721cfa7"
     },
     {
+      "path": "src/components/number-input/README.md",
+      "sha256": "0534bf44efe50685c26b51ad4992eec07a1ef89856cb1824b6256eab63d29de3"
+    },
+    {
+      "path": "src/components/number-input/number-input.css",
+      "sha256": "d44a1978c0c4dfb4e5573c1cd5aa392c1182b487557bd91a0c352c4719ab1d7a"
+    },
+    {
+      "path": "src/components/number-input/number-input.stories.tsx",
+      "sha256": "3e986d5a913700a19c128ec47cdca0fc63444807ba9b2146a6dc5bdc3956c9c1"
+    },
+    {
+      "path": "src/components/number-input/number-input.test.tsx",
+      "sha256": "df65b9e8ed503fe456d4023ef3ed95ff3e9c96bf6286ab6f59f876db0788dabd"
+    },
+    {
+      "path": "src/components/number-input/number-input.tsx",
+      "sha256": "e435c5e32a856a804280d23972eaf922438fdaa5e9bad7af1cd5cef04dedbdf0"
+    },
+    {
       "path": "src/components/pagination/pagination.tsx",
       "sha256": "c8795d08fe777034a32e5095cf6f2284ef127bb3fc4e868666ab40c230430717"
+    },
+    {
+      "path": "src/components/password-input/README.md",
+      "sha256": "c1b54c5ec57298b914f921027cd1abac2e0d52031915c623b08ecfebd903215d"
+    },
+    {
+      "path": "src/components/password-input/password-input.css",
+      "sha256": "5ab49b623ac43a4b78e232a118607c5439f4ddd6888da2402b1d3b1ea1940ab4"
+    },
+    {
+      "path": "src/components/password-input/password-input.stories.tsx",
+      "sha256": "57bbedb40d1bfb342cd80aa8ca1377a4e9febaf7d83a9053352c9a15457589ec"
+    },
+    {
+      "path": "src/components/password-input/password-input.test.tsx",
+      "sha256": "0fb9c863e18e124ecb5e69419b91d384e6c66f6df7615e7f3ddcac65410c958a"
+    },
+    {
+      "path": "src/components/password-input/password-input.tsx",
+      "sha256": "38742ecd67c71d31847d7e1e3126508550bb2a2533ab4bc9cc2ea3f0074f1ac4"
     },
     {
       "path": "src/components/popover/popover.css",
@@ -812,12 +896,36 @@
       "sha256": "9e27ad480e2909c0aa6e7f004ab7f0eacb1dc739d3f927e151899753676067f3"
     },
     {
+      "path": "src/patterns/collection-toolbar/collection-toolbar.stories.tsx",
+      "sha256": "251d71f04f9fb083d6cd1fa8437fb9874ac147922027c2f4315a6d1533ec5180"
+    },
+    {
+      "path": "src/patterns/collection-toolbar/collection-toolbar.test.tsx",
+      "sha256": "a853947ecad028a2600d4ecbefb9d54261265cbc73f416e81a497c6487dc17cc"
+    },
+    {
+      "path": "src/patterns/collection-toolbar/collection-toolbar.tsx",
+      "sha256": "52590b2726c26d450dda18d205b76628b4dfca5223033fc6f1ebae87c6771b01"
+    },
+    {
       "path": "src/patterns/filter-bar/filter-bar.stories.tsx",
       "sha256": "8d57ba39399e15fb9cbd7a73905c861ba8e8003ff7c0ae6dfd394d1591d7cf01"
     },
     {
       "path": "src/patterns/filter-bar/filter-bar.tsx",
       "sha256": "55569dc09957968ce53364fb20f73831e0dabb223893e0a9b5dfd041a2706549"
+    },
+    {
+      "path": "src/patterns/form-section/form-section.stories.tsx",
+      "sha256": "aa5caadc95e6245a7dc13170e841011418e9d2f0b81b1074d099d9cb5627aec3"
+    },
+    {
+      "path": "src/patterns/form-section/form-section.test.tsx",
+      "sha256": "bdb770fe9eaec938bb61d228b7e8d689ada1528aefc806b236f203c4dc305ef1"
+    },
+    {
+      "path": "src/patterns/form-section/form-section.tsx",
+      "sha256": "3539c287b972835fe9c65c9f32143a854ce92c5e8c727aea7f6e3fb91563b4ed"
     },
     {
       "path": "src/patterns/page-header/page-header.css",
@@ -845,7 +953,7 @@
     },
     {
       "path": "tokens/component-categories.json",
-      "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+      "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
     }
   ],
   "entries": [
@@ -871,7 +979,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-actions-button.json",
-          "sha256": "5c54b3066c4d81b0af281bb27d5947b2b1b547a8b0fd1c4531c622f1145b5bb7"
+          "sha256": "54ea77d185b6afbd6581d3d998a3b07b65ca1ca98acaafa93a63189fe16da8ee"
         },
         "url": "./ai/components/components-actions-button.json"
       },
@@ -945,7 +1053,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-actions-buttongroup.json",
-          "sha256": "d39eec8eaa776b9456c4c2c0e48adca07c955b4659d385a4e8c9dba12da9b79b"
+          "sha256": "1a8644f8ade32e4101c56ab1fe1ca37c144c265128c61f39a907461716f78252"
         },
         "url": "./ai/components/components-actions-buttongroup.json"
       },
@@ -981,7 +1089,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-actions-copybutton.json",
-          "sha256": "9126193db5daa2fe4f791814adafca7fb12ce83c42ed0db6449fc04c1eb4ec7c"
+          "sha256": "1a1ffe69e6cbebc40e2d53359d63b787ae7f9d72cc1f160fbc3a5601a43fca6a"
         },
         "url": "./ai/components/components-actions-copybutton.json"
       },
@@ -1017,7 +1125,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-actions-iconbutton.json",
-          "sha256": "063b4481dfa0aea56883af61caba93bd5ac893c99f2be5eac9b2d4b748d95f6f"
+          "sha256": "b36f5f8342f7e244724559f26665d234f3b7498fd823b2786ecf298687aa5d9a"
         },
         "url": "./ai/components/components-actions-iconbutton.json"
       },
@@ -1054,7 +1162,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-actions-link.json",
-          "sha256": "e4932a0d61ed5873f6cd12778f4f05ac0aafd461dd89675c4f45f84c8966a787"
+          "sha256": "b6e8cc9dfec1ca94417455501713982194e35d809c6764364a71ee6cf0eb3b63"
         },
         "url": "./ai/components/components-actions-link.json"
       },
@@ -1090,7 +1198,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-actions-splitbutton.json",
-          "sha256": "47e5331f417a43ef5418a4fcf3c2e504f1513a93e3c417476297821ae6a773de"
+          "sha256": "a1e65490ce8ada02dd4017cdc3ee0783860ef34de177b6315b714608f71f6119"
         },
         "url": "./ai/components/components-actions-splitbutton.json"
       },
@@ -1123,7 +1231,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-ai-aicard.json",
-          "sha256": "422a656629d7c4f367be10a4722479bc5e1375014b92b418cfb390cf12e15500"
+          "sha256": "8e409ba2e5ae5424650d317d08868a33ed07da2133c1c1e37fc3325adc969c22"
         },
         "url": "./ai/components/components-ai-aicard.json"
       },
@@ -1156,7 +1264,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-ai-aihighlight.json",
-          "sha256": "60db0156e331f277ba1881ae4bdead23d47304d9c469c3fb5c89f63141e65dee"
+          "sha256": "e2b5cc1786db442171e0286522a4d96f943e861751e180943b6aa51d4e39e5b5"
         },
         "url": "./ai/components/components-ai-aihighlight.json"
       },
@@ -1189,7 +1297,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-ai-aiinlinesuggestion.json",
-          "sha256": "20c3b9f364fed62943b7a3539131eb513bc5b5c26647c44b6789bea58f2d12d5"
+          "sha256": "f6f85e11f4a7d28d0dd39861a089f3200f3280359d9b5401c8b2be5748f85f5b"
         },
         "url": "./ai/components/components-ai-aiinlinesuggestion.json"
       },
@@ -1222,7 +1330,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-ai-aimessage.json",
-          "sha256": "f63523d299455d7d5f0757457e6a07efb21499b068cb742d9009764283b156fe"
+          "sha256": "71f7e1ab27a1a9627f93fb5ff1b718098eff247360cafb8483cfdb1181e9fde0"
         },
         "url": "./ai/components/components-ai-aimessage.json"
       },
@@ -1255,7 +1363,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-ai-confidencebadge.json",
-          "sha256": "be592286fc11e58125479c2ff5b3a838acf77c066378e4ca193635c4085adcd8"
+          "sha256": "d986b319861f7afb26599ed5160e7125b05f9d68e6984b95262f46cd36b6eebb"
         },
         "url": "./ai/components/components-ai-confidencebadge.json"
       },
@@ -1291,7 +1399,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-ai-streamingskeleton.json",
-          "sha256": "d67e699ac67260489da8e65dc2b6ac9b252e84de8ee1e06148f272fc04c6cd0a"
+          "sha256": "eddddf26948ec09fc037e3e24fb2e2284a33fba2fd31d831f3a4d29af4d055d8"
         },
         "url": "./ai/components/components-ai-streamingskeleton.json"
       },
@@ -1324,7 +1432,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-ai-thinkingindicator.json",
-          "sha256": "b358ee613814f0d9445549a7e9ed48dc5a245efdcbd41ae842effc36bb0c3659"
+          "sha256": "f8538b0db6bccd949bb0794b27729f6fcf1a8fe0e591c0a236a599f281eb4e62"
         },
         "url": "./ai/components/components-ai-thinkingindicator.json"
       },
@@ -1357,7 +1465,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-charts-area-chart.json",
-          "sha256": "3e02e6342cdc558af39aa85eef0bbe5232c54aee97f9dadcfe5dcbdf7a67d8c0"
+          "sha256": "05a97112c90bfd3951dc5d10e88e9b314db94d1f1b310a6c512e0d3bdcf7ee82"
         },
         "url": "./ai/components/components-charts-area-chart.json"
       },
@@ -1390,7 +1498,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-charts-bar-chart.json",
-          "sha256": "52a68dc48c6c467b8677b9c75c596d00e05dd449a8856281b5fdb5a8f9dae8da"
+          "sha256": "eabbb5244c34f12170c847085b68b99475ab99058acae646647e6a86a4de98cd"
         },
         "url": "./ai/components/components-charts-bar-chart.json"
       },
@@ -1423,7 +1531,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-charts-chart-container.json",
-          "sha256": "d1f99731a8b14711d279d678a4899ede4e761ef1465ce0ea9ea16b76d3aa6278"
+          "sha256": "6d2d0da08d51fc061d78fe03a5eab258767bc5b9af6ce2d96e59a2021bf15a1b"
         },
         "url": "./ai/components/components-charts-chart-container.json"
       },
@@ -1459,7 +1567,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-charts-chart-metric-card.json",
-          "sha256": "65f58f253016497a8d71d9063f62e8280ee2d02a334fa67e37f63420e1e6a61e"
+          "sha256": "259bb17a93933ffb854954981b11b613be6bcb9ce21ecaa81e2520c310de6180"
         },
         "url": "./ai/components/components-charts-chart-metric-card.json"
       },
@@ -1496,7 +1604,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-charts-donut-chart.json",
-          "sha256": "f82280196604a2c7b15229d302556ffda673e194db2e6533c6587826b5dbac5f"
+          "sha256": "986302aadd5c09c60f4549c089863657b36103ed13bf2ba52cadeb98a99bef00"
         },
         "url": "./ai/components/components-charts-donut-chart.json"
       },
@@ -1532,7 +1640,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-charts-event-histogram.json",
-          "sha256": "d3bd4b204a219e21e932b494fead689ad4884edc832b67f5691bfc53927673ea"
+          "sha256": "64d6abd7b63fa7389738512baa4ceb5bf53e6f49c8d573f3d04f89f78fa5db26"
         },
         "url": "./ai/components/components-charts-event-histogram.json"
       },
@@ -1570,7 +1678,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-charts-ganttchart.json",
-          "sha256": "1d50c0d1d24aa429c87f04f712abd058269422b2f33f66a1ed8ac6457f1e1990"
+          "sha256": "381915702188768e38915b80d51425226f08dc2a64983385d68c0aa513ad97c3"
         },
         "url": "./ai/components/components-charts-ganttchart.json"
       },
@@ -1603,7 +1711,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-charts-line-chart.json",
-          "sha256": "fc551b36a5c0f1bea12ca3cb3dd5066764288eb0ed1f5b9fca07dedd6b72515e"
+          "sha256": "fbb4b988cf9a6a262cfe885b080abbaa0348d98d2efab8639add4dd150236507"
         },
         "url": "./ai/components/components-charts-line-chart.json"
       },
@@ -1647,7 +1755,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-charts-metric-card.json",
-          "sha256": "150e247f7d8c1063d428f7e9790219f1ddc5d611d7d912e825429eb5852e81ba"
+          "sha256": "426bcc601b3d85465859d393ea33e101c5f55c7e2b6f94add5daa0153edd3777"
         },
         "url": "./ai/components/components-charts-metric-card.json"
       },
@@ -1670,7 +1778,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -1835,7 +1943,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-charts-mini-bar-chart.json",
-          "sha256": "cc204fd812b66104a8b32721ef24a3f9febcdc1ef05e9e26f93eeb7002c567cc"
+          "sha256": "dcdd2d6c244eb4f22dbe3ac4c9ac174b4f6c921e707999519a44b9260b32810f"
         },
         "url": "./ai/components/components-charts-mini-bar-chart.json"
       },
@@ -1877,7 +1985,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-charts-sparkline.json",
-          "sha256": "84df7f8fe8845643b40398c441f877fc335dc2454adda9b564d6b62a09fa91ba"
+          "sha256": "695d0a6c3c5fbfd7e79bfbd8cdfc4991fbc7cbc86e98f0a60c3ef88cefeba45e"
         },
         "url": "./ai/components/components-charts-sparkline.json"
       },
@@ -1900,7 +2008,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -2064,7 +2172,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-code-codeeditor.json",
-          "sha256": "3933ac2d26024996556331d2101108e26e6d1a97b99a8aac1c08bc35d7fa52f2"
+          "sha256": "7a2b206a57a8e75d34c8e391fffb2e296f28f7f585bc56f115afb4b95958f72f"
         },
         "url": "./ai/components/components-code-codeeditor.json"
       },
@@ -2097,7 +2205,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-code-diffview.json",
-          "sha256": "e1783b149c8920b153d54502b6ee2bda4666721d21a1822572a707601cb77132"
+          "sha256": "8cfb7bfc63b2801ac860a115201f102fbc1459d098145640a8bfbe5699eb002a"
         },
         "url": "./ai/components/components-code-diffview.json"
       },
@@ -2130,7 +2238,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-code-yamlpresenter.json",
-          "sha256": "ca5172b45b1fb1772653e67a64c658dbd768bfabb65c973bce05c00119695604"
+          "sha256": "748ab385b67aed33a33d61366ddcb45d5e3a995dd5699e57c6a15e3a499eeae1"
         },
         "url": "./ai/components/components-code-yamlpresenter.json"
       },
@@ -2166,7 +2274,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-content-expandabletext.json",
-          "sha256": "31e25d52e5e1cb4b63852159e527283a697a3ecfbf69b2f7b6278db352983426"
+          "sha256": "37273a31354f27ea6f803edcdd5183c5c71ae833ad78897752ce08f2f0e3613d"
         },
         "url": "./ai/components/components-content-expandabletext.json"
       },
@@ -2212,7 +2320,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-datagrid.json",
-          "sha256": "19db6849d4462c8428377a3ee37ba0f0e8ce47f2d30e04b6a96f1fd5c947f95e"
+          "sha256": "fd95ce354f7753a4af2ae3a1f3a714163667c2bb2952647f7f6725615975d10e"
         },
         "url": "./ai/components/components-data-datagrid.json"
       },
@@ -2239,7 +2347,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -2440,7 +2548,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-display-descriptionlist.json",
-          "sha256": "8f570ad3a671b3a3d78fe1e14cc1a2f8477f1c4339fe2677f823222f3c35b901"
+          "sha256": "20a86264455ebe79befb858a3367cbb183c4fb6ea011b4daf50708815f10fcec"
         },
         "url": "./ai/components/components-data-display-descriptionlist.json"
       },
@@ -2475,7 +2583,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -2640,7 +2748,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-grid-actions-cell.json",
-          "sha256": "f9414e6d1e5af29a6a6ceaa400075c841c2babdf68c8af68c173541d9e5a626d"
+          "sha256": "30ba71ff4023be5060628abd07eaf153e91f63cf12b550ada60540d0638741a2"
         },
         "url": "./ai/components/components-data-grid-actions-cell.json"
       },
@@ -2673,7 +2781,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-grid-ai-verdict-cell.json",
-          "sha256": "4086f108641aee26b4170a193169b063754f744f77ab572d34da7c929d05f113"
+          "sha256": "df1a80435e97d60e4e5240f2f134ffdf9964ff381eb83d1dba75286f82d123f8"
         },
         "url": "./ai/components/components-data-grid-ai-verdict-cell.json"
       },
@@ -2706,7 +2814,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-grid-bulk-actions-bar.json",
-          "sha256": "0828aeb3e4cfac223f05c2b2b58e95df5a8e0591b229539f769aa7d7f14ce9e2"
+          "sha256": "a5519925d44b347f80602d53d9d64264e498e5f4a791bc6c23c09a76bd69c449"
         },
         "url": "./ai/components/components-data-grid-bulk-actions-bar.json"
       },
@@ -2739,7 +2847,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-grid-cells.json",
-          "sha256": "15b0337b15be9e926dba2c11d7f8d1dc868055f09005f080a064875dfa1a01a5"
+          "sha256": "dd8bf802bd98a276a928cf65be8de74cc5b268ff291d1e09ebae196f459174c9"
         },
         "url": "./ai/components/components-data-grid-cells.json"
       },
@@ -2772,7 +2880,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-grid-expand-cell.json",
-          "sha256": "11f8ecc061c5deeb4d43d0721026fac9ad3b9d8e0979abd5d92548ce94204d4f"
+          "sha256": "9647d364318be9b460af1a604e6681645fd941de96a0f783342da0f8c9de5a76"
         },
         "url": "./ai/components/components-data-grid-expand-cell.json"
       },
@@ -2805,7 +2913,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-grid-number-cell.json",
-          "sha256": "271c447b1fcf007b2444937c02ec6e1dbbd4d189f6b2e3dcef8a5589b8f99334"
+          "sha256": "ad04b85dd10bb25a0589dc6540d247eed01c18284c171ccd08ad15ba1d264826"
         },
         "url": "./ai/components/components-data-grid-number-cell.json"
       },
@@ -2838,7 +2946,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-grid-severity-cell.json",
-          "sha256": "88bc29381ef22f54a038e2ffaa7fafd31c836e99aa826d9117d86fb1c7645d03"
+          "sha256": "3b6256fd47ead0e82b188491e41f6fdce6ed3b02eea3487125352d8c716ef285"
         },
         "url": "./ai/components/components-data-grid-severity-cell.json"
       },
@@ -2871,7 +2979,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-grid-sparkline-cell.json",
-          "sha256": "75c3d72e5769ce1d1e62d5faec319cd837a759b877a9f66b7de0c5ebfb75179c"
+          "sha256": "60e38d74d2136b7fb5a8f36058918a3d223fd61161bc6e7da43ed2597f5d484f"
         },
         "url": "./ai/components/components-data-grid-sparkline-cell.json"
       },
@@ -2904,7 +3012,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-grid-status-cell.json",
-          "sha256": "2dff61a33ff780dd5cbcb3d235610d5758fc20a4e010be7281c687dd93f88154"
+          "sha256": "12ec354275f1a1eb77c87a654e727387a2b2499be8e3916513ad81992add9d7c"
         },
         "url": "./ai/components/components-data-grid-status-cell.json"
       },
@@ -2937,7 +3045,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-grid-tags-cell.json",
-          "sha256": "a9b31073400425d69240ad31d7a0f4f1d99499e59e412eda654d6361726a5f4a"
+          "sha256": "5d7bb6b3e1575314a75359d1da13edd4b4bccb1aa6d988be90b584bb7f4df824"
         },
         "url": "./ai/components/components-data-grid-tags-cell.json"
       },
@@ -2970,7 +3078,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-grid-time-cell.json",
-          "sha256": "fe629c6aadfc10bec58c1149230377ef68b729d8afbb7bd792e2c07d0c800e1d"
+          "sha256": "b9028621e29c602810a03bcd4dc2aeff53d2aa76e9b07a353f2e65c3e635506c"
         },
         "url": "./ai/components/components-data-grid-time-cell.json"
       },
@@ -3006,7 +3114,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-jsonviewer.json",
-          "sha256": "eae39f34950092341c193cef338d20cba558154be14e8b22da9812781fd4003c"
+          "sha256": "ccd8ce6bb8c4ee1dbf67f0529cbec061c6fefccc265703d8265dbe3a2aec7846"
         },
         "url": "./ai/components/components-data-jsonviewer.json"
       },
@@ -3042,7 +3150,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-relativetime.json",
-          "sha256": "efba49a383b9e39e87eb19db1b262d1db06c5822c0e1fb690d01773742c8d4d4"
+          "sha256": "409afeb551f46fb23de7e12d227db7cbe877cc2cc5d64c8307db65b13e424535"
         },
         "url": "./ai/components/components-data-relativetime.json"
       },
@@ -3078,7 +3186,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-data-timeline.json",
-          "sha256": "353942e2514da373abbcded21db8a067d11039b140c66d2cd12acfaa5e16e541"
+          "sha256": "bc6d1bcde3243ebd805420c52a083bb5be8d40efcfdaf3c824f05a52fce7980d"
         },
         "url": "./ai/components/components-data-timeline.json"
       },
@@ -3120,7 +3228,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-feedback-empty-state.json",
-          "sha256": "a122db98ca6ffcfb19be8058cfbf121d30eb5cfac619ebda10b9d343dc39c557"
+          "sha256": "6c34030a4b7da3ebf4a805794d8bc65f72a1c66cc910d004b1cbfbc6e81c9fa8"
         },
         "url": "./ai/components/components-feedback-empty-state.json"
       },
@@ -3151,7 +3259,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -3323,7 +3431,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-feedback-notification.json",
-          "sha256": "fbd82d5c5bf19c0e8d1c1e831e90e6de7b969d3d813ce393fee06ff18403890d"
+          "sha256": "74558bf26f239f3ccbb627d20b0d443d33a112da97b5809a8351a415df7763de"
         },
         "url": "./ai/components/components-feedback-notification.json"
       },
@@ -3359,7 +3467,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-feedback-progress-bar.json",
-          "sha256": "924d4575a26f28a000ec9845867d4346a81f743d4477fcc8ac226c47d181dd91"
+          "sha256": "89d2339114d374f43d6b74c5e66fee83fc60ed621d9062f241c558425a45b99b"
         },
         "url": "./ai/components/components-feedback-progress-bar.json"
       },
@@ -3395,7 +3503,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-feedback-skeleton.json",
-          "sha256": "4972a527eac46680395326f42072063d2f60322fe5e40e22c382d194d22dd839"
+          "sha256": "69694cb3ada29e5e4bf8948c5770f6e483aa43d250307867e616e83d32deb8bb"
         },
         "url": "./ai/components/components-feedback-skeleton.json"
       },
@@ -3431,7 +3539,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-feedback-spinner.json",
-          "sha256": "99cc06ca693f8b6a8c9b18a56d56c15a91591871284093159687524a0aeb0b3f"
+          "sha256": "0c594dc408d70b1a56005afdbe237ba93141f80fb1a818ae5391cd04d0e9c3aa"
         },
         "url": "./ai/components/components-feedback-spinner.json"
       },
@@ -3474,7 +3582,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-checkbox.json",
-          "sha256": "5123bf7e86d57ffd61f317044d3c79ffed0caf65e2bbae990101c5dce9d9a4ac"
+          "sha256": "90ecaf32e9f16f6e8fd50e7766c09d7bafa094a07038e8bc44d0c09070a6ec46"
         },
         "url": "./ai/components/components-forms-checkbox.json"
       },
@@ -3513,7 +3621,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -3692,7 +3800,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-copyablefield.json",
-          "sha256": "bdc5094c2a15dfe51688bedb59f0ffcb5afbe94dec777d7bff46f2f2fcb4fede"
+          "sha256": "d7f4e965333b50db132f64b136f99501a5140e3468bcb25cb7054984e6479fca"
         },
         "url": "./ai/components/components-forms-copyablefield.json"
       },
@@ -3728,7 +3836,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-datepicker.json",
-          "sha256": "5ed990204b857ba77f8e5f5c50b75fe82724bc13dc54e63dda0dac1092aa04a0"
+          "sha256": "b8e2338a44dbd22fa0290e8eef215ea80678e94cf5b8cca29828d8f44f45e567"
         },
         "url": "./ai/components/components-forms-datepicker.json"
       },
@@ -3770,7 +3878,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-field.json",
-          "sha256": "79d510686db2be6eacfdb87f8f8ebe1e6f30d79877c333604d96697fd6d703e0"
+          "sha256": "1261b191e5f93924281c68bb93ba7d77de1932f845db38e058d3c224754fa39b"
         },
         "url": "./ai/components/components-forms-field.json"
       },
@@ -3841,7 +3949,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-fileupload.json",
-          "sha256": "3a11ea2539bf6501890c1a6df52b1d00b8b9d0f7e1c1425cd14d3398c52b84b2"
+          "sha256": "d400f592520b9d184f87ce905489b0098de5d8057c102412860cc79ca773b6bd"
         },
         "url": "./ai/components/components-forms-fileupload.json"
       },
@@ -3878,7 +3986,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-multicombobox.json",
-          "sha256": "72655bd0c682ecd66d7b3b91d380981fbe5cf3dcbf6b4edd4c709b8a6a9a8433"
+          "sha256": "5a78be5f0b978b0d637f8fc6efc98c976ff3709392e36a2331e98d4221c1640a"
         },
         "url": "./ai/components/components-forms-multicombobox.json"
       },
@@ -3893,6 +4001,509 @@
         "behaviorAuthored": false,
         "systemContractAuthored": false,
         "checksLinked": false,
+        "evidenceLinked": false,
+        "evidenceReported": false
+      }
+    },
+    {
+      "id": "components-forms-numberinput",
+      "name": "NumberInput",
+      "kind": "component",
+      "apiFamilyId": "components-forms-numberinput",
+      "registryId": "number-input",
+      "summary": "Nullable numeric entry with locale-aware display, native form participation and optional shared step buttons.",
+      "aliases": [
+        "controlled-value",
+        "field-association",
+        "locale-number-formatting",
+        "native-form-input",
+        "nullable-numeric-entry",
+        "number field",
+        "numeric input",
+        "numeric stepper",
+        "numeric-step-controls",
+        "quantity",
+        "quantity input",
+        "read-only-state",
+        "step input"
+      ],
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/number-input"
+      ],
+      "api": {
+        "source": {
+          "path": "public/ai/components/components-forms-numberinput.json",
+          "sha256": "f688dad1fba505a7dc6e26fed8ada8b8b3fb1a38f7b79a01d853b5db63db051e"
+        },
+        "url": "./ai/components/components-forms-numberinput.json"
+      },
+      "contract": {
+        "id": "number-input",
+        "version": 1,
+        "status": "source-backed-baseline",
+        "source": {
+          "path": "contracts/agentic/number-input.json",
+          "sha256": "7af866f02178f042070898a6f47d66d810b1a049c78c862161e98b88cc466d8e"
+        },
+        "references": [
+          {
+            "path": "skills/references/design-contract.md",
+            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+          },
+          {
+            "path": "src/components/field/field.tsx",
+            "sha256": "40235e4e9a6870588300293e8986247d4597301bb93dcfa2a26a5745b5a41c0c"
+          },
+          {
+            "path": "src/components/icon-button/icon-button.tsx",
+            "sha256": "a4af13b1b738cdfa0b6d94d6001428d6996636797c8b8c21c2ef71acdb71955e"
+          },
+          {
+            "path": "src/components/number-input/number-input.css",
+            "sha256": "d44a1978c0c4dfb4e5573c1cd5aa392c1182b487557bd91a0c352c4719ab1d7a"
+          },
+          {
+            "path": "src/components/number-input/number-input.tsx",
+            "sha256": "e435c5e32a856a804280d23972eaf922438fdaa5e9bad7af1cd5cef04dedbdf0"
+          },
+          {
+            "path": "src/components/number-input/README.md",
+            "sha256": "0534bf44efe50685c26b51ad4992eec07a1ef89856cb1824b6256eab63d29de3"
+          }
+        ],
+        "document": {
+          "schemaVersion": 2,
+          "id": "number-input",
+          "version": 1,
+          "status": "source-backed-baseline",
+          "verification": "not-certified-by-this-contract",
+          "purpose": "Enter a nullable numeric quantity with locale-aware formatting, optional step actions and native form participation.",
+          "anatomy": [
+            "optional standalone label",
+            "number-field group",
+            "optional decrement IconButton",
+            "visible numeric text input",
+            "optional increment IconButton",
+            "primitive form-associated numeric input"
+          ],
+          "states": [
+            "empty",
+            "populated",
+            "controlled",
+            "uncontrolled",
+            "disabled",
+            "read-only",
+            "invalid",
+            "required",
+            "keyboard-focus",
+            "at-minimum",
+            "at-maximum"
+          ],
+          "tokenGroup": "input",
+          "behaviorProvider": "Installed @base-ui/react NumberField Root, Group, Input, Decrement and Increment; shared Aegis useFieldControl and IconButton.",
+          "ownership": {
+            "component": [
+              "Primitive composition, numeric state and interaction delegation",
+              "Visible input ref and raw-number form participation",
+              "Field association and optional shared step actions"
+            ],
+            "host": [
+              "Controlled state acceptance and domain validation",
+              "Meaningful accessible naming and locale choices",
+              "Submission, persistence, finite configuration and financial precision decisions"
+            ]
+          },
+          "requirements": [
+            {
+              "id": "nullable-value-ownership",
+              "kind": "component",
+              "statement": "Delegate numeric state to Base UI NumberField. A supplied value selects controlled behavior and preserves null as empty; otherwise defaultValue initializes uncontrolled state. Null defaultValue maps to the primitive empty default rather than zero.",
+              "sources": [
+                "src/components/number-input/number-input.tsx"
+              ]
+            },
+            {
+              "id": "change-and-commit-details",
+              "kind": "component",
+              "statement": "Pass onValueChange and onValueCommitted directly to Base UI without dropping their value or event details. Change details preserve primitive cancellation and reason information; commit callbacks report interaction completion, not persistence.",
+              "sources": [
+                "src/components/number-input/number-input.tsx",
+                "src/components/number-input/README.md"
+              ]
+            },
+            {
+              "id": "native-form-value",
+              "kind": "component",
+              "statement": "Pass name, form, min, max, step, required, disabled and readOnly to NumberField.Root. Its associated numeric input owns the submitted raw number. The visible input uses the primitive text-editing behavior and has no duplicate form name. The forwarded ref targets the visible input; hiddenInputRef targets the associated numeric input.",
+              "sources": [
+                "src/components/number-input/number-input.tsx"
+              ]
+            },
+            {
+              "id": "bounds-steps-and-editing",
+              "kind": "component",
+              "statement": "Delegate min/max, step, smallStep, largeStep, snapOnStep, allowOutOfRange and allowWheelScrub to NumberField. Keep its arrow-key stepping and defined Home/End bounds; showSteppers only controls the two rendered increment/decrement actions.",
+              "sources": [
+                "src/components/number-input/number-input.tsx",
+                "src/components/number-input/README.md"
+              ]
+            },
+            {
+              "id": "locale-formatting",
+              "kind": "component",
+              "statement": "Pass locale and Intl format options through to NumberField so localized display and numeric value remain distinct. The wrapper adds no currency conversion, decimal accounting or precision arithmetic.",
+              "sources": [
+                "src/components/number-input/number-input.tsx",
+                "src/components/number-input/README.md"
+              ]
+            },
+            {
+              "id": "field-association",
+              "kind": "component",
+              "statement": "Use useFieldControl to resolve the real input id, required, disabled, invalid and description references. Associate a standalone visible label when provided; explicit aria-labelledby takes precedence. Enclosing Field help/error references are merged with an explicit aria-describedby.",
+              "sources": [
+                "src/components/number-input/number-input.tsx",
+                "src/components/field/field.tsx"
+              ]
+            },
+            {
+              "id": "shared-step-actions",
+              "kind": "component",
+              "statement": "Render NumberField.Decrement and NumberField.Increment through actual IconButton components when showSteppers is true. Supply localizable action labels and preserve the primitive button interactions and Tab-sequence policy.",
+              "sources": [
+                "src/components/number-input/number-input.tsx",
+                "src/components/icon-button/icon-button.tsx"
+              ]
+            },
+            {
+              "id": "controlled-host-and-inputs",
+              "kind": "host",
+              "statement": "When value is provided, update it to accept requested changes, including null. Supply finite meaningful bounds, valid positive step amounts and valid Intl options. Treat defaultValue as initialization, not a reset command.",
+              "sources": [
+                "src/components/number-input/number-input.tsx",
+                "src/components/number-input/README.md"
+              ]
+            },
+            {
+              "id": "validation-and-domain-ownership",
+              "kind": "host",
+              "statement": "Own domain validation, error messages, financial calculations, submission and persistence. invalid and Field.error present host decisions; a committed callback does not certify validity. When allowing out-of-range input, decide how native validity and recovery messages are surfaced.",
+              "sources": [
+                "src/components/number-input/number-input.tsx",
+                "src/components/field/field.tsx",
+                "src/components/number-input/README.md"
+              ]
+            },
+            {
+              "id": "accessible-naming",
+              "kind": "host",
+              "statement": "Supply a standalone label, enclosing Field label or input accessible name. Localize step action names where needed. Do not use placeholder text as the label or override the text-input role to claim unsupported spinbutton semantics.",
+              "sources": [
+                "src/components/number-input/number-input.tsx",
+                "src/components/number-input/README.md"
+              ]
+            },
+            {
+              "id": "group-token-and-focus-ownership",
+              "kind": "design",
+              "statement": "Keep the owned root and input styles within the input token group; real nested IconButton components retain trigger tokens. Preserve keyboard-visible focus, forced-colors indication and stable size metrics across both themes and modes.",
+              "sources": [
+                "src/components/number-input/number-input.css",
+                "src/components/icon-button/icon-button.tsx",
+                "skills/references/design-contract.md"
+              ]
+            }
+          ],
+          "limitations": [
+            "This is a source-backed requirement record, not a current browser result or release approval.",
+            "The wrapper adds no native form-reset listener, application validation, asynchronous validation or persistence.",
+            "Intl precision options may round committed values. The component does not provide arbitrary precision accounting or currency conversion; compact notation is unsuitable when edited values must round-trip.",
+            "Primitive numeric parsing and keyboard behavior remain dependent on the installed Base UI version. The visible element is a text input with a number-field role description, not an added spinbutton role."
+          ]
+        },
+        "raw": "{\n  \"schemaVersion\": 2,\n  \"id\": \"number-input\",\n  \"version\": 1,\n  \"status\": \"source-backed-baseline\",\n  \"verification\": \"not-certified-by-this-contract\",\n  \"purpose\": \"Enter a nullable numeric quantity with locale-aware formatting, optional step actions and native form participation.\",\n  \"anatomy\": [\n    \"optional standalone label\",\n    \"number-field group\",\n    \"optional decrement IconButton\",\n    \"visible numeric text input\",\n    \"optional increment IconButton\",\n    \"primitive form-associated numeric input\"\n  ],\n  \"states\": [\n    \"empty\",\n    \"populated\",\n    \"controlled\",\n    \"uncontrolled\",\n    \"disabled\",\n    \"read-only\",\n    \"invalid\",\n    \"required\",\n    \"keyboard-focus\",\n    \"at-minimum\",\n    \"at-maximum\"\n  ],\n  \"tokenGroup\": \"input\",\n  \"behaviorProvider\": \"Installed @base-ui/react NumberField Root, Group, Input, Decrement and Increment; shared Aegis useFieldControl and IconButton.\",\n  \"ownership\": {\n    \"component\": [\n      \"Primitive composition, numeric state and interaction delegation\",\n      \"Visible input ref and raw-number form participation\",\n      \"Field association and optional shared step actions\"\n    ],\n    \"host\": [\n      \"Controlled state acceptance and domain validation\",\n      \"Meaningful accessible naming and locale choices\",\n      \"Submission, persistence, finite configuration and financial precision decisions\"\n    ]\n  },\n  \"requirements\": [\n    {\n      \"id\": \"nullable-value-ownership\",\n      \"kind\": \"component\",\n      \"statement\": \"Delegate numeric state to Base UI NumberField. A supplied value selects controlled behavior and preserves null as empty; otherwise defaultValue initializes uncontrolled state. Null defaultValue maps to the primitive empty default rather than zero.\",\n      \"sources\": [\"src/components/number-input/number-input.tsx\"]\n    },\n    {\n      \"id\": \"change-and-commit-details\",\n      \"kind\": \"component\",\n      \"statement\": \"Pass onValueChange and onValueCommitted directly to Base UI without dropping their value or event details. Change details preserve primitive cancellation and reason information; commit callbacks report interaction completion, not persistence.\",\n      \"sources\": [\n        \"src/components/number-input/number-input.tsx\",\n        \"src/components/number-input/README.md\"\n      ]\n    },\n    {\n      \"id\": \"native-form-value\",\n      \"kind\": \"component\",\n      \"statement\": \"Pass name, form, min, max, step, required, disabled and readOnly to NumberField.Root. Its associated numeric input owns the submitted raw number. The visible input uses the primitive text-editing behavior and has no duplicate form name. The forwarded ref targets the visible input; hiddenInputRef targets the associated numeric input.\",\n      \"sources\": [\"src/components/number-input/number-input.tsx\"]\n    },\n    {\n      \"id\": \"bounds-steps-and-editing\",\n      \"kind\": \"component\",\n      \"statement\": \"Delegate min/max, step, smallStep, largeStep, snapOnStep, allowOutOfRange and allowWheelScrub to NumberField. Keep its arrow-key stepping and defined Home/End bounds; showSteppers only controls the two rendered increment/decrement actions.\",\n      \"sources\": [\n        \"src/components/number-input/number-input.tsx\",\n        \"src/components/number-input/README.md\"\n      ]\n    },\n    {\n      \"id\": \"locale-formatting\",\n      \"kind\": \"component\",\n      \"statement\": \"Pass locale and Intl format options through to NumberField so localized display and numeric value remain distinct. The wrapper adds no currency conversion, decimal accounting or precision arithmetic.\",\n      \"sources\": [\n        \"src/components/number-input/number-input.tsx\",\n        \"src/components/number-input/README.md\"\n      ]\n    },\n    {\n      \"id\": \"field-association\",\n      \"kind\": \"component\",\n      \"statement\": \"Use useFieldControl to resolve the real input id, required, disabled, invalid and description references. Associate a standalone visible label when provided; explicit aria-labelledby takes precedence. Enclosing Field help/error references are merged with an explicit aria-describedby.\",\n      \"sources\": [\"src/components/number-input/number-input.tsx\", \"src/components/field/field.tsx\"]\n    },\n    {\n      \"id\": \"shared-step-actions\",\n      \"kind\": \"component\",\n      \"statement\": \"Render NumberField.Decrement and NumberField.Increment through actual IconButton components when showSteppers is true. Supply localizable action labels and preserve the primitive button interactions and Tab-sequence policy.\",\n      \"sources\": [\n        \"src/components/number-input/number-input.tsx\",\n        \"src/components/icon-button/icon-button.tsx\"\n      ]\n    },\n    {\n      \"id\": \"controlled-host-and-inputs\",\n      \"kind\": \"host\",\n      \"statement\": \"When value is provided, update it to accept requested changes, including null. Supply finite meaningful bounds, valid positive step amounts and valid Intl options. Treat defaultValue as initialization, not a reset command.\",\n      \"sources\": [\n        \"src/components/number-input/number-input.tsx\",\n        \"src/components/number-input/README.md\"\n      ]\n    },\n    {\n      \"id\": \"validation-and-domain-ownership\",\n      \"kind\": \"host\",\n      \"statement\": \"Own domain validation, error messages, financial calculations, submission and persistence. invalid and Field.error present host decisions; a committed callback does not certify validity. When allowing out-of-range input, decide how native validity and recovery messages are surfaced.\",\n      \"sources\": [\n        \"src/components/number-input/number-input.tsx\",\n        \"src/components/field/field.tsx\",\n        \"src/components/number-input/README.md\"\n      ]\n    },\n    {\n      \"id\": \"accessible-naming\",\n      \"kind\": \"host\",\n      \"statement\": \"Supply a standalone label, enclosing Field label or input accessible name. Localize step action names where needed. Do not use placeholder text as the label or override the text-input role to claim unsupported spinbutton semantics.\",\n      \"sources\": [\n        \"src/components/number-input/number-input.tsx\",\n        \"src/components/number-input/README.md\"\n      ]\n    },\n    {\n      \"id\": \"group-token-and-focus-ownership\",\n      \"kind\": \"design\",\n      \"statement\": \"Keep the owned root and input styles within the input token group; real nested IconButton components retain trigger tokens. Preserve keyboard-visible focus, forced-colors indication and stable size metrics across both themes and modes.\",\n      \"sources\": [\n        \"src/components/number-input/number-input.css\",\n        \"src/components/icon-button/icon-button.tsx\",\n        \"skills/references/design-contract.md\"\n      ]\n    }\n  ],\n  \"limitations\": [\n    \"This is a source-backed requirement record, not a current browser result or release approval.\",\n    \"The wrapper adds no native form-reset listener, application validation, asynchronous validation or persistence.\",\n    \"Intl precision options may round committed values. The component does not provide arbitrary precision accounting or currency conversion; compact notation is unsuitable when edited values must round-trip.\",\n    \"Primitive numeric parsing and keyboard behavior remain dependent on the installed Base UI version. The visible element is a text input with a number-field role description, not an added spinbutton role.\"\n  ]\n}\n"
+      },
+      "checks": [
+        {
+          "path": "src/components/number-input/number-input.stories.tsx",
+          "sha256": "3e986d5a913700a19c128ec47cdca0fc63444807ba9b2146a6dc5bdc3956c9c1",
+          "label": "NumberInput interaction stories",
+          "scope": "Keyboard and bounds, controlled empty values and callbacks, German form entry, Field/locked states and cancellation. A linked story is not a passing run."
+        },
+        {
+          "path": "src/components/number-input/number-input.test.tsx",
+          "sha256": "df65b9e8ed503fe456d4023ef3ed95ff3e9c96bf6286ab6f59f876db0788dabd",
+          "label": "NumberInput render semantics",
+          "scope": "Five static checks cover null/zero distinction, exact form naming, localized display/raw form separation, Field associations, locks and shared optional buttons; browser interaction is separate."
+        }
+      ],
+      "evidence": [],
+      "limitations": [
+        "Linked checks describe available verification code, not a current passing result or complete invariant coverage."
+      ],
+      "coverage": {
+        "apiDocumented": true,
+        "behaviorAuthored": true,
+        "systemContractAuthored": false,
+        "checksLinked": true,
+        "evidenceLinked": false,
+        "evidenceReported": false
+      }
+    },
+    {
+      "id": "components-forms-passwordinput",
+      "name": "PasswordInput",
+      "kind": "component",
+      "apiFamilyId": "components-forms-passwordinput",
+      "registryId": "password-input",
+      "summary": "A native password field with a named reveal/conceal action, composed from TextInput and IconButton.",
+      "aliases": [
+        "controlled-value",
+        "field-association",
+        "native-form-control",
+        "password",
+        "password field",
+        "password-entry",
+        "reveal password",
+        "reveal-conceal-value",
+        "secret",
+        "show password"
+      ],
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/password-input"
+      ],
+      "api": {
+        "source": {
+          "path": "public/ai/components/components-forms-passwordinput.json",
+          "sha256": "82be24d2b779492801f9af768bbe4f92fd83b170e11e90bf508eb050dcd2e29a"
+        },
+        "url": "./ai/components/components-forms-passwordinput.json"
+      },
+      "contract": {
+        "id": "password-input",
+        "version": 1,
+        "status": "source-backed-baseline",
+        "source": {
+          "path": "contracts/agentic/password-input.json",
+          "sha256": "ca536f63346aae0a33ed28327487c34610d182ecbd36362f1679db04bc58feb4"
+        },
+        "references": [
+          {
+            "path": "skills/create-component/SKILL.md",
+            "sha256": "e095d65734f2a02c65e2723295d4c4ea17df7f498bdd6b5eb3ba4853142babd3"
+          },
+          {
+            "path": "skills/references/design-contract.md",
+            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+          },
+          {
+            "path": "src/components/button/button.tsx",
+            "sha256": "3ec919122b443a2400993b17eb97c4e3abb6721b3b888953ff5bd1ec0a5e518c"
+          },
+          {
+            "path": "src/components/field/field.tsx",
+            "sha256": "40235e4e9a6870588300293e8986247d4597301bb93dcfa2a26a5745b5a41c0c"
+          },
+          {
+            "path": "src/components/password-input/password-input.css",
+            "sha256": "5ab49b623ac43a4b78e232a118607c5439f4ddd6888da2402b1d3b1ea1940ab4"
+          },
+          {
+            "path": "src/components/password-input/password-input.stories.tsx",
+            "sha256": "57bbedb40d1bfb342cd80aa8ca1377a4e9febaf7d83a9053352c9a15457589ec"
+          },
+          {
+            "path": "src/components/password-input/password-input.tsx",
+            "sha256": "38742ecd67c71d31847d7e1e3126508550bb2a2533ab4bc9cc2ea3f0074f1ac4"
+          },
+          {
+            "path": "src/components/password-input/README.md",
+            "sha256": "c1b54c5ec57298b914f921027cd1abac2e0d52031915c623b08ecfebd903215d"
+          },
+          {
+            "path": "src/components/text-input/text-input.tsx",
+            "sha256": "31d8542789b1d63bacb3047856ad489e6040754579d6681c2794111976f4397e"
+          }
+        ],
+        "document": {
+          "schemaVersion": 2,
+          "id": "password-input",
+          "version": 1,
+          "status": "source-backed-baseline",
+          "verification": "not-certified-by-this-contract",
+          "purpose": "Enter a password using a native TextInput with an explicit accessible reveal or conceal action.",
+          "anatomy": [
+            "TextInput label or enclosing Field",
+            "native input",
+            "optional prefix",
+            "visibility IconButton",
+            "optional Field help and validation"
+          ],
+          "states": [
+            "concealed",
+            "revealed",
+            "controlled or uncontrolled value",
+            "disabled",
+            "read-only",
+            "invalid",
+            "keyboard focus"
+          ],
+          "tokenGroup": "input",
+          "behaviorProvider": "Native TextInput and its public Field integration, composed with the shared IconButton; local visibility state only.",
+          "ownership": {
+            "component": [
+              "native input composition and forwarded ref",
+              "local visibility action",
+              "effective Field disabled state shared by both controls"
+            ],
+            "host": [
+              "accepted controlled value and native form lifecycle",
+              "accessible names, password policy and autocomplete intent",
+              "authentication, storage and any conceal-on-navigation policy"
+            ]
+          },
+          "requirements": [
+            {
+              "id": "concealed-initial-value",
+              "kind": "component",
+              "statement": "Start each mounted instance with native input type password. Reveal and conceal change that same TextInput's type between text and password without replacing the value model.",
+              "sources": [
+                "src/components/password-input/password-input.tsx",
+                "src/components/text-input/text-input.tsx"
+              ]
+            },
+            {
+              "id": "value-and-events",
+              "kind": "component",
+              "statement": "Forward value, defaultValue, onValueChange and native onChange unchanged to TextInput. Visibility changes update only local visibility state and must not synthesize value-change events.",
+              "sources": [
+                "src/components/password-input/password-input.tsx",
+                "src/components/text-input/text-input.tsx"
+              ]
+            },
+            {
+              "id": "controlled-host",
+              "kind": "host",
+              "statement": "When value is supplied, accept edits through a change callback and feed the resulting value back. defaultValue initializes the uncontrolled value; it is not a later reset command.",
+              "sources": [
+                "src/components/password-input/password-input.tsx",
+                "src/components/text-input/text-input.tsx"
+              ]
+            },
+            {
+              "id": "native-ref-and-props",
+              "kind": "component",
+              "statement": "Forward the public ref to TextInput's native input and preserve ordinary input properties and lifecycle handlers, including name, form, autocomplete, required and validation constraints. Reserve type and suffix for password visibility and keep clear controls disabled.",
+              "sources": [
+                "src/components/password-input/password-input.tsx",
+                "src/components/text-input/text-input.tsx"
+              ]
+            },
+            {
+              "id": "field-context",
+              "kind": "component",
+              "statement": "Use the same effective Field control id and disabled precedence for the input and visibility action. Let TextInput retain standalone or Field labeling, merged descriptions, required and invalid metadata; explicit control props retain useFieldControl precedence.",
+              "sources": [
+                "src/components/password-input/password-input.tsx",
+                "src/components/field/field.tsx",
+                "src/components/text-input/text-input.tsx"
+              ]
+            },
+            {
+              "id": "named-visibility-action",
+              "kind": "component",
+              "statement": "Render a real IconButton with type button, an action name that changes between Show password and Hide password (or supplied labels), and aria-controls referencing the native input. Its decorative icon is hidden from assistive technology.",
+              "sources": [
+                "src/components/password-input/password-input.tsx"
+              ]
+            },
+            {
+              "id": "visibility-focus-and-form",
+              "kind": "component",
+              "statement": "Activating the native visibility button with pointer, Enter or Space changes visibility without submitting the surrounding form or deliberately moving focus away from the button. Normal input and form behavior remains with TextInput and the host.",
+              "sources": [
+                "src/components/password-input/password-input.tsx",
+                "src/components/button/button.tsx"
+              ]
+            },
+            {
+              "id": "disabled-and-read-only",
+              "kind": "component",
+              "statement": "Effective disabled state disables both input and visibility action. readOnly is forwarded only to the input, deliberately allowing visibility changes without edits. Disabling an already revealed field does not automatically conceal it.",
+              "sources": [
+                "src/components/password-input/password-input.tsx"
+              ]
+            },
+            {
+              "id": "visibility-lifecycle",
+              "kind": "component",
+              "statement": "Keep visibility as local instance state through ordinary rerenders. No controlled visibility prop, blur concealment or form-reset visibility handler is provided; a newly mounted instance starts concealed.",
+              "sources": [
+                "src/components/password-input/password-input.tsx"
+              ]
+            },
+            {
+              "id": "password-context-and-policy",
+              "kind": "host",
+              "statement": "Supply a meaningful input label and autocomplete intent appropriate to current or new passwords. Own validation, submission, recovery, authentication and storage; concealment is not encryption or access control.",
+              "sources": [
+                "src/components/password-input/README.md",
+                "skills/create-component/SKILL.md"
+              ]
+            },
+            {
+              "id": "owned-and-nested-tokens",
+              "kind": "design",
+              "statement": "Preserve input-group styling for TextInput and wrapper-owned icon dimensions; the genuine nested IconButton retains trigger-group styling. Do not override child internals or introduce theme-specific dimensions.",
+              "sources": [
+                "src/components/password-input/password-input.tsx",
+                "src/components/password-input/password-input.css",
+                "skills/references/design-contract.md"
+              ]
+            },
+            {
+              "id": "verify-composed-interaction",
+              "kind": "design",
+              "statement": "Check keyboard naming, reveal without submission, ref focus, disabled Field integration, read-only reveal and unchanged values across theme changes. Verify dimensions and focus treatment across all four theme/mode mappings rather than treating static markup tests as full acceptance.",
+              "sources": [
+                "src/components/password-input/password-input.stories.tsx",
+                "skills/create-component/SKILL.md",
+                "skills/references/design-contract.md"
+              ]
+            }
+          ],
+          "limitations": [
+            "No password strength analysis, authentication, secure storage or asynchronous submission is implemented.",
+            "Read-only values remain revealable. Disabled state blocks interaction but does not conceal a previously revealed value.",
+            "Visibility is local and not controlled externally; no automatic conceal-on-blur, navigation or form-reset behavior is promised.",
+            "Static rendering and linked story code are separate from executed browser, visual or accessibility evidence."
+          ]
+        },
+        "raw": "{\n  \"schemaVersion\": 2,\n  \"id\": \"password-input\",\n  \"version\": 1,\n  \"status\": \"source-backed-baseline\",\n  \"verification\": \"not-certified-by-this-contract\",\n  \"purpose\": \"Enter a password using a native TextInput with an explicit accessible reveal or conceal action.\",\n  \"anatomy\": [\n    \"TextInput label or enclosing Field\",\n    \"native input\",\n    \"optional prefix\",\n    \"visibility IconButton\",\n    \"optional Field help and validation\"\n  ],\n  \"states\": [\n    \"concealed\",\n    \"revealed\",\n    \"controlled or uncontrolled value\",\n    \"disabled\",\n    \"read-only\",\n    \"invalid\",\n    \"keyboard focus\"\n  ],\n  \"tokenGroup\": \"input\",\n  \"behaviorProvider\": \"Native TextInput and its public Field integration, composed with the shared IconButton; local visibility state only.\",\n  \"ownership\": {\n    \"component\": [\n      \"native input composition and forwarded ref\",\n      \"local visibility action\",\n      \"effective Field disabled state shared by both controls\"\n    ],\n    \"host\": [\n      \"accepted controlled value and native form lifecycle\",\n      \"accessible names, password policy and autocomplete intent\",\n      \"authentication, storage and any conceal-on-navigation policy\"\n    ]\n  },\n  \"requirements\": [\n    {\n      \"id\": \"concealed-initial-value\",\n      \"kind\": \"component\",\n      \"statement\": \"Start each mounted instance with native input type password. Reveal and conceal change that same TextInput's type between text and password without replacing the value model.\",\n      \"sources\": [\n        \"src/components/password-input/password-input.tsx\",\n        \"src/components/text-input/text-input.tsx\"\n      ]\n    },\n    {\n      \"id\": \"value-and-events\",\n      \"kind\": \"component\",\n      \"statement\": \"Forward value, defaultValue, onValueChange and native onChange unchanged to TextInput. Visibility changes update only local visibility state and must not synthesize value-change events.\",\n      \"sources\": [\n        \"src/components/password-input/password-input.tsx\",\n        \"src/components/text-input/text-input.tsx\"\n      ]\n    },\n    {\n      \"id\": \"controlled-host\",\n      \"kind\": \"host\",\n      \"statement\": \"When value is supplied, accept edits through a change callback and feed the resulting value back. defaultValue initializes the uncontrolled value; it is not a later reset command.\",\n      \"sources\": [\n        \"src/components/password-input/password-input.tsx\",\n        \"src/components/text-input/text-input.tsx\"\n      ]\n    },\n    {\n      \"id\": \"native-ref-and-props\",\n      \"kind\": \"component\",\n      \"statement\": \"Forward the public ref to TextInput's native input and preserve ordinary input properties and lifecycle handlers, including name, form, autocomplete, required and validation constraints. Reserve type and suffix for password visibility and keep clear controls disabled.\",\n      \"sources\": [\n        \"src/components/password-input/password-input.tsx\",\n        \"src/components/text-input/text-input.tsx\"\n      ]\n    },\n    {\n      \"id\": \"field-context\",\n      \"kind\": \"component\",\n      \"statement\": \"Use the same effective Field control id and disabled precedence for the input and visibility action. Let TextInput retain standalone or Field labeling, merged descriptions, required and invalid metadata; explicit control props retain useFieldControl precedence.\",\n      \"sources\": [\n        \"src/components/password-input/password-input.tsx\",\n        \"src/components/field/field.tsx\",\n        \"src/components/text-input/text-input.tsx\"\n      ]\n    },\n    {\n      \"id\": \"named-visibility-action\",\n      \"kind\": \"component\",\n      \"statement\": \"Render a real IconButton with type button, an action name that changes between Show password and Hide password (or supplied labels), and aria-controls referencing the native input. Its decorative icon is hidden from assistive technology.\",\n      \"sources\": [\"src/components/password-input/password-input.tsx\"]\n    },\n    {\n      \"id\": \"visibility-focus-and-form\",\n      \"kind\": \"component\",\n      \"statement\": \"Activating the native visibility button with pointer, Enter or Space changes visibility without submitting the surrounding form or deliberately moving focus away from the button. Normal input and form behavior remains with TextInput and the host.\",\n      \"sources\": [\n        \"src/components/password-input/password-input.tsx\",\n        \"src/components/button/button.tsx\"\n      ]\n    },\n    {\n      \"id\": \"disabled-and-read-only\",\n      \"kind\": \"component\",\n      \"statement\": \"Effective disabled state disables both input and visibility action. readOnly is forwarded only to the input, deliberately allowing visibility changes without edits. Disabling an already revealed field does not automatically conceal it.\",\n      \"sources\": [\"src/components/password-input/password-input.tsx\"]\n    },\n    {\n      \"id\": \"visibility-lifecycle\",\n      \"kind\": \"component\",\n      \"statement\": \"Keep visibility as local instance state through ordinary rerenders. No controlled visibility prop, blur concealment or form-reset visibility handler is provided; a newly mounted instance starts concealed.\",\n      \"sources\": [\"src/components/password-input/password-input.tsx\"]\n    },\n    {\n      \"id\": \"password-context-and-policy\",\n      \"kind\": \"host\",\n      \"statement\": \"Supply a meaningful input label and autocomplete intent appropriate to current or new passwords. Own validation, submission, recovery, authentication and storage; concealment is not encryption or access control.\",\n      \"sources\": [\"src/components/password-input/README.md\", \"skills/create-component/SKILL.md\"]\n    },\n    {\n      \"id\": \"owned-and-nested-tokens\",\n      \"kind\": \"design\",\n      \"statement\": \"Preserve input-group styling for TextInput and wrapper-owned icon dimensions; the genuine nested IconButton retains trigger-group styling. Do not override child internals or introduce theme-specific dimensions.\",\n      \"sources\": [\n        \"src/components/password-input/password-input.tsx\",\n        \"src/components/password-input/password-input.css\",\n        \"skills/references/design-contract.md\"\n      ]\n    },\n    {\n      \"id\": \"verify-composed-interaction\",\n      \"kind\": \"design\",\n      \"statement\": \"Check keyboard naming, reveal without submission, ref focus, disabled Field integration, read-only reveal and unchanged values across theme changes. Verify dimensions and focus treatment across all four theme/mode mappings rather than treating static markup tests as full acceptance.\",\n      \"sources\": [\n        \"src/components/password-input/password-input.stories.tsx\",\n        \"skills/create-component/SKILL.md\",\n        \"skills/references/design-contract.md\"\n      ]\n    }\n  ],\n  \"limitations\": [\n    \"No password strength analysis, authentication, secure storage or asynchronous submission is implemented.\",\n    \"Read-only values remain revealable. Disabled state blocks interaction but does not conceal a previously revealed value.\",\n    \"Visibility is local and not controlled externally; no automatic conceal-on-blur, navigation or form-reset behavior is promised.\",\n    \"Static rendering and linked story code are separate from executed browser, visual or accessibility evidence.\"\n  ]\n}\n"
+      },
+      "checks": [
+        {
+          "path": "src/components/password-input/password-input.stories.tsx",
+          "sha256": "57bbedb40d1bfb342cd80aa8ca1377a4e9febaf7d83a9053352c9a15457589ec",
+          "label": "PasswordInput interaction stories",
+          "scope": "Play assertions cover typing, forwarded input focus, both change channels, reveal/conceal without submission, native FormData and read-only reveal; source linkage is not a passing result."
+        },
+        {
+          "path": "src/components/password-input/password-input.test.tsx",
+          "sha256": "0fb9c863e18e124ecb5e69419b91d384e6c66f6df7615e7f3ddcac65410c958a",
+          "label": "PasswordInput initial rendering tests",
+          "scope": "Default concealment, Field associations, disabled/read-only states and native prop forwarding; static rendering only."
+        }
+      ],
+      "evidence": [],
+      "limitations": [
+        "Linked checks describe available verification code, not a current passing result or complete invariant coverage."
+      ],
+      "coverage": {
+        "apiDocumented": true,
+        "behaviorAuthored": true,
+        "systemContractAuthored": false,
+        "checksLinked": true,
         "evidenceLinked": false,
         "evidenceReported": false
       }
@@ -3914,7 +4525,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-radiogroup.json",
-          "sha256": "6f7d1dfbf14d353c5e86b28919fadb150b36590ec79f1a83e7f4d079a1d3169a"
+          "sha256": "c7b1924b525042b5ffec1ac72301602e7ec956ed1e86ee0d1646d4b2056862c7"
         },
         "url": "./ai/components/components-forms-radiogroup.json"
       },
@@ -3957,7 +4568,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-searchinput.json",
-          "sha256": "11891b99b82b09f355b3c17b00f7766a5b877f950bc1d59e8dd41ec5e606e0bf"
+          "sha256": "4ad4fbab3601c6418f4874bd509875911cca30f8563390b1a7e3a931cc406ab2"
         },
         "url": "./ai/components/components-forms-searchinput.json"
       },
@@ -4000,7 +4611,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -4187,7 +4798,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-segmentedcontrol.json",
-          "sha256": "7e7e5866fcf90ae4c35f62bf1cc244b47642af382e69d64b59e2d6b0054cba78"
+          "sha256": "1e99e3719a418ffcff5a60617b94356bd2f81f9fd66781533c3a19c4e794723e"
         },
         "url": "./ai/components/components-forms-segmentedcontrol.json"
       },
@@ -4222,7 +4833,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -4403,7 +5014,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-select.json",
-          "sha256": "d54444fbc85cf16875f9afca1fe43a218bb1a30345f5d69ca3dc7d16ec0d2e0d"
+          "sha256": "e5ec2358da057c5f11aabef121742e2ab28fc2c4fdefe47ff89c445905cb4438"
         },
         "url": "./ai/components/components-forms-select.json"
       },
@@ -4442,7 +5053,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -4641,7 +5252,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-slider.json",
-          "sha256": "7857dea37e70f9314a2e2707edb4bf04039cdc6fa9e8be1c1b67585f7514b4ce"
+          "sha256": "9a55293e954903eb8898c5bd440450c95b4c72ec6bed333af13cd879613fc977"
         },
         "url": "./ai/components/components-forms-slider.json"
       },
@@ -4685,7 +5296,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-switch.json",
-          "sha256": "e32720ced34c08f75b8c2157dff809473fd8482f04c3cd99562d0ca699a5a1f7"
+          "sha256": "eb47aa40f8dd5f3edb19f83e97ab1537998a575085467fa92871d893ae447d8e"
         },
         "url": "./ai/components/components-forms-switch.json"
       },
@@ -4724,7 +5335,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -4910,7 +5521,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-textarea.json",
-          "sha256": "b6958c3213ba93a75386a0cc58b57a8baf3ac8b9906f01a4a7f23c56b221bce7"
+          "sha256": "3d87df9c7ff80b6d8d13ee2160e802fb1fff94bc903342100f2565a8a65c1d50"
         },
         "url": "./ai/components/components-forms-textarea.json"
       },
@@ -4949,7 +5560,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -5135,7 +5746,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-textinput.json",
-          "sha256": "a521ab742d7c5c249f096255b9a05174c0711e78591641880e83731414bce60f"
+          "sha256": "1ad9fbaf73651cd5b1c9bc76c6d2289403a6cec8aba19b45d7d393f1c52c5c01"
         },
         "url": "./ai/components/components-forms-textinput.json"
       },
@@ -5170,7 +5781,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -5347,7 +5958,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-timerangepicker.json",
-          "sha256": "e0fc77c04103e8964b9cec98941817049fc97e82503405184f2801c7350e8f28"
+          "sha256": "f94f49103ccc72b70ccbf5946e835393fcafdfb1d80d2ac3eba08cfef08ccfee"
         },
         "url": "./ai/components/components-forms-timerangepicker.json"
       },
@@ -5383,7 +5994,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-forms-treeview.json",
-          "sha256": "9a35a3da80fa1adf107692d386cf9b92093fe6ba44d33ba804a706f25451d2c1"
+          "sha256": "0266f5645bc72a3bfa3c8c52425ca668a917c34adfe53100be25e5a705dc360b"
         },
         "url": "./ai/components/components-forms-treeview.json"
       },
@@ -5419,7 +6030,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-layout-resizablepanels.json",
-          "sha256": "8531de4a13e00ef1becb2accac0274e06f9457eebebc7a5aad433b06a9a37e09"
+          "sha256": "060c567fbfd015ffc13afdf969dd8946312ff3c4761df6923df1dd9f39a7c454"
         },
         "url": "./ai/components/components-layout-resizablepanels.json"
       },
@@ -5455,7 +6066,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-lists-accordion.json",
-          "sha256": "128d930542c5d663380c66a21b93e4598e82535e490022d77f9f22a9c81253e6"
+          "sha256": "6310383269bf276e1bb48804026767334977329ac105cca34c75d6ab0bbc27af"
         },
         "url": "./ai/components/components-lists-accordion.json"
       },
@@ -5491,7 +6102,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-lists-contextmenu.json",
-          "sha256": "1a20f8bf986a7b0937761029e221cde74be0926832008374ccb0b7e4cc92a524"
+          "sha256": "26ce5b63ad3f725c90b6fa8e008cf920a67e1b41953779aaea73d84c67601aa2"
         },
         "url": "./ai/components/components-lists-contextmenu.json"
       },
@@ -5536,7 +6147,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-lists-dropdownmenu.json",
-          "sha256": "9e1ab3e738f0482c86f56209d89fec9746fee6ef68dc28b84ae47779d672fb7c"
+          "sha256": "bd568a744371cfbdbc0d48553ab95584afd798b6614683f98ccb840f23c9dab0"
         },
         "url": "./ai/components/components-lists-dropdownmenu.json"
       },
@@ -5571,7 +6182,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -5756,7 +6367,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-lists-list.json",
-          "sha256": "650fb4191666a080525ca277bde7243984726372bb0d32bdbcc31c6bc5820cbf"
+          "sha256": "440cdd30113a7e1a2c4d2142d5ec26d48fca7ab79c2ff55194763ac17039c122"
         },
         "url": "./ai/components/components-lists-list.json"
       },
@@ -5792,7 +6403,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-navigation-breadcrumb.json",
-          "sha256": "7c3d6c30121e959805a24f12e58b9353c694660231db64201899cf7d12a95b0b"
+          "sha256": "3ed8c7a554489bde44dff1a920200bdfa824f13094b95468c48a2385a3973297"
         },
         "url": "./ai/components/components-navigation-breadcrumb.json"
       },
@@ -5828,7 +6439,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-navigation-commandpalette.json",
-          "sha256": "3df8761ba4d670769caae93751224e6c4e004c9908c26641b986e27bf34cd50f"
+          "sha256": "e8fc067c728bc701ab9349a2b3f2d10b216c9e8469bf4d78b07da6257bc083f6"
         },
         "url": "./ai/components/components-navigation-commandpalette.json"
       },
@@ -5869,7 +6480,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-navigation-pagination.json",
-          "sha256": "8893c72b3afe6a89e3cbf54738f77aacb5d3e4ace3bdef879dc500c9386d25be"
+          "sha256": "e9517ffe25b093b597dfd143bb53581a5cd9f6998fcf803a5a7baa10c303afa9"
         },
         "url": "./ai/components/components-navigation-pagination.json"
       },
@@ -5892,7 +6503,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -6066,7 +6677,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-navigation-sidenav.json",
-          "sha256": "65f5e12c0370bc7c103ffa664cb4cdaf84002eb90e20f5499179fc7b6b34f0e1"
+          "sha256": "eb083e66a7a256c913b2e61285c1c816bac973773c27d4d516fbee0c27e4d147"
         },
         "url": "./ai/components/components-navigation-sidenav.json"
       },
@@ -6093,7 +6704,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -6262,7 +6873,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-navigation-stepper.json",
-          "sha256": "3663bc8b645193987d9b776851299e3875aa8c64d0d360a669d13146816e286b"
+          "sha256": "a7fc15dd924324871b2757e17f01842b32195ecf3d45455e1f44a191dca9e7e8"
         },
         "url": "./ai/components/components-navigation-stepper.json"
       },
@@ -6303,7 +6914,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-navigation-tabs.json",
-          "sha256": "6bcb5538cc30db275b856a0de953cb907f657eff53c91768d92289142ce29468"
+          "sha256": "cd896169a89600d2506a59909d34edb1ec7feb3509813f6a376ed879c80ef494"
         },
         "url": "./ai/components/components-navigation-tabs.json"
       },
@@ -6334,7 +6945,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -6495,7 +7106,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-overlays-bottomsheet.json",
-          "sha256": "03603c57a2aa4668dcd70145d46ff2fc6a54e768edade6655489883c844d1144"
+          "sha256": "507231667019621b31c4be517432b1068ba785167f510b106a7a0d94d69dfd6d"
         },
         "url": "./ai/components/components-overlays-bottomsheet.json"
       },
@@ -6537,7 +7148,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-overlays-modal.json",
-          "sha256": "26640cff25c46c54ecc2d4c3125da5092e5928f79df8b25249d5f52b2baa6042"
+          "sha256": "b9d9acb02b1085fb1194a95d117e147a3b3396bde3d9848f1d779a29da44cb81"
         },
         "url": "./ai/components/components-overlays-modal.json"
       },
@@ -6619,7 +7230,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-overlays-popover.json",
-          "sha256": "10346334e879593c86f868e247db94ee808179914a2b5952207f6bc596cab90c"
+          "sha256": "259e1ffd3d3f70df464d35556dd6cf16a9b0103f81fa8795dbce492312d898de"
         },
         "url": "./ai/components/components-overlays-popover.json"
       },
@@ -6658,7 +7269,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -6851,7 +7462,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-overlays-sheet.json",
-          "sha256": "35d3e5aadc3d0c877eaf0a710b364ba67e231aeed6c11494841baaddbbf390bf"
+          "sha256": "e3eb890260f0e86c62d7909aa5ae463c1df78d8f58c707c62e82e8499be48716"
         },
         "url": "./ai/components/components-overlays-sheet.json"
       },
@@ -6897,7 +7508,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-overlays-sidesheet.json",
-          "sha256": "328c411a7b7ff4bdac7735abea7a650bd0789f2c8a3d47fa661c5a4a22b4c909"
+          "sha256": "e0727d50868dde70467cc59cc0c120f459727e704e8c49adaea75b175b70817a"
         },
         "url": "./ai/components/components-overlays-sidesheet.json"
       },
@@ -6936,7 +7547,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -7135,7 +7746,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-overlays-tooltip.json",
-          "sha256": "2909bcce64a04c116cbc19aa51fad23d65d2caa4aad40a3bfd601ac6ede6cca8"
+          "sha256": "7bc8347b477a62419f427542d3b66426ecb94a7603b09049267e5405d1979410"
         },
         "url": "./ai/components/components-overlays-tooltip.json"
       },
@@ -7172,7 +7783,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-people-avatar.json",
-          "sha256": "9ab8e0164c9b4c58aceec410894d4f30e6db14beaf4d2adec5ec3077396488f0"
+          "sha256": "ae6524525265b0871a9408355076f7727199fbbb6fcb302d73914327fb8c071d"
         },
         "url": "./ai/components/components-people-avatar.json"
       },
@@ -7212,7 +7823,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-surfaces-card.json",
-          "sha256": "b1ce59355419b59b29b61ac779ccfbc9e44a7a01c576e604be64fcee967ee1b8"
+          "sha256": "9ba777a2473415a65236ed4da10139d247dbbb68b3b165cd970132f9da79bf2f"
         },
         "url": "./ai/components/components-surfaces-card.json"
       },
@@ -7279,7 +7890,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-surfaces-separator.json",
-          "sha256": "178c7a2f8a54e895d68bad5aa5a33593ad57862aab4ba62d63012364cc72d2c4"
+          "sha256": "ba5118e65dd752fc34de47c89b4c78048d34eabc0c19f9f593183a5aa6cfbfa9"
         },
         "url": "./ai/components/components-surfaces-separator.json"
       },
@@ -7316,7 +7927,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-tags-countbadge.json",
-          "sha256": "6de4842ad298623d9fd298d34468d7e77816d18276aa89d1a179852cf2342245"
+          "sha256": "a3adb67e66d9e43fa99556976b229deed3efaf0d448acb856b78324960fe588d"
         },
         "url": "./ai/components/components-tags-countbadge.json"
       },
@@ -7352,7 +7963,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-tags-kbd.json",
-          "sha256": "11fdcc6e84c3e3135f11fb54b0782840cdb1c437a5d7523d205b85aa9dc1fb43"
+          "sha256": "112aa49fb32d1152efa14f439829be1e0fe5624c72750bd5f3786d0203fb0a96"
         },
         "url": "./ai/components/components-tags-kbd.json"
       },
@@ -7389,7 +8000,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-tags-severitybadge.json",
-          "sha256": "15801ecc5527a1131e4e1bd8c05601bd4099a83536ae474df664428a2fae977a"
+          "sha256": "6bd3cd0d00512f9bd5191f5ce4b9641dcbd5077a6d88b4014a63e2d34b3c1d1a"
         },
         "url": "./ai/components/components-tags-severitybadge.json"
       },
@@ -7426,7 +8037,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-tags-statusbadge.json",
-          "sha256": "79fbd15989d7a68a9f47cf734d6a1603df65fd978cca0d0c60f7167a1e12545e"
+          "sha256": "c3582c46b51b03168df13d964b234e431c85bc1e2d2cbdfa08ee2c29c54c98b7"
         },
         "url": "./ai/components/components-tags-statusbadge.json"
       },
@@ -7465,7 +8076,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-tags-tag.json",
-          "sha256": "18fd4aef48e744cb1b97813f4a16e1ed13bfaaf5c1dda09a843d5f646ced8395"
+          "sha256": "71abe219002c7f84ca4196f05c49c65940708c17bdc6c36a0a4c8d28211aa515"
         },
         "url": "./ai/components/components-tags-tag.json"
       },
@@ -7501,7 +8112,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/components-utilities-scrollarea.json",
-          "sha256": "3d39344fbea5422067f6ec66e202898c939129d857ec364373220d5c8998cff3"
+          "sha256": "d24ccce3dd49268a2ef958a006024d5fdfaa7b1408b16d792a8b14ecd3784817"
         },
         "url": "./ai/components/components-utilities-scrollarea.json"
       },
@@ -7620,7 +8231,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/foundations-icons.json",
-          "sha256": "ab05e330678ee7159dfe4681fc53b8c4f7cfcf1b0006eb44f34cb36e9530a9c2"
+          "sha256": "7e34c0df0ee3544f41654f47e93d67857337f261c9f6ea18e3c4efb58bde1363"
         },
         "url": "./ai/components/foundations-icons.json"
       },
@@ -7855,7 +8466,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/patterns-ai-aidiffreview.json",
-          "sha256": "dacfb02712002c90025d5b154554fce1b8511239f9a9f0dcddd6973ca5b6959f"
+          "sha256": "cbad402716183ab9ec8c0d240d3174b81bcc308bc54182685f30dd08dbea8081"
         },
         "url": "./ai/components/patterns-ai-aidiffreview.json"
       },
@@ -7892,7 +8503,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/patterns-ai-aipanel.json",
-          "sha256": "c9f183490503d24dfde800442d8740fff63bb5e7ae64dab562880de0bd71d430"
+          "sha256": "f3485b44bbdd46a7cbbbd606a5238c78dae397bda758fe52e252556b78da382e"
         },
         "url": "./ai/components/patterns-ai-aipanel.json"
       },
@@ -7929,7 +8540,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/patterns-ai-promptinput.json",
-          "sha256": "d0721e9632924e54bdd10a57058070d7cfe87b149a337d81e0868ea8f34b9d71"
+          "sha256": "884b0805650ef1f9e973c89aa8adf3d75f682a03383f1493603e9418af8fb2b9"
         },
         "url": "./ai/components/patterns-ai-promptinput.json"
       },
@@ -7944,6 +8555,222 @@
         "behaviorAuthored": false,
         "systemContractAuthored": false,
         "checksLinked": false,
+        "evidenceLinked": false,
+        "evidenceReported": false
+      }
+    },
+    {
+      "id": "patterns-collectiontoolbar",
+      "name": "CollectionToolbar",
+      "kind": "pattern",
+      "apiFamilyId": "patterns-collectiontoolbar",
+      "registryId": "collection-toolbar",
+      "summary": "Compose generic controlled collection search, host filter/action slots and a result status without assuming a record model.",
+      "aliases": [
+        "collection controls",
+        "collection search",
+        "controlled-collection-query",
+        "generic result toolbar",
+        "host-filter-slots",
+        "list search",
+        "responsive-control-layout",
+        "result count",
+        "result-status",
+        "table toolbar"
+      ],
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/patterns",
+        "@dimitriszoitas/aegis-agentic/patterns/collection-toolbar"
+      ],
+      "api": {
+        "source": {
+          "path": "public/ai/components/patterns-collectiontoolbar.json",
+          "sha256": "bdff0273173f7ea10e82d21e65af697db5a8db5d4399a8e9eadf81d85f82883d"
+        },
+        "url": "./ai/components/patterns-collectiontoolbar.json"
+      },
+      "contract": {
+        "id": "collection-toolbar",
+        "version": 1,
+        "status": "source-backed-baseline",
+        "source": {
+          "path": "contracts/agentic/collection-toolbar.json",
+          "sha256": "ad76e90b812572f0c640bdd57dba9a54c9703021ade94a13d090fb26a9126b18"
+        },
+        "references": [
+          {
+            "path": "skills/references/design-contract.md",
+            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+          },
+          {
+            "path": "skills/references/page-composition.md",
+            "sha256": "dcd9224ea9d54006da49f9840eb571cac2be7ba3f47aa6ce091e1517a888e5b3"
+          },
+          {
+            "path": "src/patterns/collection-toolbar/collection-toolbar.tsx",
+            "sha256": "52590b2726c26d450dda18d205b76628b4dfca5223033fc6f1ebae87c6771b01"
+          },
+          {
+            "path": "tokens/component-categories.json",
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
+          }
+        ],
+        "document": {
+          "schemaVersion": 2,
+          "id": "collection-toolbar",
+          "version": 1,
+          "status": "source-backed-baseline",
+          "verification": "not-certified-by-this-contract",
+          "purpose": "Compose generic controlled collection search, host filter/action slots and a result status without assuming a record model.",
+          "anatomy": [
+            "named section",
+            "shared search control",
+            "optional filter slot",
+            "optional action slot",
+            "atomic result status"
+          ],
+          "states": [
+            "query empty or populated",
+            "results zero one or many",
+            "busy",
+            "disabled",
+            "wrapped controls"
+          ],
+          "tokenGroup": "filtering",
+          "behaviorProvider": "Native named section and shared SearchInput; host-rendered filter/action controls retain their behavior.",
+          "ownership": {
+            "component": [
+              "controlled query callbacks",
+              "owned search disabled state",
+              "result message and responsive slot layout"
+            ],
+            "host": [
+              "apply criteria and compute resultCount",
+              "fetching, race handling and result states",
+              "wire slot disabled state and actual actions"
+            ]
+          },
+          "requirements": [
+            {
+              "id": "controlled-query",
+              "kind": "component",
+              "statement": "Render the shared SearchInput from query and emit immediate edits through onQueryChange, without keeping a second query state.",
+              "sources": [
+                "src/patterns/collection-toolbar/collection-toolbar.tsx"
+              ]
+            },
+            {
+              "id": "host-results",
+              "kind": "host",
+              "statement": "Accept query changes, apply filters or requests, compute resultCount and render results. This toolbar has no WorkRecord dependency, fetching, filtering, stale-response handling or result table.",
+              "sources": [
+                "src/patterns/collection-toolbar/collection-toolbar.tsx"
+              ]
+            },
+            {
+              "id": "count-validation",
+              "kind": "component",
+              "statement": "Reject counts that are not nonnegative safe integers. Render singular/plural result text by default, or the complete supplied resultText, in an atomic status region.",
+              "sources": [
+                "src/patterns/collection-toolbar/collection-toolbar.tsx"
+              ]
+            },
+            {
+              "id": "busy-boundary",
+              "kind": "component",
+              "statement": "busy sets aria-busy on the region and replaces the visible count with busyLabel. It does not disable editing or reset query/filter state; assistive technologies may defer status announcements while the region is busy.",
+              "sources": [
+                "src/patterns/collection-toolbar/collection-toolbar.tsx"
+              ]
+            },
+            {
+              "id": "disabled-owned-control",
+              "kind": "component",
+              "statement": "disabled directly disables the owned SearchInput and is passed, with busy, to both optional slot render functions.",
+              "sources": [
+                "src/patterns/collection-toolbar/collection-toolbar.tsx"
+              ]
+            },
+            {
+              "id": "disabled-slots",
+              "kind": "host",
+              "statement": "Apply the supplied disabled state to filter/action controls, including portaled controls. The pattern does not clone arbitrary children or guarantee a complete lock merely by passing slot state.",
+              "sources": [
+                "src/patterns/collection-toolbar/collection-toolbar.tsx"
+              ]
+            },
+            {
+              "id": "named-native-flow",
+              "kind": "component",
+              "statement": "Render a section named by label and a search control named by searchLabel, optionally linked to resultsId. Keep normal Tab order; do not expose ARIA toolbar or roving-key semantics.",
+              "sources": [
+                "src/patterns/collection-toolbar/collection-toolbar.tsx"
+              ]
+            },
+            {
+              "id": "responsive-order",
+              "kind": "component",
+              "statement": "Keep search, filters, actions and count in that source order. Use a shared token-backed non-growing search basis and natural flex wrapping; do not impose a viewport breakpoint.",
+              "sources": [
+                "src/patterns/collection-toolbar/collection-toolbar.tsx"
+              ]
+            },
+            {
+              "id": "host-names-and-policy",
+              "kind": "host",
+              "statement": "Supply meaningful region/search names, a valid result target id when used, localized resultText/busyLabel where needed, and real action behavior. Record the chosen shared pattern for comparable collection pages.",
+              "sources": [
+                "src/patterns/collection-toolbar/collection-toolbar.tsx",
+                "skills/references/page-composition.md"
+              ]
+            },
+            {
+              "id": "filtering-token-ownership",
+              "kind": "design",
+              "statement": "Use filtering group tokens for owned geometry and status styling. Keep nested SearchInput and caller controls in their own groups; do not override internal control styling.",
+              "sources": [
+                "skills/references/design-contract.md",
+                "tokens/component-categories.json"
+              ]
+            }
+          ],
+          "limitations": [
+            "No automatic dataset wiring, search request debounce or persistence is supplied.",
+            "Busy is informational; only disabled locks the owned search, and the host must explicitly disable its slots.",
+            "This pattern does not replace DataGrid selection/density/column controls or the WorkRecord-specific FilterBar."
+          ]
+        },
+        "raw": "{\n  \"schemaVersion\": 2,\n  \"id\": \"collection-toolbar\",\n  \"version\": 1,\n  \"status\": \"source-backed-baseline\",\n  \"verification\": \"not-certified-by-this-contract\",\n  \"purpose\": \"Compose generic controlled collection search, host filter/action slots and a result status without assuming a record model.\",\n  \"anatomy\": [\n    \"named section\",\n    \"shared search control\",\n    \"optional filter slot\",\n    \"optional action slot\",\n    \"atomic result status\"\n  ],\n  \"states\": [\n    \"query empty or populated\",\n    \"results zero one or many\",\n    \"busy\",\n    \"disabled\",\n    \"wrapped controls\"\n  ],\n  \"tokenGroup\": \"filtering\",\n  \"behaviorProvider\": \"Native named section and shared SearchInput; host-rendered filter/action controls retain their behavior.\",\n  \"ownership\": {\n    \"component\": [\n      \"controlled query callbacks\",\n      \"owned search disabled state\",\n      \"result message and responsive slot layout\"\n    ],\n    \"host\": [\n      \"apply criteria and compute resultCount\",\n      \"fetching, race handling and result states\",\n      \"wire slot disabled state and actual actions\"\n    ]\n  },\n  \"requirements\": [\n    {\n      \"id\": \"controlled-query\",\n      \"kind\": \"component\",\n      \"statement\": \"Render the shared SearchInput from query and emit immediate edits through onQueryChange, without keeping a second query state.\",\n      \"sources\": [\"src/patterns/collection-toolbar/collection-toolbar.tsx\"]\n    },\n    {\n      \"id\": \"host-results\",\n      \"kind\": \"host\",\n      \"statement\": \"Accept query changes, apply filters or requests, compute resultCount and render results. This toolbar has no WorkRecord dependency, fetching, filtering, stale-response handling or result table.\",\n      \"sources\": [\"src/patterns/collection-toolbar/collection-toolbar.tsx\"]\n    },\n    {\n      \"id\": \"count-validation\",\n      \"kind\": \"component\",\n      \"statement\": \"Reject counts that are not nonnegative safe integers. Render singular/plural result text by default, or the complete supplied resultText, in an atomic status region.\",\n      \"sources\": [\"src/patterns/collection-toolbar/collection-toolbar.tsx\"]\n    },\n    {\n      \"id\": \"busy-boundary\",\n      \"kind\": \"component\",\n      \"statement\": \"busy sets aria-busy on the region and replaces the visible count with busyLabel. It does not disable editing or reset query/filter state; assistive technologies may defer status announcements while the region is busy.\",\n      \"sources\": [\"src/patterns/collection-toolbar/collection-toolbar.tsx\"]\n    },\n    {\n      \"id\": \"disabled-owned-control\",\n      \"kind\": \"component\",\n      \"statement\": \"disabled directly disables the owned SearchInput and is passed, with busy, to both optional slot render functions.\",\n      \"sources\": [\"src/patterns/collection-toolbar/collection-toolbar.tsx\"]\n    },\n    {\n      \"id\": \"disabled-slots\",\n      \"kind\": \"host\",\n      \"statement\": \"Apply the supplied disabled state to filter/action controls, including portaled controls. The pattern does not clone arbitrary children or guarantee a complete lock merely by passing slot state.\",\n      \"sources\": [\"src/patterns/collection-toolbar/collection-toolbar.tsx\"]\n    },\n    {\n      \"id\": \"named-native-flow\",\n      \"kind\": \"component\",\n      \"statement\": \"Render a section named by label and a search control named by searchLabel, optionally linked to resultsId. Keep normal Tab order; do not expose ARIA toolbar or roving-key semantics.\",\n      \"sources\": [\"src/patterns/collection-toolbar/collection-toolbar.tsx\"]\n    },\n    {\n      \"id\": \"responsive-order\",\n      \"kind\": \"component\",\n      \"statement\": \"Keep search, filters, actions and count in that source order. Use a shared token-backed non-growing search basis and natural flex wrapping; do not impose a viewport breakpoint.\",\n      \"sources\": [\"src/patterns/collection-toolbar/collection-toolbar.tsx\"]\n    },\n    {\n      \"id\": \"host-names-and-policy\",\n      \"kind\": \"host\",\n      \"statement\": \"Supply meaningful region/search names, a valid result target id when used, localized resultText/busyLabel where needed, and real action behavior. Record the chosen shared pattern for comparable collection pages.\",\n      \"sources\": [\n        \"src/patterns/collection-toolbar/collection-toolbar.tsx\",\n        \"skills/references/page-composition.md\"\n      ]\n    },\n    {\n      \"id\": \"filtering-token-ownership\",\n      \"kind\": \"design\",\n      \"statement\": \"Use filtering group tokens for owned geometry and status styling. Keep nested SearchInput and caller controls in their own groups; do not override internal control styling.\",\n      \"sources\": [\"skills/references/design-contract.md\", \"tokens/component-categories.json\"]\n    }\n  ],\n  \"limitations\": [\n    \"No automatic dataset wiring, search request debounce or persistence is supplied.\",\n    \"Busy is informational; only disabled locks the owned search, and the host must explicitly disable its slots.\",\n    \"This pattern does not replace DataGrid selection/density/column controls or the WorkRecord-specific FilterBar.\"\n  ]\n}\n"
+      },
+      "checks": [
+        {
+          "path": "scripts/verify-form-collection-source.mjs",
+          "sha256": "88693a94ea65ea9a6c39a40dbc1827d2b49c0918698548228d7af3528e34374b",
+          "label": "Collection and form pattern browser fixture",
+          "scope": "Local workflows, disabled boundaries, four-mode geometry, narrow adaptation and automated accessibility; arbitrary host controls are outside scope."
+        },
+        {
+          "path": "src/patterns/collection-toolbar/collection-toolbar.stories.tsx",
+          "sha256": "251d71f04f9fb083d6cd1fa8437fb9874ac147922027c2f4315a6d1533ec5180",
+          "label": "CollectionToolbar interaction stories",
+          "scope": "Local filtering/clearing or native form submission and disabled assertions."
+        },
+        {
+          "path": "src/patterns/collection-toolbar/collection-toolbar.test.tsx",
+          "sha256": "a853947ecad028a2600d4ecbefb9d54261265cbc73f416e81a497c6487dc17cc",
+          "label": "CollectionToolbar ownership checks",
+          "scope": "Focused structural and boundary assertions; not current browser or human acceptance."
+        }
+      ],
+      "evidence": [],
+      "limitations": [
+        "Linked checks describe available verification code, not a current passing result or complete invariant coverage."
+      ],
+      "coverage": {
+        "apiDocumented": true,
+        "behaviorAuthored": true,
+        "systemContractAuthored": false,
+        "checksLinked": true,
         "evidenceLinked": false,
         "evidenceReported": false
       }
@@ -7972,7 +8799,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/patterns-filterbar.json",
-          "sha256": "9a017a7bb3314680957a0a493796566e2974ea63cbceb65f6dc8ebf95d3bafd8"
+          "sha256": "81d1c516d00bce87c46eb4fab9c2da912d75b0d2e66e964adc6a7e078988e6d3"
         },
         "url": "./ai/components/patterns-filterbar.json"
       },
@@ -8003,7 +8830,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -8200,7 +9027,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/patterns-filterpanel.json",
-          "sha256": "98d785153836ebb2bdc4d8e115a03d329b831d2909715162d4e0b41d1b5bf924"
+          "sha256": "9c3b3c8b317aa8de44e618c32ebec18f4af7011180c09e4f4f6f179f5c7e90ca"
         },
         "url": "./ai/components/patterns-filterpanel.json"
       },
@@ -8215,6 +9042,223 @@
         "behaviorAuthored": false,
         "systemContractAuthored": false,
         "checksLinked": false,
+        "evidenceLinked": false,
+        "evidenceReported": false
+      }
+    },
+    {
+      "id": "patterns-formsection",
+      "name": "FormSection",
+      "kind": "pattern",
+      "apiFamilyId": "patterns-formsection",
+      "registryId": "form-section",
+      "summary": "Group related labeled form controls in a native fieldset with an associated description and responsive field layout.",
+      "aliases": [
+        "associated-description",
+        "fieldset",
+        "fieldset section",
+        "form group",
+        "legend",
+        "native-disabled-boundary",
+        "native-field-group",
+        "responsive form fields",
+        "responsive-field-grid",
+        "settings section"
+      ],
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/patterns",
+        "@dimitriszoitas/aegis-agentic/patterns/form-section"
+      ],
+      "api": {
+        "source": {
+          "path": "public/ai/components/patterns-formsection.json",
+          "sha256": "5e0ca38d969007a3b0eced29bfee461351845bd295b6fca8adf68bdda54c05d5"
+        },
+        "url": "./ai/components/patterns-formsection.json"
+      },
+      "contract": {
+        "id": "form-section",
+        "version": 1,
+        "status": "source-backed-baseline",
+        "source": {
+          "path": "contracts/agentic/form-section.json",
+          "sha256": "05a2bca907609357ea0fe4672d311dd9f36744db15162b42967e89420fff8135"
+        },
+        "references": [
+          {
+            "path": "skills/create-layout/SKILL.md",
+            "sha256": "b50eff7d388b6a805d26432de449e8203b615609250f98fa9aa869250803c70e"
+          },
+          {
+            "path": "skills/references/design-contract.md",
+            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+          },
+          {
+            "path": "src/patterns/form-section/form-section.tsx",
+            "sha256": "3539c287b972835fe9c65c9f32143a854ce92c5e8c727aea7f6e3fb91563b4ed"
+          },
+          {
+            "path": "tokens/component-categories.json",
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
+          }
+        ],
+        "document": {
+          "schemaVersion": 2,
+          "id": "form-section",
+          "version": 1,
+          "status": "source-backed-baseline",
+          "verification": "not-certified-by-this-contract",
+          "purpose": "Group related labeled form controls in a native fieldset with an associated description and responsive field layout.",
+          "anatomy": [
+            "native fieldset",
+            "legend",
+            "optional associated description",
+            "shared ContentGrid fields",
+            "optional host action slot"
+          ],
+          "states": [
+            "enabled",
+            "native disabled",
+            "single column",
+            "responsive multiple columns",
+            "description present or absent",
+            "actions present or absent"
+          ],
+          "tokenGroup": "page-structure",
+          "behaviorProvider": "Native fieldset/legend and ContentGrid; nested field controls and the surrounding host form retain their behavior.",
+          "ownership": {
+            "component": [
+              "native group semantics and description ids",
+              "responsive grid delegation",
+              "native disabled boundary and explicit slot order"
+            ],
+            "host": [
+              "field values, names, labels and validation",
+              "surrounding form, submission/reset and persistence",
+              "portaled/custom-control disabled state and action semantics"
+            ]
+          },
+          "requirements": [
+            {
+              "id": "native-group",
+              "kind": "component",
+              "statement": "Render a native fieldset with the supplied legend as its first child. Render no nested form and add no synthetic form submission handler.",
+              "sources": [
+                "src/patterns/form-section/form-section.tsx"
+              ]
+            },
+            {
+              "id": "description-association",
+              "kind": "component",
+              "statement": "Give a present description a unique id and merge it with the caller aria-describedby through the shared deduplication helper.",
+              "sources": [
+                "src/patterns/form-section/form-section.tsx"
+              ]
+            },
+            {
+              "id": "responsive-fields",
+              "kind": "component",
+              "statement": "Render direct children through ContentGrid, default maxColumns to one and minItemWidth to regular. Use its existing accepted column caps and minimum-width options and let it collapse with container width.",
+              "sources": [
+                "src/patterns/form-section/form-section.tsx"
+              ]
+            },
+            {
+              "id": "disabled-native-boundary",
+              "kind": "component",
+              "statement": "Forward disabled to the native fieldset and keep the field grid and optional action region inside it. Do not clone children or write disabled props into their component state.",
+              "sources": [
+                "src/patterns/form-section/form-section.tsx"
+              ]
+            },
+            {
+              "id": "disabled-exceptions",
+              "kind": "host",
+              "statement": "Keep legend content noninteractive. Native fieldset rules exempt first-legend descendants and do not automatically cover portaled/custom widgets; pass explicit disabled props to those controls as needed.",
+              "sources": [
+                "src/patterns/form-section/form-section.tsx"
+              ]
+            },
+            {
+              "id": "field-labels",
+              "kind": "host",
+              "statement": "Provide individual Field labels or other accessible names and native field names/constraints. A group legend and description do not replace each control label or validation message.",
+              "sources": [
+                "src/patterns/form-section/form-section.tsx"
+              ]
+            },
+            {
+              "id": "action-ownership",
+              "kind": "host",
+              "statement": "Own the action slot behavior. Set type=submit only for intentional submission of the surrounding form, and type=button for ordinary actions; the section does not supply Save/Cancel or reset policy.",
+              "sources": [
+                "src/patterns/form-section/form-section.tsx"
+              ]
+            },
+            {
+              "id": "draft-and-form-ownership",
+              "kind": "host",
+              "statement": "Keep controlled drafts, validation, reset, loading/error/success state and data persistence in the form owner. Closing or disabling this group does not save, reset or validate fields.",
+              "sources": [
+                "src/patterns/form-section/form-section.tsx"
+              ]
+            },
+            {
+              "id": "transparent-structure",
+              "kind": "component",
+              "statement": "Keep legend, description, field grid and actions in document order, with no added surface, sticky footer or child-control style overrides.",
+              "sources": [
+                "src/patterns/form-section/form-section.tsx"
+              ]
+            },
+            {
+              "id": "page-structure-tokens",
+              "kind": "design",
+              "statement": "Use page-structure group tokens for owned type and spacing, preserve nested control token ownership, and keep geometry consistent across all four theme/mode mappings.",
+              "sources": [
+                "skills/references/design-contract.md",
+                "tokens/component-categories.json",
+                "skills/create-layout/SKILL.md"
+              ]
+            }
+          ],
+          "limitations": [
+            "The disabled boundary is the native fieldset boundary, not an assurance that arbitrary portaled controls are disabled.",
+            "ContentGrid caps columns rather than forcing them; deeply nested fields remain the host composition responsibility.",
+            "No form element, validation engine, field-state store, persistence or automatic reset is provided."
+          ]
+        },
+        "raw": "{\n  \"schemaVersion\": 2,\n  \"id\": \"form-section\",\n  \"version\": 1,\n  \"status\": \"source-backed-baseline\",\n  \"verification\": \"not-certified-by-this-contract\",\n  \"purpose\": \"Group related labeled form controls in a native fieldset with an associated description and responsive field layout.\",\n  \"anatomy\": [\n    \"native fieldset\",\n    \"legend\",\n    \"optional associated description\",\n    \"shared ContentGrid fields\",\n    \"optional host action slot\"\n  ],\n  \"states\": [\n    \"enabled\",\n    \"native disabled\",\n    \"single column\",\n    \"responsive multiple columns\",\n    \"description present or absent\",\n    \"actions present or absent\"\n  ],\n  \"tokenGroup\": \"page-structure\",\n  \"behaviorProvider\": \"Native fieldset/legend and ContentGrid; nested field controls and the surrounding host form retain their behavior.\",\n  \"ownership\": {\n    \"component\": [\n      \"native group semantics and description ids\",\n      \"responsive grid delegation\",\n      \"native disabled boundary and explicit slot order\"\n    ],\n    \"host\": [\n      \"field values, names, labels and validation\",\n      \"surrounding form, submission/reset and persistence\",\n      \"portaled/custom-control disabled state and action semantics\"\n    ]\n  },\n  \"requirements\": [\n    {\n      \"id\": \"native-group\",\n      \"kind\": \"component\",\n      \"statement\": \"Render a native fieldset with the supplied legend as its first child. Render no nested form and add no synthetic form submission handler.\",\n      \"sources\": [\"src/patterns/form-section/form-section.tsx\"]\n    },\n    {\n      \"id\": \"description-association\",\n      \"kind\": \"component\",\n      \"statement\": \"Give a present description a unique id and merge it with the caller aria-describedby through the shared deduplication helper.\",\n      \"sources\": [\"src/patterns/form-section/form-section.tsx\"]\n    },\n    {\n      \"id\": \"responsive-fields\",\n      \"kind\": \"component\",\n      \"statement\": \"Render direct children through ContentGrid, default maxColumns to one and minItemWidth to regular. Use its existing accepted column caps and minimum-width options and let it collapse with container width.\",\n      \"sources\": [\"src/patterns/form-section/form-section.tsx\"]\n    },\n    {\n      \"id\": \"disabled-native-boundary\",\n      \"kind\": \"component\",\n      \"statement\": \"Forward disabled to the native fieldset and keep the field grid and optional action region inside it. Do not clone children or write disabled props into their component state.\",\n      \"sources\": [\"src/patterns/form-section/form-section.tsx\"]\n    },\n    {\n      \"id\": \"disabled-exceptions\",\n      \"kind\": \"host\",\n      \"statement\": \"Keep legend content noninteractive. Native fieldset rules exempt first-legend descendants and do not automatically cover portaled/custom widgets; pass explicit disabled props to those controls as needed.\",\n      \"sources\": [\"src/patterns/form-section/form-section.tsx\"]\n    },\n    {\n      \"id\": \"field-labels\",\n      \"kind\": \"host\",\n      \"statement\": \"Provide individual Field labels or other accessible names and native field names/constraints. A group legend and description do not replace each control label or validation message.\",\n      \"sources\": [\"src/patterns/form-section/form-section.tsx\"]\n    },\n    {\n      \"id\": \"action-ownership\",\n      \"kind\": \"host\",\n      \"statement\": \"Own the action slot behavior. Set type=submit only for intentional submission of the surrounding form, and type=button for ordinary actions; the section does not supply Save/Cancel or reset policy.\",\n      \"sources\": [\"src/patterns/form-section/form-section.tsx\"]\n    },\n    {\n      \"id\": \"draft-and-form-ownership\",\n      \"kind\": \"host\",\n      \"statement\": \"Keep controlled drafts, validation, reset, loading/error/success state and data persistence in the form owner. Closing or disabling this group does not save, reset or validate fields.\",\n      \"sources\": [\"src/patterns/form-section/form-section.tsx\"]\n    },\n    {\n      \"id\": \"transparent-structure\",\n      \"kind\": \"component\",\n      \"statement\": \"Keep legend, description, field grid and actions in document order, with no added surface, sticky footer or child-control style overrides.\",\n      \"sources\": [\"src/patterns/form-section/form-section.tsx\"]\n    },\n    {\n      \"id\": \"page-structure-tokens\",\n      \"kind\": \"design\",\n      \"statement\": \"Use page-structure group tokens for owned type and spacing, preserve nested control token ownership, and keep geometry consistent across all four theme/mode mappings.\",\n      \"sources\": [\n        \"skills/references/design-contract.md\",\n        \"tokens/component-categories.json\",\n        \"skills/create-layout/SKILL.md\"\n      ]\n    }\n  ],\n  \"limitations\": [\n    \"The disabled boundary is the native fieldset boundary, not an assurance that arbitrary portaled controls are disabled.\",\n    \"ContentGrid caps columns rather than forcing them; deeply nested fields remain the host composition responsibility.\",\n    \"No form element, validation engine, field-state store, persistence or automatic reset is provided.\"\n  ]\n}\n"
+      },
+      "checks": [
+        {
+          "path": "scripts/verify-form-collection-source.mjs",
+          "sha256": "88693a94ea65ea9a6c39a40dbc1827d2b49c0918698548228d7af3528e34374b",
+          "label": "Collection and form pattern browser fixture",
+          "scope": "Local workflows, disabled boundaries, four-mode geometry, narrow adaptation and automated accessibility; arbitrary host controls are outside scope."
+        },
+        {
+          "path": "src/patterns/form-section/form-section.stories.tsx",
+          "sha256": "aa5caadc95e6245a7dc13170e841011418e9d2f0b81b1074d099d9cb5627aec3",
+          "label": "FormSection interaction stories",
+          "scope": "Local filtering/clearing or native form submission and disabled assertions."
+        },
+        {
+          "path": "src/patterns/form-section/form-section.test.tsx",
+          "sha256": "bdb770fe9eaec938bb61d228b7e8d689ada1528aefc806b236f203c4dc305ef1",
+          "label": "FormSection ownership checks",
+          "scope": "Focused structural and boundary assertions; not current browser or human acceptance."
+        }
+      ],
+      "evidence": [],
+      "limitations": [
+        "Linked checks describe available verification code, not a current passing result or complete invariant coverage."
+      ],
+      "coverage": {
+        "apiDocumented": true,
+        "behaviorAuthored": true,
+        "systemContractAuthored": false,
+        "checksLinked": true,
         "evidenceLinked": false,
         "evidenceReported": false
       }
@@ -8236,7 +9280,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/patterns-notificationcenter.json",
-          "sha256": "55db89f0fc20d7780e73c8960fa2ff39f5206cbba77231b590c0a7aaaa38c529"
+          "sha256": "cc9548d638d853518d26fe5c2a7d6f2b0e9332d5702f01517606d04c879d62c8"
         },
         "url": "./ai/components/patterns-notificationcenter.json"
       },
@@ -8272,7 +9316,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/patterns-onboardingchecklist.json",
-          "sha256": "0b0dd3de674999df7411a9d0a92616ce4cde932ae576cd1fb799aa96a6b4aecc"
+          "sha256": "498f29b258bf3b17964a83cbe8ca0472b94bf7de14890ad696474386b1204faf"
         },
         "url": "./ai/components/patterns-onboardingchecklist.json"
       },
@@ -8314,7 +9358,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/patterns-pageheader.json",
-          "sha256": "a7fec2315cd4cf02cb5accf3e35a8504c384710817d59890672ea5ee79192b7b"
+          "sha256": "e2b01b4b837a1dfba1b46c72ee0d0f2ef1bc8d8376d375e1b43b0851c2d59c91"
         },
         "url": "./ai/components/patterns-pageheader.json"
       },
@@ -8353,7 +9397,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "d58e373d8d976a5565c00df31ccec4bc02d75e91fbc46c053eee62d773e578fe"
+            "sha256": "611610a2d5b5e384f729a7c1ee99e12f905aa128d512546f1cb24a25fc612de6"
           }
         ],
         "document": {
@@ -8547,7 +9591,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/patterns-pagelayout.json",
-          "sha256": "936b7d0a842abe4d943677a4907c50402c7edff54e740c8cf0f19e01e8ea1876"
+          "sha256": "870db1dfa5d470e6a6a475c5594359a1278d20927c0957e73521e4eb8417a652"
         },
         "url": "./ai/components/patterns-pagelayout.json"
       },
@@ -8702,7 +9746,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/patterns-unsavedchangesbar.json",
-          "sha256": "83220ad2d24d7a10f796d3dd3f00e012eb47bdb1e6c56901e2f699bc99dc4119"
+          "sha256": "a3b8ab33623e2aa17adc11a0e5f9d74c804a34e939b1b4272b6573c88056e32d"
         },
         "url": "./ai/components/patterns-unsavedchangesbar.json"
       },
@@ -8739,7 +9783,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/patterns-wizard-project-setup.json",
-          "sha256": "27f6b70e7cec5461dfd4251f20179b1e8683b1f69db6d45dba3f55b250eca3d4"
+          "sha256": "35bbe289e78785fecbde6437c094dca2a1aab8d9306d9d567476f5d75f0f7da1"
         },
         "url": "./ai/components/patterns-wizard-project-setup.json"
       },
@@ -9132,13 +10176,13 @@
     }
   ],
   "coverage": {
-    "apiFamilies": 103,
-    "apiFamiliesWithAuthoredBehavior": 25,
+    "apiFamilies": 107,
+    "apiFamiliesWithAuthoredBehavior": 29,
     "apiFamiliesWithoutAuthoredBehavior": 78,
-    "authoredComponentPatternContracts": 27,
+    "authoredComponentPatternContracts": 31,
     "authoredOnlyEntries": 2,
     "systemProtocolContracts": 2,
-    "entriesWithLinkedChecks": 23,
+    "entriesWithLinkedChecks": 27,
     "entriesWithLinkedEvidence": 1,
     "entriesWithReportedEvidence": 1
   },

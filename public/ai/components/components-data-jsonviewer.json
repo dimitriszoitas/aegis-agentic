@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-data-jsonviewer",
   "name": "JsonViewer",
@@ -39,13 +39,23 @@
       "component": "JsonViewer",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/json-viewer/json-viewer.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "JsonViewer",
       "name": "defaultExpandedDepth",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/json-viewer/json-viewer.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "1"
     },
     {
@@ -53,6 +63,11 @@
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/json-viewer/json-viewer.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Event payload\""
     },
     {
@@ -60,6 +75,11 @@
       "name": "maxHeight",
       "type": "string | number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/json-viewer/json-viewer.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "480px (var(--group-code-measurement-json-max-height))"
     },
     {
@@ -67,19 +87,34 @@
       "name": "maxVisibleItems",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/json-viewer/json-viewer.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "100"
     },
     {
       "component": "JsonViewer",
       "name": "onCopy",
       "type": "((kind: JsonCopyKind, path: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/json-viewer/json-viewer.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "JsonViewer",
       "name": "rootName",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/json-viewer/json-viewer.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"event\""
     },
     {
@@ -87,6 +122,11 @@
       "name": "value",
       "type": "unknown",
       "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/json-viewer/json-viewer.tsx",
+        "kind": "design-system"
+      },
       "description": "A JSON-compatible payload. Unsupported values are identified in the tree."
     }
   ],

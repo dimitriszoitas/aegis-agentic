@@ -9,3 +9,5 @@ export * from '../patterns/page-header';
 export * from '../patterns/page-layout';
 export * from '../patterns/notification-center';
 export * from '../patterns/onboarding-checklist';
+export * from '../patterns/collection-toolbar';
+export * from '../patterns/form-section';

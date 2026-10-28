@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-charts-chart-container",
   "name": "Chart container",
@@ -39,26 +39,46 @@
       "component": "ChartContainer",
       "name": "action",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "ChartContainer",
       "name": "compact",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "ChartContainer",
       "name": "description",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "ChartContainer",
       "name": "empty",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -66,51 +86,224 @@
       "name": "emptyTitle",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"No events in this time range\""
     },
     {
       "component": "ChartContainer",
       "name": "error",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "ChartContainer",
       "name": "footer",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "ChartContainer",
       "name": "height",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "260px (var(--group-data-viz-measurement-chart-height))"
     },
     {
       "component": "ChartContainer",
       "name": "legend",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "ChartContainer",
       "name": "loading",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "ChartContainer",
       "name": "onRetry",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "ChartContainer",
       "name": "title",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ChartTooltip",
+      "name": "active",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ChartTooltip",
+      "name": "colorKey",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      },
+      "description": "Optional semantic color field in the underlying datum, used by categorical bars."
+    },
+    {
+      "component": "ChartTooltip",
+      "name": "label",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ChartTooltip",
+      "name": "payload",
+      "type": "readonly ChartTooltipEntry[] | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ChartTooltip",
+      "name": "valueFormat",
+      "type": "((value: number) => string) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ChartLegend",
+      "name": "hidden",
+      "type": "readonly string[] | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ChartLegend",
+      "name": "onToggle",
+      "type": "((key: string) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ChartLegend",
+      "name": "series",
+      "type": "readonly ChartSeries[]",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ChartDataTable",
+      "name": "data",
+      "type": "readonly object[]",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ChartDataTable",
+      "name": "series",
+      "type": "readonly ChartSeries[]",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ChartDataTable",
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ChartDataTable",
+      "name": "xKey",
+      "type": "string",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

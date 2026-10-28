@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-overlays-modal",
   "name": "Modal",
@@ -42,69 +42,124 @@
       "component": "Modal",
       "name": "children",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Modal",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Modal",
       "name": "closeLabel",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Modal",
       "name": "closeOnOutsideClick",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
       "component": "Modal",
       "name": "description",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Modal",
       "name": "footer",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Modal",
       "name": "headerActions",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      },
       "description": "Secondary actions beside the title, such as export or duplicate."
     },
     {
       "component": "Modal",
       "name": "onOpenChange",
       "type": "((open: boolean) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Modal",
       "name": "role",
       "type": "\"dialog\" | \"alertdialog\" | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Modal",
       "name": "showClose",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Modal",
       "name": "showHeader",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      },
       "description": "Hide the visible header while retaining title and description for assistive technology."
     },
     {
@@ -112,19 +167,727 @@
       "name": "size",
       "type": "\"small\" | \"large\" | \"regular\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      },
       "description": "Width presets: 400px, 560px, and 800px, each clamped to the viewport."
     },
     {
       "component": "Modal",
       "name": "title",
       "type": "ReactNode",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Modal",
       "name": "trigger",
       "type": "ReactElement<unknown, string | JSXElementConstructor<any>> | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Modal",
+      "name": "actionsRef",
+      "type": "React.RefObject<DialogRootActions | null> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "A ref to imperative actions.\n- `unmount`: Ends the closing phase of the dialog after an externally controlled closing animation finishes.\nCall `preventUnmountOnClose()` in `onOpenChange` first, otherwise the dialog completes closing on its own.\nWhether it leaves the DOM is decided by `keepMounted` on the portal.\n- `close`: Closes the dialog imperatively when called."
+    },
+    {
+      "component": "Modal",
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether the dialog is initially open.\n\nTo render a controlled dialog, use the `open` prop instead."
+    },
+    {
+      "component": "Modal",
+      "name": "defaultTriggerId",
+      "type": "string | null | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "ID of the trigger that the dialog is associated with.\nThis is useful in conjunction with the `defaultOpen` prop to create an initially open dialog."
+    },
+    {
+      "component": "Modal",
+      "name": "disablePointerDismissal",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether to prevent the dialog from closing on outside presses.\nFor non-modal dialogs, this also prevents the dialog from closing when focus moves outside of it."
+    },
+    {
+      "component": "Modal",
+      "name": "handle",
+      "type": "DialogHandle<unknown> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "A handle to associate the dialog with a trigger.\nIf specified, allows external triggers to control the dialog's open state.\nCan be created with the Dialog.createHandle() method."
+    },
+    {
+      "component": "Modal",
+      "name": "onOpenChangeComplete",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Event handler called after any animations complete when the dialog is opened or closed."
+    },
+    {
+      "component": "Modal",
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether the dialog is currently open."
+    },
+    {
+      "component": "Modal",
+      "name": "triggerId",
+      "type": "string | null | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "ID of the trigger that the dialog is associated with.\nThis is useful in conjunction with the `open` prop to create a controlled dialog.\nThere's no need to specify this prop when the dialog is uncontrolled (that is, when the `open` prop is not set)."
+    },
+    {
+      "component": "Dialog",
+      "name": "actionsRef",
+      "type": "React.RefObject<DialogRootActions | null> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "A ref to imperative actions.\n- `unmount`: Ends the closing phase of the dialog after an externally controlled closing animation finishes.\nCall `preventUnmountOnClose()` in `onOpenChange` first, otherwise the dialog completes closing on its own.\nWhether it leaves the DOM is decided by `keepMounted` on the portal.\n- `close`: Closes the dialog imperatively when called."
+    },
+    {
+      "component": "Dialog",
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Dialog",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Dialog",
+      "name": "closeLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Dialog",
+      "name": "closeOnOutsideClick",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Dialog",
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether the dialog is initially open.\n\nTo render a controlled dialog, use the `open` prop instead."
+    },
+    {
+      "component": "Dialog",
+      "name": "defaultTriggerId",
+      "type": "string | null | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "ID of the trigger that the dialog is associated with.\nThis is useful in conjunction with the `defaultOpen` prop to create an initially open dialog."
+    },
+    {
+      "component": "Dialog",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Dialog",
+      "name": "disablePointerDismissal",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether to prevent the dialog from closing on outside presses.\nFor non-modal dialogs, this also prevents the dialog from closing when focus moves outside of it."
+    },
+    {
+      "component": "Dialog",
+      "name": "footer",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Dialog",
+      "name": "handle",
+      "type": "DialogHandle<unknown> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "A handle to associate the dialog with a trigger.\nIf specified, allows external triggers to control the dialog's open state.\nCan be created with the Dialog.createHandle() method."
+    },
+    {
+      "component": "Dialog",
+      "name": "headerActions",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      },
+      "description": "Secondary actions beside the title, such as export or duplicate."
+    },
+    {
+      "component": "Dialog",
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Dialog",
+      "name": "onOpenChangeComplete",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Event handler called after any animations complete when the dialog is opened or closed."
+    },
+    {
+      "component": "Dialog",
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether the dialog is currently open."
+    },
+    {
+      "component": "Dialog",
+      "name": "role",
+      "type": "\"dialog\" | \"alertdialog\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Dialog",
+      "name": "showClose",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Dialog",
+      "name": "showHeader",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      },
+      "description": "Hide the visible header while retaining title and description for assistive technology."
+    },
+    {
+      "component": "Dialog",
+      "name": "size",
+      "type": "\"small\" | \"large\" | \"regular\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      },
+      "description": "Width presets: 400px, 560px, and 800px, each clamped to the viewport."
+    },
+    {
+      "component": "Dialog",
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Dialog",
+      "name": "trigger",
+      "type": "ReactElement<unknown, string | JSXElementConstructor<any>> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Dialog",
+      "name": "triggerId",
+      "type": "string | null | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "ID of the trigger that the dialog is associated with.\nThis is useful in conjunction with the `open` prop to create a controlled dialog.\nThere's no need to specify this prop when the dialog is uncontrolled (that is, when the `open` prop is not set)."
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "actionsRef",
+      "type": "React.RefObject<DialogRootActions | null> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "A ref to imperative actions.\n- `unmount`: Ends the closing phase of the dialog after an externally controlled closing animation finishes.\nCall `preventUnmountOnClose()` in `onOpenChange` first, otherwise the dialog completes closing on its own.\nWhether it leaves the DOM is decided by `keepMounted` on the portal.\n- `close`: Closes the dialog imperatively when called."
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "cancelLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "closeLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "closeOnOutsideClick",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "confirmationText",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "confirmLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether the dialog is initially open.\n\nTo render a controlled dialog, use the `open` prop instead."
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "defaultTriggerId",
+      "type": "string | null | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "ID of the trigger that the dialog is associated with.\nThis is useful in conjunction with the `defaultOpen` prop to create an initially open dialog."
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "disablePointerDismissal",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether to prevent the dialog from closing on outside presses.\nFor non-modal dialogs, this also prevents the dialog from closing when focus moves outside of it."
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "handle",
+      "type": "DialogHandle<unknown> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "A handle to associate the dialog with a trigger.\nIf specified, allows external triggers to control the dialog's open state.\nCan be created with the Dialog.createHandle() method."
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "headerActions",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      },
+      "description": "Secondary actions beside the title, such as export or duplicate."
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "intent",
+      "type": "\"function\" | \"destroy\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "loading",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "onConfirm",
+      "type": "() => void | Promise<void>",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "onOpenChangeComplete",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Event handler called after any animations complete when the dialog is opened or closed."
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether the dialog is currently open."
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "showClose",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "showHeader",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      },
+      "description": "Hide the visible header while retaining title and description for assistive technology."
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "trigger",
+      "type": "ReactElement<unknown, string | JSXElementConstructor<any>> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ConfirmDialog",
+      "name": "triggerId",
+      "type": "string | null | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/dialog/root/DialogRoot.d.mts",
+        "kind": "dependency"
+      },
+      "description": "ID of the trigger that the dialog is associated with.\nThis is useful in conjunction with the `open` prop to create a controlled dialog.\nThere's no need to specify this prop when the dialog is uncontrolled (that is, when the `open` prop is not set)."
+    },
+    {
+      "component": "ModalClose",
+      "name": "asChild",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/modal/modal.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ModalClose",
+      "name": "className",
+      "type": "string | ((state: DialogCloseState) => string | undefined) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/internals/types.d.mts",
+        "kind": "dependency"
+      },
+      "description": "CSS class applied to the element, or a function that\nreturns a class based on the component's state."
+    },
+    {
+      "component": "ModalClose",
+      "name": "nativeButton",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/internals/types.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Whether the component renders a native `<button>` element when replacing it\nvia the `render` prop.\nSet to `false` if the rendered element is not a button (for example, `<div>`)."
+    },
+    {
+      "component": "ModalClose",
+      "name": "render",
+      "type": "React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | ComponentRenderFn<HTMLProps, DialogCloseState> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/internals/types.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Allows you to replace the component's HTML element\nwith a different tag, or compose it with another component.\n\nAccepts a `ReactElement` or a function that returns the element to render."
+    },
+    {
+      "component": "ModalClose",
+      "name": "style",
+      "type": "React.CSSProperties | ((state: DialogCloseState) => React.CSSProperties | undefined) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@base-ui+react@1.9.0_@date-fns+tz@1.5.0_@types+react@19.3.0_date-fns@4.4.0_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@base-ui/react/internals/types.d.mts",
+        "kind": "dependency"
+      },
+      "description": "Style applied to the element, or a function that\nreturns a style object based on the component's state."
     }
   ],
   "variants": [
@@ -148,6 +911,13 @@
       "values": [
         "alertdialog",
         "dialog"
+      ]
+    },
+    {
+      "name": "intent",
+      "values": [
+        "destroy",
+        "function"
       ]
     }
   ],

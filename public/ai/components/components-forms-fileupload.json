@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-fileupload",
   "name": "FileUpload",
@@ -41,6 +41,11 @@
       "name": "accept",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      },
       "description": "Native file accept syntax: extensions, MIME types, or type wildcards."
     },
     {
@@ -48,6 +53,11 @@
       "name": "defaultValue",
       "type": "FileUploadItem[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[]"
     },
     {
@@ -55,6 +65,11 @@
       "name": "description",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Choose files or drop them here.\""
     },
     {
@@ -62,6 +77,11 @@
       "name": "disabled",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -69,6 +89,11 @@
       "name": "invalid",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -76,6 +101,11 @@
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Attachments\""
     },
     {
@@ -83,19 +113,34 @@
       "name": "maxFiles",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "5"
     },
     {
       "component": "FileUpload",
       "name": "maxSizeBytes",
       "type": "number | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FileUpload",
       "name": "multiple",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
@@ -103,19 +148,34 @@
       "name": "onUpload",
       "type": "((file: File, context: FileUploadContext) => Promise<void>) | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      },
       "description": "Supply your transport. Without one, accepted files remain ready on this device."
     },
     {
       "component": "FileUpload",
       "name": "onValueChange",
       "type": "((items: FileUploadItem[]) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FileUpload",
       "name": "value",
       "type": "FileUploadItem[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/file-upload/file-upload.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [],

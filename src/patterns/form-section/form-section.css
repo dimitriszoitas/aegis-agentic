@@ -1,0 +1,35 @@
+.aegis-form-section {
+  min-inline-size: var(--group-page-structure-page-layout-number-zero);
+  margin: var(--group-page-structure-page-layout-number-zero);
+  padding: var(--group-page-structure-page-layout-number-zero);
+  border: none;
+  color: var(--group-page-structure-page-header-color-content-primary);
+}
+.aegis-form-section-legend {
+  max-inline-size: var(--group-page-structure-page-layout-size-full);
+  padding: var(--group-page-structure-page-layout-number-zero);
+  font-size: var(--group-page-structure-surface-font-size-subheading);
+  line-height: var(--group-page-structure-surface-font-leading-subheading);
+  font-weight: var(--group-page-structure-page-header-title-weight);
+  overflow-wrap: anywhere;
+}
+.aegis-form-section-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-page-structure-content-grid-space-gap-comfortable);
+  padding-block-start: var(--group-page-structure-page-header-space-gap-regular);
+  min-inline-size: var(--group-page-structure-page-layout-number-zero);
+}
+.aegis-form-section-description {
+  color: var(--group-page-structure-page-header-color-content-secondary);
+  font-size: var(--group-page-structure-page-header-font-size-body);
+  line-height: var(--group-page-structure-page-header-font-leading-body);
+  overflow-wrap: anywhere;
+}
+.aegis-form-section-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-page-structure-page-header-space-gap-compact);
+  min-inline-size: var(--group-page-structure-page-layout-number-zero);
+}

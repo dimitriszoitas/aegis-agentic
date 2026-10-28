@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-actions-link",
   "name": "Link",
@@ -40,13 +40,23 @@
       "component": "Link",
       "name": "children",
       "type": "ReactNode",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/link/link.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Link",
       "name": "disabled",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/link/link.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -54,6 +64,11 @@
       "name": "external",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/link/link.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false",
       "description": "Opens a new tab by default and displays an external-link icon."
     },
@@ -61,39 +76,69 @@
       "component": "Link",
       "name": "href",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/link/link.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Link",
       "name": "intent",
       "type": "\"function\" | \"default\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/link/link.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"function\""
     },
     {
       "component": "Link",
       "name": "leadingIcon",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/link/link.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Link",
       "name": "size",
       "type": "\"sm\" | \"md\" | \"lg\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/link/link.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\""
     },
     {
       "component": "Link",
       "name": "trailingIcon",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/link/link.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Link",
       "name": "underline",
       "type": "\"none\" | \"hover\" | \"always\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/link/link.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"always\""
     }
   ],

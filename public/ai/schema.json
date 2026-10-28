@@ -226,6 +226,29 @@
         "required": {
           "type": "boolean"
         },
+        "inherited": {
+          "type": "boolean"
+        },
+        "declaration": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "kind": {
+              "enum": [
+                "design-system",
+                "dependency",
+                "platform"
+              ]
+            }
+          },
+          "required": [
+            "source",
+            "kind"
+          ],
+          "additionalProperties": false
+        },
         "defaultValue": {
           "type": "string"
         },

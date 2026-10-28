@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-ai-aihighlight",
   "name": "AiHighlight",
@@ -36,13 +36,23 @@
       "component": "AiHighlight",
       "name": "confidence",
       "type": "ConfidenceLevel | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-card/ai-card.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiHighlight",
       "name": "provenance",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-card/ai-card.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

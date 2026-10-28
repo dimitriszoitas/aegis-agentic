@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-slider",
   "name": "Slider",
@@ -38,38 +38,68 @@
       "component": "Slider",
       "name": "defaultValue",
       "type": "number[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Slider",
       "name": "form",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Slider",
       "name": "formatValue",
       "type": "((value: number) => string) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Slider",
       "name": "inverted",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "Slider",
       "name": "label",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Slider",
       "name": "max",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "100"
     },
     {
@@ -77,6 +107,11 @@
       "name": "min",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "0"
     },
     {
@@ -84,31 +119,56 @@
       "name": "minStepsBetweenThumbs",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "0"
     },
     {
       "component": "Slider",
       "name": "name",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Slider",
       "name": "onValueChange",
       "type": "((value: number[]) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Slider",
       "name": "onValueCommit",
       "type": "((value: number[]) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Slider",
       "name": "orientation",
       "type": "\"horizontal\" | \"vertical\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"horizontal\""
     },
     {
@@ -116,6 +176,11 @@
       "name": "showValue",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
@@ -123,6 +188,11 @@
       "name": "step",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "1"
     },
     {
@@ -130,13 +200,56 @@
       "name": "thumbLabels",
       "type": "readonly string[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      },
       "description": "One name per thumb. Defaults to Value, or Minimum and Maximum for a range."
     },
     {
       "component": "Slider",
       "name": "value",
       "type": "number[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/slider/slider.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Slider",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Slider",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Slider",
+      "name": "required",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

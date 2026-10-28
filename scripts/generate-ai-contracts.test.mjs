@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { buildArtifacts, validateArtifacts } from './generate-ai-contracts.mjs';
+import { componentPropOrigin, isComponentProp } from './component-prop-origin.mjs';
+import ts from 'typescript';
 import {
   documentationId,
   documentationMetaId,
@@ -273,7 +275,14 @@ test('machine navigation matches the visible foundation structure and retains pu
   assert.deepEqual(index.navigation, foundationNavigationLinks('../'));
   assert.deepEqual(
     index.navigation.topLevel.map((page) => page.label),
-    ['Welcome', 'Principles', 'Directory', 'Contract Catalogue', 'MCP Integration', 'AI Guidelines'],
+    [
+      'Welcome',
+      'Principles',
+      'Directory',
+      'Contract Catalogue',
+      'MCP Integration',
+      'AI Guidelines',
+    ],
   );
   assert.deepEqual(
     index.navigation.foundations.map((page) => page.label),
@@ -474,4 +483,114 @@ test('category bindings distinguish real nested components from registry definit
   assert(!contract.tokenRefs.includes('--space-7'));
   assert(!contract.tokenRefs.includes('--group-layout-font-family'));
   assert(!read(artifacts, 'ai/tokens.json').tokens['--space-7'].consumers.includes(button.id));
+});
+
+test('typed Omit inheritance retains actual component and native declaration origins', () => {
+  const root = '/fixture';
+  const files = new Map([
+    [
+      '/fixture/node_modules/@types/react/index.d.ts',
+      'interface NativeProps { draggable?: boolean; }',
+    ],
+    [
+      '/fixture/src/components/text-input.tsx',
+      'interface TextInputProps extends NativeProps { label?: string; size?: "sm" | "md"; type?: string; }',
+    ],
+    [
+      '/fixture/src/components/password-input.tsx',
+      'type Exclude<T, U> = T extends U ? never : T; type Pick<T, K extends keyof T> = { [P in K]: T[P] }; type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>; interface PasswordInputProps extends Omit<TextInputProps, "type"> { showPasswordLabel?: string; }',
+    ],
+  ]);
+  const host = ts.createCompilerHost({});
+  host.getSourceFile = (name) =>
+    files.has(name)
+      ? ts.createSourceFile(name, files.get(name), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)
+      : undefined;
+  const program = ts.createProgram([...files.keys()], { noLib: true }, host);
+  const checker = program.getTypeChecker();
+  const componentFile = '/fixture/src/components/password-input.tsx';
+  const declaration = program
+    .getSourceFile(componentFile)
+    .statements.find((node) => ts.isInterfaceDeclaration(node));
+  const props = Object.fromEntries(
+    checker
+      .getPropertiesOfType(checker.getTypeAtLocation(declaration))
+      .map((prop) => [
+        prop.name,
+        componentPropOrigin(
+          (prop.valueDeclaration ?? prop.declarations?.[0] ?? declaration).getSourceFile().fileName,
+          componentFile,
+          root,
+        ),
+      ]),
+  );
+  assert.deepEqual(props.label, {
+    inherited: true,
+    declaration: { source: 'src/components/text-input.tsx', kind: 'design-system' },
+  });
+  assert.equal(props.showPasswordLabel.inherited, false);
+  assert.equal(props.draggable.inherited, true);
+  assert.equal(props.draggable.declaration.kind, 'platform');
+  assert.equal(props.type, undefined);
+  assert.equal(isComponentProp(props.label), true);
+  assert.equal(isComponentProp(props.draggable), false);
+  const primitive = componentPropOrigin(
+    '/fixture/node_modules/@base-ui/react/number-field/root/NumberFieldRoot.d.ts',
+    componentFile,
+    root,
+  );
+  assert.equal(primitive.declaration.kind, 'dependency');
+  assert.equal(isComponentProp(primitive), true);
+  const hoistedReact = componentPropOrigin(
+    '/fixture/node_modules/.pnpm/@types+react@19/node_modules/@types/react/index.d.ts',
+    componentFile,
+    root,
+  );
+  assert.equal(hoistedReact.declaration.kind, 'platform');
+  assert.equal(isComponentProp({ inherited: true }), false);
+});
+
+test('published API includes inherited component and primitive props with provenance but omits platform plumbing', () => {
+  const source = input();
+  source.families[0].props.push(
+    {
+      component: 'Button',
+      name: 'label',
+      type: 'ReactNode',
+      required: false,
+      inherited: true,
+      declaration: { source: 'src/components/text-input/text-input.tsx', kind: 'design-system' },
+    },
+    {
+      component: 'Button',
+      name: 'min',
+      type: 'number | undefined',
+      required: false,
+      inherited: true,
+      declaration: {
+        source: 'node_modules/@base-ui/react/number-field/root/NumberFieldRoot.d.ts',
+        kind: 'dependency',
+      },
+    },
+    {
+      component: 'Button',
+      name: 'draggable',
+      type: 'boolean | undefined',
+      required: false,
+      inherited: true,
+      declaration: { source: 'node_modules/@types/react/index.d.ts', kind: 'platform' },
+    },
+  );
+  const artifacts = buildArtifacts(source);
+  const props = read(artifacts, 'ai/components/components-actions-button.json').props;
+  assert.deepEqual(
+    props.map((prop) => prop.name),
+    ['size', 'label', 'min'],
+  );
+  for (const name of ['label', 'min']) {
+    const expected = source.families[0].props.find((prop) => prop.name === name);
+    assert.equal(props.find((prop) => prop.name === name).inherited, true);
+    assert.deepEqual(props.find((prop) => prop.name === name).declaration, expected.declaration);
+  }
+  validateArtifacts(artifacts, source.families);
 });

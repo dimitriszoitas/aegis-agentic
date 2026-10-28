@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-charts-mini-bar-chart",
   "name": "Mini bar chart",
@@ -31,7 +31,76 @@
     "import { MiniBarChart } from '@dimitriszoitas/aegis-agentic/mini-bar-chart';"
   ],
   "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
-  "props": [],
+  "props": [
+    {
+      "component": "MiniBarChart",
+      "name": "data",
+      "type": "readonly number[]",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "MiniBarChart",
+      "name": "height",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "32px (var(--group-data-viz-measurement-mini-bar-height))"
+    },
+    {
+      "component": "MiniBarChart",
+      "name": "intent",
+      "type": "\"function\" | \"destroy\" | \"ai\" | \"success\" | \"warning\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "MiniBarChart",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "MiniBarChart",
+      "name": "loading",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "MiniBarChart",
+      "name": "width",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "120px (var(--group-data-viz-measurement-mini-bar-width))"
+    }
+  ],
   "variants": [
     {
       "name": "intent",

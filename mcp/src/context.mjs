@@ -8,6 +8,7 @@ export const limits = Object.freeze({ resourceBytes: 256 * 1024, inputBytes: 32 
 export const supportedKitRevisions = Object.freeze({
   '0.4.0-experiment.0': 2,
   '0.5.0-experiment.0': 3,
+  '0.6.0-experiment.0': 4,
 });
 export const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 export const within = (root, file) => { const part = relative(root, file); return part === '' || (!isAbsolute(part) && part !== '..' && !part.startsWith(`..${sep}`)); };

@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-checkbox",
   "name": "Checkbox",
@@ -36,50 +36,90 @@
       "component": "Checkbox",
       "name": "checked",
       "type": "CheckboxCheckedState | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/checkbox/checkbox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Checkbox",
       "name": "containerClassName",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/checkbox/checkbox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Checkbox",
       "name": "defaultChecked",
       "type": "CheckboxCheckedState | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/checkbox/checkbox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "Checkbox",
       "name": "description",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/checkbox/checkbox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Checkbox",
       "name": "invalid",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/checkbox/checkbox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Checkbox",
       "name": "label",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/checkbox/checkbox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Checkbox",
       "name": "onCheckedChange",
       "type": "((checked: CheckboxCheckedState) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/checkbox/checkbox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Checkbox",
       "name": "readOnly",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/checkbox/checkbox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false",
       "description": "Focusable and announced, but cannot be changed by pointer or keyboard."
     },
@@ -87,13 +127,23 @@
       "component": "Checkbox",
       "name": "required",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/checkbox/checkbox.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Checkbox",
       "name": "size",
       "type": "\"sm\" | \"md\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/checkbox/checkbox.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\"",
       "description": "Compact controls use the same styling at 16px instead of 18px."
     },
@@ -101,7 +151,12 @@
       "component": "Checkbox",
       "name": "value",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/checkbox/checkbox.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

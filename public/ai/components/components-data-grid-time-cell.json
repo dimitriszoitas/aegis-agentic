@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-data-grid-time-cell",
   "name": "Time cell",
@@ -37,19 +37,34 @@
       "name": "now",
       "type": "number | Date | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "kind": "design-system"
+      },
       "description": "Supply a reference time for deterministic historical displays and stories."
     },
     {
       "component": "TimeCell",
       "name": "timeZone",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "TimeCell",
       "name": "value",
       "type": "string | Date",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [],

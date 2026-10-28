@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-ai-streamingskeleton",
   "name": "StreamingSkeleton",
@@ -40,6 +40,11 @@
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/streaming-skeleton/streaming-skeleton.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Generating AI response\""
     },
     {
@@ -47,6 +52,11 @@
       "name": "lines",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/streaming-skeleton/streaming-skeleton.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "3"
     },
     {
@@ -54,6 +64,11 @@
       "name": "variant",
       "type": "\"text\" | \"card\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/streaming-skeleton/streaming-skeleton.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"text\""
     }
   ],
