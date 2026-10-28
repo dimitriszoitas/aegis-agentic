@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "id": "streaming-skeleton",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A named placeholder for an AI response that has not yet produced readable content.",
+  "anatomy": ["named status", "hidden label", "placeholder lines"],
+  "states": ["text or card", "configured line count"],
+  "tokenGroup": "ai",
+  "behaviorProvider": "Status region with decorative placeholder lines.",
+  "ownership": {
+    "component": [
+      "Expose a status region with the supplied label and an equivalent visually hidden text label. All placeholder lines are aria-hidden.",
+      "Normalize finite line counts to whole values between one and twelve and use three for non-finite input. variant controls text/card presentation."
+    ],
+    "host": [
+      "Mount only during actual pending generation and replace with result/error content when the host operation completes.",
+      "Avoid redundant live announcements when composing with other loading feedback; preserve reduced-motion styling."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Expose a status region with the supplied label and an equivalent visually hidden text label. All placeholder lines are aria-hidden.",
+      "sources": ["src/components/streaming-skeleton/streaming-skeleton.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Normalize finite line counts to whole values between one and twelve and use three for non-finite input. variant controls text/card presentation.",
+      "sources": ["src/components/streaming-skeleton/streaming-skeleton.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Mount only during actual pending generation and replace with result/error content when the host operation completes.",
+      "sources": [
+        "src/components/streaming-skeleton/streaming-skeleton.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Avoid redundant live announcements when composing with other loading feedback; preserve reduced-motion styling.",
+      "sources": [
+        "src/components/streaming-skeleton/streaming-skeleton.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use ai group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/streaming-skeleton/streaming-skeleton.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Placeholder count does not estimate response length or progress; no stream lifecycle is implemented.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

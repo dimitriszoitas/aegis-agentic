@@ -93,6 +93,8 @@ export function Accordion(props: AccordionProps) {
           ),
         );
         const index = triggers.indexOf(event.target as HTMLButtonElement);
+        // A nested accordion may leave perpendicular arrows unhandled.
+        if (index === -1) return;
         const previous =
           orientation === 'horizontal'
             ? getComputedStyle(event.currentTarget).direction === 'rtl'

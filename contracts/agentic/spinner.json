@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "id": "spinner",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A small activity indicator that can be either decorative or a named loading status.",
+  "anatomy": ["optional named wrapper", "decorative SVG track and arc"],
+  "states": ["decorative", "named loading status", "sm/md/lg"],
+  "tokenGroup": "feedback",
+  "behaviorProvider": "Static SVG geometry with CSS motion and optional named status wrapper.",
+  "ownership": {
+    "component": [
+      "With a label, expose role status and that accessible name. Without a label, hide the wrapper from assistive technology so an enclosing status/button can own the message.",
+      "Keep the SVG decorative and use token-backed stroke and opacity with size data attributes."
+    ],
+    "host": [
+      "Supply a label for standalone loading; omit it when a containing control already describes pending work.",
+      "Own actual pending state, completion, cancellation and timeout feedback. Preserve reduced-motion styles."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "With a label, expose role status and that accessible name. Without a label, hide the wrapper from assistive technology so an enclosing status/button can own the message.",
+      "sources": ["src/components/spinner/spinner.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Keep the SVG decorative and use token-backed stroke and opacity with size data attributes.",
+      "sources": ["src/components/spinner/spinner.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply a label for standalone loading; omit it when a containing control already describes pending work.",
+      "sources": ["src/components/spinner/spinner.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own actual pending state, completion, cancellation and timeout feedback. Preserve reduced-motion styles.",
+      "sources": ["src/components/spinner/spinner.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use feedback group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": ["src/components/spinner/spinner.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "A spinner provides no percentage, retry behavior or indication that the operation is still progressing.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

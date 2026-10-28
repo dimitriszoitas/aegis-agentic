@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 2,
+  "id": "split-button",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A frequent primary action paired with a menu of related alternatives.",
+  "anatomy": [
+    "named action group",
+    "primary action",
+    "menu trigger",
+    "alternative actions",
+    "error alert"
+  ],
+  "states": ["idle", "menu open", "pending", "external loading", "disabled", "action error"],
+  "tokenGroup": "trigger",
+  "behaviorProvider": "Shared Button and DropdownMenu with local guarded async action state.",
+  "ownership": {
+    "component": [
+      "Render independent primary and menu Buttons in a named group. Alternative actions are mapped to DropdownMenu with stable ids and per-action disabled/intent settings.",
+      "Guard primary and alternative execution synchronously against duplicate calls. Close the menu, clear the prior error, and disable actions during pending work or external loading."
+    ],
+    "host": [
+      "Supply stable unique action ids, contextual labels and real async promises. Own persistence, permissions and retry/idempotency policy.",
+      "Keep the primary action semantically stable; menu choices do not automatically replace it."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Render independent primary and menu Buttons in a named group. Alternative actions are mapped to DropdownMenu with stable ids and per-action disabled/intent settings.",
+      "sources": ["src/components/split-button/split-button.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Guard primary and alternative execution synchronously against duplicate calls. Close the menu, clear the prior error, and disable actions during pending work or external loading.",
+      "sources": ["src/components/split-button/split-button.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "On rejection retain the component, show errorMessage in an alert and call onActionError. The host callback owns the operation result.",
+      "sources": ["src/components/split-button/split-button.tsx"]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "After pending ends, attempt to restore focus to the initiating primary/menu button only while focus remains within the group or on the document body. Avoid local state updates after unmount.",
+      "sources": ["src/components/split-button/split-button.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply stable unique action ids, contextual labels and real async promises. Own persistence, permissions and retry/idempotency policy.",
+      "sources": [
+        "src/components/split-button/split-button.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Keep the primary action semantically stable; menu choices do not automatically replace it.",
+      "sources": [
+        "src/components/split-button/split-button.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use trigger group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/split-button/split-button.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No transaction rollback, confirmation flow or network cancellation is supplied.",
+    "There is no externally controlled menu or pending state; loading is an additional availability input.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

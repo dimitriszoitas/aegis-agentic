@@ -1,0 +1,543 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.7.0-experiment.0"
+  },
+  "id": "components-data-indicator",
+  "name": "Indicator",
+  "category": "Data Display",
+  "tokenGroup": "data-display",
+  "kind": "component",
+  "aliases": [
+    "notification count",
+    "notification dot",
+    "notification marker"
+  ],
+  "purpose": "Position a named notification dot or count around existing content while preserving child interaction.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-agentic/indicator"
+  ],
+  "links": {
+    "contract": "./components-data-indicator.json",
+    "overview": "../../?path=/docs/components-data-display-indicator-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-display-indicator-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-display-indicator-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-display-indicator-overview--docs&docsTab=tokens"
+  },
+  "description": "Position a dot or CountBadge around existing content. Logical placements follow writing direction. The marker never intercepts pointer events or changes child semantics. Supply its full accessible meaning; use decorative only when that meaning is already available. Counts do not announce themselves as live updates.",
+  "exports": [
+    "Indicator"
+  ],
+  "importStatements": [
+    "import { Indicator } from '@dimitriszoitas/aegis-agentic/indicator';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
+  "props": [
+    {
+      "component": "Indicator",
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/indicator/indicator.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Indicator",
+      "name": "count",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/indicator/indicator.tsx",
+        "kind": "design-system"
+      },
+      "description": "Omit for a dot. Non-finite values hide the marker; finite values are clamped to whole counts."
+    },
+    {
+      "component": "Indicator",
+      "name": "decorative",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/indicator/indicator.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "false",
+      "description": "Use only when adjacent content already communicates the same information."
+    },
+    {
+      "component": "Indicator",
+      "name": "hidden",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/indicator/indicator.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "false"
+    },
+    {
+      "component": "Indicator",
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/indicator/indicator.tsx",
+        "kind": "design-system"
+      },
+      "description": "Accessible meaning of the marker, including the full count where relevant."
+    },
+    {
+      "component": "Indicator",
+      "name": "max",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/indicator/indicator.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "99"
+    },
+    {
+      "component": "Indicator",
+      "name": "placement",
+      "type": "\"top-start\" | \"top-end\" | \"bottom-start\" | \"bottom-end\" | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/indicator/indicator.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"top-end\""
+    },
+    {
+      "component": "Indicator",
+      "name": "showZero",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/indicator/indicator.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "false"
+    }
+  ],
+  "variants": [
+    {
+      "name": "placement",
+      "values": [
+        "bottom-end",
+        "bottom-start",
+        "top-end",
+        "top-start"
+      ],
+      "default": "top-end"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/count-badge",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/tag",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "Position a named notification dot or count around existing content while preserving child interaction.",
+    "usage": [
+      "Provide the complete accessible label including raw meaningful count; name interactive children separately.",
+      "Own notification data, announcement policy and zero visibility. Use decorative only when accessible surrounding content already conveys the same information."
+    ],
+    "accessibility": [
+      "Normalize max to a positive whole cap and pass the count to the shared small inverted CountBadge. The supplied label, not the capped display, names the marker.",
+      "Expose a named image marker unless decorative; decorative hides marker semantics. Logical start/end corner placement follows writing direction. Do not create a live region."
+    ],
+    "intent": [
+      "No notification service, action callback or live update announcement is supplied.",
+      "The wrapper reserves a small corner inset; very small target content still requires visual review with long counts."
+    ],
+    "context": [
+      "Compose with existing project patterns and preserve the distinction between notification counts, availability and record status."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "react"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/count-badge/count-badge.css",
+    "src/components/count-badge/count-badge.tsx",
+    "src/components/count-badge/index.ts",
+    "src/components/indicator/indicator.css",
+    "src/components/indicator/indicator.stories.tsx",
+    "src/components/indicator/indicator.tsx",
+    "src/package/styles.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-data-indicator--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-data-indicator--playground",
+      "sourceFile": "src/components/indicator/indicator.stories.tsx"
+    },
+    {
+      "id": "components-data-indicator--dot",
+      "name": "Dot",
+      "url": "../../?path=/story/components-data-indicator--dot",
+      "sourceFile": "src/components/indicator/indicator.stories.tsx"
+    },
+    {
+      "id": "components-data-indicator--overflow",
+      "name": "Overflow",
+      "url": "../../?path=/story/components-data-indicator--overflow",
+      "sourceFile": "src/components/indicator/indicator.stories.tsx"
+    },
+    {
+      "id": "components-data-indicator--zero",
+      "name": "Zero",
+      "url": "../../?path=/story/components-data-indicator--zero",
+      "sourceFile": "src/components/indicator/indicator.stories.tsx"
+    },
+    {
+      "id": "components-data-indicator--anatomy",
+      "name": "Anatomy",
+      "url": "../../?path=/story/components-data-indicator--anatomy",
+      "sourceFile": "src/components/indicator/indicator.stories.tsx"
+    },
+    {
+      "id": "components-data-indicator--interaction",
+      "name": "Interaction",
+      "url": "../../?path=/story/components-data-indicator--interaction",
+      "sourceFile": "src/components/indicator/indicator.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-display-count-badge-color-content-primary",
+    "--group-data-display-count-badge-color-surface-surface-raised",
+    "--group-data-display-count-badge-font-size-small",
+    "--group-data-display-count-badge-padding-snug",
+    "--group-data-display-count-badge-size-small",
+    "--group-data-display-indicator-border",
+    "--group-data-display-indicator-border-width",
+    "--group-data-display-indicator-color",
+    "--group-data-display-indicator-dot-size",
+    "--group-data-display-indicator-radius",
+    "--group-data-display-indicator-space",
+    "--group-data-display-indicator-zero",
+    "--group-data-display-surface-border-overlap",
+    "--group-data-display-surface-border-width-regular",
+    "--group-data-display-surface-color-action-foreground",
+    "--group-data-display-surface-color-action-soft",
+    "--group-data-display-surface-color-border-default",
+    "--group-data-display-surface-color-content-primary",
+    "--group-data-display-surface-divider-height",
+    "--group-data-display-surface-divider-width",
+    "--group-data-display-surface-elevation-none",
+    "--group-data-display-surface-focus-offset",
+    "--group-data-display-surface-font-family-ui",
+    "--group-data-display-surface-font-size-body",
+    "--group-data-display-surface-motion-count-1",
+    "--group-data-display-surface-motion-disabled-duration",
+    "--group-data-display-surface-motion-reduced-duration",
+    "--group-data-display-surface-number-0",
+    "--group-data-display-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-display-indicator-space",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-indicator-zero",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-indicator-dot-size",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-indicator-radius",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-indicator-color",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-indicator-border",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-indicator-border-width",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-count-badge-color-content-primary",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-count-badge-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-count-badge-size-small",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-count-badge-padding-snug",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-count-badge-font-size-small",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-divider-width",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-divider-height",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-overlap",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Indicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "CountBadge",
+      "group": "data-display"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

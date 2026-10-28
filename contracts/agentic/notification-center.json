@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 2,
+  "id": "notification-center",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present a controlled notification inbox with local search, unread filtering and asynchronous item actions.",
+  "anatomy": [
+    "side-sheet trigger and unread count",
+    "search",
+    "all/unread tabs",
+    "notification list",
+    "item actions",
+    "loading/error/status"
+  ],
+  "states": ["closed", "all", "unread", "search", "loading", "empty", "error", "action-pending"],
+  "tokenGroup": "communication",
+  "behaviorProvider": "Shared SideSheet, SearchInput, Tabs and feedback components with local action serialization.",
+  "ownership": {
+    "component": ["inbox presentation", "local filtering", "action pending and errors"],
+    "host": [
+      "notification data and persistence",
+      "read/dismiss/navigation callbacks",
+      "loading and retry lifecycle"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "controlled-items",
+      "kind": "component",
+      "statement": "Derive unread count and list entries from items. Read and dismissal callbacks request changes; the component does not mutate the supplied collection.",
+      "sources": ["src/patterns/notification-center/notification-center.tsx"]
+    },
+    {
+      "id": "local-filtering",
+      "kind": "component",
+      "statement": "Apply local all/unread filtering and case-folded title/description search; both affect displayed items without changing their read state.",
+      "sources": ["src/patterns/notification-center/notification-center.tsx"]
+    },
+    {
+      "id": "action-serialization",
+      "kind": "component",
+      "statement": "Serialize asynchronous read, dismiss and open-item actions through one pending guard; announce success and present rejected actions as errors.",
+      "sources": ["src/patterns/notification-center/notification-center.tsx"]
+    },
+    {
+      "id": "row-removal-focus",
+      "kind": "component",
+      "statement": "Before actions designated as removing the current row from view, move focus to the panel search input so a disappearing row does not retain focus.",
+      "sources": ["src/patterns/notification-center/notification-center.tsx"]
+    },
+    {
+      "id": "sheet-lifecycle",
+      "kind": "component",
+      "statement": "Delegate trigger, controlled/default open, dismissal and focus behavior to SideSheet, forwarding onOpenChangeComplete for host navigation coordination.",
+      "sources": ["src/patterns/notification-center/notification-center.tsx"]
+    },
+    {
+      "id": "resource-presentation",
+      "kind": "component",
+      "statement": "Show loading, supplied error, empty and no-match feedback according to current props and local filters; retry invokes the supplied callback.",
+      "sources": ["src/patterns/notification-center/notification-center.tsx"]
+    },
+    {
+      "id": "item-authority",
+      "kind": "host",
+      "statement": "Provide stable unique item ids and valid timestamps, update read/dismissed items after successful callbacks, and perform real navigation or persistence.",
+      "sources": ["src/patterns/notification-center/notification-center.tsx"]
+    },
+    {
+      "id": "async-boundary",
+      "kind": "host",
+      "statement": "Manage fetching, retry/loading flags and remote cancellation. Closing the sheet is not a guarantee that pending host actions have stopped.",
+      "sources": ["src/patterns/notification-center/notification-center.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes communication group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/patterns/notification-center/notification-center.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No fetching, subscription, persistence or automatic marking as read merely by opening the panel.",
+    "Callback success is reported locally and does not independently verify external state.",
+    "Action promises are not supplied an AbortSignal; hosts own cancellation and lifecycle policy."
+  ]
+}

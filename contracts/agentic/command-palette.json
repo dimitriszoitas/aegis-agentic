@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 2,
+  "id": "command-palette",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Search and invoke host command items in a shared dialog-backed command palette.",
+  "anatomy": [
+    "dialog",
+    "search input",
+    "grouped command list",
+    "empty result",
+    "optional AI action"
+  ],
+  "states": ["closed", "open", "query", "no-results", "item-highlight"],
+  "tokenGroup": "navigation",
+  "behaviorProvider": "Base UI Dialog and Autocomplete primitives plus local query filtering and shortcut handling.",
+  "ownership": {
+    "component": ["dialog/list composition", "query matching", "open shortcut and selection"],
+    "host": ["commands and side effects", "shortcut conflicts", "controlled visibility"]
+  },
+  "requirements": [
+    {
+      "id": "controlled-open",
+      "kind": "component",
+      "statement": "Support controlled open/onOpenChange or defaultOpen local state. The internal setOpen(false) path clears query; an external controlled close alone need not reset it.",
+      "sources": ["src/components/command-palette/command-palette.tsx"]
+    },
+    {
+      "id": "query-matching",
+      "kind": "component",
+      "statement": "Filter supplied command labels and keywords by a case-insensitive substring match, preserving optional grouping. An optional AI action is appended by component logic.",
+      "sources": ["src/components/command-palette/command-palette.tsx"]
+    },
+    {
+      "id": "keyboard-provider",
+      "kind": "component",
+      "statement": "Delegate dialog focus containment, list highlighting and selection keyboard behavior to Base UI Dialog and Autocomplete rather than implementing a separate toolbar model.",
+      "sources": ["src/components/command-palette/command-palette.tsx"]
+    },
+    {
+      "id": "global-shortcut",
+      "kind": "component",
+      "statement": "When enabled, listen for document Ctrl+K or Meta+K and toggle open. The handler does not exclude editable targets; hosts may disable the shortcut where it conflicts.",
+      "sources": ["src/components/command-palette/command-palette.tsx"]
+    },
+    {
+      "id": "selection-order",
+      "kind": "component",
+      "statement": "Close through the local setOpen path before invoking the selected item callback. Displayed item shortcut labels do not register separate keyboard shortcuts.",
+      "sources": ["src/components/command-palette/command-palette.tsx"]
+    },
+    {
+      "id": "focus-return",
+      "kind": "component",
+      "statement": "Initially focus the search and remember the opener; return focus to the connected opener on dismissal unless the host has already moved focus outside the dialog.",
+      "sources": ["src/components/command-palette/command-palette.tsx"]
+    },
+    {
+      "id": "command-authority",
+      "kind": "host",
+      "statement": "Provide stable command identifiers, meaningful labels and callbacks. Handle promise errors, navigation completion, authorization and destructive confirmation in the action implementation.",
+      "sources": ["src/components/command-palette/command-palette.tsx"]
+    },
+    {
+      "id": "shortcut-policy",
+      "kind": "host",
+      "statement": "Avoid competing global shortcuts and duplicate palettes, apply controlled open callbacks, and provide a discoverable trigger when a keyboard shortcut is insufficient.",
+      "sources": ["src/components/command-palette/command-palette.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes navigation group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/components/command-palette/command-palette.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No command authorization, persistence, asynchronous action lifecycle or automatically wired per-item shortcuts.",
+    "The global open shortcut also runs while an editable element is focused.",
+    "Query clearing is tied to internal close requests, not every possible controlled prop transition."
+  ]
+}

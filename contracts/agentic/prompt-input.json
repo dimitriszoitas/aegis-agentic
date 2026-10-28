@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 2,
+  "id": "prompt-input",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Compose a multiline assistant prompt with explicit context selection, commands, send and stop requests.",
+  "anatomy": [
+    "textarea",
+    "context tags",
+    "attachment menu",
+    "command menu",
+    "send or stop control",
+    "hint and error"
+  ],
+  "states": ["empty", "draft", "submitting", "generating", "disabled", "send-error"],
+  "tokenGroup": "ai-assistance",
+  "behaviorProvider": "Shared Textarea and buttons plus Base UI Popover/Autocomplete menus with local React request state.",
+  "ownership": {
+    "component": [
+      "text and context callbacks",
+      "send guards and error presentation",
+      "composer keyboard behavior"
+    ],
+    "host": [
+      "AI provider and cancellation",
+      "controlled value/context updates",
+      "context validity and permissions"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "controlled-values",
+      "kind": "component",
+      "statement": "Support controlled value/onValueChange and context/onContextChange or local defaults. Attach contexts by identifier without duplicating existing identifiers.",
+      "sources": ["src/patterns/prompt-input/prompt-input.tsx"]
+    },
+    {
+      "id": "send-boundary",
+      "kind": "component",
+      "statement": "Ignore blank, disabled, generating or already-submitting sends; trim the outgoing prompt and copy the attached context into the request.",
+      "sources": ["src/patterns/prompt-input/prompt-input.tsx"]
+    },
+    {
+      "id": "send-settlement",
+      "kind": "component",
+      "statement": "Await onSend, retain the draft and show an alert on rejection, and clear text after success only if it still equals the submitted text. Restore focus to the textarea after success.",
+      "sources": ["src/patterns/prompt-input/prompt-input.tsx"]
+    },
+    {
+      "id": "composer-keyboard",
+      "kind": "component",
+      "statement": "Enter without Shift sends unless native composition is active; Shift+Enter remains multiline input. A slash from the empty composer opens commands.",
+      "sources": ["src/patterns/prompt-input/prompt-input.tsx"]
+    },
+    {
+      "id": "menu-composition",
+      "kind": "component",
+      "statement": "Use shared popover/autocomplete menus for attachment and command search, selection and return focus. Selecting a command fills text; selecting context attaches it.",
+      "sources": ["src/patterns/prompt-input/prompt-input.tsx"]
+    },
+    {
+      "id": "stop-request",
+      "kind": "component",
+      "statement": "While generating, expose Stop generation and call onStop when supplied. Its availability depends on onStop, independently of the general disabled flag.",
+      "sources": ["src/patterns/prompt-input/prompt-input.tsx"]
+    },
+    {
+      "id": "request-lifecycle",
+      "kind": "host",
+      "statement": "Perform actual submission and cancellation and supply generating state. Context and command controls are not all disabled during submission; each send uses its captured context.",
+      "sources": ["src/patterns/prompt-input/prompt-input.tsx"]
+    },
+    {
+      "id": "accessible-context",
+      "kind": "host",
+      "statement": "Supply meaningful command labels, context labels and stable identifiers; enforce attachment access and prompt limits outside the composer.",
+      "sources": ["src/patterns/prompt-input/prompt-input.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes ai-assistance group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/patterns/prompt-input/prompt-input.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No model provider, request queue, context authorization or durable draft storage.",
+    "Changing controlled values requires the host to apply callbacks.",
+    "Stop remains available during generation when onStop exists, including when disabled is supplied."
+  ]
+}

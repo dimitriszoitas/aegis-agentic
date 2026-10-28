@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 2,
+  "id": "tags-cell",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A bounded row of static tags with a named overflow summary.",
+  "anatomy": ["visible Tags", "focusable overflow marker", "tooltip"],
+  "states": ["no tags", "visible tags", "overflow"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Shared data-grid cell adapter; table/record state remains with its host.",
+  "ownership": {
+    "component": [
+      "Normalize maxVisible to a nonnegative whole count and show that many static Tags; zero can route all tags to overflow.",
+      "Expose overflow as a focusable marker with the hidden tag count and names in its accessible label and tooltip."
+    ],
+    "host": [
+      "Supply unique stable tag strings and own tag editing/filtering.",
+      "Use a column width suitable for visible labels and keep long overflow text readable."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Normalize maxVisible to a nonnegative whole count and show that many static Tags; zero can route all tags to overflow.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Expose overflow as a focusable marker with the hidden tag count and names in its accessible label and tooltip.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Render an em dash with the accessible name No tags for an empty array.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply unique stable tag strings and own tag editing/filtering.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Use a column width suitable for visible labels and keep long overflow text readable.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No removal, selection, search or tag editing is supplied.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

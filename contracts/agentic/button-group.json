@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "id": "button-group",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A visual and semantic group of related buttons without adding selection behavior.",
+  "anatomy": ["named group", "child actions"],
+  "states": ["grouped actions"],
+  "tokenGroup": "trigger",
+  "behaviorProvider": "Native div with group semantics; child buttons own activation.",
+  "ownership": {
+    "component": [
+      "Render a div with role group and a required aria-label. Forward ordinary div attributes and merge className with button-group.",
+      "Provide no selection model, roving focus or group keyboard interception; each child retains its own native button behavior."
+    ],
+    "host": [
+      "Supply a meaningful group name and explicit button types. Use ToggleGroup or SegmentedControl when exclusive selection is required.",
+      "Keep action order and emphasis consistent across the product; authorization and action completion belong to the host."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Render a div with role group and a required aria-label. Forward ordinary div attributes and merge className with button-group.",
+      "sources": ["src/components/button-group/button-group.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Provide no selection model, roving focus or group keyboard interception; each child retains its own native button behavior.",
+      "sources": ["src/components/button-group/button-group.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply a meaningful group name and explicit button types. Use ToggleGroup or SegmentedControl when exclusive selection is required.",
+      "sources": [
+        "src/components/button-group/button-group.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Keep action order and emphasis consistent across the product; authorization and action completion belong to the host.",
+      "sources": [
+        "src/components/button-group/button-group.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use trigger group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/button-group/button-group.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Visual grouping does not implement a toolbar, selection, validation or async action lifecycle.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

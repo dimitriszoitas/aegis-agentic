@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 2,
+  "id": "iconography",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A shared named icon adapter for consistent stroke-based interface artwork.",
+  "anatomy": ["SVG glyph"],
+  "states": ["decorative", "explicitly named", "token sizing", "custom SVG paint"],
+  "tokenGroup": "iconography",
+  "behaviorProvider": "Shared Hugeicons SVG factory; individual named icon exports use the same wrapper.",
+  "ownership": {
+    "component": [
+      "Use the shared createIcon wrapper for the exported glyphs. Default size and stroke width come from iconography runtime tokens; caller values may override them.",
+      "Hide an icon from assistive technology unless aria-label or aria-labelledby is supplied, and default SVG focusable to false. Preserve forwarded SVG refs/properties."
+    ],
+    "host": [
+      "Use the surrounding button/link label for action semantics; icons alone do not create interactive controls.",
+      "Supply a meaningful accessible name for informative standalone glyphs. Choose approved group dimensions and do not encode meaning only through shape or color."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Use the shared createIcon wrapper for the exported glyphs. Default size and stroke width come from iconography runtime tokens; caller values may override them.",
+      "sources": ["src/components/icon/index.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Hide an icon from assistive technology unless aria-label or aria-labelledby is supplied, and default SVG focusable to false. Preserve forwarded SVG refs/properties.",
+      "sources": ["src/components/icon/index.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "When style.stroke is a url paint reference, apply it to primary and secondary icon colors so the shared AI gradient marker can use the same glyph engine.",
+      "sources": ["src/components/icon/index.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Use the surrounding button/link label for action semantics; icons alone do not create interactive controls.",
+      "sources": ["src/components/icon/index.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Supply a meaningful accessible name for informative standalone glyphs. Choose approved group dimensions and do not encode meaning only through shape or color.",
+      "sources": ["src/components/icon/index.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use iconography group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": ["src/components/icon/index.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "Iconography is a family-level contract for shared wrapping behavior; it does not certify each glyph as an unambiguous semantic symbol.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

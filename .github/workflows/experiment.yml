@@ -30,6 +30,9 @@ jobs:
       - run: node scripts/verify-contract-storybook.mjs
       - run: npm run forms-collections:browser
       - run: npm run forms-collections:package
+      - run: npm run library-completion:source
+      - run: npm run library-completion:browser
+      - run: npm run library-completion:package
       - run: npm run token-input:adoption
       - run: npm run relay:check -- --local-dependencies
       - uses: actions/upload-artifact@v4

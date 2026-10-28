@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 2,
+  "id": "file-upload",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Select local files, show bounded validation and optionally invoke a host-supplied cancellable upload adapter.",
+  "anatomy": [
+    "labeled section",
+    "drop zone",
+    "Choose files Button",
+    "native file input",
+    "errors",
+    "file rows",
+    "progress and actions",
+    "live status"
+  ],
+  "states": ["default", "controlled-value", "host-validation"],
+  "tokenGroup": "input",
+  "behaviorProvider": "Native file input/drag-drop with shared Button, IconButton and ProgressBar.",
+  "ownership": {
+    "component": [
+      "Accept native selection and dropped files. Match accept by extension, MIME type or wildcard; check size, count and duplicates identified by filename/size/lastModified. multiple=false replaces the prior selection only when a valid replacement is accepted.",
+      "Store accepted File objects as ready items with generated IDs. Without onUpload, files remain local. Clear the native file input after selection so the same file can be selected again.",
+      "Only an explicit upload/retry action invokes onUpload(file,{signal,onProgress}). Bound finite progress to 0\u2013100; resolving marks complete, rejection marks error. Ignore stale/aborted progress or completion updates.",
+      "Abort registered tasks on cancel, removal, external item disappearance and unmount. Cancel returns a row to ready. Restore row action focus on state transitions and Choose files focus after removal."
+    ],
+    "host": [
+      "When value is supplied, accept onValueChange item updates to keep the controlled list synchronized. Own stable item IDs and transport/storage consistency.",
+      "Implement actual upload, authorization, server-side validation, content scanning, retries and persistence. Honor AbortSignal to stop underlying work; client accept and metadata checks are convenience checks, not security validation."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "selection-limits",
+      "kind": "component",
+      "statement": "Accept native selection and dropped files. Match accept by extension, MIME type or wildcard; check size, count and duplicates identified by filename/size/lastModified. multiple=false replaces the prior selection only when a valid replacement is accepted.",
+      "sources": ["src/components/file-upload/file-upload.tsx"]
+    },
+    {
+      "id": "local-ready-state",
+      "kind": "component",
+      "statement": "Store accepted File objects as ready items with generated IDs. Without onUpload, files remain local. Clear the native file input after selection so the same file can be selected again.",
+      "sources": ["src/components/file-upload/file-upload.tsx"]
+    },
+    {
+      "id": "upload-lifecycle",
+      "kind": "component",
+      "statement": "Only an explicit upload/retry action invokes onUpload(file,{signal,onProgress}). Bound finite progress to 0\u2013100; resolving marks complete, rejection marks error. Ignore stale/aborted progress or completion updates.",
+      "sources": ["src/components/file-upload/file-upload.tsx"]
+    },
+    {
+      "id": "cancellation-and-focus",
+      "kind": "component",
+      "statement": "Abort registered tasks on cancel, removal, external item disappearance and unmount. Cancel returns a row to ready. Restore row action focus on state transitions and Choose files focus after removal.",
+      "sources": ["src/components/file-upload/file-upload.tsx"]
+    },
+    {
+      "id": "controlled-list-ownership",
+      "kind": "host",
+      "statement": "When value is supplied, accept onValueChange item updates to keep the controlled list synchronized. Own stable item IDs and transport/storage consistency.",
+      "sources": ["src/components/file-upload/file-upload.tsx"]
+    },
+    {
+      "id": "transport-and-security",
+      "kind": "host",
+      "statement": "Implement actual upload, authorization, server-side validation, content scanning, retries and persistence. Honor AbortSignal to stop underlying work; client accept and metadata checks are convenience checks, not security validation.",
+      "sources": ["src/components/file-upload/file-upload.tsx"]
+    },
+    {
+      "id": "owning-token-group",
+      "kind": "design",
+      "statement": "Owned styling belongs to the input token group. Actual nested shared components retain their own group and behavior; preserve four theme/mode mappings and keyboard-visible focus.",
+      "sources": [
+        "src/components/file-upload/file-upload.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Source-backed requirements, not a current test certification or release approval.",
+    "No native form file name or automatic submission is supplied; accepted files are passed through callbacks.",
+    "Disabling the control prevents new user actions but does not automatically cancel an upload already running.",
+    "A resolved adapter is trusted as success; the wrapper cannot establish server integrity or undo an upload after remote acceptance."
+  ]
+}

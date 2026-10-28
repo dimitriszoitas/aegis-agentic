@@ -1,0 +1,139 @@
+{
+  "status": "passed",
+  "checks": [
+    "InlineEdit focus, validation, cancel, rejected asynchronous save preserving draft, external conflict and accepted save.",
+    "Tiptap controlled editing, selection formatting, list schema, JSON FormData, link validation/application, read-only and external replacement.",
+    "Real dnd-kit keyboard drop/cancel and focus retention, explicit move boundary, actual pointer drag reorder.",
+    "Raster lightbox open/Escape/focus return; PDF fallback without executable document embedding."
+  ],
+  "errors": [],
+  "axe": [
+    {
+      "theme": "fundamental",
+      "mode": "light",
+      "width": 1280,
+      "violations": []
+    },
+    {
+      "theme": "fundamental",
+      "mode": "light",
+      "width": 360,
+      "violations": []
+    },
+    {
+      "theme": "fundamental",
+      "mode": "dark",
+      "width": 1280,
+      "violations": []
+    },
+    {
+      "theme": "fundamental",
+      "mode": "dark",
+      "width": 360,
+      "violations": []
+    },
+    {
+      "theme": "fundamental-floating",
+      "mode": "light",
+      "width": 1280,
+      "violations": []
+    },
+    {
+      "theme": "fundamental-floating",
+      "mode": "light",
+      "width": 360,
+      "violations": []
+    },
+    {
+      "theme": "fundamental-floating",
+      "mode": "dark",
+      "width": 1280,
+      "violations": []
+    },
+    {
+      "theme": "fundamental-floating",
+      "mode": "dark",
+      "width": 360,
+      "violations": []
+    }
+  ],
+  "geometry": [
+    {
+      "theme": "fundamental",
+      "mode": "light",
+      "viewportWidth": 1280,
+      "width": 1256,
+      "height": 64.390625,
+      "background": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "fundamental",
+      "mode": "light",
+      "viewportWidth": 360,
+      "width": 336,
+      "height": 64.390625,
+      "background": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "fundamental",
+      "mode": "dark",
+      "viewportWidth": 1280,
+      "width": 1256,
+      "height": 64.390625,
+      "background": "rgb(23, 23, 24)"
+    },
+    {
+      "theme": "fundamental",
+      "mode": "dark",
+      "viewportWidth": 360,
+      "width": 336,
+      "height": 64.390625,
+      "background": "rgb(23, 23, 24)"
+    },
+    {
+      "theme": "fundamental-floating",
+      "mode": "light",
+      "viewportWidth": 1280,
+      "width": 1256,
+      "height": 64.390625,
+      "background": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "fundamental-floating",
+      "mode": "light",
+      "viewportWidth": 360,
+      "width": 336,
+      "height": 64.390625,
+      "background": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "fundamental-floating",
+      "mode": "dark",
+      "viewportWidth": 1280,
+      "width": 1256,
+      "height": 64.390625,
+      "background": "rgb(23, 23, 24)"
+    },
+    {
+      "theme": "fundamental-floating",
+      "mode": "dark",
+      "viewportWidth": 360,
+      "width": 336,
+      "height": 64.390625,
+      "background": "rgb(23, 23, 24)"
+    }
+  ],
+  "screenshots": [
+    "fundamental-light-1280.png",
+    "fundamental-light-360.png",
+    "fundamental-dark-1280.png",
+    "fundamental-dark-360.png",
+    "fundamental-floating-light-1280.png",
+    "fundamental-floating-light-360.png",
+    "fundamental-floating-dark-1280.png",
+    "fundamental-floating-dark-360.png"
+  ],
+  "limitations": [
+    "Focused Chromium source fixture; not all browser/editor/drag/accessibility combinations, assistive technology or host persistence."
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 2,
+  "id": "event-histogram",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present severity buckets with time-range filtering or a shared absolute-range brush callback.",
+  "anatomy": [
+    "named stacked chart",
+    "severity series",
+    "optional range brush",
+    "shared legend and exact-data support"
+  ],
+  "states": [
+    "unfiltered",
+    "relative range",
+    "absolute range",
+    "brush range",
+    "range without intersecting buckets",
+    "loading",
+    "error"
+  ],
+  "tokenGroup": "data-viz",
+  "behaviorProvider": "Shared stacked BarChart and time-range resolution helpers.",
+  "ownership": {
+    "component": [
+      "Use info, low, medium, high and critical series in that order with matching severity colors, stack them, and use each bucket label as the x key.",
+      "Infer a constant bucket duration from the first two timestamps with a minimum of one millisecond. A single bucket uses a thirty-minute duration; the code does not inspect later spacing.",
+      "Resolve a supplied time range against explicit now or the end of the dataset; without records the fallback end uses the current clock."
+    ],
+    "host": [
+      "Provide ordered, evenly spaced, valid ISO timestamps and finite meaningful severity counts. Supply accurate description when buckets are not thirty minutes or labels use a different time convention.",
+      "Feed accepted range changes back to value and manage queries/data retrieval externally. Use a fixed now for deterministic historical/server-client rendering."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "fixed-series",
+      "kind": "component",
+      "statement": "Use info, low, medium, high and critical series in that order with matching severity colors, stack them, and use each bucket label as the x key.",
+      "sources": ["src/components/event-histogram/event-histogram.tsx"]
+    },
+    {
+      "id": "bucket-duration",
+      "kind": "component",
+      "statement": "Infer a constant bucket duration from the first two timestamps with a minimum of one millisecond. A single bucket uses a thirty-minute duration; the code does not inspect later spacing.",
+      "sources": ["src/components/event-histogram/event-histogram.tsx"]
+    },
+    {
+      "id": "range-reference",
+      "kind": "component",
+      "statement": "Resolve a supplied time range against explicit now or the end of the dataset; without records the fallback end uses the current clock.",
+      "sources": ["src/components/event-histogram/event-histogram.tsx"]
+    },
+    {
+      "id": "overlap-filter",
+      "kind": "component",
+      "statement": "Without brush, keep buckets whose interval overlaps the resolved range. With brush, keep full data when there are intersecting buckets and pass the first/last intersecting indexes; a nonintersecting range produces empty data.",
+      "sources": ["src/components/event-histogram/event-histogram.tsx"]
+    },
+    {
+      "id": "brush-output",
+      "kind": "component",
+      "statement": "When onValueChange exists, convert selected indexes to an absolute range from the first bucket timestamp through the selected last bucket end and invoke the callback. Do not keep an internal accepted TimeRange.",
+      "sources": ["src/components/event-histogram/event-histogram.tsx"]
+    },
+    {
+      "id": "description-policy",
+      "kind": "component",
+      "statement": "Prefer an explicit description; otherwise use formatTimeRange(value) or the default thirty-minute-buckets UTC copy. The default copy is not derived from inferred bucket duration.",
+      "sources": ["src/components/event-histogram/event-histogram.tsx"]
+    },
+    {
+      "id": "host-buckets",
+      "kind": "host",
+      "statement": "Provide ordered, evenly spaced, valid ISO timestamps and finite meaningful severity counts. Supply accurate description when buckets are not thirty minutes or labels use a different time convention.",
+      "sources": ["src/components/event-histogram/event-histogram.tsx"]
+    },
+    {
+      "id": "host-range",
+      "kind": "host",
+      "statement": "Feed accepted range changes back to value and manage queries/data retrieval externally. Use a fixed now for deterministic historical/server-client rendering.",
+      "sources": ["src/components/event-histogram/event-histogram.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume data-viz group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "No runtime validation of irregular/invalid timestamps or severity counts is performed.",
+    "Brush indexes represent bucket boundaries rather than arbitrary sub-bucket instants."
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 2,
+  "id": "tag",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A compact label with distinct static, removable, interactive, counter, and status behaviors.",
+  "anatomy": ["label", "optional decorative dot", "optional counter", "optional remove button"],
+  "states": [
+    "static",
+    "interactive selected/unselected",
+    "removable",
+    "counter",
+    "status",
+    "disabled"
+  ],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Static labels or native toggle/remove actions; Chip is the same export.",
+  "ownership": {
+    "component": [
+      "Interactive tags render a button with aria-pressed from selected and emit onSelectedChange with its inverse; selected is host controlled.",
+      "Removable tags keep a separate named button. Click, Backspace or Delete invokes onRemove; the component itself does not remove data or choose the next focus target."
+    ],
+    "host": [
+      "Keep labels short and supply contextual removeLabel values. Own selection/removal, filter behavior and focus after removing a focused tag.",
+      "Use semantic group tokens for styling and meaning-appropriate intents; do not encode application state solely as dotColor."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Interactive tags render a button with aria-pressed from selected and emit onSelectedChange with its inverse; selected is host controlled.",
+      "sources": ["src/components/tag/tag.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Removable tags keep a separate named button. Click, Backspace or Delete invokes onRemove; the component itself does not remove data or choose the next focus target.",
+      "sources": ["src/components/tag/tag.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Static/counter/status variants render a span, with counter defaulting to zero. Status/intent dots are decorative. disabled affects actionable buttons.",
+      "sources": ["src/components/tag/tag.tsx"]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "Export Chip and ChipProps as aliases of Tag and TagProps with identical behavior.",
+      "sources": ["src/components/tag/tag.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Keep labels short and supply contextual removeLabel values. Own selection/removal, filter behavior and focus after removing a focused tag.",
+      "sources": ["src/components/tag/tag.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Use semantic group tokens for styling and meaning-appropriate intents; do not encode application state solely as dotColor.",
+      "sources": ["src/components/tag/tag.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": ["src/components/tag/tag.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "Tags do not implement a tag input, listbox or multiselection model. Counter values are not validated.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

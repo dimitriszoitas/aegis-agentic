@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 2,
+  "id": "icon-button",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A compact Button with a required accessible label and an optional label tooltip.",
+  "anatomy": ["named button", "decorative icon", "optional tooltip portal"],
+  "states": ["enabled", "disabled", "loading", "tooltip enabled or disabled"],
+  "tokenGroup": "trigger",
+  "behaviorProvider": "Shared Button and Base UI Tooltip.",
+  "ownership": {
+    "component": [
+      "Require aria-label and render the shared Button with that accessible name and all remaining Button properties. Children supply the icon.",
+      "With tooltip enabled, wrap the button using Base UI Tooltip Trigger render composition and render the same label in a portaled popup. tooltip=false returns only the Button."
+    ],
+    "host": [
+      "Supply an action-specific accessible name even when tooltip=false. Hide decorative child icons from assistive technology.",
+      "Own operation lifecycle and set loading/disabled while appropriate. Use Tooltip for non-action hints."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Require aria-label and render the shared Button with that accessible name and all remaining Button properties. Children supply the icon.",
+      "sources": ["src/components/icon-button/icon-button.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "With tooltip enabled, wrap the button using Base UI Tooltip Trigger render composition and render the same label in a portaled popup. tooltip=false returns only the Button.",
+      "sources": ["src/components/icon-button/icon-button.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Use token-backed tooltip delay and offset; child Button retains its native activation, disabled and loading behavior.",
+      "sources": ["src/components/icon-button/icon-button.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply an action-specific accessible name even when tooltip=false. Hide decorative child icons from assistive technology.",
+      "sources": ["src/components/icon-button/icon-button.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own operation lifecycle and set loading/disabled while appropriate. Use Tooltip for non-action hints.",
+      "sources": ["src/components/icon-button/icon-button.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use trigger group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/icon-button/icon-button.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Tooltip is supplementary naming feedback; it is not a replacement for an accessible button name.",
+    "The wrapper does not add an async action guard or forward a ref of its own.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

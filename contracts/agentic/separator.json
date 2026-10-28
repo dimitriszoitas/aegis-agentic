@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "id": "separator",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A horizontal or vertical divider for a meaningful boundary between adjacent content.",
+  "anatomy": ["divider"],
+  "states": ["horizontal", "vertical", "decorative", "semantic", "line/dot"],
+  "tokenGroup": "layout",
+  "behaviorProvider": "Native div with optional separator semantics.",
+  "ownership": {
+    "component": [
+      "Default to decorative role none. With decorative=false expose role separator and aria-orientation matching orientation.",
+      "Expose orientation, variant and emphasis only as presentation attributes; no focus or resize behavior is added."
+    ],
+    "host": [
+      "Use decorative dividers for visual grouping; use semantic separators only where a meaningful boundary should be announced.",
+      "Preserve structural meaning through headings and grouping rather than relying on a line alone."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Default to decorative role none. With decorative=false expose role separator and aria-orientation matching orientation.",
+      "sources": ["src/components/separator/separator.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Expose orientation, variant and emphasis only as presentation attributes; no focus or resize behavior is added.",
+      "sources": ["src/components/separator/separator.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Use decorative dividers for visual grouping; use semantic separators only where a meaningful boundary should be announced.",
+      "sources": ["src/components/separator/separator.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Preserve structural meaning through headings and grouping rather than relying on a line alone.",
+      "sources": ["src/components/separator/separator.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use layout group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": ["src/components/separator/separator.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "This is not a draggable splitter or keyboard-resizable control.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

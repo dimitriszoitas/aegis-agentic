@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 2,
+  "id": "context-menu",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Expose contextual actions, nested menus and controlled checkable choices from a single trigger.",
+  "anatomy": [
+    "trigger",
+    "portaled menu",
+    "action rows",
+    "groups/separators",
+    "checkable rows",
+    "submenus"
+  ],
+  "states": [
+    "closed",
+    "open",
+    "keyboard-open",
+    "pointer-open",
+    "disabled",
+    "checked",
+    "mixed",
+    "submenu-open"
+  ],
+  "tokenGroup": "trigger",
+  "behaviorProvider": "Base UI ContextMenu and optional DirectionProvider with Aegis keyboard opening and Tab-exit handling.",
+  "ownership": {
+    "component": [
+      "menu entry composition",
+      "keyboard opening",
+      "controlled/default visibility and focus exit"
+    ],
+    "host": [
+      "action execution",
+      "controlled checked/radio values",
+      "trigger and action discoverability"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "open-state",
+      "kind": "component",
+      "statement": "Support controlled open/onOpenChange or local defaultOpen and forward disabled to Base UI. The trigger receives tabIndex=0 and aria-disabled when disabled.",
+      "sources": ["src/components/context-menu/context-menu.tsx"]
+    },
+    {
+      "id": "keyboard-opening",
+      "kind": "component",
+      "statement": "Handle the ContextMenu key and Shift+F10 on an enabled trigger, anchor opening near its bounds and focus the popup. Pointer/touch context behavior delegates to Base UI.",
+      "sources": ["src/components/context-menu/context-menu.tsx"]
+    },
+    {
+      "id": "entry-types",
+      "kind": "component",
+      "statement": "Compose actions, groups, separators, submenus, checkbox items and radio groups from DropdownMenuEntry data; delegate menu navigation and disabled-item behavior to Base UI.",
+      "sources": ["src/components/context-menu/context-menu.tsx"]
+    },
+    {
+      "id": "checkable-values",
+      "kind": "component",
+      "statement": "Expose indeterminate checkboxes as aria-checked=mixed and request true on their next toggle. Checkbox activation keeps the menu open, while radio activation closes it.",
+      "sources": ["src/components/context-menu/context-menu.tsx"]
+    },
+    {
+      "id": "tab-exit",
+      "kind": "component",
+      "statement": "On Tab, request immediate closure and allow normal tab movement from the trigger; suppress normal final-focus restoration for this exit so the next target can retain focus.",
+      "sources": ["src/components/context-menu/context-menu.tsx"]
+    },
+    {
+      "id": "focus-and-direction",
+      "kind": "component",
+      "statement": "Use the trigger as the normal final-focus target and optional DirectionProvider for text direction. The deprecated modal prop is ignored in favor of the primitive native modal behavior.",
+      "sources": ["src/components/context-menu/context-menu.tsx"]
+    },
+    {
+      "id": "action-responsibility",
+      "kind": "host",
+      "statement": "Supply stable ids, meaningful labels and callbacks; update checked/radio values, handle asynchronous failures and provide confirmation for consequential actions. Shortcut labels do not register shortcuts.",
+      "sources": ["src/components/context-menu/context-menu.tsx"]
+    },
+    {
+      "id": "trigger-and-alternative",
+      "kind": "host",
+      "statement": "Provide a suitable single trigger accepting refs and primitive props, and expose important actions through a discoverable alternative when users may not know a context menu exists.",
+      "sources": ["src/components/context-menu/context-menu.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes trigger group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/components/context-menu/context-menu.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No asynchronous action pending/error lifecycle, authorization or automatic confirmation.",
+    "The deprecated modal prop does not change behavior.",
+    "The host must apply controlled open changes for Tab exit and other dismissal requests to take effect."
+  ]
+}

@@ -1,0 +1,25 @@
+.aegis-inline-edit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-field-gap-compact);
+  min-width: var(--group-input-field-number-0);
+  color: var(--group-input-field-color-content-primary);
+}
+.aegis-inline-edit-display,
+.aegis-inline-edit-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-input-field-gap-compact);
+}
+.aegis-inline-edit-value {
+  overflow-wrap: anywhere;
+}
+.aegis-inline-edit-label {
+  color: var(--group-input-field-color-content-secondary);
+  font-size: var(--group-input-field-font-size-label);
+}
+.aegis-inline-edit-status {
+  margin: var(--group-input-field-number-0);
+  color: var(--group-input-field-color-content-secondary);
+}

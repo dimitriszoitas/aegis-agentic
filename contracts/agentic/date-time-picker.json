@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 2,
+  "id": "date-time-picker",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Edit a local date/time string with an explicit displayed interpretation zone while leaving instant resolution to the host.",
+  "anatomy": [
+    "optional label",
+    "native datetime-local input",
+    "zone policy description",
+    "Field descriptions and host error"
+  ],
+  "states": [
+    "empty",
+    "populated",
+    "local-device-policy",
+    "named-zone-policy",
+    "disabled",
+    "read-only",
+    "invalid"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Native input type=datetime-local through Aegis TextInput; Intl validates supported zone identifiers.",
+  "ownership": {
+    "component": [
+      "Keep offset-free local date/time strings such as 2027-04-12T09:30 in a native datetime-local input. Never convert them to Date objects, offsets or UTC instants.",
+      "Require timeZone as local or an Intl-supported named zone; reject empty, unsupported and numeric-offset identifiers. Display the policy in a description associated with the input. timeZoneLabel can localize the entire explanation.",
+      "Pass min/max/step and inherited TextInput native props, value callbacks, ref, disabled/readOnly and name/form through. Merge the visible zone description with explicit and enclosing Field descriptions."
+    ],
+    "host": [
+      "Resolve the entered wall time with the declared zone, including ambiguous or nonexistent daylight-saving times. Own zone changes, instant conversion, validation, storage and scheduling semantics; local explicitly means the device zone."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "wall-time-preservation",
+      "kind": "component",
+      "statement": "Keep offset-free local date/time strings such as 2027-04-12T09:30 in a native datetime-local input. Never convert them to Date objects, offsets or UTC instants.",
+      "sources": [
+        "src/components/date-time-picker/date-time-picker.tsx",
+        "src/components/date-time-picker/README.md"
+      ]
+    },
+    {
+      "id": "explicit-zone-policy",
+      "kind": "component",
+      "statement": "Require timeZone as local or an Intl-supported named zone; reject empty, unsupported and numeric-offset identifiers. Display the policy in a description associated with the input. timeZoneLabel can localize the entire explanation.",
+      "sources": [
+        "src/components/date-time-picker/date-time-picker.tsx",
+        "src/components/date-time-picker/README.md"
+      ]
+    },
+    {
+      "id": "native-input-contract",
+      "kind": "component",
+      "statement": "Pass min/max/step and inherited TextInput native props, value callbacks, ref, disabled/readOnly and name/form through. Merge the visible zone description with explicit and enclosing Field descriptions.",
+      "sources": [
+        "src/components/date-time-picker/date-time-picker.tsx",
+        "src/components/date-time-picker/README.md"
+      ]
+    },
+    {
+      "id": "instant-and-dst-resolution",
+      "kind": "host",
+      "statement": "Resolve the entered wall time with the declared zone, including ambiguous or nonexistent daylight-saving times. Own zone changes, instant conversion, validation, storage and scheduling semantics; local explicitly means the device zone.",
+      "sources": [
+        "src/components/date-time-picker/date-time-picker.tsx",
+        "src/components/date-time-picker/README.md"
+      ]
+    },
+    {
+      "id": "accessible-host-name",
+      "kind": "host",
+      "statement": "Supply a visible label, enclosing Field label or accessible name. Use useful host validation and recovery instructions instead of relying on placeholder text.",
+      "sources": [
+        "src/components/date-time-picker/date-time-picker.tsx",
+        "src/components/date-time-picker/README.md",
+        "src/components/field/field.tsx"
+      ]
+    },
+    {
+      "id": "input-group-ownership",
+      "kind": "design",
+      "statement": "Owned styling consumes input group tokens. Actual nested shared components retain their own token groups. Preserve keyboard-visible focus and equivalent size metrics across the four theme/mode mappings.",
+      "sources": [
+        "src/components/date-time-picker/date-time-picker.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "This source-backed requirement record does not certify a current test result or release approval.",
+    "Zone identifier support depends on the runtime Intl data. Displaying a zone does not make the native picker timezone-aware.",
+    "No calendar range, instant conversion or DST gap/overlap resolution is provided. Native presentation varies by browser."
+  ]
+}

@@ -1,16 +1,72 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "card",
   "version": 1,
   "status": "source-backed-baseline",
   "verification": "not-certified-by-this-contract",
   "purpose": "Group meaningfully related content on a surface.",
-  "anatomy": ["root", "header?", "body", "footer?"],
-  "states": ["idle"],
+  "anatomy": ["section root", "header?", "title?", "description?", "content?", "footer?"],
+  "states": ["flat", "raised", "floating"],
   "invariants": [
     "A normal content group may remain transparent.",
     "Nested controls retain their own token category."
   ],
   "tokenGroup": "surface",
-  "behaviorProvider": "native-content"
+  "behaviorProvider": "native-content",
+  "ownership": {
+    "component": ["native structural element composition", "elevation and slot classes"],
+    "host": [
+      "section naming and heading hierarchy",
+      "meaningful grouping and content",
+      "all nested control behavior"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "native-section",
+      "kind": "component",
+      "statement": "Render Card as a native section and forward its native properties and children. Default elevation is raised; no interactive role, tab stop or click behavior is invented.",
+      "sources": ["src/components/card/card.tsx"]
+    },
+    {
+      "id": "composable-slots",
+      "kind": "component",
+      "statement": "Expose independent CardHeader/header, CardTitle/h3, CardDescription/p, CardContent/div and CardFooter/footer wrappers. The component does not inject or require those slots automatically.",
+      "sources": ["src/components/card/card.tsx"]
+    },
+    {
+      "id": "host-naming",
+      "kind": "host",
+      "statement": "Associate a visible heading using aria-labelledby or provide another appropriate section name when needed. CardTitle does not generate an ID or automatically label the outer section.",
+      "sources": ["src/components/card/card.tsx"]
+    },
+    {
+      "id": "elevation-policy",
+      "kind": "design",
+      "statement": "Use flat for an ordinary group that can remain transparent, raised for the default surfaced card and floating when the stronger surface is warranted. Elevation is presentation, not selection or behavior.",
+      "sources": ["src/components/card/card.tsx", "skills/references/design-contract.md"]
+    },
+    {
+      "id": "slot-spacing",
+      "kind": "component",
+      "statement": "Use shared slot padding; when header is immediately followed by content remove the content top padding. Footer layout carries its own top border and action spacing.",
+      "sources": ["src/components/card/card.tsx"]
+    },
+    {
+      "id": "content-behavior",
+      "kind": "host",
+      "statement": "Supply loading/empty/error states, actions, navigation, selection and form behavior inside the card; there is no card-level state machine or built-in control handling.",
+      "sources": ["src/components/card/card.tsx"]
+    },
+    {
+      "id": "nested-ownership",
+      "kind": "design",
+      "statement": "Style the surface and structural slots with surface group tokens. Nested controls retain their own category, focus and interaction semantics.",
+      "sources": ["src/components/card/card.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "No automatic title association, collapsible state, selection, loading or navigation behavior.",
+    "CardTitle is an h3 by default; the host must review heading hierarchy and avoid making a whole card interactive around nested controls."
+  ]
 }

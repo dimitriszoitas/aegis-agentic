@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 2,
+  "id": "avatar",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A person or entity image with initials fallback and optional presence status.",
+  "anatomy": [
+    "named avatar",
+    "decorative image or initials",
+    "optional presence dot",
+    "optional group overflow"
+  ],
+  "states": ["image", "fallback", "image failure", "optional presence", "group overflow"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Image element with local failed-source fallback; native named wrapper.",
+  "ownership": {
+    "component": [
+      "Name the avatar wrapper from name and optional status while hiding its image/fallback and status dot from duplicate announcement. A failed src displays fallback and a different src is retried.",
+      "Use supplied initials or derive up to two uppercase initials from the first and last name parts; an empty result displays a question mark."
+    ],
+    "host": [
+      "Supply accurate names, permitted image sources and host-owned presence state.",
+      "Choose a group label meaningful to its context and keep image alternatives descriptive."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Name the avatar wrapper from name and optional status while hiding its image/fallback and status dot from duplicate announcement. A failed src displays fallback and a different src is retried.",
+      "sources": ["src/components/avatar/avatar.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Use supplied initials or derive up to two uppercase initials from the first and last name parts; an empty result displays a question mark.",
+      "sources": ["src/components/avatar/avatar.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "AvatarGroup normalizes max to at least one whole avatar, groups visible avatars under a label and exposes hidden member names in the overflow marker accessible name/title.",
+      "sources": ["src/components/avatar/avatar.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply accurate names, permitted image sources and host-owned presence state.",
+      "sources": ["src/components/avatar/avatar.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Choose a group label meaningful to its context and keep image alternatives descriptive.",
+      "sources": ["src/components/avatar/avatar.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": ["src/components/avatar/avatar.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "No image upload, identity verification, presence subscription or overflow picker is implemented.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

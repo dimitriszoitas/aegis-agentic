@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 2,
+  "id": "combobox",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Search and choose one stable option ID while preserving independent query and selected value state.",
+  "anatomy": [
+    "optional label",
+    "visible search input",
+    "optional clear action",
+    "popup trigger",
+    "portalled listbox",
+    "option labels and descriptions",
+    "loading or empty message",
+    "primitive hidden form input"
+  ],
+  "states": [
+    "empty",
+    "selected",
+    "query",
+    "open",
+    "closed",
+    "loading",
+    "empty-results",
+    "disabled",
+    "read-only",
+    "invalid",
+    "controlled",
+    "uncontrolled"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Installed Base UI Combobox; Aegis useFieldControl and actual nested IconButtons.",
+  "ownership": {
+    "component": [
+      "Pass selected value/defaultValue and query inputValue/defaultInputValue independently to Base UI; selected value is string or null. A typed query is not a free-form submitted selection.",
+      "Pass value, input-value, open and open-completion callbacks without dropping primitive details or cancellation. Delegate list navigation, selection, dismissal and focus to Base UI. Cancelling selected-value changes preserves the selected ID; the query remains independent until dismissal requests a label reset through the input-value callback. Keep the derived item collection stable when the supplied options identity is unchanged.",
+      "Local matching searches option labels, descriptions and keywords. filterOptions=false delegates the result set to the host. loading announces status and disables current result selection; the component issues no network requests.",
+      "Require unique nonempty option IDs. selectedLabel supplies a display fallback when a remote selected ID is absent from the current result list; the underlying selected ID remains unchanged.",
+      "Use Field association on the visible input and pass name/form/required/disabled/readOnly to Base UI. Its associated form control submits the selected ID once; the forwarded ref targets the visible input."
+    ],
+    "host": [
+      "Own request debouncing, cancellation, races, caching, loading/error recovery and durable selection labels. Keep controlled query and selected value updates separate and inspect callback reasons before issuing requests."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "selected-id-and-query",
+      "kind": "component",
+      "statement": "Pass selected value/defaultValue and query inputValue/defaultInputValue independently to Base UI; selected value is string or null. A typed query is not a free-form submitted selection.",
+      "sources": [
+        "src/components/combobox/combobox.tsx",
+        "src/components/combobox/README.md"
+      ]
+    },
+    {
+      "id": "callbacks-and-keyboard",
+      "kind": "component",
+      "statement": "Pass value, input-value, open and open-completion callbacks without dropping primitive details or cancellation. Delegate list navigation, selection, dismissal and focus to Base UI. Cancelling selected-value changes preserves the selected ID; the query remains independent until dismissal requests a label reset through the input-value callback. Keep the derived item collection stable when the supplied options identity is unchanged.",
+      "sources": [
+        "src/components/combobox/combobox.tsx",
+        "src/components/combobox/README.md"
+      ]
+    },
+    {
+      "id": "filter-and-remote-results",
+      "kind": "component",
+      "statement": "Local matching searches option labels, descriptions and keywords. filterOptions=false delegates the result set to the host. loading announces status and disables current result selection; the component issues no network requests.",
+      "sources": [
+        "src/components/combobox/combobox.tsx",
+        "src/components/combobox/README.md"
+      ]
+    },
+    {
+      "id": "unique-option-values",
+      "kind": "component",
+      "statement": "Require unique nonempty option IDs. selectedLabel supplies a display fallback when a remote selected ID is absent from the current result list; the underlying selected ID remains unchanged.",
+      "sources": [
+        "src/components/combobox/combobox.tsx",
+        "src/components/combobox/README.md"
+      ]
+    },
+    {
+      "id": "form-and-field",
+      "kind": "component",
+      "statement": "Use Field association on the visible input and pass name/form/required/disabled/readOnly to Base UI. Its associated form control submits the selected ID once; the forwarded ref targets the visible input.",
+      "sources": [
+        "src/components/combobox/combobox.tsx",
+        "src/components/combobox/README.md"
+      ]
+    },
+    {
+      "id": "remote-host-ownership",
+      "kind": "host",
+      "statement": "Own request debouncing, cancellation, races, caching, loading/error recovery and durable selection labels. Keep controlled query and selected value updates separate and inspect callback reasons before issuing requests.",
+      "sources": [
+        "src/components/combobox/combobox.tsx",
+        "src/components/combobox/README.md"
+      ]
+    },
+    {
+      "id": "accessible-host-name",
+      "kind": "host",
+      "statement": "Supply a visible label, enclosing Field label or accessible name. Use useful host validation and recovery instructions instead of relying on placeholder text.",
+      "sources": [
+        "src/components/combobox/combobox.tsx",
+        "src/components/combobox/README.md",
+        "src/components/field/field.tsx"
+      ]
+    },
+    {
+      "id": "input-group-ownership",
+      "kind": "design",
+      "statement": "Owned styling consumes input group tokens. Actual nested shared components retain their own token groups. Preserve keyboard-visible focus and equivalent size metrics across the four theme/mode mappings.",
+      "sources": [
+        "src/components/combobox/combobox.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "This source-backed requirement record does not certify a current test result or release approval.",
+    "Single selection only; use MultiCombobox for multiple values. No free-solo creation or virtualized remote dataset is provided.",
+    "No asynchronous fetching, server validation or automatic error recovery. Remote selected labels must remain available through options or selectedLabel."
+  ]
+}

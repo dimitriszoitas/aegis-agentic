@@ -198,9 +198,9 @@ try {
   );
 
   const avatar = findEntry('components-people-avatar');
-  assert.equal(avatar.contract, null, 'Avatar remains the API-only coverage-gap fixture');
+  assert.equal(avatar.contract.id, 'avatar', 'Avatar now has authored behavior coverage');
   assert.equal(avatar.coverage.apiDocumented, true);
-  assert.equal(avatar.coverage.behaviorAuthored, false);
+  assert.equal(avatar.coverage.behaviorAuthored, true);
   await search.fill(avatar.id);
   await catalogueView
     .getByRole('button', { name: `Open ${avatar.name} contract`, exact: true })
@@ -210,7 +210,7 @@ try {
     exact: true,
   });
   await expect(
-    detail.getByRole('heading', { name: 'No authored behavioral contract', exact: true }),
+    detail.getByRole('heading', { name: 'Declared requirements', exact: true }),
   ).toBeVisible();
   await expect(detail.getByRole('link', { name: /^Open API reference/ })).toHaveAttribute(
     'href',
@@ -221,7 +221,7 @@ try {
   await copyAndAssert(detail, 'Copy API JSON', expectedApi);
   await expect(detail.locator('[data-intent="success"]')).toHaveCount(0);
   passed(
-    'An API-only family states its behavioral coverage gap and copies the exact served API JSON without a success/certification badge.',
+    'A newly covered family displays authored requirements and copies the exact served API JSON without a success/certification badge.',
   );
 
   const layout = findEntry('patterns-pagelayout');
@@ -383,20 +383,31 @@ try {
     name: `${token.name} contract details`,
     exact: true,
   });
+  // Schema-2 requirements may cite the same historical file. Check its reported
+  // result specifically in the evidence section, separate from source citations.
+  const tokenVerification = detail.getByRole('region', {
+    name: 'Verification and evidence',
+    exact: true,
+  });
   for (const evidence of token.evidence) {
     await expect(
-      detail.getByText(`Reported status: ${evidence.reportedStatus ?? 'No status reported'}`, {
-        exact: true,
-      }),
+      tokenVerification.getByText(
+        `Reported status: ${evidence.reportedStatus ?? 'No status reported'}`,
+        {
+          exact: true,
+        },
+      ),
     ).toBeVisible();
-    await expect(detail.getByText(evidence.path, { exact: true })).toBeVisible();
+    await expect(tokenVerification.getByText(evidence.path, { exact: true })).toBeVisible();
     const label =
       evidence.sourceMatch === 'mismatch'
         ? 'Mismatch — this report does not match the declared current source.'
         : evidence.sourceMatch === 'matches-declared-source-hashes'
           ? 'Matches declared source hashes; checks were not rerun.'
           : 'Not assessed.';
-    await expect(detail.getByText(`Source comparison: ${label}`, { exact: true })).toBeVisible();
+    await expect(
+      tokenVerification.getByText(`Source comparison: ${label}`, { exact: true }),
+    ).toBeVisible();
   }
   await expect(detail.locator('[data-intent="success"]')).toHaveCount(0);
   passed(
@@ -489,7 +500,7 @@ try {
   for (const [entry, path, missing] of [
     [layout, 'patterns-page-structure-pagelayout-overview--docs', false],
     [grid, 'components-data-display-datagrid-overview--docs', false],
-    [avatar, 'components-data-display-avatar-overview--docs', true],
+    [avatar, 'components-data-display-avatar-overview--docs', false],
   ]) {
     const docsEntry = Object.values(index.entries).find(
       (item) => item.tags?.includes('aegis-component-hub') && item.title.endsWith(`/${entry.name}`),
@@ -526,7 +537,7 @@ try {
     }
   }
   passed(
-    'Per-family Contract tabs render the same authored/API-only coverage and preserve their direct route on refresh.',
+    'Per-family Contract tabs render the same authored coverage and preserve their direct route on refresh.',
   );
 
   await page.goto(`${base}/?path=/docs/aegis-mcp-integration--docs`);

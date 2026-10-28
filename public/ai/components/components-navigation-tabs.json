@@ -4,14 +4,18 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.6.0-experiment.0"
+    "version": "0.7.0-experiment.0"
   },
   "id": "components-navigation-tabs",
   "name": "Tabs",
   "category": "Navigation",
   "tokenGroup": "navigation",
   "kind": "component",
-  "aliases": [],
+  "aliases": [
+    "tab list",
+    "tabbed workspace",
+    "view switcher"
+  ],
   "purpose": "A labeled set of peer views using Base UI tabs and associated content panels.",
   "importPaths": [
     "@dimitriszoitas/aegis-agentic/tabs"

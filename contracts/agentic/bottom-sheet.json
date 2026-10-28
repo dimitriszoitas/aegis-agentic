@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 2,
+  "id": "bottom-sheet",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Provide a nonmodal resizable bottom panel inside a bounded workspace.",
+  "anatomy": [
+    "named panel",
+    "resize separator",
+    "title and description",
+    "header actions",
+    "scrollable body",
+    "optional footer"
+  ],
+  "states": ["closed", "open", "resizing", "keyboard-focus", "height-constrained"],
+  "tokenGroup": "surface",
+  "behaviorProvider": "Native in-flow region and separator with ResizeObserver, pointer capture and keyboard resizing.",
+  "ownership": {
+    "component": [
+      "bounded height",
+      "resize interaction",
+      "close requests and conditional focus return"
+    ],
+    "host": ["workspace sizing", "controlled open/height state", "content state and routing"]
+  },
+  "requirements": [
+    {
+      "id": "nonmodal-placement",
+      "kind": "component",
+      "statement": "Render in normal document flow without a portal, modal backdrop or focus trap; closed panels return null and unmount their content.",
+      "sources": ["src/components/bottom-sheet/bottom-sheet.tsx"]
+    },
+    {
+      "id": "controlled-state",
+      "kind": "component",
+      "statement": "Support controlled open and height callbacks or local default values. Close requests update local state only when open is uncontrolled.",
+      "sources": ["src/components/bottom-sheet/bottom-sheet.tsx"]
+    },
+    {
+      "id": "workspace-bounds",
+      "kind": "component",
+      "statement": "Measure the parent and panel margins with ResizeObserver, reserve workspaceMinHeight, and clamp rendered height between the available bounds.",
+      "sources": ["src/components/bottom-sheet/bottom-sheet.tsx"]
+    },
+    {
+      "id": "resize-inputs",
+      "kind": "component",
+      "statement": "Use primary-pointer drag to change height and a focusable horizontal separator exposing current/min/max pixel values. ArrowUp grows, ArrowDown shrinks, Shift uses the larger step, and Home/End choose bounds.",
+      "sources": ["src/components/bottom-sheet/bottom-sheet.tsx"]
+    },
+    {
+      "id": "dismissal",
+      "kind": "component",
+      "statement": "Close through the named close button or an unhandled Escape from within the panel. Stop active drag on pointer completion/cancellation, lost capture, blur or closing.",
+      "sources": ["src/components/bottom-sheet/bottom-sheet.tsx"]
+    },
+    {
+      "id": "conditional-focus-return",
+      "kind": "component",
+      "statement": "Capture the active opener when opening. When closing or unmounting after focus was inside, restore it only if connected and the document body still owns focus; do not override a new host focus target.",
+      "sources": ["src/components/bottom-sheet/bottom-sheet.tsx"]
+    },
+    {
+      "id": "bounded-container",
+      "kind": "host",
+      "statement": "Provide a measurable bounded parent workspace and finite meaningful height constraints. Keep controlled height/open values in sync with callbacks.",
+      "sources": ["src/components/bottom-sheet/bottom-sheet.tsx"]
+    },
+    {
+      "id": "content-lifecycle",
+      "kind": "host",
+      "statement": "Preserve drafts outside the unmounted panel when needed, supply an informative title and handle route transitions or initial content focus; opening does not move focus into the panel automatically.",
+      "sources": ["src/components/bottom-sheet/bottom-sheet.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes surface group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/components/bottom-sheet/bottom-sheet.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "This is an in-flow nonmodal panel, not a viewport drawer or modal dialog.",
+    "No automatic initial focus, route integration or persistence of unmounted content.",
+    "Host sizing props must be finite and coherent; unlike Sheet helpers this implementation does not normalize every nonfinite input."
+  ]
+}

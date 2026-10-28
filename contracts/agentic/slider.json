@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 2,
+  "id": "slider",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Adjust one or multiple numeric values on a bounded track with named thumbs.",
+  "anatomy": [
+    "optional heading",
+    "optional visual value output",
+    "track and indicator",
+    "one or more thumbs",
+    "native range inputs"
+  ],
+  "states": ["default", "controlled-value", "host-validation"],
+  "tokenGroup": "input",
+  "behaviorProvider": "Base UI Slider with Aegis orientation/inversion mapping.",
+  "ownership": {
+    "component": [
+      "Use value/defaultValue arrays; the uncontrolled default is [min]. Delegate min/max/step/minStepsBetweenThumbs and interaction to Base UI, with thumbCollisionBehavior none and edge alignment.",
+      "Report logical arrays from onValueChange and onValueCommit. The wrapper does not expose primitive callback details or cancellation; a commit is interaction completion rather than persistence.",
+      "Horizontal inversion reverses the direction context. Vertical inversion mirrors and reverses visual values, maps callbacks back to logical values, and handles Home/End against logical bounds and adjacent-thumb spacing.",
+      "Give the first real range input the Field id and each extra thumb a distinct id/name description. For ordinary orientation use primitive form inputs; vertical inversion emits hidden logical values under name instead of visual values.",
+      "Associate Field help/error with the thumbs, apply formatValue to aria-valuetext and provide default Value/Minimum/Maximum/Threshold names or host thumbLabels. The visual value output is aria-hidden to avoid duplicate announcements."
+    ],
+    "host": [
+      "Supply finite ordered bounds with min<max, a positive step and appropriately ordered value arrays. Own value acceptance, precision, validation and submit/persistence policy; provide meaningful thumb labels and formatting for the domain."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "numeric-array-state",
+      "kind": "component",
+      "statement": "Use value/defaultValue arrays; the uncontrolled default is [min]. Delegate min/max/step/minStepsBetweenThumbs and interaction to Base UI, with thumbCollisionBehavior none and edge alignment.",
+      "sources": ["src/components/slider/slider.tsx"]
+    },
+    {
+      "id": "value-and-commit",
+      "kind": "component",
+      "statement": "Report logical arrays from onValueChange and onValueCommit. The wrapper does not expose primitive callback details or cancellation; a commit is interaction completion rather than persistence.",
+      "sources": ["src/components/slider/slider.tsx"]
+    },
+    {
+      "id": "inversion-policy",
+      "kind": "component",
+      "statement": "Horizontal inversion reverses the direction context. Vertical inversion mirrors and reverses visual values, maps callbacks back to logical values, and handles Home/End against logical bounds and adjacent-thumb spacing.",
+      "sources": ["src/components/slider/slider.tsx"]
+    },
+    {
+      "id": "native-form-and-names",
+      "kind": "component",
+      "statement": "Give the first real range input the Field id and each extra thumb a distinct id/name description. For ordinary orientation use primitive form inputs; vertical inversion emits hidden logical values under name instead of visual values.",
+      "sources": ["src/components/slider/slider.tsx"]
+    },
+    {
+      "id": "thumb-accessibility",
+      "kind": "component",
+      "statement": "Associate Field help/error with the thumbs, apply formatValue to aria-valuetext and provide default Value/Minimum/Maximum/Threshold names or host thumbLabels. The visual value output is aria-hidden to avoid duplicate announcements.",
+      "sources": ["src/components/slider/slider.tsx"]
+    },
+    {
+      "id": "numeric-host-policy",
+      "kind": "host",
+      "statement": "Supply finite ordered bounds with min<max, a positive step and appropriately ordered value arrays. Own value acceptance, precision, validation and submit/persistence policy; provide meaningful thumb labels and formatting for the domain.",
+      "sources": ["src/components/slider/slider.tsx"]
+    },
+    {
+      "id": "owning-token-group",
+      "kind": "design",
+      "statement": "Owned styling belongs to the input token group. Actual nested shared components retain their own group and behavior; preserve four theme/mode mappings and keyboard-visible focus.",
+      "sources": ["src/components/slider/slider.css", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "Source-backed requirements, not a current test certification or release approval.",
+    "No readOnly API or native required enforcement is added by this wrapper.",
+    "Arbitrary precision, non-linear scales and automatic domain validation are not supplied. Empty/invalid arrays and degenerate bounds are host configuration errors, not normalized here."
+  ]
+}

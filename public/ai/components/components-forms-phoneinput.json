@@ -1,0 +1,1850 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.7.0-experiment.0"
+  },
+  "id": "components-forms-phoneinput",
+  "name": "PhoneInput",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [
+    "phone number",
+    "telephone"
+  ],
+  "purpose": "Edit raw telephone text with explicit country context and separate metadata-backed formatting/parse candidates.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-agentic/phone-input"
+  ],
+  "links": {
+    "contract": "./components-forms-phoneinput.json",
+    "overview": "../../?path=/docs/components-inputs-selection-phoneinput-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-phoneinput-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-phoneinput-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-phoneinput-overview--docs&docsTab=tokens"
+  },
+  "description": "Telephone drafting with a country selector and libphonenumber-js formatting. Raw text is preserved by default. Opt into normalization on blur explicitly. Metadata-based possible/valid results do not prove reachability, ownership or allocation. The named native input submits its displayed draft; use the parsed callback for a separate persistence policy.",
+  "exports": [
+    "PhoneInput"
+  ],
+  "importStatements": [
+    "import { PhoneInput } from '@dimitriszoitas/aegis-agentic/phone-input';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
+  "props": [
+    {
+      "component": "PhoneInput",
+      "name": "countries",
+      "type": "readonly CountryCode[] | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "PhoneInput",
+      "name": "country",
+      "type": "CountryCode | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "PhoneInput",
+      "name": "countryLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"Country\""
+    },
+    {
+      "component": "PhoneInput",
+      "name": "countryLocale",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"en\""
+    },
+    {
+      "component": "PhoneInput",
+      "name": "defaultCountry",
+      "type": "CountryCode | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"US\""
+    },
+    {
+      "component": "PhoneInput",
+      "name": "format",
+      "type": "\"national\" | \"international\" | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"international\""
+    },
+    {
+      "component": "PhoneInput",
+      "name": "formatOnBlur",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "false",
+      "description": "Explicit opt-in: normalize a possible parsed number when the field loses focus."
+    },
+    {
+      "component": "PhoneInput",
+      "name": "formattedLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"Formatted number\""
+    },
+    {
+      "component": "PhoneInput",
+      "name": "onBlur",
+      "type": "FocusEventHandler<HTMLInputElement> | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "PhoneInput",
+      "name": "onCountryChange",
+      "type": "((country: CountryCode) => void) | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "PhoneInput",
+      "name": "onValueCommit",
+      "type": "((result: PhoneInputCommit) => void) | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "PhoneInput",
+      "name": "showFormattedValue",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/phone-input/phone-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "true"
+    },
+    {
+      "component": "PhoneInput",
+      "name": "clearable",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "PhoneInput",
+      "name": "clearLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "PhoneInput",
+      "name": "defaultValue",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"\""
+    },
+    {
+      "component": "PhoneInput",
+      "name": "inputClassName",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "PhoneInput",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "PhoneInput",
+      "name": "label",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
+      "description": "Visible standalone label. Inside Field, its label is used automatically."
+    },
+    {
+      "component": "PhoneInput",
+      "name": "onClear",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "PhoneInput",
+      "name": "onValueChange",
+      "type": "((value: string) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "PhoneInput",
+      "name": "size",
+      "type": "TextInputSize | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "PhoneInput",
+      "name": "value",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/text-input/text-input.tsx",
+        "kind": "design-system"
+      }
+    }
+  ],
+  "variants": [
+    {
+      "name": "format",
+      "values": [
+        "international",
+        "national"
+      ],
+      "default": "international"
+    },
+    {
+      "name": "size",
+      "values": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/field",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/select",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/text-input",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "Edit raw telephone text with explicit country context and separate metadata-backed formatting/parse candidates.",
+    "usage": [
+      "Keep controlled or uncontrolled raw telephone text while typing and by default on blur. The named tel input submits the displayed raw draft once; parsing does not silently replace it with E.164.",
+      "Maintain independent country/defaultCountry state (US by default). Limit choices to countries and require that list to include the selected country. Display localized region names and calling codes with a distinct control id. A country change does not rewrite the number.",
+      "Parse the entire draft with extract=false using the chosen default country; explicit international prefixes can resolve another country. Return raw, E.164 candidate, extension, resolved country, formatted text, possible and metadata-valid flags separately.",
+      "On editable input blur, invoke the caller blur handler first and respect preventDefault. Emit onValueCommit with the parsed raw candidate. Only when formatOnBlur is opted in and the parsed number is possible, request normalized national/international display through onValueChange.",
+      "Forward native input ref, name/form, change callbacks and TextInput Field association. The country Select has a separate id and no duplicate phone form name; disabled/readOnly applies to both controls."
+    ],
+    "accessibility": [
+      "Supply a visible label or enclosing Field. Placeholder text is not an accessible name.",
+      "Keep native semantics and keyboard focus; use Field for host descriptions and useful error feedback."
+    ],
+    "intent": [
+      "Choose country coverage, metadata/update policy, accepted formats, extensions and storage representation. Metadata validity does not prove that a number is allocated, reachable or owned by the user. Own verification and consent flows."
+    ],
+    "context": [
+      "Uses the installed libphonenumber-js/max metadata snapshot, not a live numbering-plan service. It does not support every historical/future numbering exception.",
+      "E.164 excludes extensions; the callback reports extensions separately. No reachability, SMS delivery, identity verification or country auto-selection is supplied."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-describedby"
+    ],
+    "nativeElements": [
+      "div",
+      "p"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/direction-provider",
+      "@base-ui/react/select",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "libphonenumber-js/max",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/field/field.css",
+    "src/components/field/field.tsx",
+    "src/components/field/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/phone-input/phone-input.css",
+    "src/components/phone-input/phone-input.stories.tsx",
+    "src/components/phone-input/phone-input.tsx",
+    "src/components/select/index.ts",
+    "src/components/select/select.css",
+    "src/components/select/select.tsx",
+    "src/components/text-input/index.ts",
+    "src/components/text-input/text-input.css",
+    "src/components/text-input/text-input.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-overlays.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/theme.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-phoneinput--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-forms-phoneinput--playground",
+      "sourceFile": "src/components/phone-input/phone-input.stories.tsx"
+    },
+    {
+      "id": "components-forms-phoneinput--anatomy",
+      "name": "Anatomy",
+      "url": "../../?path=/story/components-forms-phoneinput--anatomy",
+      "sourceFile": "src/components/phone-input/phone-input.stories.tsx"
+    },
+    {
+      "id": "components-forms-phoneinput--draft-and-form",
+      "name": "Draft And Form",
+      "url": "../../?path=/story/components-forms-phoneinput--draft-and-form",
+      "sourceFile": "src/components/phone-input/phone-input.stories.tsx"
+    },
+    {
+      "id": "components-forms-phoneinput--explicit-normalization",
+      "name": "Explicit Normalization",
+      "url": "../../?path=/story/components-forms-phoneinput--explicit-normalization",
+      "sourceFile": "src/components/phone-input/phone-input.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--anchor-width",
+    "--available-height",
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-input-field-border-width-hairline",
+    "--group-input-field-border-width-regular",
+    "--group-input-field-clear-size",
+    "--group-input-field-color-action-fill",
+    "--group-input-field-color-action-foreground",
+    "--group-input-field-color-action-soft",
+    "--group-input-field-color-border-strong",
+    "--group-input-field-color-border-subtle",
+    "--group-input-field-color-content-primary",
+    "--group-input-field-color-content-secondary",
+    "--group-input-field-color-content-tertiary",
+    "--group-input-field-color-danger-foreground",
+    "--group-input-field-color-surface-hover",
+    "--group-input-field-color-surface-surface",
+    "--group-input-field-color-surface-surface-raised",
+    "--group-input-field-color-transparent",
+    "--group-input-field-ease-out",
+    "--group-input-field-flex-fill",
+    "--group-input-field-flex-none",
+    "--group-input-field-focus-offset",
+    "--group-input-field-focus-width",
+    "--group-input-field-font-leading-body",
+    "--group-input-field-font-leading-compact",
+    "--group-input-field-font-size-body",
+    "--group-input-field-font-size-label",
+    "--group-input-field-font-weight-medium",
+    "--group-input-field-font-weight-regular",
+    "--group-input-field-font-weight-semibold",
+    "--group-input-field-gap-compact",
+    "--group-input-field-gap-snug",
+    "--group-input-field-gap-tight",
+    "--group-input-field-height-available",
+    "--group-input-field-height-compact",
+    "--group-input-field-height-large",
+    "--group-input-field-height-regular",
+    "--group-input-field-line-min-height",
+    "--group-input-field-motion-fast",
+    "--group-input-field-number-0",
+    "--group-input-field-opacity-disabled",
+    "--group-input-field-opacity-hidden",
+    "--group-input-field-opacity-visible",
+    "--group-input-field-option-indicator-clearance",
+    "--group-input-field-option-min-height",
+    "--group-input-field-padding-comfortable",
+    "--group-input-field-padding-compact",
+    "--group-input-field-padding-regular",
+    "--group-input-field-padding-snug",
+    "--group-input-field-popup-enter-offset",
+    "--group-input-field-popup-max-height",
+    "--group-input-field-radius-bold",
+    "--group-input-field-radius-rounded",
+    "--group-input-field-radius-soft",
+    "--group-input-field-radius-strong",
+    "--group-input-field-required-gap",
+    "--group-input-field-ring-focus",
+    "--group-input-field-shadow-overlay",
+    "--group-input-field-size-flex-panel-roomy",
+    "--group-input-field-size-flex-wide-panel-huge",
+    "--group-input-field-size-min-width-panel-roomy",
+    "--group-input-field-viewport-clearance",
+    "--group-input-field-viewport-width",
+    "--group-input-field-width-available",
+    "--group-input-field-z-popover",
+    "--group-input-measurement-icon-md",
+    "--group-input-measurement-icon-sm",
+    "--group-input-measurement-overlay-collision-padding",
+    "--group-input-measurement-picker-offset",
+    "--group-input-overlay-appearance-overlay-surface",
+    "--group-input-overlay-border-width-hairline",
+    "--group-input-overlay-elevation-none",
+    "--group-input-overlay-number-0",
+    "--group-input-overlay-shadow-popover",
+    "--group-input-surface-appearance-control-border",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-appearance-control-fill",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-inset-regular",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-leading-relaxed",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-input-surface-stack-gap-regular",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus",
+    "--transform-origin"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-width-available",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-snug",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-medium",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-required-gap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-regular",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-width-available",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-flex-none",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-regular",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-hairline",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-border-strong",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-bold",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-surface",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-flex-fill",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-compact",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-compact",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-large",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-action-foreground",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-disabled",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-hover",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-z-popover",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--anchor-width",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-viewport-clearance",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-viewport-width",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--available-height",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-popup-max-height",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-border-subtle",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-strong",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-shadow-overlay",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--transform-origin",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ease-out",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-motion-fast",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-snug",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-option-min-height",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-focus-width",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ring-focus",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-action-soft",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-tight",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-option-indicator-clearance",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-label",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-compact",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-semibold",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-comfortable",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-hidden",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-popup-enter-offset",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-visible",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-rounded",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-line-min-height",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-width-available",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-regular",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-regular",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-surface",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-hairline",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-border-strong",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-bold",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ease-out",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-motion-fast",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-compact",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-compact",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-large",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-regular",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ring-focus",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-focus-offset",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-action-fill",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-hover",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-disabled",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-transparent",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-available",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-visible",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-clear-size",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-soft",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-rounded",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-flex-fill",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-flex-none",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-size-flex-wide-panel-huge",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-size-min-width-panel-roomy",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-size-flex-panel-roomy",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-overlay-appearance-overlay-surface",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-overlay-number-0",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-overlay-shadow-popover",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-overlay-border-width-hairline",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-overlay-elevation-none",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-fill",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-fill",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-inset-regular",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "PhoneInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-measurement-picker-offset",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-overlay-collision-padding",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-icon-md",
+      "ownership": "nested",
+      "component": "Select",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "ChevronDown",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-measurement-icon-sm",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.6.0-experiment.0"
+    "version": "0.7.0-experiment.0"
   },
   "id": "components-lists-accordion",
   "name": "Accordion",
@@ -265,6 +265,12 @@
       "id": "components-lists-accordion--nested",
       "name": "Nested",
       "url": "../../?path=/story/components-lists-accordion--nested",
+      "sourceFile": "src/components/accordion/accordion.stories.tsx"
+    },
+    {
+      "id": "components-lists-accordion--nested-perpendicular-keyboard",
+      "name": "Nested Perpendicular Keyboard",
+      "url": "../../?path=/story/components-lists-accordion--nested-perpendicular-keyboard",
       "sourceFile": "src/components/accordion/accordion.stories.tsx"
     },
     {

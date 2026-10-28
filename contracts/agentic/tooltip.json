@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 2,
+  "id": "tooltip",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Provide a supplementary description for a single trigger using a positioned tooltip, with an optional richer text layout.",
+  "anatomy": [
+    "trigger",
+    "portaled positioner",
+    "tooltip description",
+    "decorative arrow",
+    "optional title/description/shortcut"
+  ],
+  "states": ["closed", "delayed-open", "open", "disabled-bypass", "controlled"],
+  "tokenGroup": "feedback",
+  "behaviorProvider": "Base UI Tooltip Provider, Root, Trigger, Portal, Positioner and Popup.",
+  "ownership": {
+    "component": [
+      "description wiring",
+      "controlled/default visibility",
+      "shared primitive positioning"
+    ],
+    "host": ["trigger accessibility", "supplementary content", "controlled state and availability"]
+  },
+  "requirements": [
+    {
+      "id": "visibility-control",
+      "kind": "component",
+      "statement": "Support controlled open/onOpenChange or local defaultOpen, and use the supplied delay or owning-group delay token through the primitive provider.",
+      "sources": ["src/components/tooltip/tooltip.tsx"]
+    },
+    {
+      "id": "description-association",
+      "kind": "component",
+      "statement": "Preserve an existing trigger aria-describedby and append the generated tooltip id while visible; render the popup with role=tooltip.",
+      "sources": ["src/components/tooltip/tooltip.tsx"]
+    },
+    {
+      "id": "disabled-bypass",
+      "kind": "component",
+      "statement": "When disabled or content is null/undefined, return the original child unchanged without a tooltip trigger or popup.",
+      "sources": ["src/components/tooltip/tooltip.tsx"]
+    },
+    {
+      "id": "primitive-interactions",
+      "kind": "component",
+      "statement": "Delegate hover/focus opening and dismissal to Base UI Tooltip; forward side and alignment and use group-token collision padding and offset for the portaled positioner.",
+      "sources": ["src/components/tooltip/tooltip.tsx"]
+    },
+    {
+      "id": "rich-content",
+      "kind": "component",
+      "statement": "RichTooltip composes title, description and optional kbd text inside Tooltip; it does not register the displayed shortcut or introduce an interactive popover workflow.",
+      "sources": ["src/components/tooltip/tooltip.tsx"]
+    },
+    {
+      "id": "trigger-contract",
+      "kind": "host",
+      "statement": "Supply one suitable element that accepts primitive props/ref and is accessible by keyboard when its tooltip is relevant. A disabled native control may require a separate focusable wrapper.",
+      "sources": ["src/components/tooltip/tooltip.tsx"]
+    },
+    {
+      "id": "supplementary-description",
+      "kind": "host",
+      "statement": "Give the trigger its own accessible name and keep essential instructions available without depending on hover. Use Popover or another suitable pattern for interactive content.",
+      "sources": ["src/components/tooltip/tooltip.tsx"]
+    },
+    {
+      "id": "controlled-updates",
+      "kind": "host",
+      "statement": "Apply controlled open callbacks and use meaningful supplementary text. The component does not infer whether external content has become stale or whether the trigger is enabled.",
+      "sources": ["src/components/tooltip/tooltip.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes feedback group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/components/tooltip/tooltip.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No accessible-name substitute, persistent help surface or shortcut execution.",
+    "ReactNode content is flexible; the implementation does not reject interactive descendants, so hosts must choose the correct pattern.",
+    "Returning the original child when disabled does not disable that child."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 2,
+  "id": "time-range-picker",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Choose a relative time preset or explicitly apply an absolute UTC range.",
+  "anatomy": [
+    "shared trigger",
+    "popover",
+    "relative preset actions",
+    "custom calendar",
+    "start/end time inputs",
+    "range feedback",
+    "Apply action"
+  ],
+  "states": ["default", "controlled-value", "host-validation"],
+  "tokenGroup": "input",
+  "behaviorProvider": "Aegis Popover/Button, react-day-picker and time-range helpers.",
+  "ownership": {
+    "component": [
+      "Use a TimeRange union: relative preset or absolute from/to strings. Relative presets are 15m,1h,24h,7d,30d; resolution uses the supplied now or current time. Default is relative 24h.",
+      "Choosing a preset commits immediately and closes. Opening resets the custom draft from the current value; custom calendar/time changes remain draft until Apply. Dismissal therefore does not commit a custom draft.",
+      "Render the custom calendar in UTC, derive date/time fields from UTC ISO slices, and emit absolute ISO strings ending in Z. The trigger formats absolute ranges with UTC explicitly.",
+      "Disable Apply unless both endpoints parse and start is not later than end. Current helper permits equal endpoints even though the visible recovery copy asks for end after start.",
+      "Associate trigger with Field name, descriptions and invalid state; when disabled, prevent opening/committing and force the rendered popup closed. Resolve open/close state locally."
+    ],
+    "host": [
+      "Own the controlled range, persistence and refresh cadence. Supply valid ranges and a stable now for reproducible relative previews; interpret relative presets as rolling durations rather than calendar-day boundaries."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "relative-and-absolute-model",
+      "kind": "component",
+      "statement": "Use a TimeRange union: relative preset or absolute from/to strings. Relative presets are 15m,1h,24h,7d,30d; resolution uses the supplied now or current time. Default is relative 24h.",
+      "sources": ["src/components/time-range-picker/time-range-picker.tsx", "src/lib/time-range.ts"]
+    },
+    {
+      "id": "draft-and-apply",
+      "kind": "component",
+      "statement": "Choosing a preset commits immediately and closes. Opening resets the custom draft from the current value; custom calendar/time changes remain draft until Apply. Dismissal therefore does not commit a custom draft.",
+      "sources": ["src/components/time-range-picker/time-range-picker.tsx", "src/lib/time-range.ts"]
+    },
+    {
+      "id": "utc-boundary",
+      "kind": "component",
+      "statement": "Render the custom calendar in UTC, derive date/time fields from UTC ISO slices, and emit absolute ISO strings ending in Z. The trigger formats absolute ranges with UTC explicitly.",
+      "sources": ["src/components/time-range-picker/time-range-picker.tsx", "src/lib/time-range.ts"]
+    },
+    {
+      "id": "range-validity",
+      "kind": "component",
+      "statement": "Disable Apply unless both endpoints parse and start is not later than end. Current helper permits equal endpoints even though the visible recovery copy asks for end after start.",
+      "sources": ["src/components/time-range-picker/time-range-picker.tsx", "src/lib/time-range.ts"]
+    },
+    {
+      "id": "field-and-disabled",
+      "kind": "component",
+      "statement": "Associate trigger with Field name, descriptions and invalid state; when disabled, prevent opening/committing and force the rendered popup closed. Resolve open/close state locally.",
+      "sources": ["src/components/time-range-picker/time-range-picker.tsx", "src/lib/time-range.ts"]
+    },
+    {
+      "id": "range-host-policy",
+      "kind": "host",
+      "statement": "Own the controlled range, persistence and refresh cadence. Supply valid ranges and a stable now for reproducible relative previews; interpret relative presets as rolling durations rather than calendar-day boundaries.",
+      "sources": ["src/components/time-range-picker/time-range-picker.tsx", "src/lib/time-range.ts"]
+    },
+    {
+      "id": "owning-token-group",
+      "kind": "design",
+      "statement": "Owned styling belongs to the input token group. Actual nested shared components retain their own group and behavior; preserve four theme/mode mappings and keyboard-visible focus.",
+      "sources": [
+        "src/components/time-range-picker/time-range-picker.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Source-backed requirements, not a current test certification or release approval.",
+    "No name/form native payload, readOnly prop, controlled open API or non-UTC absolute editor.",
+    "The helper accepts equal absolute endpoints; host business rules may require a positive duration.",
+    "Relative ranges do not automatically refresh on a timer; the host chooses when to re-resolve them."
+  ]
+}

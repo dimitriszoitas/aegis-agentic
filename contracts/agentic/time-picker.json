@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 2,
+  "id": "time-picker",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Enter a standalone local time through the native browser time input without attaching a date or time zone.",
+  "anatomy": ["optional label", "native time input", "Field descriptions and host error"],
+  "states": [
+    "empty",
+    "populated",
+    "disabled",
+    "read-only",
+    "invalid",
+    "required",
+    "controlled",
+    "uncontrolled"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Native input type=time through Aegis TextInput.",
+  "ownership": {
+    "component": [
+      "Use a native time input. Values are offset-free HH:mm or HH:mm:ss strings; empty remains an empty string. Add no Date object, midnight fallback or timezone conversion.",
+      "Pass min/max and step directly to the input; step defaults to 60 seconds. The browser owns segment editing, localized presentation, picker availability and native validity.",
+      "Preserve TextInput controlled/defaultValue behavior, both change callbacks, forwarded input ref, name/form and Field labeling/descriptions. Disabled and readOnly retain native behavior."
+    ],
+    "host": [
+      "Supply valid native time values, meaningful constraints and an appropriate seconds step. Own scheduling rules, server validation and any interpretation with a date or time zone."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "local-time-value",
+      "kind": "component",
+      "statement": "Use a native time input. Values are offset-free HH:mm or HH:mm:ss strings; empty remains an empty string. Add no Date object, midnight fallback or timezone conversion.",
+      "sources": [
+        "src/components/time-picker/time-picker.tsx",
+        "src/components/time-picker/README.md"
+      ]
+    },
+    {
+      "id": "native-constraints",
+      "kind": "component",
+      "statement": "Pass min/max and step directly to the input; step defaults to 60 seconds. The browser owns segment editing, localized presentation, picker availability and native validity.",
+      "sources": [
+        "src/components/time-picker/time-picker.tsx",
+        "src/components/time-picker/README.md"
+      ]
+    },
+    {
+      "id": "native-input-contract",
+      "kind": "component",
+      "statement": "Preserve TextInput controlled/defaultValue behavior, both change callbacks, forwarded input ref, name/form and Field labeling/descriptions. Disabled and readOnly retain native behavior.",
+      "sources": [
+        "src/components/time-picker/time-picker.tsx",
+        "src/components/time-picker/README.md"
+      ]
+    },
+    {
+      "id": "time-policy",
+      "kind": "host",
+      "statement": "Supply valid native time values, meaningful constraints and an appropriate seconds step. Own scheduling rules, server validation and any interpretation with a date or time zone.",
+      "sources": [
+        "src/components/time-picker/time-picker.tsx",
+        "src/components/time-picker/README.md"
+      ]
+    },
+    {
+      "id": "accessible-host-name",
+      "kind": "host",
+      "statement": "Supply a visible label, enclosing Field label or accessible name. Use useful host validation and recovery instructions instead of relying on placeholder text.",
+      "sources": [
+        "src/components/time-picker/time-picker.tsx",
+        "src/components/time-picker/README.md",
+        "src/components/field/field.tsx"
+      ]
+    },
+    {
+      "id": "input-group-ownership",
+      "kind": "design",
+      "statement": "Owned styling consumes input group tokens. Actual nested shared components retain their own token groups. Preserve keyboard-visible focus and equivalent size metrics across the four theme/mode mappings.",
+      "sources": [
+        "src/components/time-picker/time-picker.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "This source-backed requirement record does not certify a current test result or release approval.",
+    "Native picker appearance and available controls vary by browser and platform.",
+    "No custom clock dial, timezone conversion, duration arithmetic, range selection or scheduling validation."
+  ]
+}

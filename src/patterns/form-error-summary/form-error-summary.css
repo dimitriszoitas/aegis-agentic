@@ -1,0 +1,28 @@
+.aegis-form-error-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-feedback-empty-state-space-gap-compact);
+  min-inline-size: var(--group-feedback-empty-state-number-0);
+  color: var(--group-feedback-empty-state-color-content-primary);
+}
+.aegis-form-error-summary h2,
+.aegis-form-error-summary p,
+.aegis-form-error-summary ul {
+  margin: var(--group-feedback-empty-state-number-0);
+}
+.aegis-form-error-summary h2 {
+  font-size: var(--group-feedback-empty-state-font-size-subheading);
+}
+.aegis-form-error-summary p {
+  color: var(--group-feedback-empty-state-color-content-secondary);
+}
+.aegis-form-error-summary ul {
+  padding-inline-start: var(--group-feedback-empty-state-space-padding-comfortable);
+}
+.aegis-form-error-summary li {
+  overflow-wrap: anywhere;
+}
+.aegis-form-error-summary:focus-visible {
+  outline: var(--group-feedback-overlay-border-width-regular) solid
+    var(--group-feedback-surface-ring-focus);
+}

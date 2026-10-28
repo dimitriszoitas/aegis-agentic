@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 2,
+  "id": "notification",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "One notification presentation for inline messages and floating lifecycle-managed feedback.",
+  "anatomy": ["optional icon", "title", "description/content", "actions", "dismiss action"],
+  "states": ["inline", "floating", "info/success/warning/destroy/ai/loading", "dismissible"],
+  "tokenGroup": "feedback",
+  "behaviorProvider": "Native notice presentation; NotificationViewport/showNotification delegate floating lifecycle to Sonner.",
+  "ownership": {
+    "component": [
+      "Default inline destroy to alert, floating or loading to status, and other inline notices to note. An explicit role can override this; presentation/none clears labeling and live metadata.",
+      "Render a decorative intent icon unless icon is null/false. Associate an optional title; expose real button actions and a named dismiss button only when callbacks are provided."
+    ],
+    "host": [
+      "Mount a viewport for floating service calls and choose notification urgency, duration and deduplication.",
+      "Own action failures and async lifecycle. Update/dismiss loading messages explicitly; do not use transient notices as the only record of important errors."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Default inline destroy to alert, floating or loading to status, and other inline notices to note. An explicit role can override this; presentation/none clears labeling and live metadata.",
+      "sources": ["src/components/notification/notification.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Render a decorative intent icon unless icon is null/false. Associate an optional title; expose real button actions and a named dismiss button only when callbacks are provided.",
+      "sources": ["src/components/notification/notification.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Notification alone has no timer or queue. showNotification uses a custom Sonner item; loading duration is infinite until replaced by id or dismissed. Its custom body is presentational so Sonner owns notification semantics.",
+      "sources": [
+        "src/components/notification/notification.tsx",
+        "src/components/notification/notification-viewport.tsx"
+      ]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "NotificationViewport defaults to bottom-right and four visible toasts with token-backed spacing. showNotification wraps its single action to dismiss after the synchronous callback.",
+      "sources": [
+        "src/components/notification/notification.tsx",
+        "src/components/notification/notification-viewport.tsx"
+      ]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Mount a viewport for floating service calls and choose notification urgency, duration and deduplication.",
+      "sources": [
+        "src/components/notification/notification.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own action failures and async lifecycle. Update/dismiss loading messages explicitly; do not use transient notices as the only record of important errors.",
+      "sources": [
+        "src/components/notification/notification.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use feedback group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/notification/notification.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Inline presentation does not persist or auto-dismiss itself. Custom action slots own their own lifecycle.",
+    "Banner/Callout adapt inline Notification; Toast/Toaster/showToast are compatibility adapters, not distinct behavioral engines.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

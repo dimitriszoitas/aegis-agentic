@@ -1,0 +1,54 @@
+.aegis-rich-text-editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-field-gap-compact);
+  width: var(--group-input-field-width-available);
+  min-width: var(--group-input-field-number-0);
+  color: var(--group-input-field-color-content-primary);
+}
+.aegis-rich-text-label {
+  font-size: var(--group-input-field-font-size-label);
+}
+.aegis-rich-text-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--group-input-field-gap-compact);
+}
+.aegis-rich-text-content {
+  min-height: var(--group-input-field-height-large);
+  padding: var(--group-input-field-padding-regular);
+  border: var(--group-input-field-border-width-hairline) solid
+    var(--group-input-field-color-border-strong);
+  border-radius: var(--group-input-field-radius-bold);
+  background: var(--group-input-field-color-surface-surface);
+  overflow-wrap: anywhere;
+  outline: none;
+}
+.aegis-rich-text-content p {
+  margin-block: var(--group-input-field-gap-compact);
+}
+.aegis-rich-text-content :is(ul, ol) {
+  padding-inline-start: var(--group-input-field-option-min-height);
+}
+.aegis-rich-text-content a {
+  color: var(--group-input-field-color-action-fill);
+  text-decoration: underline;
+}
+.aegis-rich-text-content:focus-visible {
+  outline: var(--group-input-field-focus-width) solid var(--group-input-field-ring-focus);
+  outline-offset: var(--group-input-field-focus-offset);
+}
+.aegis-rich-text-editor[data-invalid='true'] .aegis-rich-text-content {
+  border-color: var(--group-input-field-color-danger-foreground);
+}
+.aegis-rich-text-editor[data-disabled] {
+  opacity: var(--group-input-field-opacity-disabled);
+}
+.aegis-rich-text-content[aria-readonly='true'] {
+  background: var(--group-input-field-color-surface-hover);
+}
+@media (forced-colors: active) {
+  .aegis-rich-text-content:focus-visible {
+    outline-color: Highlight;
+  }
+}

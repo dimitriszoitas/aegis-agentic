@@ -4,7 +4,7 @@
   "documentType": "index",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.6.0-experiment.0"
+    "version": "0.7.0-experiment.0"
   },
   "provenance": {
     "generator": "scripts/generate-ai-contracts.mjs",
@@ -18,7 +18,7 @@
       "src/styles/primitive-color-tokens.css"
     ],
     "tokenManifest": "tokens/design-tokens.json",
-    "sourceDigest": "68d797df1ca45251d6e66bf707d96a97adadc996657d7c4f22e31ead63922fa6"
+    "sourceDigest": "5ab9613550296c7af3ce2c77fa3fece77897c6ccda22b95d84bbb3e871d13539"
   },
   "description": "Task-based discovery of component APIs, usage guidance, examples and token references.",
   "limitations": [
@@ -767,6 +767,27 @@
       }
     },
     {
+      "id": "components-data-filepreview",
+      "name": "FilePreview",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "file preview"
+      ],
+      "purpose": "Show file metadata with a raster image lightbox or a safe document fallback and optional download link.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/file-preview"
+      ],
+      "links": {
+        "contract": "./components/components-data-filepreview.json",
+        "overview": "../?path=/docs/components-data-display-filepreview-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-filepreview-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-filepreview-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-filepreview-overview--docs&docsTab=tokens"
+      }
+    },
+    {
       "id": "components-data-grid-actions-cell",
       "name": "Actions cell",
       "category": "Data Display/Data grid",
@@ -976,6 +997,29 @@
       }
     },
     {
+      "id": "components-data-indicator",
+      "name": "Indicator",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "notification count",
+        "notification dot",
+        "notification marker"
+      ],
+      "purpose": "Position a named notification dot or count around existing content while preserving child interaction.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/indicator"
+      ],
+      "links": {
+        "contract": "./components/components-data-indicator.json",
+        "overview": "../?path=/docs/components-data-display-indicator-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-indicator-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-indicator-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-indicator-overview--docs&docsTab=tokens"
+      }
+    },
+    {
       "id": "components-data-jsonviewer",
       "name": "JsonViewer",
       "category": "Code",
@@ -1017,6 +1061,27 @@
         "anatomy": "../?path=/docs/components-data-display-relativetime-overview--docs&docsTab=guidelines&docsSection=anatomy",
         "api": "../?path=/docs/components-data-display-relativetime-overview--docs&docsTab=guidelines&docsSection=api",
         "tokens": "../?path=/docs/components-data-display-relativetime-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-data-sortablelist",
+      "name": "SortableList",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "sortable list"
+      ],
+      "purpose": "Reorder a controlled vertical list using pointer dragging, keyboard dragging or explicit move actions.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/sortable-list"
+      ],
+      "links": {
+        "contract": "./components/components-data-sortablelist.json",
+        "overview": "../?path=/docs/components-data-display-sortablelist-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-sortablelist-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-sortablelist-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-sortablelist-overview--docs&docsTab=tokens"
       }
     },
     {
@@ -1158,7 +1223,11 @@
       "category": "Inputs & Selection",
       "tokenGroup": "input",
       "kind": "component",
-      "aliases": [],
+      "aliases": [
+        "boolean selection",
+        "check box",
+        "mixed checkbox"
+      ],
       "purpose": "An independent boolean or mixed selection control with an optional label and description.",
       "importPaths": [
         "@dimitriszoitas/aegis-agentic/checkbox"
@@ -1169,6 +1238,50 @@
         "anatomy": "../?path=/docs/components-inputs-selection-checkbox-overview--docs&docsTab=guidelines&docsSection=anatomy",
         "api": "../?path=/docs/components-inputs-selection-checkbox-overview--docs&docsTab=guidelines&docsSection=api",
         "tokens": "../?path=/docs/components-inputs-selection-checkbox-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-colorpicker",
+      "name": "ColorPicker",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "color swatches",
+        "hex color"
+      ],
+      "purpose": "Choose a hexadecimal RGB color, optionally with alpha, using editable text, named swatches and a native RGB picker.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/color-picker"
+      ],
+      "links": {
+        "contract": "./components/components-forms-colorpicker.json",
+        "overview": "../?path=/docs/components-inputs-selection-colorpicker-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-colorpicker-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-colorpicker-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-colorpicker-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-combobox",
+      "name": "Combobox",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "searchable select",
+        "single autocomplete"
+      ],
+      "purpose": "Search and choose one stable option ID while preserving independent query and selected value state.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/combobox"
+      ],
+      "links": {
+        "contract": "./components/components-forms-combobox.json",
+        "overview": "../?path=/docs/components-inputs-selection-combobox-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-combobox-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-combobox-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-combobox-overview--docs&docsTab=tokens"
       }
     },
     {
@@ -1213,6 +1326,28 @@
         "anatomy": "../?path=/docs/components-inputs-selection-datepicker-overview--docs&docsTab=guidelines&docsSection=anatomy",
         "api": "../?path=/docs/components-inputs-selection-datepicker-overview--docs&docsTab=guidelines&docsSection=api",
         "tokens": "../?path=/docs/components-inputs-selection-datepicker-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-datetimepicker",
+      "name": "DateTimePicker",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "datetime field",
+        "local date time"
+      ],
+      "purpose": "Edit a local date/time string with an explicit displayed interpretation zone while leaving instant resolution to the host.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/date-time-picker"
+      ],
+      "links": {
+        "contract": "./components/components-forms-datetimepicker.json",
+        "overview": "../?path=/docs/components-inputs-selection-datetimepicker-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-datetimepicker-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-datetimepicker-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-datetimepicker-overview--docs&docsTab=tokens"
       }
     },
     {
@@ -1263,6 +1398,27 @@
       }
     },
     {
+      "id": "components-forms-inlineedit",
+      "name": "InlineEdit",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "inline edit"
+      ],
+      "purpose": "Edit a single committed text value through an explicit local draft, validation, save and cancel lifecycle.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/inline-edit"
+      ],
+      "links": {
+        "contract": "./components/components-forms-inlineedit.json",
+        "overview": "../?path=/docs/components-inputs-selection-inlineedit-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-inlineedit-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-inlineedit-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-inlineedit-overview--docs&docsTab=tokens"
+      }
+    },
+    {
       "id": "components-forms-multicombobox",
       "name": "MultiCombobox",
       "category": "Inputs & Selection",
@@ -1310,6 +1466,28 @@
       }
     },
     {
+      "id": "components-forms-otpinput",
+      "name": "OtpInput",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "one time code",
+        "verification code"
+      ],
+      "purpose": "Edit a bounded complete one-time code in one native input with paste, autocomplete and native form participation.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/otp-input"
+      ],
+      "links": {
+        "contract": "./components/components-forms-otpinput.json",
+        "overview": "../?path=/docs/components-inputs-selection-otpinput-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-otpinput-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-otpinput-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-otpinput-overview--docs&docsTab=tokens"
+      }
+    },
+    {
       "id": "components-forms-passwordinput",
       "name": "PasswordInput",
       "category": "Inputs & Selection",
@@ -1334,6 +1512,28 @@
       }
     },
     {
+      "id": "components-forms-phoneinput",
+      "name": "PhoneInput",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "phone number",
+        "telephone"
+      ],
+      "purpose": "Edit raw telephone text with explicit country context and separate metadata-backed formatting/parse candidates.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/phone-input"
+      ],
+      "links": {
+        "contract": "./components/components-forms-phoneinput.json",
+        "overview": "../?path=/docs/components-inputs-selection-phoneinput-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-phoneinput-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-phoneinput-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-phoneinput-overview--docs&docsTab=tokens"
+      }
+    },
+    {
       "id": "components-forms-radiogroup",
       "name": "RadioGroup",
       "category": "Inputs & Selection",
@@ -1353,6 +1553,27 @@
         "anatomy": "../?path=/docs/components-inputs-selection-radiogroup-overview--docs&docsTab=guidelines&docsSection=anatomy",
         "api": "../?path=/docs/components-inputs-selection-radiogroup-overview--docs&docsTab=guidelines&docsSection=api",
         "tokens": "../?path=/docs/components-inputs-selection-radiogroup-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-richtexteditor",
+      "name": "RichTextEditor",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "rich text editor"
+      ],
+      "purpose": "Edit schema-based rich text with bold, italic, lists, links and undo/redo using a mature text editing engine.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/rich-text-editor"
+      ],
+      "links": {
+        "contract": "./components/components-forms-richtexteditor.json",
+        "overview": "../?path=/docs/components-inputs-selection-richtexteditor-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-richtexteditor-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-richtexteditor-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-richtexteditor-overview--docs&docsTab=tokens"
       }
     },
     {
@@ -1508,6 +1729,28 @@
         "anatomy": "../?path=/docs/components-inputs-selection-textinput-overview--docs&docsTab=guidelines&docsSection=anatomy",
         "api": "../?path=/docs/components-inputs-selection-textinput-overview--docs&docsTab=guidelines&docsSection=api",
         "tokens": "../?path=/docs/components-inputs-selection-textinput-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-timepicker",
+      "name": "TimePicker",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "local time",
+        "time field"
+      ],
+      "purpose": "Enter a standalone local time through the native browser time input without attaching a date or time zone.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/time-picker"
+      ],
+      "links": {
+        "contract": "./components/components-forms-timepicker.json",
+        "overview": "../?path=/docs/components-inputs-selection-timepicker-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-timepicker-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-timepicker-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-timepicker-overview--docs&docsTab=tokens"
       }
     },
     {
@@ -1712,7 +1955,11 @@
       "category": "Navigation",
       "tokenGroup": "navigation",
       "kind": "component",
-      "aliases": [],
+      "aliases": [
+        "page controls",
+        "page size",
+        "result paging"
+      ],
       "purpose": "Controlled navigation through result pages, with an optional page-size selector.",
       "importPaths": [
         "@dimitriszoitas/aegis-agentic/pagination"
@@ -1775,7 +2022,11 @@
       "category": "Navigation",
       "tokenGroup": "navigation",
       "kind": "component",
-      "aliases": [],
+      "aliases": [
+        "tab list",
+        "tabbed workspace",
+        "view switcher"
+      ],
       "purpose": "A labeled set of peer views using Base UI tabs and associated content panels.",
       "importPaths": [
         "@dimitriszoitas/aegis-agentic/tabs"
@@ -1942,6 +2193,30 @@
         "anatomy": "../?path=/docs/components-data-display-avatar-overview--docs&docsTab=guidelines&docsSection=anatomy",
         "api": "../?path=/docs/components-data-display-avatar-overview--docs&docsTab=guidelines&docsSection=api",
         "tokens": "../?path=/docs/components-data-display-avatar-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-people-presenceindicator",
+      "name": "PresenceIndicator",
+      "category": "Data Display",
+      "tokenGroup": "data-display",
+      "kind": "component",
+      "aliases": [
+        "availability",
+        "offline status",
+        "online status",
+        "presence"
+      ],
+      "purpose": "Display host-provided online, away, busy or offline availability with explicit accessible meaning.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/presence-indicator"
+      ],
+      "links": {
+        "contract": "./components/components-people-presenceindicator.json",
+        "overview": "../?path=/docs/components-data-display-presenceindicator-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-data-display-presenceindicator-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-data-display-presenceindicator-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-data-display-presenceindicator-overview--docs&docsTab=tokens"
       }
     },
     {
@@ -2216,6 +2491,28 @@
       }
     },
     {
+      "id": "patterns-appshell",
+      "name": "AppShell",
+      "category": "Application",
+      "tokenGroup": "application",
+      "kind": "pattern",
+      "aliases": [
+        "AppShell",
+        "app shell"
+      ],
+      "purpose": "An application shell with persistent page content, accessible landmarks and a shared mobile navigation sheet.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-appshell.json",
+        "overview": "../?path=/docs/patterns-application-appshell-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-application-appshell-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-application-appshell-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-application-appshell-overview--docs&docsTab=tokens"
+      }
+    },
+    {
       "id": "patterns-collectiontoolbar",
       "name": "CollectionToolbar",
       "category": "Filtering",
@@ -2281,6 +2578,28 @@
         "anatomy": "../?path=/docs/patterns-filtering-filterpanel-overview--docs&docsTab=guidelines&docsSection=anatomy",
         "api": "../?path=/docs/patterns-filtering-filterpanel-overview--docs&docsTab=guidelines&docsSection=api",
         "tokens": "../?path=/docs/patterns-filtering-filterpanel-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-formerrorsummary",
+      "name": "FormErrorSummary",
+      "category": "Feedback",
+      "tokenGroup": "feedback",
+      "kind": "component",
+      "aliases": [
+        "FormErrorSummary",
+        "form error summary"
+      ],
+      "purpose": "A linked, focusable form error summary. It accepts validation results rather than deciding form validity.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-formerrorsummary.json",
+        "overview": "../?path=/docs/components-feedback-formerrorsummary-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-feedback-formerrorsummary-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-feedback-formerrorsummary-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-feedback-formerrorsummary-overview--docs&docsTab=tokens"
       }
     },
     {
@@ -2379,7 +2698,15 @@
       "category": "Page Structure",
       "tokenGroup": "page-structure",
       "kind": "pattern",
-      "aliases": [],
+      "aliases": [
+        "collection page",
+        "content grid",
+        "dashboard page",
+        "page composition",
+        "reading column",
+        "record detail",
+        "settings page"
+      ],
       "purpose": "Initial library choices for collection, detail, settings, and dashboard pages. PageHeader owns the heading and actions. PageLayout adds transparent region wrappers without page padding or child styling. ReadingColumn provides 55ch/65ch/75ch starting measures. ContentGrid uses a container-responsive maximum of one to four columns. Products can propose additional recipes through review.",
       "importPaths": [
         "@dimitriszoitas/aegis-agentic/patterns"
@@ -2390,6 +2717,50 @@
         "anatomy": "../?path=/docs/patterns-page-structure-pagelayout-overview--docs&docsTab=guidelines&docsSection=anatomy",
         "api": "../?path=/docs/patterns-page-structure-pagelayout-overview--docs&docsTab=guidelines&docsSection=api",
         "tokens": "../?path=/docs/patterns-page-structure-pagelayout-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-recordeditor",
+      "name": "RecordEditor",
+      "category": "Workflows",
+      "tokenGroup": "workflow",
+      "kind": "pattern",
+      "aliases": [
+        "RecordEditor",
+        "record editor"
+      ],
+      "purpose": "A generic view/edit/save/cancel/delete workflow with explicit record versions and retained failure drafts.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-recordeditor.json",
+        "overview": "../?path=/docs/patterns-workflows-recordeditor-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-workflows-recordeditor-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-workflows-recordeditor-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-workflows-recordeditor-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-resourcestate",
+      "name": "ResourceState",
+      "category": "Feedback",
+      "tokenGroup": "feedback",
+      "kind": "component",
+      "aliases": [
+        "ResourceState",
+        "resource state"
+      ],
+      "purpose": "A common boundary for loading, retained refresh, stale results, error and empty presentation.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-resourcestate.json",
+        "overview": "../?path=/docs/components-feedback-resourcestate-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-feedback-resourcestate-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-feedback-resourcestate-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-feedback-resourcestate-overview--docs&docsTab=tokens"
       }
     },
     {
@@ -2412,6 +2783,28 @@
         "anatomy": "../?path=/docs/patterns-workflows-unsavedchangesbar-overview--docs&docsTab=guidelines&docsSection=anatomy",
         "api": "../?path=/docs/patterns-workflows-unsavedchangesbar-overview--docs&docsTab=guidelines&docsSection=api",
         "tokens": "../?path=/docs/patterns-workflows-unsavedchangesbar-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-unsavednavigationguard",
+      "name": "UnsavedNavigationGuard",
+      "category": "Workflows",
+      "tokenGroup": "workflow",
+      "kind": "pattern",
+      "aliases": [
+        "UnsavedNavigationGuard",
+        "unsaved navigation guard"
+      ],
+      "purpose": "A router-neutral adapter for explicitly guarded navigation and a best-effort unload warning.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-unsavednavigationguard.json",
+        "overview": "../?path=/docs/patterns-workflows-unsavednavigationguard-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-workflows-unsavednavigationguard-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-workflows-unsavednavigationguard-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-workflows-unsavednavigationguard-overview--docs&docsTab=tokens"
       }
     },
     {

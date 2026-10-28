@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 2,
+  "id": "otp-input",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Edit a bounded complete one-time code in one native input with paste, autocomplete and native form participation.",
+  "anatomy": [
+    "optional label",
+    "one native text or password input",
+    "Field descriptions and host error"
+  ],
+  "states": [
+    "empty",
+    "partial",
+    "complete-candidate",
+    "numeric",
+    "alphanumeric",
+    "concealed",
+    "disabled",
+    "read-only",
+    "invalid"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Native input through Aegis TextInput; wrapper candidate normalization.",
+  "ownership": {
+    "component": [
+      "Render one real native input with autocomplete one-time-code, numeric or text inputMode, length constraints and one optional form name. Do not create separate character cells with fabricated accessibility semantics.",
+      "Numeric mode keeps ASCII digits; alphanumeric mode uppercases ASCII letters and keeps ASCII digits. Paste normalizes the full clipboard text before length truncation and replaces the current selection through an ordinary native input event.",
+      "Require an integer length from 1 through 32. Empty is an empty string; leading zeroes are retained. Apply normalization to initial, controlled and edited candidates.",
+      "Call onComplete for a changed candidate whose normalized length is complete. It does not submit a form, authenticate a person, verify a code or mark a code consumed.",
+      "Preserve native TextInput ref, name/form, change callbacks, readOnly/disabled, required and Field association. masked changes only text visibility."
+    ],
+    "host": [
+      "Own code verification, expiry, retry limits, resend flow, authentication, secure handling and error feedback. Treat one-time-code as an autofill hint whose actual support depends on browser/platform."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "single-native-input",
+      "kind": "component",
+      "statement": "Render one real native input with autocomplete one-time-code, numeric or text inputMode, length constraints and one optional form name. Do not create separate character cells with fabricated accessibility semantics.",
+      "sources": ["src/components/otp-input/otp-input.tsx", "src/components/otp-input/README.md"]
+    },
+    {
+      "id": "normalization-and-paste",
+      "kind": "component",
+      "statement": "Numeric mode keeps ASCII digits; alphanumeric mode uppercases ASCII letters and keeps ASCII digits. Paste normalizes the full clipboard text before length truncation and replaces the current selection through an ordinary native input event.",
+      "sources": ["src/components/otp-input/otp-input.tsx", "src/components/otp-input/README.md"]
+    },
+    {
+      "id": "length-and-empty",
+      "kind": "component",
+      "statement": "Require an integer length from 1 through 32. Empty is an empty string; leading zeroes are retained. Apply normalization to initial, controlled and edited candidates.",
+      "sources": ["src/components/otp-input/otp-input.tsx", "src/components/otp-input/README.md"]
+    },
+    {
+      "id": "completion-is-candidate",
+      "kind": "component",
+      "statement": "Call onComplete for a changed candidate whose normalized length is complete. It does not submit a form, authenticate a person, verify a code or mark a code consumed.",
+      "sources": ["src/components/otp-input/otp-input.tsx", "src/components/otp-input/README.md"]
+    },
+    {
+      "id": "native-input-contract",
+      "kind": "component",
+      "statement": "Preserve native TextInput ref, name/form, change callbacks, readOnly/disabled, required and Field association. masked changes only text visibility.",
+      "sources": ["src/components/otp-input/otp-input.tsx", "src/components/otp-input/README.md"]
+    },
+    {
+      "id": "verification-ownership",
+      "kind": "host",
+      "statement": "Own code verification, expiry, retry limits, resend flow, authentication, secure handling and error feedback. Treat one-time-code as an autofill hint whose actual support depends on browser/platform.",
+      "sources": ["src/components/otp-input/otp-input.tsx", "src/components/otp-input/README.md"]
+    },
+    {
+      "id": "accessible-host-name",
+      "kind": "host",
+      "statement": "Supply a visible label, enclosing Field label or accessible name. Use useful host validation and recovery instructions instead of relying on placeholder text.",
+      "sources": [
+        "src/components/otp-input/otp-input.tsx",
+        "src/components/otp-input/README.md",
+        "src/components/field/field.tsx"
+      ]
+    },
+    {
+      "id": "input-group-ownership",
+      "kind": "design",
+      "statement": "Owned styling consumes input group tokens. Actual nested shared components retain their own token groups. Preserve keyboard-visible focus and equivalent size metrics across the four theme/mode mappings.",
+      "sources": ["src/components/otp-input/otp-input.css", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "This source-backed requirement record does not certify a current test result or release approval.",
+    "ASCII numeric/alphanumeric codes only; localized numerals and arbitrary Unicode code alphabets are not supported.",
+    "No operating-system SMS retrieval, automatic submission, authentication or code security policy."
+  ]
+}

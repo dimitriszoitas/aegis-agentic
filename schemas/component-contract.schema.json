@@ -469,17 +469,21 @@
         },
         "id": {
           "type": "string",
-          "pattern": "^(?!token-input$|page-layout$)[a-z][a-z0-9-]*$"
+          "pattern": "^[a-z][a-z0-9-]*$"
         },
         "version": {
           "type": "integer",
           "minimum": 1
         },
         "status": {
-          "const": "source-backed-baseline"
+          "enum": ["source-backed-baseline", "candidate", "experimental"]
         },
         "verification": {
-          "const": "not-certified-by-this-contract"
+          "enum": [
+            "not-certified-by-this-contract",
+            "bounded-automated-evidence-not-human-certification",
+            "recipe-selection-validation-is-not-rendered-or-human-certification"
+          ]
         },
         "purpose": {
           "type": "string",
@@ -575,6 +579,237 @@
           },
           "minItems": 1,
           "uniqueItems": true
+        },
+        "invariants": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "defaults": {
+          "type": "object",
+          "properties": {
+            "duplicatePolicy": {
+              "enum": ["reject", "ignore"]
+            },
+            "commitKeys": {
+              "type": "array",
+              "items": {
+                "enum": ["Enter", ","]
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "commitOnBlur": {
+              "type": "boolean"
+            },
+            "confirmationMode": {
+              "enum": ["values", "request"]
+            }
+          },
+          "required": ["duplicatePolicy", "commitKeys", "commitOnBlur", "confirmationMode"],
+          "additionalProperties": false
+        },
+        "asyncHostRequirement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+        },
+        "migration": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+        },
+        "exports": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "importPath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recipeSource": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+        },
+        "portableRecipes": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+        },
+        "guidance": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+        },
+        "publicApi": {
+          "type": "object",
+          "properties": {
+            "PageLayout": {
+              "type": "object",
+              "properties": {
+                "required": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "archetypes": {
+                  "type": "array",
+                  "items": {
+                    "enum": ["collection", "detail", "settings", "dashboard"]
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "header": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "slots": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "collection": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "detail": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "settings": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "dashboard": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "required",
+                "archetypes",
+                "header",
+                "slots",
+                "collection",
+                "detail",
+                "settings",
+                "dashboard"
+              ],
+              "additionalProperties": false
+            },
+            "ReadingColumn": {
+              "type": "object",
+              "properties": {
+                "measure": {
+                  "type": "array",
+                  "items": {
+                    "enum": ["compact", "comfortable", "wide"]
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "default": {
+                  "enum": ["compact", "comfortable", "wide"]
+                },
+                "scope": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": ["measure", "default", "scope"],
+              "additionalProperties": false
+            },
+            "ContentGrid": {
+              "type": "object",
+              "properties": {
+                "maxColumns": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "defaultMaxColumns": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4
+                },
+                "minItemWidth": {
+                  "type": "array",
+                  "items": {
+                    "enum": ["small", "regular", "large"]
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "defaultMinItemWidth": {
+                  "enum": ["small", "regular", "large"]
+                },
+                "scope": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "maxColumns",
+                "defaultMaxColumns",
+                "minItemWidth",
+                "defaultMinItemWidth",
+                "scope"
+              ],
+              "additionalProperties": false
+            },
+            "validatePageLayoutRecipe": {
+              "type": "object",
+              "properties": {
+                "input": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "returns": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "slotValidation": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "excluded": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": ["input", "returns", "slotValidation", "excluded"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["PageLayout", "ReadingColumn", "ContentGrid", "validatePageLayoutRecipe"],
+          "additionalProperties": false
+        },
+        "limits": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
         }
       },
       "required": [
@@ -592,7 +827,110 @@
         "requirements",
         "limitations"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "properties": {
+            "id": {
+              "const": "token-input"
+            },
+            "version": {
+              "const": 2
+            },
+            "status": {
+              "const": "experimental"
+            },
+            "verification": {
+              "const": "bounded-automated-evidence-not-human-certification"
+            },
+            "exports": false,
+            "importPath": false,
+            "recipeSource": false,
+            "portableRecipes": false,
+            "guidance": false,
+            "publicApi": false,
+            "limits": false
+          },
+          "required": ["defaults", "asyncHostRequirement", "evidence", "migration"]
+        },
+        {
+          "properties": {
+            "id": {
+              "const": "page-layout"
+            },
+            "version": {
+              "const": 1
+            },
+            "status": {
+              "const": "experimental"
+            },
+            "verification": {
+              "const": "recipe-selection-validation-is-not-rendered-or-human-certification"
+            },
+            "defaults": false,
+            "asyncHostRequirement": false,
+            "evidence": false,
+            "migration": false
+          },
+          "required": [
+            "exports",
+            "importPath",
+            "recipeSource",
+            "portableRecipes",
+            "guidance",
+            "publicApi",
+            "limits"
+          ]
+        },
+        {
+          "properties": {
+            "id": {
+              "const": "dataset-filtering"
+            },
+            "status": {
+              "const": "candidate"
+            },
+            "verification": {
+              "const": "not-certified-by-this-contract"
+            },
+            "defaults": false,
+            "asyncHostRequirement": false,
+            "evidence": false,
+            "migration": false,
+            "exports": false,
+            "importPath": false,
+            "recipeSource": false,
+            "portableRecipes": false,
+            "guidance": false,
+            "publicApi": false,
+            "limits": false
+          }
+        },
+        {
+          "properties": {
+            "id": {
+              "pattern": "^(?!token-input$|page-layout$|dataset-filtering$)[a-z][a-z0-9-]*$"
+            },
+            "status": {
+              "const": "source-backed-baseline"
+            },
+            "verification": {
+              "const": "not-certified-by-this-contract"
+            },
+            "defaults": false,
+            "asyncHostRequirement": false,
+            "evidence": false,
+            "migration": false,
+            "exports": false,
+            "importPath": false,
+            "recipeSource": false,
+            "portableRecipes": false,
+            "guidance": false,
+            "publicApi": false,
+            "limits": false
+          }
+        }
+      ]
     }
   }
 }

@@ -1,0 +1,11 @@
+# RichTextEditor
+
+Rich formatted text using Tiptap 3 and ProseMirror, not Markdown or a code editor. The bounded schema supports paragraphs, hard breaks, bold, italic, links, bullet/ordered lists and list items. Tiptap supplies selection, keyboard shortcuts, clipboard parsing, list editing and undo/redo. The Base UI toolbar supplies roving keyboard focus; nested Buttons keep trigger styling.
+
+Use the JSON `RichTextDocument` with controlled `value`/`onValueChange`, or supply `defaultValue` once for an uncontrolled editor. Controlled hosts must accept and return edits; rejected edits are restored from the authoritative prop. External replacements do not enter undo history and may reposition selection. Unsupported or malformed documents and unsafe JSON link destinations are rejected by `normalizeRichTextDocument`, using the actual installed editor schema. Raw HTML is not an input API.
+
+Links allow HTTP(S), mailto and relative destinations. Script/data schemes are rejected for the link dialog, JSON content and pasted links. Clicking a link inside the editor does not navigate. Host rendering outside this component must apply its own output safety policy; this is not a general HTML sanitizer. The component does not upload, execute or embed arbitrary HTML, images, documents or collaborative content.
+
+Supply a standalone label, an enclosing Field, or explicit ARIA name. Disabled prevents editing and removes the text surface from Tab; readOnly permits focusing/selecting the text but disables formatting. Field descriptions and invalid metadata are forwarded. `required` is ARIA metadata only: contenteditable plus a hidden JSON input has no native required constraint, so host validation must inspect the document. An optional `name` submits serialized JSON via a hidden input; no form submission or persistence happens automatically.
+
+The forwarded handle exposes `focus()` and `getDocument()`. Initialization is client-side for SSR safety. The editor retains its instance through ordinary rerenders/theme changes; the host owns remount/reset and asynchronous persistence. Tables, mentions, files, collaboration, arbitrary extensions and custom HTML are outside this version's contract.

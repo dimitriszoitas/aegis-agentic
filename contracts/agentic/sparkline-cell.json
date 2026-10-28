@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 2,
+  "id": "sparkline-cell",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A lightweight, noninteractive trend graphic inside a dense table cell.",
+  "anatomy": ["shared Sparkline"],
+  "states": ["line", "area", "bar", "empty data"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Shared data-grid cell adapter; table/record state remains with its host.",
+  "ownership": {
+    "component": [
+      "Forward data, variant, intent, dimensions, label and className directly to Sparkline. Preserve the shared primitive data handling, SVG sizing and accessible summary."
+    ],
+    "host": [
+      "Provide a meaningful trend label and constrain the containing table column. Supply finite observations with a documented time/order meaning.",
+      "Use the canonical Sparkline behavior contract for geometry and empty-state rules rather than reimplementing SVG calculations."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Forward data, variant, intent, dimensions, label and className directly to Sparkline. Preserve the shared primitive data handling, SVG sizing and accessible summary.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Provide a meaningful trend label and constrain the containing table column. Supply finite observations with a documented time/order meaning.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Use the canonical Sparkline behavior contract for geometry and empty-state rules rather than reimplementing SVG calculations.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "The adapter adds no axes, tooltips, aggregation or live data service.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

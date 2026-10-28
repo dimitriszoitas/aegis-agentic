@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 2,
+  "id": "timeline",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present ordered activity entries with type markers, actor/provenance, relative time and optional actions.",
+  "anatomy": [
+    "named ordered list",
+    "decorative type marker",
+    "title and time",
+    "optional actor/provenance",
+    "description",
+    "host actions"
+  ],
+  "states": ["populated", "empty", "single entry", "AI entry", "custom actions"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Native ordered list with shared RelativeTime and EmptyState.",
+  "ownership": {
+    "component": [
+      "Render populated data as an ol with the supplied label and li entries keyed by ID. Forward list props in this branch; the supplied label owns aria-label.",
+      "For no items render the shared No activity yet EmptyState rather than an empty ordered list. List props/className/label are not forwarded to that replacement.",
+      "Default type to event and select a matching decorative icon; caller icon overrides the visual inside the same aria-hidden marker, so the marker carries no independent accessible information."
+    ],
+    "host": [
+      "Supply entries in the intended chronological or reverse-chronological order with stable unique IDs. Timeline preserves input order and does not validate duplicate IDs or sort timestamps.",
+      "Supply accessible, authorized action components and meaningful title/description content. Timeline does not execute workflow logic, enforce permissions, paginate, load more or persist event changes."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "host-order",
+      "kind": "host",
+      "statement": "Supply entries in the intended chronological or reverse-chronological order with stable unique IDs. Timeline preserves input order and does not validate duplicate IDs or sort timestamps.",
+      "sources": ["src/components/timeline/timeline.tsx"]
+    },
+    {
+      "id": "list-semantics",
+      "kind": "component",
+      "statement": "Render populated data as an ol with the supplied label and li entries keyed by ID. Forward list props in this branch; the supplied label owns aria-label.",
+      "sources": ["src/components/timeline/timeline.tsx"]
+    },
+    {
+      "id": "empty-replacement",
+      "kind": "component",
+      "statement": "For no items render the shared No activity yet EmptyState rather than an empty ordered list. List props/className/label are not forwarded to that replacement.",
+      "sources": ["src/components/timeline/timeline.tsx"]
+    },
+    {
+      "id": "type-markers",
+      "kind": "component",
+      "statement": "Default type to event and select a matching decorative icon; caller icon overrides the visual inside the same aria-hidden marker, so the marker carries no independent accessible information.",
+      "sources": ["src/components/timeline/timeline.tsx"]
+    },
+    {
+      "id": "time-delegation",
+      "kind": "component",
+      "statement": "Render each timestamp through compact RelativeTime, passing shared now/timeZone. Leave absolute tooltip, invalid timestamp and clock behavior to RelativeTime.",
+      "sources": ["src/components/timeline/timeline.tsx"]
+    },
+    {
+      "id": "ai-provenance",
+      "kind": "component",
+      "statement": "Show AI generated text for ai entries whether or not actor is provided. Other types display the actor only when truthy; provenance is separate from task approval.",
+      "sources": ["src/components/timeline/timeline.tsx"]
+    },
+    {
+      "id": "optional-content",
+      "kind": "component",
+      "statement": "Conditionally wrap truthy descriptions and actions in their respective slots without inventing event handling. Numeric zero ReactNodes can appear outside a wrapper through the underlying truthiness expressions.",
+      "sources": ["src/components/timeline/timeline.tsx"]
+    },
+    {
+      "id": "host-actions",
+      "kind": "host",
+      "statement": "Supply accessible, authorized action components and meaningful title/description content. Timeline does not execute workflow logic, enforce permissions, paginate, load more or persist event changes.",
+      "sources": ["src/components/timeline/timeline.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume data-display group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "No selection, filtering, virtualization or asynchronous load/error state.",
+    "Without explicit now, each RelativeTime maintains its own live timer; choose deterministic references for historical snapshots."
+  ]
+}

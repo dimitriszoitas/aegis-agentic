@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "button",
   "version": 1,
   "status": "source-backed-baseline",
@@ -13,5 +13,71 @@
     "Keyboard focus remains visible in both modes."
   ],
   "tokenGroup": "trigger",
-  "behaviorProvider": "native-button"
+  "behaviorProvider": "native-button",
+  "ownership": {
+    "component": [
+      "native action semantics and safe default type",
+      "disabled/loading rendering",
+      "intent/emphasis and icon composition"
+    ],
+    "host": [
+      "meaningful accessible action name",
+      "event handling, async operation state and native form intent",
+      "safe authorization and routing choices"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "native-action",
+      "kind": "component",
+      "statement": "Render a native button with default type=button; forward native button attributes and event handlers while owning disabled/loading semantics and visual data attributes.",
+      "sources": ["src/components/button/button.tsx"]
+    },
+    {
+      "id": "form-intent",
+      "kind": "host",
+      "statement": "Choose type=submit explicitly when submitting a form. Use Link for navigation and keep action authorization/business effects in the caller.",
+      "sources": ["src/components/button/button.tsx"]
+    },
+    {
+      "id": "loading-lock",
+      "kind": "component",
+      "statement": "Set native disabled when disabled or loading is true and expose aria-busy while loading. Preserve the label DOM; without a leading icon hide label/trailing-icon paint by opacity and center a spinner, otherwise replace the leading icon with the spinner.",
+      "sources": ["src/components/button/button.tsx"]
+    },
+    {
+      "id": "accessible-name",
+      "kind": "host",
+      "statement": "Supply meaningful text or aria-label/aria-labelledby, including for icon-only use. Loading preserves existing label content but cannot create a useful name from unnamed children.",
+      "sources": ["src/components/button/button.tsx"]
+    },
+    {
+      "id": "intent-emphasis",
+      "kind": "component",
+      "statement": "Represent intent, emphasis and size independently with data attributes; default to default intent, primary emphasis and medium size without changing native interaction behavior.",
+      "sources": ["src/components/button/button.tsx"]
+    },
+    {
+      "id": "aria-disabled-boundary",
+      "kind": "host",
+      "statement": "Native disabled/loading prevents activation. aria-disabled alone supplies styling/semantics but the plain native Button does not suppress its handlers; a composing primitive or host must implement that behavior.",
+      "sources": ["src/components/button/button.tsx"]
+    },
+    {
+      "id": "ai-decoration",
+      "kind": "component",
+      "statement": "Use an instance-specific gradient identifier for nonprimary AI icon foregrounds and a hidden SVG definition; clone supplied React icon elements only to apply the intended stroke style.",
+      "sources": ["src/components/button/button.tsx"]
+    },
+    {
+      "id": "focus-and-tokens",
+      "kind": "design",
+      "statement": "Retain trigger-group keyboard focus indication in both modes and forced-color treatment. Use group tokens for state geometry and palette, and verify actual focus/contrast in the rendered context.",
+      "sources": ["src/components/button/button.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "The component does not await onClick, own pending state or prevent duplicate requests before the host sets loading.",
+    "Disabled native controls may lose focus; no explicit focus recovery, confirmation or authorization policy is supplied."
+  ]
 }

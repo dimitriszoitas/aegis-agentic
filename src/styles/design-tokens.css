@@ -6453,6 +6453,27 @@
   --group-page-structure-content-grid-columns-two: var(--semantic-columns-two);
   --group-page-structure-content-grid-columns-three: var(--semantic-columns-three);
   --group-page-structure-content-grid-columns-four: var(--semantic-columns-four);
+  --group-data-display-indicator-space: var(--semantic-space-m);
+  --group-data-display-indicator-zero: var(--semantic-number-0);
+  --group-data-display-indicator-dot-size: var(--semantic-size-glyph-xxs);
+  --group-data-display-indicator-radius: var(--semantic-radius-xxxxl);
+  --group-data-display-indicator-color: var(--semantic-color-danger-fill);
+  --group-data-display-indicator-border-width: var(--semantic-border-width-regular);
+  --group-data-display-indicator-border: var(--semantic-color-surface-surface);
+  --group-data-display-presence-gap: var(--semantic-space-m);
+  --group-data-display-presence-text: var(--semantic-color-content-secondary);
+  --group-data-display-presence-font-size: var(--semantic-font-size-label);
+  --group-data-display-presence-line-height: var(--semantic-font-leading-body);
+  --group-data-display-presence-zero: var(--semantic-number-0);
+  --group-data-display-presence-size: var(--semantic-size-glyph-xxs);
+  --group-data-display-presence-small-size: var(--semantic-size-glyph-xxxs);
+  --group-data-display-presence-radius: var(--semantic-radius-xxxxl);
+  --group-data-display-presence-offline: var(--semantic-color-content-tertiary);
+  --group-data-display-presence-border-width: var(--semantic-border-width-hairline);
+  --group-data-display-presence-border: var(--semantic-color-surface-surface);
+  --group-data-display-presence-online: var(--semantic-color-success-fill);
+  --group-data-display-presence-away: var(--semantic-color-caution-fill);
+  --group-data-display-presence-busy: var(--semantic-color-danger-fill);
 }
 :root, [data-layout-theme], .dark, .aegis-theme-light {
   --component-icon-dot: var(--semantic-measurement-icon-dot);

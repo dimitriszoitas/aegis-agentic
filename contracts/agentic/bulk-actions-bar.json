@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 2,
+  "id": "bulk-actions-bar",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Controlled batch actions for the current selected record set, with asynchronous operation feedback.",
+  "anatomy": [
+    "named region",
+    "live selected count",
+    "assign menu",
+    "status menu",
+    "AI summarize action",
+    "clear action",
+    "error"
+  ],
+  "states": ["hidden at zero", "selected records", "pending", "loading", "error"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Shared Buttons and DropdownMenus with local async guard.",
+  "ownership": {
+    "component": [
+      "Normalize selectedCount to a nonnegative integer and render nothing at zero. Otherwise expose a named bulk-action region and polite selected-count text.",
+      "Guard callbacks synchronously with a ref, then mark local pending state until the returned promise settles. External loading also prevents actions and clearing."
+    ],
+    "host": [
+      "Own the actual selected record ids, authorization, batch transaction, conflicts and server persistence.",
+      "Return operation promises; keep selectedCount synchronized and decide whether to clear selection after success. Reserve room for fixed-position bars."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Normalize selectedCount to a nonnegative integer and render nothing at zero. Otherwise expose a named bulk-action region and polite selected-count text.",
+      "sources": ["src/components/bulk-actions-bar/bulk-actions-bar.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Guard callbacks synchronously with a ref, then mark local pending state until the returned promise settles. External loading also prevents actions and clearing.",
+      "sources": ["src/components/bulk-actions-bar/bulk-actions-bar.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Assignment sends owner id or null, status sends a fixed RecordStatus, and summarize invokes its callback. Rejection preserves the bar and displays the caught message or fallback in an alert.",
+      "sources": ["src/components/bulk-actions-bar/bulk-actions-bar.tsx"]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "Escape clears selection only when not busy and the event has not already been prevented; it stops propagation. The clear button is also disabled while busy.",
+      "sources": ["src/components/bulk-actions-bar/bulk-actions-bar.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Own the actual selected record ids, authorization, batch transaction, conflicts and server persistence.",
+      "sources": [
+        "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Return operation promises; keep selectedCount synchronized and decide whether to clear selection after success. Reserve room for fixed-position bars.",
+      "sources": [
+        "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "This pattern currently targets assignment, fixed record statuses and summarization; it is not a generic bulk-action schema.",
+    "No cancellation, partial-success reconciliation or focus restoration after host removal is provided.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

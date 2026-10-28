@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "id": "confidence-badge",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A textual high, medium, or low confidence indicator with a supplementary bar motif.",
+  "anatomy": ["decorative three-bar mark", "confidence label"],
+  "states": ["low", "medium", "high"],
+  "tokenGroup": "ai",
+  "behaviorProvider": "Static named confidence text and decorative bars.",
+  "ownership": {
+    "component": [
+      "Render one, two or three active bars for low, medium or high and always include the corresponding visible confidence label.",
+      "Hide the bar mark from assistive technology. Forward span properties and preserve data-confidence styling."
+    ],
+    "host": [
+      "Define and document how confidence levels are assigned from evidence.",
+      "Use confidence to communicate uncertainty, never as a substitute for an approval or correctness verdict."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Render one, two or three active bars for low, medium or high and always include the corresponding visible confidence label.",
+      "sources": ["src/components/confidence-badge/confidence-badge.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Hide the bar mark from assistive technology. Forward span properties and preserve data-confidence styling.",
+      "sources": ["src/components/confidence-badge/confidence-badge.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Define and document how confidence levels are assigned from evidence.",
+      "sources": [
+        "src/components/confidence-badge/confidence-badge.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Use confidence to communicate uncertainty, never as a substitute for an approval or correctness verdict.",
+      "sources": [
+        "src/components/confidence-badge/confidence-badge.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use ai group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/confidence-badge/confidence-badge.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No probability calibration, model scoring or validation is performed.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

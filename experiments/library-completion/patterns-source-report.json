@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "checks": [
+    "Form errors focus the summary on failed submit, link to the field, and disappear after host correction.",
+    "Ready/refresh/stale/retry preserve the same editable resource content.",
+    "Record save failure retains drafts, authoritative save resolves, version conflict blocks overwrite, confirmed reload/discard work, delete failure retries.",
+    "Navigation cancel retains drafts, failed navigation can retry, and concurrent requests cannot replace the confirmed destination.",
+    "Shell skip link, mobile sheet navigation, breakpoint focus handoff and main draft retention work.",
+    "All four theme/mode combinations at desktop/narrow widths preserve drafts and have no document overflow or focused axe violations."
+  ],
+  "errors": [],
+  "screenshots": [
+    "fundamental-light-1280.png",
+    "fundamental-light-390.png",
+    "fundamental-dark-1280.png",
+    "fundamental-dark-390.png",
+    "fundamental-floating-light-1280.png",
+    "fundamental-floating-light-390.png",
+    "fundamental-floating-dark-1280.png",
+    "fundamental-floating-dark-390.png"
+  ],
+  "limitations": [
+    "Focused local Chromium workflows; no remote persistence, universal router interception or assistive-technology certification."
+  ]
+}

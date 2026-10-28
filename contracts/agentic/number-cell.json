@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "id": "number-cell",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A consistently formatted numeric table value using Intl.NumberFormat.",
+  "anatomy": ["formatted number"],
+  "states": ["finite value", "non-finite placeholder"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Shared data-grid cell adapter; table/record state remains with its host.",
+  "ownership": {
+    "component": [
+      "Format finite values using Intl.NumberFormat with the supplied locale/options and default locale en-GB. Render an em dash for non-finite values.",
+      "Forward span properties and keep numeric alignment in its own cell styling."
+    ],
+    "host": [
+      "Supply valid Intl locale/options and contextual units or column labels.",
+      "Own calculations, rounding policy and precision-sensitive values before converting to number."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Format finite values using Intl.NumberFormat with the supplied locale/options and default locale en-GB. Render an em dash for non-finite values.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Forward span properties and keep numeric alignment in its own cell styling.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply valid Intl locale/options and contextual units or column labels.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own calculations, rounding policy and precision-sensitive values before converting to number.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Invalid Intl configurations may throw; this is not arbitrary-precision arithmetic or a numeric editor.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

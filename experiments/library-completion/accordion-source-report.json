@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "checks": [
+    "vertical outer: perpendicular nested arrows retain inner focus; own-axis arrows skip disabled, Home/End stay nested, Enter toggles only inner, and direct outer navigation works.",
+    "horizontal outer: perpendicular nested arrows retain inner focus; own-axis arrows skip disabled, Home/End stay nested, Enter toggles only inner, and direct outer navigation works."
+  ],
+  "errors": [],
+  "limitations": [
+    "Focused Chromium nested keyboard regression; not certification of every Accordion behavior."
+  ]
+}

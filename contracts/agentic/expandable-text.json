@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 2,
+  "id": "expandable-text",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A plain-text preview that exposes a disclosure control only when its line limit is exceeded.",
+  "anatomy": ["hidden measure copy", "visible text", "conditional disclosure button"],
+  "states": ["collapsed", "expanded", "no overflow", "controlled/uncontrolled"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Measured plain-text disclosure using ResizeObserver and shared Button.",
+  "ownership": {
+    "component": [
+      "Accept plain text only and normalize collapsedLines to at least one. Keep a hidden clamped measurement copy separate from the visible text.",
+      "Measure overflow on content/line changes, resize and font loading. Render the disclosure only when the measured text exceeds the preview height."
+    ],
+    "host": [
+      "Provide localized expand/collapse labels and readable prose width.",
+      "Own controlled state updates; keep interactive/rich content out of this plain-text preview."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Accept plain text only and normalize collapsedLines to at least one. Keep a hidden clamped measurement copy separate from the visible text.",
+      "sources": ["src/components/expandable-text/expandable-text.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Measure overflow on content/line changes, resize and font loading. Render the disclosure only when the measured text exceeds the preview height.",
+      "sources": ["src/components/expandable-text/expandable-text.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Use controlled expanded when supplied or local defaultExpanded state otherwise, and emit onExpandedChange. The button exposes aria-expanded and aria-controls.",
+      "sources": ["src/components/expandable-text/expandable-text.tsx"]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "If resize/content change removes a focused disclosure, move focus to the visible text before removing the control. Disconnect observers/listeners on unmount.",
+      "sources": ["src/components/expandable-text/expandable-text.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Provide localized expand/collapse labels and readable prose width.",
+      "sources": [
+        "src/components/expandable-text/expandable-text.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own controlled state updates; keep interactive/rich content out of this plain-text preview.",
+      "sources": [
+        "src/components/expandable-text/expandable-text.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/expandable-text/expandable-text.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Visual line clamping does not redact text from the DOM or guarantee assistive technologies read only the preview.",
+    "Requires browser layout measurement; server markup does not know overflow.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

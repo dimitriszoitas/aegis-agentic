@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 2,
+  "id": "scroll-area",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Expose a keyboard-focusable named region with native overflow scrolling and an optional maximum height.",
+  "anatomy": ["named region", "native scrollport", "host content"],
+  "states": ["fits-content", "vertical-overflow", "horizontal-overflow", "focused"],
+  "tokenGroup": "layout",
+  "behaviorProvider": "Native div overflow scrolling; no custom scrollbar or virtualization engine.",
+  "ownership": {
+    "component": ["scroll region semantics", "default maximum height", "native overflow styling"],
+    "host": ["dimensions and content", "specific region name", "focus and virtualization policy"]
+  },
+  "requirements": [
+    {
+      "id": "named-region",
+      "kind": "component",
+      "statement": "Render role=region with label as its accessible name, defaulting to Scrollable content; these semantic props override forwarded role, aria-label and tabIndex.",
+      "sources": ["src/components/scroll-area/scroll-area.tsx"]
+    },
+    {
+      "id": "keyboard-entry",
+      "kind": "component",
+      "statement": "Set tabIndex=0 so the native scroll region can receive keyboard focus without changing descendant tab order.",
+      "sources": ["src/components/scroll-area/scroll-area.tsx"]
+    },
+    {
+      "id": "native-overflow",
+      "kind": "component",
+      "statement": "Use overflow:auto and overscroll-behavior:contain in owned CSS, allowing native scrolling on either overflowing axis.",
+      "sources": [
+        "src/components/scroll-area/scroll-area.tsx",
+        "src/components/scroll-area/scroll-area.css"
+      ]
+    },
+    {
+      "id": "height-policy",
+      "kind": "component",
+      "statement": "Default maxHeight to the owning component token; merge a supplied style after maxHeight so a host style.maxHeight can deliberately override it.",
+      "sources": ["src/components/scroll-area/scroll-area.tsx"]
+    },
+    {
+      "id": "attribute-forwarding",
+      "kind": "component",
+      "statement": "Forward remaining native div attributes and event handlers; native browser scrolling, selection and keyboard defaults remain available unless the host overrides them.",
+      "sources": ["src/components/scroll-area/scroll-area.tsx"]
+    },
+    {
+      "id": "meaningful-name",
+      "kind": "host",
+      "statement": "Supply a specific region label when more than one scroll area exists or the generic default does not identify its content.",
+      "sources": ["src/components/scroll-area/scroll-area.tsx"]
+    },
+    {
+      "id": "layout-boundary",
+      "kind": "host",
+      "statement": "Provide appropriate dimensions and content widths. A maximum height alone does not impose a fixed height or automatically reserve application viewport space.",
+      "sources": ["src/components/scroll-area/scroll-area.tsx"]
+    },
+    {
+      "id": "content-management",
+      "kind": "host",
+      "statement": "Own virtualization, loading, restoration of scroll position and movement to selected items or errors. Preserve meaningful focus order in any content rendered inside.",
+      "sources": ["src/components/scroll-area/scroll-area.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes layout group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/components/scroll-area/scroll-area.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No virtualization, custom scrollbars, scroll persistence, selected-item reveal or loading lifecycle.",
+    "The region is focusable even when its current content does not overflow.",
+    "Native scrolling behavior and assistive technology handling vary by platform."
+  ]
+}

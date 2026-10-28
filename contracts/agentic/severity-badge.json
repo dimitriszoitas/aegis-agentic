@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "id": "severity-badge",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A severity label using the shared critical, high, medium, low, and info scale.",
+  "anatomy": ["label or named compact wrapper", "decorative dot"],
+  "states": ["critical", "high", "medium", "low", "info", "compact"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Static severity label or named compact dot.",
+  "ownership": {
+    "component": [
+      "Map the five severity values to fixed labels and semantic foreground/border roles. Full badges show text.",
+      "Compact mode uses role img with a severity name and title; the dot is decorative. Preserve label meaning when replacing text with the compact presentation."
+    ],
+    "host": [
+      "Determine severity from the product domain and document the criteria.",
+      "Use compact mode only where context makes the category understandable."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Map the five severity values to fixed labels and semantic foreground/border roles. Full badges show text.",
+      "sources": ["src/components/severity-badge/severity-badge.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Compact mode uses role img with a severity name and title; the dot is decorative. Preserve label meaning when replacing text with the compact presentation.",
+      "sources": ["src/components/severity-badge/severity-badge.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Determine severity from the product domain and document the criteria.",
+      "sources": [
+        "src/components/severity-badge/severity-badge.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Use compact mode only where context makes the category understandable.",
+      "sources": [
+        "src/components/severity-badge/severity-badge.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/severity-badge/severity-badge.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No risk scoring, severity inference or alert lifecycle is implemented.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

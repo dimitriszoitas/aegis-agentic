@@ -102,6 +102,66 @@ test('isolated exported bundle negotiates protocol, discovers read-only tools/re
   assert.deepEqual(await snapshot(kit), before);
 });
 
+test('advertised authoring guidance and public-entry coverage return exact pinned files', async () => {
+  assert.equal(manifest.authoringGuidance.requiredWorkflow, 'library-source-checkout');
+  assert.deepEqual(Object.keys(manifest.authoringGuidance.skills).sort(), ['create-component', 'create-layout', 'create-token']);
+  assert.match(manifest.publicEntryCoverage.sha256, /^[a-f0-9]{64}$/);
+  const { client, close } = await connect();
+  const resources = (await client.listResources()).resources;
+  for (const [name, path] of Object.entries(manifest.authoringGuidance.skills)) {
+    const uri = `aegis://guidance/${name}`;
+    const resource = resources.find((item) => item.uri === uri);
+    assert.ok(resource, `Missing advertised ${name}`);
+    assert.match(resource.description, /library source checkout/);
+    assert.equal((await client.readResource({ uri })).contents[0].text, await readFile(join(kit, path), 'utf8'));
+  }
+  assert.ok(resources.some((item) => item.uri === 'aegis://public-entry-coverage'));
+  const coverage = (await client.readResource({ uri: 'aegis://public-entry-coverage' })).contents[0].text;
+  assert.equal(coverage, await readFile(join(kit, manifest.publicEntryCoverage.path), 'utf8'));
+  assert.equal(sha(coverage), manifest.publicEntryCoverage.sha256);
+  const context = await call(client, 'inspect_project_context');
+  assert.deepEqual(context.kit.authoringGuidance, manifest.authoringGuidance);
+  assert.deepEqual(context.kit.publicEntryCoverage, manifest.publicEntryCoverage);
+  await close();
+});
+
+test('optional resource discovery is absent for unadvertised capabilities and fails closed on invalid metadata', async () => {
+  const changedKit = await copyKit();
+  const baseOnly = { ...manifest };
+  delete baseOnly.authoringGuidance;
+  delete baseOnly.publicEntryCoverage;
+  await replaceCovered(changedKit, 'kit.json', JSON.stringify(baseOnly));
+  const base = await connect([], changedKit);
+  const resources = (await base.client.listResources()).resources;
+  for (const uri of ['aegis://guidance/create-component', 'aegis://guidance/create-token', 'aegis://guidance/create-layout', 'aegis://public-entry-coverage']) {
+    assert.ok(!resources.some((item) => item.uri === uri));
+    await assert.rejects(base.client.readResource({ uri }));
+  }
+  assert.ok(resources.some((item) => item.uri === 'aegis://guidance/build-ui'));
+  assert.equal((await call(base.client, 'inspect_project_context')).binding.status, 'unbound');
+  await base.close();
+  const withoutCoverageHash = { ...manifest, publicEntryCoverage: { ...manifest.publicEntryCoverage } };
+  delete withoutCoverageHash.publicEntryCoverage.sha256;
+  await replaceCovered(changedKit, 'kit.json', JSON.stringify(withoutCoverageHash));
+  const hashless = await connect([], changedKit);
+  assert.equal((await hashless.client.readResource({ uri: 'aegis://public-entry-coverage' })).contents[0].text, await readFile(join(kit, manifest.publicEntryCoverage.path), 'utf8'));
+  await hashless.close();
+  for (const change of [
+    { authoringGuidance: { requiredWorkflow: 'edit-installed-package', skills: manifest.authoringGuidance.skills } },
+    { authoringGuidance: { ...manifest.authoringGuidance, skills: { 'create-component': '../outside.md' } } },
+    { publicEntryCoverage: { path: '../outside.json' } },
+    { publicEntryCoverage: { ...manifest.publicEntryCoverage, sha256: 'invalid' } },
+  ]) {
+    await replaceCovered(changedKit, 'kit.json', JSON.stringify({ ...manifest, ...change }));
+    await assert.rejects(connect([], changedKit), /authoring guidance|normalized relative path|coverage metadata/);
+  }
+  await replaceCovered(changedKit, 'kit.json', JSON.stringify(manifest));
+  await replaceCovered(changedKit, manifest.publicEntryCoverage.path, JSON.stringify({ changed: true }));
+  const changed = await connect([], changedKit);
+  await assert.rejects(changed.client.readResource({ uri: 'aegis://public-entry-coverage' }), /integrity mismatch/);
+  await changed.close();
+});
+
 test('bound package lock uses shared validators and source audit without changing source', async () => {
   const root = await project(); const before = await snapshot(root);
   const { client, close } = await connect(['--project', root]);
@@ -193,7 +253,7 @@ test('fails closed if bound profile/lock or loaded runtime changes after startup
 
 test('rejects unsupported kit/compiler and inconsistent catalogue identities even with recomputed file hash', async () => {
   const changedKit = await copyKit();
-  for (const change of [{ version: '0.6.0-unknown' }, { compilerVersion: '99' }, { version: '0.4.0-experiment.0', registryRevision: 3 }, { version: '0.5.0-experiment.0', registryRevision: 2 }, { version: '0.6.0-experiment.0', registryRevision: 2 }, { version: '0.6.0-experiment.0', registryRevision: 3 }, { version: '0.4.0-experiment.0', registryRevision: 4 }, { version: '0.5.0-experiment.0', registryRevision: 4 }]) {
+  for (const change of [{ version: '0.6.0-unknown' }, { compilerVersion: '99' }, { version: '0.4.0-experiment.0', registryRevision: 3 }, { version: '0.5.0-experiment.0', registryRevision: 2 }, { version: '0.6.0-experiment.0', registryRevision: 2 }, { version: '0.6.0-experiment.0', registryRevision: 3 }, { version: '0.4.0-experiment.0', registryRevision: 4 }, { version: '0.5.0-experiment.0', registryRevision: 4 }, { version: '0.7.0-unknown' }, { version: '0.7.0-experiment.0', registryRevision: 2 }, { version: '0.7.0-experiment.0', registryRevision: 3 }, { version: '0.7.0-experiment.0', registryRevision: 4 }, { version: '0.4.0-experiment.0', registryRevision: 5 }, { version: '0.5.0-experiment.0', registryRevision: 5 }, { version: '0.6.0-experiment.0', registryRevision: 5 }]) {
     await replaceCovered(changedKit, 'kit.json', JSON.stringify({ ...manifest, ...change }));
     await assert.rejects(connect([], changedKit), /Unsupported kit identity/);
   }
@@ -241,12 +301,14 @@ test('audit file-count/total-byte bounds and nonregular startup files fail witho
 
 
 test('schema2 authored contracts retain requirements and source references through read-only MCP discovery', async () => {
-  assert.equal(manifest.version, '0.6.0-experiment.0', 'Build the expanded form and collection kit before this suite.');
-  assert.equal(manifest.registryRevision, 4);
+  assert.equal(manifest.version, '0.7.0-experiment.0', 'Build the completed library kit before this suite.');
+  assert.equal(manifest.registryRevision, 5);
   const { client, close } = await connect();
   const catalogue = JSON.parse((await client.readResource({ uri: 'aegis://catalogue' })).contents[0].text);
   const required = ['data-grid', 'filter-bar', 'page-header', 'side-nav', 'tabs', 'pagination', 'metric-card', 'sparkline', 'description-list', 'empty-state', 'text-input', 'textarea', 'search-input', 'select', 'checkbox', 'switch', 'segmented-control', 'side-sheet', 'popover', 'dropdown-menu', 'number-input', 'password-input', 'collection-toolbar', 'form-section'];
-  assert.equal(required.length, 24);
+  required.push('combobox', 'otp-input', 'time-picker', 'date-time-picker', 'phone-input', 'color-picker', 'inline-edit', 'rich-text-editor', 'sortable-list', 'file-preview', 'indicator', 'presence-indicator', 'form-error-summary', 'resource-state', 'record-editor', 'app-shell', 'unsaved-navigation-guard');
+  required.push('button', 'field', 'dialog', 'card', 'dataset-filtering', 'token-input', 'page-layout');
+  assert.equal(required.length, 48);
   for (const id of required) {
     const entry = core.getContractEntry(id);
     assert.ok(entry?.contract, `Missing authored contract ${id}`);
@@ -255,7 +317,8 @@ test('schema2 authored contracts retain requirements and source references throu
     assert.equal(raw, entry.contract.raw);
     const contract = JSON.parse(raw);
     assert.equal(contract.schemaVersion, 2);
-    assert.equal(contract.verification, 'not-certified-by-this-contract');
+    const expectedVerification = id === 'token-input' ? 'bounded-automated-evidence-not-human-certification' : id === 'page-layout' ? 'recipe-selection-validation-is-not-rendered-or-human-certification' : 'not-certified-by-this-contract';
+    assert.equal(contract.verification, expectedVerification);
     assert.ok(contract.requirements.length > 0);
     assert.deepEqual(summary.contract.source, entry.contract.source);
     assert.deepEqual(summary.contract.references, entry.contract.references);
@@ -271,8 +334,14 @@ test('schema2 authored contracts retain requirements and source references throu
     const found = search.entries.find((item) => item.id === entry.id);
     assert.deepEqual(found?.contract, summary.contract);
   }
-  const legacy = core.contractCatalogue.entries.find((entry) => entry.contract?.document.schemaVersion === 1);
-  assert.ok(legacy, 'Legacy authored entries remain discoverable');
-  assert.deepEqual(catalogue.entries.find((entry) => entry.id === legacy.id).contract.references, legacy.contract.references ?? []);
+  const authored = core.contractCatalogue.entries.filter((entry) => entry.kind !== 'protocol' && entry.contract);
+  assert.equal(authored.length, 127);
+  assert.ok(authored.every((entry) => entry.contract.document.schemaVersion === 2));
+  const tokenInput = core.getContractEntry('token-input').contract.document;
+  assert.equal(tokenInput.version, 2);
+  for (const key of ['defaults', 'asyncHostRequirement', 'evidence', 'migration']) assert.ok(Object.hasOwn(tokenInput, key), `TokenInput retains ${key}`);
+  assert.ok(core.getContractEntry('token-input').evidence.length > 0, 'Historical evidence remains linked separately from requirements.');
+  const pageLayout = core.getContractEntry('page-layout').contract.document;
+  for (const key of ['exports', 'publicApi', 'recipeSource', 'portableRecipes', 'invariants', 'limits']) assert.ok(Object.hasOwn(pageLayout, key), `PageLayout retains ${key}`);
   await close();
 });

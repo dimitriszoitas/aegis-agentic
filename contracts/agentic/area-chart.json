@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 2,
+  "id": "area-chart",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present ordered quantitative series as a area chart with shared loading, legend, tooltip and optional exact-data support.",
+  "anatomy": [
+    "figure header",
+    "responsive plot and axes",
+    "series marks",
+    "optional legend toggles",
+    "optional brush",
+    "optional exact-data disclosure"
+  ],
+  "states": ["populated", "loading", "error", "empty", "hidden series", "brush selection"],
+  "tokenGroup": "data-viz",
+  "behaviorProvider": "Recharts Cartesian chart primitives and shared ChartContainer.",
+  "ownership": {
+    "component": [
+      "Delegate loading, error and empty presentation to ChartContainer; empty means no data or no series. Loading precedes error, error precedes empty, and the chart only renders in the remaining branch.",
+      "When showLegend is true, render real aria-pressed toggle buttons backed by local hidden-series keys. Toggling changes plotted visibility without removing records from the optional data table.",
+      "Enable the Recharts accessibility layer and name the plot with its title and arrow-key inspection instruction. Optionally expose a native disclosure containing exact stringified records in ChartDataTable."
+    ],
+    "host": [
+      "Supply ordered records with stable series keys and numeric values matching xKey and each series key. The wrapper does not sort, fetch, aggregate or validate Cartesian values.",
+      "Enable showDataTable or provide an equivalent exact-data alternative when users need detailed values. Supply domain-appropriate title, units and formatters; default numeric labels use en-GB formatting."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "controlled-data",
+      "kind": "host",
+      "statement": "Supply ordered records with stable series keys and numeric values matching xKey and each series key. The wrapper does not sort, fetch, aggregate or validate Cartesian values.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "container-precedence",
+      "kind": "component",
+      "statement": "Delegate loading, error and empty presentation to ChartContainer; empty means no data or no series. Loading precedes error, error precedes empty, and the chart only renders in the remaining branch.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "legend-state",
+      "kind": "component",
+      "statement": "When showLegend is true, render real aria-pressed toggle buttons backed by local hidden-series keys. Toggling changes plotted visibility without removing records from the optional data table.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "accessible-inspection",
+      "kind": "component",
+      "statement": "Enable the Recharts accessibility layer and name the plot with its title and arrow-key inspection instruction. Optionally expose a native disclosure containing exact stringified records in ChartDataTable.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "brush-bridge",
+      "kind": "component",
+      "statement": "Render a brush only when enabled and data has more than one record. Pass brushRange indexes to Recharts and forward onBrushChange; no remote range filtering or data acquisition occurs here.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "data-alternative",
+      "kind": "host",
+      "statement": "Enable showDataTable or provide an equivalent exact-data alternative when users need detailed values. Supply domain-appropriate title, units and formatters; default numeric labels use en-GB formatting.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "render-policy",
+      "kind": "component",
+      "statement": "Use ResponsiveContainer with token-backed initial geometry and resize debounce. Disable series and tooltip animation; preserve gaps by leaving connectNulls false for line and area.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "area-geometry",
+      "kind": "component",
+      "statement": "Render monotone areas with per-instance gradient IDs. stacked sets a common stack ID and solid series fills; otherwise each series uses its own gradient.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume data-viz group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "Legend visibility is local and is not controlled or persisted. Hidden-series keys are not automatically reset when data changes.",
+    "Input records and series values are not runtime-validated; missing, invalid and mismatched domain data require host review.",
+    "No chart-specific loading request, error recovery, pagination or telemetry is implemented."
+  ]
+}

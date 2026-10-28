@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 2,
+  "id": "copyable-field",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Display selectable read-only text with an explicit clipboard action.",
+  "anatomy": ["visible label", "read-only input or textarea", "CopyButton", "optional description"],
+  "states": ["read-only", "single-line", "multiline"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Native input/textarea with shared CopyButton.",
+  "ownership": {
+    "component": [
+      "Render the supplied string as a read-only native input, or a three-row textarea when multiline. Keep text keyboard-selectable; this is not editable form state.",
+      "Generate a control id for the visible label and associate the optional description through aria-describedby.",
+      "Pass the exact value to the real CopyButton and derive its accessible label from the field label. The child uses navigator.clipboard, shows temporary success only after resolution and reports clipboard failure through notification."
+    ],
+    "host": [
+      "Own the displayed value and sensitive-data policy. Supply an informative label and optional explanation; clipboard availability still depends on browser permission and secure context."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "read-only-value",
+      "kind": "component",
+      "statement": "Render the supplied string as a read-only native input, or a three-row textarea when multiline. Keep text keyboard-selectable; this is not editable form state.",
+      "sources": [
+        "src/components/copyable-field/copyable-field.tsx",
+        "src/components/copy-button/copy-button.tsx"
+      ]
+    },
+    {
+      "id": "associated-description",
+      "kind": "component",
+      "statement": "Generate a control id for the visible label and associate the optional description through aria-describedby.",
+      "sources": [
+        "src/components/copyable-field/copyable-field.tsx",
+        "src/components/copy-button/copy-button.tsx"
+      ]
+    },
+    {
+      "id": "clipboard-delegation",
+      "kind": "component",
+      "statement": "Pass the exact value to the real CopyButton and derive its accessible label from the field label. The child uses navigator.clipboard, shows temporary success only after resolution and reports clipboard failure through notification.",
+      "sources": [
+        "src/components/copyable-field/copyable-field.tsx",
+        "src/components/copy-button/copy-button.tsx"
+      ]
+    },
+    {
+      "id": "display-host-ownership",
+      "kind": "host",
+      "statement": "Own the displayed value and sensitive-data policy. Supply an informative label and optional explanation; clipboard availability still depends on browser permission and secure context.",
+      "sources": [
+        "src/components/copyable-field/copyable-field.tsx",
+        "src/components/copy-button/copy-button.tsx"
+      ]
+    },
+    {
+      "id": "owning-token-group",
+      "kind": "design",
+      "statement": "Owned styling belongs to the data-display token group. Actual nested shared components retain their own group and behavior; preserve four theme/mode mappings and keyboard-visible focus.",
+      "sources": [
+        "src/components/copyable-field/copyable-field.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Source-backed requirements, not a current test certification or release approval.",
+    "No name/form prop, change callback, Field context, validation or masking is supplied.",
+    "The wrapper does not expose CopyButton notify/onCopy options or a custom copy label; display labels are not a complete localization interface."
+  ]
+}

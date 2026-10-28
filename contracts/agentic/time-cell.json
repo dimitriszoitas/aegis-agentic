@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 2,
+  "id": "time-cell",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "The compact RelativeTime presentation for a data-grid timestamp.",
+  "anatomy": ["shared compact RelativeTime"],
+  "states": ["valid timestamp", "invalid placeholder"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Shared data-grid cell adapter; table/record state remains with its host.",
+  "ownership": {
+    "component": [
+      "Forward timestamp, reference now, timeZone and ordinary time attributes to RelativeTime while forcing compact presentation and adding the cell class."
+    ],
+    "host": [
+      "Supply an explicit reference time for deterministic historical rendering and a consistent project timezone.",
+      "Follow RelativeTime rules for valid timestamps and absolute-time fallback."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Forward timestamp, reference now, timeZone and ordinary time attributes to RelativeTime while forcing compact presentation and adding the cell class.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply an explicit reference time for deterministic historical rendering and a consistent project timezone.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Follow RelativeTime rules for valid timestamps and absolute-time fallback.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "The adapter inherits RelativeTime’s local clock interval when now is omitted; it adds no network polling, clock synchronization or domain timestamp conversion.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

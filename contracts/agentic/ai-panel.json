@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 2,
+  "id": "ai-panel",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Provide a streamed assistant conversation in a shared side sheet with explicit context snapshots and cancellation.",
+  "anatomy": ["side sheet", "context tags", "transcript", "assistant messages", "prompt composer"],
+  "states": ["closed", "idle", "generating", "complete", "stopped", "error"],
+  "tokenGroup": "ai-assistance",
+  "behaviorProvider": "React asynchronous iterable handling composed with SideSheet, PromptInput and shared AI message components.",
+  "ownership": {
+    "component": [
+      "stream event rendering",
+      "local conversation lifecycle",
+      "UI cancellation and scroll following"
+    ],
+    "host": [
+      "real provider implementation",
+      "data and privacy decisions",
+      "persistent conversation storage"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "open-state",
+      "kind": "component",
+      "statement": "Support controlled open/onOpenChange or local defaultOpen through SideSheet; closing stops the current generation.",
+      "sources": ["src/patterns/ai-panel/ai-panel.tsx"]
+    },
+    {
+      "id": "initial-snapshot",
+      "kind": "component",
+      "statement": "Clone initialMessages on initial mount and snapshot attached context for each request; later initialMessages changes are not a controlled transcript replacement.",
+      "sources": ["src/patterns/ai-panel/ai-panel.tsx"]
+    },
+    {
+      "id": "stream-events",
+      "kind": "component",
+      "statement": "Append token events, update steps by identifier, deduplicate citations and complete or fail the active assistant response from the supplied async iterable.",
+      "sources": ["src/patterns/ai-panel/ai-panel.tsx"]
+    },
+    {
+      "id": "stream-cancellation",
+      "kind": "component",
+      "statement": "Use a generation identity and AbortController to suppress superseded stream updates. Stop marks the active response stopped; unmount aborts outstanding generation.",
+      "sources": ["src/patterns/ai-panel/ai-panel.tsx"]
+    },
+    {
+      "id": "external-request",
+      "kind": "component",
+      "statement": "Handle an external request with a nonblank prompt once for each request id while the panel is open. Regeneration reuses the prior user prompt and its captured context.",
+      "sources": ["src/patterns/ai-panel/ai-panel.tsx"]
+    },
+    {
+      "id": "reading-position",
+      "kind": "component",
+      "statement": "Expose a focusable transcript log with live announcements disabled and follow streamed content only when the reader remains near its bottom.",
+      "sources": ["src/patterns/ai-panel/ai-panel.tsx"]
+    },
+    {
+      "id": "real-provider",
+      "kind": "host",
+      "statement": "Supply a real streamResponse implementation for remote assistance. The default provider is a local mock; the host owns authentication, privacy, permissions and server-side cancellation.",
+      "sources": ["src/patterns/ai-panel/ai-panel.tsx"]
+    },
+    {
+      "id": "host-actions",
+      "kind": "host",
+      "statement": "Implement citation navigation, feedback and custom result actions. Supply valid stable message/context identifiers and persist conversations outside this local component.",
+      "sources": ["src/patterns/ai-panel/ai-panel.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes ai-assistance group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/patterns/ai-panel/ai-panel.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No default remote model connection or durable conversation storage.",
+    "Abort prevents later UI updates but does not guarantee remote work or side effects stopped.",
+    "Controlled open state does not make the transcript controlled; initialMessages are initial data."
+  ]
+}

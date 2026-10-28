@@ -35,7 +35,15 @@
         "src/components/tree-view/",
         "src/agentic/components/",
         "src/components/password-input/",
-        "src/components/number-input/"
+        "src/components/number-input/",
+        "src/components/combobox/",
+        "src/components/otp-input/",
+        "src/components/time-picker/",
+        "src/components/date-time-picker/",
+        "src/components/phone-input/",
+        "src/components/color-picker/",
+        "src/components/inline-edit/",
+        "src/components/rich-text-editor/"
       ]
     },
     "navigation": {
@@ -87,7 +95,11 @@
         "src/components/severity-badge/",
         "src/components/status-badge/",
         "src/components/tag/",
-        "src/components/timeline/"
+        "src/components/timeline/",
+        "src/components/indicator/",
+        "src/components/presence-indicator/",
+        "src/components/sortable-list/",
+        "src/components/file-preview/"
       ]
     },
     "data-viz": {
@@ -122,7 +134,9 @@
         "src/components/skeleton/",
         "src/components/spinner/",
         "src/components/toast/",
-        "src/components/tooltip/"
+        "src/components/tooltip/",
+        "src/patterns/form-error-summary/",
+        "src/patterns/resource-state/"
       ]
     },
     "ai": {
@@ -138,7 +152,10 @@
     },
     "iconography": {
       "title": "Foundations/Iconography",
-      "prefixes": ["src/components/icon/", "src/components/aws-logo/"]
+      "prefixes": [
+        "src/components/icon/",
+        "src/components/aws-logo/"
+      ]
     },
     "ai-assistance": {
       "title": "Patterns/AI Assistance",
@@ -168,14 +185,18 @@
     },
     "communication": {
       "title": "Patterns/Communication",
-      "prefixes": ["src/patterns/notification-center/"]
+      "prefixes": [
+        "src/patterns/notification-center/"
+      ]
     },
     "workflow": {
       "title": "Patterns/Workflows",
       "prefixes": [
         "src/patterns/onboarding-checklist/",
         "src/patterns/unsaved-changes-bar/",
-        "src/patterns/wizard/"
+        "src/patterns/wizard/",
+        "src/patterns/record-editor/",
+        "src/patterns/unsaved-navigation-guard/"
       ]
     },
     "application": {
@@ -187,7 +208,8 @@
         "src/agentic/workbench.css",
         "src/agentic/infrastructure-panel.tsx",
         "src/agentic/infrastructure-panel.css",
-        "src/stories/contracts/"
+        "src/stories/contracts/",
+        "src/patterns/app-shell/"
       ]
     }
   },

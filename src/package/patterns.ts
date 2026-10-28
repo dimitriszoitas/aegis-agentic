@@ -11,3 +11,13 @@ export * from '../patterns/notification-center';
 export * from '../patterns/onboarding-checklist';
 export * from '../patterns/collection-toolbar';
 export * from '../patterns/form-section';
+
+export * from '../patterns/form-error-summary';
+
+export * from '../patterns/resource-state';
+
+export * from '../patterns/record-editor';
+
+export * from '../patterns/app-shell';
+
+export * from '../patterns/unsaved-navigation-guard';

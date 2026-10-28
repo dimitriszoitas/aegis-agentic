@@ -16,9 +16,15 @@ function run(args, expected = 0) {
     cwd: consumer,
     encoding: 'utf8',
     timeout: 30000,
+    // contracts list intentionally returns the complete authored catalogue.
+    maxBuffer: 8 * 1024 * 1024,
     env: { PATH: process.env.PATH },
   });
-  assert.equal(result.status, expected, `${args.join(' ')}\n${result.stdout}\n${result.stderr}`);
+  assert.equal(
+    result.status,
+    expected,
+    `${args.join(' ')}\n${result.error ?? ''}\n${result.stdout?.slice(-3000)}\n${result.stderr?.slice(-3000)}`,
+  );
   return JSON.parse(result.stdout);
 }
 const fixture = (name) => join(kit, name);
@@ -33,18 +39,27 @@ assert.deepEqual(
 assert.deepEqual(run(['contracts', 'coverage']), catalogue.coverage);
 assert.equal(catalogue.package.version, kitInfo.version);
 assert.equal(catalogue.registryRevision, kitInfo.registryRevision);
-assert.equal(catalogue.coverage.apiFamilies, 107);
-assert.equal(catalogue.coverage.authoredComponentPatternContracts, 31);
-assert.equal(catalogue.coverage.apiFamiliesWithAuthoredBehavior, 29);
+assert.equal(catalogue.coverage.apiFamilies, 124);
+assert.equal(catalogue.coverage.authoredComponentPatternContracts, 127);
+assert.equal(catalogue.coverage.apiFamiliesWithAuthoredBehavior, 124);
 assert.equal(catalogue.coverage.systemProtocolContracts, 2);
+assert.equal(catalogue.coverage.apiFamiliesWithoutAuthoredBehavior, 0);
+assert.equal(kitInfo.authoringGuidance.requiredWorkflow, 'library-source-checkout');
+for (const skill of Object.keys(kitInfo.authoringGuidance.skills)) {
+  assert.equal(
+    await readFile(fixture(`skills/${skill}/SKILL.md`), 'utf8'),
+    await readFile(join(root, 'skills', skill, 'SKILL.md'), 'utf8'),
+  );
+}
+const entryCoverage = JSON.parse(await readFile(fixture(kitInfo.publicEntryCoverage.path), 'utf8'));
+assert.equal(entryCoverage.summary.apiFamiliesWithoutAuthoredBehavior, 0);
+assert.equal(entryCoverage.summary.publicUiEntries, 110);
+
 const contractButton = run(['contracts', 'get', 'button']);
 assert.equal(contractButton.apiFamilyId, 'components-actions-button');
 assert.equal(contractButton.contract.id, 'button');
 assert.equal(contractButton.coverage.behaviorAuthored, true);
-assert.equal(
-  run(['contracts', 'get', 'components-people-avatar']).coverage.behaviorAuthored,
-  false,
-);
+assert.equal(run(['contracts', 'get', 'components-people-avatar']).coverage.behaviorAuthored, true);
 assert.equal(run(['contracts', 'get', 'patterns-filterbar']).contract.id, 'filter-bar');
 assert.equal(run(['contracts', 'get', 'data-grid']).contract.document.schemaVersion, 2);
 assert.equal(run(['contracts', 'get', 'dataset-filtering']).apiFamilyId, null);
@@ -59,7 +74,7 @@ assert.equal(kitInfo.mcp.readOnly, true);
 assert.equal(kitInfo.mcp.verifiedProtocolVersion, '2025-11-25');
 assert((await readFile(fixture(kitInfo.mcp.entry), 'utf8')).includes('aegis-agentic-readonly'));
 checks.push(
-  'Portable catalogue and CLI agree on API, authored behavior and separate protocol coverage; unmapped families remain explicit gaps',
+  'Portable catalogue and CLI agree on API, authored behavior and separate protocol coverage; every shipped API family has authored behavior without implying runtime certification',
 );
 assert.equal(kitInfo.pageComposition.validationScope, 'recipe-selection-only');
 assert.equal(kitInfo.pageComposition.registryId, 'page-layout');

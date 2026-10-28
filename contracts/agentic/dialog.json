@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "dialog",
   "version": 1,
   "status": "source-backed-baseline",
@@ -9,9 +9,81 @@
   "states": ["closed", "open", "opening", "closing"],
   "invariants": [
     "An accessible title is required.",
-    "Focus enters the dialog and returns to the trigger.",
+    "Focus behavior is delegated to Base UI; normal close restores focus unless an action already moved focus outside the popup or no suitable opener survives.",
     "Use Base UI dialog behavior."
   ],
   "tokenGroup": "surface",
-  "behaviorProvider": "base-ui-dialog"
+  "behaviorProvider": "base-ui-dialog",
+  "ownership": {
+    "component": [
+      "Base UI modal composition and controlled/uncontrolled bridge",
+      "persistent accessible title/description in hidden-header mode",
+      "focus-return safeguard for completed actions"
+    ],
+    "host": [
+      "meaningful title and task content",
+      "accepted open state and asynchronous task lifecycle",
+      "intentional focus destination when opener disappears"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "base-ui-modal",
+      "kind": "component",
+      "statement": "Use Base UI Dialog Root with modal behavior and portaled Backdrop/Popup; an optional trigger is rendered through the primitive Trigger. Forward open/defaultOpen and lifecycle/trigger handle options to the primitive.",
+      "sources": ["src/components/modal/modal.tsx"]
+    },
+    {
+      "id": "title-and-description",
+      "kind": "component",
+      "statement": "Render Primitive.Title in either visible header or screen-reader-only mode. Associate an optional truthy description through a generated ID and Primitive.Description in both header modes.",
+      "sources": ["src/components/modal/modal.tsx"]
+    },
+    {
+      "id": "host-title",
+      "kind": "host",
+      "statement": "Provide a meaningful title even when showHeader=false and review nested task semantics. ReactNode title is required by type but empty content is not runtime rejected.",
+      "sources": ["src/components/modal/modal.tsx"]
+    },
+    {
+      "id": "focus-return-boundary",
+      "kind": "component",
+      "statement": "Delegate initial focus, modal keyboard interaction and normal return focus to Base UI. At close, finalFocus declines restoration when a completed action has already focused an element outside the popup other than document.body; otherwise allow primitive restoration.",
+      "sources": ["src/components/modal/modal.tsx"]
+    },
+    {
+      "id": "dismissal-policy",
+      "kind": "component",
+      "statement": "Expose a named primitive close button by default and allow it to be hidden. closeOnOutsideClick defaults true; explicit disablePointerDismissal takes precedence over its inverse. These options do not themselves disable Escape.",
+      "sources": ["src/components/modal/modal.tsx"]
+    },
+    {
+      "id": "content-region",
+      "kind": "component",
+      "statement": "Render non-null/undefined children inside a named focusable Dialog content region; render truthy footer and headerActions in their own slots. showHeader=false keeps title/description semantics while omitting visible header actions.",
+      "sources": ["src/components/modal/modal.tsx"]
+    },
+    {
+      "id": "controlled-open",
+      "kind": "host",
+      "statement": "Feed accepted onOpenChange values back when controlled and handle async failures, destructive confirmation and state preservation in the host or the separate ConfirmDialog component.",
+      "sources": ["src/components/modal/modal.tsx"]
+    },
+    {
+      "id": "close-composition",
+      "kind": "component",
+      "statement": "ModalClose delegates to Primitive.Close; deprecated asChild requires a single valid React element, while render supports native primitive composition.",
+      "sources": ["src/components/modal/modal.tsx"]
+    },
+    {
+      "id": "surface-ownership",
+      "kind": "design",
+      "statement": "Use surface group tokens for modal geometry/backdrop/focus presentation. Nested controls keep their own categories; review focus return and dismissal in the actual task.",
+      "sources": ["src/components/modal/modal.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "A focusable surviving opener is not guaranteed; the host must supply a meaningful alternate destination when it is removed or deliberately redirected.",
+    "Modal itself does not lock dismissal during async work, submit a form, validate content or own request cancellation."
+  ]
 }

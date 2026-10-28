@@ -1,0 +1,26 @@
+.aegis-indicator {
+  position: relative;
+  display: inline-grid;
+  vertical-align: middle;
+  padding: var(--group-data-display-indicator-space);
+  isolation: isolate;
+}
+.aegis-indicator-target { display: inline-flex; min-width: var(--group-data-display-indicator-zero); }
+.aegis-indicator-marker {
+  position: absolute;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inset-block-start: var(--group-data-display-indicator-zero);
+  inset-inline-end: var(--group-data-display-indicator-zero);
+}
+.aegis-indicator-marker[data-kind='dot'] {
+  width: var(--group-data-display-indicator-dot-size);
+  height: var(--group-data-display-indicator-dot-size);
+  border-radius: var(--group-data-display-indicator-radius);
+  background: var(--group-data-display-indicator-color);
+  border: var(--group-data-display-indicator-border-width) solid var(--group-data-display-indicator-border);
+}
+.aegis-indicator[data-placement$='start'] > .aegis-indicator-marker { inset-inline-start: var(--group-data-display-indicator-zero); inset-inline-end: auto; }
+.aegis-indicator[data-placement^='bottom'] > .aegis-indicator-marker { inset-block-end: var(--group-data-display-indicator-zero); inset-block-start: auto; }

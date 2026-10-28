@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 2,
+  "id": "code-editor",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Edit or inspect code through a token-themed CodeMirror surface with predictable keyboard escape.",
+  "anatomy": [
+    "multiline code textbox",
+    "optional line numbers and fold gutters",
+    "hidden keyboard instructions",
+    "optional status bar"
+  ],
+  "states": ["controlled", "uncontrolled", "read-only", "folded", "wrapped", "highlighted lines"],
+  "tokenGroup": "code",
+  "behaviorProvider": "CodeMirror via @uiw/react-codemirror and local code-theme extensions.",
+  "ownership": {
+    "component": [
+      "Use value when defined, otherwise initialize and maintain local text from defaultValue. On editor changes update local text only uncontrolled and call onValueChange.",
+      "Disable indentWithTab and describe Tab/Shift+Tab as navigation to surrounding controls. The default extension set enables CodeMirror behavior without adding a tab-indentation binding.",
+      "Set both CodeMirror readOnly and editable=false for readOnly. Preserve a named, described, focusable multiline textbox for reading and selection."
+    ],
+    "host": [
+      "Own language-specific validation, saving, dirty state, permissions and native form serialization. CodeEditor is not a named input and has no built-in persistence or submission semantics.",
+      "Review custom extensions for editing, accessibility, performance and keybindings. Extensions can change the guarantees supplied by the default bundle, including Tab behavior."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "value-lifecycle",
+      "kind": "component",
+      "statement": "Use value when defined, otherwise initialize and maintain local text from defaultValue. On editor changes update local text only uncontrolled and call onValueChange.",
+      "sources": ["src/components/code-editor/code-editor.tsx"]
+    },
+    {
+      "id": "keyboard-escape",
+      "kind": "component",
+      "statement": "Disable indentWithTab and describe Tab/Shift+Tab as navigation to surrounding controls. The default extension set enables CodeMirror behavior without adding a tab-indentation binding.",
+      "sources": [
+        "src/components/code-editor/code-editor.tsx",
+        "src/components/code-editor/code-theme.ts"
+      ]
+    },
+    {
+      "id": "readonly-surface",
+      "kind": "component",
+      "statement": "Set both CodeMirror readOnly and editable=false for readOnly. Preserve a named, described, focusable multiline textbox for reading and selection.",
+      "sources": [
+        "src/components/code-editor/code-editor.tsx",
+        "src/components/code-editor/code-theme.ts"
+      ]
+    },
+    {
+      "id": "language-selection",
+      "kind": "component",
+      "statement": "Select YAML, JSON, SQL or Python support from language and append caller extensions after the shared extension bundle. The wrapper does not execute source text.",
+      "sources": [
+        "src/components/code-editor/code-editor.tsx",
+        "src/components/code-editor/code-theme.ts"
+      ]
+    },
+    {
+      "id": "folding-controls",
+      "kind": "component",
+      "statement": "When folding is enabled, provide fold gutter/keymap and a real named button as folded-content placeholder that unfolds then focuses the editor. The public handle exposes focus, foldAll, unfoldAll and getView.",
+      "sources": [
+        "src/components/code-editor/code-editor.tsx",
+        "src/components/code-editor/code-theme.ts"
+      ]
+    },
+    {
+      "id": "highlight-range",
+      "kind": "component",
+      "statement": "Treat highlightedLines as inclusive one-based ranges; ignore nonfinite bounds, round inward and clip to current document lines before building decorations.",
+      "sources": [
+        "src/components/code-editor/code-editor.tsx",
+        "src/components/code-editor/code-theme.ts"
+      ]
+    },
+    {
+      "id": "status-lifecycle",
+      "kind": "component",
+      "statement": "Update line/column only after document or selection changes. Unless statusBar=false, show caller status content or language/read-only default alongside current line, column and line count.",
+      "sources": ["src/components/code-editor/code-editor.tsx"]
+    },
+    {
+      "id": "host-content",
+      "kind": "host",
+      "statement": "Own language-specific validation, saving, dirty state, permissions and native form serialization. CodeEditor is not a named input and has no built-in persistence or submission semantics.",
+      "sources": ["src/components/code-editor/code-editor.tsx"]
+    },
+    {
+      "id": "extension-review",
+      "kind": "host",
+      "statement": "Review custom extensions for editing, accessibility, performance and keybindings. Extensions can change the guarantees supplied by the default bundle, including Tab behavior.",
+      "sources": ["src/components/code-editor/code-editor.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume code group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "Syntax presentation is not semantic validation, linting, execution or sandboxing.",
+    "Custom dimensions and extensions require host review; no explicit disabled prop or loading/error lifecycle exists."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 2,
+  "id": "unsaved-changes-bar",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Provide an inline save/discard boundary for host-owned dirty data.",
+  "anatomy": ["named region", "status message", "error alert", "discard action", "save action"],
+  "states": ["hidden", "dirty", "saving", "save-error", "disabled"],
+  "tokenGroup": "workflow",
+  "behaviorProvider": "React promise lifecycle composed with shared Button controls.",
+  "ownership": {
+    "component": ["pending guard", "inline status and error", "save/discard invocation"],
+    "host": ["draft and dirty state", "validation and persistence", "discard and navigation policy"]
+  },
+  "requirements": [
+    {
+      "id": "visibility",
+      "kind": "component",
+      "statement": "Render while dirty or saving; changing dirty to false during a save keeps the pending boundary visible until settlement.",
+      "sources": ["src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx"]
+    },
+    {
+      "id": "duplicate-save-guard",
+      "kind": "component",
+      "statement": "Ignore save attempts while already pending or disabled. Await onSave and show shared loading state without starting overlapping saves.",
+      "sources": ["src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx"]
+    },
+    {
+      "id": "save-error",
+      "kind": "component",
+      "statement": "Catch rejected saves and render an alert while retaining host dirty state; a later attempt clears the previous error before invoking onSave.",
+      "sources": ["src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx"]
+    },
+    {
+      "id": "discard-action",
+      "kind": "component",
+      "statement": "Disable discard while saving or disabled; otherwise clear the local error and invoke onDiscard synchronously without adding a confirmation dialog.",
+      "sources": ["src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx"]
+    },
+    {
+      "id": "status-semantics",
+      "kind": "component",
+      "statement": "Expose a named Unsaved changes region, aria-busy while saving, and a status message that changes to Saving your changes during the request.",
+      "sources": ["src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx"]
+    },
+    {
+      "id": "dirty-authority",
+      "kind": "host",
+      "statement": "Maintain the actual draft, compare it with persisted data, and clear dirty only after the host accepts a save or discard. The bar never infers persistence from new props.",
+      "sources": ["src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx"]
+    },
+    {
+      "id": "validation-and-conflicts",
+      "kind": "host",
+      "statement": "Validate inputs and enforce authorization or record version checks in onSave. Reject the promise to show a save error; no native form submission is inferred.",
+      "sources": ["src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx"]
+    },
+    {
+      "id": "lifecycle-policy",
+      "kind": "host",
+      "statement": "Provide any discard confirmation and route guard separately. Unmount suppresses later local state updates but does not cancel the host save or roll back a side effect.",
+      "sources": ["src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes workflow group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No draft storage, automatic dirty reset, confirmation, route interception or beforeunload handler.",
+    "No AbortSignal or version/conflict handling is supplied by this bar.",
+    "A successful promise is not independently verified as durable persistence."
+  ]
+}

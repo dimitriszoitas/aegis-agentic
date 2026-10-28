@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 2,
+  "id": "date-picker",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Choose one calendar date in a popover using react-day-picker.",
+  "anatomy": ["shared Button trigger", "shared Popover", "single-mode calendar"],
+  "states": ["default", "controlled-value", "host-validation"],
+  "tokenGroup": "input",
+  "behaviorProvider": "react-day-picker plus Aegis Popover and Button.",
+  "ownership": {
+    "component": [
+      "Detect controlled mode by the presence of the value prop, including value=undefined; otherwise initialize from defaultValue. Selecting a date requests Date or undefined and closes the popup.",
+      "Use DayPicker single mode, autoFocus and navigation after the calendar; pass timeZone and disabledDates to it. Use the selected date as initial calendar month.",
+      "Associate Field state with the shared trigger and format selected text in en-GB using the supplied timeZone. Disable the trigger when the resolved Field state is disabled."
+    ],
+    "host": [
+      "Supply valid Date objects and an intentional timezone policy. Own disabled-date business rules, serialization, validation and persistence; there is no named native date input.",
+      "The current disabled prop disables the trigger; it does not itself guard DayPicker selection if the popup was already open or defaultOpen is true. Close/unmount the picker when a workflow must prohibit all selection."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "controlled-empty-date",
+      "kind": "component",
+      "statement": "Detect controlled mode by the presence of the value prop, including value=undefined; otherwise initialize from defaultValue. Selecting a date requests Date or undefined and closes the popup.",
+      "sources": ["src/components/date-picker/date-picker.tsx"]
+    },
+    {
+      "id": "calendar-delegation",
+      "kind": "component",
+      "statement": "Use DayPicker single mode, autoFocus and navigation after the calendar; pass timeZone and disabledDates to it. Use the selected date as initial calendar month.",
+      "sources": ["src/components/date-picker/date-picker.tsx"]
+    },
+    {
+      "id": "trigger-and-display",
+      "kind": "component",
+      "statement": "Associate Field state with the shared trigger and format selected text in en-GB using the supplied timeZone. Disable the trigger when the resolved Field state is disabled.",
+      "sources": ["src/components/date-picker/date-picker.tsx"]
+    },
+    {
+      "id": "date-host-policy",
+      "kind": "host",
+      "statement": "Supply valid Date objects and an intentional timezone policy. Own disabled-date business rules, serialization, validation and persistence; there is no named native date input.",
+      "sources": ["src/components/date-picker/date-picker.tsx"]
+    },
+    {
+      "id": "disabled-popup-boundary",
+      "kind": "host",
+      "statement": "The current disabled prop disables the trigger; it does not itself guard DayPicker selection if the popup was already open or defaultOpen is true. Close/unmount the picker when a workflow must prohibit all selection.",
+      "sources": ["src/components/date-picker/date-picker.tsx"]
+    },
+    {
+      "id": "owning-token-group",
+      "kind": "design",
+      "statement": "Owned styling belongs to the input token group. Actual nested shared components retain their own group and behavior; preserve four theme/mode mappings and keyboard-visible focus.",
+      "sources": [
+        "src/components/date-picker/date-picker.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Source-backed requirements, not a current test certification or release approval.",
+    "No editable text input, name/form submission, range selection or readOnly API.",
+    "Locale presentation is fixed to en-GB in the trigger; calendar behavior depends on the installed react-day-picker version.",
+    "Disabled state does not currently close an already-open calendar or block its onSelect callback."
+  ]
+}

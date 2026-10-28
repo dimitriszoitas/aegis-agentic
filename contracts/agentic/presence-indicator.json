@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 2,
+  "id": "presence-indicator",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Display host-provided online, away, busy or offline availability with explicit accessible meaning.",
+  "anatomy": ["availability dot", "optional visible label"],
+  "states": [
+    "online",
+    "away",
+    "busy",
+    "offline",
+    "label visible",
+    "dot only",
+    "decorative",
+    "sm/md"
+  ],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Native noninteractive markup with a decorative dot and explicit text or accessible name.",
+  "ownership": {
+    "component": [
+      "Map the four explicit status values to semantic availability colors and visible status labels by default. A custom label replaces both visible and accessible text.",
+      "With showLabel=false expose a named image role. With decorative=true hide the entire presentation from assistive technology because the host must convey that meaning elsewhere."
+    ],
+    "host": [
+      "Own status freshness, subscriptions, privacy and localized labels.",
+      "Prefer a visible label where users need to distinguish states without color. Use StatusBadge for record workflows and Indicator for positioned notification counts."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Map the four explicit status values to semantic availability colors and visible status labels by default. A custom label replaces both visible and accessible text.",
+      "sources": [
+        "src/components/presence-indicator/presence-indicator.tsx",
+        "src/components/presence-indicator/presence-indicator.css"
+      ]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "With showLabel=false expose a named image role. With decorative=true hide the entire presentation from assistive technology because the host must convey that meaning elsewhere.",
+      "sources": [
+        "src/components/presence-indicator/presence-indicator.tsx",
+        "src/components/presence-indicator/presence-indicator.css"
+      ]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Hide the dot itself from assistive technology and provide no live-region announcements, event handlers, timers or presence inference.",
+      "sources": [
+        "src/components/presence-indicator/presence-indicator.tsx",
+        "src/components/presence-indicator/presence-indicator.css"
+      ]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Own status freshness, subscriptions, privacy and localized labels.",
+      "sources": [
+        "src/components/presence-indicator/presence-indicator.tsx",
+        "src/components/presence-indicator/README.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Prefer a visible label where users need to distinguish states without color. Use StatusBadge for record workflows and Indicator for positioned notification counts.",
+      "sources": [
+        "src/components/presence-indicator/presence-indicator.tsx",
+        "src/components/presence-indicator/README.md"
+      ]
+    },
+    {
+      "id": "theme-and-nesting",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation and preserve any genuine nested component ownership. Validate all four theme/mode mappings, logical directions and compact layout without changing dimensions between themes.",
+      "sources": [
+        "src/components/presence-indicator/presence-indicator.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No online detection, connection health check, presence transport or expiry policy is implemented.",
+    "Written coverage is separate from actual browser, visual, accessibility and package evidence."
+  ]
+}

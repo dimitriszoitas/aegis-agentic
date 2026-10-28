@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "id": "radio-group",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Choose one value from a named set of radio options with keyboard navigation and native form participation.",
+  "anatomy": [
+    "optional group label",
+    "optional group description",
+    "radio options",
+    "radio labels and descriptions"
+  ],
+  "states": ["default", "controlled-value", "host-validation"],
+  "tokenGroup": "input",
+  "behaviorProvider": "Base UI RadioGroup and Radio with direction context.",
+  "ownership": {
+    "component": [
+      "Forward value/defaultValue, name/form, readOnly and change callback to Base UI RadioGroup. Render each option through a native-button Radio.Root with its stable value and disabled state.",
+      "Resolve group Field id, invalid/required/disabled state and description references. Give every radio its own label and optional description association.",
+      "Expose horizontal/vertical orientation and inherit or explicitly set ltr/rtl direction. With loop=false, prevent boundary arrow wrap in key capture after honoring a caller handler and preventDefault; otherwise retain primitive navigation."
+    ],
+    "host": [
+      "Supply unique option values and meaningful group/option labels. Own controlled updates, domain validation and form submission; do not use the group to represent independent toggles."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "single-radio-state",
+      "kind": "component",
+      "statement": "Forward value/defaultValue, name/form, readOnly and change callback to Base UI RadioGroup. Render each option through a native-button Radio.Root with its stable value and disabled state.",
+      "sources": ["src/components/radio-group/radio-group.tsx"]
+    },
+    {
+      "id": "field-and-option-labels",
+      "kind": "component",
+      "statement": "Resolve group Field id, invalid/required/disabled state and description references. Give every radio its own label and optional description association.",
+      "sources": ["src/components/radio-group/radio-group.tsx"]
+    },
+    {
+      "id": "orientation-and-loop",
+      "kind": "component",
+      "statement": "Expose horizontal/vertical orientation and inherit or explicitly set ltr/rtl direction. With loop=false, prevent boundary arrow wrap in key capture after honoring a caller handler and preventDefault; otherwise retain primitive navigation.",
+      "sources": ["src/components/radio-group/radio-group.tsx"]
+    },
+    {
+      "id": "radio-host-inputs",
+      "kind": "host",
+      "statement": "Supply unique option values and meaningful group/option labels. Own controlled updates, domain validation and form submission; do not use the group to represent independent toggles.",
+      "sources": ["src/components/radio-group/radio-group.tsx"]
+    },
+    {
+      "id": "owning-token-group",
+      "kind": "design",
+      "statement": "Owned styling belongs to the input token group. Actual nested shared components retain their own group and behavior; preserve four theme/mode mappings and keyboard-visible focus.",
+      "sources": [
+        "src/components/radio-group/radio-group.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Source-backed requirements, not a current test certification or release approval.",
+    "Public onValueChange is value-only; this wrapper does not declare the primitive cancellation/details API.",
+    "Orientation expresses layout and aria-orientation; the installed primitive owns the rest of keyboard behavior."
+  ]
+}

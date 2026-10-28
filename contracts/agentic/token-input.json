@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "token-input",
   "version": 2,
   "status": "experimental",
@@ -46,13 +46,143 @@
   "behaviorProvider": "native-textarea-plus-existing-components",
   "defaults": {
     "duplicatePolicy": "reject",
-    "commitKeys": [
-      "Enter"
-    ],
+    "commitKeys": ["Enter"],
     "commitOnBlur": false,
     "confirmationMode": "values"
   },
   "asyncHostRequirement": "Use confirmationMode=request and correlate acknowledgment IDs; discard results whose request signal is aborted.",
   "evidence": "experiments/token-input/consolidated/evidence.json",
-  "migration": "experiments/token-input/consolidated/MIGRATION.md"
+  "migration": "experiments/token-input/consolidated/MIGRATION.md",
+  "ownership": {
+    "component": [
+      "atomic normalization/validation and keyboard draft lifecycle",
+      "request-correlated controlled confirmation",
+      "accessible input/token/suggestion feedback"
+    ],
+    "host": [
+      "authoritative ordered unique values",
+      "AbortSignal-aware async persistence and correlated acknowledgments",
+      "synchronous validation and error policy"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "normalization-and-identity",
+      "kind": "component",
+      "statement": "Trim candidate values, normalize Unicode NFC, discard empty candidates and compare duplicate identity with JavaScript lowercase after normalization. Incoming host values remain authoritative and are not silently normalized.",
+      "sources": [
+        "src/agentic/components/TokenInput.tsx",
+        "src/agentic/components/token-input-model.ts"
+      ]
+    },
+    {
+      "id": "commit-defaults",
+      "kind": "component",
+      "statement": "Default to duplicatePolicy=reject, commitKeys=[Enter], commitOnBlur=false and confirmationMode=values. Add or configured commit keys submit; Shift+Enter inserts a line, and only explicit comma commitment enables comma batch delimiting.",
+      "sources": ["src/agentic/components/TokenInput.tsx"]
+    },
+    {
+      "id": "atomic-batch",
+      "kind": "component",
+      "statement": "Split batches on newlines/tabs and optional commas. Apply synchronous per-value validation and duplicate policy atomically: any error leaves committed values unchanged and retains the exact submitted multiline draft.",
+      "sources": [
+        "src/agentic/components/TokenInput.tsx",
+        "src/agentic/components/token-input-model.ts"
+      ]
+    },
+    {
+      "id": "validator-contract",
+      "kind": "component",
+      "statement": "Treat null/undefined as validation acceptance; require a nonempty string for rejection. Exceptions and other return types reject safely, and returned thenables are observed only to consume rejection rather than to accept an async result.",
+      "sources": [
+        "src/agentic/components/TokenInput.tsx",
+        "src/agentic/components/token-input-model.ts"
+      ]
+    },
+    {
+      "id": "duplicate-and-blank-policy",
+      "kind": "component",
+      "statement": "Blank text commits nothing. Reject duplicates by default; explicit ignore skips duplicates and announces the skipped count. An all-duplicate ignored batch clears its submitted draft without requesting a host change.",
+      "sources": [
+        "src/agentic/components/TokenInput.tsx",
+        "src/agentic/components/token-input-model.ts"
+      ]
+    },
+    {
+      "id": "values-confirmation",
+      "kind": "component",
+      "statement": "In values mode settle a pending change only when authoritative values match the complete ordered requested array. Clear submitted draft only if its captured revision still equals the current draft revision.",
+      "sources": ["src/agentic/components/TokenInput.tsx"]
+    },
+    {
+      "id": "request-confirmation",
+      "kind": "component",
+      "statement": "In request mode require a matching acknowledgment requestId before settling; rejection aborts and preserves the draft, while acceptance also requires the ordered requested values. Ignore stale acknowledgment IDs for newer pending requests.",
+      "sources": ["src/agentic/components/TokenInput.tsx"]
+    },
+    {
+      "id": "pending-and-cancel",
+      "kind": "component",
+      "statement": "While pending block further add/remove/suggestion mutations while keeping the draft editable. Keep editing aborts its signal and clears pending; unmount aborts any outstanding request. Disabled blocks user mutations and cancellation controls.",
+      "sources": ["src/agentic/components/TokenInput.tsx"]
+    },
+    {
+      "id": "draft-revision",
+      "kind": "component",
+      "statement": "Count editing, including restoring identical text, as a new draft revision. Delayed confirmation cannot clear a newer draft and performs no programmatic focus transfer.",
+      "sources": ["src/agentic/components/TokenInput.tsx"]
+    },
+    {
+      "id": "keyboard-removal",
+      "kind": "component",
+      "statement": "Ignore commit/removal during composition, native isComposing or keyCode229. Empty-input Backspace arms the last value; a second nonrepeat press requests removal. Escape, blur or normal draft editing cancels the arm; held Backspace does not repeatedly remove.",
+      "sources": ["src/agentic/components/TokenInput.tsx"]
+    },
+    {
+      "id": "suggestions-and-removal",
+      "kind": "component",
+      "statement": "Render deduplicated suggestion strings as named ordinary buttons that preserve unrelated draft on commit, and values as a list of named removable Tags. This interface does not claim combobox/listbox navigation or restrict free-text entry.",
+      "sources": ["src/agentic/components/TokenInput.tsx"]
+    },
+    {
+      "id": "immediate-refusal",
+      "kind": "component",
+      "statement": "Treat an immediate false return or thrown callback as refusal, abort the signal, preserve the draft and show safe feedback. Accepted mutations remain pending until the selected confirmation protocol is satisfied.",
+      "sources": ["src/agentic/components/TokenInput.tsx"]
+    },
+    {
+      "id": "host-async-policy",
+      "kind": "host",
+      "statement": "Use request mode for asynchronous writes, echo accepted ordered values plus a matching acknowledgment, and discard results whose signal is aborted. The callback returns void/false rather than a Promise; server concurrency and reversal of already-authoritative writes remain host responsibilities.",
+      "sources": ["src/agentic/components/TokenInput.tsx"]
+    },
+    {
+      "id": "host-value-and-form",
+      "kind": "host",
+      "statement": "Provide ordered unique committed values and a meaningful label. The component has no named hidden form field or serialization API; persist/submit values through the host and keep external error content appropriate.",
+      "sources": ["src/agentic/components/TokenInput.tsx"]
+    },
+    {
+      "id": "historical-evidence",
+      "kind": "host",
+      "statement": "Use the retained evidence and migration references as historical bounded experiment records. Their status and source hashes do not rerun tests, certify this contract revision or establish human approval or stable release.",
+      "sources": [
+        "src/agentic/components/TokenInput.tsx",
+        "experiments/token-input/consolidated/evidence.json",
+        "experiments/token-input/consolidated/MIGRATION.md"
+      ]
+    },
+    {
+      "id": "nested-token-ownership",
+      "kind": "design",
+      "statement": "Use input group tokens for the owned entry layout and preserve nested Field, Textarea, Tag and Button categories, including visible focus in both modes.",
+      "sources": ["src/agentic/components/TokenInput.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "Validation is synchronous and request completion is host-driven; no network request, server transaction or authoritative rollback is implemented.",
+    "Values confirmation cannot identify out-of-order async results; request mode and AbortSignal-aware hosts are required for that case.",
+    "Suggestions are optional action buttons rather than an ARIA combobox. No native form serialization is provided.",
+    "Historical evidence remains unchanged and can report a source-hash mismatch after this documentation/schema upgrade; mismatch is not silently relabelled as a current pass."
+  ]
 }

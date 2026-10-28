@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 2,
+  "id": "multi-combobox",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Search and choose multiple option IDs with removable chips and grouped results.",
+  "anatomy": [
+    "label",
+    "selection chips and overflow",
+    "popup trigger",
+    "search input",
+    "selection toolbar",
+    "grouped listbox",
+    "loading/empty messages"
+  ],
+  "states": ["default", "controlled-value", "host-validation"],
+  "tokenGroup": "input",
+  "behaviorProvider": "Base UI Combobox multiple mode with shared Tag and Spinner.",
+  "ownership": {
+    "component": [
+      "Keep an array of selected stable strings from value or defaultValue. Deduplicate requested updates and show up to the bounded maxVisible chips with an accessible overflow summary.",
+      "Filter local options by label, description and keywords unless filterOptions=false. Support a separate controlled search string. Closing the popup requests an empty query; the host supplies remote results and loading state.",
+      "Render option groups and descriptions. Select all adds enabled filtered options; Clear requests an empty array. loading disables result and Select all actions but is not a read-only lock on existing selection.",
+      "Delegate list navigation to Base UI. Empty-query Backspace removes the last selected ID unless the key event is composing. Removing a visible chip schedules focus to a nearby remaining remove action or the trigger when focus has not moved elsewhere.",
+      "Resolve Field state on the trigger and pass name to Base UI multiple Root for form participation. Disabled state suppresses popup opening. This wrapper exposes value/open/search callbacks as values without primitive detail objects."
+    ],
+    "host": [
+      "Supply stable unique option values, controlled state acceptance and accessible labels. Own remote request cancellation/races, selected-label retention, validation and persistence; the component does not request data."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "multiple-selection",
+      "kind": "component",
+      "statement": "Keep an array of selected stable strings from value or defaultValue. Deduplicate requested updates and show up to the bounded maxVisible chips with an accessible overflow summary.",
+      "sources": ["src/components/multi-combobox/multi-combobox.tsx"]
+    },
+    {
+      "id": "search-and-remote",
+      "kind": "component",
+      "statement": "Filter local options by label, description and keywords unless filterOptions=false. Support a separate controlled search string. Closing the popup requests an empty query; the host supplies remote results and loading state.",
+      "sources": ["src/components/multi-combobox/multi-combobox.tsx"]
+    },
+    {
+      "id": "grouped-bulk-actions",
+      "kind": "component",
+      "statement": "Render option groups and descriptions. Select all adds enabled filtered options; Clear requests an empty array. loading disables result and Select all actions but is not a read-only lock on existing selection.",
+      "sources": ["src/components/multi-combobox/multi-combobox.tsx"]
+    },
+    {
+      "id": "keyboard-and-chip-focus",
+      "kind": "component",
+      "statement": "Delegate list navigation to Base UI. Empty-query Backspace removes the last selected ID unless the key event is composing. Removing a visible chip schedules focus to a nearby remaining remove action or the trigger when focus has not moved elsewhere.",
+      "sources": ["src/components/multi-combobox/multi-combobox.tsx"]
+    },
+    {
+      "id": "field-and-form",
+      "kind": "component",
+      "statement": "Resolve Field state on the trigger and pass name to Base UI multiple Root for form participation. Disabled state suppresses popup opening. This wrapper exposes value/open/search callbacks as values without primitive detail objects.",
+      "sources": ["src/components/multi-combobox/multi-combobox.tsx"]
+    },
+    {
+      "id": "option-and-request-policy",
+      "kind": "host",
+      "statement": "Supply stable unique option values, controlled state acceptance and accessible labels. Own remote request cancellation/races, selected-label retention, validation and persistence; the component does not request data.",
+      "sources": ["src/components/multi-combobox/multi-combobox.tsx"]
+    },
+    {
+      "id": "owning-token-group",
+      "kind": "design",
+      "statement": "Owned styling belongs to the input token group. Actual nested shared components retain their own group and behavior; preserve four theme/mode mappings and keyboard-visible focus.",
+      "sources": [
+        "src/components/multi-combobox/multi-combobox.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Source-backed requirements, not a current test certification or release approval.",
+    "No readOnly, external form, free-solo option creation, list virtualization or primitive callback-detail API is exposed.",
+    "A loading list does not freeze chip removal or Clear; loading is request presentation, not an authorization boundary.",
+    "Unavailable selected IDs display their raw IDs when not present in options."
+  ]
+}

@@ -4,14 +4,18 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.6.0-experiment.0"
+    "version": "0.7.0-experiment.0"
   },
   "id": "components-navigation-pagination",
   "name": "Pagination",
   "category": "Navigation",
   "tokenGroup": "navigation",
   "kind": "component",
-  "aliases": [],
+  "aliases": [
+    "page controls",
+    "page size",
+    "result paging"
+  ],
   "purpose": "Controlled navigation through result pages, with an optional page-size selector.",
   "importPaths": [
     "@dimitriszoitas/aegis-agentic/pagination"

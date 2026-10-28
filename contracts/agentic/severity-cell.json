@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 2,
+  "id": "severity-cell",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A table adapter to the shared SeverityBadge scale.",
+  "anatomy": ["shared SeverityBadge"],
+  "states": ["severity", "compact"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Shared data-grid cell adapter; table/record state remains with its host.",
+  "ownership": {
+    "component": [
+      "Delegate severity and compact unchanged to SeverityBadge; preserve its visible label or named compact semantics. No additional wrapper state is introduced."
+    ],
+    "host": ["Own severity assignment and column meaning."]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Delegate severity and compact unchanged to SeverityBadge; preserve its visible label or named compact semantics. No additional wrapper state is introduced.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Own severity assignment and column meaning.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No risk inference, status transition or interaction is added by the cell.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

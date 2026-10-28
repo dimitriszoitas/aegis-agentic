@@ -1,0 +1,43 @@
+.aegis-file-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-data-display-list-space-gap-regular);
+  min-width: var(--group-data-display-list-number-0);
+  color: var(--group-data-display-list-color-content-primary);
+}
+.aegis-file-preview-name {
+  margin: var(--group-data-display-list-number-0);
+  overflow-wrap: anywhere;
+}
+.aegis-file-preview-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--group-data-display-list-space-gap-regular);
+  margin: var(--group-data-display-list-number-0);
+}
+.aegis-file-preview-metadata dt,
+.aegis-file-preview-fallback {
+  color: var(--group-data-display-list-color-content-secondary);
+}
+.aegis-file-preview-metadata dd {
+  margin: var(--group-data-display-list-number-0);
+  overflow-wrap: anywhere;
+}
+.aegis-file-preview-image {
+  align-self: flex-start;
+  width: auto;
+  height: auto;
+  display: block;
+  max-width: var(--group-data-display-list-size-width-full);
+  max-height: var(--group-data-display-measurement-evidence-max-height);
+  object-fit: contain;
+}
+.aegis-file-preview-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-data-display-list-space-gap-regular);
+}
+.aegis-file-preview-fallback {
+  margin: var(--group-data-display-list-number-0);
+}

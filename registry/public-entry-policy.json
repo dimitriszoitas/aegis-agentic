@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "aliases": {
+    "./banner": {
+      "contractId": "notification",
+      "source": "src/components/banner/banner.tsx",
+      "reason": "Banner fixes inline Notification presentation; Callout delegates to Banner. The aliases keep the shared notice contract."
+    },
+    "./toast": {
+      "contractId": "notification",
+      "source": "src/components/toast/toast.tsx",
+      "reason": "Toast fixes floating Notification presentation; Toaster and service functions delegate to the shared notification engine."
+    }
+  },
+  "supportEntries": {
+    ".": "Aggregate library entry; UI families are covered through their individual public entry points.",
+    "./theme": "Theme provider and profile application support.",
+    "./ai": "AI data types and domain helpers; no model service implementation.",
+    "./types": "Shared TypeScript types.",
+    "./patterns": "Aggregate pattern entry; individual pattern entries carry behavior contracts.",
+    "./filters": "Filter data models and helpers, governed by the filtering contracts.",
+    "./time-range": "Time-range model and parsing helpers, governed by TimeRangePicker requirements.",
+    "./utils": "Class composition utility; not a UI family.",
+    "./primitives": "Direct Base UI exports; behavior belongs to the upstream primitive API and headless boundary check.",
+    "./agentic": "Agent infrastructure and project policy API; governed by the kit, composition and service protocol contracts."
+  },
+  "limitations": [
+    "Coverage means each published UI entry has a source-identity contract or explicit compatibility mapping; it is not per-function test coverage or certification.",
+    "Nested exports within a family share that family's contract. Support entries and asset files are classified separately and are not counted as authored UI behavior."
+  ]
+}

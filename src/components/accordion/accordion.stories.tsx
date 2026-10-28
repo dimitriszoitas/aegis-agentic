@@ -147,6 +147,76 @@ export const Nested: Story = {
     await expect(canvas.getByRole('checkbox', { name: 'Include delivery tasks' })).toBeChecked();
   },
 };
+export const NestedPerpendicularKeyboard: Story = {
+  render: () => (
+    <>
+      {(['vertical', 'horizontal'] as const).map((outer) => (
+        <section key={outer} aria-label={`${outer} outer accordion`}>
+          <h3>{outer} outer accordion</h3>
+          <Accordion
+            type="multiple"
+            orientation={outer}
+            defaultValue={['first']}
+            items={[
+              {
+                value: 'first',
+                title: 'Outer first',
+                content: (
+                  <Accordion
+                    type="multiple"
+                    orientation={outer === 'vertical' ? 'horizontal' : 'vertical'}
+                    items={[
+                      { value: 'first', title: 'Inner first', content: 'First inner content.' },
+                      {
+                        value: 'disabled',
+                        title: 'Inner disabled',
+                        content: 'Unavailable content.',
+                        disabled: true,
+                      },
+                      { value: 'last', title: 'Inner last', content: 'Last inner content.' },
+                    ]}
+                  />
+                ),
+              },
+              { value: 'last', title: 'Outer last', content: 'Last outer content.' },
+            ]}
+          />
+        </section>
+      ))}
+    </>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    for (const outer of ['vertical', 'horizontal']) {
+      const example = within(canvas.getByRole('region', { name: `${outer} outer accordion` }));
+      const first = example.getByRole('button', { name: 'Inner first' });
+      const last = example.getByRole('button', { name: 'Inner last' });
+      const outerFirst = example.getByRole('button', { name: 'Outer first' });
+      const perpendicular =
+        outer === 'vertical' ? ['ArrowDown', 'ArrowUp'] : ['ArrowRight', 'ArrowLeft'];
+      const own = outer === 'vertical' ? ['ArrowRight', 'ArrowLeft'] : ['ArrowDown', 'ArrowUp'];
+      first.focus();
+      for (const key of perpendicular) {
+        await userEvent.keyboard(`{${key}}`);
+        await expect(first).toHaveFocus();
+      }
+      await userEvent.keyboard(`{${own[0]}}`);
+      await expect(last).toHaveFocus();
+      await userEvent.keyboard(`{${own[1]}}`);
+      await expect(first).toHaveFocus();
+      await userEvent.keyboard('{End}');
+      await expect(last).toHaveFocus();
+      await userEvent.keyboard('{Home}');
+      await expect(first).toHaveFocus();
+      await userEvent.keyboard('{Enter}');
+      await expect(first).toHaveAttribute('aria-expanded', 'true');
+      await expect(outerFirst).toHaveAttribute('aria-expanded', 'true');
+      outerFirst.focus();
+      await userEvent.keyboard(`{${perpendicular[0]}}`);
+      await expect(example.getByRole('button', { name: 'Outer last' })).toHaveFocus();
+    }
+  },
+};
 function ControlledExample() {
   const [value, setValue] = useState<string[]>(['source']);
   return (

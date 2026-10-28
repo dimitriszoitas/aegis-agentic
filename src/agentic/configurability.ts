@@ -108,6 +108,7 @@ const supportedDefault = [
   '0.4.0-experiment.0',
   '0.5.0-experiment.0',
   '0.6.0-experiment.0',
+  '0.7.0-experiment.0',
 ];
 const axes: ConfigurationAxis[] = ['theme', 'presentation', 'behavior', 'unknown'];
 export const infrastructureObject = (value: unknown): value is Record<string, unknown> =>

@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "checks": [
+    "Single selection: keyword matching, stable form IDs, clear, disabled option and keyboard dismissal.",
+    "Remote results bypass filtering; keyboard and pointer cancellation preserve the selected form ID, retain the open query and restore the selected label on dismissal.",
+    "OTP: full-paste normalization, leading zeroes, native callback, host reset, keyboard deletion and alphanumeric candidate.",
+    "Native time: keyboard segments and constraints; date/time preserves offset-free value and announces explicit zone.",
+    "Phone: raw draft preservation, separate E.164 candidate, opt-in blur normalization.",
+    "Color: invalid drafts retained, explicit commit, alpha quantization, named swatch selection.",
+    "Native form combines one value per named input and respects raw/canonical policies."
+  ],
+  "matrix": [
+    {
+      "layout": "fundamental",
+      "mode": "light",
+      "width": 1100,
+      "axeViolations": 0,
+      "metrics": {
+        "height": 34,
+        "fontSize": "14px"
+      }
+    },
+    {
+      "layout": "fundamental",
+      "mode": "light",
+      "width": 390,
+      "axeViolations": 0,
+      "metrics": {
+        "height": 34,
+        "fontSize": "14px"
+      }
+    },
+    {
+      "layout": "fundamental",
+      "mode": "dark",
+      "width": 1100,
+      "axeViolations": 0,
+      "metrics": {
+        "height": 34,
+        "fontSize": "14px"
+      }
+    },
+    {
+      "layout": "fundamental",
+      "mode": "dark",
+      "width": 390,
+      "axeViolations": 0,
+      "metrics": {
+        "height": 34,
+        "fontSize": "14px"
+      }
+    },
+    {
+      "layout": "fundamental-floating",
+      "mode": "light",
+      "width": 1100,
+      "axeViolations": 0,
+      "metrics": {
+        "height": 34,
+        "fontSize": "14px"
+      }
+    },
+    {
+      "layout": "fundamental-floating",
+      "mode": "light",
+      "width": 390,
+      "axeViolations": 0,
+      "metrics": {
+        "height": 34,
+        "fontSize": "14px"
+      }
+    },
+    {
+      "layout": "fundamental-floating",
+      "mode": "dark",
+      "width": 1100,
+      "axeViolations": 0,
+      "metrics": {
+        "height": 34,
+        "fontSize": "14px"
+      }
+    },
+    {
+      "layout": "fundamental-floating",
+      "mode": "dark",
+      "width": 390,
+      "axeViolations": 0,
+      "metrics": {
+        "height": 34,
+        "fontSize": "14px"
+      }
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "Source fixture, not a packed consumer or evidence of operating-system autofill UI. Native picker presentation depends on the browser."
+  ]
+}

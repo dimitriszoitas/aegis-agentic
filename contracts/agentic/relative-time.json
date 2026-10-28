@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 2,
+  "id": "relative-time",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present relative time with a machine-readable instant and an absolute timestamp tooltip.",
+  "anatomy": [
+    "focusable time element",
+    "relative text",
+    "absolute title and accessible label",
+    "shared tooltip"
+  ],
+  "states": [
+    "past",
+    "future",
+    "just now",
+    "compact",
+    "fixed reference",
+    "live updating",
+    "invalid timestamp"
+  ],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Intl relative/absolute formatters and shared Tooltip; local clock interval.",
+  "ownership": {
+    "component": [
+      "Convert string/number values with Date and show an Unavailable span for nonfinite timestamps. The invalid replacement does not forward time props, className or tabIndex.",
+      "Use explicit now as a fixed reference without scheduling an interval. Otherwise initialize from Date.now and update at a minimum one-second interval; clear the interval on unmount or dependency change.",
+      "Render a time element with ISO dateTime, absolute title and an aria-label combining relative and absolute values. Default tabIndex is zero so the shared absolute tooltip is keyboard reachable."
+    ],
+    "host": [
+      "Supply a valid finite now when deterministic historical or server/client rendering matters. Invalid now, locale or timeZone are not caught as a graceful fallback.",
+      "Choose updateInterval for the domain and avoid treating displayed text as exact elapsed-time arithmetic. Multiple live instances each create their own timer."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "invalid-value",
+      "kind": "component",
+      "statement": "Convert string/number values with Date and show an Unavailable span for nonfinite timestamps. The invalid replacement does not forward time props, className or tabIndex.",
+      "sources": ["src/components/relative-time/relative-time.tsx"]
+    },
+    {
+      "id": "fixed-versus-live",
+      "kind": "component",
+      "statement": "Use explicit now as a fixed reference without scheduling an interval. Otherwise initialize from Date.now and update at a minimum one-second interval; clear the interval on unmount or dependency change.",
+      "sources": ["src/components/relative-time/relative-time.tsx"]
+    },
+    {
+      "id": "time-semantics",
+      "kind": "component",
+      "statement": "Render a time element with ISO dateTime, absolute title and an aria-label combining relative and absolute values. Default tabIndex is zero so the shared absolute tooltip is keyboard reachable.",
+      "sources": ["src/components/relative-time/relative-time.tsx"]
+    },
+    {
+      "id": "format-thresholds",
+      "kind": "component",
+      "statement": "Use rounded seconds to choose second/minute/hour/day/month/year units, return just now below ten seconds, and floor unit magnitudes with a minimum of one. Months use thirty days and years use 365 days.",
+      "sources": ["src/components/relative-time/relative-time.tsx"]
+    },
+    {
+      "id": "localization-boundary",
+      "kind": "component",
+      "statement": "Use Intl.RelativeTimeFormat for full relative phrases and Intl.DateTimeFormat for absolute timestamps with supplied locale/timeZone. Compact abbreviations and just now are fixed English strings.",
+      "sources": ["src/components/relative-time/relative-time.tsx"]
+    },
+    {
+      "id": "host-reference",
+      "kind": "host",
+      "statement": "Supply a valid finite now when deterministic historical or server/client rendering matters. Invalid now, locale or timeZone are not caught as a graceful fallback.",
+      "sources": ["src/components/relative-time/relative-time.tsx"]
+    },
+    {
+      "id": "host-update-policy",
+      "kind": "host",
+      "statement": "Choose updateInterval for the domain and avoid treating displayed text as exact elapsed-time arithmetic. Multiple live instances each create their own timer.",
+      "sources": ["src/components/relative-time/relative-time.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume data-display group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "Approximate relative units do not use calendar-aware month/year arithmetic.",
+    "No live-region announcement is added for ticking text; there is no global shared clock."
+  ]
+}
