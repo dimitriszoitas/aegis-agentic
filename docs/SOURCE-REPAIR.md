@@ -54,11 +54,16 @@ Before draft publishing, the worker checks that the original source revision and
 npm run repair:test
 npm run repair -- scan
 
+# Complete local pipeline experiment with a controlled test response; no AI request.
+node scripts/repair-worker/verify-controlled.mjs
+
 # Explicit live AI experiment; consumes Codex usage.
 npm run repair:live -- --live
 ```
 
 The test suite uses controlled providers to exercise actual temporary Git repositories, protected-path and source-hash refusal, locks, durable attempt limits, stale sources, process timeouts and draft-only publication arguments. These tests do not claim a live model result.
+
+The controlled browser experiment exercises the same worker and complete acceptance pipeline against a seeded defect with a predetermined test response. Its results and a reviewable preview of the proposed live payload are saved under `artifacts/repair-worker-controlled/`. This verifies orchestration and acceptance, not the quality or reliability of an AI-generated repair.
 
 The live experiment first verifies the healthy checkout, creates a separate fixture clone, introduces a clearly labeled CSS containment regression there and asks the real provider to repair it. Its proof is written under `artifacts/repair-worker-live/`. A successful proof requires a failing browser audit, real provider provenance, a nonempty source patch, all 84 scenarios passing again and all source regressions passing. It is a seeded regression experiment, not evidence that a production incident occurred. The original source is checked for changes at the end.
 
