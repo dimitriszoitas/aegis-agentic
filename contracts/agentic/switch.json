@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 2,
+  "id": "switch",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present a named on/off setting with Base UI switch semantics and optional native form participation.",
+  "anatomy": [
+    "button-backed switch root",
+    "switch thumb",
+    "native form input managed by Base UI",
+    "optional label",
+    "optional description"
+  ],
+  "states": [
+    "off",
+    "on",
+    "controlled",
+    "uncontrolled",
+    "disabled",
+    "read-only",
+    "invalid",
+    "required",
+    "keyboard-focus"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Base UI Switch rendered as a native button with shared useFieldControl metadata.",
+  "ownership": {
+    "component": [
+      "Boolean checked state delegation and callback forwarding",
+      "Switch semantics, thumb state and native-form attributes",
+      "Label/help association and disabled/readOnly delegation"
+    ],
+    "host": [
+      "Meaning, timing and persistence of the setting",
+      "Controlled updates and application error handling",
+      "Accessible name and form submission policy"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "boolean-state",
+      "kind": "component",
+      "statement": "Pass checked, defaultChecked and onCheckedChange directly to Base UI Switch.Root. Expose boolean on/off state; no indeterminate state is part of the public Switch API.",
+      "sources": ["src/components/switch/switch.tsx"]
+    },
+    {
+      "id": "native-button-and-ref",
+      "kind": "component",
+      "statement": "Render the primitive root as a native button and forward the public ref and supported remaining button props to that button.",
+      "sources": ["src/components/switch/switch.tsx"]
+    },
+    {
+      "id": "pointer-and-keyboard",
+      "kind": "component",
+      "statement": "Retain Base UI/native-button activation for the switch. The ImmediateSetting story exercises a click followed by Space; the story description also documents Enter activation.",
+      "sources": ["src/components/switch/switch.tsx", "src/components/switch/switch.stories.tsx"]
+    },
+    {
+      "id": "disabled-and-readonly",
+      "kind": "component",
+      "statement": "Pass resolved disabled and readOnly to Base UI so unavailable controls and focusable non-editable controls remain distinct states. Do not implement a separate local toggle that bypasses those props.",
+      "sources": ["src/components/switch/switch.tsx"]
+    },
+    {
+      "id": "form-participation",
+      "kind": "component",
+      "statement": "Forward name, value, form and resolved required to the primitive input integration. The documented form behavior includes the checked state when a name is provided.",
+      "sources": ["src/components/switch/switch.tsx", "src/components/switch/switch.stories.tsx"]
+    },
+    {
+      "id": "label-and-help",
+      "kind": "component",
+      "statement": "Associate the optional visible label with the resolved control id; merge the optional description with caller and Field descriptions. Forward explicit label/invalid references through useFieldControl.",
+      "sources": ["src/components/switch/switch.tsx", "src/components/field/field.tsx"]
+    },
+    {
+      "id": "controlled-setting-host",
+      "kind": "host",
+      "statement": "When supplying checked, update it from onCheckedChange when accepting the requested change. Own persistence, rejected updates and user feedback; switching the visual control does not perform a network save.",
+      "sources": ["src/components/switch/switch.tsx", "src/components/switch/switch.stories.tsx"]
+    },
+    {
+      "id": "stable-accessible-name",
+      "kind": "host",
+      "statement": "Provide a persistent name describing the setting through label, Field or an accessible name on the button. Do not depend on the thumb position alone to communicate meaning.",
+      "sources": [
+        "src/components/switch/switch.tsx",
+        "src/components/switch/switch.stories.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "validation-and-submission-host",
+      "kind": "host",
+      "statement": "Own validation messages and native-form submission behavior. required and invalid are metadata; the switch does not determine whether the setting is permitted or save its value.",
+      "sources": ["src/components/switch/switch.tsx", "src/components/field/field.tsx"]
+    },
+    {
+      "id": "input-token-and-focus-policy",
+      "kind": "design",
+      "statement": "Keep switch-owned styling and fixed defaults in the input group, preserve keyboard focus visibility, and keep dimensions stable across the four theme/mode mappings.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "tokens/component-categories.json",
+        "src/components/switch/switch.css"
+      ]
+    }
+  ],
+  "limitations": [
+    "This contract does not turn an immediate-setting presentation into automatic persistence or authorization.",
+    "Controlled/uncontrolled form behavior is delegated to Base UI; there is no additional Aegis reset handler or mixed-state model here.",
+    "Linked story assertions cover a small interaction fixture and are not certification of every form, keyboard or assistive-technology case."
+  ]
+}

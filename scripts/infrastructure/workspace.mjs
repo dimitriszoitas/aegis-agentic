@@ -35,6 +35,7 @@ const knownVersions = [
   '0.2.0-experiment.0',
   '0.3.0-experiment.0',
   '0.4.0-experiment.0',
+  '0.5.0-experiment.0',
 ];
 async function directory(path) {
   const entry = await lstat(path);

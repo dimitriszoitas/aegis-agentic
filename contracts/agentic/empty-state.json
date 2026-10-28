@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 2,
+  "id": "empty-state",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Explain why a content region has no usable records and provide host-owned recovery actions appropriate to that condition.",
+  "anatomy": [
+    "named section",
+    "decorative icon",
+    "h3 title and description",
+    "optional primary/secondary actions",
+    "optional child content"
+  ],
+  "states": ["no results", "no data", "error", "custom copy", "compact"],
+  "tokenGroup": "feedback",
+  "behaviorProvider": "Native section, heading and paragraph semantics; host supplies all action controls.",
+  "ownership": {
+    "component": [
+      "preset copy and icon fallback",
+      "generated title/description associations",
+      "optional action/content arrangement"
+    ],
+    "host": [
+      "choose truthful empty/error condition",
+      "real recovery actions and async lifecycle",
+      "heading hierarchy and announcement policy"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "distinct-presets",
+      "kind": "component",
+      "statement": "no-results defaults to filter recovery copy, no-data to first-record/source copy, and error to failed-loading/retry copy. The default preset is no-results; compact changes presentation rather than condition semantics.",
+      "sources": ["src/components/empty-state/empty-state.tsx"]
+    },
+    {
+      "id": "truthful-empty-condition",
+      "kind": "host",
+      "statement": "Choose the preset matching the actual condition: no matches, no stored data or failed retrieval. Do not present an error or pending fetch as a successful empty result.",
+      "sources": ["src/components/empty-state/empty-state.tsx", "skills/create-layout/SKILL.md"]
+    },
+    {
+      "id": "copy-fallback",
+      "kind": "component",
+      "statement": "Use nullish fallback for icon, title and description. null or undefined selects preset content; an empty string can deliberately produce empty title/description and must not be assumed to restore the default.",
+      "sources": ["src/components/empty-state/empty-state.tsx"]
+    },
+    {
+      "id": "section-associations",
+      "kind": "component",
+      "statement": "Generate ids for the h3 and description paragraph and reference them with aria-labelledby and aria-describedby on the section. Explicit root props can override these defaults and the host must preserve valid associations.",
+      "sources": ["src/components/empty-state/empty-state.tsx"]
+    },
+    {
+      "id": "decorative-icon",
+      "kind": "component",
+      "statement": "Wrap the displayed icon in aria-hidden=true so the title and description convey the condition. The icon is not an independent interactive control.",
+      "sources": ["src/components/empty-state/empty-state.tsx"]
+    },
+    {
+      "id": "recovery-action-ownership",
+      "kind": "host",
+      "statement": "Supply functional, named action and secondaryAction controls for clearing filters, adding data, retrying or another real recovery path. EmptyState invokes no retry, navigation or mutation itself.",
+      "sources": ["src/components/empty-state/empty-state.tsx"]
+    },
+    {
+      "id": "optional-action-row",
+      "kind": "component",
+      "statement": "Render the action row only when action or secondaryAction is truthy, in primary-then-secondary order, and render children after the action region.",
+      "sources": ["src/components/empty-state/empty-state.tsx"]
+    },
+    {
+      "id": "async-and-form-boundary",
+      "kind": "host",
+      "statement": "Own pending/disabled/success/error transitions and appropriate button types in supplied actions, especially inside forms. EmptyState provides no submission handling, loading state or automatic focus handoff.",
+      "sources": [
+        "src/components/empty-state/empty-state.tsx",
+        "skills/create-component/SKILL.md",
+        "skills/create-layout/SKILL.md"
+      ]
+    },
+    {
+      "id": "announcement-and-heading",
+      "kind": "host",
+      "statement": "Account for the fixed h3 in the surrounding heading hierarchy and decide whether changing content needs a live announcement. The section is not an alert or live region by default.",
+      "sources": ["src/components/empty-state/empty-state.tsx"]
+    },
+    {
+      "id": "owned-and-nested-tokens",
+      "kind": "design",
+      "statement": "Use feedback group tokens for the empty-state icon, typography and layout while shared action components retain their owning groups. Keep semantic feedback distinct from decorative surfaces.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "skills/create-layout/SKILL.md",
+        "tokens/component-categories.json"
+      ]
+    }
+  ],
+  "limitations": [
+    "This component does not detect empty/error conditions, fetch data, retry, or announce changes automatically.",
+    "The heading is fixed at h3; no headingLevel option is currently exposed.",
+    "Arbitrary root props and ReactNode content can override or undermine the default associations, so host composition still needs review."
+  ]
+}

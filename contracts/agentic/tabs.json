@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 2,
+  "id": "tabs",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Select one view within a shared context using Base UI tabs, with either per-tab panels or one persistent shared content slot.",
+  "anatomy": [
+    "direction provider",
+    "tabs root",
+    "overflow wrapper and named tab list",
+    "tab labels with optional icons/counts",
+    "per-value panels or shared panel"
+  ],
+  "states": [
+    "controlled selection",
+    "uncontrolled initial selection",
+    "disabled tab",
+    "automatic or manual activation",
+    "horizontal or vertical orientation",
+    "shared content"
+  ],
+  "tokenGroup": "navigation",
+  "behaviorProvider": "@base-ui/react Tabs and DirectionProvider supply tab/list/panel interaction; Aegis owns uncontrolled selection initialization and styling.",
+  "ownership": {
+    "component": [
+      "selection callback adaptation",
+      "tab/list/panel composition",
+      "shared panel slot identity and decorative icon treatment"
+    ],
+    "host": [
+      "unique stable values and usable tab labels",
+      "controlled state acknowledgment",
+      "valid selection when items change and panel content semantics"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "uncontrolled-initial-selection",
+      "kind": "component",
+      "statement": "Without value, initialize internal selection from defaultValue or the first enabled item. Later changes to defaultValue do not reset internal selection.",
+      "sources": ["src/components/tabs/tabs.tsx"]
+    },
+    {
+      "id": "controlled-selection",
+      "kind": "component",
+      "statement": "With value supplied, forward that selection to Base UI and emit string onValueChange requests without updating internal selection. Non-string primitive changes are ignored.",
+      "sources": ["src/components/tabs/tabs.tsx"]
+    },
+    {
+      "id": "valid-values-in-host",
+      "kind": "host",
+      "statement": "Use unique stable item values and ensure a controlled or initial value identifies an appropriate enabled item. When items are removed or disabled, reconcile selection deliberately; this wrapper has no reconciliation effect.",
+      "sources": ["src/components/tabs/tabs.tsx"]
+    },
+    {
+      "id": "activation-mode",
+      "kind": "component",
+      "statement": "Set Base UI List activateOnFocus=true for automatic activation and false for manual activation. Preserve the primitive keyboard and disabled-tab behavior instead of adding independent click-only selection.",
+      "sources": ["src/components/tabs/tabs.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "orientation-and-direction",
+      "kind": "component",
+      "statement": "Forward orientation and root HTML properties to Base UI Root. An explicit ltr/rtl dir selects the DirectionProvider direction; otherwise use the inherited direction.",
+      "sources": ["src/components/tabs/tabs.tsx"]
+    },
+    {
+      "id": "named-tab-list",
+      "kind": "host",
+      "statement": "Supply a meaningful label for the tablist and accessible item labels. The default Views label is generic; icons are aria-hidden and cannot replace the textual name.",
+      "sources": ["src/components/tabs/tabs.tsx"]
+    },
+    {
+      "id": "panel-modes",
+      "kind": "component",
+      "statement": "Without sharedContent, render a Base UI Panel for each item value. When sharedContent is defined, render one unkeyed Panel associated with the current active value and place the shared content there instead of item.content.",
+      "sources": ["src/components/tabs/tabs.tsx"]
+    },
+    {
+      "id": "panel-lifecycle-boundary",
+      "kind": "host",
+      "statement": "Use sharedContent for a persistent workspace and keep its component type/key stable if local drafts must survive tab changes. Per-tab inactive-panel mounting follows Base UI defaults; the wrapper does not expose keepMounted or persist each view draft.",
+      "sources": ["src/components/tabs/tabs.tsx", "skills/create-layout/SKILL.md"]
+    },
+    {
+      "id": "count-information",
+      "kind": "component",
+      "statement": "Render a count when it is not undefined, display 99+ above 99, and retain the full numeric count in an aria-label. Counts are descriptive metadata rather than selection state.",
+      "sources": ["src/components/tabs/tabs.tsx"]
+    },
+    {
+      "id": "owned-and-nested-tokens",
+      "kind": "design",
+      "statement": "Use navigation group tokens for the line/pill tab treatments and overflow layout. Presentation changes must preserve Base UI focus behavior, semantic relationships and the selected host state.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "This wrapper does not route, fetch data, reconcile removed active values or preserve every inactive panel draft.",
+    "Shared-content state preservation depends on stable caller content identity; it is not persistence across unmounts or routes.",
+    "Primitive keyboard and panel lifecycle behavior is delegated to the installed Base UI version, not independently reimplemented or certified by this document."
+  ]
+}

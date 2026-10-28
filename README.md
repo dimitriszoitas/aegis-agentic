@@ -38,6 +38,8 @@ The proposed direction is one Aegis product with a common UI foundation and opti
 
 Storybook's **Contract Catalogue** and each family’s **Contract** tab expose the same generated catalogue used by the portable CLI and optional MCP adapter. API metadata, authored requirements, linked checks and reported evidence are separate facts. Missing behavioral contracts remain visible; a linked test or historical report does not certify the current implementation. Component and pattern entries are separate from infrastructure protocols.
 
+The **0.5 product behavior contract milestone** adds 20 source-backed documents. The current catalogue has **27 authored component/pattern contracts**, **25 mapped families out of 103**, **78 API-only families**, and two separately classified service protocols. The new schema-2 requirements distinguish component responsibilities, host obligations and design guidance, with stable ids and source references. This expands the written behavioral coverage without claiming that every requirement has executable or passing evidence. See [contract coverage and semantics](docs/CONTRACTS.md).
+
 ```sh
 node agent-kit/bin/aegis.mjs contracts coverage
 node agent-kit/bin/aegis.mjs contracts search "page layout"

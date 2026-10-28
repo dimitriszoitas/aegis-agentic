@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "id": "textarea",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Enter multiline text with optional bounded automatic growth and a character count.",
+  "anatomy": ["optional visible label", "native textarea", "optional associated character count"],
+  "states": [
+    "empty",
+    "populated",
+    "controlled",
+    "uncontrolled",
+    "disabled",
+    "read-only",
+    "invalid",
+    "required",
+    "auto-growing",
+    "scrolling-at-row-limit",
+    "keyboard-focus"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Native HTML textarea with React state, measured growth and shared useFieldControl metadata.",
+  "ownership": {
+    "component": [
+      "Native multiline editing and forwarded textarea ref",
+      "Value callbacks and optional measured growth",
+      "Associated label, descriptions and character count"
+    ],
+    "host": [
+      "Accessible naming and validation decisions",
+      "Controlled value and submission/reset behavior",
+      "Appropriate rows, maxRows and content limits"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "value-and-change",
+      "kind": "component",
+      "statement": "Display value when supplied or local text initialized from defaultValue otherwise. Changes update local state only when value is undefined, then call onValueChange and onChange.",
+      "sources": ["src/components/textarea/textarea.tsx"]
+    },
+    {
+      "id": "native-textarea",
+      "kind": "component",
+      "statement": "Render a native textarea with rows, maxLength and supported remaining textarea attributes, including name, form and readOnly; forward the public ref to that element.",
+      "sources": ["src/components/textarea/textarea.tsx"]
+    },
+    {
+      "id": "field-and-label",
+      "kind": "component",
+      "statement": "Resolve required, disabled, invalid and ARIA references through useFieldControl. Associate the optional visible label and merge the counter id into aria-describedby when showCount is enabled.",
+      "sources": ["src/components/textarea/textarea.tsx", "src/components/field/field.tsx"]
+    },
+    {
+      "id": "count-units",
+      "kind": "component",
+      "statement": "When showCount is enabled, render text.length with the optional maxLength denominator. This count uses JavaScript UTF-16 code units, not grapheme clusters or bytes.",
+      "sources": [
+        "src/components/textarea/textarea.tsx",
+        "src/components/textarea/textarea.stories.tsx"
+      ]
+    },
+    {
+      "id": "bounded-growth",
+      "kind": "component",
+      "statement": "When autoGrow is enabled, calculate height from computed line height, padding, border and scrollHeight, bounded by rows and maxRows; switch vertical overflow to auto when content exceeds the upper bound.",
+      "sources": ["src/components/textarea/textarea.tsx"]
+    },
+    {
+      "id": "growth-lifecycle",
+      "kind": "component",
+      "statement": "Recalculate growth when text or relevant sizing props change and when ResizeObserver detects a width change; disconnect that observer on effect cleanup.",
+      "sources": ["src/components/textarea/textarea.tsx"]
+    },
+    {
+      "id": "native-editing-and-locks",
+      "kind": "component",
+      "statement": "Retain native multiline keyboard editing and pass disabled/readOnly through to the textarea. The wrapper does not bind Enter to submission or provide an Escape action.",
+      "sources": ["src/components/textarea/textarea.tsx"]
+    },
+    {
+      "id": "controlled-host",
+      "kind": "host",
+      "statement": "Update value in response to accepted edits when using controlled mode. Own explicit reset behavior and validation of supplied programmatic values; native maxLength is not a programmatic-value truncation service.",
+      "sources": ["src/components/textarea/textarea.tsx"]
+    },
+    {
+      "id": "name-and-plain-composition",
+      "kind": "host",
+      "statement": "Provide a label, Field or explicit accessible name, including when appearance is plain inside another composition. Supply meaningful error descriptions and sensible positive rows/maxRows.",
+      "sources": [
+        "src/components/textarea/textarea.tsx",
+        "src/components/field/field.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "input-token-and-focus-policy",
+      "kind": "design",
+      "statement": "Use the input group for owned styles and fixed design defaults, retain keyboard-visible focus, and preserve size and font metrics across the four theme/mode mappings.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "tokens/component-categories.json",
+        "src/components/textarea/textarea.css"
+      ]
+    }
+  ],
+  "limitations": [
+    "The existing AutoGrowAndCounter story links a typing/count assertion; it does not certify all growth, resize, Unicode or native-form cases.",
+    "The wrapper has no explicit native form-reset synchronization listener.",
+    "Character counting is not grapheme-aware. Neither a counter nor an invalid flag validates application content."
+  ]
+}

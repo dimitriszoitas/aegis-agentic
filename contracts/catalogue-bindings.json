@@ -114,6 +114,329 @@
         }
       ],
       "evidence": []
+    },
+    {
+      "contractId": "data-grid",
+      "path": "contracts/agentic/data-grid.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-datagrid",
+      "implementation": "src/components/data-grid/data-grid.tsx",
+      "exportName": "DataGrid",
+      "checks": [
+        {
+          "path": "src/lib/table.test.ts",
+          "label": "Grid sizing and pagination tests",
+          "scope": "Clamping widths, autosize bounds and safe page indices; does not execute the grid DOM."
+        },
+        {
+          "path": "src/components/data-grid/data-grid.stories.tsx",
+          "label": "DataGrid interaction stories",
+          "scope": "Play assertions cover selected full-presentation, filter-layout, header-control and keyboard-resizing scenarios. The presentation includes additional host behavior."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "filter-bar",
+      "path": "contracts/agentic/filter-bar.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-filterbar",
+      "implementation": "src/patterns/filter-bar/filter-bar.tsx",
+      "exportName": "FilterBar",
+      "checks": [
+        {
+          "path": "src/lib/filters.test.ts",
+          "label": "Record filter model tests",
+          "scope": "Reducer transitions, facet combination, time boundaries and WorkRecord matching; not a rendered FilterBar interaction run."
+        },
+        {
+          "path": "src/patterns/filter-bar/filter-bar.stories.tsx",
+          "label": "FilterBar interaction stories",
+          "scope": "Play assertions cover query clearing, view controls, picker commits, panel visibility and focus after last-filter removal."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "page-header",
+      "path": "contracts/agentic/page-header.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-pageheader",
+      "implementation": "src/patterns/page-header/page-header.tsx",
+      "exportName": "PageHeader",
+      "checks": [
+        {
+          "path": "src/patterns/page-header/page-header.stories.tsx",
+          "label": "PageHeader navigation story",
+          "scope": "Play assertions cover heading level, back precedence, callback activation, action focus order and host editing state."
+        },
+        {
+          "path": "src/agentic/product-data-contracts.test.tsx",
+          "label": "Product data contract rendering checks",
+          "scope": "Back-link precedence, requested heading level/id and optional slot omission. Static server rendering only; does not exercise browser interaction or certify accessibility."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "side-nav",
+      "path": "contracts/agentic/side-nav.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-navigation-sidenav",
+      "implementation": "src/components/side-nav/side-nav.tsx",
+      "exportName": "SideNav",
+      "checks": [
+        {
+          "path": "src/components/side-nav/side-nav.stories.tsx",
+          "label": "SideNav keyboard stories",
+          "scope": "Play assertions cover expanded groups, collapsed menu keyboard selection/dismissal, focus return and active child state."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "tabs",
+      "path": "contracts/agentic/tabs.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-navigation-tabs",
+      "implementation": "src/components/tabs/tabs.tsx",
+      "exportName": "Tabs",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "pagination",
+      "path": "contracts/agentic/pagination.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-navigation-pagination",
+      "implementation": "src/components/pagination/pagination.tsx",
+      "exportName": "Pagination",
+      "checks": [
+        {
+          "path": "src/agentic/product-data-contracts.test.tsx",
+          "label": "Product data contract rendering checks",
+          "scope": "Zero-total and out-of-range display normalization, current-page semantics and disabled boundaries. Static server rendering only; does not exercise browser interaction or certify accessibility."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "metric-card",
+      "path": "contracts/agentic/metric-card.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-charts-metric-card",
+      "implementation": "src/components/metric-card/metric-card.tsx",
+      "exportName": "MetricCard",
+      "checks": [
+        {
+          "path": "src/agentic/product-data-contracts.test.tsx",
+          "label": "Product data contract rendering checks",
+          "scope": "Loading replacement, nonfinite delta omission, neutral zero and decrease-favorable semantics. Static server rendering only; does not exercise browser interaction or certify accessibility."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "sparkline",
+      "path": "contracts/agentic/sparkline.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-charts-sparkline",
+      "implementation": "src/components/sparkline/sparkline.tsx",
+      "exportName": "Sparkline",
+      "checks": [
+        {
+          "path": "src/agentic/product-data-contracts.test.tsx",
+          "label": "Product data contract rendering checks",
+          "scope": "Loading precedence, empty labeling and normalization of negative/nonfinite samples. Static server rendering only; does not exercise browser interaction or certify accessibility."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "description-list",
+      "path": "contracts/agentic/description-list.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-display-descriptionlist",
+      "implementation": "src/components/description-list/description-list.tsx",
+      "exportName": "DescriptionList",
+      "checks": [
+        {
+          "path": "src/agentic/product-data-contracts.test.tsx",
+          "label": "Product data contract rendering checks",
+          "scope": "Native term/value pairing and strict missing substitution preserving zero and distinguishing false. Static server rendering only; does not exercise browser interaction or certify accessibility."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "empty-state",
+      "path": "contracts/agentic/empty-state.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-feedback-empty-state",
+      "implementation": "src/components/empty-state/empty-state.tsx",
+      "exportName": "EmptyState",
+      "checks": [
+        {
+          "path": "src/agentic/product-data-contracts.test.tsx",
+          "label": "Product data contract rendering checks",
+          "scope": "Preset distinction, section/title associations and absence of an automatic live-alert role. Static server rendering only; does not exercise browser interaction or certify accessibility."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "text-input",
+      "path": "contracts/agentic/text-input.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-textinput",
+      "implementation": "src/components/text-input/text-input.tsx",
+      "exportName": "TextInput",
+      "checks": [
+        {
+          "path": "src/components/text-input/text-input.stories.tsx",
+          "label": "Clearable controlled-input story",
+          "scope": "Clearable play assertion checks the cleared value, native onChange host update and returned input focus; not every input type or form-reset case."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "textarea",
+      "path": "contracts/agentic/textarea.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-textarea",
+      "implementation": "src/components/textarea/textarea.tsx",
+      "exportName": "Textarea",
+      "checks": [
+        {
+          "path": "src/components/textarea/textarea.stories.tsx",
+          "label": "AutoGrowAndCounter typing story",
+          "scope": "Typing and rendered UTF-16 character count in one controlled fixture; not a comprehensive auto-growth or form-reset test."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "search-input",
+      "path": "contracts/agentic/search-input.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-searchinput",
+      "implementation": "src/components/search-input/search-input.tsx",
+      "exportName": "SearchInput",
+      "checks": [
+        {
+          "path": "src/components/search-input/search-input.stories.tsx",
+          "label": "DebouncedSearch story",
+          "scope": "Typing and clearing update a local result-count fixture through the debounced callback; no remote request cancellation or race proof."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "select",
+      "path": "contracts/agentic/select.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-select",
+      "implementation": "src/components/select/select.tsx",
+      "exportName": "Select",
+      "checks": [
+        {
+          "path": "src/components/select/select.stories.tsx",
+          "label": "KeyboardSelection story",
+          "scope": "Controlled option selection with ArrowDown/Enter and return of focus to the trigger; bounded story coverage, not every form/readOnly case."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "checkbox",
+      "path": "contracts/agentic/checkbox.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-checkbox",
+      "implementation": "src/components/checkbox/checkbox.tsx",
+      "exportName": "Checkbox",
+      "checks": [
+        {
+          "path": "src/components/checkbox/checkbox.stories.tsx",
+          "label": "ReadOnlyAndDisabled and SelectAll stories",
+          "scope": "Read-only controls remain focusable and immutable, disabled controls stay unavailable, and the local aggregate fixture changes mixed/checked state by click and Space."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "switch",
+      "path": "contracts/agentic/switch.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-switch",
+      "implementation": "src/components/switch/switch.tsx",
+      "exportName": "Switch",
+      "checks": [
+        {
+          "path": "src/components/switch/switch.stories.tsx",
+          "label": "ImmediateSetting story",
+          "scope": "A controlled local switch changes on pointer activation and Space; not evidence of persistence or comprehensive native-form behavior."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "segmented-control",
+      "path": "contracts/agentic/segmented-control.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-segmentedcontrol",
+      "implementation": "src/components/segmented-control/segmented-control.tsx",
+      "exportName": "SegmentedControl",
+      "checks": [
+        {
+          "path": "src/components/segmented-control/segmented-control.stories.tsx",
+          "label": "KeyboardSelection story",
+          "scope": "Native radio selection moves from Monthly to Quarterly with ArrowRight after pointer selection; no tab-panel or stable form-name behavior is asserted."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "side-sheet",
+      "path": "contracts/agentic/side-sheet.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-overlays-sidesheet",
+      "implementation": "src/components/side-sheet/side-sheet.tsx",
+      "exportName": "SideSheet",
+      "checks": [
+        {
+          "path": "src/components/side-sheet/side-sheet.stories.tsx",
+          "label": "HeaderAlignmentAndClose and ResizeFocus stories",
+          "scope": "Overlay header/scroll behavior, close/trigger focus return, pointer-vs-keyboard focus styling and resize keys; does not cover every docked or nested-overlay lifecycle."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "popover",
+      "path": "contracts/agentic/popover.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-overlays-popover",
+      "implementation": "src/components/popover/popover.tsx",
+      "exportName": "Popover",
+      "checks": [
+        {
+          "path": "src/components/popover/popover.stories.tsx",
+          "label": "ScrollableBody story",
+          "scope": "Body scrolling leaves header/footer fixed, the close action is available, and Escape returns focus to the trigger in one fixture."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "dropdown-menu",
+      "path": "contracts/agentic/dropdown-menu.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-lists-dropdownmenu",
+      "implementation": "src/components/dropdown-menu/dropdown-menu.tsx",
+      "exportName": "DropdownMenu",
+      "checks": [],
+      "evidence": []
     }
   ],
   "protocols": [

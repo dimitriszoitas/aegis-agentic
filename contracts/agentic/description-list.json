@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 2,
+  "id": "description-list",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present record metadata as semantic term/value pairs with a deliberate missing-value treatment.",
+  "anatomy": [
+    "description list root",
+    "item wrapper",
+    "term",
+    "description or missing-value replacement"
+  ],
+  "states": [
+    "populated",
+    "missing values",
+    "empty item collection",
+    "stacked or horizontal",
+    "one/two/three columns"
+  ],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Native dl, dt and dd semantics with CSS grid layout; no interaction state.",
+  "ownership": {
+    "component": [
+      "pair terms and descriptions in supplied order",
+      "strict missing-value substitution",
+      "responsive column presentation"
+    ],
+    "host": [
+      "stable unique item identities",
+      "meaningful labels and formatted values",
+      "interaction behavior inside any supplied ReactNode"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "semantic-pairs",
+      "kind": "component",
+      "statement": "Render a dl with one wrapper containing dt and dd for every supplied item, preserving array order.",
+      "sources": ["src/components/description-list/description-list.tsx"]
+    },
+    {
+      "id": "stable-pair-identity",
+      "kind": "host",
+      "statement": "Supply a stable unique id per item so React can retain item identity when metadata changes. The component does not detect duplicate ids.",
+      "sources": ["src/components/description-list/description-list.tsx"]
+    },
+    {
+      "id": "missing-value-definition",
+      "kind": "component",
+      "statement": "Use emptyValue only for null, undefined or the empty string. Preserve numeric zero; do not convert all falsy values into missing content.",
+      "sources": ["src/components/description-list/description-list.tsx"]
+    },
+    {
+      "id": "boolean-value-boundary",
+      "kind": "host",
+      "statement": "Format booleans or other domain values into meaningful React content before passing them. false is not classified as missing and React renders it without visible text.",
+      "sources": ["src/components/description-list/description-list.tsx"]
+    },
+    {
+      "id": "empty-collection",
+      "kind": "component",
+      "statement": "An empty items array renders an empty dl rather than an EmptyState or a loading message. emptyValue applies to individual descriptions, not the whole collection.",
+      "sources": ["src/components/description-list/description-list.tsx"]
+    },
+    {
+      "id": "layout-axes",
+      "kind": "component",
+      "statement": "columns chooses one, two or three top-level tracks and orientation selects stacked or horizontal term/value pairs; these settings do not alter the supplied semantic order.",
+      "sources": ["src/components/description-list/description-list.tsx"]
+    },
+    {
+      "id": "narrow-layout",
+      "kind": "component",
+      "statement": "At the narrow breakpoint, the list collapses its top-level columns to one. Horizontal orientation still uses its paired inner grid, and values allow long content to wrap.",
+      "sources": ["src/components/description-list/description-list.css"]
+    },
+    {
+      "id": "label-and-value-meaning",
+      "kind": "host",
+      "statement": "Provide understandable labels and appropriately formatted values; supply named shared controls when a value is interactive. DescriptionList does not infer editable fields, copy behavior or navigation from text.",
+      "sources": [
+        "src/components/description-list/description-list.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "async-state-ownership",
+      "kind": "host",
+      "statement": "Own loading, failures and recovery outside the list; keep missing individual values distinct from unavailable entire records. The component has no async state machine.",
+      "sources": [
+        "src/components/description-list/description-list.tsx",
+        "skills/create-layout/SKILL.md"
+      ]
+    },
+    {
+      "id": "owned-tokens",
+      "kind": "design",
+      "statement": "Use data-display group tokens for term/value typography, spacing and tracks. Preserve native description-list semantics and theme-invariant dimensions when extending the layout.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "No loading/error view, editing behavior or value formatting is provided.",
+    "The API exposes className rather than arbitrary root DOM props; outer labeling or region semantics belong to the host.",
+    "A missing-value fallback is not applied to false, whitespace-only strings or empty React fragments."
+  ]
+}

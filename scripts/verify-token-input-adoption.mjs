@@ -37,7 +37,7 @@ for (const entry of await readdir(join(root, 'node_modules'), { withFileTypes: t
 const runtime = await import(pathToFileURL(join(installed, 'agent-kit/runtime/core.mjs')).href);
 const kit = JSON.parse(await readFile(join(installed, 'agent-kit/kit.json'), 'utf8'));
 assert.equal(kit.version, manifest.version);
-assert.equal(runtime.registry.revision, 2);
+assert.equal(runtime.registry.revision, kit.registryRevision);
 const discovered = runtime.discoverRegistry('free text labels');
 const component = discovered.find((entry) => entry.id === 'token-input');
 assert(component, 'Installed registry must discover TokenInput.');
@@ -146,7 +146,7 @@ page.on('pageerror', (error) => errors.push(error.message));
 const report = {
   schemaVersion: 1,
   packageVersion: manifest.version,
-  registryRevision: 2,
+  registryRevision: kit.registryRevision,
   contractVersion: 2,
   consumer,
   tarball: packed[0].filename,

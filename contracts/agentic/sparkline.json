@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "id": "sparkline",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Render a compact noninteractive visual summary of a nonnegative numeric series with an accessible text label.",
+  "anatomy": [
+    "SVG image or empty/loading replacement",
+    "line, area or bars",
+    "single-point dot",
+    "optional unique AI gradient"
+  ],
+  "states": [
+    "populated",
+    "single sample",
+    "empty",
+    "loading",
+    "nonfinite or negative input sanitized"
+  ],
+  "tokenGroup": "data-viz",
+  "behaviorProvider": "Native SVG geometry and Aegis data normalization, with shared Skeleton for loading.",
+  "ownership": {
+    "component": [
+      "bounded dimensions and normalized samples",
+      "compact SVG geometry and image label",
+      "loading and empty replacements"
+    ],
+    "host": [
+      "valid series meaning, scale expectations and accessible summary",
+      "finite intended dimensions and nonnegative data domain",
+      "separate exact values or detailed chart when required"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "nonnegative-normalization",
+      "kind": "component",
+      "statement": "Map each nonfinite sample to zero and clamp each finite negative sample to zero before computing geometry or the default label. Do not claim preservation of signed data.",
+      "sources": ["src/components/sparkline/sparkline.tsx"]
+    },
+    {
+      "id": "dimension-bounds",
+      "kind": "component",
+      "statement": "Use group-token default dimensions when absent or nonfinite and clamp finite dimensions to token minimums. Explicit dimensions determine the SVG viewBox and empty/loading footprint.",
+      "sources": ["src/components/sparkline/sparkline.tsx"]
+    },
+    {
+      "id": "empty-versus-loading",
+      "kind": "component",
+      "statement": "Loading takes precedence over data and returns a named status containing a Skeleton. An empty nonloading series returns a dash image labeled with label or No activity data.",
+      "sources": ["src/components/sparkline/sparkline.tsx"]
+    },
+    {
+      "id": "populated-image-label",
+      "kind": "component",
+      "statement": "A populated SVG uses role=img and label when supplied; otherwise describe bucket count, latest normalized value and peak. No title, axis labels or exact-value table is added.",
+      "sources": ["src/components/sparkline/sparkline.tsx"]
+    },
+    {
+      "id": "single-sample-and-variants",
+      "kind": "component",
+      "statement": "For line/area a single sample is a centered dot; multiple samples form a line and area adds a baseline closure. Bars use zero-based normalized heights relative to a peak of at least one.",
+      "sources": ["src/components/sparkline/sparkline.tsx"]
+    },
+    {
+      "id": "local-scaling",
+      "kind": "host",
+      "statement": "Treat line/area geometry as a compact locally normalized trend, not a shared quantitative axis. Supply a detailed chart or exact-data alternative when users must compare magnitudes across independent sparklines.",
+      "sources": ["src/components/sparkline/sparkline.tsx"]
+    },
+    {
+      "id": "meaningful-series-label",
+      "kind": "host",
+      "statement": "Supply a label that states the actual quantity, time range and useful trend summary when the generic event-bucket text would be inaccurate. Decorative use and surrounding redundancy require an explicit accessibility decision.",
+      "sources": ["src/components/sparkline/sparkline.tsx"]
+    },
+    {
+      "id": "noninteractive-default",
+      "kind": "component",
+      "statement": "The implementation adds no animation, focus target or pointer interaction. General SVG props are forwarded only in the populated branch, so callers must not rely on those props being retained for loading or empty replacements.",
+      "sources": ["src/components/sparkline/sparkline.tsx"]
+    },
+    {
+      "id": "ai-gradient-identity",
+      "kind": "component",
+      "statement": "Generate a per-instance id for the AI gradient so multiple sparklines do not intentionally share a gradient definition. Other intents render with their group-token currentColor.",
+      "sources": ["src/components/sparkline/sparkline.tsx"]
+    },
+    {
+      "id": "owned-and-nested-tokens",
+      "kind": "design",
+      "statement": "Use data-viz group tokens for palette, dimensions and geometry defaults; keep nested Skeleton styling in its feedback group. Do not bypass group ownership through caller style overrides.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "Negative values are clipped and nonfinite values become zero; this is not a signed or missing-data-preserving chart.",
+    "There is no interactive tooltip, keyboard exploration or exact-value table.",
+    "Generic SVG props including className/style are not applied to the empty or loading replacement nodes.",
+    "Explicit labels can override the generic data summary and therefore must remain truthful."
+  ]
+}

@@ -4,7 +4,11 @@ import { CopyButton } from '@/components/copy-button';
 import { DescriptionList } from '@/components/description-list';
 import { Link } from '@/components/link';
 import { Tag } from '@/components/tag';
-import { getContractEntry, type ContractEntry } from '@/agentic/contracts';
+import {
+  getContractEntry,
+  type ContractEntry,
+  type ContractRequirement,
+} from '@/agentic/contracts';
 import './contracts.css';
 
 const words = (name: string) => name.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('-', ' ');
@@ -59,6 +63,48 @@ function SourceReference({ path, sha256 }: { path: string; sha256: string }) {
         SHA-256 <code title={sha256}>{sha256.slice(0, 16)}…</code>
       </span>
     </span>
+  );
+}
+
+function AuthoredRequirements({ entry }: { entry: ContractEntry }) {
+  const contract = entry.contract!;
+  const requirements = contract.document.requirements as readonly ContractRequirement[];
+  const labels = {
+    component: 'Component responsibility',
+    host: 'Caller responsibility',
+    design: 'Design constraint',
+  };
+  return (
+    <div className="contract-stack" data-contract-requirements>
+      <p>
+        Each requirement identifies who owns it and the sources used to author it. Source references
+        record provenance; they do not execute or certify the requirement.
+      </p>
+      <ul className="contract-references">
+        {requirements.map((requirement) => (
+          <li key={requirement.id} id={`requirement-${contract.id}-${requirement.id}`}>
+            <div className="contract-actions">
+              <Tag>{labels[requirement.kind]}</Tag>
+              <code>{requirement.id}</code>
+            </div>
+            <p>{requirement.statement}</p>
+            <details>
+              <summary>Requirement sources</summary>
+              <ul className="contract-references">
+                {requirement.sources.map((path) => {
+                  const reference = contract.references.find((item) => item.path === path);
+                  return (
+                    <li key={path}>
+                      {reference ? <SourceReference {...reference} /> : <code>{path}</code>}
+                    </li>
+                  );
+                })}
+              </ul>
+            </details>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -178,8 +224,9 @@ export function ContractDetails({ entry }: { entry: ContractEntry }) {
               contract. Their presence is a requirement record, not a passing test result.
             </p>
             <SourceReference {...authored.source} />
+            {authored.document.schemaVersion === 2 && <AuthoredRequirements entry={entry} />}
             {Object.entries(authored.document)
-              .filter(([key]) => !descriptiveKeys.has(key))
+              .filter(([key]) => !descriptiveKeys.has(key) && key !== 'requirements')
               .map(([key, value]) => (
                 <details className="contract-requirement" key={key} open={key === 'invariants'}>
                   <summary>{words(key)}</summary>

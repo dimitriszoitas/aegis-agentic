@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": 2,
+  "revision": 3,
   "entries": [
     {
       "id": "button",
@@ -140,6 +140,419 @@
       "provenance": {
         "origin": "experimental-composition",
         "source": "src/patterns/page-layout/recipes.ts; src/patterns/page-layout/page-layout.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "data-grid",
+      "name": "DataGrid",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["table", "record collection", "sortable rows"],
+      "capabilities": [
+        "browse-local-dataset",
+        "row-selection",
+        "row-expansion",
+        "local-pagination",
+        "virtualized-rows",
+        "column-configuration"
+      ],
+      "contract": "contracts/agentic/data-grid.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/data-grid",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/data-grid/data-grid.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "filter-bar",
+      "name": "FilterBar",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["record filters", "filter toolbar", "facet chips"],
+      "capabilities": [
+        "edit-record-filter-state",
+        "summarize-applied-filters",
+        "request-density-change",
+        "request-column-visibility"
+      ],
+      "contract": "contracts/agentic/filter-bar.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns/filter-bar",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "page-header",
+      "name": "PageHeader",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["page title", "detail heading", "page actions"],
+      "capabilities": [
+        "compose-page-heading",
+        "back-navigation-slot",
+        "page-context",
+        "responsive-action-layout"
+      ],
+      "contract": "contracts/agentic/page-header.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns/page-header",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/patterns/page-header/page-header.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "side-nav",
+      "name": "SideNav",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["sidebar", "navigation rail", "application navigation"],
+      "capabilities": [
+        "hierarchical-navigation",
+        "collapse-navigation",
+        "request-route-change",
+        "nested-navigation-menu"
+      ],
+      "contract": "contracts/agentic/side-nav.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/side-nav",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/side-nav/side-nav.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "tabs",
+      "name": "Tabs",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["view switcher", "tabbed workspace", "tab list"],
+      "capabilities": [
+        "select-view",
+        "controlled-selection",
+        "manual-or-automatic-activation",
+        "shared-content-panel"
+      ],
+      "contract": "contracts/agentic/tabs.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/tabs",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/tabs/tabs.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "pagination",
+      "name": "Pagination",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["page controls", "result paging", "page size"],
+      "capabilities": [
+        "request-page-change",
+        "request-page-size-change",
+        "announce-result-range",
+        "bounded-page-navigation"
+      ],
+      "contract": "contracts/agentic/pagination.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/pagination",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/pagination/pagination.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "metric-card",
+      "name": "MetricCard",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["metric summary", "kpi", "statistic card"],
+      "capabilities": [
+        "display-metric",
+        "describe-favorable-change",
+        "metric-loading-state",
+        "optional-compact-trend"
+      ],
+      "contract": "contracts/agentic/metric-card.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/metric-card",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/metric-card/metric-card.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "sparkline",
+      "name": "Sparkline",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["mini trend", "inline chart", "compact time series"],
+      "capabilities": [
+        "display-compact-series",
+        "normalize-nonnegative-series",
+        "describe-series",
+        "empty-and-loading-trend"
+      ],
+      "contract": "contracts/agentic/sparkline.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/sparkline",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/sparkline/sparkline.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "description-list",
+      "name": "DescriptionList",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["record metadata", "definition list", "label value pairs"],
+      "capabilities": [
+        "describe-record-fields",
+        "semantic-term-value-pairs",
+        "missing-field-value"
+      ],
+      "contract": "contracts/agentic/description-list.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/description-list",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/description-list/description-list.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "empty-state",
+      "name": "EmptyState",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["no results", "no data", "empty collection", "recovery message"],
+      "capabilities": ["explain-empty-results", "explain-unavailable-data", "recovery-action-slot"],
+      "contract": "contracts/agentic/empty-state.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/empty-state",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/empty-state/empty-state.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "text-input",
+      "name": "TextInput",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["text field", "single-line input", "clearable input"],
+      "capabilities": [
+        "single-value-entry",
+        "controlled-value",
+        "native-form-input",
+        "clear-input",
+        "disabled-state",
+        "read-only-state"
+      ],
+      "contract": "contracts/agentic/text-input.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/text-input",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/text-input/text-input.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "textarea",
+      "name": "Textarea",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["multiline input", "notes field", "character count"],
+      "capabilities": [
+        "multiline-entry",
+        "controlled-value",
+        "bounded-auto-growth",
+        "character-count",
+        "native-form-input"
+      ],
+      "contract": "contracts/agentic/textarea.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/textarea",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/textarea/textarea.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "search-input",
+      "name": "SearchInput",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["search field", "query input", "debounced search"],
+      "capabilities": [
+        "search-query-entry",
+        "immediate-value-change",
+        "debounced-search-callback",
+        "pending-timer-cancellation",
+        "clear-search"
+      ],
+      "contract": "contracts/agentic/search-input.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/search-input",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/search-input/search-input.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "select",
+      "name": "Select",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["single select", "option picker", "form select"],
+      "capabilities": [
+        "single-option-selection",
+        "controlled-value",
+        "controlled-open",
+        "native-form-input",
+        "keyboard-navigation",
+        "option-grouping"
+      ],
+      "contract": "contracts/agentic/select.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/select",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/select/select.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "checkbox",
+      "name": "Checkbox",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["check box", "boolean selection", "mixed checkbox"],
+      "capabilities": [
+        "boolean-selection",
+        "mixed-state-display",
+        "native-form-input",
+        "controlled-value",
+        "read-only-state",
+        "uncontrolled-form-reset"
+      ],
+      "contract": "contracts/agentic/checkbox.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/checkbox",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/checkbox/checkbox.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "switch",
+      "name": "Switch",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["on off control", "setting toggle", "boolean switch"],
+      "capabilities": [
+        "boolean-setting",
+        "controlled-value",
+        "native-form-input",
+        "disabled-state",
+        "read-only-state"
+      ],
+      "contract": "contracts/agentic/switch.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/switch",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/switch/switch.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "segmented-control",
+      "name": "SegmentedControl",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["segmented radio group", "compact choice group", "view choice"],
+      "capabilities": [
+        "single-option-selection",
+        "native-radio-keyboard",
+        "controlled-value",
+        "disabled-options",
+        "wrapping-options"
+      ],
+      "contract": "contracts/agentic/segmented-control.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/segmented-control",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/segmented-control/segmented-control.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "side-sheet",
+      "name": "SideSheet",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["detail panel", "docked aside", "side overlay"],
+      "capabilities": [
+        "contextual-detail-panel",
+        "modal-overlay",
+        "docked-aside",
+        "controlled-open",
+        "record-navigation",
+        "bounded-resize",
+        "scoped-focus-return"
+      ],
+      "contract": "contracts/agentic/side-sheet.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/side-sheet",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/side-sheet/side-sheet.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "popover",
+      "name": "Popover",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["anchored popup", "contextual content", "popover panel"],
+      "capabilities": [
+        "anchored-content",
+        "controlled-open",
+        "popup-naming",
+        "close-composition",
+        "scrollable-body",
+        "scoped-focus-return"
+      ],
+      "contract": "contracts/agentic/popover.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/popover",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/popover/popover.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "dropdown-menu",
+      "name": "DropdownMenu",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["action menu", "contextual actions", "menu preferences"],
+      "capabilities": [
+        "menu-actions",
+        "menu-checkboxes",
+        "menu-radio-selection",
+        "nested-submenus",
+        "controlled-open",
+        "disabled-items"
+      ],
+      "contract": "contracts/agentic/dropdown-menu.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/dropdown-menu",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
         "reviewedBy": null
       }
     }

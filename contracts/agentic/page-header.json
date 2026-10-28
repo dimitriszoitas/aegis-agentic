@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 2,
+  "id": "page-header",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Provide a page heading, navigation context, metadata and explicit actions in a responsive structural header.",
+  "anatomy": [
+    "optional back destination or breadcrumbs",
+    "leading content",
+    "semantic heading",
+    "description and metadata",
+    "action slot",
+    "optional lower content"
+  ],
+  "states": [
+    "title only",
+    "back navigation",
+    "breadcrumbs",
+    "actions present",
+    "narrow wrapping layout"
+  ],
+  "tokenGroup": "page-structure",
+  "behaviorProvider": "Native header and heading elements, with shared Link, Button and Breadcrumb for navigation.",
+  "ownership": {
+    "component": [
+      "heading element and id",
+      "back-versus-breadcrumb precedence",
+      "responsive arrangement of host content"
+    ],
+    "host": [
+      "heading hierarchy and meaningful page context",
+      "real navigation and action effects",
+      "async feedback and route focus handoff"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "heading-identity",
+      "kind": "component",
+      "statement": "Render h1 by default or the requested h2/h3 and assign headingId when supplied, otherwise a generated id. The header does not automatically name an outer page landmark.",
+      "sources": ["src/patterns/page-header/page-header.tsx"]
+    },
+    {
+      "id": "heading-hierarchy",
+      "kind": "host",
+      "statement": "Choose headingLevel and a stable headingId appropriate to the surrounding document. Route transitions must implement any desired focus or announcement handoff; PageHeader does not focus its heading.",
+      "sources": ["src/patterns/page-header/page-header.tsx", "skills/create-layout/SKILL.md"]
+    },
+    {
+      "id": "navigation-precedence",
+      "kind": "component",
+      "statement": "When back is present, render it instead of breadcrumbs, even when both are supplied. Without back, only a nonempty breadcrumb collection creates the navigation row.",
+      "sources": ["src/patterns/page-header/page-header.tsx"]
+    },
+    {
+      "id": "back-link-versus-action",
+      "kind": "component",
+      "statement": "A back destination with href renders the shared Link; a callback destination renders the shared Button and invokes that callback. The component does not infer browser-history navigation.",
+      "sources": ["src/patterns/page-header/page-header.tsx"]
+    },
+    {
+      "id": "functional-actions",
+      "kind": "host",
+      "statement": "Supply working links for navigation and buttons for actions. Model loading, disabled and failure states in those supplied action controls; the header has no pending-operation state.",
+      "sources": [
+        "src/patterns/page-header/page-header.tsx",
+        "src/patterns/page-header/page-header.stories.tsx",
+        "skills/create-layout/SKILL.md"
+      ]
+    },
+    {
+      "id": "optional-content-order",
+      "kind": "component",
+      "statement": "Optional leading content precedes the heading; description and metadata follow it; actions follow the summary in document order; children render below the main row. Optional wrappers render only for truthy slot values. A numeric zero can render as text without its wrapper, so the host must format such content intentionally.",
+      "sources": ["src/patterns/page-header/page-header.tsx"]
+    },
+    {
+      "id": "meaningful-metadata",
+      "kind": "host",
+      "statement": "Provide metadata with enough textual context to explain status or count and give supplied icon-only actions accessible names. Arbitrary ReactNode slots do not acquire domain meaning from the header.",
+      "sources": [
+        "src/patterns/page-header/page-header.tsx",
+        "skills/create-layout/SKILL.md",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "responsive-flow",
+      "kind": "component",
+      "statement": "The main row wraps, title and description can break long text, and the narrow breakpoint gives summary and actions full width without reordering their DOM.",
+      "sources": ["src/patterns/page-header/page-header.css"]
+    },
+    {
+      "id": "nested-interaction-ownership",
+      "kind": "design",
+      "statement": "Keep tabs, filters and action controls in the provided slots on their shared implementations; preserve their own state and interaction semantics across layout/theme changes.",
+      "sources": [
+        "skills/create-layout/SKILL.md",
+        "skills/references/design-contract.md",
+        "src/patterns/page-header/page-header.tsx"
+      ]
+    },
+    {
+      "id": "owned-and-nested-tokens",
+      "kind": "design",
+      "statement": "Use page-structure tokens for header spacing, typography and icons; nested Button, Link and Breadcrumb retain their own groups. Theme changes must preserve heading dimensions and action order.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "PageHeader is structural; it does not manage routing, browser history, authentication or asynchronous actions.",
+    "headingId is an identifier, not a focus API, and arbitrary content is not semantically validated."
+  ]
+}

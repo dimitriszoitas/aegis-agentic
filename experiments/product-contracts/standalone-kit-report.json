@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-agentic-consumer-ACv9M4",
+  "checks": [
+    "Portable catalogue and CLI agree on API, authored behavior and separate protocol coverage; unmapped families remain explicit gaps",
+    "Page recipes, contract and discovery agree in an isolated kit; four valid archetypes pass and incompatible widths, grids, slots and unknown choices fail without React or npm modules",
+    "aegis: standalone compilation and clean scan",
+    "atlas: standalone compilation and clean scan",
+    "solstice: standalone compilation and clean scan",
+    "Invalid profile rejected",
+    "Custom team profile compiles with its own identity, brand, radius, typography and density",
+    "Deterministic composition, invalid variants and mismatched profile pin",
+    "Discovery, duplicate conflict detection, proposal reservation, stale write refusal",
+    "Real drift detected, repaired, backed up and independently rescanned",
+    "Changed approved source blocks automatic repair",
+    "Output symlink refused",
+    "Portable product policy accepts aliased public patterns and rejects prop/import drift without npm modules"
+  ],
+  "scope": "Standalone exported kit in a fresh directory with no source checkout or npm modules. Owner promotion is not performed by this test."
+}

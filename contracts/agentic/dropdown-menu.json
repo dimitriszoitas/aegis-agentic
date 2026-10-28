@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 2,
+  "id": "dropdown-menu",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Expose contextual actions and optional menu checkbox/radio preferences, grouped items and nested submenus.",
+  "anatomy": [
+    "trigger",
+    "portal and positioner",
+    "named menu popup",
+    "action items",
+    "optional groups and separators",
+    "optional checkbox items",
+    "optional radio groups",
+    "optional submenu triggers and nested popups"
+  ],
+  "states": [
+    "open",
+    "closed",
+    "controlled-open",
+    "uncontrolled-open",
+    "disabled-item",
+    "disabled-submenu",
+    "checkbox-checked",
+    "checkbox-unchecked",
+    "checkbox-mixed",
+    "radio-selected",
+    "submenu-open",
+    "keyboard-focus"
+  ],
+  "tokenGroup": "trigger",
+  "behaviorProvider": "Base UI Menu primitives with typed recursive menu entries and optional DirectionProvider.",
+  "ownership": {
+    "component": [
+      "Menu entry composition and primitive navigation/dismissal delegation",
+      "Checkbox/radio selection requests and per-item close policy",
+      "Trigger composition, disabled items and popup naming"
+    ],
+    "host": [
+      "Action effects and application validation",
+      "Controlled open/checkbox/radio updates",
+      "Meaningful labels, stable identities and any actual shortcuts"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "root-state",
+      "kind": "component",
+      "statement": "Forward open, defaultOpen and onOpenChange to the Menu root. Default defaultOpen and modal to false; modal is independently configurable.",
+      "sources": ["src/components/dropdown-menu/dropdown-menu.tsx"]
+    },
+    {
+      "id": "trigger-composition",
+      "kind": "component",
+      "statement": "Compose the supplied element through Primitive.Trigger. Treat native button elements and custom components as native-button triggers; non-button intrinsic elements use the primitive non-native trigger path.",
+      "sources": ["src/components/dropdown-menu/dropdown-menu.tsx"]
+    },
+    {
+      "id": "typed-menu-entries",
+      "kind": "component",
+      "statement": "Render the discriminated entry types as primitive action items, checkbox items, radio groups, submenus, groups or separators. Groups and submenus recursively render their supplied items.",
+      "sources": ["src/components/dropdown-menu/dropdown-menu.tsx"]
+    },
+    {
+      "id": "keyboard-and-dismissal",
+      "kind": "component",
+      "statement": "Keep keyboard navigation, typeahead, submenu navigation, Escape dismissal and focus return delegated to Base UI Menu; this wrapper does not replace the menu with a form select or a custom key handler.",
+      "sources": ["src/components/dropdown-menu/dropdown-menu.tsx"]
+    },
+    {
+      "id": "action-activation",
+      "kind": "component",
+      "statement": "Forward an action item onSelect as the primitive Item onClick handler and leave normal action-item closing to the primitive default. intent destroy selects visual treatment; it does not add a confirmation or permission check.",
+      "sources": ["src/components/dropdown-menu/dropdown-menu.tsx"]
+    },
+    {
+      "id": "checkbox-item-policy",
+      "kind": "component",
+      "statement": "Render checkbox menu items without closing on click. Map indeterminate to aria-checked mixed and a minus indicator, and convert its next activation callback to true; otherwise forward the primitive boolean next value.",
+      "sources": ["src/components/dropdown-menu/dropdown-menu.tsx"]
+    },
+    {
+      "id": "radio-item-policy",
+      "kind": "component",
+      "statement": "Render each radio-group from its supplied value and onValueChange, with individual disabled options and closeOnClick enabled on radio items.",
+      "sources": ["src/components/dropdown-menu/dropdown-menu.tsx"]
+    },
+    {
+      "id": "disabled-entries",
+      "kind": "component",
+      "statement": "Pass disabled flags to action items, checkbox items, radio options and submenu triggers. A group label or separator is structural rather than an action.",
+      "sources": ["src/components/dropdown-menu/dropdown-menu.tsx"]
+    },
+    {
+      "id": "labels-and-direction",
+      "kind": "component",
+      "statement": "Name the top-level popup from label, default Actions, and render item labels, optional icons and shortcut hints. Apply DirectionProvider only when an explicit dir is supplied; otherwise inherit surrounding direction.",
+      "sources": ["src/components/dropdown-menu/dropdown-menu.tsx"]
+    },
+    {
+      "id": "controlled-state-host",
+      "kind": "host",
+      "statement": "Update open when controlled and update checkbox checked/radio value when accepting callbacks. Supply unique stable entry ids and radio option values; the menu does not store application preferences for controlled entries.",
+      "sources": ["src/components/dropdown-menu/dropdown-menu.tsx"]
+    },
+    {
+      "id": "actions-and-names-host",
+      "kind": "host",
+      "statement": "Provide a named operable trigger and meaningful menu/item labels, implement every advertised action and any shortcut key handling, and own destructive-action confirmation or errors. shortcut text is a kbd display only, not a registered command.",
+      "sources": [
+        "src/components/dropdown-menu/dropdown-menu.tsx",
+        "src/components/dropdown-menu/dropdown-menu.stories.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "trigger-token-policy",
+      "kind": "design",
+      "statement": "Use the trigger group for DropdownMenu-owned styling and icon defaults, including portaled menus and submenus. Preserve Base UI focus/navigation behavior and nested shared component ownership.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "tokens/component-categories.json",
+        "src/components/dropdown-menu/dropdown-menu.css"
+      ]
+    }
+  ],
+  "limitations": [
+    "This is an action/menu-preference surface, not a form-compatible single-value Select. It has no public name/form/required/readOnly field API.",
+    "Displayed shortcuts and destructive intent are presentation, not shortcut registration, authorization or confirmation behavior.",
+    "The current family stories demonstrate states and local callbacks but contain no play assertions; no passing interaction evidence is claimed by this baseline.",
+    "Controlled checkbox/radio item state remains with the host, and indeterminate is not a user-cycled third state."
+  ]
+}

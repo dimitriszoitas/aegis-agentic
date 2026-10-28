@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 2,
+  "id": "side-nav",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present hierarchical application destinations in an expanded sidebar or collapsed navigation rail while delegating route changes to the host.",
+  "anatomy": [
+    "brand and collapse toggle",
+    "optional workspace region",
+    "optional search action",
+    "section groups",
+    "destination buttons and expandable groups or menus",
+    "footer slot"
+  ],
+  "states": [
+    "expanded",
+    "collapsed",
+    "active destination",
+    "expanded child group",
+    "collapsed group menu open"
+  ],
+  "tokenGroup": "navigation",
+  "behaviorProvider": "Native navigation buttons and Aegis expansion state; collapsed hierarchy uses shared Base UI-backed DropdownMenu and Tooltip.",
+  "ownership": {
+    "component": [
+      "collapse presentation and optional internal collapse state",
+      "expanded-group state and active visual markers",
+      "named buttons and inert collapsed workspace"
+    ],
+    "host": [
+      "active route state and real onNavigate effect",
+      "unique item ids, contextual labels and icons",
+      "search behavior, shortcut registration and custom footer/workspace state"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "controlled-navigation",
+      "kind": "host",
+      "statement": "Own activeId and update it in response to onNavigate after performing the intended route or view transition. Navigation items are buttons, not href links; the component does not integrate a router or browser history.",
+      "sources": ["src/components/side-nav/side-nav.tsx"]
+    },
+    {
+      "id": "leaf-versus-group",
+      "kind": "component",
+      "statement": "Expanded leaf buttons invoke onNavigate(id); buttons with nonempty children toggle their child region instead. Expanded active destinations expose aria-current=page and expanded groups expose their controlled region id.",
+      "sources": ["src/components/side-nav/side-nav.tsx"]
+    },
+    {
+      "id": "collapse-control",
+      "kind": "component",
+      "statement": "collapsed controls the rail when supplied; otherwise defaultCollapsed initializes internal state. The toggle emits onCollapsedChange and updates internal state, while a controlled host must supply the accepted collapsed value.",
+      "sources": ["src/components/side-nav/side-nav.tsx"]
+    },
+    {
+      "id": "ancestor-expansion",
+      "kind": "component",
+      "statement": "Active ancestors initialize expanded groups, and expanding from the collapsed rail merges the current active ancestors into those groups. Changing activeId while already expanded does not automatically expand newly active ancestors.",
+      "sources": ["src/components/side-nav/side-nav.tsx"]
+    },
+    {
+      "id": "collapsed-nested-navigation",
+      "kind": "component",
+      "statement": "A collapsed parent with children opens a shared DropdownMenu with recursively nested items. Leaf selection requests navigation and active ancestors mark the parent visually; expanded children are not simultaneously rendered in the rail.",
+      "sources": ["src/components/side-nav/side-nav.tsx"]
+    },
+    {
+      "id": "collapsed-accessibility",
+      "kind": "component",
+      "statement": "Collapsed destination buttons retain explicit accessible labels and tooltips; hidden workspace content is aria-hidden and inert. The same collapse toggle remains mounted with its updated accessible label.",
+      "sources": ["src/components/side-nav/side-nav.tsx"]
+    },
+    {
+      "id": "search-is-callback",
+      "kind": "host",
+      "statement": "When search is visible, wire onSearch to a real search interface. The displayed Cmd-K hint is visual content only; the host must register and scope any keyboard shortcut.",
+      "sources": ["src/components/side-nav/side-nav.tsx"]
+    },
+    {
+      "id": "workspace-content-truth",
+      "kind": "host",
+      "statement": "Replace or hide the default workspace summary when its fixed avatar, Team workspace subtitle or All systems connected status would be inaccurate. Supplying workspace changes only its displayed name.",
+      "sources": ["src/components/side-nav/side-nav.tsx"]
+    },
+    {
+      "id": "footer-and-responsive-state",
+      "kind": "host",
+      "statement": "The footer receives collapsed state when supplied as a function; the host must make its content appropriate for both presentations and handle route focus transitions or mobile drawer behavior separately.",
+      "sources": ["src/components/side-nav/side-nav.tsx"]
+    },
+    {
+      "id": "owned-and-nested-tokens",
+      "kind": "design",
+      "statement": "Use navigation tokens for sidebar-owned layout, icons and active styling; nested IconButton, DropdownMenu, Tooltip, CountBadge and Kbd retain their groups. Verify focus and legibility in both collapse states and all theme mappings.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "skills/create-layout/SKILL.md",
+        "tokens/component-categories.json"
+      ]
+    }
+  ],
+  "limitations": [
+    "No router, Cmd-K listener, responsive modal drawer or automatic route-heading focus is implemented.",
+    "There is no selected-item expansion synchronization effect after an external activeId change while expanded.",
+    "Default workspace status is illustrative copy, not a health check."
+  ]
+}

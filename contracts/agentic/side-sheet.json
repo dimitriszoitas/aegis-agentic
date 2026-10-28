@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 2,
+  "id": "side-sheet",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Inspect contextual content in a modal side overlay or a docked nonmodal aside, with optional record navigation and resizing.",
+  "anatomy": [
+    "optional trigger",
+    "modal portal/backdrop or docked aside",
+    "optional resize separator",
+    "header title/description/close",
+    "optional navigation and header actions",
+    "focusable scroll body",
+    "optional footer",
+    "optional SideSheetSection and SideSheetField content helpers"
+  ],
+  "states": [
+    "open",
+    "closed",
+    "controlled",
+    "uncontrolled",
+    "modal-overlay",
+    "docked",
+    "resizable",
+    "resizing",
+    "first-record",
+    "last-record",
+    "keyboard-focus"
+  ],
+  "tokenGroup": "surface",
+  "behaviorProvider": "Base UI Dialog for overlay state/trigger and modal behavior; native aside for docked content; measured pointer/keyboard resize logic.",
+  "ownership": {
+    "component": [
+      "Open-state adapter and overlay/docked rendering",
+      "Names, close control, scoped focus handoffs and scroll body",
+      "Optional bounded resize and record-navigation affordances"
+    ],
+    "host": [
+      "Record selection, data loading and previous/next updates",
+      "Controlled open state, draft lifetime and submission effects",
+      "Meaningful title, trigger and content semantics"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "open-state",
+      "kind": "component",
+      "statement": "Resolve open from the supplied prop or local state initialized from defaultOpen. Update local state only when open is undefined and notify onOpenChange with the requested boolean.",
+      "sources": ["src/components/side-sheet/side-sheet.tsx"]
+    },
+    {
+      "id": "overlay-vs-docked",
+      "kind": "component",
+      "statement": "For overlay mode, use a modal Dialog with Portal, Backdrop and Popup. For docked mode, use a nonmodal root and conditionally render an aside in place, without the overlay portal/backdrop; docked mode disables pointer dismissal.",
+      "sources": ["src/components/side-sheet/side-sheet.tsx"]
+    },
+    {
+      "id": "dismissal-paths",
+      "kind": "component",
+      "statement": "The header close button requests false. Overlay Escape and outside-pointer behavior are delegated to Dialog, with disablePointerDismissal forwarded; docked content closes on an unprevented Escape bubbling inside the aside, not on an outside pointer.",
+      "sources": ["src/components/side-sheet/side-sheet.tsx"]
+    },
+    {
+      "id": "accessible-regions",
+      "kind": "component",
+      "statement": "Associate the sheet with its title and optional description ids. Render the body as a focusable region named by the title; use Dialog title/description parts in overlay mode and native heading/paragraph elements when docked.",
+      "sources": ["src/components/side-sheet/side-sheet.tsx"]
+    },
+    {
+      "id": "overlay-focus-lifecycle",
+      "kind": "component",
+      "statement": "On overlay opening, request initial focus on the first sheet icon button, normally Close. On closing, allow primitive focus return unless focus has already moved to an element outside the popup.",
+      "sources": ["src/components/side-sheet/side-sheet.tsx"]
+    },
+    {
+      "id": "docked-focus-lifecycle",
+      "kind": "component",
+      "statement": "Docked content does not automatically focus a close control or trap focus. On unmount, restore the remembered connected opener only when focus was still inside the panel and has not already moved elsewhere.",
+      "sources": ["src/components/side-sheet/side-sheet.tsx"]
+    },
+    {
+      "id": "scroll-and-slots",
+      "kind": "component",
+      "statement": "Keep header and optional footer outside the body scroll region. headerActions takes precedence over the backward-compatible actions alias; Section and Field helpers render content structure without application data behavior.",
+      "sources": [
+        "src/components/side-sheet/side-sheet.tsx",
+        "src/components/side-sheet/side-sheet.css",
+        "src/components/side-sheet/side-sheet.stories.tsx"
+      ]
+    },
+    {
+      "id": "record-navigation",
+      "kind": "component",
+      "statement": "Show navigation when both position and total are supplied. Disable Previous without its callback or at position <= 1, and Next without its callback or at position >= total; announce the position text through a polite live span.",
+      "sources": ["src/components/side-sheet/side-sheet.tsx"]
+    },
+    {
+      "id": "resize-interaction",
+      "kind": "component",
+      "statement": "When resizable is enabled, expose a labeled vertical separator with current/min/max values. Pointer dragging and ArrowLeft/ArrowRight change width, Shift uses the larger step, and Home/End select the measured limits; clamp width to configured and available space.",
+      "sources": [
+        "src/components/side-sheet/side-sheet.tsx",
+        "src/components/side-sheet/side-sheet.stories.tsx"
+      ]
+    },
+    {
+      "id": "data-and-lifecycle-host",
+      "kind": "host",
+      "statement": "Update controlled open and record-navigation props from callbacks. Own record retrieval, loading/errors, unsaved-change policy, form submission and draft persistence across conditional mounting or closing; the sheet does not save records or veto closure for dirty forms.",
+      "sources": ["src/components/side-sheet/side-sheet.tsx", "skills/create-layout/SKILL.md"]
+    },
+    {
+      "id": "content-and-trigger-host",
+      "kind": "host",
+      "statement": "Supply a meaningful title and closeLabel, valid one-based navigation position/total, and a usable trigger when needed. Custom trigger elements must preserve the primitive ref and event props; content controls require their own labels and form semantics.",
+      "sources": ["src/components/side-sheet/side-sheet.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "surface-and-focus-policy",
+      "kind": "design",
+      "statement": "Keep sheet-owned styling and fixed defaults in the surface group, preserve nested shared component ownership, respect reduced motion, and retain keyboard-visible focus and the scoped scroll container.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "tokens/component-categories.json",
+        "src/components/side-sheet/side-sheet.css"
+      ]
+    }
+  ],
+  "limitations": [
+    "Docked mode is not a modal dialog: it has no modal focus trap, overlay backdrop or global outside-pointer dismissal.",
+    "onOpenChange exposes only a boolean, not primitive event-details cancellation. Controlled hosts may decline a request by retaining open, but this contract does not supply an unsaved-change workflow.",
+    "Resizing is measured local UI state, not persisted preference storage. Existing story assertions cover overlay focus/close/resize cases, not every docked or nested-overlay lifecycle.",
+    "No loading, error, empty-record or native form implementation is provided by the sheet itself."
+  ]
+}

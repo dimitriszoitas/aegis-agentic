@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 2,
+  "id": "data-grid",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Browse a supplied local dataset with sortable columns, row selection, optional details, local pagination and optional virtualization.",
+  "anatomy": [
+    "toolbar or host toolbar slot",
+    "named scroll region",
+    "grid header and column controls",
+    "data rows with optional selection and expansion controls",
+    "loading, error or empty body",
+    "pagination or count footer"
+  ],
+  "states": [
+    "populated",
+    "loading",
+    "error",
+    "empty",
+    "row selected",
+    "row expanded",
+    "column sorted, resized, reordered or pinned",
+    "paginated or virtualized"
+  ],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "TanStack Table and Virtual provide row models and measured rendering; Aegis implements row keyboard handling and composes shared Checkbox, DropdownMenu and Pagination controls.",
+  "ownership": {
+    "component": [
+      "local sorting, column state, expansion and pagination",
+      "row focus, selection requests and measured virtualization",
+      "body-state precedence and toolbar integration"
+    ],
+    "host": [
+      "stable unique row identities and meaningful labels",
+      "fetching, filtering, mutations and complete local dataset",
+      "controlled selection/density acknowledgment and custom cell interaction semantics"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "stable-row-identity",
+      "kind": "host",
+      "statement": "Supply stable unique getRowId values and meaningful rowLabel values; selection, expansion, keyed rendering and focus restoration use those identities. Keep custom cell controls independently named.",
+      "sources": ["src/components/data-grid/data-grid.tsx"]
+    },
+    {
+      "id": "controlled-selection",
+      "kind": "component",
+      "statement": "selectedRowIds controls the selection when supplied; otherwise defaultSelectedRowIds initializes internal selection. Selection changes emit all selected ids and only matching row objects from the currently supplied data.",
+      "sources": ["src/components/data-grid/data-grid.tsx"]
+    },
+    {
+      "id": "host-selection-reconciliation",
+      "kind": "host",
+      "statement": "A controlled host must feed accepted selectedRowIds back and decide whether ids absent from current data remain selected. Bulk-action row objects cover only records present in data, not unavailable server records.",
+      "sources": ["src/components/data-grid/data-grid.tsx"]
+    },
+    {
+      "id": "local-pagination",
+      "kind": "component",
+      "statement": "The supplied data is locally sorted and paginated by default. Pagination derives its total from data.length and clamps a rendered page after data shrinks; pagination=false presents the supplied rows without local page slicing. pageSize initializes internal page state rather than controlling later page-size changes.",
+      "sources": ["src/components/data-grid/data-grid.tsx"]
+    },
+    {
+      "id": "loading-error-empty-precedence",
+      "kind": "component",
+      "statement": "Loading replaces body rows with skeletons and marks the grid busy; otherwise a truthy error replaces rows with the error EmptyState and optional retry action; otherwise zero displayed rows renders the empty state. Loading disables pagination but is not a blanket lock on every toolbar or header control.",
+      "sources": ["src/components/data-grid/data-grid.tsx"]
+    },
+    {
+      "id": "row-keyboard-boundary",
+      "kind": "component",
+      "statement": "When a key originates on the row itself, Up/Down/Home/End move row focus, Enter invokes onRowClick, Space toggles enabled selection, and Right/Left expand or collapse eligible details. Events from nested controls do not execute those row shortcuts.",
+      "sources": ["src/components/data-grid/data-grid.tsx"]
+    },
+    {
+      "id": "row-click-boundary",
+      "kind": "component",
+      "statement": "A row click invokes onRowClick only outside recognized interactive descendants and when no text selection exists. The host must supply actual navigation or detail-opening behavior.",
+      "sources": ["src/components/data-grid/data-grid.tsx"]
+    },
+    {
+      "id": "selection-toolbar-ownership",
+      "kind": "host",
+      "statement": "When supplying renderToolbar, render its selectionActions in the intended selection mode and connect density and visibility through the supplied toolbar API. Custom bulk actions must implement their real operations and call clear when appropriate.",
+      "sources": ["src/components/data-grid/data-grid.tsx"]
+    },
+    {
+      "id": "column-controls",
+      "kind": "component",
+      "statement": "Column menus provide pinning, sorting, hiding and movement alternatives to drag; movement stays within a pinned or unpinned group, and the built-in visibility controls preserve at least one visible data column. Resize handles support Arrow keys, Shift larger steps, Home/End bounds and Enter autosize.",
+      "sources": ["src/components/data-grid/data-grid.tsx"]
+    },
+    {
+      "id": "measured-virtualization",
+      "kind": "component",
+      "statement": "Virtualization is requested explicitly or defaults on above 200 supplied records, and is inactive during loading/error or with no entries. Row focus scrolls the target into view; detail rows have separate measured entries. Resize observers, drag listeners and resize listeners are cleaned up on unmount.",
+      "sources": ["src/components/data-grid/data-grid.tsx"]
+    },
+    {
+      "id": "source-state-ownership",
+      "kind": "host",
+      "statement": "Provide the complete local result set and apply filters before passing data. Fetching, error recovery, remote pagination, authorization and persistence of user column preferences are host responsibilities; the grid does not implement those services.",
+      "sources": ["src/components/data-grid/data-grid.tsx"]
+    },
+    {
+      "id": "owned-and-nested-tokens",
+      "kind": "design",
+      "statement": "Use data-display group tokens for grid-owned visuals and density; nested Checkbox, DropdownMenu, EmptyState and Pagination retain their own groups. Preserve dimensions across the four theme/mode mappings and verify the actual scroll container.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "skills/create-layout/SKILL.md",
+        "tokens/component-categories.json"
+      ]
+    }
+  ],
+  "limitations": [
+    "This baseline covers DataGrid, not the record-specific DataGridPresentation demonstration or every data-grid cell family.",
+    "Sorting, expansion, column state and pagination are initialized internally; they are not a general externally controlled or server-side grid protocol.",
+    "Row-oriented keyboard handling is not an editable spreadsheet or full two-dimensional cell navigation model.",
+    "No browser run, visual acceptance or comprehensive accessibility certification is implied by these source-backed requirements."
+  ]
+}
