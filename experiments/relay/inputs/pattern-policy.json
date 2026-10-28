@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 2,
+  "product": "relay",
+  "revision": 1,
+  "scope": "src",
+  "mode": {
+    "default": "dark",
+    "supported": [
+      "light",
+      "dark"
+    ]
+  },
+  "pages": [
+    {
+      "id": "requests",
+      "source": "src/requests.tsx",
+      "title": "Requests",
+      "collection": "grid",
+      "patterns": [
+        "pageHeader",
+        "collectionFilters",
+        "dataGrid"
+      ]
+    },
+    {
+      "id": "customers",
+      "source": "src/customers.tsx",
+      "title": "Customers",
+      "collection": "grid",
+      "patterns": [
+        "pageHeader",
+        "collectionFilters",
+        "dataGrid"
+      ]
+    }
+  ],
+  "patterns": {
+    "pageHeader": {
+      "module": "@dimitriszoitas/aegis-agentic/patterns/page-header",
+      "export": "PageHeader",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "requiredProps": [
+        "title",
+        "description",
+        "metadata"
+      ],
+      "forbiddenLocalTags": [
+        "h1"
+      ],
+      "invariants": [
+        "One title and description; full collection count in metadata",
+        "Shared shell owns page padding; actions in the actions slot"
+      ],
+      "allowedVariations": [
+        "Requests may add New request; Customers has no invented primary action"
+      ]
+    },
+    "collectionFilters": {
+      "module": "./patterns",
+      "export": "RelayFilters",
+      "source": "src/patterns.tsx",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "requiredProps": [
+        "query",
+        "onQueryChange",
+        "status",
+        "onStatusChange",
+        "statusOptions",
+        "resultCount",
+        "noun"
+      ],
+      "desktopSearchWidthToken": "--group-application-business-app-size-width-canvas-snug",
+      "mobileSearchWidth": "available-content-width",
+      "invariants": [
+        "Same immediate search/status filter row before the grid",
+        "Clear query and status together",
+        "At 760px and below search is full width"
+      ],
+      "allowedVariations": [
+        "Domain search fields, status vocabulary and counts"
+      ]
+    },
+    "dataGrid": {
+      "module": "@dimitriszoitas/aegis-agentic/data-grid",
+      "export": "DataGrid",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "requiredProps": [
+        "density",
+        "enableSelection",
+        "pagination",
+        "pageSize",
+        "onRowClick"
+      ],
+      "forbiddenProps": [
+        "renderToolbar"
+      ],
+      "invariants": [
+        "Default density; selection disabled; pagination enabled; pageSize10",
+        "Keep canonical display controls",
+        "Row details open SideSheet",
+        "Grid owns horizontal overflow"
+      ]
+    }
+  },
+  "exceptions": [],
+  "checks": [
+    "node node_modules/@dimitriszoitas/aegis-agentic/agent-kit/bin/aegis.mjs patterns check pattern-policy.json --project .",
+    "npm run build"
+  ],
+  "changePolicy": "Reuse these project patterns; record intentional exceptions with specific scope and reason. Runtime acceptance includes both modes, narrow screens, state preservation and keyboard use."
+}

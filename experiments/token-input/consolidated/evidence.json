@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-28T18:55:55.211265+00:00",
+  "status": "experiment-verified-with-bounded-evidence",
+  "packageVersion": "0.3.0-experiment.0",
+  "registryRevision": 2,
+  "contractVersion": 2,
+  "decision": "experiments/token-input/consolidated/decision.json",
+  "humanApproval": null,
+  "publicRelease": null,
+  "sourceHashes": {
+    "src/agentic/components/TokenInput.tsx": "9461f909465f16a07f79ac3f1135bb5f92d576fd27012b52a6dbc4d83236c226",
+    "src/agentic/components/TokenInput.css": "d70e6c4a8a2e1bc09a4a41218be367279ac0917b8f3f9cf8c4135b1c7ed3a720",
+    "src/agentic/components/token-input-model.ts": "11e71b12ad3114aa05ae1747e4fa5cac6632115bde8ef3ae734a7a7b4849da81",
+    "src/agentic/components/token-input-model.test.ts": "2c0b73341491ba10df3e72897cf21bc801035c350b0e81351af0e764ce8d4de1",
+    "contracts/agentic/token-input.json": "6054b0e4559a08ef39a1c3e0ae0c9e339bdc59da93e2f7ae92a05d9a0da0a0e3",
+    "scripts/fixtures/token-input-consolidated.tsx": "695c54318df8273828a61157d80a5627f9dfdfb198d7169edd1cb07c83b90ef7",
+    "scripts/verify-token-input.mjs": "8fccc181d3bfb23ed00fcf19d2fc6e3c341a4b23aa995147e333d4748a1f1b0a",
+    "scripts/verify-token-input-adoption.mjs": "a4bc2b3c87dfa2b73494cb5c45a8b3ca3036b61be8bf965da756c4176713c0c0"
+  },
+  "verification": {
+    "consolidatedModelTests": {
+      "command": "npx vitest run src/agentic/components/token-input-model.test.ts",
+      "passed": 18,
+      "failed": 0,
+      "report": "model-tests.txt"
+    },
+    "originalModelTests": {
+      "command": "node --test experiments/token-input/candidate-a/model.test.mjs experiments/token-input/candidate-b/model.test.mjs",
+      "passed": 68,
+      "failed": 0,
+      "report": "original-model-tests.txt"
+    },
+    "browser": {
+      "command": "AGENTIC_URL=http://127.0.0.1:4180 node scripts/verify-token-input.mjs",
+      "behaviorGroups": 8,
+      "axeScans": 8,
+      "violations": 0,
+      "report": "browser-report.json",
+      "reportSha256": "11a3e5e31bae562cb6ae4f5b1bb8c589f6f2db4d39817fb18a5556d9824c533d"
+    },
+    "adoption": {
+      "command": "node scripts/verify-token-input-adoption.mjs",
+      "checks": 6,
+      "axeScans": 2,
+      "violations": 0,
+      "report": "adoption-report.json",
+      "reportSha256": "e32d780012dfa691577ac6c1c1d804f0377b0bf483c600436fb2fc4828155a88"
+    },
+    "typecheck": "passed",
+    "scopedLint": "passed",
+    "cssOwnership": "passed",
+    "runtimeTokenOwnership": "passed",
+    "visualInspection": {
+      "by": "implementation agent; refreshed browser fixtures visually checked after source rerun",
+      "screenshots": [
+        "390-fundamental-floating-dark.png",
+        "1280-fundamental-light.png"
+      ],
+      "humanReview": false
+    }
+  },
+  "limits": [
+    "Real IME candidates, speech input and screen reader behavior not manually assessed; synthetic composition and keyboard events were exercised.",
+    "Asynchronous host fixtures are controlled locally; no live network writes or server conflict policy evaluated.",
+    "Consumer installs Aegis from npm-pack tarball, reusing existing local dependency versions; no public npm publication or fresh registry dependency installation.",
+    "Current source hashes identify the tested implementation; packed evidence records the exact tarball used for that run, not a stable published release.",
+    "No canonical owner-reviewed-proposal approval is fabricated. Registry provenance is experimental-composition."
+  ],
+  "followupFix": {
+    "problem": "Unsupported async validator rejection previously escaped as an unhandled rejection.",
+    "change": "Reject async/thenable results synchronously and consume their rejection without applying eventual values.",
+    "regressions": [
+      "rejecting async validator with atomic siblings",
+      "rejecting then method",
+      "throwing then method",
+      "throwing then getter"
+    ],
+    "verification": "18 model tests, scoped lint and typecheck passed. Source browser rerun passed 8 behavior groups and 8 axe scans. Packed consumer rerun passed 6 checks and 2 axe scans, including public page layout imports, without repository component source imports.",
+    "pending": []
+  }
+}

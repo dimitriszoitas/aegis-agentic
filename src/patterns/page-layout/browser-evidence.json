@@ -1,0 +1,205 @@
+{
+  "passed": true,
+  "scenarios": 28,
+  "results": [
+    {
+      "case": "settings",
+      "presentation": "fundamental",
+      "mode": "light",
+      "geometry": {
+        "width": 573.1875,
+        "max": 573.193
+      },
+      "draftAndFocusPreserved": true
+    },
+    {
+      "case": "detail",
+      "presentation": "fundamental",
+      "mode": "light",
+      "width": 320,
+      "stacked": true
+    },
+    {
+      "case": "detail",
+      "presentation": "fundamental",
+      "mode": "light",
+      "width": 1200,
+      "stacked": false
+    },
+    {
+      "case": "collection",
+      "presentation": "fundamental",
+      "mode": "light",
+      "fullWidth": true,
+      "containedOverflow": true
+    },
+    {
+      "case": "settings",
+      "presentation": "fundamental",
+      "mode": "dark",
+      "geometry": {
+        "width": 573.1875,
+        "max": 573.193
+      },
+      "draftAndFocusPreserved": true
+    },
+    {
+      "case": "detail",
+      "presentation": "fundamental",
+      "mode": "dark",
+      "width": 320,
+      "stacked": true
+    },
+    {
+      "case": "detail",
+      "presentation": "fundamental",
+      "mode": "dark",
+      "width": 1200,
+      "stacked": false
+    },
+    {
+      "case": "collection",
+      "presentation": "fundamental",
+      "mode": "dark",
+      "fullWidth": true,
+      "containedOverflow": true
+    },
+    {
+      "case": "settings",
+      "presentation": "fundamental-floating",
+      "mode": "light",
+      "geometry": {
+        "width": 573.1875,
+        "max": 573.193
+      },
+      "draftAndFocusPreserved": true
+    },
+    {
+      "case": "detail",
+      "presentation": "fundamental-floating",
+      "mode": "light",
+      "width": 320,
+      "stacked": true
+    },
+    {
+      "case": "detail",
+      "presentation": "fundamental-floating",
+      "mode": "light",
+      "width": 1200,
+      "stacked": false
+    },
+    {
+      "case": "collection",
+      "presentation": "fundamental-floating",
+      "mode": "light",
+      "fullWidth": true,
+      "containedOverflow": true
+    },
+    {
+      "case": "settings",
+      "presentation": "fundamental-floating",
+      "mode": "dark",
+      "geometry": {
+        "width": 573.1875,
+        "max": 573.193
+      },
+      "draftAndFocusPreserved": true
+    },
+    {
+      "case": "detail",
+      "presentation": "fundamental-floating",
+      "mode": "dark",
+      "width": 320,
+      "stacked": true
+    },
+    {
+      "case": "detail",
+      "presentation": "fundamental-floating",
+      "mode": "dark",
+      "width": 1200,
+      "stacked": false
+    },
+    {
+      "case": "collection",
+      "presentation": "fundamental-floating",
+      "mode": "dark",
+      "fullWidth": true,
+      "containedOverflow": true
+    },
+    {
+      "case": "dashboard",
+      "columns": 1,
+      "width": 320,
+      "actualColumns": 1
+    },
+    {
+      "case": "dashboard",
+      "columns": 1,
+      "width": 800,
+      "actualColumns": 1
+    },
+    {
+      "case": "dashboard",
+      "columns": 1,
+      "width": 1800,
+      "actualColumns": 1
+    },
+    {
+      "case": "dashboard",
+      "columns": 2,
+      "width": 320,
+      "actualColumns": 1
+    },
+    {
+      "case": "dashboard",
+      "columns": 2,
+      "width": 800,
+      "actualColumns": 2
+    },
+    {
+      "case": "dashboard",
+      "columns": 2,
+      "width": 1800,
+      "actualColumns": 2
+    },
+    {
+      "case": "dashboard",
+      "columns": 3,
+      "width": 320,
+      "actualColumns": 1
+    },
+    {
+      "case": "dashboard",
+      "columns": 3,
+      "width": 800,
+      "actualColumns": 2
+    },
+    {
+      "case": "dashboard",
+      "columns": 3,
+      "width": 1800,
+      "actualColumns": 3
+    },
+    {
+      "case": "dashboard",
+      "columns": 4,
+      "width": 320,
+      "actualColumns": 1
+    },
+    {
+      "case": "dashboard",
+      "columns": 4,
+      "width": 800,
+      "actualColumns": 2
+    },
+    {
+      "case": "dashboard",
+      "columns": 4,
+      "width": 1800,
+      "actualColumns": 4
+    }
+  ],
+  "limitations": [
+    "Layout geometry and local interaction only; no claim of full consumer accessibility."
+  ]
+}

@@ -1,26 +1,47 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "product": "forma",
-  "revision": 1,
+  "revision": 2,
   "scope": "src/product",
   "route": "?view=product",
-  "mode": { "default": "dark", "supported": ["dark", "light"] },
+  "mode": {
+    "default": "dark",
+    "supported": ["dark", "light"]
+  },
   "pages": [
-    { "id": "dashboard", "title": "Dashboard", "source": "src/product/dashboard.tsx" },
-    { "id": "users", "title": "Users", "source": "src/product/users.tsx", "collection": "grid" },
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "source": "src/product/dashboard.tsx",
+      "patterns": ["pageHeader"]
+    },
+    {
+      "id": "users",
+      "title": "Users",
+      "source": "src/product/users.tsx",
+      "collection": "grid",
+      "patterns": ["pageHeader", "collectionFilters", "dataGrid"]
+    },
     {
       "id": "products",
       "title": "Products",
       "source": "src/product/products.tsx",
-      "collection": "cards"
+      "collection": "cards",
+      "patterns": ["pageHeader", "collectionFilters"]
     },
     {
       "id": "invoices",
       "title": "Invoices",
       "source": "src/product/invoices.tsx",
-      "collection": "grid"
+      "collection": "grid",
+      "patterns": ["pageHeader", "collectionFilters", "dataGrid"]
     },
-    { "id": "settings", "title": "Settings", "source": "src/product/settings.tsx" }
+    {
+      "id": "settings",
+      "title": "Settings",
+      "source": "src/product/settings.tsx",
+      "patterns": ["pageHeader"]
+    }
   ],
   "patterns": {
     "pageHeader": {
@@ -35,7 +56,12 @@
       "allowedVariations": [
         "Title and description content",
         "Relevant primary and secondary actions"
-      ]
+      ],
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "forbiddenLocalTags": ["h1"]
     },
     "collectionFilters": {
       "export": "FormaFilterToolbar",
@@ -52,7 +78,11 @@
       "allowedVariations": [
         "Filter fields required by the domain",
         "Optional result count and clear action"
-      ]
+      ],
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      }
     },
     "dataGrid": {
       "export": "DataGrid",
@@ -63,7 +93,13 @@
         "Use pagination",
         "Selected count and clear-selection action",
         "Row details use SideSheet"
-      ]
+      ],
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "requiredProps": ["density"],
+      "forbiddenProps": ["renderToolbar"]
     },
     "forms": {
       "invariants": [
@@ -77,5 +113,10 @@
   },
   "exceptions": [],
   "checks": ["npm run product:patterns", "npm run product:browser"],
-  "changePolicy": "Reuse these product-local patterns. Record a justified variant here when the task requires it and update affected pages and checks together. This policy does not promote a pattern into the shared Aegis registry."
+  "changePolicy": "Reuse these product-local patterns. Record a justified variant here when the task requires it and update affected pages and checks together. This policy does not promote a pattern into the shared Aegis registry.",
+  "routeInventory": {
+    "source": "src/product/forma-app.tsx",
+    "variable": "pages",
+    "idProperty": "id"
+  }
 }

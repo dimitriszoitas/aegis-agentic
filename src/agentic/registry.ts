@@ -1,5 +1,6 @@
 import registryData from '../../registry/canonical.json';
 import proposalData from '../../registry/proposals.json';
+import proposalExampleData from '../../registry/proposal-example-registry.json';
 
 export type Issue = { path: string; code: string; message: string };
 export type Validation = { valid: boolean; issues: Issue[] };
@@ -43,6 +44,8 @@ export type Proposal = {
   implementation: string;
 };
 export const registry = registryData as Registry;
+// Historical fixture context: examples remain pinned to the registry they proposed against.
+export const proposalExampleRegistry = proposalExampleData as Registry;
 export const proposals = proposalData as Proposal[];
 const object = (value: unknown): value is Record<string, unknown> =>
   !!value && typeof value === 'object' && !Array.isArray(value);

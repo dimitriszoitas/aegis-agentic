@@ -7,6 +7,8 @@ description: Build a React interface from an installed Aegis Agentic kit using a
 
 Read [the agentic contract](../references/agentic-contract.md), including its [product pattern decisions](../references/agentic-contract.md#product-pattern-decisions), before composing pages. Locate `kit.json`, the selected profile and registry in the installed kit. Run its CLI help rather than guessing command flags.
 
+For page structure, read [Constructing a page](../references/page-composition.md). Select a task-appropriate archetype, reuse the product's chosen patterns, and distinguish enforceable rules from project defaults and visual judgments.
+
 1. Record the task, main action, information hierarchy, states and responsive requirements. Resolve ambiguous behavior through approved defaults or a concise product question.
 2. Search the registry for the task/capabilities. Load only relevant contracts and examples. Use `reference-api/ai/index.json` for source-derived API discovery and follow its component links; these facts do not certify runtime behavior. Reuse canonical components, especially complex interactions.
 3. Choose and validate a composition specification. Pin profile, registry and compiler versions. The same prompt is not a reproducibility artifact; the accepted spec is.

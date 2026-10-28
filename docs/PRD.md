@@ -115,3 +115,15 @@ Export a kit with versioned profiles, contracts, registry, original source skill
 Behavioral completeness and visual quality exceed schema validation. Profile-specific contrast must be measured in context; selected static color pairs are limited evidence. Existing Aegis components may contain assumptions needing later migrations. Profiles multiply verification combinations. A registry reduces duplicate work but cannot prevent disconnected simultaneous invention.
 
 The shared service is a single-host implementation with a SQLite catalogue and filesystem generations. It provides scoped API credentials but no SSO, distributed failover, global exactly-once delivery, automatic update adoption or unbounded repair authority. Optional timed maintenance physically prunes bounded usage and maintenance proposals; malformed state requires review. Repair evidence, installed kits, inactive generations and workspace update plans still require reviewed archival and disk monitoring. Running periodic repair is an explicit operator choice, and a responsible owner is still required for semantic changes and releases.
+
+## Reusable page construction milestone
+
+Page instructions combine five scopes: the configured design language; an explicit page archetype; versioned product pattern decisions; the page content and state model; and acceptance evidence. A rule such as a reading width or maximum column count must identify its scope. A collection must not inherit a prose-width limit. A maximum grid count is a cap and must allow intrinsic responsive collapse.
+
+Ship initial collection, detail, settings and dashboard patterns with named regions, typed configuration, machine-readable recipes, source guidance and browser verification. Use the existing PageHeader and nested components without overriding their internal design ownership. Keep page padding and surfaces in the consuming application; avoid pretending that a structural wrapper owns fetching, routing or form state.
+
+Project policies identify canonical shared implementations, required and forbidden props, exact finite values, route coverage and justified exceptions. Source validation must report unresolved configuration instead of assuming compliance. Browser checks separately assess layout containment, common geometry, keyboard interaction and accessibility. Visual quality and semantic suitability still require contextual review.
+
+Evaluate portability with Relay, a second product that imports only the built package and compiled project profile. Give two agents the same page brief and pinned kit independently. Preserve their original sources and hashes, compare actual behavior, and turn ambiguous decisions into explicit project policy. Passing independent tests is not proof that two implementations are equivalent.
+
+The product direction is a shared Aegis UI foundation with optional agent tools and workspace services. Keep this experiment isolated from classic Aegis until compatibility and adoption are reviewed. A future portfolio case study can draw on preserved evidence; writing that case study is outside this milestone.

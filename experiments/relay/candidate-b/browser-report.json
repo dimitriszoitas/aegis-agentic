@@ -1,0 +1,269 @@
+{
+  "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/relay-agent-b-cOQreo",
+  "name": "candidate-b",
+  "checks": [
+    "Headers, search width, display controls and page containment across both pages, two modes and two widths",
+    "Combined immediate filters, empty results, clear-all, pagination size and theme-preserved state",
+    "Keyboard row details, canonical TokenInput duplicate handling, focus return and persisted labels",
+    "Cancel closes without creating a record; reopened draft behavior recorded without a pass/fail preference",
+    "Validated creation, existing-customer selection and local persistence"
+  ],
+  "comparisons": [
+    {
+      "route": "requests",
+      "mode": "dark",
+      "width": 1440,
+      "header": {
+        "x": 296,
+        "y": 85,
+        "width": 1100,
+        "height": 93.5
+      },
+      "search": {
+        "x": 296,
+        "y": 202.5,
+        "width": 376,
+        "height": 34
+      },
+      "font": [
+        "26px",
+        "32.5px",
+        "600"
+      ],
+      "overflow": false
+    },
+    {
+      "route": "customers",
+      "mode": "dark",
+      "width": 1440,
+      "header": {
+        "x": 296,
+        "y": 85,
+        "width": 1100,
+        "height": 93.5
+      },
+      "search": {
+        "x": 296,
+        "y": 202.5,
+        "width": 376,
+        "height": 34
+      },
+      "font": [
+        "26px",
+        "32.5px",
+        "600"
+      ],
+      "overflow": false
+    },
+    {
+      "route": "requests",
+      "mode": "light",
+      "width": 1440,
+      "header": {
+        "x": 296,
+        "y": 85,
+        "width": 1100,
+        "height": 93.5
+      },
+      "search": {
+        "x": 296,
+        "y": 202.5,
+        "width": 376,
+        "height": 34
+      },
+      "font": [
+        "26px",
+        "32.5px",
+        "600"
+      ],
+      "overflow": false
+    },
+    {
+      "route": "customers",
+      "mode": "light",
+      "width": 1440,
+      "header": {
+        "x": 296,
+        "y": 85,
+        "width": 1100,
+        "height": 93.5
+      },
+      "search": {
+        "x": 296,
+        "y": 202.5,
+        "width": 376,
+        "height": 34
+      },
+      "font": [
+        "26px",
+        "32.5px",
+        "600"
+      ],
+      "overflow": false
+    },
+    {
+      "route": "requests",
+      "mode": "dark",
+      "width": 390,
+      "header": {
+        "x": 12,
+        "y": 128,
+        "width": 366,
+        "height": 164.5
+      },
+      "search": {
+        "x": 12,
+        "y": 316.5,
+        "width": 366,
+        "height": 34
+      },
+      "font": [
+        "26px",
+        "32.5px",
+        "600"
+      ],
+      "overflow": false
+    },
+    {
+      "route": "customers",
+      "mode": "dark",
+      "width": 390,
+      "header": {
+        "x": 12,
+        "y": 128,
+        "width": 366,
+        "height": 93.5
+      },
+      "search": {
+        "x": 12,
+        "y": 245.5,
+        "width": 366,
+        "height": 34
+      },
+      "font": [
+        "26px",
+        "32.5px",
+        "600"
+      ],
+      "overflow": false
+    },
+    {
+      "route": "requests",
+      "mode": "light",
+      "width": 390,
+      "header": {
+        "x": 12,
+        "y": 128,
+        "width": 366,
+        "height": 164.5
+      },
+      "search": {
+        "x": 12,
+        "y": 316.5,
+        "width": 366,
+        "height": 34
+      },
+      "font": [
+        "26px",
+        "32.5px",
+        "600"
+      ],
+      "overflow": false
+    },
+    {
+      "route": "customers",
+      "mode": "light",
+      "width": 390,
+      "header": {
+        "x": 12,
+        "y": 128,
+        "width": 366,
+        "height": 93.5
+      },
+      "search": {
+        "x": 12,
+        "y": 245.5,
+        "width": 366,
+        "height": 34
+      },
+      "font": [
+        "26px",
+        "32.5px",
+        "600"
+      ],
+      "overflow": false
+    }
+  ],
+  "accessibility": [
+    {
+      "scenario": "requests/dark/1440",
+      "violations": []
+    },
+    {
+      "scenario": "customers/dark/1440",
+      "violations": []
+    },
+    {
+      "scenario": "requests/light/1440",
+      "violations": []
+    },
+    {
+      "scenario": "customers/light/1440",
+      "violations": []
+    },
+    {
+      "scenario": "requests/dark/390",
+      "violations": []
+    },
+    {
+      "scenario": "customers/dark/390",
+      "violations": []
+    },
+    {
+      "scenario": "requests/light/390",
+      "violations": []
+    },
+    {
+      "scenario": "customers/light/390",
+      "violations": []
+    },
+    {
+      "scenario": "Editable request details",
+      "violations": []
+    },
+    {
+      "scenario": "New request form",
+      "violations": []
+    }
+  ],
+  "errors": [],
+  "observedAt": "2026-10-28T18:39:10.460Z",
+  "observations": {
+    "cancelDraft": {
+      "enteredTitle": "Cancelled draft observation",
+      "reopenedTitle": "Cancelled draft observation",
+      "contract": "Cancel closes without adding a record; retaining or discarding the draft was not specified."
+    }
+  },
+  "harnessSha256": "3f2c2a021d808f3a2e62de3a2a70100a666923a3fa92b1b8cf8b982bcd870fea",
+  "sourceSha256": "1606a84c92b84e7f8919be308b3b782b83111a91101d5f41216576b512a67fe3",
+  "lock": {
+    "schemaVersion": 1,
+    "consumer": "relay",
+    "package": "@dimitriszoitas/aegis-agentic",
+    "version": "0.3.0-experiment.0",
+    "tarballSha256": "65d0d66bb7649998ab0a31ed8b2567ef5ff45f329f86943595cc791e70a27d31",
+    "kitIntegritySha256": "52c5d4692b35c587bb553af15a9b1ed6de05547d5d6fca2abfb5abde24dc8b5a",
+    "registryRevision": 2,
+    "dependencySource": "Copied local dependency snapshot; clean registry installation is not verified.",
+    "profileId": "atlas",
+    "profileHash": "v1-b1dee001",
+    "source": "Installed npm tarball; public package imports; no repository source aliases."
+  },
+  "limits": [
+    "Shared shell and patterns supplied to both agents; only the Requests page was independently generated.",
+    "Screenshots are evidence, not approved visual regression baselines.",
+    "Local demo data; no service or telemetry integration."
+  ],
+  "status": "passed"
+}

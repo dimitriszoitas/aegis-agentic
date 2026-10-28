@@ -1,0 +1,355 @@
+import { Fragment, useId, useMemo, useRef, useState, type FormEvent } from 'react';
+import { PageHeader } from '@dimitriszoitas/aegis-agentic/patterns/page-header';
+import { DataGrid, type DataGridProps } from '@dimitriszoitas/aegis-agentic/data-grid';
+import { CountBadge } from '@dimitriszoitas/aegis-agentic/count-badge';
+import { Button } from '@dimitriszoitas/aegis-agentic/button';
+import { Tag } from '@dimitriszoitas/aegis-agentic/tag';
+import { Avatar } from '@dimitriszoitas/aegis-agentic/avatar';
+import { SideSheet } from '@dimitriszoitas/aegis-agentic/side-sheet';
+import { Modal } from '@dimitriszoitas/aegis-agentic/modal';
+import { Field } from '@dimitriszoitas/aegis-agentic/field';
+import { TextInput } from '@dimitriszoitas/aegis-agentic/text-input';
+import { Textarea } from '@dimitriszoitas/aegis-agentic/textarea';
+import { Select } from '@dimitriszoitas/aegis-agentic/select';
+import { DescriptionList } from '@dimitriszoitas/aegis-agentic/description-list';
+import { TokenInput } from '@dimitriszoitas/aegis-agentic/agentic';
+import { RelayFilters, RequestStatusTag } from './patterns';
+import {
+  type RequestsPageProps,
+  type RelayRequest,
+  type NewRequestInput,
+  type RequestPatch,
+  requestStatusOptions,
+  requestStatusLabels,
+  priorityLabels,
+  labelSuggestions,
+  formatDate,
+} from './model';
+
+type RequestDraft = Required<Pick<NewRequestInput, 'title' | 'customerId' | 'description' | 'priority'>>;
+type DraftErrors = Partial<Record<'title' | 'customerId', string>>;
+
+const emptyDraft: RequestDraft = {
+  title: '',
+  customerId: '',
+  description: '',
+  priority: 'normal',
+};
+const priorityOptions = Object.entries(priorityLabels).map(([value, label]) => ({ value, label }));
+const detailStatusOptions = Object.entries(requestStatusLabels).map(([value, label]) => ({ value, label }));
+
+export function RequestsPage({
+  requests,
+  customers,
+  onCreateRequest,
+  onUpdateRequest,
+}: RequestsPageProps) {
+  const [query, setQuery] = useState('');
+  const [status, setStatus] = useState('all');
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [createOpen, setCreateOpen] = useState(false);
+  const [draft, setDraft] = useState<RequestDraft>(emptyDraft);
+  const [errors, setErrors] = useState<DraftErrors>({});
+  const titleInput = useRef<HTMLInputElement>(null);
+  const id = useId();
+  const formId = `${id}-new-request`;
+  const titleId = `${id}-title`;
+  const customerId = `${id}-customer`;
+  const customersById = useMemo(
+    () => new Map(customers.map((customer) => [customer.id, customer])),
+    [customers],
+  );
+  const customerOptions = useMemo(
+    () => customers.map((customer) => ({
+      value: customer.id,
+      label: `${customer.name} · ${customer.company}`,
+      description: customer.email,
+    })),
+    [customers],
+  );
+  const visible = useMemo(() => {
+    const search = query.trim().toLocaleLowerCase();
+    return requests.filter((request) => {
+      if (status !== 'all' && request.status !== status) return false;
+      if (!search) return true;
+      const customer = customersById.get(request.customerId);
+      return [
+        request.id,
+        request.title,
+        request.description,
+        requestStatusLabels[request.status],
+        priorityLabels[request.priority],
+        ...request.labels,
+        customer?.name,
+        customer?.company,
+        customer?.email,
+      ].join(' ').toLocaleLowerCase().includes(search);
+    });
+  }, [requests, customersById, query, status]);
+  const selected = requests.find((request) => request.id === selectedId);
+  const selectedCustomer = selected ? customersById.get(selected.customerId) : undefined;
+
+  const columns: DataGridProps<RelayRequest>['columns'] = [
+    {
+      accessorKey: 'title',
+      header: 'Request',
+      meta: { getText: (request) => `${request.id} ${request.title}` },
+      cell: ({ row }) => (
+        <div>
+          <span className="relay-cell-secondary">{row.original.id}</span>
+          <strong className="relay-cell-main">{row.original.title}</strong>
+        </div>
+      ),
+    },
+    {
+      id: 'customer',
+      header: 'Customer',
+      accessorFn: (request) => customersById.get(request.customerId)?.name ?? 'Unknown customer',
+      cell: ({ row }) => {
+        const customer = customersById.get(row.original.customerId);
+        return (
+          <div className="relay-person-cell">
+            <Avatar name={customer?.name ?? 'Unknown customer'} size="sm" />
+            <div>
+              <strong className="relay-cell-main">{customer?.name ?? 'Unknown customer'}</strong>
+              <span className="relay-cell-secondary">{customer?.company ?? 'Customer unavailable'}</span>
+            </div>
+          </div>
+        );
+      },
+    },
+    {
+      accessorKey: 'status',
+      header: 'Status',
+      meta: { getText: (request) => requestStatusLabels[request.status] },
+      cell: ({ row }) => <RequestStatusTag status={row.original.status} />,
+    },
+    {
+      accessorKey: 'priority',
+      header: 'Priority',
+      meta: { getText: (request) => priorityLabels[request.priority] },
+      cell: ({ row }) => (
+        <Tag intent={row.original.priority === 'urgent' ? 'destroy' : row.original.priority === 'high' ? 'warning' : 'default'}>
+          {priorityLabels[row.original.priority]}
+        </Tag>
+      ),
+    },
+    {
+      id: 'labels',
+      header: 'Labels',
+      accessorFn: (request) => request.labels.join(', '),
+      cell: ({ row }) => (
+        <div className="relay-inline-tags">
+          {row.original.labels.length ? row.original.labels.map((label) => (
+            <Tag key={label} size="sm">{label}</Tag>
+          )) : <span className="relay-cell-secondary">No labels</span>}
+        </div>
+      ),
+    },
+    {
+      accessorKey: 'updatedAt',
+      header: 'Updated',
+      meta: { getText: (request) => formatDate(request.updatedAt) },
+      cell: ({ row }) => (
+        <time className="relay-cell-secondary" dateTime={row.original.updatedAt}>
+          {formatDate(row.original.updatedAt)}
+        </time>
+      ),
+    },
+  ];
+
+  function updateSelected(patch: RequestPatch) {
+    if (selected) onUpdateRequest(selected.id, patch);
+  }
+
+  function createRequest(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const nextErrors: DraftErrors = {};
+    if (!draft.title.trim()) nextErrors.title = 'Enter a title for this request.';
+    if (!customersById.has(draft.customerId)) {
+      nextErrors.customerId = customers.length
+        ? 'Choose an existing customer.'
+        : 'A customer must be available before you can create a request.';
+    }
+    setErrors(nextErrors);
+    if (nextErrors.title || nextErrors.customerId) {
+      requestAnimationFrame(() => {
+        if (nextErrors.title) titleInput.current?.focus();
+        else document.getElementById(customerId)?.focus();
+      });
+      return;
+    }
+    const input: NewRequestInput = {
+      title: draft.title.trim(),
+      customerId: draft.customerId,
+      priority: draft.priority,
+      description: draft.description.trim(),
+    };
+    onCreateRequest(input);
+    setCreateOpen(false);
+    setDraft(emptyDraft);
+    setErrors({});
+  }
+
+  return (
+    <section className="relay-page" aria-labelledby={`${id}-heading`}>
+      <PageHeader
+        headingId={`${id}-heading`}
+        title="Requests"
+        description="Keep customer conversations moving, from first question to resolution."
+        metadata={<CountBadge count={requests.length} label="requests" />}
+        actions={<Button onClick={() => setCreateOpen(true)}>New request</Button>}
+      />
+      <div className="relay-collection">
+        <RelayFilters
+          query={query}
+          onQueryChange={setQuery}
+          status={status}
+          onStatusChange={setStatus}
+          statusOptions={requestStatusOptions}
+          resultCount={visible.length}
+          noun="requests"
+          searchPlaceholder="Search requests, customers, or labels…"
+        />
+        <DataGrid<RelayRequest>
+          data={visible}
+          columns={columns}
+          getRowId={(request) => request.id}
+          label="Requests"
+          noun="requests"
+          rowLabel={(request) => `${request.id}: ${request.title}`}
+          density="default"
+          enableSelection={false}
+          pagination
+          pageSize={10}
+          onRowClick={(request) => setSelectedId(request.id)}
+          emptyTitle={requests.length ? 'No requests found' : 'No requests yet'}
+          emptyDescription={requests.length
+            ? 'Try another search or clear the filters to see more requests.'
+            : 'Create a request to start tracking a customer conversation.'}
+        />
+      </div>
+      <SideSheet
+        open={Boolean(selected)}
+        onOpenChange={(open) => { if (!open) setSelectedId(null); }}
+        title={selected?.title ?? 'Request details'}
+        description={selected?.id}
+        size="md"
+        footer={<Button emphasis="secondary" onClick={() => setSelectedId(null)}>Done</Button>}
+      >
+        {selected && (
+          <div className="relay-detail" key={selected.id}>
+            <div className="relay-detail-identity">
+              <Avatar name={selectedCustomer?.name ?? 'Unknown customer'} size="lg" />
+              <div>
+                <strong>{selectedCustomer?.name ?? 'Unknown customer'}</strong>
+                <span className="relay-cell-secondary">{selectedCustomer?.company ?? 'Customer unavailable'}</span>
+                {selectedCustomer && <span className="relay-cell-secondary">{selectedCustomer.email}</span>}
+              </div>
+              <RequestStatusTag status={selected.status} />
+            </div>
+            <div className="relay-form-grid">
+              <Field label="Status">
+                <Select
+                  value={selected.status}
+                  options={detailStatusOptions}
+                  onValueChange={(value) => updateSelected({ status: value as RelayRequest['status'] })}
+                />
+              </Field>
+              <Field label="Priority">
+                <Select
+                  value={selected.priority}
+                  options={priorityOptions}
+                  onValueChange={(value) => updateSelected({ priority: value as RelayRequest['priority'] })}
+                />
+              </Field>
+            </div>
+            <div className="relay-field-stack">
+              <h2 className="relay-section-title">Description</h2>
+              <p className="relay-detail-copy">
+                {selected.description ? selected.description.split('\n').map((line, index) => (
+                  <Fragment key={index}>{index > 0 && <br />}{line}</Fragment>
+                )) : 'No description provided.'}
+              </p>
+            </div>
+            <TokenInput
+              label="Labels"
+              values={selected.labels}
+              onValuesChange={(labels) => updateSelected({ labels })}
+              suggestions={labelSuggestions}
+              duplicatePolicy="reject"
+              placeholder="Add a label…"
+            />
+            <DescriptionList columns={2} items={[
+              { id: 'created', label: 'Created', value: formatDate(selected.createdAt) },
+              { id: 'updated', label: 'Updated', value: formatDate(selected.updatedAt) },
+            ]} />
+            <p className="relay-local-note">Local demo · Changes take effect immediately.</p>
+          </div>
+        )}
+      </SideSheet>
+      <Modal
+        open={createOpen}
+        onOpenChange={setCreateOpen}
+        onOpenChangeComplete={(open) => { if (open) titleInput.current?.focus(); }}
+        title="New request"
+        description="Start a conversation for an existing customer."
+        size="regular"
+        closeOnOutsideClick={false}
+        footer={(
+          <>
+            <Button emphasis="secondary" onClick={() => setCreateOpen(false)}>Cancel</Button>
+            <Button type="submit" form={formId}>Create request</Button>
+          </>
+        )}
+      >
+        <form id={formId} className="relay-form" onSubmit={createRequest} noValidate>
+          <Field id={titleId} label="Title" required error={errors.title}>
+            <TextInput
+              ref={titleInput}
+              id={titleId}
+              name="title"
+              value={draft.title}
+              placeholder="What does the customer need help with?"
+              onValueChange={(title) => {
+                setDraft((current) => ({ ...current, title }));
+                if (title.trim()) setErrors((current) => ({ ...current, title: undefined }));
+              }}
+            />
+          </Field>
+          <Field id={customerId} label="Customer" required error={errors.customerId}
+            helpText={!customers.length ? 'No customers are available in this demo.' : undefined}>
+            <Select
+              id={customerId}
+              name="customerId"
+              value={draft.customerId}
+              options={customerOptions}
+              placeholder="Choose a customer"
+              onValueChange={(value) => {
+                setDraft((current) => ({ ...current, customerId: value }));
+                if (customersById.has(value)) setErrors((current) => ({ ...current, customerId: undefined }));
+              }}
+            />
+          </Field>
+          <Field label="Priority">
+            <Select
+              name="priority"
+              value={draft.priority}
+              options={priorityOptions}
+              onValueChange={(value) => setDraft((current) => ({ ...current, priority: value as RequestDraft['priority'] }))}
+            />
+          </Field>
+          <Field label="Description" optional>
+            <Textarea
+              name="description"
+              value={draft.description}
+              placeholder="Add context that will help the team respond."
+              onValueChange={(description) => setDraft((current) => ({ ...current, description }))}
+            />
+          </Field>
+          <p className="relay-local-note">New requests start open. This is a local demo; no message is sent to the customer.</p>
+        </form>
+      </Modal>
+    </section>
+  );
+}

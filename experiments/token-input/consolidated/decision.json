@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "status": "experimental-consolidation-implemented",
+  "target": "token-input",
+  "contractVersion": 2,
+  "registryRevision": 2,
+  "decisionBy": "implementation agent under user-authorized experimental next phase",
+  "humanBehaviorApproval": null,
+  "publication": null,
+  "sources": [
+    "experiments/token-input/candidate-a/proposal.json",
+    "experiments/token-input/candidate-b/proposal.json",
+    "experiments/token-input/comparison.json"
+  ],
+  "immutableOriginals": true,
+  "decisions": {
+    "duplicates": "reject default; explicit ignore variant with skipped-count feedback",
+    "delimiters": "newline/tab default; comma literal unless explicitly a commit key",
+    "input": "native textarea via existing Aegis Textarea, exact multiline draft retention",
+    "suggestions": "named ordinary buttons preserve unrelated draft",
+    "confirmation": "compatible synchronous value echo default; requestId+acknowledgment and AbortSignal for asynchronous hosts",
+    "validation": "string error or null/undefined acceptance; synchronous only",
+    "keyboard": "IME guards; Enter/Add; Shift+Enter line; two distinct Backspaces; blur off default"
+  },
+  "supersededCandidateExpectations": [
+    "B comma-delimited default and unconditional single-value paste submission",
+    "A empty submit error",
+    "B validator true means valid",
+    "B suggestion combobox arrow navigation (ordinary buttons chosen)",
+    "A suggestion role and model API replaced with source component public API"
+  ],
+  "registryProvenance": "experimental-composition with reviewedBy:null; this is discoverable in the experimental release, not owner-reviewed-proposal or stable promotion"
+}

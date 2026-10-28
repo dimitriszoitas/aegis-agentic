@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/product-pattern-policy.schema.json",
+  "title": "Product pattern policy v2",
+  "description": "Project-scoped composition decisions and finite static JSX checks. Runtime behavior and visual consistency require separate evidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "product", "revision", "scope", "pages", "patterns", "exceptions"],
+  "properties": {
+    "schemaVersion": {
+      "const": 2
+    },
+    "product": {
+      "$ref": "#/$defs/text"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "scope": {
+      "$ref": "#/$defs/text"
+    },
+    "route": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "object"
+    },
+    "checks": {
+      "$ref": "#/$defs/strings"
+    },
+    "changePolicy": {
+      "$ref": "#/$defs/text"
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "source", "patterns"],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/text"
+          },
+          "source": {
+            "$ref": "#/$defs/text"
+          },
+          "title": {
+            "type": "string"
+          },
+          "collection": {
+            "type": "string"
+          },
+          "patterns": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/strings"
+              }
+            ],
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "patterns": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_-]+$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/pattern"
+      }
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["page", "pattern", "rule", "reason"],
+        "properties": {
+          "page": {
+            "$ref": "#/$defs/text"
+          },
+          "pattern": {
+            "$ref": "#/$defs/text"
+          },
+          "rule": {
+            "type": "string",
+            "pattern": "^(missing-import|cardinality|spread-props|required-prop:[A-Za-z0-9_-]+|forbidden-prop:[A-Za-z0-9_-]+|prop-value:[A-Za-z0-9_-]+|forbidden-tag:[a-z][A-Za-z0-9_-]*)$"
+          },
+          "reason": {
+            "$ref": "#/$defs/text"
+          }
+        }
+      }
+    },
+    "routeInventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "variable", "idProperty"],
+      "properties": {
+        "source": {
+          "$ref": "#/$defs/text"
+        },
+        "variable": {
+          "type": "string",
+          "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$"
+        },
+        "idProperty": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "strings": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/text"
+      }
+    },
+    "pattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "module": {
+          "$ref": "#/$defs/text"
+        },
+        "export": {
+          "type": "string",
+          "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$"
+        },
+        "source": {
+          "$ref": "#/$defs/text"
+        },
+        "cardinality": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["min", "max"],
+          "properties": {
+            "min": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "max": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "requiredProps": {
+          "$ref": "#/$defs/strings"
+        },
+        "forbiddenProps": {
+          "$ref": "#/$defs/strings"
+        },
+        "forbiddenLocalTags": {
+          "$ref": "#/$defs/strings"
+        },
+        "invariants": {
+          "$ref": "#/$defs/strings"
+        },
+        "allowedVariations": {
+          "$ref": "#/$defs/strings"
+        },
+        "desktopSearchWidthToken": {
+          "type": "string"
+        },
+        "mobileSearchWidth": {
+          "type": "string"
+        },
+        "propValues": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "additionalProperties": {
+            "type": ["string", "number", "boolean", "null"]
+          }
+        }
+      },
+      "dependentRequired": {
+        "module": ["export", "cardinality"],
+        "export": ["module", "cardinality"],
+        "cardinality": ["module", "export"],
+        "requiredProps": ["module", "export"],
+        "forbiddenProps": ["module", "export"],
+        "forbiddenLocalTags": ["module", "export"],
+        "propValues": ["module", "export"]
+      }
+    }
+  }
+}

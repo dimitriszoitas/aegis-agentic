@@ -133,11 +133,12 @@ test('ingestion-only credentials can submit allowed facts without reading or rec
   const policy = await readJson(
     join(f.location, 'generations', f.project.currentGeneration, 'usage-policy.json'),
   );
+  const installed = await f.workspace.status('alpha', f.admin);
   const event = {
     version: 1,
     timestamp: epoch,
     registryId: 'alpha',
-    registryRevision: 1,
+    registryRevision: installed.release.registryRevision,
     componentId: Object.keys(policy.components)[0],
     profileId: profile.id,
     kind: 'render',

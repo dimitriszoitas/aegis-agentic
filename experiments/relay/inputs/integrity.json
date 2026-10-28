@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "inputMetadataSha256": "ad907023516546183d468ae8eb3918434e620951c0ccf57962c443d9d97b427a",
+  "candidates": {
+    "a": {
+      "originalPath": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/relay-agent-a-8NvJfl",
+      "sourceSha256": "258da17c7a7a772381cad5f298cc2749c3559022ba99c2503a35c58413991288",
+      "distSha256": {
+        "assets/index-DtRHK6cl.js": "1525115968047f999e0649ef3fc30a53e28f411c3494286e9efe0b1c28588be9",
+        "assets/index-y9unsmqd.css": "763b5d353abf456f5db0536580a5e78590b546ce61f3a794b085b5c573ef5f6d",
+        "index.html": "289029736b463366d841993b86e4a893f0052481be4425988e2fa6b164e86611"
+      }
+    },
+    "b": {
+      "originalPath": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/relay-agent-b-cOQreo",
+      "sourceSha256": "1606a84c92b84e7f8919be308b3b782b83111a91101d5f41216576b512a67fe3",
+      "distSha256": {
+        "assets/index-XeXIgM75.js": "9d99a0d91c713c36842bd0c4606c8a164fb987ac5d232d24937dc72356b6b1e4",
+        "assets/index-y9unsmqd.css": "763b5d353abf456f5db0536580a5e78590b546ce61f3a794b085b5c573ef5f6d",
+        "index.html": "9784a6a3542e77675fbc4dbf7de747cd071cb8397af8606066629d151b0407b2"
+      }
+    }
+  },
+  "sharedSourceSha256": {
+    "app.tsx": "70961cd1e409c27bc5a663559ffde6c59f13915cd622dc459e2f2adab5e1948d",
+    "customers.tsx": "ce92d41ccf750c6b80cacaf7b41b83c3e2921b1f40e301d80e30a08beee645cb",
+    "main.tsx": "c0614798233f902d667ade9b54ade004dbec45881446ceca4a636debdfa10c7b",
+    "model.ts": "306cfc61e8de98ea8bbccf2760592af3d92c1c042386fd7f2f86ca0ff3f829d2",
+    "patterns.tsx": "b41f00de7d8c057cc863594fb7baba02d5eb3ef54838b992053e0e56ab46f0f7",
+    "styles.css": "b372b0421a4e64e441dd9260fa4d1d9196d86f27e5a6e6e4dd416b99fa8612cd"
+  },
+  "limitations": [
+    "The kit tarball is identified by SHA-256; it is not duplicated in this evidence archive."
+  ]
+}

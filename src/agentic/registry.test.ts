@@ -1,17 +1,31 @@
 import { describe, expect, it } from 'vitest';
 import {
   applyConsolidation,
-  compareProposals,
+  compareProposals as compareAgainstRegistry,
   discoverRegistry,
-  planConsolidation,
+  planConsolidation as planAgainstRegistry,
   proposals,
-  registry,
-  validateProposal,
+  registry as currentRegistry,
+  proposalExampleRegistry as registry,
+  validateProposal as validateAgainstRegistry,
   validateRegistry,
   type OwnerApproval,
 } from './registry';
 
+// Exercise the original conflict fixture against its real revision, not the installed registry.
+const compareProposals: typeof compareAgainstRegistry = (a, b, source = registry) => compareAgainstRegistry(a, b, source);
+const planConsolidation: typeof planAgainstRegistry = (ids, options, source = registry, candidates = proposals) => planAgainstRegistry(ids, options, source, candidates);
+const validateProposal: typeof validateAgainstRegistry = (proposal, source = registry) => validateAgainstRegistry(proposal, source);
+
 describe('canonical registry and proposal review', () => {
+  it('discovers the experimental consolidated implementation without fabricating owner approval', () => {
+    expect(validateRegistry(currentRegistry).valid).toBe(true);
+    const entry = discoverRegistry('token-input').find((item) => item.id === 'token-input');
+    expect(entry?.importPath).toBe('@dimitriszoitas/aegis-agentic/agentic');
+    expect(entry?.version).toBe(2);
+    expect(entry?.provenance.reviewedBy).toBeNull();
+    expect(() => planAgainstRegistry(proposals.map((p) => p.id), { expectedRevision: currentRegistry.revision })).toThrow();
+  });
   it('validates imported registry shape, canonical identity and provenance', () => {
     expect(validateRegistry(registry).valid).toBe(true);
     expect(validateRegistry(null).valid).toBe(false);
@@ -48,7 +62,7 @@ describe('canonical registry and proposal review', () => {
     expect(discoverRegistry('modal')[0].id).toBe('dialog');
     expect(discoverRegistry('filter dataset')[0].id).toBe('dataset-filtering');
     expect(discoverRegistry('unicorn')).toEqual([]);
-    expect(discoverRegistry('')).toHaveLength(registry.entries.length);
+    expect(discoverRegistry('')).toHaveLength(currentRegistry.entries.length);
   });
   it('does not misrepresent fixtures as independent generation', () => {
     expect(proposals.every((proposal) => proposal.evidence === 'illustrative-fixture')).toBe(true);

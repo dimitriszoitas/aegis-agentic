@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "page-layout",
+  "version": 1,
+  "status": "experimental",
+  "verification": "recipe-selection-validation-is-not-rendered-or-human-certification",
+  "purpose": "Compose named page regions using four initial task-specific recipes, explicit reading measures and adaptive grids.",
+  "anatomy": ["header", "filters?", "main", "aside?", "footer?"],
+  "exports": [
+    "PageLayout",
+    "ReadingColumn",
+    "ContentGrid",
+    "pageLayoutRecipes",
+    "validatePageLayoutRecipe"
+  ],
+  "importPath": "@dimitriszoitas/aegis-agentic/patterns/page-layout",
+  "tokenGroup": "page-structure",
+  "behaviorProvider": "native-structure-with-existing-PageHeader; application-controls-own-behavior",
+  "recipeSource": "src/patterns/page-layout/recipes.ts",
+  "portableRecipes": "recipes/page-layout.json",
+  "guidance": "skills/references/page-composition.md",
+  "publicApi": {
+    "PageLayout": {
+      "required": ["archetype", "title", "children"],
+      "archetypes": ["collection", "detail", "settings", "dashboard"],
+      "header": "PageHeader owns title, description, actions, metadata, leading, back, breadcrumbs and heading props.",
+      "slots": "header is generated from header props; children is main; filters, aside and footer are optional only where supported.",
+      "collection": "Optional filters/footer; available width; no aside, reading measure or grid options.",
+      "detail": "Optional labelled aside/footer; main then aside; no filters or page-level reading measure/grid options. Use ReadingColumn explicitly within main for prose.",
+      "settings": "Optional footer and measure; one reading column; no filters, aside or grid options.",
+      "dashboard": "Optional footer, maxColumns and minItemWidth; no filters, aside or page-level measure; direct children become grid items."
+    },
+    "ReadingColumn": {
+      "measure": ["compact", "comfortable", "wide"],
+      "default": "comfortable",
+      "scope": "Explicit prose/form region, not an entire collection or data grid."
+    },
+    "ContentGrid": {
+      "maxColumns": [1, 2, 3, 4],
+      "defaultMaxColumns": 4,
+      "minItemWidth": ["small", "regular", "large"],
+      "defaultMinItemWidth": "regular",
+      "scope": "Adaptive grid; maximum is a cap, not a forced count."
+    },
+    "validatePageLayoutRecipe": {
+      "input": "JSON object with archetype and optional slots/measure/maxColumns/minItemWidth/asideLabel. Unknown keys fail.",
+      "returns": "Array of structured issues; empty means this selection is supported.",
+      "slotValidation": "When slots are supplied, header/main are required; duplicates and unsupported slots fail; a detail aside requires a nonempty label. Omitting slots does not assert actual rendered content exists.",
+      "excluded": "Does not validate React nodes, DOM semantics, visual quality, data state, route completeness, keyboard workflows or accessibility of nested content."
+    }
+  },
+  "invariants": [
+    "Use the same shared PageHeader implementation through every PageLayout recipe.",
+    "Named regions follow header, optional filters, main, optional aside and optional footer order.",
+    "Collection results use available width and preserve their own scrolling and toolbar behavior.",
+    "Only the initial detail recipe allows an aside; main and aside form at most two regions and stack in that order in narrow containers. This is not a universal two-column limit.",
+    "Settings use an explicit readable measure; dashboard grid caps are one through four and adapt to the available container.",
+    "The shell owns page padding. PageLayout adds no surface, routing, persistence, fetching, selection or form state.",
+    "Each nested shared component retains its own style tokens and interactive behavior.",
+    "The consuming application owns the document main landmark, data states and actual task semantics."
+  ],
+  "limits": [
+    "These four recipes are an initial library, not an exhaustive classification of pages. Unsupported tasks may require another reviewed recipe.",
+    "Reading measures are starting points, not universal readability guarantees.",
+    "Configuration validation cannot replace browser interaction, geometry, accessibility and visual review.",
+    "No human approval or stable release is implied by experimental registry discovery."
+  ]
+}

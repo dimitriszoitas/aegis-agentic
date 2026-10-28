@@ -16,6 +16,8 @@ Preserve differences that serve distinct tasks. Document an exception's scope an
 
 Verify comparable pages together against the recorded decisions, including their visual hierarchy and interactions at relevant widths and modes. Use the product's available pattern checks and browser scenarios; report gaps in that evidence. Correct unintended drift in the implementation instead of rewriting the policy to excuse it. When the user changes the intended pattern, update the shared implementation, decision record and affected checks together.
 
+The portable kit's [product pattern policy](pattern-policy.md) defines explicit page membership, shared imports, JSX cardinality, prop constraints and scoped exceptions. Use its `patterns check` command for those finite source checks. Record descriptive design decisions separately from executable constraints and keep browser evidence for appearance and behavior; a passing source audit does not prove runtime consistency. Policy version 2 rejects legacy policies until they are explicitly migrated.
+
 ## Token and component foundation
 
 Read [the shared design contract](design-contract.md) for the authoritative Primitive → Semantic → Group rules, four explicit theme/mode mappings, category ownership and relative naming scales. It is the same source used by the repository's component, token and layout skills.

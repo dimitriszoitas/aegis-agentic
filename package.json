@@ -1,6 +1,6 @@
 {
   "name": "@dimitriszoitas/aegis-agentic",
-  "version": "0.2.0-experiment.0",
+  "version": "0.3.0-experiment.0",
   "type": "module",
   "license": "MIT",
   "packageManager": "pnpm@11.19.0",
@@ -39,8 +39,13 @@
     "infrastructure": "node scripts/infrastructure.mjs",
     "workspace": "node scripts/workspace.mjs",
     "infrastructure:test": "node --test scripts/infrastructure/*.test.mjs",
-    "product:patterns": "node scripts/check-product-patterns.mjs",
-    "product:browser": "node scripts/run-forma-browser.mjs"
+    "product:patterns": "node --test scripts/product-pattern-policy.test.mjs && node scripts/check-product-patterns.mjs",
+    "product:browser": "node scripts/run-forma-browser.mjs",
+    "page-layout:browser": "node src/patterns/page-layout/verify-layout-browser.mjs",
+    "relay:prepare": "node scripts/prepare-relay.mjs",
+    "relay:browser": "node scripts/verify-relay.mjs",
+    "relay:check": "node scripts/verify-relay-consumer.mjs",
+    "token-input:adoption": "node scripts/verify-token-input-adoption.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
@@ -620,6 +625,11 @@
       "types": "./lib-dist/types/patterns/page-header/index.d.ts",
       "import": "./lib-dist/patterns/page-header.js",
       "default": "./lib-dist/patterns/page-header.js"
+    },
+    "./patterns/page-layout": {
+      "types": "./lib-dist/types/patterns/page-layout/index.d.ts",
+      "import": "./lib-dist/patterns/page-layout.js",
+      "default": "./lib-dist/patterns/page-layout.js"
     },
     "./patterns/notification-center": {
       "types": "./lib-dist/types/patterns/notification-center/index.d.ts",

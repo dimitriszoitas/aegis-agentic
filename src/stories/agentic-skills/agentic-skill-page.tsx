@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Tabs } from '@base-ui/react/tabs';
 import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { CopyButton } from '@/components/copy-button';
 import componentSource from '../../../skills/create-component/SKILL.md?raw';
 import tokenSource from '../../../skills/create-token/SKILL.md?raw';
@@ -11,6 +12,8 @@ import extendDesignLanguageSource from '../../../skills/extend-design-language/S
 import auditUiSource from '../../../skills/audit-ui/SKILL.md?raw';
 import designContractSource from '../../../skills/references/design-contract.md?raw';
 import agenticContractSource from '../../../skills/references/agentic-contract.md?raw';
+import pageCompositionSource from '../../../skills/references/page-composition.md?raw';
+import patternPolicySource from '../../../skills/references/pattern-policy.md?raw';
 import './agentic-skill-page.css';
 
 const designContract = {
@@ -25,6 +28,20 @@ const agenticContract = {
   title: 'Shared Agentic contract',
   path: 'skills/references/agentic-contract.md',
   source: agenticContractSource,
+} as const;
+
+const pageComposition = {
+  id: 'page-composition',
+  title: 'Constructing a page',
+  path: 'skills/references/page-composition.md',
+  source: pageCompositionSource,
+} as const;
+
+const patternPolicy = {
+  id: 'project-pattern-policy',
+  title: 'Project pattern policy',
+  path: 'skills/references/pattern-policy.md',
+  source: patternPolicySource,
 } as const;
 
 const skills = {
@@ -59,7 +76,7 @@ const skills = {
     result: 'A responsive composition with useful actions and consistent theme geometry.',
     request: 'Compose the requested responsive application layout from the existing system.',
     source: layoutSource,
-    contracts: [designContract],
+    contracts: [designContract, agenticContract, pageComposition, patternPolicy],
   },
   'build-ui': {
     name: 'build-ui',
@@ -71,7 +88,7 @@ const skills = {
       'Application code with pinned inputs, validated composition, and explicit verification limits.',
     request: 'Build the requested interface using the installed kit and its canonical components.',
     source: buildUiSource,
-    contracts: [agenticContract, designContract],
+    contracts: [agenticContract, designContract, pageComposition, patternPolicy],
   },
   'compose-pattern': {
     name: 'compose-pattern',
@@ -84,7 +101,7 @@ const skills = {
     request:
       'Configure the requested pattern using approved variants and validate its specification.',
     source: composePatternSource,
-    contracts: [agenticContract, designContract],
+    contracts: [agenticContract, designContract, pageComposition, patternPolicy],
   },
   'extend-design-language': {
     name: 'extend-design-language',
@@ -109,7 +126,7 @@ const skills = {
       'Verified findings, permitted repair evidence, and explicit review needs for other changes.',
     request: 'Audit the requested interface and remediate only within the kit’s repair authority.',
     source: auditUiSource,
-    contracts: [agenticContract, designContract],
+    contracts: [agenticContract, designContract, pageComposition, patternPolicy],
   },
 } as const;
 
@@ -120,21 +137,14 @@ function markdownBody(source: string) {
 }
 
 function skillLink(href?: string) {
-  if (
-    href &&
-    ['../references/design-contract.md', './design-contract.md', 'design-contract.md'].includes(
-      href,
-    )
-  )
-    return '#shared-design-contract';
-  if (
-    href &&
-    ['../references/agentic-contract.md', './agentic-contract.md', 'agentic-contract.md'].includes(
-      href,
-    )
-  )
-    return '#shared-agentic-contract';
-  return href;
+  const references: Record<string, string> = {
+    'design-contract.md': designContract.id,
+    'agentic-contract.md': agenticContract.id,
+    'page-composition.md': pageComposition.id,
+    'pattern-policy.md': patternPolicy.id,
+  };
+  const file = href?.split('#')[0].split('/').at(-1);
+  return file && Object.hasOwn(references, file) ? `#${references[file]}` : href;
 }
 
 function SkillContent({ skillId }: { skillId: SkillId }) {
@@ -182,6 +192,7 @@ function SkillContent({ skillId }: { skillId: SkillId }) {
 
       <div className="agentic-skill-prose">
         <Markdown
+          remarkPlugins={[remarkGfm]}
           skipHtml
           components={{
             a: ({ href, children }) => <a href={skillLink(href)}>{children}</a>,
@@ -203,6 +214,7 @@ function SkillContent({ skillId }: { skillId: SkillId }) {
             Source: <code>{contract.path}</code>
           </p>
           <Markdown
+            remarkPlugins={[remarkGfm]}
             skipHtml
             components={{
               h2: ({ children }) => <h3>{children}</h3>,

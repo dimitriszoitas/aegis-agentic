@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "stage": "Post-selection presentation corrections",
+  "independentSelectedSourceSha256": "258da17c7a7a772381cad5f298cc2749c3559022ba99c2503a35c58413991288",
+  "changes": [
+    "Both collection headers reuse RelayCollectionCount: CountBadge retains the accessible full count and visible adjacent text identifies total requests or total customers.",
+    "Request titles use a shared constrained ellipsis utility with owning Application/Business App tokens. Full text remains in the row accessible name, hover title and keyboard-opened detail dialog.",
+    "The final selected product contract explicitly discards cancelled new-request drafts; the original frozen brief and its unspecified behavior remain unchanged."
+  ],
+  "sourceSha256": {
+    "src/requests.tsx": "d394ee63859cda1473ef568610e13dc6a8aacad726f5cdf0831cbc5633cf6a24",
+    "src/customers.tsx": "b641f76d07d54526ac219be8803ef328688db8187e99144e5217e872e45a98fc",
+    "src/patterns.tsx": "3ba320222edac0382c3df2a733d20a4fbb17be93bd11b92645b48cf8427aa1f4",
+    "src/styles.css": "9353f37e0f8758bad57322cc1b1bc8f820caab80e440d52ddef8b95aecf5c207",
+    "REQUESTS_TASK.md": "56e7d854cd91707c2b0eba3aa41275c253b75e7feb4ac934b98c550624c0b7d9",
+    "README.md": "cf764a2c394ba3cc9b3ac8b2782de6ae6b3380a9ac3a71a75719ae9b011142f9"
+  },
+  "verification": {
+    "status": "passed",
+    "command": "node scripts/verify-relay.mjs <fresh-final-consumer> final-consumer --review-presentation",
+    "assertions": [
+      "Visible total-count context on both pages in light/dark at 1440px and 390px",
+      "Computed constrained ellipsis box with unchanged complete title",
+      "Keyboard-opened details retain the complete accessible title",
+      "Final Cancel discards the new-request draft; reopening has an empty title and no record was added."
+    ],
+    "finalReport": "final-consumer-report.json",
+    "completedAt": "2026-10-28T18:53:31.668Z",
+    "presentationReview": true,
+    "cancelledDraftRetained": false,
+    "finalPackage": {
+      "schemaVersion": 1,
+      "consumer": "relay",
+      "package": "@dimitriszoitas/aegis-agentic",
+      "version": "0.3.0-experiment.0",
+      "tarballSha256": "8dd9e91c3e600047a5a14c452aab902e40c94e7c59dfca7cab1d90d761e674d5",
+      "kitIntegritySha256": "3f6bbaa2dbfe79f6dd6d381a31aa34043d4fc10e1999fbd6385312dfd7843fc6",
+      "registryRevision": 2,
+      "dependencySource": "Copied local dependency snapshot; clean registry installation is not verified.",
+      "profileId": "atlas",
+      "profileHash": "v1-75b2eb91",
+      "source": "Installed npm tarball; public package imports; no repository source aliases."
+    }
+  },
+  "limits": [
+    "These corrections were made after candidate selection; neither independent candidate source nor its frozen harness/evidence was changed.",
+    "Final browser evidence against the freshly built installed kit is recorded separately; original candidate passes do not validate these later changes."
+  ]
+}

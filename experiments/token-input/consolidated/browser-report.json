@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": 2,
+  "registryRevision": 2,
+  "checks": [
+    "Literal commas, atomic newline/tab validation, exact multiline draft retention and correction.",
+    "Suggestion buttons preserve draft; blur is inert; NFC/case duplicate rejection.",
+    "Explicit ignore policy announces exact skipped count.",
+    "Composition-state and 229 guards; repeated key never deletes; two distinct Backspaces remove.",
+    "Request IDs reject stale acceptance/refusal; ordered values alone cannot settle request mode; host honors abort.",
+    "Delayed acceptance preserves edit-and-restore drafts and outside focus; async rejection retains text.",
+    "Disabled input, Add, removal and suggestion actions are inert.",
+    "Eight presentation/mode/viewport scans have no axe violations or document overflow."
+  ],
+  "accessibility": [
+    {
+      "width": 1280,
+      "theme": "fundamental",
+      "mode": "light",
+      "violations": 0
+    },
+    {
+      "width": 1280,
+      "theme": "fundamental",
+      "mode": "dark",
+      "violations": 0
+    },
+    {
+      "width": 1280,
+      "theme": "fundamental-floating",
+      "mode": "light",
+      "violations": 0
+    },
+    {
+      "width": 1280,
+      "theme": "fundamental-floating",
+      "mode": "dark",
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "theme": "fundamental",
+      "mode": "light",
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "theme": "fundamental",
+      "mode": "dark",
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "theme": "fundamental-floating",
+      "mode": "light",
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "theme": "fundamental-floating",
+      "mode": "dark",
+      "violations": 0
+    }
+  ],
+  "browserErrors": [],
+  "screenshots": [
+    "artifacts/token-input-consolidated/1280-fundamental-light.png",
+    "artifacts/token-input-consolidated/1280-fundamental-dark.png",
+    "artifacts/token-input-consolidated/1280-fundamental-floating-light.png",
+    "artifacts/token-input-consolidated/1280-fundamental-floating-dark.png",
+    "artifacts/token-input-consolidated/390-fundamental-light.png",
+    "artifacts/token-input-consolidated/390-fundamental-dark.png",
+    "artifacts/token-input-consolidated/390-fundamental-floating-light.png",
+    "artifacts/token-input-consolidated/390-fundamental-floating-dark.png"
+  ]
+}

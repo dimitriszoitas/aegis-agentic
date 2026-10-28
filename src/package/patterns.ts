@@ -6,5 +6,6 @@ export * from '../patterns/prompt-input';
 export * from '../patterns/wizard';
 export * from '../patterns/unsaved-changes-bar';
 export * from '../patterns/page-header';
+export * from '../patterns/page-layout';
 export * from '../patterns/notification-center';
 export * from '../patterns/onboarding-checklist';
