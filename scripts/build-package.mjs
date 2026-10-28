@@ -11,6 +11,9 @@ const require = createRequire(import.meta.url);
 execFileSync(process.execPath, ['scripts/generate-ai-contracts.mjs', '--check'], {
   stdio: 'inherit',
 });
+execFileSync(process.execPath, ['scripts/generate-contract-catalogue.mjs', '--check'], {
+  stdio: 'inherit',
+});
 await build({ configFile: 'vite.library.config.ts', logLevel: 'warn' });
 execFileSync(
   process.execPath,

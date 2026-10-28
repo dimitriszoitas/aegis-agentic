@@ -258,6 +258,10 @@ patterns check <policy.json> --project <project-root>
 pages recipes
 pages validate <selection.json>
 registry search <query> [--registry <canonical.json>]
+contracts list
+contracts search <query>
+contracts get <entry-or-family-id>
+contracts coverage
 registry compare <proposal-a.json> <proposal-b.json> [--registry <canonical.json>]
 registry submit <proposal.json> --registry <canonical.json> --expected-revision <number>
 registry consolidate <proposal-a.json> <proposal-b.json> [--registry <canonical.json>]
@@ -276,7 +280,21 @@ try {
   const [group, action, ...rest] = args;
   if (!group || ['help', '--help', '-h'].includes(group)) console.log(help);
   else if (group === 'status') print(kitInfo);
-  else if (group === 'pages') {
+  else if (group === 'contracts') {
+    if (action === 'list' || action === 'coverage') {
+      if (rest.length) throw new Error(`contracts ${action} takes no arguments.`);
+      print(action === 'list' ? core.searchContracts('') : core.getContractCoverage());
+    } else if (action === 'search' || action === 'get') {
+      if (rest.length !== 1 || !rest[0].trim())
+        throw new Error(`contracts ${action} requires exactly one non-empty query or ID.`);
+      if (action === 'search') print(core.searchContracts(rest[0]));
+      else {
+        const entry = core.getContractEntry(rest[0]);
+        if (!entry) throw new Error(`Unknown contract entry: ${rest[0]}`);
+        print(entry);
+      }
+    } else throw new Error('Unknown contracts command. Use list, search, get or coverage.');
+  } else if (group === 'pages') {
     if (action === 'recipes') {
       if (rest.length) throw new Error('pages recipes takes no arguments.');
       print(core.pageLayoutRecipes);

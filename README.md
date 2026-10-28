@@ -8,6 +8,7 @@ Use Node 24 and the package manager pinned in `package.json`.
 
 ```sh
 pnpm install --frozen-lockfile
+npm run mcp:setup
 npm run dev -- --host 127.0.0.1 --port 4175 --strictPort
 ```
 
@@ -32,6 +33,18 @@ A versioned [project pattern policy](skills/references/pattern-policy.md) record
 ## Product direction
 
 The proposed direction is one Aegis product with a common UI foundation and optional agent tools and workspace services. Conventional users can consume components and tokens; teams building with agents can additionally pin decisions, validate compositions and coordinate contributions. The experimental repository stays separate while these interfaces are tested. No merge into classic Aegis or public release is implied.
+
+## Contract discovery and MCP
+
+Storybook's **Contract Catalogue** and each family’s **Contract** tab expose the same generated catalogue used by the portable CLI and optional MCP adapter. API metadata, authored requirements, linked checks and reported evidence are separate facts. Missing behavioral contracts remain visible; a linked test or historical report does not certify the current implementation. Component and pattern entries are separate from infrastructure protocols.
+
+```sh
+node agent-kit/bin/aegis.mjs contracts coverage
+node agent-kit/bin/aegis.mjs contracts search "page layout"
+node agent-kit/bin/aegis.mjs contracts get page-layout
+```
+
+The [MCP adapter](docs/MCP.md) serves local resources, discovery, validation and source-backed prompts over stdio. Bind it to a project's explicit release/profile lock for project-specific checks, or use unbound discovery. It shares the existing validators and does not repair files, promote components or activate releases. The exported adapter includes its dependencies; the React package and core runtime do not import the MCP SDK. Source development installs adapter dependencies once with `npm run mcp:setup` before building the kit.
 
 ## Start the infrastructure service
 
@@ -96,7 +109,7 @@ npm run infrastructure:test
 npm run agentic:browser
 ```
 
-`check` validates types, lint, token and headless boundaries, unit tests, API metadata, kit creation, isolated consumer behavior, infrastructure tests, the production app and package builds. The consumer test deliberately corrupts derived CSS and changes approved source to verify both repair and refusal. Infrastructure tests cover local state, usage delivery, integrity checks, repair, and simulated provider responses. `agentic:browser` starts its own test server and exercises the workbench and simulated infrastructure API states; install Playwright Chromium first if it is unavailable. The infrastructure guide documents a separate real-service browser check. Browser verification and independent candidate evidence are described in `docs/EVALUATION.md`. The inherited component/Storybook pipeline remains `npm run legacy:check`.
+`check` validates types, lint, token and headless boundaries, unit tests, API metadata, kit creation, isolated consumer behavior, MCP protocol integration, infrastructure tests, the production app and package builds. The consumer test deliberately corrupts derived CSS and changes approved source to verify both repair and refusal. Infrastructure tests cover local state, usage delivery, integrity checks, repair, and simulated provider responses. `agentic:browser` starts its own test server and exercises the workbench and simulated infrastructure API states; install Playwright Chromium first if it is unavailable. The infrastructure guide documents a separate real-service browser check. Browser verification and independent candidate evidence are described in `docs/EVALUATION.md`. The inherited component/Storybook pipeline remains `npm run legacy:check`.
 
 ## Read the design
 
@@ -105,6 +118,7 @@ npm run agentic:browser
 - [Single-project infrastructure operations](docs/INFRASTRUCTURE.md)
 - [Infrastructure HTTP contract](contracts/infrastructure-api.json) and [project schema](schemas/project.schema.json)
 - [What a contract means](docs/CONTRACTS.md)
+- [Local MCP adapter](docs/MCP.md)
 - [Portable agent contract](skills/references/agentic-contract.md)
 - [Build UI](skills/build-ui/SKILL.md)
 - [Compose patterns](skills/compose-pattern/SKILL.md)

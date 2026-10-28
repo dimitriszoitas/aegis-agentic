@@ -10,7 +10,7 @@ await mkdir(output, { recursive: true });
 const browser = await chromium.launch();
 const results = [];
 const failures = [];
-const names = ['Overview', 'Component Guidelines', 'Tokens Used', 'Examples'];
+const names = ['Overview', 'Contract', 'Component Guidelines', 'Tokens Used', 'Examples'];
 const families = await Promise.all(
   [
     'components-actions-button',

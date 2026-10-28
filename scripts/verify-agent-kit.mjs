@@ -23,6 +23,43 @@ function run(args, expected = 0) {
 }
 const fixture = (name) => join(kit, name);
 const kitInfo = run(['status']);
+const catalogue = JSON.parse(await readFile(fixture(kitInfo.contractCatalogue.path), 'utf8'));
+const contractEntries = run(['contracts', 'list']);
+assert.deepEqual(
+  contractEntries,
+  catalogue.entries,
+  'CLI and distributed catalogue must be identical',
+);
+assert.deepEqual(run(['contracts', 'coverage']), catalogue.coverage);
+assert.equal(catalogue.package.version, kitInfo.version);
+assert.equal(catalogue.registryRevision, kitInfo.registryRevision);
+assert.equal(catalogue.coverage.apiFamilies, 103);
+assert.equal(catalogue.coverage.authoredComponentPatternContracts, 7);
+assert.equal(catalogue.coverage.apiFamiliesWithAuthoredBehavior, 5);
+assert.equal(catalogue.coverage.systemProtocolContracts, 2);
+const contractButton = run(['contracts', 'get', 'button']);
+assert.equal(contractButton.apiFamilyId, 'components-actions-button');
+assert.equal(contractButton.contract.id, 'button');
+assert.equal(contractButton.coverage.behaviorAuthored, true);
+assert.equal(
+  run(['contracts', 'get', 'components-data-datagrid']).coverage.behaviorAuthored,
+  false,
+);
+assert.equal(run(['contracts', 'get', 'patterns-filterbar']).contract, null);
+assert.equal(run(['contracts', 'get', 'dataset-filtering']).apiFamilyId, null);
+assert(
+  run(['contracts', 'search', 'page layout']).some((entry) => entry.registryId === 'page-layout'),
+);
+assert(run(['contracts', 'get', 'not-a-contract'], 1).error.includes('Unknown contract'));
+assert(run(['contracts', 'search'], 1).error.includes('exactly one'));
+assert(run(['contracts', 'coverage', 'extra'], 1).error.includes('no arguments'));
+assert.equal(kitInfo.mcp.transport, 'stdio');
+assert.equal(kitInfo.mcp.readOnly, true);
+assert.equal(kitInfo.mcp.verifiedProtocolVersion, '2025-11-25');
+assert((await readFile(fixture(kitInfo.mcp.entry), 'utf8')).includes('aegis-agentic-readonly'));
+checks.push(
+  'Portable catalogue and CLI agree on API, authored behavior and separate protocol coverage; unmapped families remain explicit gaps',
+);
 assert.equal(kitInfo.pageComposition.validationScope, 'recipe-selection-only');
 assert.equal(kitInfo.pageComposition.registryId, 'page-layout');
 assert.equal(kitInfo.pageComposition.validator, 'validatePageLayoutRecipe');

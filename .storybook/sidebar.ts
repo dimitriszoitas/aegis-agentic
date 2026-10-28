@@ -5,7 +5,15 @@ export const canonicalSidebarEntry: API_FilterFunction = (entry) => {
   if (entry.tags?.includes('aegis-component-hub')) return true;
   if (entry.tags?.includes('aegis-component-section')) return false;
   if (
-    ['Welcome', 'Principles', 'Directory', 'AI Guidelines', 'Agentic Skills'].includes(entry.title)
+    [
+      'Welcome',
+      'Principles',
+      'Directory',
+      'Contract Catalogue',
+      'AI Guidelines',
+      'Agentic Skills',
+      'MCP Integration',
+    ].includes(entry.title)
   ) {
     return entry.type === 'docs';
   }

@@ -54,6 +54,20 @@ export const foundationNavigation = [
   },
   {
     group: 'topLevel',
+    label: 'Contract Catalogue',
+    title: 'Contract Catalogue',
+    id: 'aegis-contract-catalogue--docs',
+    source: 'src/stories/contracts/catalogue.mdx',
+  },
+  {
+    group: 'topLevel',
+    label: 'MCP Integration',
+    title: 'MCP Integration',
+    id: 'aegis-mcp-integration--docs',
+    source: 'src/stories/contracts/mcp.mdx',
+  },
+  {
+    group: 'topLevel',
     label: 'AI Guidelines',
     title: 'AI Guidelines',
     id: 'foundations-ai-guidelines--docs',

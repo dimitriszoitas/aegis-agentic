@@ -273,7 +273,7 @@ test('machine navigation matches the visible foundation structure and retains pu
   assert.deepEqual(index.navigation, foundationNavigationLinks('../'));
   assert.deepEqual(
     index.navigation.topLevel.map((page) => page.label),
-    ['Welcome', 'Principles', 'Directory', 'AI Guidelines'],
+    ['Welcome', 'Principles', 'Directory', 'Contract Catalogue', 'MCP Integration', 'AI Guidelines'],
   );
   assert.deepEqual(
     index.navigation.foundations.map((page) => page.label),
@@ -313,6 +313,13 @@ test('machine navigation matches the visible foundation structure and retains pu
     artifacts.get('llms.txt'),
     /\[Agentic Skills\]\(\.\/\?path=\/docs\/agentic-skills-component-creation--docs\)/,
   );
+  for (const [label, route] of [
+    ['Contract Catalogue', '/docs/aegis-contract-catalogue--docs'],
+    ['MCP Integration', '/docs/aegis-mcp-integration--docs'],
+  ]) {
+    const page = index.navigation.topLevel.find((item) => item.label === label);
+    assert.equal(new URL(page.url, base).searchParams.get('path'), route);
+  }
   index.navigation.topLevel[0].label = 'Old welcome label';
   artifacts.set('ai/index.json', JSON.stringify(index));
   assert.throws(

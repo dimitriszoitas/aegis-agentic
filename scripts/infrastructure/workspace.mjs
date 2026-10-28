@@ -30,7 +30,12 @@ const digest = (value) => typeof value === 'string' && /^[a-f0-9]{64}$/.test(val
 const uuid = (value) =>
   typeof value === 'string' &&
   /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(value);
-const knownVersions = ['0.1.0-experiment.0', '0.2.0-experiment.0', '0.3.0-experiment.0'];
+const knownVersions = [
+  '0.1.0-experiment.0',
+  '0.2.0-experiment.0',
+  '0.3.0-experiment.0',
+  '0.4.0-experiment.0',
+];
 async function directory(path) {
   const entry = await lstat(path);
   if (!entry.isDirectory() || entry.isSymbolicLink())

@@ -1,0 +1,132 @@
+.contract-catalogue,
+.contract-family,
+.contract-details,
+.contract-mcp {
+  min-inline-size: var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-primary);
+  font-family: var(--group-application-surface-font-family-ui);
+  font-size: var(--group-application-business-app-font-size-body);
+  line-height: var(--group-application-business-app-font-leading-relaxed);
+}
+.contract-stack,
+.contract-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-padding-comfortable);
+}
+.contract-filters,
+.contract-actions,
+.contract-section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--group-application-business-app-space-padding-compact);
+}
+.contract-filters > * {
+  min-inline-size: var(--group-application-business-app-number-0);
+  max-inline-size: var(--group-application-business-app-size-width-full);
+}
+.contract-section-heading {
+  justify-content: space-between;
+}
+.contract-section,
+.contract-selection {
+  border-block-start: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  padding-block-start: var(--group-application-business-app-space-padding-roomy);
+}
+.contract-selection {
+  scroll-margin-block-start: var(--group-application-business-app-space-padding-comfortable);
+}
+.contract-details .contract-detail-heading > h2,
+.contract-details .contract-section h3,
+.contract-details .contract-section h4 {
+  padding: var(--group-application-business-app-number-0);
+  border: none;
+  margin-block: var(--group-application-business-app-number-0)
+    var(--group-application-business-app-space-padding-compact);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+  color: var(--group-application-business-app-color-content-primary);
+}
+.contract-details .contract-detail-heading > h2 {
+  font-size: var(--group-application-business-app-font-size-heading-m);
+}
+.contract-details .contract-section h3 {
+  font-size: var(--group-application-business-app-font-size-subheading);
+}
+.contract-details .contract-section h4 {
+  font-size: var(--group-application-business-app-font-size-body);
+}
+.contract-detail-heading > p,
+.contract-source,
+.contract-details .contract-section > p {
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.contract-source,
+.contract-references > li {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-padding-snug);
+}
+.contract-source {
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.contract-catalogue code,
+.contract-details code,
+.contract-mcp code {
+  font-family: var(--group-application-surface-font-family-code);
+  overflow-wrap: anywhere;
+}
+.contract-requirement,
+.contract-references > li + li {
+  margin-block-start: var(--group-application-business-app-space-padding-regular);
+}
+.contract-references {
+  padding: var(--group-application-business-app-number-0);
+  list-style: none;
+}
+.contract-references p {
+  margin: var(--group-application-business-app-number-0);
+}
+.contract-values {
+  display: grid;
+  gap: var(--group-application-business-app-space-padding-compact);
+}
+.contract-values dt {
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.contract-values dd {
+  margin: var(--group-application-business-app-number-0);
+}
+.contract-details summary,
+.contract-catalogue summary {
+  cursor: pointer;
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.contract-details summary:focus-visible,
+.contract-catalogue summary:focus-visible,
+.contract-selection:focus-visible {
+  outline: var(--group-application-business-app-border-width-regular) solid
+    var(--group-application-business-app-color-action-foreground);
+  outline-offset: var(--group-application-surface-focus-offset);
+}
+.contract-raw,
+.contract-markdown pre {
+  padding: var(--group-application-business-app-space-padding-regular);
+  border: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  border-radius: var(--group-application-business-app-radius-border-radius-rounded);
+  background: var(--group-application-business-app-color-surface-surface);
+  color: var(--group-application-business-app-color-content-primary);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-inline-size: var(--group-application-business-app-size-width-full);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.contract-markdown {
+  overflow-wrap: anywhere;
+}
+.contract-markdown table {
+  display: block;
+  overflow-x: auto;
+}

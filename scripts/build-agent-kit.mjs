@@ -1,5 +1,6 @@
 import { build } from 'vite';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { cp, mkdir, readFile, readdir, writeFile, rm } from 'node:fs/promises';
 import { dirname, join, resolve, relative } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -8,6 +9,10 @@ import { patternPolicyCapability } from './product-pattern-policy.mjs';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = join(root, 'agent-kit');
 const packageInfo = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'));
+const mcpPackage = JSON.parse(await readFile(join(root, 'mcp/package.json'), 'utf8'));
+execFileSync(process.execPath, [join(root, 'scripts/generate-contract-catalogue.mjs'), '--check'], {
+  stdio: 'inherit',
+});
 await rm(out, { recursive: true, force: true });
 await mkdir(join(out, 'runtime'), { recursive: true });
 await build({
@@ -86,6 +91,50 @@ await cp(join(root, 'scripts/infrastructure'), join(out, 'infrastructure'), {
 });
 await mkdir(join(out, 'bin'), { recursive: true });
 await cp(join(root, 'scripts/agentic-cli.mjs'), join(out, 'bin/aegis.mjs'));
+// Ship the optional stdio adapter as a self-contained Node entry. No installation
+// inside an immutable kit, SDK dependency in React, or global client config is needed.
+await build({
+  configFile: false,
+  publicDir: false,
+  logLevel: 'warn',
+  ssr: { noExternal: true, target: 'node' },
+  build: {
+    ssr: join(root, 'mcp/src/server.mjs'),
+    outDir: join(out, 'bin'),
+    emptyOutDir: false,
+    target: 'node24',
+    minify: false,
+    rollupOptions: { output: { entryFileNames: 'aegis-mcp.mjs' } },
+  },
+});
+const mcpLock = JSON.parse(await readFile(join(root, 'mcp/package-lock.json'), 'utf8'));
+const notices = [];
+for (const [dependencyPath, dependency] of Object.entries(mcpLock.packages)) {
+  if (!dependencyPath || dependency.dev) continue;
+  const installed = join(root, 'mcp', dependencyPath);
+  const metadata = JSON.parse(await readFile(join(installed, 'package.json'), 'utf8'));
+  const destination = join('third-party/mcp', metadata.name);
+  await mkdir(join(out, destination), { recursive: true });
+  const licenseFiles = (await readdir(installed)).filter((name) =>
+    /^(license|licence|notice)(\.|$)/i.test(name),
+  );
+  if (!licenseFiles.length) throw new Error(`Missing dependency license: ${metadata.name}`);
+  for (const name of licenseFiles) await cp(join(installed, name), join(out, destination, name));
+  notices.push({
+    name: metadata.name,
+    version: metadata.version,
+    license: metadata.license,
+    notices: licenseFiles.map((name) => join(destination, name)),
+  });
+}
+await writeFile(
+  join(out, 'third-party/mcp-dependencies.json'),
+  JSON.stringify(notices, null, 2) + '\n',
+);
+await mkdir(join(out, 'docs'), { recursive: true });
+for (const name of ['CONTRACTS.md', 'MCP.md']) {
+  await cp(join(root, 'docs', name), join(out, 'docs', name));
+}
 await cp(join(root, 'LICENSE'), join(out, 'LICENSE'));
 const core = await import(
   pathToFileURL(join(out, 'runtime/core.mjs')).href + `?build=${Date.now()}`
@@ -118,6 +167,24 @@ const manifest = {
   entry: 'skills/build-ui/SKILL.md',
   cli: 'bin/aegis.mjs',
   runtime: 'runtime/core.mjs',
+  contractCatalogue: {
+    path: 'reference-api/ai/contract-catalogue.json',
+    guidance: 'docs/CONTRACTS.md',
+    cli: 'contracts list|search|get|coverage',
+    coverageScope: 'explicit-source-bindings-and-reported-evidence',
+  },
+  mcp: {
+    entry: 'bin/aegis-mcp.mjs',
+    transport: 'stdio',
+    verifiedProtocolVersion: '2025-11-25',
+    sdk: {
+      name: '@modelcontextprotocol/server',
+      version: mcpPackage.dependencies['@modelcontextprotocol/server'],
+    },
+    guidance: 'docs/MCP.md',
+    readOnly: true,
+    binding: 'explicit-project-lock-or-unbound-discovery',
+  },
   patternPolicy: patternPolicyCapability,
   pageComposition: {
     recipeVersion: core.pageLayoutRecipes.version,
@@ -168,6 +235,7 @@ await writeFile(
         'aegis-agentic': './bin/aegis.mjs',
         'aegis-infra': './infrastructure/cli.mjs',
         'aegis-workspace': './infrastructure/workspace-cli.mjs',
+        'aegis-mcp': './bin/aegis-mcp.mjs',
       },
       exports: './runtime/core.mjs',
       engines: { node: '>=24 <25' },
@@ -178,7 +246,7 @@ await writeFile(
 );
 await writeFile(
   join(out, 'README.md'),
-  '# Aegis Agentic portable kit\n\nStart with `skills/build-ui/SKILL.md`. Run `node bin/aegis.mjs help` for commands. The core runtime has no npm dependencies. Keep this folder together. React component implementations are provided separately by the Aegis Agentic package; this kit defines and validates the design language.\n\nCompile a profile into a consuming project: `node bin/aegis.mjs profile compile profiles/aegis.json --out /path/to/project/agentic-dist`. Apply the emitted CSS after the base Aegis styles and set the documented profile attribute at the document root.\n\nInfrastructure: `node infrastructure/cli.mjs help`. Initialize a new local project with `node infrastructure/cli.mjs init --project /path/to/new-project --id my-project --profile profiles/aegis.json`; inspect `status`, `inventory`, and `plan`. The optional loopback service uses `serve --project /path/to/new-project --reconcile-interval 60`. Its HTTP shapes and limits are in `contracts/infrastructure-api.json`. Telemetry and remote AI start disabled. The runtime exports an explicit usage client; an AI provider is never required for component rendering.\n\nShared workspace (Node 24): `node infrastructure/workspace-cli.mjs help`. Supports signed kit installation, scoped bearer credentials, multiple projects, reviewed generation activation and rollback. Protocol: `contracts/workspace-api.json`. Single-host local filesystem only; no SSO or managed hosting.\n',
+  '# Aegis Agentic portable kit\n\nStart with `skills/build-ui/SKILL.md`. Inspect contract coverage with `node bin/aegis.mjs contracts coverage`. The optional read-only MCP adapter is `bin/aegis-mcp.mjs`; see `docs/MCP.md` for explicit binding and supported protocol. Run `node bin/aegis.mjs help` for commands. The core runtime has no npm dependencies. Keep this folder together. React component implementations are provided separately by the Aegis Agentic package; this kit defines and validates the design language.\n\nCompile a profile into a consuming project: `node bin/aegis.mjs profile compile profiles/aegis.json --out /path/to/project/agentic-dist`. Apply the emitted CSS after the base Aegis styles and set the documented profile attribute at the document root.\n\nInfrastructure: `node infrastructure/cli.mjs help`. Initialize a new local project with `node infrastructure/cli.mjs init --project /path/to/new-project --id my-project --profile profiles/aegis.json`; inspect `status`, `inventory`, and `plan`. The optional loopback service uses `serve --project /path/to/new-project --reconcile-interval 60`. Its HTTP shapes and limits are in `contracts/infrastructure-api.json`. Telemetry and remote AI start disabled. The runtime exports an explicit usage client; an AI provider is never required for component rendering.\n\nShared workspace (Node 24): `node infrastructure/workspace-cli.mjs help`. Supports signed kit installation, scoped bearer credentials, multiple projects, reviewed generation activation and rollback. Protocol: `contracts/workspace-api.json`. Single-host local filesystem only; no SSO or managed hosting.\n',
 );
 async function files(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
