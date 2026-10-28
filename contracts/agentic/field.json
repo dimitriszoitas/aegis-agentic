@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "field",
   "version": 1,
   "status": "source-backed-baseline",
@@ -8,10 +8,88 @@
   "anatomy": ["label", "control", "description?", "error?"],
   "states": ["idle", "invalid", "disabled"],
   "invariants": [
-    "Every control has a programmatic name.",
+    "The host supplies a meaningful label and a participating control consumes Field metadata to establish its programmatic name.",
     "Invalid state is associated with its message.",
     "Field does not replace the input behavior."
   ],
   "tokenGroup": "input",
-  "behaviorProvider": "label-association"
+  "behaviorProvider": "label-association",
+  "ownership": {
+    "component": [
+      "context metadata and explicit-control precedence",
+      "label/help/error ID association",
+      "required/optional and invalid presentation"
+    ],
+    "host": [
+      "one appropriate participating control per field",
+      "meaningful label and validation content",
+      "input behavior, value and form lifecycle"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "field-identities",
+      "kind": "component",
+      "statement": "Generate a control ID unless id is supplied; render the wrapper at controlId-field and label at controlId-label with htmlFor targeting the control ID. Provide the same metadata through the nearest Field context.",
+      "sources": ["src/components/field/field.tsx"]
+    },
+    {
+      "id": "participating-control",
+      "kind": "host",
+      "statement": "Compose a control that consumes useFieldControl or applies the equivalent ID/ARIA attributes. Field does not clone arbitrary children or automatically associate a plain input that ignores its context.",
+      "sources": ["src/components/field/field.tsx"]
+    },
+    {
+      "id": "control-precedence",
+      "kind": "component",
+      "statement": "useFieldControl resolves id, aria-labelledby, required and disabled from explicit control props before context. aria-invalid takes precedence over explicit invalid, then contextual invalid; explicit false overrides inherited booleans.",
+      "sources": ["src/components/field/field.tsx"]
+    },
+    {
+      "id": "description-merge",
+      "kind": "component",
+      "statement": "Merge and deduplicate whitespace-separated contextual help/error IDs with caller aria-describedby IDs, retaining context references before caller references.",
+      "sources": ["src/components/field/field.tsx"]
+    },
+    {
+      "id": "help-and-error-presence",
+      "kind": "component",
+      "statement": "Render help for any value except undefined/null/false, including zero and empty string. Render error except undefined/null/false/empty string, including zero; present an existing error with role=alert.",
+      "sources": ["src/components/field/field.tsx"]
+    },
+    {
+      "id": "invalid-state",
+      "kind": "component",
+      "statement": "Default contextual invalid and wrapper data-invalid from error presence, while an explicit invalid boolean overrides that inference. Error text is associated through describedby even if invalid is explicitly false.",
+      "sources": ["src/components/field/field.tsx"]
+    },
+    {
+      "id": "requirement-markers",
+      "kind": "component",
+      "statement": "Show required marker and hidden required wording when required; otherwise show Optional when optional. Required wins if both flags are supplied.",
+      "sources": ["src/components/field/field.tsx"]
+    },
+    {
+      "id": "host-validation",
+      "kind": "host",
+      "statement": "Own validation timing, native required application, server errors, disabled behavior of any nonparticipating children and submit/focus workflow. A context flag is metadata until the control applies it.",
+      "sources": ["src/components/field/field.tsx"]
+    },
+    {
+      "id": "name-obligation",
+      "kind": "host",
+      "statement": "Supply a useful label and appropriate control identity; avoid multiple controls accidentally sharing the same generated control ID. A nonempty programmatic name is a host obligation, not runtime-validated by Field.",
+      "sources": ["src/components/field/field.tsx"]
+    },
+    {
+      "id": "token-boundary",
+      "kind": "design",
+      "statement": "Use input group tokens for the Field wrapper and retain the nested control behavior/styles rather than replacing them with decorative markup.",
+      "sources": ["src/components/field/field.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "Field is not a form validator or native disabled fieldset. Arbitrary children do not inherit browser control behavior from its div wrapper.",
+    "Help/error nodes can contain arbitrary React content; the host must keep messages and any supplied ID references meaningful."
+  ]
 }

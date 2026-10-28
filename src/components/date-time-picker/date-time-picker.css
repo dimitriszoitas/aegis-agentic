@@ -1,0 +1,12 @@
+.aegis-date-time-picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-field-gap-compact);
+  min-width: var(--group-input-field-number-0);
+}
+.aegis-date-time-zone {
+  margin: var(--group-input-field-number-0);
+  color: var(--group-input-field-color-content-secondary);
+  font-size: var(--group-input-field-font-size-body);
+  line-height: var(--group-input-field-font-leading-body);
+}

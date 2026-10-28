@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 2,
+  "id": "expand-cell",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A row disclosure button with optional nested-item count.",
+  "anatomy": ["toggle button", "decorative chevron", "optional count"],
+  "states": ["collapsed", "expanded", "disabled"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Shared data-grid cell adapter; table/record state remains with its host.",
+  "ownership": {
+    "component": [
+      "Render a non-submitting native button with aria-expanded and an action label combining Expand/Collapse, optional count and label.",
+      "Stop click and keydown propagation. A click emits onExpandedChange with the inverse of the supplied expanded state, then calls an optional onClick."
+    ],
+    "host": [
+      "Own expanded state and render/remove the corresponding detail region. Supply aria-controls and contextual label when there is a target region.",
+      "Own lazy loading and errors for expanded content; provide a valid nonnegative count."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Render a non-submitting native button with aria-expanded and an action label combining Expand/Collapse, optional count and label.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Stop click and keydown propagation. A click emits onExpandedChange with the inverse of the supplied expanded state, then calls an optional onClick.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Keep visible count and icon decorative because the button name already includes their meaning. Forward ordinary button properties, including aria-controls when supplied.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Own expanded state and render/remove the corresponding detail region. Supply aria-controls and contextual label when there is a target region.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own lazy loading and errors for expanded content; provide a valid nonnegative count.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No target content, lazy fetch, accordion keyboard model or automatic target id is created.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

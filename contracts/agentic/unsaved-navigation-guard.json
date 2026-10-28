@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "id": "unsaved-navigation-guard",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Adapt explicit host navigation requests to an unsaved-change confirmation with a bounded browser unload warning.",
+  "anatomy": [
+    "host content",
+    "requestNavigation adapter",
+    "shared confirmation dialog",
+    "optional browser unload listener"
+  ],
+  "states": [
+    "clean",
+    "dirty",
+    "confirmation open",
+    "kept editing",
+    "discard pending",
+    "navigation pending",
+    "navigation rejection"
+  ],
+  "tokenGroup": "workflow",
+  "behaviorProvider": "Native React composition with existing shared Aegis controls; see explicit component and host responsibilities.",
+  "ownership": {
+    "component": [
+      "explicit request queue",
+      "confirmation and pending state",
+      "beforeunload listener lifecycle"
+    ],
+    "host": [
+      "dirty state and edited data",
+      "routing every guarded transition through the adapter",
+      "discard callback and navigation effects",
+      "route failure presentation outside a dirty confirmation"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "explicit-adapter",
+      "kind": "component",
+      "statement": "Expose requestNavigation(callback) from both the hook and render-prop component. A clean request runs without a dialog; a dirty request opens shared ConfirmDialog.",
+      "sources": ["src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx"]
+    },
+    {
+      "id": "host-routing",
+      "kind": "host",
+      "statement": "Call requestNavigation for every transition that should be guarded. The adapter does not intercept ordinary links, history APIs, browser back, or arbitrary SPA routers.",
+      "sources": [
+        "src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx",
+        "src/patterns/unsaved-navigation-guard/README.md"
+      ]
+    },
+    {
+      "id": "single-request",
+      "kind": "component",
+      "statement": "Accept one outstanding transition at a time. Concurrent requests resolve false rather than replacing the destination awaiting confirmation.",
+      "sources": ["src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx"]
+    },
+    {
+      "id": "cancel-outcome",
+      "kind": "component",
+      "statement": "Cancel/dismiss resolves the pending request false without invoking its navigation callback. Unmount also settles an outstanding request false.",
+      "sources": ["src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx"]
+    },
+    {
+      "id": "discard-order",
+      "kind": "component",
+      "statement": "After confirmation, await onDiscard when still dirty, then invoke the stored navigation callback. Resolve true only after that callback completes.",
+      "sources": ["src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx"]
+    },
+    {
+      "id": "failure-retry",
+      "kind": "component",
+      "statement": "For a confirmed guarded transition, thrown discard/navigation errors remain in ConfirmDialog and retain the same request for retry. A clean navigation rejection resolves false; the host owns its error presentation.",
+      "sources": ["src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx"]
+    },
+    {
+      "id": "unload-warning",
+      "kind": "component",
+      "statement": "Attach beforeunload only while dirty and beforeUnload is enabled, and remove it when those conditions end or the component unmounts.",
+      "sources": ["src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx"]
+    },
+    {
+      "id": "browser-boundary",
+      "kind": "host",
+      "statement": "Treat beforeunload as a best-effort browser prompt: text, availability and user-activation requirements are browser-controlled. Persist or recover drafts independently when needed.",
+      "sources": [
+        "src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx",
+        "src/patterns/unsaved-navigation-guard/README.md"
+      ]
+    },
+    {
+      "id": "callback-effects",
+      "kind": "host",
+      "statement": "Make discard/navigation retry-safe and handle irreversible side effects; unmount stops subsequent work but cannot undo a navigation callback already running.",
+      "sources": [
+        "src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx",
+        "src/patterns/unsaved-navigation-guard/README.md"
+      ]
+    },
+    {
+      "id": "shared-confirmation",
+      "kind": "design",
+      "statement": "Use the shared ConfirmDialog for names, keyboard dismissal and focus return. Owned wrapper geometry uses workflow tokens.",
+      "sources": [
+        "src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No universal interception of router events, browser history or links.",
+    "Browser unload prompts may be suppressed and cannot show custom application text reliably.",
+    "An already running callback cannot be canceled or undone by unmount.",
+    "A retry may invoke onDiscard again; host callbacks must tolerate retries."
+  ]
+}

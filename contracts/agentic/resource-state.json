@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 2,
+  "id": "resource-state",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present explicit host resource states while retaining existing content through refresh and stale-data states.",
+  "anatomy": [
+    "named resource region",
+    "state feedback",
+    "optional retry or empty action",
+    "retained content"
+  ],
+  "states": ["initial-loading", "ready", "refreshing", "stale", "error", "empty", "retrying"],
+  "tokenGroup": "feedback",
+  "behaviorProvider": "Native React composition with existing shared Aegis controls; see explicit component and host responsibilities.",
+  "ownership": {
+    "component": [
+      "explicit state presentation",
+      "retained content identity",
+      "shared feedback and retry controls"
+    ],
+    "host": [
+      "fetching and request cancellation",
+      "state selection and data freshness",
+      "retry behavior and retrying state"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "explicit-state",
+      "kind": "component",
+      "statement": "Use discriminated public props to separate retained ready/refreshing/stale content from initial-loading/empty/error states.",
+      "sources": ["src/patterns/resource-state/resource-state.tsx"]
+    },
+    {
+      "id": "retained-content",
+      "kind": "component",
+      "statement": "Keep the same keyed content region through ready, refreshing and stale transitions; refreshing and stale do not disable arbitrary descendants.",
+      "sources": ["src/patterns/resource-state/resource-state.tsx"]
+    },
+    {
+      "id": "initial-versus-empty",
+      "kind": "component",
+      "statement": "Present initial loading with shared Spinner and optional loadingContent; empty uses the no-data EmptyState and optional emptyAction.",
+      "sources": ["src/patterns/resource-state/resource-state.tsx"]
+    },
+    {
+      "id": "failure-recovery",
+      "kind": "component",
+      "statement": "Render shared error EmptyState for failure and a warning notice with retained content for stale data. Show retry only when onRetry is supplied.",
+      "sources": ["src/patterns/resource-state/resource-state.tsx"]
+    },
+    {
+      "id": "retry-ownership",
+      "kind": "host",
+      "statement": "Perform the real retry and update retrying/status. No promise lifecycle, duplicate-request suppression beyond the supplied retrying flag, race protection or request cancellation is inferred.",
+      "sources": [
+        "src/patterns/resource-state/resource-state.tsx",
+        "src/patterns/resource-state/README.md"
+      ]
+    },
+    {
+      "id": "busy-state",
+      "kind": "component",
+      "statement": "Mark initial loading, refreshing and retrying with aria-busy. Status announcements inside a busy region may be deferred by assistive technology.",
+      "sources": ["src/patterns/resource-state/resource-state.tsx"]
+    },
+    {
+      "id": "freshness-policy",
+      "kind": "host",
+      "statement": "Choose when stale data is safe to retain, whether actions remain valid, and when content should be replaced by an error or empty state.",
+      "sources": [
+        "src/patterns/resource-state/resource-state.tsx",
+        "src/patterns/resource-state/README.md"
+      ]
+    },
+    {
+      "id": "nested-feedback",
+      "kind": "design",
+      "statement": "Use feedback group tokens for owned spacing; nested Button keeps trigger ownership. Use the shared feedback components without restyling their internals.",
+      "sources": [
+        "src/patterns/resource-state/resource-state.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No fetching, caching, authentication, freshness timestamps or automatic state transitions.",
+    "Switching to initial-loading/empty/error intentionally unmounts retained children.",
+    "retrying is caller-controlled and must reflect the actual operation."
+  ]
+}

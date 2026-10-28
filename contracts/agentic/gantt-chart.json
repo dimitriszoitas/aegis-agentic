@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 2,
+  "id": "gantt-chart",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Display an inclusive UTC calendar schedule with scale navigation and optional task selection.",
+  "anatomy": [
+    "named section",
+    "scale control",
+    "task labels",
+    "scrollable timeline",
+    "bars or milestones",
+    "dependency paths",
+    "schedule data disclosure"
+  ],
+  "states": [
+    "day",
+    "week",
+    "month",
+    "selected task",
+    "invalid task notice",
+    "empty",
+    "schedule too long"
+  ],
+  "tokenGroup": "data-viz",
+  "behaviorProvider": "Native SVG/layout and shared SegmentedControl; local gantt-model validation.",
+  "ownership": {
+    "component": [
+      "Use ganttModel to reject empty/duplicate IDs, invalid calendar dates and end-before-start records, showing their labels in a status notice. Dates are validated as exact YYYY-MM-DD UTC calendar days.",
+      "Clamp finite progress to zero through one hundred and use zero for nonfinite/missing progress. A milestone ends on its start date after input dates have passed validation.",
+      "Use controlled scale when supplied, otherwise initialize local scale from defaultScale. The segmented control updates local state only uncontrolled and always calls onScaleChange when provided."
+    ],
+    "host": [
+      "Own editing, persistence, selectedTaskId and dependency correctness. Supply today explicitly for a deterministic marker; this chart does not schedule, drag-resize, resolve cycles or update the current date."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "calendar-validation",
+      "kind": "component",
+      "statement": "Use ganttModel to reject empty/duplicate IDs, invalid calendar dates and end-before-start records, showing their labels in a status notice. Dates are validated as exact YYYY-MM-DD UTC calendar days.",
+      "sources": [
+        "src/components/gantt-chart/gantt-chart.tsx",
+        "src/components/gantt-chart/gantt-model.ts"
+      ]
+    },
+    {
+      "id": "progress-milestones",
+      "kind": "component",
+      "statement": "Clamp finite progress to zero through one hundred and use zero for nonfinite/missing progress. A milestone ends on its start date after input dates have passed validation.",
+      "sources": [
+        "src/components/gantt-chart/gantt-chart.tsx",
+        "src/components/gantt-chart/gantt-model.ts"
+      ]
+    },
+    {
+      "id": "scale-lifecycle",
+      "kind": "component",
+      "statement": "Use controlled scale when supplied, otherwise initialize local scale from defaultScale. The segmented control updates local state only uncontrolled and always calls onScaleChange when provided.",
+      "sources": ["src/components/gantt-chart/gantt-chart.tsx"]
+    },
+    {
+      "id": "bounded-schedule",
+      "kind": "component",
+      "statement": "Expand week bounds to Monday-based weeks and month bounds to calendar months. Display an explanatory replacement rather than a grid when the padded interval exceeds 366 times five days.",
+      "sources": [
+        "src/components/gantt-chart/gantt-chart.tsx",
+        "src/components/gantt-chart/gantt-model.ts"
+      ]
+    },
+    {
+      "id": "selection-semantics",
+      "kind": "component",
+      "statement": "Render bars as named buttons only when onTaskSelect exists; emit the normalized task and derive aria-pressed from selectedTaskId when supplied. Otherwise render noninteractive role=img task bars.",
+      "sources": ["src/components/gantt-chart/gantt-chart.tsx"]
+    },
+    {
+      "id": "dependency-semantics",
+      "kind": "component",
+      "statement": "Draw known nonself dependency edges decoratively; include dependencies in task labels and exact schedule data. Unknown dependency IDs remain textual references and do not create paths.",
+      "sources": ["src/components/gantt-chart/gantt-chart.tsx"]
+    },
+    {
+      "id": "viewport-and-cleanup",
+      "kind": "component",
+      "statement": "Measure available plot width with ResizeObserver and a debounced update; disconnect the observer and clear its timer on effect cleanup. Keep the timeline as a named focusable scroll region.",
+      "sources": ["src/components/gantt-chart/gantt-chart.tsx"]
+    },
+    {
+      "id": "exact-schedule",
+      "kind": "component",
+      "statement": "Provide a native schedule-data disclosure with task/start/end/progress/owner/dependency headers. Show a today marker only for a valid explicit date inside the model range.",
+      "sources": ["src/components/gantt-chart/gantt-chart.tsx"]
+    },
+    {
+      "id": "host-schedule",
+      "kind": "host",
+      "statement": "Own editing, persistence, selectedTaskId and dependency correctness. Supply today explicitly for a deterministic marker; this chart does not schedule, drag-resize, resolve cycles or update the current date.",
+      "sources": ["src/components/gantt-chart/gantt-chart.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume data-viz group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "No critical-path calculation, dependency-cycle validation, work calendars or task editing.",
+    "Large row counts are not virtualized even within the bounded calendar span."
+  ]
+}

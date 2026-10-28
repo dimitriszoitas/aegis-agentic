@@ -531,6 +531,1602 @@
         }
       ],
       "evidence": []
+    },
+    {
+      "contractId": "form-error-summary",
+      "path": "contracts/agentic/form-error-summary.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-formerrorsummary",
+      "implementation": "src/patterns/form-error-summary/form-error-summary.tsx",
+      "exportName": "FormErrorSummary",
+      "checks": [
+        {
+          "path": "src/patterns/form-error-summary/form-error-summary.test.tsx",
+          "label": "FormErrorSummary boundary tests",
+          "scope": "Focused source and native-render boundaries, not browser certification."
+        },
+        {
+          "path": "src/patterns/form-error-summary/form-error-summary.stories.tsx",
+          "label": "FormErrorSummary interaction stories",
+          "scope": "Local interactive behavior; linked source does not imply a current executed result."
+        },
+        {
+          "path": "scripts/verify-complete-patterns-source.mjs",
+          "label": "Reusable workflow browser checks",
+          "scope": "Bounded local state, focus, failure and responsive interactions."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "resource-state",
+      "path": "contracts/agentic/resource-state.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-resourcestate",
+      "implementation": "src/patterns/resource-state/resource-state.tsx",
+      "exportName": "ResourceState",
+      "checks": [
+        {
+          "path": "src/patterns/resource-state/resource-state.test.tsx",
+          "label": "ResourceState boundary tests",
+          "scope": "Focused source and native-render boundaries, not browser certification."
+        },
+        {
+          "path": "src/patterns/resource-state/resource-state.stories.tsx",
+          "label": "ResourceState interaction stories",
+          "scope": "Local interactive behavior; linked source does not imply a current executed result."
+        },
+        {
+          "path": "scripts/verify-complete-patterns-source.mjs",
+          "label": "Reusable workflow browser checks",
+          "scope": "Bounded local state, focus, failure and responsive interactions."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "record-editor",
+      "path": "contracts/agentic/record-editor.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-recordeditor",
+      "implementation": "src/patterns/record-editor/record-editor.tsx",
+      "exportName": "RecordEditor",
+      "checks": [
+        {
+          "path": "src/patterns/record-editor/record-editor.test.tsx",
+          "label": "RecordEditor boundary tests",
+          "scope": "Focused source and native-render boundaries, not browser certification."
+        },
+        {
+          "path": "src/patterns/record-editor/record-editor.stories.tsx",
+          "label": "RecordEditor interaction stories",
+          "scope": "Local interactive behavior; linked source does not imply a current executed result."
+        },
+        {
+          "path": "scripts/verify-complete-patterns-source.mjs",
+          "label": "Reusable workflow browser checks",
+          "scope": "Bounded local state, focus, failure and responsive interactions."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "app-shell",
+      "path": "contracts/agentic/app-shell.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-appshell",
+      "implementation": "src/patterns/app-shell/app-shell.tsx",
+      "exportName": "AppShell",
+      "checks": [
+        {
+          "path": "src/patterns/app-shell/app-shell.test.tsx",
+          "label": "AppShell boundary tests",
+          "scope": "Focused source and native-render boundaries, not browser certification."
+        },
+        {
+          "path": "src/patterns/app-shell/app-shell.stories.tsx",
+          "label": "AppShell interaction stories",
+          "scope": "Local interactive behavior; linked source does not imply a current executed result."
+        },
+        {
+          "path": "scripts/verify-complete-patterns-source.mjs",
+          "label": "Reusable workflow browser checks",
+          "scope": "Bounded local state, focus, failure and responsive interactions."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "unsaved-navigation-guard",
+      "path": "contracts/agentic/unsaved-navigation-guard.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-unsavednavigationguard",
+      "implementation": "src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx",
+      "exportName": "UnsavedNavigationGuard",
+      "checks": [
+        {
+          "path": "src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.test.tsx",
+          "label": "UnsavedNavigationGuard boundary tests",
+          "scope": "Focused source and native-render boundaries, not browser certification."
+        },
+        {
+          "path": "src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.stories.tsx",
+          "label": "UnsavedNavigationGuard interaction stories",
+          "scope": "Local interactive behavior; linked source does not imply a current executed result."
+        },
+        {
+          "path": "scripts/verify-complete-patterns-source.mjs",
+          "label": "Reusable workflow browser checks",
+          "scope": "Bounded local state, focus, failure and responsive interactions."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "combobox",
+      "path": "contracts/agentic/combobox.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-combobox",
+      "implementation": "src/components/combobox/combobox.tsx",
+      "exportName": "Combobox",
+      "checks": [
+        {
+          "path": "src/components/combobox/combobox.test.tsx",
+          "label": "Native and value boundary tests",
+          "scope": "Source render and parser invariants, not complete browser certification."
+        },
+        {
+          "path": "src/components/combobox/combobox.stories.tsx",
+          "label": "Interactive component stories",
+          "scope": "Args-driven configuration and focused interaction stories."
+        },
+        {
+          "path": "scripts/fixtures/complete-inputs/verify.mjs",
+          "label": "Six input browser fixture",
+          "scope": "Real browser interaction, native form values and eight theme/mode/width configurations; native OS picker/autofill services excluded."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "otp-input",
+      "path": "contracts/agentic/otp-input.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-otpinput",
+      "implementation": "src/components/otp-input/otp-input.tsx",
+      "exportName": "OtpInput",
+      "checks": [
+        {
+          "path": "src/components/otp-input/otp-input.test.tsx",
+          "label": "Native and value boundary tests",
+          "scope": "Source render and parser invariants, not complete browser certification."
+        },
+        {
+          "path": "src/components/otp-input/otp-input.stories.tsx",
+          "label": "Interactive component stories",
+          "scope": "Args-driven configuration and focused interaction stories."
+        },
+        {
+          "path": "scripts/fixtures/complete-inputs/verify.mjs",
+          "label": "Six input browser fixture",
+          "scope": "Real browser interaction, native form values and eight theme/mode/width configurations; native OS picker/autofill services excluded."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "time-picker",
+      "path": "contracts/agentic/time-picker.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-timepicker",
+      "implementation": "src/components/time-picker/time-picker.tsx",
+      "exportName": "TimePicker",
+      "checks": [
+        {
+          "path": "src/components/time-picker/time-picker.test.tsx",
+          "label": "Native and value boundary tests",
+          "scope": "Source render and parser invariants, not complete browser certification."
+        },
+        {
+          "path": "src/components/time-picker/time-picker.stories.tsx",
+          "label": "Interactive component stories",
+          "scope": "Args-driven configuration and focused interaction stories."
+        },
+        {
+          "path": "scripts/fixtures/complete-inputs/verify.mjs",
+          "label": "Six input browser fixture",
+          "scope": "Real browser interaction, native form values and eight theme/mode/width configurations; native OS picker/autofill services excluded."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "date-time-picker",
+      "path": "contracts/agentic/date-time-picker.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-datetimepicker",
+      "implementation": "src/components/date-time-picker/date-time-picker.tsx",
+      "exportName": "DateTimePicker",
+      "checks": [
+        {
+          "path": "src/components/date-time-picker/date-time-picker.test.tsx",
+          "label": "Native and value boundary tests",
+          "scope": "Source render and parser invariants, not complete browser certification."
+        },
+        {
+          "path": "src/components/date-time-picker/date-time-picker.stories.tsx",
+          "label": "Interactive component stories",
+          "scope": "Args-driven configuration and focused interaction stories."
+        },
+        {
+          "path": "scripts/fixtures/complete-inputs/verify.mjs",
+          "label": "Six input browser fixture",
+          "scope": "Real browser interaction, native form values and eight theme/mode/width configurations; native OS picker/autofill services excluded."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "phone-input",
+      "path": "contracts/agentic/phone-input.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-phoneinput",
+      "implementation": "src/components/phone-input/phone-input.tsx",
+      "exportName": "PhoneInput",
+      "checks": [
+        {
+          "path": "src/components/phone-input/phone-input.test.tsx",
+          "label": "Native and value boundary tests",
+          "scope": "Source render and parser invariants, not complete browser certification."
+        },
+        {
+          "path": "src/components/phone-input/phone-input.stories.tsx",
+          "label": "Interactive component stories",
+          "scope": "Args-driven configuration and focused interaction stories."
+        },
+        {
+          "path": "scripts/fixtures/complete-inputs/verify.mjs",
+          "label": "Six input browser fixture",
+          "scope": "Real browser interaction, native form values and eight theme/mode/width configurations; native OS picker/autofill services excluded."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "color-picker",
+      "path": "contracts/agentic/color-picker.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-colorpicker",
+      "implementation": "src/components/color-picker/color-picker.tsx",
+      "exportName": "ColorPicker",
+      "checks": [
+        {
+          "path": "src/components/color-picker/color-picker.test.tsx",
+          "label": "Native and value boundary tests",
+          "scope": "Source render and parser invariants, not complete browser certification."
+        },
+        {
+          "path": "src/components/color-picker/color-picker.stories.tsx",
+          "label": "Interactive component stories",
+          "scope": "Args-driven configuration and focused interaction stories."
+        },
+        {
+          "path": "scripts/fixtures/complete-inputs/verify.mjs",
+          "label": "Six input browser fixture",
+          "scope": "Real browser interaction, native form values and eight theme/mode/width configurations; native OS picker/autofill services excluded."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "button-group",
+      "path": "contracts/agentic/button-group.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-actions-buttongroup",
+      "implementation": "src/components/button-group/button-group.tsx",
+      "exportName": "ButtonGroup",
+      "checks": [
+        {
+          "path": "src/components/button-group/button-group.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "copy-button",
+      "path": "contracts/agentic/copy-button.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-actions-copybutton",
+      "implementation": "src/components/copy-button/copy-button.tsx",
+      "exportName": "CopyButton",
+      "checks": [
+        {
+          "path": "src/components/copy-button/copy-button.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "icon-button",
+      "path": "contracts/agentic/icon-button.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-actions-iconbutton",
+      "implementation": "src/components/icon-button/icon-button.tsx",
+      "exportName": "IconButton",
+      "checks": [
+        {
+          "path": "src/components/icon-button/icon-button.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "link",
+      "path": "contracts/agentic/link.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-actions-link",
+      "implementation": "src/components/link/link.tsx",
+      "exportName": "Link",
+      "checks": [
+        {
+          "path": "src/components/link/link.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "split-button",
+      "path": "contracts/agentic/split-button.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-actions-splitbutton",
+      "implementation": "src/components/split-button/split-button.tsx",
+      "exportName": "SplitButton",
+      "checks": [
+        {
+          "path": "src/components/split-button/split-button.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "ai-card",
+      "path": "contracts/agentic/ai-card.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-ai-aicard",
+      "implementation": "src/components/ai-card/ai-card.tsx",
+      "exportName": "AiCard",
+      "checks": [
+        {
+          "path": "src/components/ai-card/ai-card.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "ai-highlight",
+      "path": "contracts/agentic/ai-highlight.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-ai-aihighlight",
+      "implementation": "src/components/ai-card/ai-card.tsx",
+      "exportName": "AiHighlight",
+      "checks": [
+        {
+          "path": "src/components/ai-card/ai-highlight.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "ai-inline-suggestion",
+      "path": "contracts/agentic/ai-inline-suggestion.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-ai-aiinlinesuggestion",
+      "implementation": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+      "exportName": "AiInlineSuggestion",
+      "checks": [
+        {
+          "path": "src/components/ai-inline-suggestion/ai-inline-suggestion.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "ai-message",
+      "path": "contracts/agentic/ai-message.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-ai-aimessage",
+      "implementation": "src/components/ai-message/ai-message.tsx",
+      "exportName": "AiMessage",
+      "checks": [
+        {
+          "path": "src/components/ai-message/ai-message.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "confidence-badge",
+      "path": "contracts/agentic/confidence-badge.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-ai-confidencebadge",
+      "implementation": "src/components/confidence-badge/confidence-badge.tsx",
+      "exportName": "ConfidenceBadge",
+      "checks": [
+        {
+          "path": "src/components/confidence-badge/confidence-badge.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "streaming-skeleton",
+      "path": "contracts/agentic/streaming-skeleton.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-ai-streamingskeleton",
+      "implementation": "src/components/streaming-skeleton/streaming-skeleton.tsx",
+      "exportName": "StreamingSkeleton",
+      "checks": [
+        {
+          "path": "src/components/streaming-skeleton/streaming-skeleton.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "thinking-indicator",
+      "path": "contracts/agentic/thinking-indicator.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-ai-thinkingindicator",
+      "implementation": "src/components/thinking-indicator/thinking-indicator.tsx",
+      "exportName": "ThinkingIndicator",
+      "checks": [
+        {
+          "path": "src/components/thinking-indicator/thinking-indicator.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "expandable-text",
+      "path": "contracts/agentic/expandable-text.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-content-expandabletext",
+      "implementation": "src/components/expandable-text/expandable-text.tsx",
+      "exportName": "ExpandableText",
+      "checks": [
+        {
+          "path": "src/components/expandable-text/expandable-text.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "notification",
+      "path": "contracts/agentic/notification.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-feedback-notification",
+      "implementation": "src/components/notification/notification.tsx",
+      "exportName": "Notification",
+      "checks": [
+        {
+          "path": "src/components/notification/notification.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "progress-bar",
+      "path": "contracts/agentic/progress-bar.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-feedback-progress-bar",
+      "implementation": "src/components/progress-bar/progress-bar.tsx",
+      "exportName": "ProgressBar",
+      "checks": [
+        {
+          "path": "src/components/progress-bar/progress-bar.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "skeleton",
+      "path": "contracts/agentic/skeleton.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-feedback-skeleton",
+      "implementation": "src/components/skeleton/skeleton.tsx",
+      "exportName": "Skeleton",
+      "checks": [
+        {
+          "path": "src/components/skeleton/skeleton.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "spinner",
+      "path": "contracts/agentic/spinner.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-feedback-spinner",
+      "implementation": "src/components/spinner/spinner.tsx",
+      "exportName": "Spinner",
+      "checks": [
+        {
+          "path": "src/components/spinner/spinner.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "avatar",
+      "path": "contracts/agentic/avatar.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-people-avatar",
+      "implementation": "src/components/avatar/avatar.tsx",
+      "exportName": "Avatar",
+      "checks": [
+        {
+          "path": "src/components/avatar/avatar.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "separator",
+      "path": "contracts/agentic/separator.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-surfaces-separator",
+      "implementation": "src/components/separator/separator.tsx",
+      "exportName": "Separator",
+      "checks": [
+        {
+          "path": "src/components/separator/separator.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "count-badge",
+      "path": "contracts/agentic/count-badge.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-tags-countbadge",
+      "implementation": "src/components/count-badge/count-badge.tsx",
+      "exportName": "CountBadge",
+      "checks": [
+        {
+          "path": "src/components/count-badge/count-badge.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "kbd",
+      "path": "contracts/agentic/kbd.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-tags-kbd",
+      "implementation": "src/components/kbd/kbd.tsx",
+      "exportName": "Kbd",
+      "checks": [
+        {
+          "path": "src/components/kbd/kbd.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "severity-badge",
+      "path": "contracts/agentic/severity-badge.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-tags-severitybadge",
+      "implementation": "src/components/severity-badge/severity-badge.tsx",
+      "exportName": "SeverityBadge",
+      "checks": [
+        {
+          "path": "src/components/severity-badge/severity-badge.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "status-badge",
+      "path": "contracts/agentic/status-badge.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-tags-statusbadge",
+      "implementation": "src/components/status-badge/status-badge.tsx",
+      "exportName": "StatusBadge",
+      "checks": [
+        {
+          "path": "src/components/status-badge/status-badge.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "tag",
+      "path": "contracts/agentic/tag.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-tags-tag",
+      "implementation": "src/components/tag/tag.tsx",
+      "exportName": "Tag",
+      "checks": [
+        {
+          "path": "src/components/tag/tag.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "list",
+      "path": "contracts/agentic/list.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-lists-list",
+      "implementation": "src/components/list/list.tsx",
+      "exportName": "List",
+      "checks": [
+        {
+          "path": "src/components/list/list.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "actions-cell",
+      "path": "contracts/agentic/actions-cell.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-grid-actions-cell",
+      "implementation": "src/components/data-grid-cells/data-grid-cells.tsx",
+      "exportName": "ActionsCell",
+      "checks": [
+        {
+          "path": "src/components/data-grid-cells/actions-cell.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "ai-verdict-cell",
+      "path": "contracts/agentic/ai-verdict-cell.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-grid-ai-verdict-cell",
+      "implementation": "src/components/data-grid-cells/data-grid-cells.tsx",
+      "exportName": "AiVerdictCell",
+      "checks": [
+        {
+          "path": "src/components/data-grid-cells/ai-verdict-cell.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "entity-cell",
+      "path": "contracts/agentic/entity-cell.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-grid-cells",
+      "implementation": "src/components/data-grid-cells/data-grid-cells.tsx",
+      "exportName": "EntityCell",
+      "checks": [
+        {
+          "path": "src/components/data-grid-cells/data-grid-cells.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "expand-cell",
+      "path": "contracts/agentic/expand-cell.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-grid-expand-cell",
+      "implementation": "src/components/data-grid-cells/data-grid-cells.tsx",
+      "exportName": "ExpandCell",
+      "checks": [
+        {
+          "path": "src/components/data-grid-cells/expand-cell.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "number-cell",
+      "path": "contracts/agentic/number-cell.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-grid-number-cell",
+      "implementation": "src/components/data-grid-cells/data-grid-cells.tsx",
+      "exportName": "NumberCell",
+      "checks": [
+        {
+          "path": "src/components/data-grid-cells/number-cell.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "severity-cell",
+      "path": "contracts/agentic/severity-cell.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-grid-severity-cell",
+      "implementation": "src/components/data-grid-cells/data-grid-cells.tsx",
+      "exportName": "SeverityCell",
+      "checks": [
+        {
+          "path": "src/components/data-grid-cells/severity-cell.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "sparkline-cell",
+      "path": "contracts/agentic/sparkline-cell.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-grid-sparkline-cell",
+      "implementation": "src/components/data-grid-cells/data-grid-cells.tsx",
+      "exportName": "SparklineCell",
+      "checks": [
+        {
+          "path": "src/components/data-grid-cells/sparkline-cell.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "status-cell",
+      "path": "contracts/agentic/status-cell.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-grid-status-cell",
+      "implementation": "src/components/data-grid-cells/data-grid-cells.tsx",
+      "exportName": "StatusCell",
+      "checks": [
+        {
+          "path": "src/components/data-grid-cells/status-cell.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "tags-cell",
+      "path": "contracts/agentic/tags-cell.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-grid-tags-cell",
+      "implementation": "src/components/data-grid-cells/data-grid-cells.tsx",
+      "exportName": "TagsCell",
+      "checks": [
+        {
+          "path": "src/components/data-grid-cells/tags-cell.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "time-cell",
+      "path": "contracts/agentic/time-cell.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-grid-time-cell",
+      "implementation": "src/components/data-grid-cells/data-grid-cells.tsx",
+      "exportName": "TimeCell",
+      "checks": [
+        {
+          "path": "src/components/data-grid-cells/time-cell.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "bulk-actions-bar",
+      "path": "contracts/agentic/bulk-actions-bar.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-grid-bulk-actions-bar",
+      "implementation": "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+      "exportName": "BulkActionsBar",
+      "checks": [
+        {
+          "path": "src/components/bulk-actions-bar/bulk-actions-bar.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "iconography",
+      "path": "contracts/agentic/iconography.json",
+      "contractVersion": 1,
+      "apiFamilyId": "foundations-icons",
+      "implementation": "src/components/icon/index.tsx",
+      "exportName": "Search",
+      "checks": [
+        {
+          "path": "src/stories/foundations/icons.stories.tsx",
+          "label": "Storybook examples and any authored interactions",
+          "scope": "Example source reference; static stories and play definitions are not current execution evidence."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "indicator",
+      "path": "contracts/agentic/indicator.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-indicator",
+      "implementation": "src/components/indicator/indicator.tsx",
+      "exportName": "Indicator",
+      "checks": [
+        {
+          "path": "src/components/indicator/indicator.test.tsx",
+          "label": "Semantic and boundary tests",
+          "scope": "Source-level state and markup assertions; no browser certification."
+        },
+        {
+          "path": "src/components/indicator/indicator.stories.tsx",
+          "label": "Storybook examples and interactions",
+          "scope": "Examples and play assertions; their presence alone does not imply execution."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "presence-indicator",
+      "path": "contracts/agentic/presence-indicator.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-people-presenceindicator",
+      "implementation": "src/components/presence-indicator/presence-indicator.tsx",
+      "exportName": "PresenceIndicator",
+      "checks": [
+        {
+          "path": "src/components/presence-indicator/presence-indicator.test.tsx",
+          "label": "Semantic and boundary tests",
+          "scope": "Source-level state and markup assertions; no browser certification."
+        },
+        {
+          "path": "src/components/presence-indicator/presence-indicator.stories.tsx",
+          "label": "Storybook examples and interactions",
+          "scope": "Examples and play assertions; their presence alone does not imply execution."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "inline-edit",
+      "path": "contracts/agentic/inline-edit.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-inlineedit",
+      "implementation": "src/components/inline-edit/inline-edit.tsx",
+      "exportName": "InlineEdit",
+      "checks": [
+        {
+          "path": "src/components/inline-edit/inline-edit.test.tsx",
+          "label": "InlineEdit focused source tests",
+          "scope": "Bounded source/render or pure boundary assertions; linked tests are not a passing result."
+        },
+        {
+          "path": "src/components/inline-edit/inline-edit.stories.tsx",
+          "label": "InlineEdit interaction stories",
+          "scope": "Interactive workflow assertions for the declared examples; linkage is not execution evidence or certification."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "rich-text-editor",
+      "path": "contracts/agentic/rich-text-editor.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-richtexteditor",
+      "implementation": "src/components/rich-text-editor/rich-text-editor.tsx",
+      "exportName": "RichTextEditor",
+      "checks": [
+        {
+          "path": "src/components/rich-text-editor/rich-text-editor.test.tsx",
+          "label": "RichTextEditor focused source tests",
+          "scope": "Bounded source/render or pure boundary assertions; linked tests are not a passing result."
+        },
+        {
+          "path": "src/components/rich-text-editor/rich-text-editor.stories.tsx",
+          "label": "RichTextEditor interaction stories",
+          "scope": "Interactive workflow assertions for the declared examples; linkage is not execution evidence or certification."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "sortable-list",
+      "path": "contracts/agentic/sortable-list.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-sortablelist",
+      "implementation": "src/components/sortable-list/sortable-list.tsx",
+      "exportName": "SortableList",
+      "checks": [
+        {
+          "path": "src/components/sortable-list/sortable-list.test.tsx",
+          "label": "SortableList focused source tests",
+          "scope": "Bounded source/render or pure boundary assertions; linked tests are not a passing result."
+        },
+        {
+          "path": "src/components/sortable-list/sortable-list.stories.tsx",
+          "label": "SortableList interaction stories",
+          "scope": "Interactive workflow assertions for the declared examples; linkage is not execution evidence or certification."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "file-preview",
+      "path": "contracts/agentic/file-preview.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-filepreview",
+      "implementation": "src/components/file-preview/file-preview.tsx",
+      "exportName": "FilePreview",
+      "checks": [
+        {
+          "path": "src/components/file-preview/file-preview.test.tsx",
+          "label": "FilePreview focused source tests",
+          "scope": "Bounded source/render or pure boundary assertions; linked tests are not a passing result."
+        },
+        {
+          "path": "src/components/file-preview/file-preview.stories.tsx",
+          "label": "FilePreview interaction stories",
+          "scope": "Interactive workflow assertions for the declared examples; linkage is not execution evidence or certification."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "aws-logo",
+      "path": "contracts/agentic/aws-logo.json",
+      "contractVersion": 1,
+      "apiFamilyId": null,
+      "implementation": "src/components/aws-logo/aws-logo.tsx",
+      "exportName": "AwsLogo",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "copyable-field",
+      "path": "contracts/agentic/copyable-field.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-copyablefield",
+      "implementation": "src/components/copyable-field/copyable-field.tsx",
+      "exportName": "CopyableField",
+      "checks": [
+        {
+          "path": "src/components/copyable-field/copyable-field.stories.tsx",
+          "label": "Existing component stories",
+          "scope": "Source examples and any authored play assertions; linkage alone is not a passing test result."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "date-picker",
+      "path": "contracts/agentic/date-picker.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-datepicker",
+      "implementation": "src/components/date-picker/date-picker.tsx",
+      "exportName": "DatePicker",
+      "checks": [
+        {
+          "path": "src/components/date-picker/date-picker.stories.tsx",
+          "label": "Existing component stories",
+          "scope": "Source examples and any authored play assertions; linkage alone is not a passing test result."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "file-upload",
+      "path": "contracts/agentic/file-upload.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-fileupload",
+      "implementation": "src/components/file-upload/file-upload.tsx",
+      "exportName": "FileUpload",
+      "checks": [
+        {
+          "path": "src/components/file-upload/file-upload.stories.tsx",
+          "label": "Existing component stories",
+          "scope": "Source examples and any authored play assertions; linkage alone is not a passing test result."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "multi-combobox",
+      "path": "contracts/agentic/multi-combobox.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-multicombobox",
+      "implementation": "src/components/multi-combobox/multi-combobox.tsx",
+      "exportName": "MultiCombobox",
+      "checks": [
+        {
+          "path": "src/components/multi-combobox/multi-combobox.stories.tsx",
+          "label": "Existing component stories",
+          "scope": "Source examples and any authored play assertions; linkage alone is not a passing test result."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "radio-group",
+      "path": "contracts/agentic/radio-group.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-radiogroup",
+      "implementation": "src/components/radio-group/radio-group.tsx",
+      "exportName": "RadioGroup",
+      "checks": [
+        {
+          "path": "src/components/radio-group/radio-group.stories.tsx",
+          "label": "Existing component stories",
+          "scope": "Source examples and any authored play assertions; linkage alone is not a passing test result."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "slider",
+      "path": "contracts/agentic/slider.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-slider",
+      "implementation": "src/components/slider/slider.tsx",
+      "exportName": "Slider",
+      "checks": [
+        {
+          "path": "src/components/slider/slider.stories.tsx",
+          "label": "Existing component stories",
+          "scope": "Source examples and any authored play assertions; linkage alone is not a passing test result."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "time-range-picker",
+      "path": "contracts/agentic/time-range-picker.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-timerangepicker",
+      "implementation": "src/components/time-range-picker/time-range-picker.tsx",
+      "exportName": "TimeRangePicker",
+      "checks": [
+        {
+          "path": "src/components/time-range-picker/time-range-picker.stories.tsx",
+          "label": "Existing component stories",
+          "scope": "Source examples and any authored play assertions; linkage alone is not a passing test result."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "tree-view",
+      "path": "contracts/agentic/tree-view.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-treeview",
+      "implementation": "src/components/tree-view/tree-view.tsx",
+      "exportName": "TreeView",
+      "checks": [
+        {
+          "path": "src/components/tree-view/tree-view.stories.tsx",
+          "label": "Existing component stories",
+          "scope": "Source examples and any authored play assertions; linkage alone is not a passing test result."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "ai-diff-review",
+      "path": "contracts/agentic/ai-diff-review.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-ai-aidiffreview",
+      "implementation": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+      "exportName": "AiDiffReview",
+      "checks": [
+        {
+          "path": "src/patterns/ai-diff-review/ai-diff-review.stories.tsx",
+          "label": "AiDiffReview interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "ai-panel",
+      "path": "contracts/agentic/ai-panel.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-ai-aipanel",
+      "implementation": "src/patterns/ai-panel/ai-panel.tsx",
+      "exportName": "AiPanel",
+      "checks": [
+        {
+          "path": "src/patterns/ai-panel/ai-panel.stories.tsx",
+          "label": "AiPanel interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "prompt-input",
+      "path": "contracts/agentic/prompt-input.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-ai-promptinput",
+      "implementation": "src/patterns/prompt-input/prompt-input.tsx",
+      "exportName": "PromptInput",
+      "checks": [
+        {
+          "path": "src/patterns/prompt-input/prompt-input.stories.tsx",
+          "label": "PromptInput interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "filter-panel",
+      "path": "contracts/agentic/filter-panel.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-filterpanel",
+      "implementation": "src/patterns/filter-panel/filter-panel.tsx",
+      "exportName": "FilterPanel",
+      "checks": [
+        {
+          "path": "src/patterns/filter-panel/filter-panel.stories.tsx",
+          "label": "FilterPanel interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "notification-center",
+      "path": "contracts/agentic/notification-center.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-notificationcenter",
+      "implementation": "src/patterns/notification-center/notification-center.tsx",
+      "exportName": "NotificationCenter",
+      "checks": [
+        {
+          "path": "src/patterns/notification-center/notification-center.stories.tsx",
+          "label": "NotificationCenter interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "onboarding-checklist",
+      "path": "contracts/agentic/onboarding-checklist.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-onboardingchecklist",
+      "implementation": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+      "exportName": "OnboardingChecklist",
+      "checks": [
+        {
+          "path": "src/patterns/onboarding-checklist/onboarding-checklist.stories.tsx",
+          "label": "OnboardingChecklist interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "unsaved-changes-bar",
+      "path": "contracts/agentic/unsaved-changes-bar.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-unsavedchangesbar",
+      "implementation": "src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx",
+      "exportName": "UnsavedChangesBar",
+      "checks": [
+        {
+          "path": "src/patterns/unsaved-changes-bar/unsaved-changes-bar.stories.tsx",
+          "label": "UnsavedChangesBar interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "wizard",
+      "path": "contracts/agentic/wizard.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-wizard-project-setup",
+      "implementation": "src/patterns/wizard/wizard.tsx",
+      "exportName": "Wizard",
+      "checks": [
+        {
+          "path": "src/patterns/wizard/wizard.stories.tsx",
+          "label": "Wizard interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "resizable-panels",
+      "path": "contracts/agentic/resizable-panels.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-layout-resizablepanels",
+      "implementation": "src/components/resizable-panels/resizable-panels.tsx",
+      "exportName": "ResizablePanels",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "breadcrumb",
+      "path": "contracts/agentic/breadcrumb.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-navigation-breadcrumb",
+      "implementation": "src/components/breadcrumb/breadcrumb.tsx",
+      "exportName": "Breadcrumb",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "command-palette",
+      "path": "contracts/agentic/command-palette.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-navigation-commandpalette",
+      "implementation": "src/components/command-palette/command-palette.tsx",
+      "exportName": "CommandPalette",
+      "checks": [
+        {
+          "path": "src/components/command-palette/command-palette.stories.tsx",
+          "label": "CommandPalette interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "stepper",
+      "path": "contracts/agentic/stepper.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-navigation-stepper",
+      "implementation": "src/components/stepper/stepper.tsx",
+      "exportName": "Stepper",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "bottom-sheet",
+      "path": "contracts/agentic/bottom-sheet.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-overlays-bottomsheet",
+      "implementation": "src/components/bottom-sheet/bottom-sheet.tsx",
+      "exportName": "BottomSheet",
+      "checks": [
+        {
+          "path": "src/components/bottom-sheet/bottom-sheet.stories.tsx",
+          "label": "BottomSheet interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "sheet",
+      "path": "contracts/agentic/sheet.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-overlays-sheet",
+      "implementation": "src/components/sheet/sheet.tsx",
+      "exportName": "Sheet",
+      "checks": [
+        {
+          "path": "src/components/sheet/sheet.stories.tsx",
+          "label": "Sheet interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        },
+        {
+          "path": "src/components/sheet/sheet-state.test.ts",
+          "label": "Contained sheet sizing tests",
+          "scope": "Pure boundary, placement direction and keyboard sizing assertions; no rendered certification."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "tooltip",
+      "path": "contracts/agentic/tooltip.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-overlays-tooltip",
+      "implementation": "src/components/tooltip/tooltip.tsx",
+      "exportName": "Tooltip",
+      "checks": [
+        {
+          "path": "src/components/tooltip/tooltip.stories.tsx",
+          "label": "Tooltip interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "scroll-area",
+      "path": "contracts/agentic/scroll-area.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-utilities-scrollarea",
+      "implementation": "src/components/scroll-area/scroll-area.tsx",
+      "exportName": "ScrollArea",
+      "checks": [
+        {
+          "path": "src/components/scroll-area/scroll-area.stories.tsx",
+          "label": "ScrollArea interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "accordion",
+      "path": "contracts/agentic/accordion.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-lists-accordion",
+      "implementation": "src/components/accordion/accordion.tsx",
+      "exportName": "Accordion",
+      "checks": [
+        {
+          "path": "src/components/accordion/accordion.stories.tsx",
+          "label": "Accordion interaction stories",
+          "scope": "Authored local interaction assertions; this source link does not certify a current run."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "context-menu",
+      "path": "contracts/agentic/context-menu.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-lists-contextmenu",
+      "implementation": "src/components/context-menu/context-menu.tsx",
+      "exportName": "ContextMenu",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "area-chart",
+      "path": "contracts/agentic/area-chart.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-charts-area-chart",
+      "implementation": "src/components/charts/charts.tsx",
+      "exportName": "AreaChart",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "bar-chart",
+      "path": "contracts/agentic/bar-chart.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-charts-bar-chart",
+      "implementation": "src/components/charts/charts.tsx",
+      "exportName": "BarChart",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "line-chart",
+      "path": "contracts/agentic/line-chart.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-charts-line-chart",
+      "implementation": "src/components/charts/charts.tsx",
+      "exportName": "LineChart",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "chart-container",
+      "path": "contracts/agentic/chart-container.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-charts-chart-container",
+      "implementation": "src/components/charts/charts.tsx",
+      "exportName": "ChartContainer",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "donut-chart",
+      "path": "contracts/agentic/donut-chart.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-charts-donut-chart",
+      "implementation": "src/components/charts/charts.tsx",
+      "exportName": "DonutChart",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "chart-metric-card",
+      "path": "contracts/agentic/chart-metric-card.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-charts-chart-metric-card",
+      "implementation": "src/components/metric-card/chart-metric-card.tsx",
+      "exportName": "ChartMetricCard",
+      "checks": [
+        {
+          "path": "src/components/metric-card/chart-metric-card.stories.tsx",
+          "label": "Keyboard and exact-data interaction assertions",
+          "scope": "Existing focused model or interaction assertions; source linkage is not a passing result or certification."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "event-histogram",
+      "path": "contracts/agentic/event-histogram.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-charts-event-histogram",
+      "implementation": "src/components/event-histogram/event-histogram.tsx",
+      "exportName": "EventHistogram",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "gantt-chart",
+      "path": "contracts/agentic/gantt-chart.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-charts-ganttchart",
+      "implementation": "src/components/gantt-chart/gantt-chart.tsx",
+      "exportName": "GanttChart",
+      "checks": [
+        {
+          "path": "src/components/gantt-chart/gantt-model.test.ts",
+          "label": "Calendar validation and bounded schedule model tests",
+          "scope": "Existing focused model or interaction assertions; source linkage is not a passing result or certification."
+        },
+        {
+          "path": "src/components/gantt-chart/gantt-chart.stories.tsx",
+          "label": "Scale, task selection and long-owner interaction assertions",
+          "scope": "Existing focused model or interaction assertions; source linkage is not a passing result or certification."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "mini-bar-chart",
+      "path": "contracts/agentic/mini-bar-chart.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-charts-mini-bar-chart",
+      "implementation": "src/components/mini-bar-chart/mini-bar-chart.tsx",
+      "exportName": "MiniBarChart",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "code-editor",
+      "path": "contracts/agentic/code-editor.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-code-codeeditor",
+      "implementation": "src/components/code-editor/code-editor.tsx",
+      "exportName": "CodeEditor",
+      "checks": [
+        {
+          "path": "src/components/code-editor/code-editor.stories.tsx",
+          "label": "Keyboard editing and folding interaction assertions",
+          "scope": "Existing focused model or interaction assertions; source linkage is not a passing result or certification."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "diff-view",
+      "path": "contracts/agentic/diff-view.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-code-diffview",
+      "implementation": "src/components/diff-view/diff-view.tsx",
+      "exportName": "DiffView",
+      "checks": [
+        {
+          "path": "src/components/diff-view/diff-view.stories.tsx",
+          "label": "Layout/navigation, collapsed context and editable proposal interaction assertions",
+          "scope": "Existing focused model or interaction assertions; source linkage is not a passing result or certification."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "yaml-presenter",
+      "path": "contracts/agentic/yaml-presenter.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-code-yamlpresenter",
+      "implementation": "src/components/yaml-presenter/yaml-presenter.tsx",
+      "exportName": "YamlPresenter",
+      "checks": [
+        {
+          "path": "src/components/yaml-presenter/yaml-presenter.stories.tsx",
+          "label": "Read-only and fold/unfold interaction assertions",
+          "scope": "Existing focused model or interaction assertions; source linkage is not a passing result or certification."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "json-viewer",
+      "path": "contracts/agentic/json-viewer.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-jsonviewer",
+      "implementation": "src/components/json-viewer/json-viewer.tsx",
+      "exportName": "JsonViewer",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "relative-time",
+      "path": "contracts/agentic/relative-time.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-relativetime",
+      "implementation": "src/components/relative-time/relative-time.tsx",
+      "exportName": "RelativeTime",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "timeline",
+      "path": "contracts/agentic/timeline.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-data-timeline",
+      "implementation": "src/components/timeline/timeline.tsx",
+      "exportName": "Timeline",
+      "checks": [],
+      "evidence": []
     }
   ],
   "protocols": [

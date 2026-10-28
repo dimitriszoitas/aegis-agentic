@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 2,
+  "id": "indicator",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Position a named notification dot or count around existing content while preserving child interaction.",
+  "anatomy": [
+    "wrapper with reserved space",
+    "unchanged child",
+    "pointer-transparent marker",
+    "nested CountBadge"
+  ],
+  "states": [
+    "dot",
+    "count",
+    "overflow count",
+    "hidden",
+    "zero visible",
+    "decorative",
+    "logical placement"
+  ],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Native noninteractive markup; Indicator composes CountBadge for count rendering.",
+  "ownership": {
+    "component": [
+      "Render the child unchanged inside a reserved-space wrapper. The marker does not intercept pointer events and never changes the child accessible name or event handlers.",
+      "Omitted count selects a dot. Normalize finite counts to nonnegative whole numbers; hide non-finite values and zero unless showZero. hidden removes only the marker."
+    ],
+    "host": [
+      "Provide the complete accessible label including raw meaningful count; name interactive children separately.",
+      "Own notification data, announcement policy and zero visibility. Use decorative only when accessible surrounding content already conveys the same information."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Render the child unchanged inside a reserved-space wrapper. The marker does not intercept pointer events and never changes the child accessible name or event handlers.",
+      "sources": [
+        "src/components/indicator/indicator.tsx",
+        "src/components/indicator/indicator.css"
+      ]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Omitted count selects a dot. Normalize finite counts to nonnegative whole numbers; hide non-finite values and zero unless showZero. hidden removes only the marker.",
+      "sources": [
+        "src/components/indicator/indicator.tsx",
+        "src/components/indicator/indicator.css"
+      ]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Normalize max to a positive whole cap and pass the count to the shared small inverted CountBadge. The supplied label, not the capped display, names the marker.",
+      "sources": [
+        "src/components/indicator/indicator.tsx",
+        "src/components/indicator/indicator.css"
+      ]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "Expose a named image marker unless decorative; decorative hides marker semantics. Logical start/end corner placement follows writing direction. Do not create a live region.",
+      "sources": [
+        "src/components/indicator/indicator.tsx",
+        "src/components/indicator/indicator.css"
+      ]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Provide the complete accessible label including raw meaningful count; name interactive children separately.",
+      "sources": ["src/components/indicator/indicator.tsx", "src/components/indicator/README.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own notification data, announcement policy and zero visibility. Use decorative only when accessible surrounding content already conveys the same information.",
+      "sources": ["src/components/indicator/indicator.tsx", "src/components/indicator/README.md"]
+    },
+    {
+      "id": "theme-and-nesting",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation and preserve CountBadge/child component ownership. Validate all four theme/mode mappings, logical directions and compact layout without changing dimensions between themes.",
+      "sources": ["src/components/indicator/indicator.css", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "No notification service, action callback or live update announcement is supplied.",
+    "The wrapper reserves a small corner inset; very small target content still requires visual review with long counts.",
+    "Written coverage is separate from actual browser, visual, accessibility and package evidence."
+  ]
+}

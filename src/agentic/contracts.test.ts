@@ -9,11 +9,11 @@ import {
 describe('canonical contract discovery', () => {
   it('reports API documentation and authored requirements separately', () => {
     const coverage = getContractCoverage();
-    expect(coverage.apiFamilies).toBe(107);
-    expect(coverage.authoredComponentPatternContracts).toBe(31);
-    expect(coverage.apiFamiliesWithAuthoredBehavior).toBe(29);
-    expect(coverage.apiFamiliesWithoutAuthoredBehavior).toBe(78);
-    expect(coverage.authoredOnlyEntries).toBe(2);
+    expect(coverage.apiFamilies).toBe(124);
+    expect(coverage.authoredComponentPatternContracts).toBe(127);
+    expect(coverage.apiFamiliesWithAuthoredBehavior).toBe(124);
+    expect(coverage.apiFamiliesWithoutAuthoredBehavior).toBe(0);
+    expect(coverage.authoredOnlyEntries).toBe(3);
     expect(coverage.systemProtocolContracts).toBe(2);
   });
   it('resolves explicit registry/API identities without conflating related patterns', () => {
@@ -22,7 +22,7 @@ describe('canonical contract discovery', () => {
     expect(getContractEntry('dataset-filtering')?.contract?.id).toBe('dataset-filtering');
     expect(getContractEntry('patterns-filterbar')?.contract?.id).toBe('filter-bar');
     expect(getContractEntry('filter-bar')).not.toBe(getContractEntry('dataset-filtering'));
-    expect(getContractEntry('components-people-avatar')?.contract).toBeNull();
+    expect(getContractEntry('components-people-avatar')?.contract?.id).toBe('avatar');
     expect(getContractEntry('not-present')).toBeUndefined();
   });
   it('searches task aliases while retaining explicit coverage distinctions', () => {

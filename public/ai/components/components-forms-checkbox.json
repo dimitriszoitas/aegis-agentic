@@ -4,14 +4,18 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.6.0-experiment.0"
+    "version": "0.7.0-experiment.0"
   },
   "id": "components-forms-checkbox",
   "name": "Checkbox",
   "category": "Inputs & Selection",
   "tokenGroup": "input",
   "kind": "component",
-  "aliases": [],
+  "aliases": [
+    "boolean selection",
+    "check box",
+    "mixed checkbox"
+  ],
   "purpose": "An independent boolean or mixed selection control with an optional label and description.",
   "importPaths": [
     "@dimitriszoitas/aegis-agentic/checkbox"

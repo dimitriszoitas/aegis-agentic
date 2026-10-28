@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 2,
+  "id": "thinking-indicator",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "An AI working status with optional rotating messages and a compact presentation.",
+  "anatomy": ["AI label", "decorative dots", "optional progress phrase"],
+  "states": ["compact", "message rotation", "reduced motion", "empty messages fallback"],
+  "tokenGroup": "ai",
+  "behaviorProvider": "Local timer and reduced-motion media query; no model execution.",
+  "ownership": {
+    "component": [
+      "Expose status semantics and display Thinking in compact mode or Assistant is working with a status phrase otherwise. Dots are decorative.",
+      "Rotate supplied phrases only when more than one exists and reduced motion is not requested. Clamp finite intervals to at least 1200ms; non-finite values use 3200ms."
+    ],
+    "host": [
+      "Supply only truthful phrases about actual host work. A timer is not evidence that the named reasoning/retrieval step occurred.",
+      "Own starting/stopping the loading indicator and any stronger live-announcement policy."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Expose status semantics and display Thinking in compact mode or Assistant is working with a status phrase otherwise. Dots are decorative.",
+      "sources": ["src/components/thinking-indicator/thinking-indicator.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Rotate supplied phrases only when more than one exists and reduced motion is not requested. Clamp finite intervals to at least 1200ms; non-finite values use 3200ms.",
+      "sources": ["src/components/thinking-indicator/thinking-indicator.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "React to reduced-motion preference changes and clean up both timer and media-query listener. Empty messages use the first default phrase.",
+      "sources": ["src/components/thinking-indicator/thinking-indicator.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply only truthful phrases about actual host work. A timer is not evidence that the named reasoning/retrieval step occurred.",
+      "sources": [
+        "src/components/thinking-indicator/thinking-indicator.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own starting/stopping the loading indicator and any stronger live-announcement policy.",
+      "sources": [
+        "src/components/thinking-indicator/thinking-indicator.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use ai group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/thinking-indicator/thinking-indicator.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Displayed phrases are timed presentation, not model reasoning or tool telemetry.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

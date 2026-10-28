@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "id": "ai-highlight",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A compact complementary AI result with optional confidence and provenance.",
+  "anatomy": ["aside", "AI label", "content", "provenance"],
+  "states": ["content", "optional confidence", "optional provenance"],
+  "tokenGroup": "ai",
+  "behaviorProvider": "Native aside and shared AiLabel/ConfidenceBadge.",
+  "ownership": {
+    "component": [
+      "Render an aside containing the shared AI-generated marker, optional supplied ConfidenceBadge, child content and optional provenance.",
+      "Forward aside properties and merge the wrapper class. Do not add loading, feedback, regeneration or stateful behavior."
+    ],
+    "host": [
+      "Provide evidence and meaningful surrounding context for highlighted model output.",
+      "Own content verification and accessible naming; supply semantic headings inside the content if needed."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Render an aside containing the shared AI-generated marker, optional supplied ConfidenceBadge, child content and optional provenance.",
+      "sources": ["src/components/ai-card/ai-card.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Forward aside properties and merge the wrapper class. Do not add loading, feedback, regeneration or stateful behavior.",
+      "sources": ["src/components/ai-card/ai-card.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Provide evidence and meaningful surrounding context for highlighted model output.",
+      "sources": ["src/components/ai-card/ai-card.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own content verification and accessible naming; supply semantic headings inside the content if needed.",
+      "sources": ["src/components/ai-card/ai-card.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use ai group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": ["src/components/ai-card/ai-card.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "This is a presentation callout, not an AI service, confidence computation or approval mechanism.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

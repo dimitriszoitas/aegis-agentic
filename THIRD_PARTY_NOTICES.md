@@ -10,7 +10,7 @@ The marketing website separately includes self-hosted Inter Latin font files fro
 
 ## AWS architecture artwork
 
-The optional `@dimitriszoitas/aegis-ui/aws-logo` entry includes original SVG architecture artwork owned by Amazon Web Services. AWS names and marks remain AWS-owned; inclusion does not imply endorsement. This artwork is not covered by Aegis's MIT license. Source, release information, use guidance, and asset checksums are included in `lib-dist/licenses/AWS-ATTRIBUTION.md` and `lib-dist/licenses/AWS-checksums.json`. See [AWS architecture icons](https://aws.amazon.com/architecture/icons/) for the original artwork and current guidance.
+The optional `@dimitriszoitas/aegis-agentic/aws-logo` entry includes original SVG architecture artwork owned by Amazon Web Services. AWS names and marks remain AWS-owned; inclusion does not imply endorsement. This artwork is not covered by Aegis's MIT license. Source, release information, use guidance, and asset checksums are included in `lib-dist/licenses/AWS-ATTRIBUTION.md` and `lib-dist/licenses/AWS-checksums.json`. See [AWS architecture icons](https://aws.amazon.com/architecture/icons/) for the original artwork and current guidance.
 
 ## Datasource provider artwork
 
@@ -29,3 +29,5 @@ The compiled `styles.css` includes CSS from Tailwind CSS (Tailwind Labs), tw-ani
 Aegis's React modules reference external runtime dependencies instead of redistributing their source inside the library bundle. Those packages retain their own licenses and notices. The Hugeicons free icon pack and React renderer are MIT licensed and supplied as dependencies.
 
 The locally installed Untitled UI reference gallery is excluded from this package's public exports, dependency list, assets, and output bundles.
+
+The optional RichTextEditor entry uses the MIT-licensed Tiptap React, ProseMirror adapter and StarterKit packages (3.32.1). SortableList uses MIT-licensed dnd-kit core (6.3.1), sortable (10.0.0) and utilities (3.2.2). PhoneInput uses MIT-licensed libphonenumber-js (1.13.15). These remain external runtime dependencies with their original package licenses and notices; the library does not embed their source.

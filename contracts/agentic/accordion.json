@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 2,
+  "id": "accordion",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present single or multiple disclosure sections with shared primitive semantics and scoped heading navigation.",
+  "anatomy": [
+    "accordion root",
+    "item headers",
+    "native triggers",
+    "optional icon/count",
+    "content panels"
+  ],
+  "states": ["closed", "open", "single", "multiple", "disabled", "noncollapsible-open"],
+  "tokenGroup": "surface",
+  "behaviorProvider": "Base UI Accordion disclosure state and ARIA with scoped Aegis focus navigation.",
+  "ownership": {
+    "component": [
+      "value normalization",
+      "disclosure primitives",
+      "orientation-aware trigger focus"
+    ],
+    "host": ["item identity and content", "controlled state", "domain state persistence"]
+  },
+  "requirements": [
+    {
+      "id": "typed-values",
+      "kind": "component",
+      "statement": "Use a string for single mode and a string array for multiple mode, normalize both to the primitive array API, and emit an empty string for an empty single selection.",
+      "sources": ["src/components/accordion/accordion.tsx"]
+    },
+    {
+      "id": "controlled-or-default",
+      "kind": "component",
+      "statement": "Pass controlled value or defaultValue to Base UI. Hosts using controlled values must apply onValueChange to change the displayed open state.",
+      "sources": ["src/components/accordion/accordion.tsx"]
+    },
+    {
+      "id": "noncollapsible-single",
+      "kind": "component",
+      "statement": "Cancel a user transition to zero open items when single mode is not collapsible, and mark its open trigger aria-disabled. This does not forbid a host from supplying an empty controlled value.",
+      "sources": ["src/components/accordion/accordion.tsx"]
+    },
+    {
+      "id": "disabled-disclosures",
+      "kind": "component",
+      "statement": "Forward root and item disabled behavior to Base UI and compose each header with a native trigger button and related disclosure panel.",
+      "sources": ["src/components/accordion/accordion.tsx"]
+    },
+    {
+      "id": "scoped-keyboard",
+      "kind": "component",
+      "statement": "Handle Home/End and orientation-arrow focus navigation only when the event target is one of this root’s direct natively enabled triggers. Ignore nested triggers even when their perpendicular arrow is unhandled; horizontal arrows follow computed text direction.",
+      "sources": [
+        "src/components/accordion/accordion.tsx",
+        "src/components/accordion/accordion.stories.tsx"
+      ]
+    },
+    {
+      "id": "host-event-respect",
+      "kind": "component",
+      "statement": "Run the supplied root key handler first and do not apply the custom navigation if it prevents default or the event does not originate at a direct trigger.",
+      "sources": ["src/components/accordion/accordion.tsx"]
+    },
+    {
+      "id": "item-identity",
+      "kind": "host",
+      "statement": "Supply unique nonempty item values and informative titles. Arbitrary content owns its own interactive names, validation and disabled state.",
+      "sources": ["src/components/accordion/accordion.tsx"]
+    },
+    {
+      "id": "content-lifecycle",
+      "kind": "host",
+      "statement": "Preserve important data outside disclosure presentation and implement any fetching or persistence. Opening a panel does not itself validate or save its contents.",
+      "sources": ["src/components/accordion/accordion.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes surface group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/components/accordion/accordion.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No async loading, persistence, item value validation or product-specific navigation policy.",
+    "Noncollapsible constrains user transitions, not every controlled value supplied by the host.",
+    "Arbitrary nested content is not automatically disabled by disclosure state."
+  ]
+}

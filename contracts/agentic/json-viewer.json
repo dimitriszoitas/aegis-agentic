@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 2,
+  "id": "json-viewer",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Inspect JSON-compatible data in an expandable keyboard tree with bounded branch disclosure and copy helpers.",
+  "anatomy": [
+    "named section",
+    "collapse/copy toolbar",
+    "tree items and branch toggles",
+    "per-node copy actions",
+    "path/status footer",
+    "clipboard fallback textarea"
+  ],
+  "states": [
+    "expanded",
+    "collapsed",
+    "paginated branch",
+    "unsupported value",
+    "circular reference",
+    "copied",
+    "clipboard unavailable"
+  ],
+  "tokenGroup": "code",
+  "behaviorProvider": "Native tree semantics and local branch model; shared Button for global actions.",
+  "ownership": {
+    "component": [
+      "Represent plain/null-prototype objects, arrays, strings, booleans, finite numbers and null; identify other kinds as unsupported and repeated ancestor references as circular.",
+      "Visit only expanded branches and disclose each container in maxVisibleItems pages clamped to at least one, with a finite fallback of one hundred. Stop building descendants at depth fifty; clamp initial expansion to at most eight levels.",
+      "Use dollar-root paths with array indexes, dot notation for identifier keys and JSON-quoted bracket notation otherwise. Paths identify tree focus, expansion and copy actions."
+    ],
+    "host": [
+      "Supply ordinary inert JSON data rather than hostile proxies/getters or executable objects. Object key/property access is not sandboxed; bounded display does not bound total object enumeration or whole-branch copying.",
+      "Review focus recovery and path-state reuse when replacing datasets with unrelated content. Remount for a fresh default expansion model if that is the desired product behavior."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "value-classification",
+      "kind": "component",
+      "statement": "Represent plain/null-prototype objects, arrays, strings, booleans, finite numbers and null; identify other kinds as unsupported and repeated ancestor references as circular.",
+      "sources": ["src/components/json-viewer/json-viewer.tsx"]
+    },
+    {
+      "id": "bounded-traversal",
+      "kind": "component",
+      "statement": "Visit only expanded branches and disclose each container in maxVisibleItems pages clamped to at least one, with a finite fallback of one hundred. Stop building descendants at depth fifty; clamp initial expansion to at most eight levels.",
+      "sources": ["src/components/json-viewer/json-viewer.tsx"]
+    },
+    {
+      "id": "path-identity",
+      "kind": "component",
+      "statement": "Use dollar-root paths with array indexes, dot notation for identifier keys and JSON-quoted bracket notation otherwise. Paths identify tree focus, expansion and copy actions.",
+      "sources": ["src/components/json-viewer/json-viewer.tsx"]
+    },
+    {
+      "id": "keyboard-tree",
+      "kind": "component",
+      "statement": "Maintain a roving active treeitem, expose level/position/set size and branch aria-expanded, and support Up/Down/Home/End, Right expand-or-child, Left collapse-or-parent, and Enter/Space toggle.",
+      "sources": ["src/components/json-viewer/json-viewer.tsx"]
+    },
+    {
+      "id": "copy-shortcuts",
+      "kind": "component",
+      "statement": "On a focused tree row, Control/Command+C copies its JSON value and Shift adds path copying only when no text selection exists. Nested action controls keep their own event handling.",
+      "sources": ["src/components/json-viewer/json-viewer.tsx"]
+    },
+    {
+      "id": "copy-validation",
+      "kind": "component",
+      "statement": "Reject circular or unsupported JSON serialization with a status message. On clipboard success show temporary copied state and call onCopy; on clipboard failure provide a labelled read-only textarea that selects on focus.",
+      "sources": ["src/components/json-viewer/json-viewer.tsx"]
+    },
+    {
+      "id": "state-on-replacement",
+      "kind": "component",
+      "statement": "Rebuild visible node data when value changes while retaining path-based expansion/limits. If focusedId disappears use the root as the active tab stop; this does not programmatically recover DOM focus from a removed node.",
+      "sources": ["src/components/json-viewer/json-viewer.tsx"]
+    },
+    {
+      "id": "host-input-boundary",
+      "kind": "host",
+      "statement": "Supply ordinary inert JSON data rather than hostile proxies/getters or executable objects. Object key/property access is not sandboxed; bounded display does not bound total object enumeration or whole-branch copying.",
+      "sources": ["src/components/json-viewer/json-viewer.tsx"]
+    },
+    {
+      "id": "host-update-focus",
+      "kind": "host",
+      "statement": "Review focus recovery and path-state reuse when replacing datasets with unrelated content. Remount for a fresh default expansion model if that is the desired product behavior.",
+      "sources": ["src/components/json-viewer/json-viewer.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume code group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "No search, editing, schema validation or arbitrary-depth rendering; depth cap is a display boundary.",
+    "Only the copied-state timer is cleaned up; clipboard operations themselves are not abortable.",
+    "A finite visible page size does not make unlimited input objects safe to process."
+  ]
+}

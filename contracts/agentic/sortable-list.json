@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 2,
+  "id": "sortable-list",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Reorder a controlled vertical list using pointer dragging, keyboard dragging or explicit move actions.",
+  "anatomy": [
+    "named semantic list",
+    "stable-ID list items",
+    "drag handles",
+    "item content",
+    "up and down actions",
+    "polite announcements"
+  ],
+  "states": [
+    "idle",
+    "pointer dragging",
+    "keyboard dragging",
+    "cancelled",
+    "boundary move unavailable",
+    "disabled",
+    "empty",
+    "external order changed"
+  ],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "dnd-kit core/sortable sensors and collision strategy, plus shared IconButton controls.",
+  "ownership": {
+    "component": [
+      "identity validation and reorder calculation",
+      "real pointer/keyboard drag sensors",
+      "move action boundaries and announcements"
+    ],
+    "host": [
+      "stable unique IDs and accepted order",
+      "persistence and concurrent updates",
+      "custom item content accessibility"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "identity-boundary",
+      "kind": "component",
+      "statement": "Reject empty or duplicate string IDs. Use IDs as React keys and sortable identities independently of display labels.",
+      "sources": ["src/components/sortable-list/sortable-list.tsx"]
+    },
+    {
+      "id": "controlled-order",
+      "kind": "component",
+      "statement": "Render items in the supplied order and emit an ordered ID array with activeId, overId and drag or move-button source. Do not mutate the input array or keep a second accepted order.",
+      "sources": ["src/components/sortable-list/sortable-list.tsx"]
+    },
+    {
+      "id": "real-drag-sensors",
+      "kind": "component",
+      "statement": "Use PointerSensor and KeyboardSensor with sortableKeyboardCoordinates, a vertical list strategy and closest-center collision detection. Bind sensor listeners and attributes to the actual named drag-handle button.",
+      "sources": ["src/components/sortable-list/sortable-list.tsx"]
+    },
+    {
+      "id": "keyboard-instructions",
+      "kind": "component",
+      "statement": "Provide drag instructions and live announcements for pick-up, target position and finish/cancel. Space starts and drops keyboard dragging; Escape cancels through dnd-kit.",
+      "sources": ["src/components/sortable-list/sortable-list.tsx"]
+    },
+    {
+      "id": "move-alternative",
+      "kind": "component",
+      "statement": "Provide named up/down IconButtons that emit adjacent moves. Disable up for the first item, down for the last item, and all reordering controls when disabled.",
+      "sources": ["src/components/sortable-list/sortable-list.tsx"]
+    },
+    {
+      "id": "cancel-and-invalid-target",
+      "kind": "component",
+      "statement": "Do not emit a reorder for a cancelled drag, missing drop target, same active/over ID or disabled list.",
+      "sources": ["src/components/sortable-list/sortable-list.tsx"]
+    },
+    {
+      "id": "stale-order-guard",
+      "kind": "component",
+      "statement": "Snapshot IDs/order on drag start. If the supplied order changed by drag end, decline the move and announce that no move was applied.",
+      "sources": ["src/components/sortable-list/sortable-list.tsx"]
+    },
+    {
+      "id": "host-order",
+      "kind": "host",
+      "statement": "Accept emitted ID order by reordering the same stable records and persist separately. Keep IDs stable across renames; reject unauthorized changes and resolve concurrent server updates in the host.",
+      "sources": ["src/components/sortable-list/README.md"]
+    },
+    {
+      "id": "host-content",
+      "kind": "host",
+      "statement": "Give the list a useful name and each item a descriptive label even with renderItem. Custom interactive content must remain usable outside the dedicated drag handle.",
+      "sources": ["src/components/sortable-list/README.md"]
+    },
+    {
+      "id": "category-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for list/item layout and preserve nested IconButton trigger ownership. Drag transforms are measured runtime coordinates, not fixed design values.",
+      "sources": [
+        "src/components/sortable-list/sortable-list.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "One vertical list only; no cross-list transfer, nested tree, virtualization or multi-select dragging.",
+    "There is no optimistic persisted state or server synchronization. Explicit move announcements describe a requested move, which the host may reject.",
+    "Rows intentionally have no animated reorder transition; the host should verify unusually tall or complex custom items."
+  ]
+}

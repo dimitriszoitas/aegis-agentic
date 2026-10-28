@@ -1,0 +1,22 @@
+.aegis-presence-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--group-data-display-presence-gap);
+  color: var(--group-data-display-presence-text);
+  font-size: var(--group-data-display-presence-font-size);
+  line-height: var(--group-data-display-presence-line-height);
+}
+.aegis-presence-dot {
+  display: inline-block;
+  flex-shrink: var(--group-data-display-presence-zero);
+  width: var(--group-data-display-presence-size);
+  height: var(--group-data-display-presence-size);
+  border-radius: var(--group-data-display-presence-radius);
+  background: var(--group-data-display-presence-offline);
+  border: var(--group-data-display-presence-border-width) solid var(--group-data-display-presence-border);
+}
+.aegis-presence-indicator[data-size='sm'] > .aegis-presence-dot { width: var(--group-data-display-presence-small-size); height: var(--group-data-display-presence-small-size); }
+.aegis-presence-indicator[data-status='online'] > .aegis-presence-dot { background: var(--group-data-display-presence-online); }
+.aegis-presence-indicator[data-status='away'] > .aegis-presence-dot { background: var(--group-data-display-presence-away); }
+.aegis-presence-indicator[data-status='busy'] > .aegis-presence-dot { background: var(--group-data-display-presence-busy); }
+.aegis-presence-label { overflow-wrap: anywhere; }

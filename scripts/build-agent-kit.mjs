@@ -61,7 +61,15 @@ await cp(
 );
 await cp(join(root, 'public/ai'), join(out, 'reference-api/ai'), { recursive: true });
 await cp(join(root, 'public/llms.txt'), join(out, 'reference-api/llms.txt'));
-for (const skill of ['build-ui', 'compose-pattern', 'extend-design-language', 'audit-ui']) {
+for (const skill of [
+  'build-ui',
+  'compose-pattern',
+  'extend-design-language',
+  'audit-ui',
+  'create-component',
+  'create-token',
+  'create-layout',
+]) {
   await cp(join(root, 'skills', skill), join(out, 'skills', skill), { recursive: true });
 }
 await mkdir(join(out, 'skills/references'), { recursive: true });
@@ -157,6 +165,9 @@ await writeFile(
     2,
   ) + '\n',
 );
+execFileSync(process.execPath, [join(root, 'scripts/check-agentic-coverage.mjs'), '--check'], {
+  stdio: 'inherit',
+});
 const manifest = {
   schemaVersion: 1,
   name: packageInfo.name,
@@ -172,6 +183,23 @@ const manifest = {
     guidance: 'docs/CONTRACTS.md',
     cli: 'contracts list|search|get|coverage',
     coverageScope: 'explicit-source-bindings-and-reported-evidence',
+  },
+  publicEntryCoverage: {
+    path: 'reference-api/ai/public-entry-coverage.json',
+    scope: 'authored-ui-entry-ownership-not-certification',
+    sha256: createHash('sha256')
+      .update(await readFile(join(root, 'public/ai/public-entry-coverage.json')))
+      .digest('hex'),
+  },
+  authoringGuidance: {
+    requiredWorkflow: 'library-source-checkout',
+    skills: {
+      'create-component': 'skills/create-component/SKILL.md',
+      'create-token': 'skills/create-token/SKILL.md',
+      'create-layout': 'skills/create-layout/SKILL.md',
+    },
+    limitation:
+      'Installed guidance is portable; implementation changes and repository checks require a writable source checkout. Do not edit an installed package in node_modules.',
   },
   mcp: {
     entry: 'bin/aegis-mcp.mjs',

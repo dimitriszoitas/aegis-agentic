@@ -4,14 +4,22 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.6.0-experiment.0"
+    "version": "0.7.0-experiment.0"
   },
   "id": "patterns-pagelayout",
   "name": "PageLayout",
   "category": "Page Structure",
   "tokenGroup": "page-structure",
   "kind": "pattern",
-  "aliases": [],
+  "aliases": [
+    "collection page",
+    "content grid",
+    "dashboard page",
+    "page composition",
+    "reading column",
+    "record detail",
+    "settings page"
+  ],
   "purpose": "Initial library choices for collection, detail, settings, and dashboard pages. PageHeader owns the heading and actions. PageLayout adds transparent region wrappers without page padding or child styling. ReadingColumn provides 55ch/65ch/75ch starting measures. ContentGrid uses a container-responsive maximum of one to four columns. Products can propose additional recipes through review.",
   "importPaths": [
     "@dimitriszoitas/aegis-agentic/patterns"

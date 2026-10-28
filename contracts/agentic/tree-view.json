@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 2,
+  "id": "tree-view",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Choose selectable leaf IDs from a hierarchical tree with independent expansion and derived tri-state branches.",
+  "anatomy": [
+    "tree root",
+    "roving-focus treeitems",
+    "expand actions",
+    "decorative check indicators",
+    "optional icons/descriptions/counts",
+    "nested groups",
+    "empty status"
+  ],
+  "states": ["default", "controlled-value", "host-validation"],
+  "tokenGroup": "input",
+  "behaviorProvider": "Aegis tree model helpers and custom native ARIA tree composition.",
+  "ownership": {
+    "component": [
+      "Store selected leaf IDs in controlled/default state. Branch state is derived from descendants; mixed branches toggle to fully selected. Disabled ancestors/leaves do not participate in selection propagation and existing disabled selections remain unchanged.",
+      "Keep expanded IDs independent from selection; deduplicate expansion updates. Only expanded descendants enter visible navigation order. Controlled/default values are initialization/ownership boundaries, not persistence.",
+      "Provide roving focus with Up/Down, Home/End, Right expansion/child navigation, Left collapse/parent navigation, Enter/Space selection, Ctrl/Meta+A selection and * sibling expansion. Printable-key prefix search uses a 500ms buffer.",
+      "Render tree/treeitem/group roles, aria-multiselectable, checked/mixed states, expansion, level, position and set size. Decorative checkbox marks are aria-hidden; expand buttons are outside the Tab order.",
+      "When a controlled collapse removes the focused node, choose a visible enabled ancestor. Restore DOM focus only when focus fell to document.body, avoiding theft from another focused control."
+    ],
+    "host": [
+      "Supply a finite acyclic tree with unique stable IDs, meaningful labels and selected leaf IDs. Own search/filter data, lazy loading, virtualization, authorization and persistence; no native form name or submission adapter is provided."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "leaf-selection-model",
+      "kind": "component",
+      "statement": "Store selected leaf IDs in controlled/default state. Branch state is derived from descendants; mixed branches toggle to fully selected. Disabled ancestors/leaves do not participate in selection propagation and existing disabled selections remain unchanged.",
+      "sources": ["src/components/tree-view/tree-view.tsx", "src/lib/tree.ts"]
+    },
+    {
+      "id": "independent-expansion",
+      "kind": "component",
+      "statement": "Keep expanded IDs independent from selection; deduplicate expansion updates. Only expanded descendants enter visible navigation order. Controlled/default values are initialization/ownership boundaries, not persistence.",
+      "sources": ["src/components/tree-view/tree-view.tsx", "src/lib/tree.ts"]
+    },
+    {
+      "id": "keyboard-navigation",
+      "kind": "component",
+      "statement": "Provide roving focus with Up/Down, Home/End, Right expansion/child navigation, Left collapse/parent navigation, Enter/Space selection, Ctrl/Meta+A selection and * sibling expansion. Printable-key prefix search uses a 500ms buffer.",
+      "sources": ["src/components/tree-view/tree-view.tsx", "src/lib/tree.ts"]
+    },
+    {
+      "id": "aria-tree-state",
+      "kind": "component",
+      "statement": "Render tree/treeitem/group roles, aria-multiselectable, checked/mixed states, expansion, level, position and set size. Decorative checkbox marks are aria-hidden; expand buttons are outside the Tab order.",
+      "sources": ["src/components/tree-view/tree-view.tsx", "src/lib/tree.ts"]
+    },
+    {
+      "id": "controlled-collapse-focus",
+      "kind": "component",
+      "statement": "When a controlled collapse removes the focused node, choose a visible enabled ancestor. Restore DOM focus only when focus fell to document.body, avoiding theft from another focused control.",
+      "sources": ["src/components/tree-view/tree-view.tsx", "src/lib/tree.ts"]
+    },
+    {
+      "id": "tree-host-data",
+      "kind": "host",
+      "statement": "Supply a finite acyclic tree with unique stable IDs, meaningful labels and selected leaf IDs. Own search/filter data, lazy loading, virtualization, authorization and persistence; no native form name or submission adapter is provided.",
+      "sources": ["src/components/tree-view/tree-view.tsx", "src/lib/tree.ts"]
+    },
+    {
+      "id": "owning-token-group",
+      "kind": "design",
+      "statement": "Owned styling belongs to the input token group. Actual nested shared components retain their own group and behavior; preserve four theme/mode mappings and keyboard-visible focus.",
+      "sources": ["src/components/tree-view/tree-view.css", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "Source-backed requirements, not a current test certification or release approval.",
+    "This is custom tree behavior, not a Base UI tree primitive or an assertion of complete APG conformance.",
+    "No single-selection mode, readOnly mode, lazy fetching, drag reordering or virtualized tree is supplied.",
+    "The optional count is announced using the existing events suffix; the wrapper does not expose a localized count-label formatter."
+  ]
+}

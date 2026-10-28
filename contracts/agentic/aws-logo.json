@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "id": "aws-logo",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Render and browse the bundled AWS architecture artwork with names, theme variants and provenance.",
+  "anatomy": [
+    "artwork frame",
+    "named or decorative image",
+    "optional catalogue search/filter controls",
+    "result grid",
+    "selected-symbol details",
+    "copy/download controls"
+  ],
+  "states": [
+    "light/dark asset",
+    "decorative/named",
+    "unknown name",
+    "filtered results",
+    "empty results",
+    "selected symbol",
+    "clipboard success/failure"
+  ],
+  "tokenGroup": "iconography",
+  "behaviorProvider": "Manifest-backed local images and a native catalogue composed with shared controls.",
+  "ownership": {
+    "component": [
+      "Look up artwork by the manifest-backed typed name. Invalid runtime names render nothing; getAwsLogoUrl returns an empty string for an unknown name.",
+      "Keep original artwork in image elements. Use the manifest light asset and an optional official dark variant selected by the CSS theme mapping; preserve source colors and geometry.",
+      "Use the manifest name as image alternative text unless label overrides it. decorative produces an empty alternative when surrounding text already names the symbol."
+    ],
+    "host": [
+      "Supply permitted manifest ids and meaningful nonduplicated labels; do not imply that artwork usage grants trademark permission or product endorsement.",
+      "Own authorization, usage-policy review and updates to the vendored asset release. Preserve ATTRIBUTION and checksums when replacing the artwork."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Look up artwork by the manifest-backed typed name. Invalid runtime names render nothing; getAwsLogoUrl returns an empty string for an unknown name.",
+      "sources": ["src/components/aws-logo/aws-logo.tsx", "src/components/aws-logo/aws-logo.css"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Keep original artwork in image elements. Use the manifest light asset and an optional official dark variant selected by the CSS theme mapping; preserve source colors and geometry.",
+      "sources": ["src/components/aws-logo/aws-logo.tsx", "src/components/aws-logo/aws-logo.css"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Use the manifest name as image alternative text unless label overrides it. decorative produces an empty alternative when surrounding text already names the symbol.",
+      "sources": ["src/components/aws-logo/aws-logo.tsx", "src/components/aws-logo/aws-logo.css"]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "AwsLogoCatalog owns local query, kind, category, page and selected-logo state. Search matches all query words across name, id and category; filter changes reset pagination.",
+      "sources": ["src/components/aws-logo/aws-logo.tsx", "src/components/aws-logo/aws-logo.css"]
+    },
+    {
+      "id": "behavior-5",
+      "kind": "component",
+      "statement": "Clamp catalogue page size between twelve and one hundred twenty, with a finite default of sixty. The selected logo can remain visible while filtered results change.",
+      "sources": ["src/components/aws-logo/aws-logo.tsx", "src/components/aws-logo/aws-logo.css"]
+    },
+    {
+      "id": "behavior-6",
+      "kind": "component",
+      "statement": "Copy the selected manifest id through the clipboard and expose success/failure status. Download links point to the local bundled SVG asset; no remote asset refresh occurs.",
+      "sources": ["src/components/aws-logo/aws-logo.tsx", "src/components/aws-logo/aws-logo.css"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply permitted manifest ids and meaningful nonduplicated labels; do not imply that artwork usage grants trademark permission or product endorsement.",
+      "sources": ["src/components/aws-logo/aws-logo.tsx", "src/components/aws-logo/ATTRIBUTION.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own authorization, usage-policy review and updates to the vendored asset release. Preserve ATTRIBUTION and checksums when replacing the artwork.",
+      "sources": ["src/components/aws-logo/aws-logo.tsx", "src/components/aws-logo/ATTRIBUTION.md"]
+    },
+    {
+      "id": "artwork-and-token-ownership",
+      "kind": "design",
+      "statement": "Keep the frame and catalogue in iconography group tokens; genuine nested inputs/buttons keep their owning category. Do not recolor third-party artwork to match a project brand.",
+      "sources": [
+        "src/components/aws-logo/aws-logo.css",
+        "skills/references/design-contract.md",
+        "src/components/aws-logo/ATTRIBUTION.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "This vendored artwork family has an authored contract but no standalone generated API family; the public TypeScript declarations remain authoritative.",
+    "No new artwork, remote update, endorsement, brand customization or rights verification is supplied.",
+    "Source coverage does not certify visual, assistive-technology or trademark-policy acceptance."
+  ]
+}

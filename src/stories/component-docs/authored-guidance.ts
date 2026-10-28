@@ -9,6 +9,355 @@ export const authoredGuidance: Record<
     context?: string[];
   }
 > = {
+  FilePreview: {
+    overview:
+      'Show file metadata with a raster image lightbox or a safe document fallback and optional download link.',
+    usage: [
+      'Supply authorized URLs and correct MIME/size metadata. Revoke object URLs when no longer used and serve documents with appropriate Content-Type, Content-Disposition and origin policy; URL classification is not content inspection.',
+      'Provide imageAlt that describes meaningful image content when the file name alone is insufficient, and supply any already-formatted modification date explicitly.',
+    ],
+    accessibility: [
+      'Native image/link elements and shared Modal for image lightbox focus/dismissal.',
+    ],
+    intent: [
+      'PDFs and all non-raster documents use metadata/download fallback; no document parsing or browser PDF embedding is provided.',
+      'Cross-origin download behavior is controlled by browser and response headers; the download attribute is not a guarantee.',
+      'The URL policy is not malware scanning, content verification, DRM or an authorization boundary.',
+    ],
+    context: [
+      'Use the authored file-preview contract and its linked checks to assess behavior; source linkage is not certification.',
+    ],
+  },
+  SortableList: {
+    overview:
+      'Reorder a controlled vertical list using pointer dragging, keyboard dragging or explicit move actions.',
+    usage: [
+      'Accept emitted ID order by reordering the same stable records and persist separately. Keep IDs stable across renames; reject unauthorized changes and resolve concurrent server updates in the host.',
+      'Give the list a useful name and each item a descriptive label even with renderItem. Custom interactive content must remain usable outside the dedicated drag handle.',
+    ],
+    accessibility: [
+      'dnd-kit core/sortable sensors and collision strategy, plus shared IconButton controls.',
+    ],
+    intent: [
+      'One vertical list only; no cross-list transfer, nested tree, virtualization or multi-select dragging.',
+      'There is no optimistic persisted state or server synchronization. Explicit move announcements describe a requested move, which the host may reject.',
+      'Rows intentionally have no animated reorder transition; the host should verify unusually tall or complex custom items.',
+    ],
+    context: [
+      'Use the authored sortable-list contract and its linked checks to assess behavior; source linkage is not certification.',
+    ],
+  },
+  RichTextEditor: {
+    overview:
+      'Edit schema-based rich text with bold, italic, lists, links and undo/redo using a mature text editing engine.',
+    usage: [
+      'Feed accepted document changes back to value. External replacements can reposition selection; coordinate revisions and persistence outside the editor rather than treating this as a collaborative document protocol.',
+      'Validate meaningful document content before submission and validate/sanitize downstream rendering according to the application. The link policy and restricted schema are not a general HTML sanitizer.',
+    ],
+    accessibility: [
+      'Tiptap 3.32.1 / ProseMirror with limited StarterKit schema; Base UI Toolbar and shared Modal/TextInput/Button.',
+    ],
+    intent: [
+      'No tables, headings, media, file upload, comments, collaborative editing or raw HTML value API.',
+      'Editor initializes on the client; server-rendered output does not contain an interactive ProseMirror editor.',
+      'Toolbar and link-dialog copy is currently English. The host must supply a meaningful editor name.',
+    ],
+    context: [
+      'Use the authored rich-text-editor contract and its linked checks to assess behavior; source linkage is not certification.',
+    ],
+  },
+  InlineEdit: {
+    overview:
+      'Edit a single committed text value through an explicit local draft, validation, save and cancel lifecycle.',
+    usage: [
+      'Update value after accepted persistence and use previousValue for server-side concurrency protection. The local pre-save comparison is not a transaction and cannot detect a remote change occurring during the request.',
+      'Own form submission and errors beyond this one field. InlineEdit provides no named native submission field and its actions do not submit an enclosing form.',
+    ],
+    accessibility: [
+      'React local draft and operation guards; shared TextInput, Field and Button behaviors.',
+    ],
+    intent: [
+      'Synchronous validation only; onSave may be asynchronous. No debounce, autosave or blur-save policy.',
+      'A pending operation cannot be cancelled through this control; aborting network work and server concurrency belong to the host.',
+      'Required validation uses a default English message; product localization and richer field validation need the host callback.',
+    ],
+    context: [
+      'Use the authored inline-edit contract and its linked checks to assess behavior; source linkage is not certification.',
+    ],
+  },
+  PresenceIndicator: {
+    overview:
+      'Display host-provided online, away, busy or offline availability with explicit accessible meaning.',
+    usage: [
+      'Own status freshness, subscriptions, privacy and localized labels.',
+      'Prefer a visible label where users need to distinguish states without color. Use StatusBadge for record workflows and Indicator for positioned notification counts.',
+    ],
+    accessibility: [
+      'With showLabel=false expose a named image role. With decorative=true hide the entire presentation from assistive technology because the host must convey that meaning elsewhere.',
+      'Hide the dot itself from assistive technology and provide no live-region announcements, event handlers, timers or presence inference.',
+    ],
+    intent: [
+      'No online detection, connection health check, presence transport or expiry policy is implemented.',
+    ],
+    context: [
+      'Compose with existing project patterns and preserve the distinction between notification counts, availability and record status.',
+    ],
+  },
+  Indicator: {
+    overview:
+      'Position a named notification dot or count around existing content while preserving child interaction.',
+    usage: [
+      'Provide the complete accessible label including raw meaningful count; name interactive children separately.',
+      'Own notification data, announcement policy and zero visibility. Use decorative only when accessible surrounding content already conveys the same information.',
+    ],
+    accessibility: [
+      'Normalize max to a positive whole cap and pass the count to the shared small inverted CountBadge. The supplied label, not the capped display, names the marker.',
+      'Expose a named image marker unless decorative; decorative hides marker semantics. Logical start/end corner placement follows writing direction. Do not create a live region.',
+    ],
+    intent: [
+      'No notification service, action callback or live update announcement is supplied.',
+      'The wrapper reserves a small corner inset; very small target content still requires visual review with long counts.',
+    ],
+    context: [
+      'Compose with existing project patterns and preserve the distinction between notification counts, availability and record status.',
+    ],
+  },
+  ColorPicker: {
+    overview:
+      'Choose a hexadecimal RGB color, optionally with alpha, using editable text, named swatches and a native RGB picker.',
+    usage: [
+      'Accept #RGB/#RRGGBB, plus #RGBA/#RRGGBBAA only when alpha is enabled. Canonicalize accepted values to uppercase six/eight hex digits; RGB with alpha enabled receives FF. Reject unsupported committed values and swatches rather than evaluating arbitrary CSS.',
+      'Keep incomplete/invalid editable draft locally without replacing the committed color; expose parse feedback and aria-invalid. A valid changed draft commits on blur or non-composing Enter. Host controlled value changes replace stale drafts.',
+      'The native color picker edits RGB only and preserves the current alpha. Optional NumberInput maps a clamped 0–100 percentage to a rounded 8-bit alpha channel; this quantization is explicit, not arbitrary precision.',
+      'Render named actual Buttons with pressed state and safe decorative chips. The chip background is validated user-provided hexadecimal data; nested shared controls retain their own styling tokens.',
+      'Keep the optional form name on the hex text input only. Its native pattern blocks unsupported drafts on native validated submission. Auxiliary RGB and opacity controls have no duplicate name; opacity has a separate id inside Field.',
+    ],
+    accessibility: [
+      'Supply a visible label or enclosing Field. Placeholder text is not an accessible name.',
+      'Keep native semantics and keyboard focus; use Field for host descriptions and useful error feedback.',
+    ],
+    intent: [
+      'Own palette policy, contrast evaluation, accessible color combinations, theme token mapping, persistence and consistent controlled alpha configuration. A parseable color is not an accessible theme certification.',
+    ],
+    context: [
+      'RGB hexadecimal only; no HSL/HSV/Lab/OKLCH gamut tools, eyedropper or gradient editing. The browser owns the native chooser UI.',
+      'Invalid draft text stays on the named input until corrected; host code that bypasses native validation must validate its payload. Disabling alpha requires a compatible RGB controlled value.',
+    ],
+  },
+  PhoneInput: {
+    overview:
+      'Edit raw telephone text with explicit country context and separate metadata-backed formatting/parse candidates.',
+    usage: [
+      'Keep controlled or uncontrolled raw telephone text while typing and by default on blur. The named tel input submits the displayed raw draft once; parsing does not silently replace it with E.164.',
+      'Maintain independent country/defaultCountry state (US by default). Limit choices to countries and require that list to include the selected country. Display localized region names and calling codes with a distinct control id. A country change does not rewrite the number.',
+      'Parse the entire draft with extract=false using the chosen default country; explicit international prefixes can resolve another country. Return raw, E.164 candidate, extension, resolved country, formatted text, possible and metadata-valid flags separately.',
+      'On editable input blur, invoke the caller blur handler first and respect preventDefault. Emit onValueCommit with the parsed raw candidate. Only when formatOnBlur is opted in and the parsed number is possible, request normalized national/international display through onValueChange.',
+      'Forward native input ref, name/form, change callbacks and TextInput Field association. The country Select has a separate id and no duplicate phone form name; disabled/readOnly applies to both controls.',
+    ],
+    accessibility: [
+      'Supply a visible label or enclosing Field. Placeholder text is not an accessible name.',
+      'Keep native semantics and keyboard focus; use Field for host descriptions and useful error feedback.',
+    ],
+    intent: [
+      'Choose country coverage, metadata/update policy, accepted formats, extensions and storage representation. Metadata validity does not prove that a number is allocated, reachable or owned by the user. Own verification and consent flows.',
+    ],
+    context: [
+      'Uses the installed libphonenumber-js/max metadata snapshot, not a live numbering-plan service. It does not support every historical/future numbering exception.',
+      'E.164 excludes extensions; the callback reports extensions separately. No reachability, SMS delivery, identity verification or country auto-selection is supplied.',
+    ],
+  },
+  DateTimePicker: {
+    overview:
+      'Edit a local date/time string with an explicit displayed interpretation zone while leaving instant resolution to the host.',
+    usage: [
+      'Keep offset-free local date/time strings such as 2027-04-12T09:30 in a native datetime-local input. Never convert them to Date objects, offsets or UTC instants.',
+      'Require timeZone as local or an Intl-supported named zone; reject empty, unsupported and numeric-offset identifiers. Display the policy in a description associated with the input. timeZoneLabel can localize the entire explanation.',
+      'Pass min/max/step and inherited TextInput native props, value callbacks, ref, disabled/readOnly and name/form through. Merge the visible zone description with explicit and enclosing Field descriptions.',
+    ],
+    accessibility: [
+      'Supply a visible label or enclosing Field. Placeholder text is not an accessible name.',
+      'Keep native semantics and keyboard focus; use Field for host descriptions and useful error feedback.',
+    ],
+    intent: [
+      'Resolve the entered wall time with the declared zone, including ambiguous or nonexistent daylight-saving times. Own zone changes, instant conversion, validation, storage and scheduling semantics; local explicitly means the device zone.',
+    ],
+    context: [
+      'Zone identifier support depends on the runtime Intl data. Displaying a zone does not make the native picker timezone-aware.',
+      'No calendar range, instant conversion or DST gap/overlap resolution is provided. Native presentation varies by browser.',
+    ],
+  },
+  TimePicker: {
+    overview:
+      'Enter a standalone local time through the native browser time input without attaching a date or time zone.',
+    usage: [
+      'Use a native time input. Values are offset-free HH:mm or HH:mm:ss strings; empty remains an empty string. Add no Date object, midnight fallback or timezone conversion.',
+      'Pass min/max and step directly to the input; step defaults to 60 seconds. The browser owns segment editing, localized presentation, picker availability and native validity.',
+      'Preserve TextInput controlled/defaultValue behavior, both change callbacks, forwarded input ref, name/form and Field labeling/descriptions. Disabled and readOnly retain native behavior.',
+    ],
+    accessibility: [
+      'Supply a visible label or enclosing Field. Placeholder text is not an accessible name.',
+      'Keep native semantics and keyboard focus; use Field for host descriptions and useful error feedback.',
+    ],
+    intent: [
+      'Supply valid native time values, meaningful constraints and an appropriate seconds step. Own scheduling rules, server validation and any interpretation with a date or time zone.',
+    ],
+    context: [
+      'Native picker appearance and available controls vary by browser and platform.',
+      'No custom clock dial, timezone conversion, duration arithmetic, range selection or scheduling validation.',
+    ],
+  },
+  OtpInput: {
+    overview:
+      'Edit a bounded complete one-time code in one native input with paste, autocomplete and native form participation.',
+    usage: [
+      'Render one real native input with autocomplete one-time-code, numeric or text inputMode, length constraints and one optional form name. Do not create separate character cells with fabricated accessibility semantics.',
+      'Numeric mode keeps ASCII digits; alphanumeric mode uppercases ASCII letters and keeps ASCII digits. Paste normalizes the full clipboard text before length truncation and replaces the current selection through an ordinary native input event.',
+      'Require an integer length from 1 through 32. Empty is an empty string; leading zeroes are retained. Apply normalization to initial, controlled and edited candidates.',
+      'Call onComplete for a changed candidate whose normalized length is complete. It does not submit a form, authenticate a person, verify a code or mark a code consumed.',
+      'Preserve native TextInput ref, name/form, change callbacks, readOnly/disabled, required and Field association. masked changes only text visibility.',
+    ],
+    accessibility: [
+      'Supply a visible label or enclosing Field. Placeholder text is not an accessible name.',
+      'Keep native semantics and keyboard focus; use Field for host descriptions and useful error feedback.',
+    ],
+    intent: [
+      'Own code verification, expiry, retry limits, resend flow, authentication, secure handling and error feedback. Treat one-time-code as an autofill hint whose actual support depends on browser/platform.',
+    ],
+    context: [
+      'ASCII numeric/alphanumeric codes only; localized numerals and arbitrary Unicode code alphabets are not supported.',
+      'No operating-system SMS retrieval, automatic submission, authentication or code security policy.',
+    ],
+  },
+  Combobox: {
+    overview:
+      'Search and choose one stable option ID while preserving independent query and selected value state.',
+    usage: [
+      'Pass selected value/defaultValue and query inputValue/defaultInputValue independently to Base UI; selected value is string or null. A typed query is not a free-form submitted selection.',
+      'Pass value, input-value, open and open-completion callbacks without dropping primitive details or cancellation. Delegate list navigation, selection, dismissal and focus to Base UI.',
+      'Local matching searches option labels, descriptions and keywords. filterOptions=false delegates the result set to the host. loading announces status and disables current result selection; the component issues no network requests.',
+      'Require unique nonempty option IDs. selectedLabel supplies a display fallback when a remote selected ID is absent from the current result list; the underlying selected ID remains unchanged.',
+      'Use Field association on the visible input and pass name/form/required/disabled/readOnly to Base UI. Its associated form control submits the selected ID once; the forwarded ref targets the visible input.',
+    ],
+    accessibility: [
+      'Supply a visible label or enclosing Field. Placeholder text is not an accessible name.',
+      'Keep native semantics and keyboard focus; use Field for host descriptions and useful error feedback.',
+    ],
+    intent: [
+      'Own request debouncing, cancellation, races, caching, loading/error recovery and durable selection labels. Keep controlled query and selected value updates separate and inspect callback reasons before issuing requests.',
+    ],
+    context: [
+      'Single selection only; use MultiCombobox for multiple values. No free-solo creation or virtualized remote dataset is provided.',
+      'No asynchronous fetching, server validation or automatic error recovery. Remote selected labels must remain available through options or selectedLabel.',
+    ],
+  },
+  UnsavedNavigationGuard: {
+    overview:
+      'A router-neutral adapter for explicitly guarded navigation and a best-effort unload warning.',
+    usage: [
+      'Route relevant navigation through requestNavigation(() => router.navigate(...)).',
+      'Keep dirty state and draft recovery in the host.',
+      'Use onDiscard for explicit cleanup; make callbacks safe to retry.',
+    ],
+    accessibility: [
+      'Use meaningful names and preserve the shared control keyboard behavior.',
+      'Verify the real host integration, including focus and recovery, with keyboard and assistive technology.',
+    ],
+    intent: [
+      'Adapt explicit host navigation requests to an unsaved-change confirmation with a bounded browser unload warning.',
+    ],
+    context: [
+      'No universal interception of router events, browser history or links.',
+      'Browser unload prompts may be suppressed and cannot show custom application text reliably.',
+      'An already running callback cannot be canceled or undone by unmount.',
+      'A retry may invoke onDiscard again; host callbacks must tolerate retries.',
+    ],
+  },
+  AppShell: {
+    overview:
+      'An application shell with persistent page content, accessible landmarks and a shared mobile navigation sheet.',
+    usage: [
+      'Supply navigation as a renderer of real links/actions and close after successful host navigation.',
+      'Place one page inside main and use PageLayout for its body.',
+      'Keep persistent navigation state above the shell because its responsive placement remounts the slot.',
+    ],
+    accessibility: [
+      'Use meaningful names and preserve the shared control keyboard behavior.',
+      'Verify the real host integration, including focus and recovery, with keyboard and assistive technology.',
+    ],
+    intent: [
+      'Provide reusable application landmarks and responsive navigation without embedding a demo application or router.',
+    ],
+    context: [
+      'No router, authorization, active-route matching, persisted preferences or page title management.',
+      'Navigation content remounts when switching between desktop and mobile surfaces; main content remains mounted.',
+      'The shell does not clamp overflowing arbitrary host widgets; wide tables should own their scroll region.',
+    ],
+  },
+  RecordEditor: {
+    overview:
+      'A generic view/edit/save/cancel/delete workflow with explicit record versions and retained failure drafts.',
+    usage: [
+      'Supply an independent createDraft function and equality comparator for your domain.',
+      'Resolve onSave with the authoritative saved record and new version; reject on validation or persistence failure.',
+      'Enforce expectedVersion atomically and honor AbortSignal where possible.',
+      'Guard recordId changes externally when an active draft must not be discarded.',
+    ],
+    accessibility: [
+      'Use meaningful names and preserve the shared control keyboard behavior.',
+      'Verify the real host integration, including focus and recovery, with keyboard and assistive technology.',
+    ],
+    intent: [
+      'Coordinate a generic record viewing and editing session with an independent draft, asynchronous save/delete and explicit version conflicts.',
+    ],
+    context: [
+      'No backend, authorization, autosave, undo, merge algorithm or automatic router guard.',
+      'The host must enforce optimistic concurrency on the server or other authoritative persistence boundary.',
+      'Record identity changes intentionally reset the session; same-version record changes violate the host version contract.',
+      'Native fieldset disabling does not disable portaled controls; renderFields.disabled is provided for that boundary.',
+    ],
+  },
+  ResourceState: {
+    overview:
+      'A common boundary for loading, retained refresh, stale results, error and empty presentation.',
+    usage: [
+      'Select status from a host resource state machine.',
+      'Use refreshing to keep current content visible and stale when the last successful data remains useful.',
+      'Provide onRetry and drive retrying from the actual retry operation.',
+    ],
+    accessibility: [
+      'Use meaningful names and preserve the shared control keyboard behavior.',
+      'Verify the real host integration, including focus and recovery, with keyboard and assistive technology.',
+    ],
+    intent: [
+      'Present explicit host resource states while retaining existing content through refresh and stale-data states.',
+    ],
+    context: [
+      'No fetching, caching, authentication, freshness timestamps or automatic state transitions.',
+      'Switching to initial-loading/empty/error intentionally unmounts retained children.',
+      'retrying is caller-controlled and must reflect the actual operation.',
+    ],
+  },
+  FormErrorSummary: {
+    overview:
+      'A linked, focusable form error summary. It accepts validation results rather than deciding form validity.',
+    usage: [
+      'Supply stable error IDs, actual control IDs and concise messages.',
+      'After a failed submission, change focusRequestKey; keep it stable while typing.',
+      'Use focusField to reveal tabs or focus custom controls.',
+    ],
+    accessibility: [
+      'Use meaningful names and preserve the shared control keyboard behavior.',
+      'Verify the real host integration, including focus and recovery, with keyboard and assistive technology.',
+    ],
+    intent: [
+      'Present host-supplied validation errors as a named, focusable summary with links to invalid fields.',
+    ],
+    context: [
+      'No validation engine, field mutation, router handling or automatic error dismissal.',
+      'A field that is missing, disabled, hidden or not focusable needs host handling.',
+      'Programmatic focus is an explicit caller request, not evidence that all assistive technologies announce identical text.',
+    ],
+  },
   PasswordInput: {
     overview:
       'A native password field with a named reveal/conceal action, composed from TextInput and IconButton.',

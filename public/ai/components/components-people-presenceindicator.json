@@ -1,0 +1,399 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.7.0-experiment.0"
+  },
+  "id": "components-people-presenceindicator",
+  "name": "PresenceIndicator",
+  "category": "Data Display",
+  "tokenGroup": "data-display",
+  "kind": "component",
+  "aliases": [
+    "availability",
+    "offline status",
+    "online status",
+    "presence"
+  ],
+  "purpose": "Display host-provided online, away, busy or offline availability with explicit accessible meaning.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-agentic/presence-indicator"
+  ],
+  "links": {
+    "contract": "./components-people-presenceindicator.json",
+    "overview": "../../?path=/docs/components-data-display-presenceindicator-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-display-presenceindicator-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-display-presenceindicator-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-display-presenceindicator-overview--docs&docsTab=tokens"
+  },
+  "description": "Display host-provided availability with a visible label by default. Dot-only presence has an accessible name. Presence is not a record workflow status, a connectivity probe, or a live announcement service.",
+  "exports": [
+    "PresenceIndicator"
+  ],
+  "importStatements": [
+    "import { PresenceIndicator } from '@dimitriszoitas/aegis-agentic/presence-indicator';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
+  "props": [
+    {
+      "component": "PresenceIndicator",
+      "name": "decorative",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/presence-indicator/presence-indicator.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "false",
+      "description": "Use only when another accessible label already conveys presence."
+    },
+    {
+      "component": "PresenceIndicator",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/presence-indicator/presence-indicator.tsx",
+        "kind": "design-system"
+      },
+      "description": "Localized accessible and visible text. Defaults to the status name."
+    },
+    {
+      "component": "PresenceIndicator",
+      "name": "showLabel",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/presence-indicator/presence-indicator.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "true"
+    },
+    {
+      "component": "PresenceIndicator",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/presence-indicator/presence-indicator.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "PresenceIndicator",
+      "name": "status",
+      "type": "PresenceStatus",
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/presence-indicator/presence-indicator.tsx",
+        "kind": "design-system"
+      }
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    },
+    {
+      "name": "status",
+      "values": [
+        "away",
+        "busy",
+        "offline",
+        "online"
+      ]
+    }
+  ],
+  "composition": [],
+  "guidance": {
+    "overview": "Display host-provided online, away, busy or offline availability with explicit accessible meaning.",
+    "usage": [
+      "Own status freshness, subscriptions, privacy and localized labels.",
+      "Prefer a visible label where users need to distinguish states without color. Use StatusBadge for record workflows and Indicator for positioned notification counts."
+    ],
+    "accessibility": [
+      "With showLabel=false expose a named image role. With decorative=true hide the entire presentation from assistive technology because the host must convey that meaning elsewhere.",
+      "Hide the dot itself from assistive technology and provide no live-region announcements, event handlers, timers or presence inference."
+    ],
+    "intent": [
+      "No online detection, connection health check, presence transport or expiry policy is implemented."
+    ],
+    "context": [
+      "Compose with existing project patterns and preserve the distinction between notification counts, availability and record status."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label"
+    ],
+    "nativeElements": [
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": []
+  },
+  "sourceFiles": [
+    "src/components/presence-indicator/presence-indicator.css",
+    "src/components/presence-indicator/presence-indicator.stories.tsx",
+    "src/components/presence-indicator/presence-indicator.tsx",
+    "src/package/styles.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-people-presenceindicator--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-people-presenceindicator--playground",
+      "sourceFile": "src/components/presence-indicator/presence-indicator.stories.tsx"
+    },
+    {
+      "id": "components-people-presenceindicator--dot-only",
+      "name": "Dot Only",
+      "url": "../../?path=/story/components-people-presenceindicator--dot-only",
+      "sourceFile": "src/components/presence-indicator/presence-indicator.stories.tsx"
+    },
+    {
+      "id": "components-people-presenceindicator--states",
+      "name": "States",
+      "url": "../../?path=/story/components-people-presenceindicator--states",
+      "sourceFile": "src/components/presence-indicator/presence-indicator.stories.tsx"
+    },
+    {
+      "id": "components-people-presenceindicator--anatomy",
+      "name": "Anatomy",
+      "url": "../../?path=/story/components-people-presenceindicator--anatomy",
+      "sourceFile": "src/components/presence-indicator/presence-indicator.stories.tsx"
+    },
+    {
+      "id": "components-people-presenceindicator--accessible-meaning",
+      "name": "Accessible Meaning",
+      "url": "../../?path=/story/components-people-presenceindicator--accessible-meaning",
+      "sourceFile": "src/components/presence-indicator/presence-indicator.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-display-presence-away",
+    "--group-data-display-presence-border",
+    "--group-data-display-presence-border-width",
+    "--group-data-display-presence-busy",
+    "--group-data-display-presence-font-size",
+    "--group-data-display-presence-gap",
+    "--group-data-display-presence-line-height",
+    "--group-data-display-presence-offline",
+    "--group-data-display-presence-online",
+    "--group-data-display-presence-radius",
+    "--group-data-display-presence-size",
+    "--group-data-display-presence-small-size",
+    "--group-data-display-presence-text",
+    "--group-data-display-presence-zero",
+    "--group-data-display-surface-border-width-regular",
+    "--group-data-display-surface-color-action-foreground",
+    "--group-data-display-surface-color-action-soft",
+    "--group-data-display-surface-color-border-default",
+    "--group-data-display-surface-color-content-primary",
+    "--group-data-display-surface-elevation-none",
+    "--group-data-display-surface-focus-offset",
+    "--group-data-display-surface-font-family-ui",
+    "--group-data-display-surface-font-size-body",
+    "--group-data-display-surface-motion-count-1",
+    "--group-data-display-surface-motion-disabled-duration",
+    "--group-data-display-surface-motion-reduced-duration",
+    "--group-data-display-surface-number-0",
+    "--group-data-display-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-display-presence-gap",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-text",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-font-size",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-line-height",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-zero",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-size",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-radius",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-offline",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-border",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-border-width",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-small-size",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-online",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-away",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-presence-busy",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "PresenceIndicator",
+      "group": "data-display"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

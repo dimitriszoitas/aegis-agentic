@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 2,
+  "id": "ai-message",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A user or assistant conversation entry with source context, progress, citations, and optional result actions.",
+  "anatomy": [
+    "message article",
+    "AI provenance header",
+    "evidence step disclosure",
+    "content",
+    "references",
+    "status",
+    "feedback actions"
+  ],
+  "states": [
+    "user",
+    "assistant streaming",
+    "complete",
+    "stopped",
+    "error",
+    "copy success or failure"
+  ],
+  "tokenGroup": "ai",
+  "behaviorProvider": "React Markdown allowlist and shared AI/feedback components; host owns message stream.",
+  "ownership": {
+    "component": [
+      "Render user messages as plain text. Assistant content uses React Markdown with raw HTML skipped, an explicit allowed-element list and reduced heading levels; do not execute model-supplied HTML.",
+      "Keep partial content visible for stopped/error messages and display corresponding explanatory feedback. Streaming without content shows ThinkingIndicator and StreamingSkeleton."
+    ],
+    "host": [
+      "Own streaming, cancellation, retrieval, message identity, citations and action authorization. Validate externally supplied reference URLs and content provenance.",
+      "Provide truthful evidence-step descriptions, preserve partial results and decide when feedback/regeneration is allowed."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Render user messages as plain text. Assistant content uses React Markdown with raw HTML skipped, an explicit allowed-element list and reduced heading levels; do not execute model-supplied HTML.",
+      "sources": ["src/components/ai-message/ai-message.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Keep partial content visible for stopped/error messages and display corresponding explanatory feedback. Streaming without content shows ThinkingIndicator and StreamingSkeleton.",
+      "sources": ["src/components/ai-message/ai-message.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Keep the changing content region aria-live off and communicate overall response status separately. Evidence steps are an ordinary details/summary disclosure with status text.",
+      "sources": ["src/components/ai-message/ai-message.tsx"]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "References invoke onCitationClick when supplied; otherwise render the supplied href or plain text. Copy uses the clipboard and shows copied/error feedback bound to the copied content.",
+      "sources": ["src/components/ai-message/ai-message.tsx"]
+    },
+    {
+      "id": "behavior-5",
+      "kind": "component",
+      "statement": "Only non-streaming messages with content show copy/feedback controls. A stopped empty response can expose regeneration when provided.",
+      "sources": ["src/components/ai-message/ai-message.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Own streaming, cancellation, retrieval, message identity, citations and action authorization. Validate externally supplied reference URLs and content provenance.",
+      "sources": ["src/components/ai-message/ai-message.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Provide truthful evidence-step descriptions, preserve partial results and decide when feedback/regeneration is allowed.",
+      "sources": ["src/components/ai-message/ai-message.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use ai group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/ai-message/ai-message.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Markdown restrictions are not a substitute for validating arbitrary host ReactNode content or reference hrefs.",
+    "This component does not run a model, execute tools, verify references or persist feedback.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

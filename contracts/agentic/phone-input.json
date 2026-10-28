@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 2,
+  "id": "phone-input",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Edit raw telephone text with explicit country context and separate metadata-backed formatting/parse candidates.",
+  "anatomy": [
+    "labeled country Select",
+    "native telephone input",
+    "optional formatted preview",
+    "Field descriptions and host error"
+  ],
+  "states": [
+    "raw-draft",
+    "parsed-candidate",
+    "unparsed",
+    "disabled",
+    "read-only",
+    "invalid",
+    "normalization-opt-in"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Aegis TextInput and Select; libphonenumber-js/max numbering-plan metadata.",
+  "ownership": {
+    "component": [
+      "Keep controlled or uncontrolled raw telephone text while typing and by default on blur. The named tel input submits the displayed raw draft once; parsing does not silently replace it with E.164.",
+      "Maintain independent country/defaultCountry state (US by default). Limit choices to countries and require that list to include the selected country. Display localized region names and calling codes with a distinct control id. A country change does not rewrite the number.",
+      "Parse the entire draft with extract=false using the chosen default country; explicit international prefixes can resolve another country. Return raw, E.164 candidate, extension, resolved country, formatted text, possible and metadata-valid flags separately.",
+      "On editable input blur, invoke the caller blur handler first and respect preventDefault. Emit onValueCommit with the parsed raw candidate. Only when formatOnBlur is opted in and the parsed number is possible, request normalized national/international display through onValueChange.",
+      "Forward native input ref, name/form, change callbacks and TextInput Field association. The country Select has a separate id and no duplicate phone form name; disabled/readOnly applies to both controls."
+    ],
+    "host": [
+      "Choose country coverage, metadata/update policy, accepted formats, extensions and storage representation. Metadata validity does not prove that a number is allocated, reachable or owned by the user. Own verification and consent flows."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "raw-draft-preservation",
+      "kind": "component",
+      "statement": "Keep controlled or uncontrolled raw telephone text while typing and by default on blur. The named tel input submits the displayed raw draft once; parsing does not silently replace it with E.164.",
+      "sources": [
+        "src/components/phone-input/phone-input.tsx",
+        "src/components/phone-input/README.md"
+      ]
+    },
+    {
+      "id": "country-context",
+      "kind": "component",
+      "statement": "Maintain independent country/defaultCountry state (US by default). Limit choices to countries and require that list to include the selected country. Display localized region names and calling codes with a distinct control id. A country change does not rewrite the number.",
+      "sources": [
+        "src/components/phone-input/phone-input.tsx",
+        "src/components/phone-input/README.md"
+      ]
+    },
+    {
+      "id": "parse-candidate-boundary",
+      "kind": "component",
+      "statement": "Parse the entire draft with extract=false using the chosen default country; explicit international prefixes can resolve another country. Return raw, E.164 candidate, extension, resolved country, formatted text, possible and metadata-valid flags separately.",
+      "sources": [
+        "src/components/phone-input/phone-input.tsx",
+        "src/components/phone-input/README.md"
+      ]
+    },
+    {
+      "id": "explicit-normalization",
+      "kind": "component",
+      "statement": "On editable input blur, invoke the caller blur handler first and respect preventDefault. Emit onValueCommit with the parsed raw candidate. Only when formatOnBlur is opted in and the parsed number is possible, request normalized national/international display through onValueChange.",
+      "sources": [
+        "src/components/phone-input/phone-input.tsx",
+        "src/components/phone-input/README.md"
+      ]
+    },
+    {
+      "id": "form-and-field",
+      "kind": "component",
+      "statement": "Forward native input ref, name/form, change callbacks and TextInput Field association. The country Select has a separate id and no duplicate phone form name; disabled/readOnly applies to both controls.",
+      "sources": [
+        "src/components/phone-input/phone-input.tsx",
+        "src/components/phone-input/README.md"
+      ]
+    },
+    {
+      "id": "telephone-validation",
+      "kind": "host",
+      "statement": "Choose country coverage, metadata/update policy, accepted formats, extensions and storage representation. Metadata validity does not prove that a number is allocated, reachable or owned by the user. Own verification and consent flows.",
+      "sources": [
+        "src/components/phone-input/phone-input.tsx",
+        "src/components/phone-input/README.md"
+      ]
+    },
+    {
+      "id": "accessible-host-name",
+      "kind": "host",
+      "statement": "Supply a visible label, enclosing Field label or accessible name. Use useful host validation and recovery instructions instead of relying on placeholder text.",
+      "sources": [
+        "src/components/phone-input/phone-input.tsx",
+        "src/components/phone-input/README.md",
+        "src/components/field/field.tsx"
+      ]
+    },
+    {
+      "id": "input-group-ownership",
+      "kind": "design",
+      "statement": "Owned styling consumes input group tokens. Actual nested shared components retain their own token groups. Preserve keyboard-visible focus and equivalent size metrics across the four theme/mode mappings.",
+      "sources": [
+        "src/components/phone-input/phone-input.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "This source-backed requirement record does not certify a current test result or release approval.",
+    "Uses the installed libphonenumber-js/max metadata snapshot, not a live numbering-plan service. It does not support every historical/future numbering exception.",
+    "E.164 excludes extensions; the callback reports extensions separately. No reachability, SMS delivery, identity verification or country auto-selection is supplied."
+  ]
+}

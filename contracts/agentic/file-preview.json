@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "id": "file-preview",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Show file metadata with a raster image lightbox or a safe document fallback and optional download link.",
+  "anatomy": [
+    "file name",
+    "metadata definition list",
+    "image or fallback status",
+    "image-preview action",
+    "optional download link",
+    "shared image lightbox"
+  ],
+  "states": [
+    "supported raster image",
+    "document fallback",
+    "image load failure",
+    "unsafe URL fallback",
+    "preview disabled",
+    "download disabled",
+    "lightbox open"
+  ],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Native image/link elements and shared Modal for image lightbox focus/dismissal.",
+  "ownership": {
+    "component": [
+      "URL and raster MIME policy",
+      "text-safe metadata presentation",
+      "image failure fallback and lightbox composition"
+    ],
+    "host": [
+      "trusted file metadata and authorization",
+      "download response headers and blob lifetime",
+      "accessible image description and file availability"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "image-allowlist",
+      "kind": "component",
+      "statement": "Render inline previews only for PNG, JPEG, GIF, WebP, AVIF and BMP MIME types with an allowed URL. Use native img; do not execute or embed HTML, SVG, PDF or office documents.",
+      "sources": ["src/components/file-preview/file-preview.tsx"]
+    },
+    {
+      "id": "url-policy",
+      "kind": "component",
+      "statement": "Reject control characters, executable/file protocols and non-raster data URLs. Permit relative, HTTP(S), blob URLs and base64 raster data URLs; suppress both image and download for rejected URLs.",
+      "sources": ["src/components/file-preview/file-preview.tsx"]
+    },
+    {
+      "id": "metadata-semantics",
+      "kind": "component",
+      "statement": "Render file name and MIME/date metadata as text in a definition list. Format nonnegative safe-integer byte counts in binary units and reject invalid numeric sizes.",
+      "sources": ["src/components/file-preview/file-preview.tsx"]
+    },
+    {
+      "id": "image-failure",
+      "kind": "component",
+      "statement": "After the thumbnail reports an image-load error, show the fallback status and omit the image-preview action for that URL while retaining an allowed download link.",
+      "sources": ["src/components/file-preview/file-preview.tsx"]
+    },
+    {
+      "id": "lightbox-composition",
+      "kind": "component",
+      "statement": "Open supported images through the shared Modal with the file name as title and Image preview description, delegating modal focus management, Escape and close behavior.",
+      "sources": ["src/components/file-preview/file-preview.tsx"]
+    },
+    {
+      "id": "download-link",
+      "kind": "component",
+      "statement": "When enabled and URL is permitted, render a native download link with the supplied file name and the shared external-link isolation behavior. Download=false removes that action.",
+      "sources": ["src/components/file-preview/file-preview.tsx"]
+    },
+    {
+      "id": "host-resource-policy",
+      "kind": "host",
+      "statement": "Supply authorized URLs and correct MIME/size metadata. Revoke object URLs when no longer used and serve documents with appropriate Content-Type, Content-Disposition and origin policy; URL classification is not content inspection.",
+      "sources": ["src/components/file-preview/README.md"]
+    },
+    {
+      "id": "host-description",
+      "kind": "host",
+      "statement": "Provide imageAlt that describes meaningful image content when the file name alone is insufficient, and supply any already-formatted modification date explicitly.",
+      "sources": ["src/components/file-preview/README.md"]
+    },
+    {
+      "id": "category-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for the file surface. Nested Button, Link and Modal retain their own category token ownership.",
+      "sources": [
+        "src/components/file-preview/file-preview.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "PDFs and all non-raster documents use metadata/download fallback; no document parsing or browser PDF embedding is provided.",
+    "Cross-origin download behavior is controlled by browser and response headers; the download attribute is not a guarantee.",
+    "The URL policy is not malware scanning, content verification, DRM or an authorization boundary."
+  ]
+}

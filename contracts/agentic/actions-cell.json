@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 2,
+  "id": "actions-cell",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A row-action group with a limited number of visible icon buttons and an overflow menu.",
+  "anatomy": ["named group", "icon actions", "overflow menu"],
+  "states": ["visible actions", "overflow menu", "disabled action"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Shared data-grid cell adapter; table/record state remains with its host.",
+  "ownership": {
+    "component": [
+      "Normalize maxVisible to a nonnegative whole count and split actions into visible IconButtons and overflow DropdownMenu items.",
+      "Give each visible action its label as an accessible name. Preserve disabled per action and map destructive overflow intent explicitly."
+    ],
+    "host": [
+      "Supply stable ids, meaningful names and action callbacks. Own permissions and pending/error behavior.",
+      "Account for focus behavior when actions disappear after record updates."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Normalize maxVisible to a nonnegative whole count and split actions into visible IconButtons and overflow DropdownMenu items.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Give each visible action its label as an accessible name. Preserve disabled per action and map destructive overflow intent explicitly.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Stop click and keydown propagation at the group boundary before calling optional group handlers, so cell actions do not trigger a parent row activation.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply stable ids, meaningful names and action callbacks. Own permissions and pending/error behavior.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Account for focus behavior when actions disappear after record updates.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No async pending guard, confirmation, data mutation or rollback is provided.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

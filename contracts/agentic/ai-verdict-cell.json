@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 2,
+  "id": "ai-verdict-cell",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A compact AI suggestion with a normalized confidence score and an explicit review reminder.",
+  "anatomy": ["focusable suggested verdict", "percentage", "review tooltip"],
+  "states": ["low/medium/high confidence", "keyboard tooltip"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Shared data-grid cell adapter; table/record state remains with its host.",
+  "ownership": {
+    "component": [
+      "Clamp finite confidence into zero through one and map non-finite input to zero. Levels are high at >=0.8, medium at >=0.5, otherwise low.",
+      "Expose a focusable span with an accessible phrase identifying an AI suggestion, verdict and full rounded confidence percentage. Its decorative sparkles do not provide the name."
+    ],
+    "host": [
+      "Own score computation, evidence provenance and explicit approval/application workflow.",
+      "Provide a concise verdict and avoid treating score thresholds as calibrated correctness guarantees."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Clamp finite confidence into zero through one and map non-finite input to zero. Levels are high at >=0.8, medium at >=0.5, otherwise low.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Expose a focusable span with an accessible phrase identifying an AI suggestion, verdict and full rounded confidence percentage. Its decorative sparkles do not provide the name.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Tooltip states that this is a suggested verdict and asks for evidence review; the cell does not apply the verdict.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Own score computation, evidence provenance and explicit approval/application workflow.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Provide a concise verdict and avoid treating score thresholds as calibrated correctness guarantees.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "The thresholds are display categories; no model scoring, evidence validation or verdict action is implemented.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

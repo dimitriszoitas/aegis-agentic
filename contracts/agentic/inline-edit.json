@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 2,
+  "id": "inline-edit",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Edit a single committed text value through an explicit local draft, validation, save and cancel lifecycle.",
+  "anatomy": [
+    "committed label and value",
+    "named edit button",
+    "draft Field and native TextInput",
+    "save and cancel buttons",
+    "validation or pending feedback"
+  ],
+  "states": [
+    "display",
+    "editing",
+    "validation failure",
+    "saving",
+    "save failure",
+    "external value conflict",
+    "disabled",
+    "read-only"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "React local draft and operation guards; shared TextInput, Field and Button behaviors.",
+  "ownership": {
+    "component": [
+      "local draft and focus lifecycle",
+      "validation and save operation guard",
+      "safe generic failure feedback"
+    ],
+    "host": [
+      "committed value and persistence",
+      "concurrent server updates and authorization",
+      "accessible naming and product validation"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "draft-entry",
+      "kind": "component",
+      "statement": "Enter editing with a snapshot of the current value, focus and select the native TextInput, and keep subsequent typing in a local draft.",
+      "sources": ["src/components/inline-edit/inline-edit.tsx"]
+    },
+    {
+      "id": "explicit-commit",
+      "kind": "component",
+      "statement": "Enter outside IME composition and the Save action validate then save; blur does not commit. Escape or Cancel discards the draft except while a save is pending.",
+      "sources": ["src/components/inline-edit/inline-edit.tsx"]
+    },
+    {
+      "id": "validation",
+      "kind": "component",
+      "statement": "Reject required whitespace-only drafts and truthy synchronous validation messages before onSave. A thrown validator becomes the configured generic error rather than exposing exception text.",
+      "sources": ["src/components/inline-edit/inline-edit.tsx"]
+    },
+    {
+      "id": "unchanged-value",
+      "kind": "component",
+      "statement": "Exit an unchanged valid draft without calling onSave. Cancel and successful completion restore focus to the edit button when that button remains mounted and focusable.",
+      "sources": ["src/components/inline-edit/inline-edit.tsx"]
+    },
+    {
+      "id": "save-lock",
+      "kind": "component",
+      "statement": "Permit at most one in-flight save. Pending disables the input and Cancel, makes the root busy, and displays saving status; the shared Save button is loading.",
+      "sources": ["src/components/inline-edit/inline-edit.tsx"]
+    },
+    {
+      "id": "async-failure",
+      "kind": "component",
+      "statement": "Retain the failed draft and present the configured error when onSave rejects. Ignore completion state updates from an operation invalidated by unmount.",
+      "sources": ["src/components/inline-edit/inline-edit.tsx"]
+    },
+    {
+      "id": "conflict-before-save",
+      "kind": "component",
+      "statement": "If the controlled value differs from the entry snapshot before save, block the callback and show conflictMessage; Cancel returns to the latest host value.",
+      "sources": ["src/components/inline-edit/inline-edit.tsx"]
+    },
+    {
+      "id": "locked-policy",
+      "kind": "component",
+      "statement": "Disabled blocks entering or saving and disables an open input. Read-only omits Edit in display state and prevents editing/saving an already-open draft; neither prop silently commits it.",
+      "sources": ["src/components/inline-edit/inline-edit.tsx"]
+    },
+    {
+      "id": "persisted-value",
+      "kind": "host",
+      "statement": "Update value after accepted persistence and use previousValue for server-side concurrency protection. The local pre-save comparison is not a transaction and cannot detect a remote change occurring during the request.",
+      "sources": ["src/components/inline-edit/README.md"]
+    },
+    {
+      "id": "form-boundary",
+      "kind": "host",
+      "statement": "Own form submission and errors beyond this one field. InlineEdit provides no named native submission field and its actions do not submit an enclosing form.",
+      "sources": ["src/components/inline-edit/README.md"]
+    },
+    {
+      "id": "category-ownership",
+      "kind": "design",
+      "statement": "Use input group tokens for the wrapper; nested Field, TextInput and Button retain their own category styling.",
+      "sources": [
+        "src/components/inline-edit/inline-edit.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Synchronous validation only; onSave may be asynchronous. No debounce, autosave or blur-save policy.",
+    "A pending operation cannot be cancelled through this control; aborting network work and server concurrency belong to the host.",
+    "Required validation uses a default English message; product localization and richer field validation need the host callback."
+  ]
+}

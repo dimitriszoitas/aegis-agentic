@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 2,
+  "id": "yaml-presenter",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present read-only YAML with a filename, fold controls, highlighted-line guidance and copying.",
+  "anatomy": [
+    "named section and filename",
+    "YAML action group",
+    "read-only code surface",
+    "optional hidden highlighted-range description"
+  ],
+  "states": ["populated", "empty", "folded", "highlighted", "wrapped"],
+  "tokenGroup": "code",
+  "behaviorProvider": "Shared read-only CodeEditor, CopyButton and IconButton.",
+  "ownership": {
+    "component": [
+      "Render CodeEditor with language=yaml, readOnly and statusBar=false, passing the exact supplied text and optional wrap/height/highlight configuration.",
+      "Name the outer section from its generated filename ID and name the editor from label or the filename plus source. The visible filename is text, not a navigation/download link.",
+      "Provide named Fold all YAML sections and Unfold all YAML sections IconButtons invoking the editor handle. Text is not transformed or persisted by folding."
+    ],
+    "host": [
+      "Supply source text and meaningful filename/label. Syntax highlighting and folding do not parse the YAML into trusted configuration or validate application semantics.",
+      "Supply valid intended one-based highlight ranges; the visual CodeEditor clips ranges to the document, while YamlPresenter describes the supplied ranges without normalization."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "readonly-delegation",
+      "kind": "component",
+      "statement": "Render CodeEditor with language=yaml, readOnly and statusBar=false, passing the exact supplied text and optional wrap/height/highlight configuration.",
+      "sources": ["src/components/yaml-presenter/yaml-presenter.tsx"]
+    },
+    {
+      "id": "naming",
+      "kind": "component",
+      "statement": "Name the outer section from its generated filename ID and name the editor from label or the filename plus source. The visible filename is text, not a navigation/download link.",
+      "sources": ["src/components/yaml-presenter/yaml-presenter.tsx"]
+    },
+    {
+      "id": "fold-actions",
+      "kind": "component",
+      "statement": "Provide named Fold all YAML sections and Unfold all YAML sections IconButtons invoking the editor handle. Text is not transformed or persisted by folding.",
+      "sources": ["src/components/yaml-presenter/yaml-presenter.tsx"]
+    },
+    {
+      "id": "copy-source",
+      "kind": "component",
+      "statement": "Pass the original full value to CopyButton rather than only visible/unfolded lines. Delegate clipboard success callback and failure notification behavior to that shared component.",
+      "sources": ["src/components/yaml-presenter/yaml-presenter.tsx"]
+    },
+    {
+      "id": "highlight-description",
+      "kind": "component",
+      "statement": "When highlight ranges exist, add a hidden textual list of their supplied bounds and associate it with the editor alongside CodeEditor keyboard instructions.",
+      "sources": ["src/components/yaml-presenter/yaml-presenter.tsx"]
+    },
+    {
+      "id": "host-validity",
+      "kind": "host",
+      "statement": "Supply source text and meaningful filename/label. Syntax highlighting and folding do not parse the YAML into trusted configuration or validate application semantics.",
+      "sources": ["src/components/yaml-presenter/yaml-presenter.tsx"]
+    },
+    {
+      "id": "host-ranges",
+      "kind": "host",
+      "statement": "Supply valid intended one-based highlight ranges; the visual CodeEditor clips ranges to the document, while YamlPresenter describes the supplied ranges without normalization.",
+      "sources": ["src/components/yaml-presenter/yaml-presenter.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume code group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "No editing, YAML serialization, download or remote loading lifecycle is provided.",
+    "Copy requires browser clipboard permission and may show shared failure notification."
+  ]
+}

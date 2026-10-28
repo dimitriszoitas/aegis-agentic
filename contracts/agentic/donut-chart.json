@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 2,
+  "id": "donut-chart",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Show a nonnegative categorical distribution with totals and an optional exact-data table.",
+  "anatomy": [
+    "figure title",
+    "donut segments",
+    "visual center total",
+    "static legend",
+    "optional table"
+  ],
+  "states": ["positive total", "zero total", "loading", "error", "legend hidden"],
+  "tokenGroup": "data-viz",
+  "behaviorProvider": "Recharts Pie/PieChart with shared ChartContainer, ChartLegend and ChartDataTable.",
+  "ownership": {
+    "component": [
+      "Copy each datum and convert nonfinite values to zero, clamping finite negatives to zero. Compute both total and rendered slices from those normalized values.",
+      "Treat a zero normalized total as empty even when the data array contains records; delegate loading/error/empty precedence to ChartContainer.",
+      "Use each explicit semantic ChartColor or the repeating categorical chartPalette. Disable slice and tooltip animation and enable the Recharts accessibility layer with a category-inspection label."
+    ],
+    "host": [
+      "Provide unique meaningful category names, a totalLabel and surrounding quantitative explanation. Use a table or equivalent textual summary for comparisons and totals beyond the visual center.",
+      "Only use this normalization for quantities where negatives and nonfinite values may be represented as zero; validate and report invalid source data upstream when silent coercion would mislead."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "normalized-values",
+      "kind": "component",
+      "statement": "Copy each datum and convert nonfinite values to zero, clamping finite negatives to zero. Compute both total and rendered slices from those normalized values.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "zero-total",
+      "kind": "component",
+      "statement": "Treat a zero normalized total as empty even when the data array contains records; delegate loading/error/empty precedence to ChartContainer.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "slice-palette",
+      "kind": "component",
+      "statement": "Use each explicit semantic ChartColor or the repeating categorical chartPalette. Disable slice and tooltip animation and enable the Recharts accessibility layer with a category-inspection label.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "static-legend",
+      "kind": "component",
+      "statement": "When enabled, show static legend entries containing each category name and normalized localized value. Donut legend items do not toggle slices.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "visual-total",
+      "kind": "component",
+      "statement": "Display the normalized en-GB total and totalLabel in an aria-hidden center overlay, so hosts must not treat that overlay as an accessible total announcement.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "exact-data",
+      "kind": "component",
+      "statement": "When requested and records exist, provide ChartDataTable for normalized category values, including a zero-total state because ChartContainer footer is independent from plot state.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "host-labels",
+      "kind": "host",
+      "statement": "Provide unique meaningful category names, a totalLabel and surrounding quantitative explanation. Use a table or equivalent textual summary for comparisons and totals beyond the visual center.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "host-domain",
+      "kind": "host",
+      "statement": "Only use this normalization for quantities where negatives and nonfinite values may be represented as zero; validate and report invalid source data upstream when silent coercion would mislead.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume data-viz group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "No slice selection, legend toggle, sorting, aggregation or percentage labels are implemented.",
+    "The accessible center total is not announced; category inspection and optional table do not replace a domain-specific written summary."
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 2,
+  "id": "filter-panel",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Edit the existing WorkRecord filter model in an in-flow panel with facet counts and searchable filter options.",
+  "anatomy": [
+    "panel heading",
+    "clear and close actions",
+    "option search",
+    "matching count",
+    "scrollable facet groups",
+    "optional host fields"
+  ],
+  "states": ["active-filters", "no-filters", "searched-options", "no-option-match", "disabled"],
+  "tokenGroup": "filtering",
+  "behaviorProvider": "Shared SearchInput, Checkbox and Accordion composed with the WorkRecord filter reducer and facet helpers.",
+  "ownership": {
+    "component": ["controlled filter events", "facet search and display", "matching count"],
+    "host": [
+      "filter state persistence",
+      "custom filter behavior",
+      "panel placement and close lifecycle"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "controlled-filter-model",
+      "kind": "component",
+      "statement": "Read RecordFilterState from value and emit reducer-produced changes through onValueChange; do not independently persist the selected filters.",
+      "sources": ["src/patterns/filter-panel/filter-panel.tsx"]
+    },
+    {
+      "id": "record-specific-counts",
+      "kind": "component",
+      "statement": "Compute matching record and facet counts using the existing WorkRecord filter helpers and supplied records, owners and current time. This is not an arbitrary collection query language.",
+      "sources": ["src/patterns/filter-panel/filter-panel.tsx"]
+    },
+    {
+      "id": "option-search",
+      "kind": "component",
+      "statement": "Search filter option labels locally without changing selected filters; expand matching groups during search and retain the previous expansion state for the cleared query.",
+      "sources": ["src/patterns/filter-panel/filter-panel.tsx"]
+    },
+    {
+      "id": "selected-owner-retention",
+      "kind": "component",
+      "statement": "Keep selected owner identifiers available as removable options even when absent from the supplied owner list.",
+      "sources": ["src/patterns/filter-panel/filter-panel.tsx"]
+    },
+    {
+      "id": "clear-and-close",
+      "kind": "component",
+      "statement": "Clear all invokes the host override when supplied or the reducer reset otherwise; it is disabled when disabled or no active filter count. Close calls onClose and remains independently available.",
+      "sources": ["src/patterns/filter-panel/filter-panel.tsx"]
+    },
+    {
+      "id": "disabled-boundary",
+      "kind": "component",
+      "statement": "Disable owned search and filter selection controls from disabled; arbitrary children are not automatically disabled.",
+      "sources": ["src/patterns/filter-panel/filter-panel.tsx"]
+    },
+    {
+      "id": "custom-filter-ownership",
+      "kind": "host",
+      "statement": "Supply custom children, additionalFilterCount and onClearAll consistently when adding filters beyond RecordFilterState; update the controlled value after events.",
+      "sources": ["src/patterns/filter-panel/filter-panel.tsx"]
+    },
+    {
+      "id": "panel-lifecycle",
+      "kind": "host",
+      "statement": "Place the nonmodal in-flow panel in a suitable workspace, handle onClose and any resulting focus restoration, and provide valid WorkRecord data and stable owner ids.",
+      "sources": ["src/patterns/filter-panel/filter-panel.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes filtering group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/patterns/filter-panel/filter-panel.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "WorkRecord-specific facets and count semantics; use CollectionToolbar for generic collection composition.",
+    "No fetching, routing, persistence or global focus restoration on close.",
+    "Host custom filter descendants retain their own disabled and validation responsibilities."
+  ]
+}

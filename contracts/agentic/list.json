@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 2,
+  "id": "list",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A native list with one-line or two-line rows, optional selection controls, identity, tags, counters, and nested groups.",
+  "anatomy": [
+    "list",
+    "row leading slot",
+    "primary title/subtitle",
+    "independent checkbox",
+    "tags/actions/meta",
+    "counter",
+    "nested list"
+  ],
+  "states": ["compact/default/comfortable", "divided", "nested", "selected", "disabled"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Native ul/li structure with shared Checkbox and independent primary row button.",
+  "ownership": {
+    "component": [
+      "Render native ul lists and li items. Nested lists inherit density unless explicitly overridden and visual depth caps at four.",
+      "ListItem uses a primary button only when selectable or onSelect is supplied. selectable exposes aria-pressed, while noninteractive rows retain ordinary content semantics."
+    ],
+    "host": [
+      "Own selection, checkbox state and row actions; use stable list keys and keep title/subtitle free of nested interactive controls.",
+      "Explicitly disable custom action/tag slots when product policy requires it; row disabled only governs its main button and composed checkbox."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Render native ul lists and li items. Nested lists inherit density unless explicitly overridden and visual depth caps at four.",
+      "sources": ["src/components/list/list.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "ListItem uses a primary button only when selectable or onSelect is supplied. selectable exposes aria-pressed, while noninteractive rows retain ordinary content semantics.",
+      "sources": ["src/components/list/list.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Keep row actions, tags and checkboxes as siblings rather than nesting them inside the main button. Checkboxes use title/description associations unless explicitly named and inherit row disabled.",
+      "sources": ["src/components/list/list.tsx"]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "subtitle takes precedence over description. counter=0 remains visible and composes CountBadge with the supplied max/label. selected and checkbox state remain independent.",
+      "sources": ["src/components/list/list.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Own selection, checkbox state and row actions; use stable list keys and keep title/subtitle free of nested interactive controls.",
+      "sources": ["src/components/list/list.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Explicitly disable custom action/tag slots when product policy requires it; row disabled only governs its main button and composed checkbox.",
+      "sources": ["src/components/list/list.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": ["src/components/list/list.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "No virtualization, roving-focus listbox, drag sorting or automatic selection cascade is provided.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

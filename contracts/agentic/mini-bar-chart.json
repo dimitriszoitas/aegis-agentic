@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 2,
+  "id": "mini-bar-chart",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Show a compact noninteractive zero-based bar series for dense metrics and cells.",
+  "anatomy": ["compact SVG bars", "accessible summary", "loading or empty replacement"],
+  "states": ["populated", "loading", "empty", "semantic intent"],
+  "tokenGroup": "data-viz",
+  "behaviorProvider": "Shared Sparkline forced to its bar variant.",
+  "ownership": {
+    "component": [
+      "Always delegate to Sparkline with variant=bar, using mini-bar width and height defaults unless the caller supplies dimensions.",
+      "Inherit Sparkline normalization: finite negatives clamp to zero and nonfinite values become zero. Bar heights are zero-based relative to a peak of at least one.",
+      "Delegate loading to a named Skeleton status and empty input to a role=img em-dash replacement. General SVG props are only forwarded by Sparkline in its populated branch."
+    ],
+    "host": [
+      "Supply a label describing actual units and time/category domain; generic event-count wording may be inaccurate for other quantities.",
+      "Provide a detailed chart or exact data elsewhere when users need quantitative comparison. Independent mini bars do not share a common cross-chart scale."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "bar-composition",
+      "kind": "component",
+      "statement": "Always delegate to Sparkline with variant=bar, using mini-bar width and height defaults unless the caller supplies dimensions.",
+      "sources": [
+        "src/components/mini-bar-chart/mini-bar-chart.tsx",
+        "src/components/sparkline/sparkline.tsx"
+      ]
+    },
+    {
+      "id": "normalized-data",
+      "kind": "component",
+      "statement": "Inherit Sparkline normalization: finite negatives clamp to zero and nonfinite values become zero. Bar heights are zero-based relative to a peak of at least one.",
+      "sources": [
+        "src/components/mini-bar-chart/mini-bar-chart.tsx",
+        "src/components/sparkline/sparkline.tsx"
+      ]
+    },
+    {
+      "id": "replacement-states",
+      "kind": "component",
+      "statement": "Delegate loading to a named Skeleton status and empty input to a role=img em-dash replacement. General SVG props are only forwarded by Sparkline in its populated branch.",
+      "sources": [
+        "src/components/mini-bar-chart/mini-bar-chart.tsx",
+        "src/components/sparkline/sparkline.tsx"
+      ]
+    },
+    {
+      "id": "accessible-summary",
+      "kind": "component",
+      "statement": "Use the supplied label or Sparkline generic bucket/latest/peak summary. The wrapper adds no tooltip, animation or keyboard inspection target.",
+      "sources": [
+        "src/components/mini-bar-chart/mini-bar-chart.tsx",
+        "src/components/sparkline/sparkline.tsx"
+      ]
+    },
+    {
+      "id": "size-bounds",
+      "kind": "component",
+      "statement": "Delegate invalid dimension fallback and token minimum size clamping to Sparkline, preserving the compact wrapper defaults for omitted dimensions.",
+      "sources": [
+        "src/components/mini-bar-chart/mini-bar-chart.tsx",
+        "src/components/sparkline/sparkline.tsx"
+      ]
+    },
+    {
+      "id": "host-label",
+      "kind": "host",
+      "statement": "Supply a label describing actual units and time/category domain; generic event-count wording may be inaccurate for other quantities.",
+      "sources": [
+        "src/components/mini-bar-chart/mini-bar-chart.tsx",
+        "src/components/sparkline/sparkline.tsx"
+      ]
+    },
+    {
+      "id": "host-exact-values",
+      "kind": "host",
+      "statement": "Provide a detailed chart or exact data elsewhere when users need quantitative comparison. Independent mini bars do not share a common cross-chart scale.",
+      "sources": [
+        "src/components/mini-bar-chart/mini-bar-chart.tsx",
+        "src/components/sparkline/sparkline.tsx"
+      ]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume data-viz group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "Signed values and missing-data distinctions are not preserved.",
+    "No interaction, exact-value table or data fetching is added by this wrapper."
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "package": {
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.7.0-experiment.0",
+    "manifestSha256": "c04c3c55474a369854b6930280df4f94da189e087889dd196f1c8a1c720cb4ec"
+  },
+  "scope": {
+    "path": "experiments/library-completion/scope.json",
+    "sha256": "6501873b00ba7e584d7d4d2d08b4c2bd7a5e07b1747fd6b1e1c96f8eb83e7e63",
+    "families": 17
+  },
+  "dependencySource": "local-third-party-node_modules-snapshot",
+  "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-library-expansion-consumer-ZmV03u",
+  "checks": [
+    "The tarball contains all seventeen declared public module entries and declaration files.",
+    "All seventeen installed prop types, callback details, editor ref and generic record type compile strictly; omitted date/time zone and invalid resource children are rejected.",
+    "All seventeen components render from installed modules; root/direct identity and all five pattern-barrel identities match, with native values and representative markup preserved.",
+    "A real Vite production build imports all seventeen examples without source aliases and includes each family’s packaged CSS.",
+    "The packed kit maps all seventeen public entries to their exact hashed schema-2 contracts and API documents; package and registry identities agree."
+  ],
+  "limits": [
+    "The Aegis package is unpacked from its actual npm tarball into an isolated consumer. Third-party dependencies and build tools are reused from the local checkout; this is not a clean registry installation.",
+    "Public declarations, export identity, server markup, production bundling and shipped agent discovery are checked. Browser interaction, accessibility and visual behavior require the separate browser audits.",
+    "Contract coverage establishes packaged ownership and exact authored bytes, not behavioral certification. Server rendering does not exercise client-only editing or navigation behavior."
+  ],
+  "tarball": {
+    "path": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-library-expansion-consumer-ZmV03u/dimitriszoitas-aegis-agentic-0.7.0-experiment.0.tgz",
+    "sha256": "d692c08298b6573a3b88c4f119ebb4dd1f92a9016bb8177c118aaffe3c255dec"
+  },
+  "dependencyLock": {
+    "path": "pnpm-lock.yaml",
+    "sha256": "895d3499a851e9a70e58294ab8b969c99123b94e01a40b2ef5505b6762fac313"
+  },
+  "reusedDependencyEntries": [
+    "@axe-core",
+    "@base-ui",
+    "@codemirror",
+    "@dnd-kit",
+    "@eslint",
+    "@fontsource",
+    "@hugeicons",
+    "@lezer",
+    "@playwright",
+    "@storybook",
+    "@tailwindcss",
+    "@tanstack",
+    "@tiptap",
+    "@types",
+    "@uiw",
+    "@untitledui",
+    "@vitejs",
+    "class-variance-authority",
+    "clsx",
+    "cn",
+    "date-fns",
+    "eslint",
+    "eslint-plugin-react-hooks",
+    "globals",
+    "libphonenumber-js",
+    "prettier",
+    "radix-ui",
+    "react",
+    "react-day-picker",
+    "react-dom",
+    "react-markdown",
+    "react-resizable-panels",
+    "recharts",
+    "remark-gfm",
+    "sonner",
+    "storybook",
+    "tailwind-merge",
+    "tailwindcss",
+    "tw-animate-css",
+    "typescript",
+    "typescript-eslint",
+    "vite",
+    "vitest",
+    "yaml"
+  ],
+  "ssr": {
+    "families": [
+      {
+        "name": "Combobox",
+        "bytes": 2149
+      },
+      {
+        "name": "OtpInput",
+        "bytes": 479
+      },
+      {
+        "name": "TimePicker",
+        "bytes": 357
+      },
+      {
+        "name": "DateTimePicker",
+        "bytes": 553
+      },
+      {
+        "name": "PhoneInput",
+        "bytes": 1769
+      },
+      {
+        "name": "ColorPicker",
+        "bytes": 2115
+      },
+      {
+        "name": "InlineEdit",
+        "bytes": 400
+      },
+      {
+        "name": "RichTextEditor",
+        "bytes": 2398
+      },
+      {
+        "name": "SortableList",
+        "bytes": 7931
+      },
+      {
+        "name": "FilePreview",
+        "bytes": 1216
+      },
+      {
+        "name": "FormErrorSummary",
+        "bytes": 374
+      },
+      {
+        "name": "ResourceState",
+        "bytes": 217
+      },
+      {
+        "name": "RecordEditor",
+        "bytes": 495
+      },
+      {
+        "name": "AppShell",
+        "bytes": 680
+      },
+      {
+        "name": "UnsavedNavigationGuard",
+        "bytes": 79
+      },
+      {
+        "name": "Indicator",
+        "bytes": 376
+      },
+      {
+        "name": "PresenceIndicator",
+        "bytes": 179
+      }
+    ],
+    "rootIdentities": 17,
+    "patternIdentities": 5
+  },
+  "productionAssets": [
+    {
+      "name": "index-B-l2bt43.js",
+      "bytes": 1227854,
+      "sha256": "ce81d2b76d66581cb2f2d88859782fdb4db1ad3bb7c8e32043052e0ce38a085f"
+    },
+    {
+      "name": "index-DkWrgnyZ.css",
+      "bytes": 1286590,
+      "sha256": "b3a88a0766777395481a918cdc9df28005cf159427b83f4bf02d23cee5a78e0d"
+    }
+  ],
+  "kit": {
+    "version": "0.7.0-experiment.0",
+    "registryRevision": 5,
+    "manifestSha256": "662179b8b34df1ecf41ab041aebc15741e7a475295f64db1d2e646cb1f05f968",
+    "catalogueSha256": "52bddbf61b99cf60dc631c88789b27138288110c10f9a6a79096deb07d0dd0ac",
+    "publicEntryCoverageSha256": "8dccd7520a2828df14e176457999fd47cabf0d2ca3b363f674a39a59c18f3d02"
+  },
+  "families": [
+    {
+      "id": "components-forms-combobox",
+      "name": "Combobox",
+      "importPath": "./combobox",
+      "contractId": "combobox",
+      "contractSha256": "bf1838d3d764a44c40b259dd569eda89ad7d9b2cd7cca9dc9415a81f9cb3a86f",
+      "apiSha256": "09a506f6bda988e1f7de67a5af690c6b467e191ad359d6e89fd9a0d20870dd5c",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "components-forms-otpinput",
+      "name": "OtpInput",
+      "importPath": "./otp-input",
+      "contractId": "otp-input",
+      "contractSha256": "cc342663178614f30bc06766a8158c67a62b543430f88e43ebaa87cf5ce5bfc7",
+      "apiSha256": "1c72e12f9f432d67c28e61d4acfd51cd9db4047d479519929bc7f83028212b7a",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "components-forms-timepicker",
+      "name": "TimePicker",
+      "importPath": "./time-picker",
+      "contractId": "time-picker",
+      "contractSha256": "5ac5d0b65729bf75c2f9c2900811206aba75c5bc8ed4fd0e4b19e53276ea7071",
+      "apiSha256": "ac3e4de319bebfd2ab74f4d5a1bbf4540f2419e9749a360f795a107cc0a4ccfd",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "components-forms-datetimepicker",
+      "name": "DateTimePicker",
+      "importPath": "./date-time-picker",
+      "contractId": "date-time-picker",
+      "contractSha256": "84ddd02c03b8ddb72637cc5d89f8fbda19ba3659fab4d52a80ac94e9a87e12e8",
+      "apiSha256": "c0388ddacf8cd67c197094dd8d6a45ede26a0da71cbe37e23913def8c8095cf6",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "components-forms-phoneinput",
+      "name": "PhoneInput",
+      "importPath": "./phone-input",
+      "contractId": "phone-input",
+      "contractSha256": "ee3be8401ba107f3ff7233cce73bb49bbebc1afe70b68a439cab72debbbd3ec2",
+      "apiSha256": "64ef9e753070e887662a41b6874a5eaa50abf026e294c092cb8684ff2e9455ec",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "components-forms-colorpicker",
+      "name": "ColorPicker",
+      "importPath": "./color-picker",
+      "contractId": "color-picker",
+      "contractSha256": "83ea1ee92a22360ae1389425f1b1ca03ec27ffa7d8c74b0fd383ca9c32e97865",
+      "apiSha256": "f63525608b072e0bb050136c1f4fb4408604d243bb1e49cb725e2bc9c99da774",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "components-forms-inlineedit",
+      "name": "InlineEdit",
+      "importPath": "./inline-edit",
+      "contractId": "inline-edit",
+      "contractSha256": "b2b0c51cc67cda26995d70b131cb09f69fb1667b9f6b3ddff6531c3bcb6793bc",
+      "apiSha256": "22c5513adc12ed8f16d8404dd6fd6473696db900cdd6a310f5aae791ce1eee98",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "components-forms-richtexteditor",
+      "name": "RichTextEditor",
+      "importPath": "./rich-text-editor",
+      "contractId": "rich-text-editor",
+      "contractSha256": "9da375312effcce3eea02a2e78b3040dd2b9b2d1d58308bfda4a9fda3c2dc553",
+      "apiSha256": "8b2bd6a5d5accb96bcb8da5949d7949560654361fa26a14021c3b1b6378b70db",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "components-data-sortablelist",
+      "name": "SortableList",
+      "importPath": "./sortable-list",
+      "contractId": "sortable-list",
+      "contractSha256": "1b79d418d1e6f7124f28a6fede5bbd2dc9c8549e4ce23ed5795a2160ca5fad8a",
+      "apiSha256": "cba7cade9020d4c313372e284fbb31078b624fd63bd6428949837b955bcca9ee",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "components-data-filepreview",
+      "name": "FilePreview",
+      "importPath": "./file-preview",
+      "contractId": "file-preview",
+      "contractSha256": "00fb677e40458f473ca59bb68e46ae4a5fc42d7becf1cca06cd518ca15ba76b1",
+      "apiSha256": "6c3d09135ab698ef8c9a2bbb84ceb1668ed97284ab18ac6398f8ec28ef0bc7d4",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "patterns-formerrorsummary",
+      "name": "FormErrorSummary",
+      "importPath": "./patterns/form-error-summary",
+      "contractId": "form-error-summary",
+      "contractSha256": "2dbf1a2ff428c8edae6252bca904f16447aebe19cb69b920183d3e41bf61a432",
+      "apiSha256": "0894fa166392959e6f61a89f1f13639a42ddd667cb0c85efde5a419600ff68e4",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "patterns-resourcestate",
+      "name": "ResourceState",
+      "importPath": "./patterns/resource-state",
+      "contractId": "resource-state",
+      "contractSha256": "554f992005868d1d50bdbf97a2713e2b10ba5cbfc0c3201b29f29ebe76cb288e",
+      "apiSha256": "897e8e8ab085715267a5414792eac68b8722af8de5e5acf760661ab55337b578",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "patterns-recordeditor",
+      "name": "RecordEditor",
+      "importPath": "./patterns/record-editor",
+      "contractId": "record-editor",
+      "contractSha256": "1821fb4d7a81c239dd0271724d39f8f8e53e78e47c23bd73ae75c1a22c9d8161",
+      "apiSha256": "34e7f18644faa4a35b42d6731c49a61362767a16c631aff1ed307bd9de192aa6",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "patterns-appshell",
+      "name": "AppShell",
+      "importPath": "./patterns/app-shell",
+      "contractId": "app-shell",
+      "contractSha256": "b0f923a357b5de75ee70688f06af7403f31f090425b5a9184a8d4bb7a2433037",
+      "apiSha256": "acf9478b207c9cd78f0956bc920d8de92097a9f35fad879b1e7f45c814b338a7",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "patterns-unsavednavigationguard",
+      "name": "UnsavedNavigationGuard",
+      "importPath": "./patterns/unsaved-navigation-guard",
+      "contractId": "unsaved-navigation-guard",
+      "contractSha256": "d42feba1c938b85dcb23f4a627e0c473ea40a9b8909e72fffb502ce91ff25c1c",
+      "apiSha256": "53554a77be87389c12e9febfd8ea6b542182b4a13b54299c06c563063e9cc1b6",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "components-data-indicator",
+      "name": "Indicator",
+      "importPath": "./indicator",
+      "contractId": "indicator",
+      "contractSha256": "bff6b98d69d56981acb624721c13658fb4f1c4514b31af633fa561458f1ca47b",
+      "apiSha256": "61e6117164a32819d06447a5f839628f8046aa36310201ff03c195736401f31a",
+      "publicEntryClassification": "authored-ui-family"
+    },
+    {
+      "id": "components-people-presenceindicator",
+      "name": "PresenceIndicator",
+      "importPath": "./presence-indicator",
+      "contractId": "presence-indicator",
+      "contractSha256": "4056612b98e55fb7b9753a1a45969d8deae0a8b17ef38bd5a6d072c056f01269",
+      "apiSha256": "0cc7733346028185a2fec86932bf55dc4b944efb83ea3b1617e31afdf519a97d",
+      "publicEntryClassification": "authored-ui-family"
+    }
+  ],
+  "consumerInputs": [
+    {
+      "path": "main.tsx",
+      "sha256": "b72253cefd6e320b004440f4d5dd3867f3cbe630a3ca5b517b1bd9ec74e21aee"
+    },
+    {
+      "path": "verify.mjs",
+      "sha256": "cdd64526e4fc96601fd94bcf6fac821c25fa61aa25c11ad34dfb52367feaa49d"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "636d76c537d4bbda4dc77ea5151dc1482ea1b52b9434a9bab1fa1d4b0367bca5"
+    },
+    {
+      "path": "index.html",
+      "sha256": "8db9c4a0268f2db72e01900648b7d3da2d2cd130898be8d28ae2f2449454028e"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+.pattern-fixture-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-gap-regular);
+  min-inline-size: var(--group-application-business-app-number-0);
+}

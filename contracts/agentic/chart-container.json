@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 2,
+  "id": "chart-container",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Provide a named chart figure and shared state, legend, tooltip and exact-data helpers.",
+  "anatomy": [
+    "figure and figcaption",
+    "title and description",
+    "action slot",
+    "plot state",
+    "legend",
+    "footer"
+  ],
+  "states": ["loading", "error", "empty", "content", "retry available"],
+  "tokenGroup": "data-viz",
+  "behaviorProvider": "Native figure/disclosure/table semantics; shared Skeleton, EmptyState and Button.",
+  "ownership": {
+    "component": [
+      "Render a figure labelled by a generated title ID in a figcaption h3. Forward other figure props while owning this title association.",
+      "Choose exactly one plot branch in this order: loading skeleton with named status, truthy error EmptyState, explicit empty EmptyState, or children. Mark the plot aria-busy only while loading.",
+      "Show Retry loading only in the error branch when onRetry is provided; activation calls the host callback without changing local state or initiating built-in fetching."
+    ],
+    "host": [
+      "Own loading, errors, empty detection, retry requests and meaningful domain copy. The default empty description assumes time-range/filter data and should be assessed for other chart contexts."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "figure-name",
+      "kind": "component",
+      "statement": "Render a figure labelled by a generated title ID in a figcaption h3. Forward other figure props while owning this title association.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "state-precedence",
+      "kind": "component",
+      "statement": "Choose exactly one plot branch in this order: loading skeleton with named status, truthy error EmptyState, explicit empty EmptyState, or children. Mark the plot aria-busy only while loading.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "retry-boundary",
+      "kind": "component",
+      "statement": "Show Retry loading only in the error branch when onRetry is provided; activation calls the host callback without changing local state or initiating built-in fetching.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "legend-and-footer",
+      "kind": "component",
+      "statement": "Hide legend content during loading/error/empty states. Render a truthy footer independently of those plot states; a supplied data table can therefore remain available beside a loading/error/empty plot.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "tooltip-formatting",
+      "kind": "component",
+      "statement": "ChartTooltip returns null unless active with nonempty payload. Format numeric values with the supplied formatter, join array values with a range separator, and use approved semantic datum colors when colorKey matches.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "legend-semantics",
+      "kind": "component",
+      "statement": "ChartLegend uses labelled non-submitting aria-pressed buttons when onToggle exists, otherwise static labelled swatches. It reports toggle keys and leaves actual hidden state to its caller.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "exact-data-table",
+      "kind": "component",
+      "statement": "ChartDataTable places a captioned table inside a native details element with a named focusable scroll region. Column/row headers identify values; missing values display an em dash, without calling the chart value formatter.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "host-states",
+      "kind": "host",
+      "statement": "Own loading, errors, empty detection, retry requests and meaningful domain copy. The default empty description assumes time-range/filter data and should be assessed for other chart contexts.",
+      "sources": ["src/components/charts/charts.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume data-viz group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "The helpers do not validate payloads, fetch data or certify meaningful chart accessibility.",
+    "ReactNode slots are conditionally wrapped by truthiness; numeric zero can render as text outside an optional wrapper."
+  ]
+}

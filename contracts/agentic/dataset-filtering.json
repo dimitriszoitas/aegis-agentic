@@ -1,23 +1,12 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "dataset-filtering",
   "version": 1,
   "status": "candidate",
   "verification": "not-certified-by-this-contract",
   "purpose": "Filter a dataset without losing the applied query or draft.",
-  "anatomy": [
-    "heading",
-    "controls",
-    "apply-action?",
-    "results",
-    "empty-state"
-  ],
-  "states": [
-    "idle",
-    "draft",
-    "empty",
-    "results"
-  ],
+  "anatomy": ["heading", "controls", "apply-action?", "results", "empty-state"],
+  "states": ["idle", "draft", "empty", "results"],
   "invariants": [
     "Immediate mode has no Apply action.",
     "Explicit mode requires Apply and separates draft from applied filters.",
@@ -25,5 +14,93 @@
     "This experiment supports customer query (text) and status (select: all, Active, Trial, Paused); other datasets require a new reviewed pattern contract."
   ],
   "tokenGroup": "filtering",
-  "behaviorProvider": "host-controlled-state"
+  "behaviorProvider": "local-draft-and-applied-state; host-owned-records; validated-finite-composition",
+  "ownership": {
+    "component": [
+      "finite customer-spec validation and rendering",
+      "local draft and applied filters",
+      "result count/reset and customer table"
+    ],
+    "host": [
+      "records and optional explanatory source content",
+      "validated composition/profile binding before reuse",
+      "remote queries, persistence and broader dataset semantics"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "finite-specification",
+      "kind": "component",
+      "statement": "Validate the supplied CompositionSpec and render an alert instead of controls/results when invalid. Supported controls are query text and status select with options drawn from all, Active, Trial and Paused; one or two controls are required.",
+      "sources": ["src/agentic/components/FilteredDataset.tsx", "src/agentic/composition.ts"]
+    },
+    {
+      "id": "application-mode",
+      "kind": "component",
+      "statement": "In immediate mode filter from the current local draft and show no Apply action. In explicit mode keep local draft and applied values separate; Apply copies current pending values into applied state and the result status indicates unapplied changes.",
+      "sources": ["src/agentic/components/FilteredDataset.tsx", "src/agentic/composition.ts"]
+    },
+    {
+      "id": "matching-semantics",
+      "kind": "component",
+      "statement": "Filter records by locale-lowercased substring across name, domain and owner together, and by exact selected status unless all. Do not trim, sort, fetch or mutate the provided record array.",
+      "sources": ["src/agentic/components/FilteredDataset.tsx"]
+    },
+    {
+      "id": "option-reconciliation",
+      "kind": "component",
+      "statement": "Use all as the default status if declared, otherwise the first declared option. Reconcile an unavailable stored status to that default; omitted query/status controls stop contributing their respective filter.",
+      "sources": ["src/agentic/components/FilteredDataset.tsx"]
+    },
+    {
+      "id": "reset-both-states",
+      "kind": "component",
+      "statement": "Reset and empty-state Clear filters clear query and reset both local draft and applied status to the current default. Empty results retain table structure and add the configured empty message.",
+      "sources": ["src/agentic/components/FilteredDataset.tsx"]
+    },
+    {
+      "id": "theme-state",
+      "kind": "component",
+      "statement": "Keep draft/applied filters in the mounted renderer while applying declared mode/presentation attributes and table density. Changing those visual props does not intentionally reset React filter state.",
+      "sources": ["src/agentic/components/FilteredDataset.tsx"]
+    },
+    {
+      "id": "result-semantics",
+      "kind": "component",
+      "statement": "Name the section from its heading, announce result count/unapplied state through a status region, and place the native table with scoped column headers in a named focusable scroll region.",
+      "sources": ["src/agentic/components/FilteredDataset.tsx"]
+    },
+    {
+      "id": "resolver-boundary",
+      "kind": "host",
+      "statement": "Use validateCompositionSpec/resolveComposition for strict known properties, compatible Apply settings and registry/profile revision/hash checks. The renderer validates the spec shape/revision but does not compile a profile or verify a supplied active profile itself.",
+      "sources": ["src/agentic/components/FilteredDataset.tsx", "src/agentic/composition.ts"]
+    },
+    {
+      "id": "host-records",
+      "kind": "host",
+      "statement": "Provide stable unique record IDs and the declared customer fields/statuses. Records are host-owned; draft/applied filters are local to this mounted renderer and are not exported as a controlled filtering API.",
+      "sources": ["src/agentic/components/FilteredDataset.tsx"]
+    },
+    {
+      "id": "supported-pattern-scope",
+      "kind": "host",
+      "statement": "Treat this as the finite customer-directory experiment. Other datasets, controls, remote filtering, loading/error state or persistence need an appropriate reviewed pattern contract, rather than assuming FilterBar behavior applies.",
+      "sources": ["src/agentic/components/FilteredDataset.tsx"]
+    },
+    {
+      "id": "token-ownership",
+      "kind": "design",
+      "statement": "Use filtering group tokens for this composed pattern and preserve nested TextInput, Select, Button and Tag ownership. Keep dimensions independent from light/dark mode.",
+      "sources": [
+        "src/agentic/components/FilteredDataset.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "This renderer has no controlled draft/applied-state props, pagination, sorting, server filtering or asynchronous data lifecycle.",
+    "Unmounting resets local filters. Changing control availability can reveal or hide retained values; route or record-identity reset policy belongs to the host.",
+    "Deterministic recipe validation and source-backed requirements do not certify rendered accessibility or arbitrary customer data."
+  ]
 }

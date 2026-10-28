@@ -1,0 +1,2313 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.7.0-experiment.0"
+  },
+  "id": "components-forms-colorpicker",
+  "name": "ColorPicker",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [
+    "color swatches",
+    "hex color"
+  ],
+  "purpose": "Choose a hexadecimal RGB color, optionally with alpha, using editable text, named swatches and a native RGB picker.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-agentic/color-picker"
+  ],
+  "links": {
+    "contract": "./components-forms-colorpicker.json",
+    "overview": "../../?path=/docs/components-inputs-selection-colorpicker-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-colorpicker-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-colorpicker-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-colorpicker-overview--docs&docsTab=tokens"
+  },
+  "description": "Hex entry, labeled swatches and the native RGB chooser with optional alpha. Invalid local drafts remain visible and do not change the committed color. A valid draft commits on blur or Enter. The host owns contrast evaluation, palette policy, theme mapping and persistence.",
+  "exports": [
+    "ColorPicker"
+  ],
+  "importStatements": [
+    "import { ColorPicker } from '@dimitriszoitas/aegis-agentic/color-picker';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
+  "props": [
+    {
+      "component": "ColorPicker",
+      "name": "alpha",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "false"
+    },
+    {
+      "component": "ColorPicker",
+      "name": "alphaLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"Opacity percent\""
+    },
+    {
+      "component": "ColorPicker",
+      "name": "aria-label",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "defaultValue",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "form",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "invalidHexLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"Enter a valid hexadecimal color.\""
+    },
+    {
+      "component": "ColorPicker",
+      "name": "label",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "name",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "onDraftChange",
+      "type": "((draft: string) => void) | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "onValueChange",
+      "type": "((value: string) => void) | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "pickerLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"Choose color visually\""
+    },
+    {
+      "component": "ColorPicker",
+      "name": "readOnly",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "ColorPicker",
+      "name": "swatches",
+      "type": "readonly ColorSwatch[] | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "[]"
+    },
+    {
+      "component": "ColorPicker",
+      "name": "swatchesLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"Color swatches\""
+    },
+    {
+      "component": "ColorPicker",
+      "name": "value",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/color-picker/color-picker.tsx",
+        "kind": "design-system"
+      },
+      "description": "Canonical RGB/RGBA hex; shorthand hex is also accepted."
+    },
+    {
+      "component": "ColorPicker",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "id",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ColorPicker",
+      "name": "required",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/field",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon-button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/number-input",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/text-input",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "Choose a hexadecimal RGB color, optionally with alpha, using editable text, named swatches and a native RGB picker.",
+    "usage": [
+      "Accept #RGB/#RRGGBB, plus #RGBA/#RRGGBBAA only when alpha is enabled. Canonicalize accepted values to uppercase six/eight hex digits; RGB with alpha enabled receives FF. Reject unsupported committed values and swatches rather than evaluating arbitrary CSS.",
+      "Keep incomplete/invalid editable draft locally without replacing the committed color; expose parse feedback and aria-invalid. A valid changed draft commits on blur or non-composing Enter. Host controlled value changes replace stale drafts.",
+      "The native color picker edits RGB only and preserves the current alpha. Optional NumberInput maps a clamped 0–100 percentage to a rounded 8-bit alpha channel; this quantization is explicit, not arbitrary precision.",
+      "Render named actual Buttons with pressed state and safe decorative chips. The chip background is validated user-provided hexadecimal data; nested shared controls retain their own styling tokens.",
+      "Keep the optional form name on the hex text input only. Its native pattern blocks unsupported drafts on native validated submission. Auxiliary RGB and opacity controls have no duplicate name; opacity has a separate id inside Field."
+    ],
+    "accessibility": [
+      "Supply a visible label or enclosing Field. Placeholder text is not an accessible name.",
+      "Keep native semantics and keyboard focus; use Field for host descriptions and useful error feedback."
+    ],
+    "intent": [
+      "Own palette policy, contrast evaluation, accessible color combinations, theme token mapping, persistence and consistent controlled alpha configuration. A parseable color is not an accessible theme certification."
+    ],
+    "context": [
+      "RGB hexadecimal only; no HSL/HSV/Lab/OKLCH gamut tools, eyedropper or gradient editing. The browser owns the native chooser UI.",
+      "Invalid draft text stays on the named input until corrected; host code that bypasses native validation must validate its payload. Disabling alpha requires a compatible RGB controlled value."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "group"
+    ],
+    "ariaAttributes": [
+      "aria-describedby",
+      "aria-hidden",
+      "aria-invalid",
+      "aria-label",
+      "aria-labelledby",
+      "aria-pressed"
+    ],
+    "nativeElements": [
+      "div",
+      "input",
+      "label",
+      "p",
+      "span"
+    ],
+    "keyboardKeys": [
+      "Enter"
+    ],
+    "dependencies": [
+      "@base-ui/react/number-field",
+      "@base-ui/react/tooltip",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/button/button.css",
+    "src/components/button/button.tsx",
+    "src/components/button/index.ts",
+    "src/components/color-picker/color-picker-defaults.json",
+    "src/components/color-picker/color-picker.css",
+    "src/components/color-picker/color-picker.stories.tsx",
+    "src/components/color-picker/color-picker.tsx",
+    "src/components/field/field.css",
+    "src/components/field/field.tsx",
+    "src/components/field/index.ts",
+    "src/components/icon-button/icon-button.css",
+    "src/components/icon-button/icon-button.tsx",
+    "src/components/icon-button/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/number-input/index.ts",
+    "src/components/number-input/number-input.css",
+    "src/components/number-input/number-input.tsx",
+    "src/components/text-input/index.ts",
+    "src/components/text-input/text-input.css",
+    "src/components/text-input/text-input.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-colorpicker--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-forms-colorpicker--playground",
+      "sourceFile": "src/components/color-picker/color-picker.stories.tsx"
+    },
+    {
+      "id": "components-forms-colorpicker--anatomy",
+      "name": "Anatomy",
+      "url": "../../?path=/story/components-forms-colorpicker--anatomy",
+      "sourceFile": "src/components/color-picker/color-picker.stories.tsx"
+    },
+    {
+      "id": "components-forms-colorpicker--draft-alpha-and-form",
+      "name": "Draft Alpha And Form",
+      "url": "../../?path=/story/components-forms-colorpicker--draft-alpha-and-form",
+      "sourceFile": "src/components/color-picker/color-picker.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-input-field-border-width-hairline",
+    "--group-input-field-border-width-regular",
+    "--group-input-field-clear-size",
+    "--group-input-field-color-action-fill",
+    "--group-input-field-color-border-strong",
+    "--group-input-field-color-content-primary",
+    "--group-input-field-color-content-secondary",
+    "--group-input-field-color-content-tertiary",
+    "--group-input-field-color-danger-foreground",
+    "--group-input-field-color-surface-hover",
+    "--group-input-field-color-surface-surface",
+    "--group-input-field-color-transparent",
+    "--group-input-field-ease-out",
+    "--group-input-field-flex-fill",
+    "--group-input-field-flex-none",
+    "--group-input-field-focus-offset",
+    "--group-input-field-font-leading-body",
+    "--group-input-field-font-leading-compact",
+    "--group-input-field-font-size-body",
+    "--group-input-field-font-weight-medium",
+    "--group-input-field-font-weight-regular",
+    "--group-input-field-gap-compact",
+    "--group-input-field-gap-snug",
+    "--group-input-field-height-available",
+    "--group-input-field-height-compact",
+    "--group-input-field-height-large",
+    "--group-input-field-height-regular",
+    "--group-input-field-motion-fast",
+    "--group-input-field-number-0",
+    "--group-input-field-opacity-disabled",
+    "--group-input-field-opacity-visible",
+    "--group-input-field-padding-compact",
+    "--group-input-field-padding-regular",
+    "--group-input-field-radius-bold",
+    "--group-input-field-radius-rounded",
+    "--group-input-field-radius-soft",
+    "--group-input-field-required-gap",
+    "--group-input-field-ring-focus",
+    "--group-input-field-size-flex-panel-roomy",
+    "--group-input-field-size-flex-wide-panel-huge",
+    "--group-input-field-size-min-width-panel-roomy",
+    "--group-input-field-width-available",
+    "--group-input-measurement-icon-sm",
+    "--group-input-surface-appearance-control-border",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-appearance-control-fill",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-leading-relaxed",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-input-surface-stack-gap-regular",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus",
+    "--group-trigger-button-appearance-action-hover",
+    "--group-trigger-button-appearance-ai-hover",
+    "--group-trigger-button-border-width-hairline",
+    "--group-trigger-button-color-ai-blue-fg",
+    "--group-trigger-button-color-ai-fg",
+    "--group-trigger-button-color-ai-pink-fg",
+    "--group-trigger-button-color-ai-purple-fg",
+    "--group-trigger-button-color-border-default",
+    "--group-trigger-button-color-content-primary",
+    "--group-trigger-button-color-surface-surface",
+    "--group-trigger-button-color-surface-surface-raised",
+    "--group-trigger-button-color-transparent",
+    "--group-trigger-button-elevation-none",
+    "--group-trigger-button-font-leading-solid",
+    "--group-trigger-button-font-size-body",
+    "--group-trigger-button-font-size-label",
+    "--group-trigger-button-font-weight-medium",
+    "--group-trigger-button-gap-compact",
+    "--group-trigger-button-gradient-ai",
+    "--group-trigger-button-gradient-ai-border",
+    "--group-trigger-button-gradient-ai-soft",
+    "--group-trigger-button-gradient-ai-text",
+    "--group-trigger-button-height-compact",
+    "--group-trigger-button-height-large",
+    "--group-trigger-button-height-regular",
+    "--group-trigger-button-icon-size-compact",
+    "--group-trigger-button-icon-size-large",
+    "--group-trigger-button-icon-size-regular",
+    "--group-trigger-button-intent-bg",
+    "--group-trigger-button-intent-border",
+    "--group-trigger-button-intent-fg",
+    "--group-trigger-button-intent-on",
+    "--group-trigger-button-intent-soft",
+    "--group-trigger-button-loading-duration",
+    "--group-trigger-button-loading-rotation",
+    "--group-trigger-button-motion-fast",
+    "--group-trigger-button-number-0",
+    "--group-trigger-button-opacity-disabled",
+    "--group-trigger-button-opacity-hidden",
+    "--group-trigger-button-outline-overlap",
+    "--group-trigger-button-outline-width",
+    "--group-trigger-button-padding-compact",
+    "--group-trigger-button-padding-icon",
+    "--group-trigger-button-padding-inline",
+    "--group-trigger-button-padding-regular",
+    "--group-trigger-button-padding-snug",
+    "--group-trigger-button-press-offset",
+    "--group-trigger-button-primary-fill-pressed",
+    "--group-trigger-button-radius-bold",
+    "--group-trigger-button-radius-current",
+    "--group-trigger-button-radius-strong",
+    "--group-trigger-button-shadow-overlay",
+    "--group-trigger-button-state-overlay-hover",
+    "--group-trigger-button-state-overlay-pressed",
+    "--group-trigger-button-state-overlay-spread",
+    "--group-trigger-button-tertiary-fill-hover",
+    "--group-trigger-button-tertiary-foreground-hover",
+    "--group-trigger-button-z-tooltip",
+    "--group-trigger-measurement-icon-md",
+    "--group-trigger-measurement-icon-tooltip-delay",
+    "--group-trigger-measurement-overlay-offset",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-flex-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-width-available",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-large",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-regular",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-hairline",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-border-strong",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-soft",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-surface",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-regular",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ring-focus",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-focus-offset",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-disabled",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-clear-size",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-snug",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-medium",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-required-gap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-width-available",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-regular",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-regular",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-surface",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-hairline",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-border-strong",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-bold",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ease-out",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-motion-fast",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-compact",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-compact",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-large",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-regular",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ring-focus",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-focus-offset",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-action-fill",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-hover",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-disabled",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-transparent",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-available",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-visible",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-clear-size",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-soft",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-rounded",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-flex-fill",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-flex-none",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-size-flex-wide-panel-huge",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-size-min-width-panel-roomy",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-size-flex-panel-roomy",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-width-available",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-regular",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-regular",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-surface",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-hairline",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-border-strong",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-bold",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-compact",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-compact",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-rounded",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-large",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-hover",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-disabled",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-visible",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-regular",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ring-focus",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-focus-offset",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-trigger-button-z-tooltip",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-compact",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-bold",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-shadow-overlay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gap-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-inline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-current",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-leading-solid",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-weight-medium",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-motion-fast",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-bg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-on",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-icon",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-transparent",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-overlap",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-width",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-spread",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-press-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-disabled",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-hidden",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-snug",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-strong",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-rotation",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-text",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-fill-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-foreground-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-action-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-primary-fill-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-ai-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-fill",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-fill",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-flex-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "ColorPicker",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "NumberInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-measurement-icon-sm",
+      "ownership": "nested",
+      "component": "TextInput",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "X",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-tooltip-delay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-pink-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-blue-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-purple-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

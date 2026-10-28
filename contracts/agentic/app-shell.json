@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 2,
+  "id": "app-shell",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Provide reusable application landmarks and responsive navigation without embedding a demo application or router.",
+  "anatomy": [
+    "skip link",
+    "header",
+    "brand",
+    "optional header slot",
+    "desktop navigation or mobile sheet",
+    "main",
+    "optional footer"
+  ],
+  "states": [
+    "wide container",
+    "compact container",
+    "mobile navigation open",
+    "mobile navigation closed"
+  ],
+  "tokenGroup": "application",
+  "behaviorProvider": "Native React composition with existing shared Aegis controls; see explicit component and host responsibilities.",
+  "ownership": {
+    "component": [
+      "application landmark structure",
+      "container-responsive navigation placement",
+      "mobile trigger and responsive focus handoff"
+    ],
+    "host": [
+      "navigation destinations and route state",
+      "brand/header/footer content",
+      "main page content and route focus",
+      "state retained across navigation-slot remounts"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "landmarks",
+      "kind": "component",
+      "statement": "Render one main landmark, a header, a named navigation region and optional footer. The skip link explicitly focuses the main element.",
+      "sources": ["src/patterns/app-shell/app-shell.tsx"]
+    },
+    {
+      "id": "container-responsive",
+      "kind": "component",
+      "statement": "Observe the shell container and compare its measured width with the owning application breakpoint token. Switch between desktop navigation and a compact shared SideSheet.",
+      "sources": ["src/patterns/app-shell/app-shell.tsx"]
+    },
+    {
+      "id": "mobile-navigation",
+      "kind": "component",
+      "statement": "Use a real Button trigger and shared SideSheet dismissal/focus behavior. Invoke the same navigation renderer with compact and closeNavigation context.",
+      "sources": ["src/patterns/app-shell/app-shell.tsx"]
+    },
+    {
+      "id": "focus-handoff",
+      "kind": "component",
+      "statement": "When responsive mode changes while focus is inside navigation or its trigger, move focus to the newly available trigger, desktop navigation control or main fallback.",
+      "sources": ["src/patterns/app-shell/app-shell.tsx"]
+    },
+    {
+      "id": "persistent-main",
+      "kind": "component",
+      "statement": "Keep the same main content subtree across navigation opening/closing and responsive layout transitions.",
+      "sources": ["src/patterns/app-shell/app-shell.tsx"]
+    },
+    {
+      "id": "host-navigation",
+      "kind": "host",
+      "statement": "Render real links or actions and update the actual router. Call closeNavigation after the requested transition succeeds and handle page-title focus after route changes.",
+      "sources": ["src/patterns/app-shell/app-shell.tsx", "src/patterns/app-shell/README.md"]
+    },
+    {
+      "id": "navigation-remount",
+      "kind": "host",
+      "statement": "Keep stateful navigation data outside the rendered slot if it must survive its desktop-to-sheet remount. Avoid nested main landmarks in page content.",
+      "sources": ["src/patterns/app-shell/app-shell.tsx", "src/patterns/app-shell/README.md"]
+    },
+    {
+      "id": "owned-shell-tokens",
+      "kind": "design",
+      "statement": "Use application tokens for shell geometry and owned content. Keep nested Button, Link and SideSheet styling in their existing groups; no theme-dependent geometry.",
+      "sources": ["src/patterns/app-shell/app-shell.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "No router, authorization, active-route matching, persisted preferences or page title management.",
+    "Navigation content remounts when switching between desktop and mobile surfaces; main content remains mounted.",
+    "The shell does not clamp overflowing arbitrary host widgets; wide tables should own their scroll region."
+  ]
+}

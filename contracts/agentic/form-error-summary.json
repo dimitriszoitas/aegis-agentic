@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 2,
+  "id": "form-error-summary",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present host-supplied validation errors as a named, focusable summary with links to invalid fields.",
+  "anatomy": [
+    "named summary",
+    "heading",
+    "optional recovery description",
+    "error list",
+    "native field links"
+  ],
+  "states": ["empty", "errors present", "explicit focus request"],
+  "tokenGroup": "feedback",
+  "behaviorProvider": "Native React composition with existing shared Aegis controls; see explicit component and host responsibilities.",
+  "ownership": {
+    "component": [
+      "summary structure",
+      "explicit summary focus requests",
+      "native field link and focus behavior"
+    ],
+    "host": [
+      "validation and stable error IDs",
+      "actual focusable field IDs",
+      "revealing hidden fields and custom control focus"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "host-validation",
+      "kind": "host",
+      "statement": "Supply errors from application validation. The summary does not infer validity, mark controls invalid or decide when to validate.",
+      "sources": [
+        "src/patterns/form-error-summary/form-error-summary.tsx",
+        "src/patterns/form-error-summary/README.md"
+      ]
+    },
+    {
+      "id": "stable-errors",
+      "kind": "component",
+      "statement": "Reject duplicate or empty error IDs and empty field IDs. Render no summary when the supplied list is empty.",
+      "sources": ["src/patterns/form-error-summary/form-error-summary.tsx"]
+    },
+    {
+      "id": "native-links",
+      "kind": "component",
+      "statement": "Render each message through the shared Link with an encoded fragment targeting the supplied field ID. React escapes message text.",
+      "sources": ["src/patterns/form-error-summary/form-error-summary.tsx"]
+    },
+    {
+      "id": "field-focus",
+      "kind": "component",
+      "statement": "For ordinary unmodified activation, focus the element found by its exact ID and scroll it into view; alternatively call the supplied focusField callback. Modified activations retain native link behavior.",
+      "sources": ["src/patterns/form-error-summary/form-error-summary.tsx"]
+    },
+    {
+      "id": "target-ownership",
+      "kind": "host",
+      "statement": "Provide a visible focusable field target. For hidden tabs, composite controls or asynchronously revealed fields, use focusField to reveal and focus the correct control.",
+      "sources": [
+        "src/patterns/form-error-summary/form-error-summary.tsx",
+        "src/patterns/form-error-summary/README.md"
+      ]
+    },
+    {
+      "id": "summary-focus",
+      "kind": "component",
+      "statement": "A changed, defined focusRequestKey focuses the summary when errors exist. Ordinary rerenders with the same key do not steal focus.",
+      "sources": ["src/patterns/form-error-summary/form-error-summary.tsx"]
+    },
+    {
+      "id": "announcement-policy",
+      "kind": "host",
+      "statement": "Change focusRequestKey after failed submission when appropriate. The component intentionally does not force an alert role or automatically focus on each validation edit.",
+      "sources": [
+        "src/patterns/form-error-summary/form-error-summary.tsx",
+        "src/patterns/form-error-summary/README.md"
+      ]
+    },
+    {
+      "id": "owned-tokens",
+      "kind": "design",
+      "statement": "Keep owned summary structure in feedback tokens; nested Link retains trigger tokens and focus styling.",
+      "sources": [
+        "src/patterns/form-error-summary/form-error-summary.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No validation engine, field mutation, router handling or automatic error dismissal.",
+    "A field that is missing, disabled, hidden or not focusable needs host handling.",
+    "Programmatic focus is an explicit caller request, not evidence that all assistive technologies announce identical text."
+  ]
+}

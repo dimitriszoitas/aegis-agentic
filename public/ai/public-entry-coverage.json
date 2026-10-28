@@ -1,0 +1,1064 @@
+{
+  "schemaVersion": 1,
+  "package": {
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.7.0-experiment.0"
+  },
+  "registryRevision": 5,
+  "scope": "authored-catalogue-families-and-public-ui-entry-ownership",
+  "sources": [
+    {
+      "path": "package.json",
+      "sha256": "c04c3c55474a369854b6930280df4f94da189e087889dd196f1c8a1c720cb4ec"
+    },
+    {
+      "path": "public/ai/contract-catalogue.json",
+      "sha256": "52bddbf61b99cf60dc631c88789b27138288110c10f9a6a79096deb07d0dd0ac"
+    },
+    {
+      "path": "contracts/catalogue-bindings.json",
+      "sha256": "b435633beb2a5878ef8fd22f271d99b282b42aa00b8e680c323654d3cf9be8dd"
+    },
+    {
+      "path": "registry/public-entry-policy.json",
+      "sha256": "97fc771042995970ed2c97183177bf150dc6c69b6f3472789fd8af7d1da65621"
+    },
+    {
+      "path": "src/components/banner/banner.tsx",
+      "sha256": "579ba7e8528182e20170506c33891ed7ec81d456fb7d797bbb5295bec9fc8066"
+    },
+    {
+      "path": "src/components/toast/toast.tsx",
+      "sha256": "4caa184f7e086e31f327076d90b391ad923b9ba170bab05b67f94d4fda62d415"
+    }
+  ],
+  "summary": {
+    "apiFamilies": 124,
+    "apiFamiliesWithoutAuthoredBehavior": 0,
+    "publicUiEntries": 110,
+    "explicitCompatibilityAdapters": 2
+  },
+  "entries": [
+    {
+      "entry": ".",
+      "classification": "support-api",
+      "contractIds": [],
+      "reason": "Aggregate library entry; UI families are covered through their individual public entry points."
+    },
+    {
+      "entry": "./icons",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/icon/",
+      "contractIds": [
+        "iconography"
+      ]
+    },
+    {
+      "entry": "./theme",
+      "classification": "support-api",
+      "contractIds": [],
+      "reason": "Theme provider and profile application support."
+    },
+    {
+      "entry": "./ai",
+      "classification": "support-api",
+      "contractIds": [],
+      "reason": "AI data types and domain helpers; no model service implementation."
+    },
+    {
+      "entry": "./types",
+      "classification": "support-api",
+      "contractIds": [],
+      "reason": "Shared TypeScript types."
+    },
+    {
+      "entry": "./patterns",
+      "classification": "support-api",
+      "contractIds": [],
+      "reason": "Aggregate pattern entry; individual pattern entries carry behavior contracts."
+    },
+    {
+      "entry": "./filters",
+      "classification": "support-api",
+      "contractIds": [],
+      "reason": "Filter data models and helpers, governed by the filtering contracts."
+    },
+    {
+      "entry": "./time-range",
+      "classification": "support-api",
+      "contractIds": [],
+      "reason": "Time-range model and parsing helpers, governed by TimeRangePicker requirements."
+    },
+    {
+      "entry": "./utils",
+      "classification": "support-api",
+      "contractIds": [],
+      "reason": "Class composition utility; not a UI family."
+    },
+    {
+      "entry": "./accordion",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/accordion/",
+      "contractIds": [
+        "accordion"
+      ]
+    },
+    {
+      "entry": "./ai-card",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/ai-card/",
+      "contractIds": [
+        "ai-card",
+        "ai-highlight"
+      ]
+    },
+    {
+      "entry": "./ai-inline-suggestion",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/ai-inline-suggestion/",
+      "contractIds": [
+        "ai-inline-suggestion"
+      ]
+    },
+    {
+      "entry": "./ai-message",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/ai-message/",
+      "contractIds": [
+        "ai-message"
+      ]
+    },
+    {
+      "entry": "./avatar",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/avatar/",
+      "contractIds": [
+        "avatar"
+      ]
+    },
+    {
+      "entry": "./aws-logo",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/aws-logo/",
+      "contractIds": [
+        "aws-logo"
+      ]
+    },
+    {
+      "entry": "./banner",
+      "classification": "explicit-compatibility-adapter",
+      "implementationDirectory": "src/components/banner/",
+      "contractIds": [
+        "notification"
+      ],
+      "source": "src/components/banner/banner.tsx",
+      "reason": "Banner fixes inline Notification presentation; Callout delegates to Banner. The aliases keep the shared notice contract."
+    },
+    {
+      "entry": "./bottom-sheet",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/bottom-sheet/",
+      "contractIds": [
+        "bottom-sheet"
+      ]
+    },
+    {
+      "entry": "./breadcrumb",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/breadcrumb/",
+      "contractIds": [
+        "breadcrumb"
+      ]
+    },
+    {
+      "entry": "./bulk-actions-bar",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/bulk-actions-bar/",
+      "contractIds": [
+        "bulk-actions-bar"
+      ]
+    },
+    {
+      "entry": "./button",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/button/",
+      "contractIds": [
+        "button"
+      ]
+    },
+    {
+      "entry": "./button-group",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/button-group/",
+      "contractIds": [
+        "button-group"
+      ]
+    },
+    {
+      "entry": "./card",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/card/",
+      "contractIds": [
+        "card"
+      ]
+    },
+    {
+      "entry": "./charts",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/charts/",
+      "contractIds": [
+        "area-chart",
+        "bar-chart",
+        "chart-container",
+        "donut-chart",
+        "line-chart"
+      ]
+    },
+    {
+      "entry": "./checkbox",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/checkbox/",
+      "contractIds": [
+        "checkbox"
+      ]
+    },
+    {
+      "entry": "./code-editor",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/code-editor/",
+      "contractIds": [
+        "code-editor"
+      ]
+    },
+    {
+      "entry": "./command-palette",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/command-palette/",
+      "contractIds": [
+        "command-palette"
+      ]
+    },
+    {
+      "entry": "./confidence-badge",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/confidence-badge/",
+      "contractIds": [
+        "confidence-badge"
+      ]
+    },
+    {
+      "entry": "./context-menu",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/context-menu/",
+      "contractIds": [
+        "context-menu"
+      ]
+    },
+    {
+      "entry": "./copy-button",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/copy-button/",
+      "contractIds": [
+        "copy-button"
+      ]
+    },
+    {
+      "entry": "./count-badge",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/count-badge/",
+      "contractIds": [
+        "count-badge"
+      ]
+    },
+    {
+      "entry": "./data-grid",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/data-grid/",
+      "contractIds": [
+        "data-grid"
+      ]
+    },
+    {
+      "entry": "./data-grid-cells",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/data-grid-cells/",
+      "contractIds": [
+        "actions-cell",
+        "ai-verdict-cell",
+        "entity-cell",
+        "expand-cell",
+        "number-cell",
+        "severity-cell",
+        "sparkline-cell",
+        "status-cell",
+        "tags-cell",
+        "time-cell"
+      ]
+    },
+    {
+      "entry": "./date-picker",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/date-picker/",
+      "contractIds": [
+        "date-picker"
+      ]
+    },
+    {
+      "entry": "./diff-view",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/diff-view/",
+      "contractIds": [
+        "diff-view"
+      ]
+    },
+    {
+      "entry": "./dropdown-menu",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/dropdown-menu/",
+      "contractIds": [
+        "dropdown-menu"
+      ]
+    },
+    {
+      "entry": "./empty-state",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/empty-state/",
+      "contractIds": [
+        "empty-state"
+      ]
+    },
+    {
+      "entry": "./event-histogram",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/event-histogram/",
+      "contractIds": [
+        "event-histogram"
+      ]
+    },
+    {
+      "entry": "./expandable-text",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/expandable-text/",
+      "contractIds": [
+        "expandable-text"
+      ]
+    },
+    {
+      "entry": "./field",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/field/",
+      "contractIds": [
+        "field"
+      ]
+    },
+    {
+      "entry": "./icon-button",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/icon-button/",
+      "contractIds": [
+        "icon-button"
+      ]
+    },
+    {
+      "entry": "./json-viewer",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/json-viewer/",
+      "contractIds": [
+        "json-viewer"
+      ]
+    },
+    {
+      "entry": "./kbd",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/kbd/",
+      "contractIds": [
+        "kbd"
+      ]
+    },
+    {
+      "entry": "./list",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/list/",
+      "contractIds": [
+        "list"
+      ]
+    },
+    {
+      "entry": "./metric-card",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/metric-card/",
+      "contractIds": [
+        "chart-metric-card",
+        "metric-card"
+      ]
+    },
+    {
+      "entry": "./mini-bar-chart",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/mini-bar-chart/",
+      "contractIds": [
+        "mini-bar-chart"
+      ]
+    },
+    {
+      "entry": "./modal",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/modal/",
+      "contractIds": [
+        "dialog"
+      ]
+    },
+    {
+      "entry": "./multi-combobox",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/multi-combobox/",
+      "contractIds": [
+        "multi-combobox"
+      ]
+    },
+    {
+      "entry": "./notification",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/notification/",
+      "contractIds": [
+        "notification"
+      ]
+    },
+    {
+      "entry": "./pagination",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/pagination/",
+      "contractIds": [
+        "pagination"
+      ]
+    },
+    {
+      "entry": "./popover",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/popover/",
+      "contractIds": [
+        "popover"
+      ]
+    },
+    {
+      "entry": "./progress-bar",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/progress-bar/",
+      "contractIds": [
+        "progress-bar"
+      ]
+    },
+    {
+      "entry": "./radio-group",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/radio-group/",
+      "contractIds": [
+        "radio-group"
+      ]
+    },
+    {
+      "entry": "./relative-time",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/relative-time/",
+      "contractIds": [
+        "relative-time"
+      ]
+    },
+    {
+      "entry": "./resizable-panels",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/resizable-panels/",
+      "contractIds": [
+        "resizable-panels"
+      ]
+    },
+    {
+      "entry": "./scroll-area",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/scroll-area/",
+      "contractIds": [
+        "scroll-area"
+      ]
+    },
+    {
+      "entry": "./search-input",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/search-input/",
+      "contractIds": [
+        "search-input"
+      ]
+    },
+    {
+      "entry": "./select",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/select/",
+      "contractIds": [
+        "select"
+      ]
+    },
+    {
+      "entry": "./separator",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/separator/",
+      "contractIds": [
+        "separator"
+      ]
+    },
+    {
+      "entry": "./severity-badge",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/severity-badge/",
+      "contractIds": [
+        "severity-badge"
+      ]
+    },
+    {
+      "entry": "./side-nav",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/side-nav/",
+      "contractIds": [
+        "side-nav"
+      ]
+    },
+    {
+      "entry": "./sheet",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/sheet/",
+      "contractIds": [
+        "sheet"
+      ]
+    },
+    {
+      "entry": "./side-sheet",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/side-sheet/",
+      "contractIds": [
+        "side-sheet"
+      ]
+    },
+    {
+      "entry": "./skeleton",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/skeleton/",
+      "contractIds": [
+        "skeleton"
+      ]
+    },
+    {
+      "entry": "./slider",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/slider/",
+      "contractIds": [
+        "slider"
+      ]
+    },
+    {
+      "entry": "./sparkline",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/sparkline/",
+      "contractIds": [
+        "sparkline"
+      ]
+    },
+    {
+      "entry": "./spinner",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/spinner/",
+      "contractIds": [
+        "spinner"
+      ]
+    },
+    {
+      "entry": "./status-badge",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/status-badge/",
+      "contractIds": [
+        "status-badge"
+      ]
+    },
+    {
+      "entry": "./stepper",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/stepper/",
+      "contractIds": [
+        "stepper"
+      ]
+    },
+    {
+      "entry": "./streaming-skeleton",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/streaming-skeleton/",
+      "contractIds": [
+        "streaming-skeleton"
+      ]
+    },
+    {
+      "entry": "./switch",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/switch/",
+      "contractIds": [
+        "switch"
+      ]
+    },
+    {
+      "entry": "./tabs",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/tabs/",
+      "contractIds": [
+        "tabs"
+      ]
+    },
+    {
+      "entry": "./tag",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/tag/",
+      "contractIds": [
+        "tag"
+      ]
+    },
+    {
+      "entry": "./text-input",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/text-input/",
+      "contractIds": [
+        "text-input"
+      ]
+    },
+    {
+      "entry": "./textarea",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/textarea/",
+      "contractIds": [
+        "textarea"
+      ]
+    },
+    {
+      "entry": "./thinking-indicator",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/thinking-indicator/",
+      "contractIds": [
+        "thinking-indicator"
+      ]
+    },
+    {
+      "entry": "./time-range-picker",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/time-range-picker/",
+      "contractIds": [
+        "time-range-picker"
+      ]
+    },
+    {
+      "entry": "./timeline",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/timeline/",
+      "contractIds": [
+        "timeline"
+      ]
+    },
+    {
+      "entry": "./toast",
+      "classification": "explicit-compatibility-adapter",
+      "implementationDirectory": "src/components/toast/",
+      "contractIds": [
+        "notification"
+      ],
+      "source": "src/components/toast/toast.tsx",
+      "reason": "Toast fixes floating Notification presentation; Toaster and service functions delegate to the shared notification engine."
+    },
+    {
+      "entry": "./tooltip",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/tooltip/",
+      "contractIds": [
+        "tooltip"
+      ]
+    },
+    {
+      "entry": "./tree-view",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/tree-view/",
+      "contractIds": [
+        "tree-view"
+      ]
+    },
+    {
+      "entry": "./yaml-presenter",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/yaml-presenter/",
+      "contractIds": [
+        "yaml-presenter"
+      ]
+    },
+    {
+      "entry": "./patterns/ai-diff-review",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/ai-diff-review/",
+      "contractIds": [
+        "ai-diff-review"
+      ]
+    },
+    {
+      "entry": "./patterns/ai-panel",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/ai-panel/",
+      "contractIds": [
+        "ai-panel"
+      ]
+    },
+    {
+      "entry": "./patterns/filter-bar",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/filter-bar/",
+      "contractIds": [
+        "filter-bar"
+      ]
+    },
+    {
+      "entry": "./patterns/filter-panel",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/filter-panel/",
+      "contractIds": [
+        "filter-panel"
+      ]
+    },
+    {
+      "entry": "./patterns/prompt-input",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/prompt-input/",
+      "contractIds": [
+        "prompt-input"
+      ]
+    },
+    {
+      "entry": "./patterns/wizard",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/wizard/",
+      "contractIds": [
+        "wizard"
+      ]
+    },
+    {
+      "entry": "./styles.css",
+      "classification": "asset-or-manifest",
+      "contractIds": [],
+      "reason": "Published non-code asset or machine-readable manifest; not a UI behavior family."
+    },
+    {
+      "entry": "./fonts.css",
+      "classification": "asset-or-manifest",
+      "contractIds": [],
+      "reason": "Published non-code asset or machine-readable manifest; not a UI behavior family."
+    },
+    {
+      "entry": "./reset.css",
+      "classification": "asset-or-manifest",
+      "contractIds": [],
+      "reason": "Published non-code asset or machine-readable manifest; not a UI behavior family."
+    },
+    {
+      "entry": "./tokens.css",
+      "classification": "asset-or-manifest",
+      "contractIds": [],
+      "reason": "Published non-code asset or machine-readable manifest; not a UI behavior family."
+    },
+    {
+      "entry": "./package.json",
+      "classification": "asset-or-manifest",
+      "contractIds": [],
+      "reason": "Published non-code asset or machine-readable manifest; not a UI behavior family."
+    },
+    {
+      "entry": "./segmented-control",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/segmented-control/",
+      "contractIds": [
+        "segmented-control"
+      ]
+    },
+    {
+      "entry": "./description-list",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/description-list/",
+      "contractIds": [
+        "description-list"
+      ]
+    },
+    {
+      "entry": "./copyable-field",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/copyable-field/",
+      "contractIds": [
+        "copyable-field"
+      ]
+    },
+    {
+      "entry": "./gantt-chart",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/gantt-chart/",
+      "contractIds": [
+        "gantt-chart"
+      ]
+    },
+    {
+      "entry": "./link",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/link/",
+      "contractIds": [
+        "link"
+      ]
+    },
+    {
+      "entry": "./split-button",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/split-button/",
+      "contractIds": [
+        "split-button"
+      ]
+    },
+    {
+      "entry": "./file-upload",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/file-upload/",
+      "contractIds": [
+        "file-upload"
+      ]
+    },
+    {
+      "entry": "./patterns/unsaved-changes-bar",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/unsaved-changes-bar/",
+      "contractIds": [
+        "unsaved-changes-bar"
+      ]
+    },
+    {
+      "entry": "./patterns/page-header",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/page-header/",
+      "contractIds": [
+        "page-header"
+      ]
+    },
+    {
+      "entry": "./patterns/page-layout",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/page-layout/",
+      "contractIds": [
+        "page-layout"
+      ]
+    },
+    {
+      "entry": "./patterns/notification-center",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/notification-center/",
+      "contractIds": [
+        "notification-center"
+      ]
+    },
+    {
+      "entry": "./patterns/onboarding-checklist",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/onboarding-checklist/",
+      "contractIds": [
+        "onboarding-checklist"
+      ]
+    },
+    {
+      "entry": "./primitives",
+      "classification": "support-api",
+      "contractIds": [],
+      "reason": "Direct Base UI exports; behavior belongs to the upstream primitive API and headless boundary check."
+    },
+    {
+      "entry": "./token-manifest.json",
+      "classification": "asset-or-manifest",
+      "contractIds": [],
+      "reason": "Published non-code asset or machine-readable manifest; not a UI behavior family."
+    },
+    {
+      "entry": "./agentic",
+      "classification": "support-api",
+      "contractIds": [],
+      "reason": "Agent infrastructure and project policy API; governed by the kit, composition and service protocol contracts."
+    },
+    {
+      "entry": "./agent-kit/kit.json",
+      "classification": "asset-or-manifest",
+      "contractIds": [],
+      "reason": "Published non-code asset or machine-readable manifest; not a UI behavior family."
+    },
+    {
+      "entry": "./password-input",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/password-input/",
+      "contractIds": [
+        "password-input"
+      ]
+    },
+    {
+      "entry": "./number-input",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/number-input/",
+      "contractIds": [
+        "number-input"
+      ]
+    },
+    {
+      "entry": "./patterns/collection-toolbar",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/collection-toolbar/",
+      "contractIds": [
+        "collection-toolbar"
+      ]
+    },
+    {
+      "entry": "./patterns/form-section",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/form-section/",
+      "contractIds": [
+        "form-section"
+      ]
+    },
+    {
+      "entry": "./indicator",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/indicator/",
+      "contractIds": [
+        "indicator"
+      ]
+    },
+    {
+      "entry": "./presence-indicator",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/presence-indicator/",
+      "contractIds": [
+        "presence-indicator"
+      ]
+    },
+    {
+      "entry": "./patterns/form-error-summary",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/form-error-summary/",
+      "contractIds": [
+        "form-error-summary"
+      ]
+    },
+    {
+      "entry": "./patterns/resource-state",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/resource-state/",
+      "contractIds": [
+        "resource-state"
+      ]
+    },
+    {
+      "entry": "./patterns/record-editor",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/record-editor/",
+      "contractIds": [
+        "record-editor"
+      ]
+    },
+    {
+      "entry": "./patterns/app-shell",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/app-shell/",
+      "contractIds": [
+        "app-shell"
+      ]
+    },
+    {
+      "entry": "./patterns/unsaved-navigation-guard",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/patterns/unsaved-navigation-guard/",
+      "contractIds": [
+        "unsaved-navigation-guard"
+      ]
+    },
+    {
+      "entry": "./combobox",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/combobox/",
+      "contractIds": [
+        "combobox"
+      ]
+    },
+    {
+      "entry": "./otp-input",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/otp-input/",
+      "contractIds": [
+        "otp-input"
+      ]
+    },
+    {
+      "entry": "./time-picker",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/time-picker/",
+      "contractIds": [
+        "time-picker"
+      ]
+    },
+    {
+      "entry": "./date-time-picker",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/date-time-picker/",
+      "contractIds": [
+        "date-time-picker"
+      ]
+    },
+    {
+      "entry": "./phone-input",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/phone-input/",
+      "contractIds": [
+        "phone-input"
+      ]
+    },
+    {
+      "entry": "./color-picker",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/color-picker/",
+      "contractIds": [
+        "color-picker"
+      ]
+    },
+    {
+      "entry": "./inline-edit",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/inline-edit/",
+      "contractIds": [
+        "inline-edit"
+      ]
+    },
+    {
+      "entry": "./rich-text-editor",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/rich-text-editor/",
+      "contractIds": [
+        "rich-text-editor"
+      ]
+    },
+    {
+      "entry": "./sortable-list",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/sortable-list/",
+      "contractIds": [
+        "sortable-list"
+      ]
+    },
+    {
+      "entry": "./file-preview",
+      "classification": "authored-ui-family",
+      "implementationDirectory": "src/components/file-preview/",
+      "contractIds": [
+        "file-preview"
+      ]
+    }
+  ],
+  "limitations": [
+    "Coverage means each published UI entry has a source-identity contract or explicit compatibility mapping; it is not per-function test coverage or certification.",
+    "Nested exports within a family share that family's contract. Support entries and asset files are classified separately and are not counted as authored UI behavior."
+  ]
+}

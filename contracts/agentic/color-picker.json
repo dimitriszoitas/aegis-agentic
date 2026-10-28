@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 2,
+  "id": "color-picker",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Choose a hexadecimal RGB color, optionally with alpha, using editable text, named swatches and a native RGB picker.",
+  "anatomy": [
+    "hex input",
+    "local parse feedback",
+    "native RGB input",
+    "optional shared opacity NumberInput",
+    "named swatch Buttons"
+  ],
+  "states": ["committed", "draft", "invalid-draft", "rgb", "rgba", "disabled", "read-only"],
+  "tokenGroup": "input",
+  "behaviorProvider": "Native text/color inputs, shared TextInput/NumberInput/Button, wrapper hexadecimal parsing.",
+  "ownership": {
+    "component": [
+      "Accept #RGB/#RRGGBB, plus #RGBA/#RRGGBBAA only when alpha is enabled. Canonicalize accepted values to uppercase six/eight hex digits; RGB with alpha enabled receives FF. Reject unsupported committed values and swatches rather than evaluating arbitrary CSS.",
+      "Keep incomplete/invalid editable draft locally without replacing the committed color; expose parse feedback and aria-invalid. A valid changed draft commits on blur or non-composing Enter. Host controlled value changes replace stale drafts.",
+      "The native color picker edits RGB only and preserves the current alpha. Optional NumberInput maps a clamped 0\u2013100 percentage to a rounded 8-bit alpha channel; this quantization is explicit, not arbitrary precision.",
+      "Render named actual Buttons with pressed state and safe decorative chips. The chip background is validated user-provided hexadecimal data; nested shared controls retain their own styling tokens.",
+      "Keep the optional form name on the hex text input only. Its native pattern blocks unsupported drafts on native validated submission. Auxiliary RGB and opacity controls have no duplicate name; opacity has a separate id inside Field."
+    ],
+    "host": [
+      "Own palette policy, contrast evaluation, accessible color combinations, theme token mapping, persistence and consistent controlled alpha configuration. A parseable color is not an accessible theme certification."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "strict-hex-data",
+      "kind": "component",
+      "statement": "Accept #RGB/#RRGGBB, plus #RGBA/#RRGGBBAA only when alpha is enabled. Canonicalize accepted values to uppercase six/eight hex digits; RGB with alpha enabled receives FF. Reject unsupported committed values and swatches rather than evaluating arbitrary CSS.",
+      "sources": [
+        "src/components/color-picker/color-picker.tsx",
+        "src/components/color-picker/README.md"
+      ]
+    },
+    {
+      "id": "draft-and-commit",
+      "kind": "component",
+      "statement": "Keep incomplete/invalid editable draft locally without replacing the committed color; expose parse feedback and aria-invalid. A valid changed draft commits on blur or non-composing Enter. Host controlled value changes replace stale drafts.",
+      "sources": [
+        "src/components/color-picker/color-picker.tsx",
+        "src/components/color-picker/README.md"
+      ]
+    },
+    {
+      "id": "rgb-and-alpha",
+      "kind": "component",
+      "statement": "The native color picker edits RGB only and preserves the current alpha. Optional NumberInput maps a clamped 0\u2013100 percentage to a rounded 8-bit alpha channel; this quantization is explicit, not arbitrary precision.",
+      "sources": [
+        "src/components/color-picker/color-picker.tsx",
+        "src/components/color-picker/README.md"
+      ]
+    },
+    {
+      "id": "named-swatches",
+      "kind": "component",
+      "statement": "Render named actual Buttons with pressed state and safe decorative chips. The chip background is validated user-provided hexadecimal data; nested shared controls retain their own styling tokens.",
+      "sources": [
+        "src/components/color-picker/color-picker.tsx",
+        "src/components/color-picker/README.md"
+      ]
+    },
+    {
+      "id": "form-and-field",
+      "kind": "component",
+      "statement": "Keep the optional form name on the hex text input only. Its native pattern blocks unsupported drafts on native validated submission. Auxiliary RGB and opacity controls have no duplicate name; opacity has a separate id inside Field.",
+      "sources": [
+        "src/components/color-picker/color-picker.tsx",
+        "src/components/color-picker/README.md"
+      ]
+    },
+    {
+      "id": "palette-and-contrast",
+      "kind": "host",
+      "statement": "Own palette policy, contrast evaluation, accessible color combinations, theme token mapping, persistence and consistent controlled alpha configuration. A parseable color is not an accessible theme certification.",
+      "sources": [
+        "src/components/color-picker/color-picker.tsx",
+        "src/components/color-picker/README.md"
+      ]
+    },
+    {
+      "id": "accessible-host-name",
+      "kind": "host",
+      "statement": "Supply a visible label, enclosing Field label or accessible name. Use useful host validation and recovery instructions instead of relying on placeholder text.",
+      "sources": [
+        "src/components/color-picker/color-picker.tsx",
+        "src/components/color-picker/README.md",
+        "src/components/field/field.tsx"
+      ]
+    },
+    {
+      "id": "input-group-ownership",
+      "kind": "design",
+      "statement": "Owned styling consumes input group tokens. Actual nested shared components retain their own token groups. Preserve keyboard-visible focus and equivalent size metrics across the four theme/mode mappings.",
+      "sources": [
+        "src/components/color-picker/color-picker.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "This source-backed requirement record does not certify a current test result or release approval.",
+    "RGB hexadecimal only; no HSL/HSV/Lab/OKLCH gamut tools, eyedropper or gradient editing. The browser owns the native chooser UI.",
+    "Invalid draft text stays on the named input until corrected; host code that bypasses native validation must validate its payload. Disabling alpha requires a compatible RGB controlled value."
+  ]
+}

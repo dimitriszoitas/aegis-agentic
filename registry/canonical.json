@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": 4,
+  "revision": 5,
   "entries": [
     {
       "id": "button",
@@ -637,6 +637,1672 @@
       "provenance": {
         "origin": "experimental-composition",
         "source": "src/patterns/form-section/form-section.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "form-error-summary",
+      "name": "FormErrorSummary",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["FormErrorSummary", "form error summary"],
+      "capabilities": ["host-validation", "stable-errors", "native-links", "field-focus"],
+      "contract": "contracts/agentic/form-error-summary.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns/form-error-summary",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/patterns/form-error-summary/form-error-summary.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "resource-state",
+      "name": "ResourceState",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["ResourceState", "resource state"],
+      "capabilities": [
+        "explicit-state",
+        "retained-content",
+        "initial-versus-empty",
+        "failure-recovery"
+      ],
+      "contract": "contracts/agentic/resource-state.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns/resource-state",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/patterns/resource-state/resource-state.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "record-editor",
+      "name": "RecordEditor",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["RecordEditor", "record editor"],
+      "capabilities": ["draft-boundary", "version-conflict", "version-authority", "save-result"],
+      "contract": "contracts/agentic/record-editor.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns/record-editor",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/patterns/record-editor/record-editor.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "app-shell",
+      "name": "AppShell",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["AppShell", "app shell"],
+      "capabilities": ["landmarks", "container-responsive", "mobile-navigation", "focus-handoff"],
+      "contract": "contracts/agentic/app-shell.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns/app-shell",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/patterns/app-shell/app-shell.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "unsaved-navigation-guard",
+      "name": "UnsavedNavigationGuard",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["UnsavedNavigationGuard", "unsaved navigation guard"],
+      "capabilities": ["explicit-adapter", "host-routing", "single-request", "cancel-outcome"],
+      "contract": "contracts/agentic/unsaved-navigation-guard.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns/unsaved-navigation-guard",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "combobox",
+      "name": "Combobox",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["searchable select", "single autocomplete"],
+      "capabilities": [
+        "search-single-selection",
+        "remote-result-adapter",
+        "native-form-value",
+        "keyboard-listbox"
+      ],
+      "contract": "contracts/agentic/combobox.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/combobox",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/combobox/combobox.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "otp-input",
+      "name": "OtpInput",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["one time code", "verification code"],
+      "capabilities": [
+        "otp-entry",
+        "paste-normalization",
+        "one-time-code-autofill-hint",
+        "native-form-value"
+      ],
+      "contract": "contracts/agentic/otp-input.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/otp-input",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/otp-input/otp-input.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "time-picker",
+      "name": "TimePicker",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["time field", "local time"],
+      "capabilities": ["local-time-entry", "native-time-constraints", "native-form-value"],
+      "contract": "contracts/agentic/time-picker.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/time-picker",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/time-picker/time-picker.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "date-time-picker",
+      "name": "DateTimePicker",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["datetime field", "local date time"],
+      "capabilities": ["local-date-time-entry", "explicit-time-zone-policy", "native-form-value"],
+      "contract": "contracts/agentic/date-time-picker.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/date-time-picker",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/date-time-picker/date-time-picker.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "phone-input",
+      "name": "PhoneInput",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["telephone", "phone number"],
+      "capabilities": [
+        "phone-draft-entry",
+        "country-selection",
+        "phone-format-preview",
+        "phone-parse-candidate"
+      ],
+      "contract": "contracts/agentic/phone-input.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/phone-input",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/phone-input/phone-input.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "color-picker",
+      "name": "ColorPicker",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["hex color", "color swatches"],
+      "capabilities": [
+        "hex-color-entry",
+        "named-color-swatches",
+        "optional-alpha",
+        "native-color-picker"
+      ],
+      "contract": "contracts/agentic/color-picker.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/color-picker",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/color-picker/color-picker.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "button-group",
+      "name": "ButtonGroup",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["action group", "button cluster"],
+      "capabilities": ["button-group-behavior", "button-group-composition"],
+      "contract": "contracts/agentic/button-group.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/button-group",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/button-group/button-group.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "copy-button",
+      "name": "CopyButton",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["clipboard", "copy action"],
+      "capabilities": ["copy-button-behavior", "copy-button-composition"],
+      "contract": "contracts/agentic/copy-button.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/copy-button",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/copy-button/copy-button.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "icon-button",
+      "name": "IconButton",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["icon action", "icon trigger"],
+      "capabilities": ["icon-button-behavior", "icon-button-composition"],
+      "contract": "contracts/agentic/icon-button.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/icon-button",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/icon-button/icon-button.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "link",
+      "name": "Link",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["anchor", "hyperlink", "navigation link"],
+      "capabilities": ["link-behavior", "link-composition"],
+      "contract": "contracts/agentic/link.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/link",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/link/link.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "split-button",
+      "name": "SplitButton",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["action menu", "split action"],
+      "capabilities": ["split-button-behavior", "split-button-composition"],
+      "contract": "contracts/agentic/split-button.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/split-button",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/split-button/split-button.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "ai-card",
+      "name": "AiCard",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["AI result surface"],
+      "capabilities": ["ai-card-behavior", "ai-card-composition"],
+      "contract": "contracts/agentic/ai-card.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/ai-card",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/ai-card/ai-card.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "ai-highlight",
+      "name": "AiHighlight",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["AI emphasis"],
+      "capabilities": ["ai-highlight-behavior", "ai-highlight-composition"],
+      "contract": "contracts/agentic/ai-highlight.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/ai-card",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/ai-card/ai-card.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "ai-inline-suggestion",
+      "name": "AiInlineSuggestion",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["inline AI draft"],
+      "capabilities": ["ai-inline-suggestion-behavior", "ai-inline-suggestion-composition"],
+      "contract": "contracts/agentic/ai-inline-suggestion.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/ai-inline-suggestion",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "ai-message",
+      "name": "AiMessage",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["AI conversation message"],
+      "capabilities": ["ai-message-behavior", "ai-message-composition"],
+      "contract": "contracts/agentic/ai-message.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/ai-message",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/ai-message/ai-message.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "confidence-badge",
+      "name": "ConfidenceBadge",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["confidence label"],
+      "capabilities": ["confidence-badge-behavior", "confidence-badge-composition"],
+      "contract": "contracts/agentic/confidence-badge.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/confidence-badge",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/confidence-badge/confidence-badge.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "streaming-skeleton",
+      "name": "StreamingSkeleton",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["ai loading", "streaming placeholder"],
+      "capabilities": ["streaming-skeleton-behavior", "streaming-skeleton-composition"],
+      "contract": "contracts/agentic/streaming-skeleton.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/streaming-skeleton",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/streaming-skeleton/streaming-skeleton.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "thinking-indicator",
+      "name": "ThinkingIndicator",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["AI processing status"],
+      "capabilities": ["thinking-indicator-behavior", "thinking-indicator-composition"],
+      "contract": "contracts/agentic/thinking-indicator.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/thinking-indicator",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/thinking-indicator/thinking-indicator.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "expandable-text",
+      "name": "ExpandableText",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["read more", "text disclosure"],
+      "capabilities": ["expandable-text-behavior", "expandable-text-composition"],
+      "contract": "contracts/agentic/expandable-text.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/expandable-text",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/expandable-text/expandable-text.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "notification",
+      "name": "Notification",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["notification", "snackbar", "toast"],
+      "capabilities": ["notification-behavior", "notification-composition"],
+      "contract": "contracts/agentic/notification.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/notification",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/notification/notification.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "progress-bar",
+      "name": "Progress bar",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["completion", "progress"],
+      "capabilities": ["progress-bar-behavior", "progress-bar-composition"],
+      "contract": "contracts/agentic/progress-bar.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/progress-bar",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/progress-bar/progress-bar.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "skeleton",
+      "name": "Skeleton",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["loading placeholder", "placeholder"],
+      "capabilities": ["skeleton-behavior", "skeleton-composition"],
+      "contract": "contracts/agentic/skeleton.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/skeleton",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/skeleton/skeleton.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "spinner",
+      "name": "Spinner",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["loader", "loading indicator"],
+      "capabilities": ["spinner-behavior", "spinner-composition"],
+      "contract": "contracts/agentic/spinner.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/spinner",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/spinner/spinner.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "avatar",
+      "name": "Avatar",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["initials", "person", "profile image"],
+      "capabilities": ["avatar-behavior", "avatar-composition"],
+      "contract": "contracts/agentic/avatar.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/avatar",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/avatar/avatar.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "separator",
+      "name": "Separator",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["divider", "rule"],
+      "capabilities": ["separator-behavior", "separator-composition"],
+      "contract": "contracts/agentic/separator.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/separator",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/separator/separator.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "count-badge",
+      "name": "CountBadge",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["badge", "count", "counter"],
+      "capabilities": ["count-badge-behavior", "count-badge-composition"],
+      "contract": "contracts/agentic/count-badge.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/count-badge",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/count-badge/count-badge.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "kbd",
+      "name": "Kbd",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["keyboard shortcut", "keycap"],
+      "capabilities": ["kbd-behavior", "kbd-composition"],
+      "contract": "contracts/agentic/kbd.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/kbd",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/kbd/kbd.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "severity-badge",
+      "name": "SeverityBadge",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["badge", "priority", "severity label"],
+      "capabilities": ["severity-badge-behavior", "severity-badge-composition"],
+      "contract": "contracts/agentic/severity-badge.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/severity-badge",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/severity-badge/severity-badge.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "status-badge",
+      "name": "StatusBadge",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["badge", "state label", "status pill"],
+      "capabilities": ["status-badge-behavior", "status-badge-composition"],
+      "contract": "contracts/agentic/status-badge.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/status-badge",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/status-badge/status-badge.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "tag",
+      "name": "Tag",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["chip", "chips", "removable label", "tag", "tags"],
+      "capabilities": ["tag-behavior", "tag-composition"],
+      "contract": "contracts/agentic/tag.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/tag",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/tag/tag.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "list",
+      "name": "List",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["selectable rows"],
+      "capabilities": ["list-behavior", "list-composition"],
+      "contract": "contracts/agentic/list.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/list",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/list/list.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "actions-cell",
+      "name": "Actions cell",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["row actions"],
+      "capabilities": ["actions-cell-behavior", "actions-cell-composition"],
+      "contract": "contracts/agentic/actions-cell.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/data-grid-cells",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "ai-verdict-cell",
+      "name": "AI verdict cell",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["AI result cell"],
+      "capabilities": ["ai-verdict-cell-behavior", "ai-verdict-cell-composition"],
+      "contract": "contracts/agentic/ai-verdict-cell.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/data-grid-cells",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "entity-cell",
+      "name": "Cells",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["entity identity cell"],
+      "capabilities": ["entity-cell-behavior", "entity-cell-composition"],
+      "contract": "contracts/agentic/entity-cell.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/data-grid-cells",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "expand-cell",
+      "name": "Expand cell",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["row expansion control"],
+      "capabilities": ["expand-cell-behavior", "expand-cell-composition"],
+      "contract": "contracts/agentic/expand-cell.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/data-grid-cells",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "number-cell",
+      "name": "Number cell",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["numeric cell"],
+      "capabilities": ["number-cell-behavior", "number-cell-composition"],
+      "contract": "contracts/agentic/number-cell.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/data-grid-cells",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "severity-cell",
+      "name": "Severity cell",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["severity level cell"],
+      "capabilities": ["severity-cell-presentation"],
+      "contract": "contracts/agentic/severity-cell.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/data-grid-cells",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "sparkline-cell",
+      "name": "Sparkline cell",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["trend cell"],
+      "capabilities": ["sparkline-cell-presentation"],
+      "contract": "contracts/agentic/sparkline-cell.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/data-grid-cells",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "status-cell",
+      "name": "Status cell",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["state cell"],
+      "capabilities": ["status-cell-presentation"],
+      "contract": "contracts/agentic/status-cell.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/data-grid-cells",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "tags-cell",
+      "name": "Tags cell",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["tag collection cell"],
+      "capabilities": ["tags-cell-behavior", "tags-cell-composition"],
+      "contract": "contracts/agentic/tags-cell.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/data-grid-cells",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "time-cell",
+      "name": "Time cell",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["relative timestamp cell"],
+      "capabilities": ["time-cell-presentation"],
+      "contract": "contracts/agentic/time-cell.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/data-grid-cells",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "bulk-actions-bar",
+      "name": "Bulk actions bar",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["selected row actions"],
+      "capabilities": ["bulk-actions-bar-behavior", "bulk-actions-bar-composition"],
+      "contract": "contracts/agentic/bulk-actions-bar.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/bulk-actions-bar",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "iconography",
+      "name": "Iconography",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["icons", "symbol"],
+      "capabilities": ["iconography-behavior", "iconography-composition"],
+      "contract": "contracts/agentic/iconography.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/icons",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/icon/index.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "indicator",
+      "name": "Indicator",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["notification marker", "notification count", "notification dot"],
+      "capabilities": ["positioned-dot", "positioned-count", "logical-placement"],
+      "contract": "contracts/agentic/indicator.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/indicator",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/indicator/indicator.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "presence-indicator",
+      "name": "PresenceIndicator",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["presence", "availability", "online status", "offline status"],
+      "capabilities": ["presence-label", "presence-dot"],
+      "contract": "contracts/agentic/presence-indicator.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/presence-indicator",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/presence-indicator/presence-indicator.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "inline-edit",
+      "name": "InlineEdit",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["inline edit"],
+      "capabilities": [
+        "draft-entry",
+        "explicit-commit",
+        "validation",
+        "unchanged-value",
+        "save-lock",
+        "async-failure",
+        "conflict-before-save",
+        "locked-policy"
+      ],
+      "contract": "contracts/agentic/inline-edit.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/inline-edit",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/inline-edit/inline-edit.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "rich-text-editor",
+      "name": "RichTextEditor",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["rich text editor"],
+      "capabilities": [
+        "schema-boundary",
+        "formatting-engine",
+        "value-lifecycle",
+        "toolbar-access",
+        "link-policy",
+        "field-association",
+        "locked-content",
+        "serialized-form-value"
+      ],
+      "contract": "contracts/agentic/rich-text-editor.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/rich-text-editor",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/rich-text-editor/rich-text-editor.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "sortable-list",
+      "name": "SortableList",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["sortable list"],
+      "capabilities": [
+        "identity-boundary",
+        "controlled-order",
+        "real-drag-sensors",
+        "keyboard-instructions",
+        "move-alternative",
+        "cancel-and-invalid-target",
+        "stale-order-guard"
+      ],
+      "contract": "contracts/agentic/sortable-list.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/sortable-list",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/sortable-list/sortable-list.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "file-preview",
+      "name": "FilePreview",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["file preview"],
+      "capabilities": [
+        "image-allowlist",
+        "url-policy",
+        "metadata-semantics",
+        "image-failure",
+        "lightbox-composition",
+        "download-link"
+      ],
+      "contract": "contracts/agentic/file-preview.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/file-preview",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/components/file-preview/file-preview.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "aws-logo",
+      "name": "AWS architecture artwork",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["aws logo", "aws architecture symbol", "aws asset catalogue"],
+      "capabilities": ["named-brand-artwork", "vendored-asset-catalogue"],
+      "contract": "contracts/agentic/aws-logo.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/aws-logo",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/aws-logo/aws-logo.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "copyable-field",
+      "name": "CopyableField",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["copy field", "read-only value"],
+      "capabilities": ["read-only-text", "explicit-copy-action"],
+      "contract": "contracts/agentic/copyable-field.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/copyable-field",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/copyable-field/copyable-field.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "date-picker",
+      "name": "DatePicker",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["calendar date", "single date"],
+      "capabilities": ["calendar-single-selection", "date-popup", "time-zone-calendar-display"],
+      "contract": "contracts/agentic/date-picker.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/date-picker",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/date-picker/date-picker.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "file-upload",
+      "name": "FileUpload",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["attachments", "upload files"],
+      "capabilities": [
+        "local-file-selection",
+        "file-accept-limits",
+        "cancellable-upload-adapter",
+        "upload-progress"
+      ],
+      "contract": "contracts/agentic/file-upload.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/file-upload",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/file-upload/file-upload.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "multi-combobox",
+      "name": "MultiCombobox",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["multiple autocomplete", "multi select"],
+      "capabilities": [
+        "search-multiple-selection",
+        "selection-chips",
+        "select-filtered-options",
+        "remote-result-adapter"
+      ],
+      "contract": "contracts/agentic/multi-combobox.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/multi-combobox",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/multi-combobox/multi-combobox.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "radio-group",
+      "name": "RadioGroup",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["single choice", "radio buttons"],
+      "capabilities": ["single-radio-selection", "radio-keyboard-navigation", "native-form-value"],
+      "contract": "contracts/agentic/radio-group.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/radio-group",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/radio-group/radio-group.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "slider",
+      "name": "Slider",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["range slider", "numeric track"],
+      "capabilities": [
+        "numeric-slider",
+        "multi-thumb-range",
+        "logical-inversion",
+        "native-form-value"
+      ],
+      "contract": "contracts/agentic/slider.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/slider",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/slider/slider.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "time-range-picker",
+      "name": "TimeRangePicker",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["relative date range", "UTC time window"],
+      "capabilities": ["relative-time-presets", "absolute-utc-range", "explicit-range-apply"],
+      "contract": "contracts/agentic/time-range-picker.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/time-range-picker",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/time-range-picker/time-range-picker.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "tree-view",
+      "name": "TreeView",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["hierarchical selection", "source tree"],
+      "capabilities": ["hierarchical-leaf-selection", "tree-tristate", "tree-keyboard-navigation"],
+      "contract": "contracts/agentic/tree-view.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/tree-view",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/tree-view/tree-view.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "ai-diff-review",
+      "name": "AiDiffReview",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["AiDiffReview", "ai review", "approval", "proposed changes"],
+      "capabilities": [
+        "revision-reset",
+        "decision-availability",
+        "decision-context",
+        "failure-retention"
+      ],
+      "contract": "contracts/agentic/ai-diff-review.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "ai-panel",
+      "name": "AiPanel",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["AiPanel", "ai chat", "assistant", "conversation"],
+      "capabilities": ["open-state", "initial-snapshot", "stream-events", "stream-cancellation"],
+      "contract": "contracts/agentic/ai-panel.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/patterns/ai-panel/ai-panel.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "prompt-input",
+      "name": "PromptInput",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["PromptInput", "ai prompt", "chat input", "composer"],
+      "capabilities": [
+        "controlled-values",
+        "send-boundary",
+        "send-settlement",
+        "composer-keyboard"
+      ],
+      "contract": "contracts/agentic/prompt-input.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "filter-panel",
+      "name": "FilterPanel",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["FilterPanel", "faceted filters", "filter drawer"],
+      "capabilities": [
+        "controlled-filter-model",
+        "record-specific-counts",
+        "option-search",
+        "selected-owner-retention"
+      ],
+      "contract": "contracts/agentic/filter-panel.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "notification-center",
+      "name": "NotificationCenter",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["NotificationCenter", "inbox", "notifications panel"],
+      "capabilities": [
+        "controlled-items",
+        "local-filtering",
+        "action-serialization",
+        "row-removal-focus"
+      ],
+      "contract": "contracts/agentic/notification-center.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/patterns/notification-center/notification-center.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "onboarding-checklist",
+      "name": "OnboardingChecklist",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["OnboardingChecklist", "getting started", "setup checklist"],
+      "capabilities": [
+        "controlled-completion",
+        "completion-count",
+        "pending-actions",
+        "separate-step-actions"
+      ],
+      "contract": "contracts/agentic/onboarding-checklist.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "unsaved-changes-bar",
+      "name": "UnsavedChangesBar",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["UnsavedChangesBar", "pending changes", "save bar"],
+      "capabilities": ["visibility", "duplicate-save-guard", "save-error", "discard-action"],
+      "contract": "contracts/agentic/unsaved-changes-bar.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "wizard",
+      "name": "Wizard",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": ["Wizard", "multi step form", "project setup", "wizard"],
+      "capabilities": ["controlled-index", "advance-validation", "pending-boundary", "step-focus"],
+      "contract": "contracts/agentic/wizard.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/patterns/wizard/wizard.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "resizable-panels",
+      "name": "ResizablePanels",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["ResizablePanels", "resizable layout", "split pane"],
+      "capabilities": [
+        "primitive-delegation",
+        "collapsed-descendants",
+        "resize-callback",
+        "named-handle"
+      ],
+      "contract": "contracts/agentic/resizable-panels.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/resizable-panels",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/resizable-panels/resizable-panels.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "breadcrumb",
+      "name": "Breadcrumb",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["Breadcrumb", "breadcrumbs", "location trail"],
+      "capabilities": ["landmark", "current-page", "native-links", "native-actions"],
+      "contract": "contracts/agentic/breadcrumb.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/breadcrumb",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/breadcrumb/breadcrumb.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "command-palette",
+      "name": "CommandPalette",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["CommandPalette", "command menu", "quick actions"],
+      "capabilities": ["controlled-open", "query-matching", "keyboard-provider", "global-shortcut"],
+      "contract": "contracts/agentic/command-palette.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/command-palette",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/command-palette/command-palette.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "stepper",
+      "name": "Stepper",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["Stepper", "step indicator", "steps"],
+      "capabilities": ["derived-state", "informational-mode", "eligible-steps", "roving-focus"],
+      "contract": "contracts/agentic/stepper.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/stepper",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/stepper/stepper.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "bottom-sheet",
+      "name": "BottomSheet",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["BottomSheet", "bottom drawer", "mobile sheet"],
+      "capabilities": [
+        "nonmodal-placement",
+        "controlled-state",
+        "workspace-bounds",
+        "resize-inputs"
+      ],
+      "contract": "contracts/agentic/bottom-sheet.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/bottom-sheet",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/bottom-sheet/bottom-sheet.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "sheet",
+      "name": "Sheet",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["Sheet", "drawer", "panel", "sheet"],
+      "capabilities": ["push-layout", "controlled-size", "reserved-space", "pointer-resize"],
+      "contract": "contracts/agentic/sheet.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/sheet",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/sheet/sheet.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "tooltip",
+      "name": "Tooltip",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["Tooltip", "hint", "hover help"],
+      "capabilities": [
+        "visibility-control",
+        "description-association",
+        "disabled-bypass",
+        "primitive-interactions"
+      ],
+      "contract": "contracts/agentic/tooltip.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/tooltip",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/tooltip/tooltip.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "scroll-area",
+      "name": "ScrollArea",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["ScrollArea", "scroll container", "scrollbar"],
+      "capabilities": ["named-region", "keyboard-entry", "native-overflow", "height-policy"],
+      "contract": "contracts/agentic/scroll-area.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/scroll-area",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/scroll-area/scroll-area.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "accordion",
+      "name": "Accordion",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["Accordion", "collapsible sections", "disclosure"],
+      "capabilities": [
+        "typed-values",
+        "controlled-or-default",
+        "noncollapsible-single",
+        "disabled-disclosures"
+      ],
+      "contract": "contracts/agentic/accordion.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/accordion",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/accordion/accordion.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "context-menu",
+      "name": "ContextMenu",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["ContextMenu", "context actions", "right click menu"],
+      "capabilities": ["open-state", "keyboard-opening", "entry-types", "checkable-values"],
+      "contract": "contracts/agentic/context-menu.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/context-menu",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/context-menu/context-menu.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "area-chart",
+      "name": "AreaChart",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["filled time series"],
+      "capabilities": [
+        "container-precedence",
+        "legend-state",
+        "accessible-inspection",
+        "brush-bridge",
+        "render-policy",
+        "area-geometry"
+      ],
+      "contract": "contracts/agentic/area-chart.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/charts",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/charts/charts.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "bar-chart",
+      "name": "BarChart",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["categorical bar visualization"],
+      "capabilities": [
+        "container-precedence",
+        "legend-state",
+        "accessible-inspection",
+        "brush-bridge",
+        "render-policy",
+        "bar-geometry"
+      ],
+      "contract": "contracts/agentic/bar-chart.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/charts",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/charts/charts.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "line-chart",
+      "name": "LineChart",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["time series visualization"],
+      "capabilities": [
+        "container-precedence",
+        "legend-state",
+        "accessible-inspection",
+        "brush-bridge",
+        "render-policy",
+        "line-geometry"
+      ],
+      "contract": "contracts/agentic/line-chart.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/charts",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/charts/charts.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "chart-container",
+      "name": "ChartContainer",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["chart surface"],
+      "capabilities": [
+        "figure-name",
+        "state-precedence",
+        "retry-boundary",
+        "legend-and-footer",
+        "tooltip-formatting",
+        "legend-semantics",
+        "exact-data-table"
+      ],
+      "contract": "contracts/agentic/chart-container.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/charts",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/charts/charts.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "donut-chart",
+      "name": "DonutChart",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["donut", "doughnut", "pie"],
+      "capabilities": [
+        "normalized-values",
+        "zero-total",
+        "slice-palette",
+        "static-legend",
+        "visual-total",
+        "exact-data"
+      ],
+      "contract": "contracts/agentic/donut-chart.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/charts",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/charts/charts.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "chart-metric-card",
+      "name": "ChartMetricCard",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["kpi chart", "metric chart"],
+      "capabilities": [
+        "trend-meaning",
+        "data-validity",
+        "height-policy",
+        "variant-composition",
+        "number-formatting",
+        "empty-policy"
+      ],
+      "contract": "contracts/agentic/chart-metric-card.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/metric-card",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/metric-card/chart-metric-card.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "event-histogram",
+      "name": "EventHistogram",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["distribution", "histogram"],
+      "capabilities": [
+        "fixed-series",
+        "bucket-duration",
+        "range-reference",
+        "overlap-filter",
+        "brush-output",
+        "description-policy"
+      ],
+      "contract": "contracts/agentic/event-histogram.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/event-histogram",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/event-histogram/event-histogram.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "gantt-chart",
+      "name": "GanttChart",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["gantt", "gantt chart", "project timeline", "schedule"],
+      "capabilities": [
+        "calendar-validation",
+        "progress-milestones",
+        "scale-lifecycle",
+        "bounded-schedule",
+        "selection-semantics",
+        "dependency-semantics",
+        "viewport-and-cleanup",
+        "exact-schedule"
+      ],
+      "contract": "contracts/agentic/gantt-chart.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/gantt-chart",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "mini-bar-chart",
+      "name": "MiniBarChart",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["compact bar visualization"],
+      "capabilities": [
+        "bar-composition",
+        "normalized-data",
+        "replacement-states",
+        "accessible-summary",
+        "size-bounds"
+      ],
+      "contract": "contracts/agentic/mini-bar-chart.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/mini-bar-chart",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/mini-bar-chart/mini-bar-chart.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "code-editor",
+      "name": "CodeEditor",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["source editor"],
+      "capabilities": [
+        "value-lifecycle",
+        "keyboard-escape",
+        "readonly-surface",
+        "language-selection",
+        "folding-controls",
+        "highlight-range",
+        "status-lifecycle"
+      ],
+      "contract": "contracts/agentic/code-editor.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/code-editor",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/code-editor/code-editor.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "diff-view",
+      "name": "DiffView",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["code comparison"],
+      "capabilities": [
+        "original-lock",
+        "mode-state",
+        "external-documents",
+        "change-summary",
+        "navigation-focus",
+        "collapsed-context",
+        "lifecycle-cleanup"
+      ],
+      "contract": "contracts/agentic/diff-view.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/diff-view",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/diff-view/diff-view.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "yaml-presenter",
+      "name": "YamlPresenter",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["YAML tree viewer"],
+      "capabilities": [
+        "readonly-delegation",
+        "naming",
+        "fold-actions",
+        "copy-source",
+        "highlight-description"
+      ],
+      "contract": "contracts/agentic/yaml-presenter.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/yaml-presenter",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/yaml-presenter/yaml-presenter.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "json-viewer",
+      "name": "JsonViewer",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["json", "structured data"],
+      "capabilities": [
+        "value-classification",
+        "bounded-traversal",
+        "path-identity",
+        "keyboard-tree",
+        "copy-shortcuts",
+        "copy-validation",
+        "state-on-replacement"
+      ],
+      "contract": "contracts/agentic/json-viewer.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/json-viewer",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/json-viewer/json-viewer.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "relative-time",
+      "name": "RelativeTime",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["time ago", "timestamp"],
+      "capabilities": [
+        "invalid-value",
+        "fixed-versus-live",
+        "time-semantics",
+        "format-thresholds",
+        "localization-boundary"
+      ],
+      "contract": "contracts/agentic/relative-time.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/relative-time",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/relative-time/relative-time.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "timeline",
+      "name": "Timeline",
+      "kind": "component",
+      "version": 1,
+      "aliases": ["activity timeline", "event history"],
+      "capabilities": [
+        "list-semantics",
+        "empty-replacement",
+        "type-markers",
+        "time-delegation",
+        "ai-provenance",
+        "optional-content"
+      ],
+      "contract": "contracts/agentic/timeline.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/timeline",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/timeline/timeline.tsx",
         "reviewedBy": null
       }
     }

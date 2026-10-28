@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 2,
+  "id": "sheet",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Compose a bounded workspace and a nonmodal resizable side or bottom sheet that pushes its content.",
+  "anatomy": [
+    "workspace content",
+    "optional named sheet",
+    "resize separator",
+    "header and close",
+    "body",
+    "optional footer"
+  ],
+  "states": ["closed", "bottom", "left", "right", "resizing", "size-locked"],
+  "tokenGroup": "surface",
+  "behaviorProvider": "Native in-flow section and separator with sheet-state sizing helpers, ResizeObserver and pointer capture.",
+  "ownership": {
+    "component": ["workspace and panel layout", "bounded sizing", "resize and close behavior"],
+    "host": ["workspace dimensions", "controlled state", "content persistence and route focus"]
+  },
+  "requirements": [
+    {
+      "id": "push-layout",
+      "kind": "component",
+      "statement": "Keep content mounted in the workspace and conditionally mount the sheet at bottom, left or right. No viewport portal, modal backdrop or focus trap is created.",
+      "sources": ["src/components/sheet/sheet.tsx"]
+    },
+    {
+      "id": "controlled-size",
+      "kind": "component",
+      "statement": "Use controlled open/size when supplied, otherwise local defaults. Emit clamped integer size changes through onSizeChange; nonfinite size falls back to the computed minimum.",
+      "sources": ["src/components/sheet/sheet.tsx", "src/components/sheet/sheet-state.ts"]
+    },
+    {
+      "id": "reserved-space",
+      "kind": "component",
+      "statement": "Measure the workspace inner axis minus padding and gap, reserve contentMinSize and reconcile minimum/maximum to available space. Lock resizing when both computed bounds are equal.",
+      "sources": ["src/components/sheet/sheet.tsx", "src/components/sheet/sheet-state.ts"]
+    },
+    {
+      "id": "pointer-resize",
+      "kind": "component",
+      "statement": "Capture the primary pointer and resize on the placement axis. Release active drag on completion, cancellation, lost capture, blur, placement change or unmount.",
+      "sources": ["src/components/sheet/sheet.tsx"]
+    },
+    {
+      "id": "keyboard-resize",
+      "kind": "component",
+      "statement": "Expose separator orientation and numeric values; grow toward the workspace for the relevant placement arrow, shrink with its opposite, use Shift for a larger step and Home/End for bounds.",
+      "sources": ["src/components/sheet/sheet.tsx", "src/components/sheet/sheet-state.ts"]
+    },
+    {
+      "id": "close-focus",
+      "kind": "component",
+      "statement": "Close through its button or unhandled Escape inside the panel. If panel focus would be lost, restore a connected restoreFocusRef or remembered opener only while document focus remains on body.",
+      "sources": ["src/components/sheet/sheet.tsx"]
+    },
+    {
+      "id": "sizing-and-state",
+      "kind": "host",
+      "statement": "Supply finite coherent constraints and measurable workspace dimensions, then apply controlled state callbacks. Geometry adapts to the containing workspace rather than detecting product breakpoints.",
+      "sources": ["src/components/sheet/sheet.tsx"]
+    },
+    {
+      "id": "content-and-routing",
+      "kind": "host",
+      "statement": "Preserve sheet drafts across closing when necessary and own initial focus or routing. Arbitrary header/footer content must provide its own accessible controls.",
+      "sources": ["src/components/sheet/sheet.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes surface group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/components/sheet/sheet.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No modal isolation, automatic initial focus, universal route interception or persisted sheet state.",
+    "The optional sheet subtree unmounts when closed; the main content remains mounted.",
+    "Constraints other than the requested size require finite host inputs."
+  ]
+}

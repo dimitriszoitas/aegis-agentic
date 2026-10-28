@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 2,
+  "id": "copy-button",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "An explicit clipboard action with a temporary success icon and optional notification.",
+  "anatomy": ["named icon action", "success icon", "optional notification"],
+  "states": ["idle", "copied", "clipboard failure", "disabled via IconButton"],
+  "tokenGroup": "trigger",
+  "behaviorProvider": "Shared IconButton with the browser Clipboard API.",
+  "ownership": {
+    "component": [
+      "Write the supplied text with navigator.clipboard.writeText. Only after resolution show the check icon, change the action name to Copied, and call onCopy.",
+      "When notify is true, successful copy emits a success notification. Clipboard failure emits an error notification even when notify is false; no copied state is set on failure."
+    ],
+    "host": [
+      "Provide copyable content through text and a contextual aria-label. Mount NotificationViewport for notification feedback.",
+      "Own permission decisions and sensitive-data policy. Clipboard availability depends on browser permissions and context."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Write the supplied text with navigator.clipboard.writeText. Only after resolution show the check icon, change the action name to Copied, and call onCopy.",
+      "sources": ["src/components/copy-button/copy-button.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "When notify is true, successful copy emits a success notification. Clipboard failure emits an error notification even when notify is false; no copied state is set on failure.",
+      "sources": ["src/components/copy-button/copy-button.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Reset copied state after two seconds and clear that timer on unmount. Forward remaining IconButton properties and default emphasis to ghost.",
+      "sources": ["src/components/copy-button/copy-button.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Provide copyable content through text and a contextual aria-label. Mount NotificationViewport for notification feedback.",
+      "sources": ["src/components/copy-button/copy-button.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own permission decisions and sensitive-data policy. Clipboard availability depends on browser permissions and context.",
+      "sources": ["src/components/copy-button/copy-button.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use trigger group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/copy-button/copy-button.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No fallback copy implementation or onError callback is exposed.",
+    "The copied label and notification text are currently English. onCopy runs inside the clipboard try block; a thrown callback is treated as failure.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

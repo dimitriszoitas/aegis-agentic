@@ -61,6 +61,11 @@ export async function createServer(options) {
   for (const profile of context.kit.profiles) resource(`profile-${profile.id}`, `aegis://profiles/${encodeURIComponent(profile.id)}`, `Installed preset ${profile.name}. A bound project may have a different configured profile.`, 'application/json', () => context.kitRead(`profiles/${profile.id}.json`));
   resource('page-recipes', 'aegis://page-recipes', 'Supported page selections and their explicitly bounded validation scope.', 'application/json', () => context.kitRead(context.kit.pageComposition.recipes));
   for (const [name, path] of Object.entries(guidance)) resource(`guidance-${name}`, `aegis://guidance/${name}`, `Exact installed source guidance: ${path}`, 'text/markdown', () => context.kitRead(path));
+  for (const [name, path] of Object.entries(context.kit.authoringGuidance?.skills ?? {})) resource(`guidance-${name}`, `aegis://guidance/${name}`, `Exact library authoring guidance: ${path}. Requires a library source checkout; an installed package does not supply source editing or build workflows.`, 'text/markdown', () => context.kitRead(path));
+  if (context.kit.publicEntryCoverage) {
+    const coverage = context.kit.publicEntryCoverage;
+    resource('public-entry-coverage', 'aegis://public-entry-coverage', 'Exact public UI ownership and export classifications; source coverage is not runtime certification.', 'application/json', () => context.kitRead(coverage.path, limits.resourceBytes, coverage.sha256));
+  }
   const tool = (name, description, inputSchema, handler) => server.registerTool(name, { description, inputSchema, annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } }, async (input) => {
     try { boundedJson(input); await context.assertFresh(); return output(await handler(input)); }
     catch (error) { return { isError: true, content: [{ type: 'text', text: String(error.message ?? error).slice(0, 4000) }] }; }

@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 2,
+  "id": "chart-metric-card",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Combine a host-defined metric, explicit comparison and ordered underlying chart data.",
+  "anatomy": [
+    "metric header",
+    "summary value",
+    "optional delta and period",
+    "latest interval",
+    "chart or invalid state",
+    "exact-data disclosure"
+  ],
+  "states": [
+    "bar",
+    "area",
+    "compact",
+    "neutral trend",
+    "favorable trend",
+    "unfavorable trend",
+    "empty",
+    "invalid data"
+  ],
+  "tokenGroup": "data-viz",
+  "behaviorProvider": "Shared Card, AreaChart/BarChart, MiniBarChart and ChartDataTable.",
+  "ownership": {
+    "component": [
+      "Ignore nonfinite delta. Determine direction from its sign, while favorable/unfavorable color and hidden text require explicit trendIsPositive. Zero and omitted desirability remain neutral.",
+      "Reject the plotted dataset when any value is nonfinite, or when compact values are negative. Show a textual unavailable message and suppress latest/chart content for invalid data.",
+      "Use token-backed default heights for compact/full variants; finite explicit heights are clamped to the minimum chart height."
+    ],
+    "host": [
+      "Supply metric as the intended aggregation and data oldest-to-newest. The card neither derives metric from data nor sorts records; latest is the final supplied record.",
+      "Choose units, time period, comparison baseline and desirability explicitly. The component does not validate that the summary metric is finite or agrees with the records."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "metric-independence",
+      "kind": "host",
+      "statement": "Supply metric as the intended aggregation and data oldest-to-newest. The card neither derives metric from data nor sorts records; latest is the final supplied record.",
+      "sources": ["src/components/metric-card/chart-metric-card.tsx"]
+    },
+    {
+      "id": "trend-meaning",
+      "kind": "component",
+      "statement": "Ignore nonfinite delta. Determine direction from its sign, while favorable/unfavorable color and hidden text require explicit trendIsPositive. Zero and omitted desirability remain neutral.",
+      "sources": ["src/components/metric-card/chart-metric-card.tsx"]
+    },
+    {
+      "id": "data-validity",
+      "kind": "component",
+      "statement": "Reject the plotted dataset when any value is nonfinite, or when compact values are negative. Show a textual unavailable message and suppress latest/chart content for invalid data.",
+      "sources": ["src/components/metric-card/chart-metric-card.tsx"]
+    },
+    {
+      "id": "height-policy",
+      "kind": "component",
+      "statement": "Use token-backed default heights for compact/full variants; finite explicit heights are clamped to the minimum chart height.",
+      "sources": ["src/components/metric-card/chart-metric-card.tsx"]
+    },
+    {
+      "id": "variant-composition",
+      "kind": "component",
+      "statement": "Use AreaChart or BarChart with legend hidden and exact data enabled; full bars use datum colors when provided. Compact uses MiniBarChart with a descriptive interval/latest label and its own exact data table.",
+      "sources": ["src/components/metric-card/chart-metric-card.tsx"]
+    },
+    {
+      "id": "number-formatting",
+      "kind": "component",
+      "statement": "Apply valueFormatter to numeric summary, latest values and full chart ticks/tooltips. Keep exact data table values unformatted; summary title preserves localized numeric detail.",
+      "sources": ["src/components/metric-card/chart-metric-card.tsx"]
+    },
+    {
+      "id": "empty-policy",
+      "kind": "component",
+      "statement": "For valid empty compact data show No data for this period; full charts delegate empty rendering to their container. No latest interval renders for empty data.",
+      "sources": ["src/components/metric-card/chart-metric-card.tsx"]
+    },
+    {
+      "id": "host-meaning",
+      "kind": "host",
+      "statement": "Choose units, time period, comparison baseline and desirability explicitly. The component does not validate that the summary metric is finite or agrees with the records.",
+      "sources": ["src/components/metric-card/chart-metric-card.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume data-viz group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "No fetching, retry, loading state or aggregation logic is supplied by this card.",
+    "Compact charts are noninteractive mini bars; detailed exact values live in the disclosure."
+  ]
+}

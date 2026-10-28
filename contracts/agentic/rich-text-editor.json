@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 2,
+  "id": "rich-text-editor",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Edit schema-based rich text with bold, italic, lists, links and undo/redo using a mature text editing engine.",
+  "anatomy": [
+    "visible or supplied accessible label",
+    "formatting toolbar",
+    "contenteditable multiline textbox",
+    "optional hidden JSON form value",
+    "link dialog"
+  ],
+  "states": [
+    "controlled",
+    "uncontrolled",
+    "bold or italic selection",
+    "bullet or numbered list",
+    "link dialog",
+    "invalid URL",
+    "undo and redo",
+    "read-only",
+    "disabled",
+    "invalid"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Tiptap 3.32.1 / ProseMirror with limited StarterKit schema; Base UI Toolbar and shared Modal/TextInput/Button.",
+  "ownership": {
+    "component": [
+      "schema validation and JSON state bridge",
+      "formatting and link commands",
+      "Field associations and disabled policy"
+    ],
+    "host": [
+      "accepted document state and persistence",
+      "content validation and form lifecycle",
+      "safe downstream rendering and document migration"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "schema-boundary",
+      "kind": "component",
+      "statement": "Validate initial and controlled JSON with the installed editor schema. Require a doc root; reject unsupported nodes, invalid nesting and unsafe link destinations. Accepted output is normalized editor JSON.",
+      "sources": ["src/components/rich-text-editor/rich-text-editor.tsx"]
+    },
+    {
+      "id": "formatting-engine",
+      "kind": "component",
+      "statement": "Delegate editing, selection, composition, clipboard schema parsing and history to Tiptap/ProseMirror. Provide bold, italic, bullet-list, numbered-list, link, undo and redo commands through shared buttons.",
+      "sources": ["src/components/rich-text-editor/rich-text-editor.tsx"]
+    },
+    {
+      "id": "value-lifecycle",
+      "kind": "component",
+      "statement": "Initialize uncontrolled content from defaultValue once. Emit document JSON on editor updates. For controlled value, reconcile mismatched editor content without emitting an update or adding the replacement to history.",
+      "sources": ["src/components/rich-text-editor/rich-text-editor.tsx"]
+    },
+    {
+      "id": "toolbar-access",
+      "kind": "component",
+      "statement": "Use Base UI Toolbar keyboard navigation and expose active formatting through aria-pressed. Mouse toolbar activation preserves the editor selection and commands focus the editor.",
+      "sources": ["src/components/rich-text-editor/rich-text-editor.tsx"]
+    },
+    {
+      "id": "link-policy",
+      "kind": "component",
+      "statement": "Disable automatic linkification and click navigation in the editing surface. Accept HTTP(S), mailto and relative links; reject control characters and other protocols. The dialog preserves its draft on invalid input; empty input removes the selected link.",
+      "sources": ["src/components/rich-text-editor/rich-text-editor.tsx"]
+    },
+    {
+      "id": "field-association",
+      "kind": "component",
+      "statement": "Use Field control identity, disabled, required, invalid and description associations. Render the editing surface as a multiline textbox; a visible standalone label supplies aria-labelledby when no explicit label association is supplied.",
+      "sources": ["src/components/rich-text-editor/rich-text-editor.tsx"]
+    },
+    {
+      "id": "locked-content",
+      "kind": "component",
+      "statement": "Disabled and readOnly make the editor noneditable and disable formatting actions. Disabled removes the surface from sequential keyboard focus and excludes the named hidden input from form submission.",
+      "sources": ["src/components/rich-text-editor/rich-text-editor.tsx"]
+    },
+    {
+      "id": "serialized-form-value",
+      "kind": "component",
+      "statement": "When name is present, submit one hidden JSON string, optionally associated with the supplied form. Required is announced on the editor; a hidden input does not implement native nonempty-content validation.",
+      "sources": ["src/components/rich-text-editor/rich-text-editor.tsx"]
+    },
+    {
+      "id": "host-controlled-state",
+      "kind": "host",
+      "statement": "Feed accepted document changes back to value. External replacements can reposition selection; coordinate revisions and persistence outside the editor rather than treating this as a collaborative document protocol.",
+      "sources": ["src/components/rich-text-editor/README.md"]
+    },
+    {
+      "id": "host-content-policy",
+      "kind": "host",
+      "statement": "Validate meaningful document content before submission and validate/sanitize downstream rendering according to the application. The link policy and restricted schema are not a general HTML sanitizer.",
+      "sources": ["src/components/rich-text-editor/README.md"]
+    },
+    {
+      "id": "category-ownership",
+      "kind": "design",
+      "statement": "Use input group tokens for editor presentation and preserve nested toolbar Button and Modal token ownership.",
+      "sources": [
+        "src/components/rich-text-editor/rich-text-editor.css",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No tables, headings, media, file upload, comments, collaborative editing or raw HTML value API.",
+    "Editor initializes on the client; server-rendered output does not contain an interactive ProseMirror editor.",
+    "Toolbar and link-dialog copy is currently English. The host must supply a meaningful editor name."
+  ]
+}

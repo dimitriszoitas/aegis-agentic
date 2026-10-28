@@ -1,0 +1,39 @@
+.aegis-record-editor,
+.aegis-record-editor form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-workflow-unsaved-changes-bar-space-gap-comfortable);
+  min-inline-size: var(--group-workflow-surface-number-0);
+}
+.aegis-record-editor-header,
+.aegis-record-editor-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-workflow-unsaved-changes-bar-space-gap-compact);
+}
+.aegis-record-editor-header h2 {
+  margin: var(--group-workflow-surface-number-0);
+  font-size: var(--group-workflow-surface-font-size-subheading);
+  overflow-wrap: anywhere;
+}
+.aegis-record-editor-actions {
+  margin-inline-start: auto;
+}
+.aegis-record-editor-fields {
+  min-inline-size: var(--group-workflow-surface-number-0);
+  margin: var(--group-workflow-surface-number-0);
+  padding: var(--group-workflow-surface-number-0);
+  border: none;
+}
+.aegis-record-editor [data-record-editor-slot='status'] {
+  margin: var(--group-workflow-surface-number-0);
+  color: var(--group-workflow-surface-color-content-secondary);
+}
+.aegis-record-editor [data-record-editor-slot='status']:empty {
+  display: none;
+}
+.aegis-record-editor-header h2:focus-visible {
+  outline: var(--group-workflow-surface-border-width-regular) solid
+    var(--group-workflow-surface-ring-focus);
+}

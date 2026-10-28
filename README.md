@@ -40,16 +40,15 @@ Storybook's **Contract Catalogue** and each family’s **Contract** tab expose t
 
 The **0.5 product behavior contract milestone** adds 20 source-backed documents. At that milestone, the catalogue had **27 authored component/pattern contracts**, **25 mapped families out of 103**, **78 API-only families**, and two separately classified service protocols. The new schema-2 requirements distinguish component responsibilities, host obligations and design guidance, with stable ids and source references. This expands the written behavioral coverage without claiming that every requirement has executable or passing evidence. See [contract coverage and semantics](docs/CONTRACTS.md).
 
-The **0.6 forms and collections milestone** adds usable `PasswordInput`, `NumberInput`, `CollectionToolbar` and `FormSection` implementations, public exports, examples and contracts. The current catalogue has **107 API families**, **31 authored contracts**, **29 mapped families** and **78 API-only families**. The inputs handle password visibility and Base UI numeric entry; the patterns standardize controlled collection controls and native form grouping.
+The **0.7 library completion milestone** adds 17 working components and patterns: Combobox, OtpInput, TimePicker, DateTimePicker, PhoneInput, ColorPicker, InlineEdit, RichTextEditor, SortableList, FilePreview, Indicator, PresenceIndicator, FormErrorSummary, ResourceState, RecordEditor, AppShell and UnsavedNavigationGuard.
 
-| Addition                                                       | Use it for                                                                    | Public subpath                 |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------ |
-| [PasswordInput](src/components/password-input/README.md)       | Concealed entry with an accessible reveal action and native form integration. | `/password-input`              |
-| [NumberInput](src/components/number-input/README.md)           | Nullable numeric values, bounds, stepping and locale-aware formatting.        | `/number-input`                |
-| [CollectionToolbar](src/patterns/collection-toolbar/README.md) | Consistent search, filter/action slots, pending feedback and result counts.   | `/patterns/collection-toolbar` |
-| [FormSection](src/patterns/form-section/README.md)             | Named field groups, shared descriptions and responsive field columns.         | `/patterns/form-section`       |
+The catalogue now contains **124 API families, all with authored behavior contracts**, **127 authored contracts** in total and two separate service protocols. Three authored entries have no generated API family: TokenInput, DatasetFiltering and the vendored AWS artwork adapter. Existing CountBadge, StatusBadge, StatusDot, SeverityBadge, Tag/Chip and Avatar presence remain available.
 
-Each has Storybook examples, anatomy and a contract describing component and host responsibilities. `forms-collections:browser` checks the built Storybook; `forms-collections:package` exercises the packed public entries in a separate consumer. The catalogue reports coverage separately from passing evidence.
+Each new family has public imports, Storybook controls and examples, populated anatomy, source-backed requirements and explicit host responsibilities. `library-completion:source` checks real input/editor/workflow behavior; `library-completion:browser` checks the built Storybook across four theme/mode combinations and two widths; `library-completion:package` exercises the actual packed public entries. Written coverage remains separate from passing evidence.
+
+`coverage:check` rejects any API family without authored behavior, any unowned public UI entry, or an unclassified code export. Banner/Callout and Toast compatibility adapters map explicitly to Notification; support APIs and assets are classified separately. See [contract coverage](docs/CONTRACTS.md) and [the completion scope](experiments/library-completion/scope.json).
+
+Import the specific entry you use (for example `@dimitriszoitas/aegis-agentic/rich-text-editor`) when you want an explicit dependency boundary. Rich text uses Tiptap/ProseMirror, sorting uses dnd-kit, and phone parsing uses libphonenumber-js metadata. The host still owns authorization, persistence, conflict resolution, model calls and service deployment.
 
 ```sh
 node agent-kit/bin/aegis.mjs contracts coverage

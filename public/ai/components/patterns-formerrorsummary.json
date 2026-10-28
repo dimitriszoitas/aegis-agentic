@@ -1,0 +1,761 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.7.0-experiment.0"
+  },
+  "id": "patterns-formerrorsummary",
+  "name": "FormErrorSummary",
+  "category": "Feedback",
+  "tokenGroup": "feedback",
+  "kind": "component",
+  "aliases": [
+    "FormErrorSummary",
+    "form error summary"
+  ],
+  "purpose": "A linked, focusable form error summary. It accepts validation results rather than deciding form validity.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-agentic/patterns"
+  ],
+  "links": {
+    "contract": "./patterns-formerrorsummary.json",
+    "overview": "../../?path=/docs/components-feedback-formerrorsummary-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-feedback-formerrorsummary-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-feedback-formerrorsummary-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-feedback-formerrorsummary-overview--docs&docsTab=tokens"
+  },
+  "description": "Host-supplied validation messages with real field links; no validation engine or field mutation.",
+  "exports": [
+    "FormErrorSummary"
+  ],
+  "importStatements": [
+    "import { FormErrorSummary } from '@dimitriszoitas/aegis-agentic/patterns';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
+  "props": [
+    {
+      "component": "FormErrorSummary",
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/form-error-summary/form-error-summary.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "FormErrorSummary",
+      "name": "errors",
+      "type": "readonly FormErrorSummaryItem[]",
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/form-error-summary/form-error-summary.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "FormErrorSummary",
+      "name": "focusField",
+      "type": "((error: FormErrorSummaryItem) => void) | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/form-error-summary/form-error-summary.tsx",
+        "kind": "design-system"
+      },
+      "description": "Override for controls that need to reveal a tab or use a custom focus API."
+    },
+    {
+      "component": "FormErrorSummary",
+      "name": "focusRequestKey",
+      "type": "string | number | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/form-error-summary/form-error-summary.tsx",
+        "kind": "design-system"
+      },
+      "description": "Change after a failed submission to focus this summary. Omit for no automatic focus."
+    },
+    {
+      "component": "FormErrorSummary",
+      "name": "title",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/form-error-summary/form-error-summary.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"Check the following fields\""
+    }
+  ],
+  "variants": [],
+  "composition": [
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/link",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "A linked, focusable form error summary. It accepts validation results rather than deciding form validity.",
+    "usage": [
+      "Supply stable error IDs, actual control IDs and concise messages.",
+      "After a failed submission, change focusRequestKey; keep it stable while typing.",
+      "Use focusField to reveal tabs or focus custom controls."
+    ],
+    "accessibility": [
+      "Use meaningful names and preserve the shared control keyboard behavior.",
+      "Verify the real host integration, including focus and recovery, with keyboard and assistive technology."
+    ],
+    "intent": [
+      "Present host-supplied validation errors as a named, focusable summary with links to invalid fields."
+    ],
+    "context": [
+      "No validation engine, field mutation, router handling or automatic error dismissal.",
+      "A field that is missing, disabled, hidden or not focusable needs host handling.",
+      "Programmatic focus is an explicit caller request, not evidence that all assistive technologies announce identical text."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [],
+    "ariaAttributes": [
+      "aria-labelledby"
+    ],
+    "nativeElements": [
+      "h2",
+      "li",
+      "p",
+      "section",
+      "ul"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/icon/index.tsx",
+    "src/components/link/index.ts",
+    "src/components/link/link.css",
+    "src/components/link/link.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/patterns/form-error-summary/form-error-summary.css",
+    "src/patterns/form-error-summary/form-error-summary.stories.tsx",
+    "src/patterns/form-error-summary/form-error-summary.tsx",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "patterns-formerrorsummary--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/patterns-formerrorsummary--playground",
+      "sourceFile": "src/patterns/form-error-summary/form-error-summary.stories.tsx"
+    },
+    {
+      "id": "patterns-formerrorsummary--empty",
+      "name": "Empty",
+      "url": "../../?path=/story/patterns-formerrorsummary--empty",
+      "sourceFile": "src/patterns/form-error-summary/form-error-summary.stories.tsx"
+    },
+    {
+      "id": "patterns-formerrorsummary--validation-and-focus",
+      "name": "Validation And Focus",
+      "url": "../../?path=/story/patterns-formerrorsummary--validation-and-focus",
+      "sourceFile": "src/patterns/form-error-summary/form-error-summary.stories.tsx"
+    },
+    {
+      "id": "patterns-formerrorsummary--anatomy",
+      "name": "Anatomy",
+      "url": "../../?path=/story/patterns-formerrorsummary--anatomy",
+      "sourceFile": "src/patterns/form-error-summary/form-error-summary.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-feedback-empty-state-color-content-primary",
+    "--group-feedback-empty-state-color-content-secondary",
+    "--group-feedback-empty-state-font-size-subheading",
+    "--group-feedback-empty-state-number-0",
+    "--group-feedback-empty-state-space-gap-compact",
+    "--group-feedback-empty-state-space-padding-comfortable",
+    "--group-feedback-overlay-border-width-regular",
+    "--group-feedback-surface-border-width-regular",
+    "--group-feedback-surface-color-action-foreground",
+    "--group-feedback-surface-color-action-soft",
+    "--group-feedback-surface-color-border-default",
+    "--group-feedback-surface-color-content-primary",
+    "--group-feedback-surface-elevation-none",
+    "--group-feedback-surface-focus-offset",
+    "--group-feedback-surface-font-family-ui",
+    "--group-feedback-surface-font-leading-relaxed",
+    "--group-feedback-surface-font-leading-subheading",
+    "--group-feedback-surface-font-size-body",
+    "--group-feedback-surface-font-size-subheading",
+    "--group-feedback-surface-font-tracking-compact",
+    "--group-feedback-surface-motion-count-1",
+    "--group-feedback-surface-motion-disabled-duration",
+    "--group-feedback-surface-motion-reduced-duration",
+    "--group-feedback-surface-number-0",
+    "--group-feedback-surface-ring-focus",
+    "--group-feedback-surface-stack-gap-regular",
+    "--group-feedback-surface-title-weight",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-trigger-link-border-width-regular",
+    "--group-trigger-link-color-action-foreground",
+    "--group-trigger-link-color-content-primary",
+    "--group-trigger-link-color-content-tertiary",
+    "--group-trigger-link-font-leading-body",
+    "--group-trigger-link-font-size-body",
+    "--group-trigger-link-font-size-label",
+    "--group-trigger-link-number-0",
+    "--group-trigger-link-radius-border-radius-soft",
+    "--group-trigger-link-ring-focus",
+    "--group-trigger-link-size-height-1em",
+    "--group-trigger-link-size-max-width-full",
+    "--group-trigger-link-size-outline-offset-micro-compact",
+    "--group-trigger-link-size-text-decoration-thickness-micro-small",
+    "--group-trigger-link-size-text-underline-offset-0-18em",
+    "--group-trigger-link-size-width-1em",
+    "--group-trigger-link-space-gap-snug",
+    "--group-trigger-measurement-icon-sm",
+    "--group-trigger-surface-border-overlap",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-divider-height",
+    "--group-trigger-surface-divider-width",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-link-underline-offset",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-feedback-empty-state-space-gap-compact",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-number-0",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-content-primary",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-font-size-subheading",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-color-content-secondary",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-empty-state-space-padding-comfortable",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-overlay-border-width-regular",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-ring-focus",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-trigger-link-space-gap-snug",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-max-width-full",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-color-action-foreground",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-font-size-body",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-font-leading-body",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-text-underline-offset-0-18em",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-text-decoration-thickness-micro-small",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-radius-border-radius-soft",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-color-content-primary",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-font-size-label",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-number-0",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-border-width-regular",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-ring-focus",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-outline-offset-micro-compact",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-color-content-tertiary",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-width-1em",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-link-size-height-1em",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-feedback-surface-elevation-none",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-link-underline-offset",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-divider-width",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-divider-height",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-overlap",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-feedback-surface-color-border-default",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-focus-offset",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-number-0",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-subheading",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-title-weight",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-tracking-compact",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-leading-subheading",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-feedback-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-font-size-body",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-feedback-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "FormErrorSummary",
+      "group": "feedback"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-sm",
+      "ownership": "nested",
+      "component": "Link",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "ArrowUpRight",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

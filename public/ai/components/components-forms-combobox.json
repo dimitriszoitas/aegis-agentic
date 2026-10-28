@@ -1,0 +1,1977 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.7.0-experiment.0"
+  },
+  "id": "components-forms-combobox",
+  "name": "Combobox",
+  "category": "Inputs & Selection",
+  "tokenGroup": "input",
+  "kind": "component",
+  "aliases": [
+    "searchable select",
+    "single autocomplete"
+  ],
+  "purpose": "Search and choose one stable option ID while preserving independent query and selected value state.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-agentic/combobox"
+  ],
+  "links": {
+    "contract": "./components-forms-combobox.json",
+    "overview": "../../?path=/docs/components-inputs-selection-combobox-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-inputs-selection-combobox-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-inputs-selection-combobox-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-inputs-selection-combobox-overview--docs&docsTab=tokens"
+  },
+  "description": "Searchable single selection backed by Base UI. Selected IDs and search text remain separate. Native form submission uses the selected ID, not the typed query. For remote search, disable filtering and let the host own requests, race handling, result options and loading.",
+  "exports": [
+    "Combobox"
+  ],
+  "importStatements": [
+    "import { Combobox } from '@dimitriszoitas/aegis-agentic/combobox';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
+  "props": [
+    {
+      "component": "Combobox",
+      "name": "aria-label",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "autoComplete",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "clearable",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "true"
+    },
+    {
+      "component": "Combobox",
+      "name": "clearLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"Clear selection\""
+    },
+    {
+      "component": "Combobox",
+      "name": "defaultInputValue",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "defaultValue",
+      "type": "string | null | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "emptyLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"No matching options\""
+    },
+    {
+      "component": "Combobox",
+      "name": "filterOptions",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "true",
+      "description": "Disable local matching when options already contain host-filtered remote results."
+    },
+    {
+      "component": "Combobox",
+      "name": "form",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "inputProps",
+      "type": "Omit<Omit<Omit<ComboboxInputProps, \"ref\"> & RefAttributes<HTMLInputElement>, \"ref\">, \"name\" | \"defaultValue\" | \"id\" | \"value\" | \"disabled\" | \"size\" | \"readOnly\"> | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "inputValue",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      },
+      "description": "Search text is separate from the selected form value."
+    },
+    {
+      "component": "Combobox",
+      "name": "label",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "loading",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "false"
+    },
+    {
+      "component": "Combobox",
+      "name": "loadingLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"Loading options\""
+    },
+    {
+      "component": "Combobox",
+      "name": "name",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "onInputValueChange",
+      "type": "((inputValue: string, eventDetails: Primitive.Root.ChangeEventDetails) => void) | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "onOpenChange",
+      "type": "((open: boolean, eventDetails: Primitive.Root.OpenChangeEventDetails) => void) | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "onOpenChangeComplete",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "onValueChange",
+      "type": "((value: string | null, eventDetails: Primitive.Root.ChangeEventDetails) => void) | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "options",
+      "type": "readonly ComboboxOption[]",
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "placeholder",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "readOnly",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "selectedLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      },
+      "description": "Label fallback when a selected remote ID is absent from the current results."
+    },
+    {
+      "component": "Combobox",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"md\""
+    },
+    {
+      "component": "Combobox",
+      "name": "toggleLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"Show options\""
+    },
+    {
+      "component": "Combobox",
+      "name": "value",
+      "type": "string | null | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/combobox/combobox.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "id",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Combobox",
+      "name": "required",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    }
+  ],
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "default": "md"
+    }
+  ],
+  "composition": [
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/field",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon-button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "Search and choose one stable option ID while preserving independent query and selected value state.",
+    "usage": [
+      "Pass selected value/defaultValue and query inputValue/defaultInputValue independently to Base UI; selected value is string or null. A typed query is not a free-form submitted selection.",
+      "Pass value, input-value, open and open-completion callbacks without dropping primitive details or cancellation. Delegate list navigation, selection, dismissal and focus to Base UI.",
+      "Local matching searches option labels, descriptions and keywords. filterOptions=false delegates the result set to the host. loading announces status and disables current result selection; the component issues no network requests.",
+      "Require unique nonempty option IDs. selectedLabel supplies a display fallback when a remote selected ID is absent from the current result list; the underlying selected ID remains unchanged.",
+      "Use Field association on the visible input and pass name/form/required/disabled/readOnly to Base UI. Its associated form control submits the selected ID once; the forwarded ref targets the visible input."
+    ],
+    "accessibility": [
+      "Supply a visible label or enclosing Field. Placeholder text is not an accessible name.",
+      "Keep native semantics and keyboard focus; use Field for host descriptions and useful error feedback."
+    ],
+    "intent": [
+      "Own request debouncing, cancellation, races, caching, loading/error recovery and durable selection labels. Keep controlled query and selected value updates separate and inspect callback reasons before issuing requests."
+    ],
+    "context": [
+      "Single selection only; use MultiCombobox for multiple values. No free-solo creation or virtualized remote dataset is provided.",
+      "No asynchronous fetching, server validation or automatic error recovery. Remote selected labels must remain available through options or selectedLabel."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-busy",
+      "aria-describedby",
+      "aria-invalid",
+      "aria-label",
+      "aria-labelledby"
+    ],
+    "nativeElements": [
+      "div",
+      "label",
+      "span"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/combobox",
+      "@base-ui/react/tooltip",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/button/button.css",
+    "src/components/button/button.tsx",
+    "src/components/button/index.ts",
+    "src/components/combobox/combobox.css",
+    "src/components/combobox/combobox.stories.tsx",
+    "src/components/combobox/combobox.tsx",
+    "src/components/field/field.css",
+    "src/components/field/field.tsx",
+    "src/components/field/index.ts",
+    "src/components/icon-button/icon-button.css",
+    "src/components/icon-button/icon-button.tsx",
+    "src/components/icon-button/index.ts",
+    "src/components/icon/index.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/use-input-focus.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/input-focus.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-forms-combobox--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-forms-combobox--playground",
+      "sourceFile": "src/components/combobox/combobox.stories.tsx"
+    },
+    {
+      "id": "components-forms-combobox--anatomy",
+      "name": "Anatomy",
+      "url": "../../?path=/story/components-forms-combobox--anatomy",
+      "sourceFile": "src/components/combobox/combobox.stories.tsx"
+    },
+    {
+      "id": "components-forms-combobox--keyboard-and-form",
+      "name": "Keyboard And Form",
+      "url": "../../?path=/story/components-forms-combobox--keyboard-and-form",
+      "sourceFile": "src/components/combobox/combobox.stories.tsx"
+    },
+    {
+      "id": "components-forms-combobox--remote-results",
+      "name": "Remote Results",
+      "url": "../../?path=/story/components-forms-combobox--remote-results",
+      "sourceFile": "src/components/combobox/combobox.stories.tsx"
+    },
+    {
+      "id": "components-forms-combobox--cancelled-selection",
+      "name": "Cancelled Selection",
+      "url": "../../?path=/story/components-forms-combobox--cancelled-selection",
+      "sourceFile": "src/components/combobox/combobox.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--anchor-width",
+    "--available-height",
+    "--group-ai-assistance-ai-ring-focus",
+    "--group-ai-assistance-surface-border-width-regular",
+    "--group-ai-assistance-surface-focus-offset",
+    "--group-ai-assistance-surface-ring-focus",
+    "--group-code-code-editor-color-border-strong",
+    "--group-code-surface-border-width-regular",
+    "--group-code-surface-focus-offset",
+    "--group-code-surface-ring-focus",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-input-field-border-width-hairline",
+    "--group-input-field-border-width-regular",
+    "--group-input-field-color-border-strong",
+    "--group-input-field-color-content-primary",
+    "--group-input-field-color-content-secondary",
+    "--group-input-field-color-content-tertiary",
+    "--group-input-field-color-danger-foreground",
+    "--group-input-field-color-surface-hover",
+    "--group-input-field-color-surface-surface",
+    "--group-input-field-focus-offset",
+    "--group-input-field-font-leading-body",
+    "--group-input-field-font-leading-compact",
+    "--group-input-field-font-size-body",
+    "--group-input-field-font-weight-medium",
+    "--group-input-field-font-weight-regular",
+    "--group-input-field-gap-compact",
+    "--group-input-field-gap-snug",
+    "--group-input-field-height-compact",
+    "--group-input-field-height-large",
+    "--group-input-field-height-regular",
+    "--group-input-field-number-0",
+    "--group-input-field-opacity-disabled",
+    "--group-input-field-opacity-visible",
+    "--group-input-field-padding-compact",
+    "--group-input-field-padding-regular",
+    "--group-input-field-radius-bold",
+    "--group-input-field-radius-rounded",
+    "--group-input-field-radius-soft",
+    "--group-input-field-required-gap",
+    "--group-input-field-ring-focus",
+    "--group-input-field-width-available",
+    "--group-input-measurement-overlay-collision-padding",
+    "--group-input-measurement-picker-offset",
+    "--group-input-multi-combobox-color-surface-selected",
+    "--group-input-multi-combobox-color-surface-surface-raised",
+    "--group-input-multi-combobox-shadow-overlay",
+    "--group-input-multi-combobox-size-max-width-100vw",
+    "--group-input-multi-combobox-space-max-width-roomy",
+    "--group-input-multi-combobox-space-padding-snug",
+    "--group-input-multi-combobox-z-popover",
+    "--group-input-surface-appearance-control-border",
+    "--group-input-surface-appearance-control-border-hover",
+    "--group-input-surface-appearance-control-fill",
+    "--group-input-surface-border-overlap",
+    "--group-input-surface-border-width-regular",
+    "--group-input-surface-color-action-foreground",
+    "--group-input-surface-color-action-soft",
+    "--group-input-surface-color-border-default",
+    "--group-input-surface-color-content-primary",
+    "--group-input-surface-color-danger-foreground",
+    "--group-input-surface-divider-height",
+    "--group-input-surface-divider-width",
+    "--group-input-surface-elevation-none",
+    "--group-input-surface-focus-offset",
+    "--group-input-surface-font-family-ui",
+    "--group-input-surface-font-size-body",
+    "--group-input-surface-motion-count-1",
+    "--group-input-surface-motion-disabled-duration",
+    "--group-input-surface-motion-reduced-duration",
+    "--group-input-surface-number-0",
+    "--group-input-surface-ring-focus",
+    "--group-navigation-surface-border-width-regular",
+    "--group-navigation-surface-focus-offset",
+    "--group-navigation-surface-ring-focus",
+    "--group-trigger-button-appearance-action-hover",
+    "--group-trigger-button-appearance-ai-hover",
+    "--group-trigger-button-border-width-hairline",
+    "--group-trigger-button-color-ai-blue-fg",
+    "--group-trigger-button-color-ai-fg",
+    "--group-trigger-button-color-ai-pink-fg",
+    "--group-trigger-button-color-ai-purple-fg",
+    "--group-trigger-button-color-border-default",
+    "--group-trigger-button-color-content-primary",
+    "--group-trigger-button-color-surface-surface",
+    "--group-trigger-button-color-surface-surface-raised",
+    "--group-trigger-button-color-transparent",
+    "--group-trigger-button-elevation-none",
+    "--group-trigger-button-font-leading-solid",
+    "--group-trigger-button-font-size-body",
+    "--group-trigger-button-font-size-label",
+    "--group-trigger-button-font-weight-medium",
+    "--group-trigger-button-gap-compact",
+    "--group-trigger-button-gradient-ai",
+    "--group-trigger-button-gradient-ai-border",
+    "--group-trigger-button-gradient-ai-soft",
+    "--group-trigger-button-gradient-ai-text",
+    "--group-trigger-button-height-compact",
+    "--group-trigger-button-height-large",
+    "--group-trigger-button-height-regular",
+    "--group-trigger-button-icon-size-compact",
+    "--group-trigger-button-icon-size-large",
+    "--group-trigger-button-icon-size-regular",
+    "--group-trigger-button-intent-bg",
+    "--group-trigger-button-intent-border",
+    "--group-trigger-button-intent-fg",
+    "--group-trigger-button-intent-on",
+    "--group-trigger-button-intent-soft",
+    "--group-trigger-button-loading-duration",
+    "--group-trigger-button-loading-rotation",
+    "--group-trigger-button-motion-fast",
+    "--group-trigger-button-number-0",
+    "--group-trigger-button-opacity-disabled",
+    "--group-trigger-button-opacity-hidden",
+    "--group-trigger-button-outline-overlap",
+    "--group-trigger-button-outline-width",
+    "--group-trigger-button-padding-compact",
+    "--group-trigger-button-padding-icon",
+    "--group-trigger-button-padding-inline",
+    "--group-trigger-button-padding-regular",
+    "--group-trigger-button-padding-snug",
+    "--group-trigger-button-press-offset",
+    "--group-trigger-button-primary-fill-pressed",
+    "--group-trigger-button-radius-bold",
+    "--group-trigger-button-radius-current",
+    "--group-trigger-button-radius-strong",
+    "--group-trigger-button-shadow-overlay",
+    "--group-trigger-button-state-overlay-hover",
+    "--group-trigger-button-state-overlay-pressed",
+    "--group-trigger-button-state-overlay-spread",
+    "--group-trigger-button-tertiary-fill-hover",
+    "--group-trigger-button-tertiary-foreground-hover",
+    "--group-trigger-button-z-tooltip",
+    "--group-trigger-measurement-icon-md",
+    "--group-trigger-measurement-icon-tooltip-delay",
+    "--group-trigger-measurement-overlay-offset",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-flex-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-width-available",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-regular",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-regular",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-surface",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-hairline",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-border-strong",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-bold",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-compact",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-padding-compact",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-rounded",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-height-large",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-surface-hover",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-disabled",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-opacity-visible",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-border-width-regular",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-ring-focus",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-focus-offset",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-z-popover",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--anchor-width",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-size-max-width-100vw",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-space-max-width-roomy",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--available-height",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-surface-surface-raised",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-shadow-overlay",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-space-padding-snug",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-radius-soft",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-multi-combobox-color-surface-selected",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-code-editor-color-border-strong",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-ai-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-code-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-ring-focus",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-ai-assistance-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-navigation-surface-focus-offset",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-gap-snug",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-medium",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-compact",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-required-gap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-secondary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-weight-regular",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-danger-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-font-leading-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-field-color-content-tertiary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-trigger-button-z-tooltip",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-compact",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-bold",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-shadow-overlay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gap-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-inline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-current",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-leading-solid",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-weight-medium",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-motion-fast",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-bg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-on",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-icon",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-transparent",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-overlap",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-width",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-spread",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-press-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-disabled",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-hidden",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-snug",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-strong",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-rotation",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-text",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-elevation-none",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-fill-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-foreground-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-action-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-primary-fill-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-ai-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-fill",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-appearance-control-border-hover",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-flex-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-border-default",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-ring-focus",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-focus-offset",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-width",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-divider-height",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-border-overlap",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-input-surface-number-0",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-font-size-body",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "useFieldControl",
+      "group": "input"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-input-measurement-picker-offset",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-input-measurement-overlay-collision-padding",
+      "ownership": "owned",
+      "component": "Combobox",
+      "group": "input"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-tooltip-delay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-pink-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-blue-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-purple-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

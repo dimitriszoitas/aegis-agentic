@@ -1,0 +1,19 @@
+.aegis-resource-state {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-feedback-empty-state-space-gap-comfortable);
+  min-inline-size: var(--group-feedback-empty-state-number-0);
+}
+.aegis-resource-state [data-resource-slot='feedback']:empty {
+  display: none;
+}
+.aegis-resource-state [data-resource-slot='content'] {
+  min-inline-size: var(--group-feedback-empty-state-number-0);
+}
+.aegis-resource-state-loading {
+  display: flex;
+  align-items: center;
+  gap: var(--group-feedback-empty-state-space-gap-compact);
+  margin: var(--group-feedback-empty-state-number-0);
+  color: var(--group-feedback-empty-state-color-content-secondary);
+}

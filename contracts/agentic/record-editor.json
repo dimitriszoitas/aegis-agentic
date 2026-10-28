@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 2,
+  "id": "record-editor",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Coordinate a generic record viewing and editing session with an independent draft, asynchronous save/delete and explicit version conflicts.",
+  "anatomy": [
+    "record header",
+    "mode actions",
+    "status",
+    "native edit form",
+    "draft fields",
+    "shared save/discard bar",
+    "confirmation dialogs"
+  ],
+  "states": [
+    "view",
+    "edit clean",
+    "edit dirty",
+    "saving",
+    "save failure",
+    "version conflict",
+    "reload confirmation",
+    "delete confirmation",
+    "deleted",
+    "disabled"
+  ],
+  "tokenGroup": "workflow",
+  "behaviorProvider": "Native React composition with existing shared Aegis controls; see explicit component and host responsibilities.",
+  "ownership": {
+    "component": [
+      "draft-session lifecycle",
+      "native form and pending presentation",
+      "conflict preservation and confirmation"
+    ],
+    "host": [
+      "record identity and authoritative version",
+      "clone and equality policy",
+      "atomic persistence and cancellation handling",
+      "field validation, routing and permissions"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "draft-boundary",
+      "kind": "component",
+      "statement": "Create drafts through the supplied createDraft function and use isEqual to identify dirty state. Cancel/discard exits editing without mutating the supplied record.",
+      "sources": ["src/patterns/record-editor/record-editor.tsx"]
+    },
+    {
+      "id": "version-conflict",
+      "kind": "component",
+      "statement": "Preserve the current draft when the incoming record version changes during editing. Block saving until the user explicitly confirms loading the newest snapshot.",
+      "sources": ["src/patterns/record-editor/record-editor.tsx"]
+    },
+    {
+      "id": "version-authority",
+      "kind": "host",
+      "statement": "Change version for every authoritative record change and enforce expectedVersion atomically at persistence. A matching client version alone cannot prevent server races.",
+      "sources": [
+        "src/patterns/record-editor/record-editor.tsx",
+        "src/patterns/record-editor/README.md"
+      ]
+    },
+    {
+      "id": "save-result",
+      "kind": "component",
+      "statement": "Pass recordId, expectedVersion and AbortSignal to onSave; accept its authoritative record/version result, or retain the draft and show rejection text. Reject a result when a different newer incoming version arrived during the save.",
+      "sources": ["src/patterns/record-editor/record-editor.tsx"]
+    },
+    {
+      "id": "native-form",
+      "kind": "component",
+      "statement": "Use one native edit form, call reportValidity before saving, and wrap fields in a native disabled fieldset during pending or disabled state. Supply the same disabled state to renderFields.",
+      "sources": ["src/patterns/record-editor/record-editor.tsx"]
+    },
+    {
+      "id": "host-controls",
+      "kind": "host",
+      "statement": "Return independent drafts, a reliable equality comparator and individually named field controls. Explicitly disable portaled/custom controls using renderFields.disabled and provide domain validation before accepting a save.",
+      "sources": [
+        "src/patterns/record-editor/record-editor.tsx",
+        "src/patterns/record-editor/README.md"
+      ]
+    },
+    {
+      "id": "delete-version",
+      "kind": "component",
+      "statement": "Capture the version when deletion is requested. Reject confirmation if that version changed; await onDelete before showing deleted state and calling onDeleted. A deletion failure stays in ConfirmDialog.",
+      "sources": ["src/patterns/record-editor/record-editor.tsx"]
+    },
+    {
+      "id": "operation-lifetime",
+      "kind": "component",
+      "statement": "Prevent overlapping save/delete operations with an operation ref; abort the current signal on unmount. Changing recordId remounts the session and intentionally discards its local draft.",
+      "sources": ["src/patterns/record-editor/record-editor.tsx"]
+    },
+    {
+      "id": "cancellation-boundary",
+      "kind": "host",
+      "statement": "Honor AbortSignal when possible and guard record identity changes with a navigation policy. Aborting client observation does not undo an already committed server mutation.",
+      "sources": [
+        "src/patterns/record-editor/record-editor.tsx",
+        "src/patterns/record-editor/README.md"
+      ]
+    },
+    {
+      "id": "shared-workflow",
+      "kind": "design",
+      "statement": "Compose ConfirmDialog and UnsavedChangesBar without restyling them. Owned structure uses workflow tokens; nested controls retain their groups.",
+      "sources": [
+        "src/patterns/record-editor/record-editor.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No backend, authorization, autosave, undo, merge algorithm or automatic router guard.",
+    "The host must enforce optimistic concurrency on the server or other authoritative persistence boundary.",
+    "Record identity changes intentionally reset the session; same-version record changes violate the host version contract.",
+    "Native fieldset disabling does not disable portaled controls; renderFields.disabled is provided for that boundary."
+  ]
+}

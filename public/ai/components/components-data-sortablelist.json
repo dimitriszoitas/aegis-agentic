@@ -1,0 +1,1220 @@
+{
+  "$schema": "../schema.json#/$defs/component",
+  "schemaVersion": 1,
+  "documentType": "component",
+  "package": {
+    "name": "@dimitriszoitas/aegis-agentic",
+    "version": "0.7.0-experiment.0"
+  },
+  "id": "components-data-sortablelist",
+  "name": "SortableList",
+  "category": "Data Display",
+  "tokenGroup": "data-display",
+  "kind": "component",
+  "aliases": [
+    "sortable list"
+  ],
+  "purpose": "Reorder a controlled vertical list using pointer dragging, keyboard dragging or explicit move actions.",
+  "importPaths": [
+    "@dimitriszoitas/aegis-agentic/sortable-list"
+  ],
+  "links": {
+    "contract": "./components-data-sortablelist.json",
+    "overview": "../../?path=/docs/components-data-display-sortablelist-overview--docs&docsTab=overview",
+    "anatomy": "../../?path=/docs/components-data-display-sortablelist-overview--docs&docsTab=guidelines&docsSection=anatomy",
+    "api": "../../?path=/docs/components-data-display-sortablelist-overview--docs&docsTab=guidelines&docsSection=api",
+    "tokens": "../../?path=/docs/components-data-display-sortablelist-overview--docs&docsTab=tokens"
+  },
+  "description": "A controlled vertical list with real pointer/keyboard sensors and explicit move actions.",
+  "exports": [
+    "SortableList"
+  ],
+  "importStatements": [
+    "import { SortableList } from '@dimitriszoitas/aegis-agentic/sortable-list';"
+  ],
+  "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
+  "props": [
+    {
+      "component": "SortableList",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sortable-list/sortable-list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SortableList",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sortable-list/sortable-list.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "false"
+    },
+    {
+      "component": "SortableList",
+      "name": "emptyText",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sortable-list/sortable-list.tsx",
+        "kind": "design-system"
+      },
+      "defaultValue": "\"No items\""
+    },
+    {
+      "component": "SortableList",
+      "name": "items",
+      "type": "readonly SortableListItem[]",
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sortable-list/sortable-list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SortableList",
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sortable-list/sortable-list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SortableList",
+      "name": "onReorder",
+      "type": "(ids: string[], details: SortableListChange) => void",
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sortable-list/sortable-list.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "SortableList",
+      "name": "renderItem",
+      "type": "((item: SortableListItem) => ReactNode) | undefined",
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sortable-list/sortable-list.tsx",
+        "kind": "design-system"
+      }
+    }
+  ],
+  "variants": [],
+  "composition": [
+    {
+      "name": "@/components/button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    },
+    {
+      "name": "@/components/icon-button",
+      "componentIds": [],
+      "contracts": [],
+      "resolution": "not-in-index"
+    }
+  ],
+  "guidance": {
+    "overview": "Reorder a controlled vertical list using pointer dragging, keyboard dragging or explicit move actions.",
+    "usage": [
+      "Accept emitted ID order by reordering the same stable records and persist separately. Keep IDs stable across renames; reject unauthorized changes and resolve concurrent server updates in the host.",
+      "Give the list a useful name and each item a descriptive label even with renderItem. Custom interactive content must remain usable outside the dedicated drag handle."
+    ],
+    "accessibility": [
+      "dnd-kit core/sortable sensors and collision strategy, plus shared IconButton controls."
+    ],
+    "intent": [
+      "One vertical list only; no cross-list transfer, nested tree, virtualization or multi-select dragging.",
+      "There is no optimistic persisted state or server synchronization. Explicit move announcements describe a requested move, which the host may reject.",
+      "Rows intentionally have no animated reorder transition; the host should verify unusually tall or complex custom items."
+    ],
+    "context": [
+      "Use the authored sortable-list contract and its linked checks to assess behavior; source linkage is not certification."
+    ]
+  },
+  "evidence": {
+    "api": "source-extracted",
+    "guidance": "authored",
+    "runtimeVerification": "not-included",
+    "designParity": "not-recorded"
+  },
+  "sourceFacts": {
+    "roles": [
+      "status"
+    ],
+    "ariaAttributes": [
+      "aria-hidden",
+      "aria-label",
+      "aria-live"
+    ],
+    "nativeElements": [
+      "div",
+      "li",
+      "p",
+      "span",
+      "ul"
+    ],
+    "keyboardKeys": [],
+    "dependencies": [
+      "@base-ui/react/tooltip",
+      "@dnd-kit/core",
+      "@dnd-kit/sortable",
+      "@dnd-kit/utilities",
+      "@hugeicons/core-free-icons",
+      "@hugeicons/react",
+      "clsx",
+      "react",
+      "tailwind-merge"
+    ]
+  },
+  "sourceFiles": [
+    "src/components/button/button.css",
+    "src/components/button/button.tsx",
+    "src/components/button/index.ts",
+    "src/components/icon-button/icon-button.css",
+    "src/components/icon-button/icon-button.tsx",
+    "src/components/icon-button/index.ts",
+    "src/components/icon/index.tsx",
+    "src/components/sortable-list/sortable-list.css",
+    "src/components/sortable-list/sortable-list.stories.tsx",
+    "src/components/sortable-list/sortable-list.tsx",
+    "src/lib/component-design-tokens.ts",
+    "src/lib/component-token-group-values.ts",
+    "src/lib/utils.ts",
+    "src/package/styles.css",
+    "src/styles/component-runtime-tokens.css",
+    "src/styles/design-tokens.css",
+    "src/styles/fundamental-tokens.css",
+    "src/styles/fundamental.css",
+    "src/styles/globals.css",
+    "src/styles/primitive-color-tokens.css",
+    "src/styles/tokens.css"
+  ],
+  "stories": [
+    {
+      "id": "components-data-sortablelist--playground",
+      "name": "Playground",
+      "url": "../../?path=/story/components-data-sortablelist--playground",
+      "sourceFile": "src/components/sortable-list/sortable-list.stories.tsx"
+    },
+    {
+      "id": "components-data-sortablelist--keyboard-reorder",
+      "name": "Keyboard Reorder",
+      "url": "../../?path=/story/components-data-sortablelist--keyboard-reorder",
+      "sourceFile": "src/components/sortable-list/sortable-list.stories.tsx"
+    },
+    {
+      "id": "components-data-sortablelist--disabled",
+      "name": "Disabled",
+      "url": "../../?path=/story/components-data-sortablelist--disabled",
+      "sourceFile": "src/components/sortable-list/sortable-list.stories.tsx"
+    },
+    {
+      "id": "components-data-sortablelist--empty",
+      "name": "Empty",
+      "url": "../../?path=/story/components-data-sortablelist--empty",
+      "sourceFile": "src/components/sortable-list/sortable-list.stories.tsx"
+    },
+    {
+      "id": "components-data-sortablelist--anatomy",
+      "name": "Anatomy",
+      "url": "../../?path=/story/components-data-sortablelist--anatomy",
+      "sourceFile": "src/components/sortable-list/sortable-list.stories.tsx"
+    }
+  ],
+  "tokenRefs": [
+    "--group-data-display-list-color-content-primary",
+    "--group-data-display-list-color-content-secondary",
+    "--group-data-display-list-color-surface-hover",
+    "--group-data-display-list-color-surface-selected",
+    "--group-data-display-list-flex-fill",
+    "--group-data-display-list-number-0",
+    "--group-data-display-list-opacity-strength-emphasized",
+    "--group-data-display-list-radius-border-radius-strong",
+    "--group-data-display-list-space-gap-regular",
+    "--group-data-display-list-space-gap-snug",
+    "--group-data-display-list-space-padding-regular",
+    "--group-data-display-measurement-icon-sm",
+    "--group-data-display-surface-border-overlap",
+    "--group-data-display-surface-border-width-regular",
+    "--group-data-display-surface-color-action-foreground",
+    "--group-data-display-surface-color-action-soft",
+    "--group-data-display-surface-color-border-default",
+    "--group-data-display-surface-color-content-primary",
+    "--group-data-display-surface-divider-height",
+    "--group-data-display-surface-divider-width",
+    "--group-data-display-surface-elevation-none",
+    "--group-data-display-surface-focus-offset",
+    "--group-data-display-surface-font-family-ui",
+    "--group-data-display-surface-font-leading-relaxed",
+    "--group-data-display-surface-font-size-body",
+    "--group-data-display-surface-motion-count-1",
+    "--group-data-display-surface-motion-disabled-duration",
+    "--group-data-display-surface-motion-reduced-duration",
+    "--group-data-display-surface-number-0",
+    "--group-data-display-surface-ring-focus",
+    "--group-data-display-surface-stack-gap-regular",
+    "--group-iconography-measurement-icon-default",
+    "--group-iconography-measurement-icon-stroke",
+    "--group-iconography-surface-border-width-regular",
+    "--group-iconography-surface-color-action-foreground",
+    "--group-iconography-surface-color-action-soft",
+    "--group-iconography-surface-color-border-default",
+    "--group-iconography-surface-color-content-primary",
+    "--group-iconography-surface-elevation-none",
+    "--group-iconography-surface-focus-offset",
+    "--group-iconography-surface-font-family-ui",
+    "--group-iconography-surface-font-size-body",
+    "--group-iconography-surface-motion-count-1",
+    "--group-iconography-surface-motion-disabled-duration",
+    "--group-iconography-surface-motion-reduced-duration",
+    "--group-iconography-surface-number-0",
+    "--group-iconography-surface-ring-focus",
+    "--group-trigger-button-appearance-action-hover",
+    "--group-trigger-button-appearance-ai-hover",
+    "--group-trigger-button-border-width-hairline",
+    "--group-trigger-button-color-ai-blue-fg",
+    "--group-trigger-button-color-ai-fg",
+    "--group-trigger-button-color-ai-pink-fg",
+    "--group-trigger-button-color-ai-purple-fg",
+    "--group-trigger-button-color-border-default",
+    "--group-trigger-button-color-content-primary",
+    "--group-trigger-button-color-surface-surface",
+    "--group-trigger-button-color-surface-surface-raised",
+    "--group-trigger-button-color-transparent",
+    "--group-trigger-button-elevation-none",
+    "--group-trigger-button-font-leading-solid",
+    "--group-trigger-button-font-size-body",
+    "--group-trigger-button-font-size-label",
+    "--group-trigger-button-font-weight-medium",
+    "--group-trigger-button-gap-compact",
+    "--group-trigger-button-gradient-ai",
+    "--group-trigger-button-gradient-ai-border",
+    "--group-trigger-button-gradient-ai-soft",
+    "--group-trigger-button-gradient-ai-text",
+    "--group-trigger-button-height-compact",
+    "--group-trigger-button-height-large",
+    "--group-trigger-button-height-regular",
+    "--group-trigger-button-icon-size-compact",
+    "--group-trigger-button-icon-size-large",
+    "--group-trigger-button-icon-size-regular",
+    "--group-trigger-button-intent-bg",
+    "--group-trigger-button-intent-border",
+    "--group-trigger-button-intent-fg",
+    "--group-trigger-button-intent-on",
+    "--group-trigger-button-intent-soft",
+    "--group-trigger-button-loading-duration",
+    "--group-trigger-button-loading-rotation",
+    "--group-trigger-button-motion-fast",
+    "--group-trigger-button-number-0",
+    "--group-trigger-button-opacity-disabled",
+    "--group-trigger-button-opacity-hidden",
+    "--group-trigger-button-outline-overlap",
+    "--group-trigger-button-outline-width",
+    "--group-trigger-button-padding-compact",
+    "--group-trigger-button-padding-icon",
+    "--group-trigger-button-padding-inline",
+    "--group-trigger-button-padding-regular",
+    "--group-trigger-button-padding-snug",
+    "--group-trigger-button-press-offset",
+    "--group-trigger-button-primary-fill-pressed",
+    "--group-trigger-button-radius-bold",
+    "--group-trigger-button-radius-current",
+    "--group-trigger-button-radius-strong",
+    "--group-trigger-button-shadow-overlay",
+    "--group-trigger-button-state-overlay-hover",
+    "--group-trigger-button-state-overlay-pressed",
+    "--group-trigger-button-state-overlay-spread",
+    "--group-trigger-button-tertiary-fill-hover",
+    "--group-trigger-button-tertiary-foreground-hover",
+    "--group-trigger-button-z-tooltip",
+    "--group-trigger-measurement-icon-md",
+    "--group-trigger-measurement-icon-tooltip-delay",
+    "--group-trigger-measurement-overlay-offset",
+    "--group-trigger-surface-border-width-regular",
+    "--group-trigger-surface-color-action-foreground",
+    "--group-trigger-surface-color-action-soft",
+    "--group-trigger-surface-color-border-default",
+    "--group-trigger-surface-color-content-primary",
+    "--group-trigger-surface-elevation-none",
+    "--group-trigger-surface-flex-none",
+    "--group-trigger-surface-focus-offset",
+    "--group-trigger-surface-font-family-ui",
+    "--group-trigger-surface-font-size-body",
+    "--group-trigger-surface-motion-count-1",
+    "--group-trigger-surface-motion-disabled-duration",
+    "--group-trigger-surface-motion-reduced-duration",
+    "--group-trigger-surface-number-0",
+    "--group-trigger-surface-ring-focus"
+  ],
+  "tokenBindings": [
+    {
+      "token": "--group-data-display-list-number-0",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-list-color-content-primary",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-list-space-gap-snug",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-list-space-gap-regular",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-list-space-padding-regular",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-list-radius-border-radius-strong",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-list-color-surface-hover",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-list-opacity-strength-emphasized",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-list-color-surface-selected",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-list-flex-fill",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-list-color-content-secondary",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-trigger-button-z-tooltip",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-compact",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface-raised",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-bold",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-shadow-overlay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gap-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-inline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-border-width-hairline",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-current",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-leading-solid",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-weight-medium",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-motion-fast",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-bg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-on",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-font-size-label",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-height-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-icon",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-transparent",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-intent-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-overlap",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-outline-width",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-border",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-spread",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-press-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-state-overlay-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-disabled",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-md",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-opacity-hidden",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-compact",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-icon-size-large",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-padding-snug",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-radius-strong",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-loading-rotation",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-surface-surface",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-gradient-ai-text",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-elevation-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-data-display-surface-elevation-none",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-iconography-surface-elevation-none",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-fill-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-tertiary-foreground-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-action-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-primary-fill-pressed",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-appearance-ai-hover",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-border-default",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-ring-focus",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-focus-offset",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-flex-none",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-data-display-surface-color-border-default",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-width-regular",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-ring-focus",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-focus-offset",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-soft",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-action-foreground",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-number-0",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-leading-relaxed",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-stack-gap-regular",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-divider-width",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-divider-height",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-border-overlap",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-reduced-duration",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-count-1",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-motion-disabled-duration",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-iconography-surface-color-border-default",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-border-width-regular",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-ring-focus",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-focus-offset",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-soft",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-action-foreground",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-reduced-duration",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-count-1",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-motion-disabled-duration",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-number-0",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-font-size-body",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-data-display-surface-font-family-ui",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-font-size-body",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-data-display-surface-color-content-primary",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-iconography-surface-number-0",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-family-ui",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-font-size-body",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-surface-color-content-primary",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-data-display-measurement-icon-sm",
+      "ownership": "owned",
+      "component": "SortableList",
+      "group": "data-display"
+    },
+    {
+      "token": "--group-trigger-measurement-icon-tooltip-delay",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-measurement-overlay-offset",
+      "ownership": "nested",
+      "component": "IconButton",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-pink-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-blue-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-trigger-button-color-ai-purple-fg",
+      "ownership": "nested",
+      "component": "Button",
+      "group": "trigger"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-stroke",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    },
+    {
+      "token": "--group-iconography-measurement-icon-default",
+      "ownership": "nested",
+      "component": "LoaderCircle",
+      "group": "iconography"
+    }
+  ],
+  "tokenGraph": "../tokens.json"
+}

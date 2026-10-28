@@ -36,6 +36,8 @@ Specify responsibility, anatomy, properties, invalid combinations, state model, 
 
 Find the nearest approved family and examples. Use deterministic shared recipes; never copy resolved profile colors into component CSS. A new composition can be valid without adding a semantic role. Tests must include required states and relevant combinations, not merely confirm the implementation's current output.
 
+In the source library, every generated API family must have an explicit authored contract binding. Register the canonical implementation, export and public import; cite actual sources for behavior requirements and distinguish component responsibilities from host obligations. Document real limits instead of implying that an API signature or generated story proves behavior. Public UI aliases require a deliberate mapping; support APIs and assets are classified separately. Follow [the coverage model](../../docs/CONTRACTS.md), regenerate derived documentation, and run `coverage:check` after the catalogue is current. This gate enforces ownership, not acceptance evidence. A local consumer composition follows its project policy and does not become a canonical library family automatically.
+
 ## Evidence and acceptance
 
 Keep exact profile, registry and compiler versions with each result. Report automated checks, manual review and unverified cases separately. New candidates are experimental until promoted into a canonical registry release. Shared acceptance needs design/behavior review; local creation is allowed without publishing it.

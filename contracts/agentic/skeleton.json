@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "id": "skeleton",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A decorative placeholder that reserves the approximate shape of pending content.",
+  "anatomy": ["placeholder wrapper", "optional row cells"],
+  "states": ["text", "block", "avatar", "table-row", "animated or static"],
+  "tokenGroup": "feedback",
+  "behaviorProvider": "Presentational placeholder divs.",
+  "ownership": {
+    "component": [
+      "Default the wrapper to aria-hidden and render table-row cells only for the table-row variant. Normalize finite columns to at least one whole cell; non-finite values use five.",
+      "Forward host dimensions/style and expose animate/variant data attributes for styling. Skeleton does not set aria-busy on surrounding content."
+    ],
+    "host": [
+      "Provide a separate loading status or busy region and replace placeholders with real content.",
+      "Use dimensions from product layout tokens and preserve reduced-motion treatment. Limit column counts and do not place focusable children inside an aria-hidden placeholder."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Default the wrapper to aria-hidden and render table-row cells only for the table-row variant. Normalize finite columns to at least one whole cell; non-finite values use five.",
+      "sources": ["src/components/skeleton/skeleton.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Forward host dimensions/style and expose animate/variant data attributes for styling. Skeleton does not set aria-busy on surrounding content.",
+      "sources": ["src/components/skeleton/skeleton.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Provide a separate loading status or busy region and replace placeholders with real content.",
+      "sources": ["src/components/skeleton/skeleton.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Use dimensions from product layout tokens and preserve reduced-motion treatment. Limit column counts and do not place focusable children inside an aria-hidden placeholder.",
+      "sources": ["src/components/skeleton/skeleton.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use feedback group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": ["src/components/skeleton/skeleton.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "No data fetching, loading-state inference or content measurement is provided.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

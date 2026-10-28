@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 2,
+  "id": "stepper",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Show ordered workflow progress and optionally revisit the current or completed steps through controlled navigation.",
+  "anatomy": [
+    "navigation landmark",
+    "ordered steps",
+    "state markers",
+    "titles and descriptions",
+    "optional step buttons"
+  ],
+  "states": ["upcoming", "current", "complete", "error", "disabled", "informational"],
+  "tokenGroup": "navigation",
+  "behaviorProvider": "Native nav/list/buttons with local roving tab-stop and orientation-specific keyboard focus.",
+  "ownership": {
+    "component": ["state presentation", "eligible-step focus movement", "step change requests"],
+    "host": [
+      "current index and validity",
+      "validation and persistence",
+      "step labels and identifiers"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "derived-state",
+      "kind": "component",
+      "statement": "Use an explicit item state when supplied; otherwise derive complete/current/upcoming from the zero-based currentStep. Mark the indexed current item with aria-current=step.",
+      "sources": ["src/components/stepper/stepper.tsx"]
+    },
+    {
+      "id": "informational-mode",
+      "kind": "component",
+      "statement": "Without onStepChange, render informational step content rather than interactive controls. With a callback, render native buttons.",
+      "sources": ["src/components/stepper/stepper.tsx"]
+    },
+    {
+      "id": "eligible-steps",
+      "kind": "component",
+      "statement": "Enable only the current index or steps whose effective state is complete, unless the whole component is disabled. Request a change only for a different enabled step.",
+      "sources": ["src/components/stepper/stepper.tsx"]
+    },
+    {
+      "id": "roving-focus",
+      "kind": "component",
+      "statement": "Maintain one tab stop among eligible steps. Orientation-appropriate arrows wrap focus, while Home and End focus the first or last eligible step without selecting it.",
+      "sources": ["src/components/stepper/stepper.tsx"]
+    },
+    {
+      "id": "state-names",
+      "kind": "component",
+      "statement": "Expose step number, title and effective state in button labels and hidden state text; visual status markers are decorative.",
+      "sources": ["src/components/stepper/stepper.tsx"]
+    },
+    {
+      "id": "controlled-index",
+      "kind": "host",
+      "statement": "Supply a valid currentStep, stable unique ids and an onStepChange handler that updates state. The component does not validate bounds or persist progress.",
+      "sources": ["src/components/stepper/stepper.tsx"]
+    },
+    {
+      "id": "workflow-policy",
+      "kind": "host",
+      "statement": "Perform validation, data saves and permission checks before applying requested changes; explicit completed states make earlier or later steps eligible.",
+      "sources": ["src/components/stepper/stepper.tsx"]
+    },
+    {
+      "id": "orientation-policy",
+      "kind": "host",
+      "statement": "Choose orientation and meaningful navigation naming for the surrounding page. Horizontal arrow mapping is physical left/right and is not automatically reversed for RTL.",
+      "sources": ["src/components/stepper/stepper.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes navigation group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/components/stepper/stepper.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No step validation, next/back action, asynchronous lifecycle or automatic progress persistence.",
+    "Explicit states may disagree with the indexed current marker; hosts must keep them coherent.",
+    "No RTL-specific reversal of horizontal keyboard arrows."
+  ]
+}

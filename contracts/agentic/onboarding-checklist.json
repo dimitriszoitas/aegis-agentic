@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 2,
+  "id": "onboarding-checklist",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present host-owned setup steps with completion progress, optional actions and retryable operation feedback.",
+  "anatomy": [
+    "region heading",
+    "collapse/dismiss controls",
+    "progress",
+    "step list",
+    "completion footer",
+    "status and error"
+  ],
+  "states": ["expanded", "collapsed", "loading", "error", "pending", "empty", "complete"],
+  "tokenGroup": "workflow",
+  "behaviorProvider": "Shared Checkbox, ProgressBar, Button and feedback components with a local serialized action helper.",
+  "ownership": {
+    "component": ["progress and step presentation", "collapsed state", "action feedback"],
+    "host": ["completion data", "step side effects", "dismiss/reset/retry policy"]
+  },
+  "requirements": [
+    {
+      "id": "controlled-completion",
+      "kind": "component",
+      "statement": "Render completed state from each supplied item and request changes through onCompletedChange. Without that callback, completion checkboxes are read-only.",
+      "sources": ["src/patterns/onboarding-checklist/onboarding-checklist.tsx"]
+    },
+    {
+      "id": "completion-count",
+      "kind": "component",
+      "statement": "Count every supplied item, including optional items, in progress and completion. Completion requires a nonempty list with all items completed.",
+      "sources": ["src/patterns/onboarding-checklist/onboarding-checklist.tsx"]
+    },
+    {
+      "id": "pending-actions",
+      "kind": "component",
+      "statement": "Serialize completion and step actions; while one is pending, disable owned step checkboxes/actions and present errors without inventing a completed state.",
+      "sources": ["src/patterns/onboarding-checklist/onboarding-checklist.tsx"]
+    },
+    {
+      "id": "separate-step-actions",
+      "kind": "component",
+      "statement": "Invoke an item action only when its action and action label are supplied. Successful action execution does not automatically mark the item completed.",
+      "sources": ["src/patterns/onboarding-checklist/onboarding-checklist.tsx"]
+    },
+    {
+      "id": "collapse-and-status",
+      "kind": "component",
+      "statement": "Toggle the step content through a button with expanded/controls semantics; keep a status announcement for completed local actions and mark the region busy for loading or pending work.",
+      "sources": ["src/patterns/onboarding-checklist/onboarding-checklist.tsx"]
+    },
+    {
+      "id": "loading-empty-error",
+      "kind": "component",
+      "statement": "Render loading placeholders, supplied error with optional retry, no-step feedback, or completion footer according to props. Start again and dismiss delegate to host callbacks.",
+      "sources": ["src/patterns/onboarding-checklist/onboarding-checklist.tsx"]
+    },
+    {
+      "id": "authoritative-progress",
+      "kind": "host",
+      "statement": "Provide stable unique item identifiers and update completion only after the product action is actually complete; decide how optional steps affect the supplied list.",
+      "sources": ["src/patterns/onboarding-checklist/onboarding-checklist.tsx"]
+    },
+    {
+      "id": "operation-lifecycle",
+      "kind": "host",
+      "statement": "Implement persistence, reset, dismissal and retry behavior. Pending promises are not canceled by collapse or dismissal, and those controls are not a blanket lock on the whole region.",
+      "sources": ["src/patterns/onboarding-checklist/onboarding-checklist.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes workflow group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Optional is a presentation label, not exclusion from the completion denominator.",
+    "No persistence, dependencies between steps or verification of real-world completion.",
+    "Host callbacks own cancellation and route transitions; no AbortSignal is provided."
+  ]
+}

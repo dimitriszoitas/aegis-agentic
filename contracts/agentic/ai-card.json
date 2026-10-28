@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 2,
+  "id": "ai-card",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A labeled AI-generated result with optional confidence, provenance, feedback, and regeneration.",
+  "anatomy": [
+    "AI label",
+    "optional confidence",
+    "optional title",
+    "content",
+    "optional provenance",
+    "feedback controls"
+  ],
+  "states": ["content", "loading", "feedback positive/negative/unselected"],
+  "tokenGroup": "ai",
+  "behaviorProvider": "Native section with shared AiLabel, ConfidenceBadge and AiFeedback.",
+  "ownership": {
+    "component": [
+      "Mark material visibly as AI generated. An optional title renders as h3 and labels the section; loading exposes aria-busy and disables feedback/regeneration controls.",
+      "Render supplied confidence and provenance without inferring or verifying either. Show the footer only when provenance, feedback or regenerate inputs are present."
+    ],
+    "host": [
+      "Own generation, provenance, confidence calibration and feedback persistence. Present generated content as reviewable information.",
+      "Use an appropriate accessible section name when title is omitted; own document heading hierarchy."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Mark material visibly as AI generated. An optional title renders as h3 and labels the section; loading exposes aria-busy and disables feedback/regeneration controls.",
+      "sources": ["src/components/ai-card/ai-card.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Render supplied confidence and provenance without inferring or verifying either. Show the footer only when provenance, feedback or regenerate inputs are present.",
+      "sources": ["src/components/ai-card/ai-card.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "AiFeedback uses the controlled feedback value when supplied, otherwise local selection. Positive and negative buttons expose aria-pressed and invoke onFeedback; regeneration is an independent optional action.",
+      "sources": ["src/components/ai-card/ai-card.tsx"]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "AiLabel uses a unique gradient id and observes prefers-reduced-motion; server rendering starts without gradient motion.",
+      "sources": ["src/components/ai-card/ai-card.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Own generation, provenance, confidence calibration and feedback persistence. Present generated content as reviewable information.",
+      "sources": ["src/components/ai-card/ai-card.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Use an appropriate accessible section name when title is omitted; own document heading hierarchy.",
+      "sources": ["src/components/ai-card/ai-card.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use ai group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": ["src/components/ai-card/ai-card.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "AI visual treatment and confidence do not certify correctness, safety or approval.",
+    "Feedback is not automatically persisted or sent to a model.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

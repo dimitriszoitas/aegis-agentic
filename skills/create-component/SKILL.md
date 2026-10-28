@@ -36,3 +36,5 @@ Provide an args-driven Playground story for the Overview. Forward its controls t
 Check the four Fundamental/Fundamental Floating and light/dark combinations. The same size variant must keep its dimensions, font metrics, and spacing in all four. Verify the applicable keyboard behavior, pointer behavior, names, disabled/error states, overlays, and mobile fit. Include reduced-motion or forced-colors checks when the component uses those features. An axe pass supplements native interaction checks; it does not replace them.
 
 Run scoped formatting/lint and the repository checks relevant to the change. If public exports change, verify the package entry and consumer types. Coordinate the final documentation generation with other work so one generation uses a stable source snapshot. Report what changed, what was verified, and any remaining limitation.
+
+For additions to the reusable library, follow [authored contract coverage](../references/agentic-contract.md#new-components): bind the real implementation and public entry, preserve component/host ownership, and pass the coverage gate. Keep generated API facts, written requirements and executed evidence distinct.

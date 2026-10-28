@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "id": "status-badge",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A textual lifecycle status for new, in-review, in-progress, completed, or cancelled records.",
+  "anatomy": ["decorative status dot", "visible status label"],
+  "states": ["new", "in-review", "in-progress", "completed", "cancelled"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Static record workflow label and StatusDot.",
+  "ownership": {
+    "component": [
+      "StatusBadge always combines a decorative StatusDot with the corresponding visible workflow label.",
+      "Standalone StatusDot defaults to a named image role; label=false deliberately hides it from assistive technology. Map workflow states to shared semantic status roles."
+    ],
+    "host": [
+      "Supply the record workflow state and own state transitions, authorization and persistence.",
+      "Use PresenceIndicator for availability; these record states do not represent online/offline status."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "StatusBadge always combines a decorative StatusDot with the corresponding visible workflow label.",
+      "sources": ["src/components/status-badge/status-badge.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Standalone StatusDot defaults to a named image role; label=false deliberately hides it from assistive technology. Map workflow states to shared semantic status roles.",
+      "sources": ["src/components/status-badge/status-badge.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply the record workflow state and own state transitions, authorization and persistence.",
+      "sources": [
+        "src/components/status-badge/status-badge.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Use PresenceIndicator for availability; these record states do not represent online/offline status.",
+      "sources": [
+        "src/components/status-badge/status-badge.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/status-badge/status-badge.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No state machine, transition guard or live announcement is supplied.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 2,
+  "id": "ai-diff-review",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Review an original/proposed text pair with explicit local approve or reject decisions and asynchronous host callbacks.",
+  "anatomy": [
+    "AI card",
+    "provenance and summary",
+    "read-only diff",
+    "decision controls",
+    "audit status"
+  ],
+  "states": ["pending", "approving", "rejecting", "approved", "rejected", "error", "disabled"],
+  "tokenGroup": "ai-assistance",
+  "behaviorProvider": "React request lifecycle composed with shared AiCard, DiffView and Button.",
+  "ownership": {
+    "component": [
+      "revision-bound decisions",
+      "pending and error presentation",
+      "decision focus feedback"
+    ],
+    "host": [
+      "authoritative side effects",
+      "document and provenance accuracy",
+      "controlled status reconciliation"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "revision-reset",
+      "kind": "component",
+      "statement": "Treat the original/proposed pair as the review revision; changing either aborts the current operation and resets the local review state to pending.",
+      "sources": ["src/patterns/ai-diff-review/ai-diff-review.tsx"]
+    },
+    {
+      "id": "decision-availability",
+      "kind": "component",
+      "statement": "Allow review only while not disabled, not awaiting a decision, status is pending, and original and proposed differ.",
+      "sources": ["src/patterns/ai-diff-review/ai-diff-review.tsx"]
+    },
+    {
+      "id": "decision-context",
+      "kind": "component",
+      "statement": "Pass original, proposed and an AbortSignal to decision callbacks; approve additionally receives proposed content. Ignore results for aborted or superseded operations.",
+      "sources": ["src/patterns/ai-diff-review/ai-diff-review.tsx"]
+    },
+    {
+      "id": "failure-retention",
+      "kind": "component",
+      "statement": "A failed decision retains a pending review with an error and returns focus to the relevant decision control; success announces the decision and focuses its audit summary.",
+      "sources": ["src/patterns/ai-diff-review/ai-diff-review.tsx"]
+    },
+    {
+      "id": "local-decision",
+      "kind": "component",
+      "statement": "Support local decisions even when no approve/reject callback is supplied; the status does not prove that an external system changed.",
+      "sources": ["src/patterns/ai-diff-review/ai-diff-review.tsx"]
+    },
+    {
+      "id": "side-effect-boundary",
+      "kind": "host",
+      "statement": "Implement permissions, persistence, audit records and cancellation of remote work. An AbortSignal and ignored UI results cannot undo an already applied side effect.",
+      "sources": ["src/patterns/ai-diff-review/ai-diff-review.tsx"]
+    },
+    {
+      "id": "review-material",
+      "kind": "host",
+      "statement": "Supply accurate original/proposed content, provenance, confidence and any controlled status. These displayed facts are not independently verified by the component.",
+      "sources": ["src/patterns/ai-diff-review/ai-diff-review.tsx"]
+    },
+    {
+      "id": "read-only-review",
+      "kind": "component",
+      "statement": "Compose the shared read-only DiffView with collapsed unchanged content and first-change focus support; mode and maximum-height props configure the review presentation.",
+      "sources": ["src/patterns/ai-diff-review/ai-diff-review.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes ai-assistance group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/patterns/ai-diff-review/ai-diff-review.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Approval is a local UI state, not security authorization or human certification.",
+    "No editing, merging, deployment, persistence or independently verified AI provenance.",
+    "Hosts must reconcile controlled status and honor cancellation where their backend allows it."
+  ]
+}

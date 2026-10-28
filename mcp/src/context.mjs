@@ -9,6 +9,7 @@ export const supportedKitRevisions = Object.freeze({
   '0.4.0-experiment.0': 2,
   '0.5.0-experiment.0': 3,
   '0.6.0-experiment.0': 4,
+  '0.7.0-experiment.0': 5,
 });
 export const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 export const within = (root, file) => { const part = relative(root, file); return part === '' || (!isAbsolute(part) && part !== '..' && !part.startsWith(`..${sep}`)); };
@@ -47,6 +48,7 @@ export function boundedJson(value) {
 }
 const parse = (text, label) => { try { return JSON.parse(text); } catch { throw new Error(`Invalid JSON: ${label}`); } };
 const digest = (value) => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
+const object = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 
 export async function loadContext(options) {
   const kitRoot = await realpath(resolve(options.kit));
@@ -62,6 +64,16 @@ export async function loadContext(options) {
   };
   const kit = parse(await kitRead('kit.json'), 'kit.json');
   if (kit.name !== '@dimitriszoitas/aegis-agentic' || kit.schemaVersion !== 1 || !Object.hasOwn(supportedKitRevisions, kit.version) || kit.compilerVersion !== '1' || kit.registryRevision !== supportedKitRevisions[kit.version]) throw new Error('Unsupported kit identity/schema.');
+  if (kit.authoringGuidance !== undefined) {
+    const authoring = kit.authoringGuidance;
+    if (!object(authoring) || authoring.requiredWorkflow !== 'library-source-checkout' || !object(authoring.skills) || Object.keys(authoring.skills).some((name) => !['create-component', 'create-token', 'create-layout'].includes(name))) throw new Error('Unsupported authoring guidance metadata.');
+    for (const path of Object.values(authoring.skills)) safeRelative(path);
+  }
+  if (kit.publicEntryCoverage !== undefined) {
+    const coverage = kit.publicEntryCoverage;
+    if (!object(coverage) || (coverage.sha256 !== undefined && !digest(coverage.sha256))) throw new Error('Invalid public entry coverage metadata.');
+    safeRelative(coverage.path);
+  }
   const runtimePath = safeRelative(kit.runtime);
   const runtimeText = await kitRead(runtimePath, limits.runtimeBytes);
   // Dynamic file imports intentionally resolve the supplied installed kit; no repository fallback.
@@ -91,7 +103,7 @@ export async function loadContext(options) {
     } else throw new Error('Unsupported project lock format; explicit consumer or compiled-profile lock required.');
     binding = { status: 'bound', projectRoot, lockPath, lockKind, lockSha256: sha256(lockText), profilePath, profileId: compiled.profile.id, profileHash: compiled.hash, profileSourceSha256: sha256(profileText), profileRevisionAttested: false, policyPath, dependencySource: lock.dependencySource ?? null, declaredTarballSha256: lock.tarballSha256 ?? null, tarballBytesVerified: false };
   } else binding = { status: 'unbound', projectRoot: null, profileRevisionAttested: false, note: 'Discovery uses only this installed kit. No project/profile pin or product policy is attested.' };
-  const metadata = () => ({ kit: { name: kit.name, version: kit.version, registryRevision: kit.registryRevision, compilerVersion: kit.compilerVersion, integritySha256: kitIntegritySha256 }, binding, readOnly: true, supportedProtocolVersions: ['2025-11-25'], limits });
+  const metadata = () => ({ kit: { name: kit.name, version: kit.version, registryRevision: kit.registryRevision, compilerVersion: kit.compilerVersion, integritySha256: kitIntegritySha256, ...(kit.authoringGuidance ? { authoringGuidance: kit.authoringGuidance } : {}), ...(kit.publicEntryCoverage ? { publicEntryCoverage: kit.publicEntryCoverage } : {}) }, binding, readOnly: true, supportedProtocolVersions: ['2025-11-25'], limits });
   const assertFresh = async () => {
     if (sha256(await readBound(kitRoot, 'integrity.json', 2 * 1024 * 1024)) !== kitIntegritySha256) throw new Error('Kit snapshot changed; restart against explicit pins.');
     await kitRead('kit.json');

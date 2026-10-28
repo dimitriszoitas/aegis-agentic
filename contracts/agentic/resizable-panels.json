@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 2,
+  "id": "resizable-panels",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Expose the resizable-panels behavior library through group, panel and labelled separator components.",
+  "anatomy": [
+    "panel group",
+    "resizable panels",
+    "labelled resize handles",
+    "optional decorative grip"
+  ],
+  "states": ["expanded", "resizing", "collapsed", "keyboard-focus", "pointer-focus"],
+  "tokenGroup": "layout",
+  "behaviorProvider": "react-resizable-panels Group, Panel and Separator; Aegis adds styling and collapsed descendant semantics.",
+  "ownership": {
+    "component": [
+      "primitive prop forwarding",
+      "collapsed inertness",
+      "labelled handle and focus styling"
+    ],
+    "host": [
+      "panel layout constraints",
+      "accessible names",
+      "persistence and surrounding workspace"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "primitive-delegation",
+      "kind": "component",
+      "statement": "Forward GroupProps through ResizablePanels and PanelProps through ResizablePanel; sizing, pointer gestures and separator keyboard mechanics belong to react-resizable-panels.",
+      "sources": ["src/components/resizable-panels/resizable-panels.tsx"]
+    },
+    {
+      "id": "collapsed-descendants",
+      "kind": "component",
+      "statement": "Mark a panel inert and aria-hidden when its reported percentage is zero; initialize this state from a zero defaultSize and preserve explicitly supplied inert/aria-hidden values.",
+      "sources": ["src/components/resizable-panels/resizable-panels.tsx"]
+    },
+    {
+      "id": "resize-callback",
+      "kind": "component",
+      "statement": "Update collapsed state before forwarding each panel onResize callback with size, id and previous values.",
+      "sources": ["src/components/resizable-panels/resizable-panels.tsx"]
+    },
+    {
+      "id": "named-handle",
+      "kind": "component",
+      "statement": "Require a label for ResizeHandle and apply it as the separator accessible name; the optional default grip is decorative.",
+      "sources": ["src/components/resizable-panels/resizable-panels.tsx"]
+    },
+    {
+      "id": "focus-origin",
+      "kind": "component",
+      "statement": "Track pointer-versus-keyboard handle focus for presentation while forwarding supplied capture handlers. This does not replace the primitive keyboard implementation.",
+      "sources": ["src/components/resizable-panels/resizable-panels.tsx"]
+    },
+    {
+      "id": "layout-constraints",
+      "kind": "host",
+      "statement": "Supply compatible direction, panel identifiers, default/min/max sizes and collapsible constraints through the primitive API; give the group a usable bounded layout.",
+      "sources": ["src/components/resizable-panels/resizable-panels.tsx"]
+    },
+    {
+      "id": "names-and-focus",
+      "kind": "host",
+      "statement": "Name each handle for the adjacent content and account for focus when collapsing a panel containing the active control; inert hides descendants but does not implement a product-specific fallback.",
+      "sources": ["src/components/resizable-panels/resizable-panels.tsx"]
+    },
+    {
+      "id": "persistence",
+      "kind": "host",
+      "statement": "Persist and restore layout through host state or the underlying library API when required. The Aegis wrapper does not choose a storage key or save sizes itself.",
+      "sources": ["src/components/resizable-panels/resizable-panels.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes layout group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/components/resizable-panels/resizable-panels.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Behavior follows the installed react-resizable-panels version; this contract does not certify every upstream interaction.",
+    "No automatic persistence or arbitrary descendant focus handoff on collapse.",
+    "All group/panel sizing constraints remain the host responsibility."
+  ]
+}

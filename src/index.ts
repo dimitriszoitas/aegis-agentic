@@ -87,3 +87,37 @@ export * from './components/file-upload';
 
 export * from './components/password-input';
 export * from './components/number-input';
+
+export * from './components/indicator';
+
+export * from './components/presence-indicator';
+
+export * from './patterns/form-error-summary';
+
+export * from './patterns/resource-state';
+
+export * from './patterns/record-editor';
+
+export * from './patterns/app-shell';
+
+export * from './patterns/unsaved-navigation-guard';
+
+export * from './components/combobox';
+
+export * from './components/otp-input';
+
+export * from './components/time-picker';
+
+export * from './components/date-time-picker';
+
+export * from './components/phone-input';
+
+export * from './components/color-picker';
+
+export * from './components/inline-edit';
+
+export * from './components/rich-text-editor';
+
+export * from './components/sortable-list';
+
+export * from './components/file-preview';

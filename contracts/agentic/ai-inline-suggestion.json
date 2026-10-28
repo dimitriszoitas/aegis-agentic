@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 2,
+  "id": "ai-inline-suggestion",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "An input or textarea with an optional proposed suffix that the user explicitly accepts or dismisses.",
+  "anatomy": [
+    "field label",
+    "native input or textarea",
+    "decorative ghost completion",
+    "AI marker",
+    "accept/dismiss actions",
+    "live suggestion hint"
+  ],
+  "states": [
+    "uncontrolled or controlled text",
+    "eligible suggestion",
+    "dismissed",
+    "disabled",
+    "read-only",
+    "composition"
+  ],
+  "tokenGroup": "ai",
+  "behaviorProvider": "Shared TextInput/Textarea, Field integration and explicit completion acceptance.",
+  "ownership": {
+    "component": [
+      "Show a completion only when enabled and editable, the caret/selection is at the end, the full suggestion starts with current text and is longer, it was not dismissed, and it fits maxLength.",
+      "Accept only through the explicit action or unmodified forward Tab while a completion is available. Skip key interception when the caller prevented default or composition is active. Ordinary Tab navigation is preserved when no completion is eligible."
+    ],
+    "host": [
+      "Supply the full proposed value, including the current prefix, and accept controlled text updates.",
+      "Own model calls, suggestion freshness, validation, data handling and persistence. Make suggestion content safe and relevant."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Show a completion only when enabled and editable, the caret/selection is at the end, the full suggestion starts with current text and is longer, it was not dismissed, and it fits maxLength.",
+      "sources": ["src/components/ai-inline-suggestion/ai-inline-suggestion.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Accept only through the explicit action or unmodified forward Tab while a completion is available. Skip key interception when the caller prevented default or composition is active. Ordinary Tab navigation is preserved when no completion is eligible.",
+      "sources": ["src/components/ai-inline-suggestion/ai-inline-suggestion.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Acceptance updates the uncontrolled value or emits onValueChange for a controlled value, then calls onAccept and restores input focus/caret to the suggestion end. Escape dismisses the current suggestion and calls onDismiss without changing text.",
+      "sources": ["src/components/ai-inline-suggestion/ai-inline-suggestion.tsx"]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "Keep the ghost rendering hidden from assistive technology and scroll-aligned. Associate a polite text hint describing the suggestion and acceptance keys with the native control.",
+      "sources": ["src/components/ai-inline-suggestion/ai-inline-suggestion.tsx"]
+    },
+    {
+      "id": "behavior-5",
+      "kind": "component",
+      "statement": "Forward the public ref to the actual input/textarea and merge Field naming, description, disabled, required and invalid metadata.",
+      "sources": ["src/components/ai-inline-suggestion/ai-inline-suggestion.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply the full proposed value, including the current prefix, and accept controlled text updates.",
+      "sources": [
+        "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own model calls, suggestion freshness, validation, data handling and persistence. Make suggestion content safe and relevant.",
+      "sources": [
+        "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use ai group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No model request, debounce, approval policy or server persistence is implemented.",
+    "Dismissal remembers a suggestion string; supplying that same string again does not automatically clear dismissal.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

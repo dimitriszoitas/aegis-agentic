@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 2,
+  "id": "link",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A native anchor for navigation, with optional icons and explicit external-link behavior.",
+  "anatomy": [
+    "optional leading icon",
+    "link label",
+    "optional trailing icon",
+    "new-tab explanation"
+  ],
+  "states": ["enabled", "disabled", "external or same-tab", "keyboard focus"],
+  "tokenGroup": "trigger",
+  "behaviorProvider": "Native anchor and forwarded anchor ref.",
+  "ownership": {
+    "component": [
+      "Render a native anchor with href and forwarded ref. external defaults target to _blank unless target is supplied, and supplies an external icon unless trailingIcon is present.",
+      "For any effective _blank target merge noopener and noreferrer into rel and append visually hidden new-tab text when enabled."
+    ],
+    "host": [
+      "Supply a safe intended URL and meaningful link text. Own router integration, destination permission and server authorization.",
+      "Use Button for actions; do not override disabled semantics or provide interactive descendants."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Render a native anchor with href and forwarded ref. external defaults target to _blank unless target is supplied, and supplies an external icon unless trailingIcon is present.",
+      "sources": ["src/components/link/link.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "For any effective _blank target merge noopener and noreferrer into rel and append visually hidden new-tab text when enabled.",
+      "sources": ["src/components/link/link.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Disabled removes href and target, sets aria-disabled, removes the anchor from Tab order, and prevents/stops click before the caller handler.",
+      "sources": ["src/components/link/link.tsx"]
+    },
+    {
+      "id": "behavior-4",
+      "kind": "component",
+      "statement": "Hide leading and trailing icon wrappers from assistive technology while keeping children as the visible link label.",
+      "sources": ["src/components/link/link.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply a safe intended URL and meaningful link text. Own router integration, destination permission and server authorization.",
+      "sources": ["src/components/link/link.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Use Button for actions; do not override disabled semantics or provide interactive descendants.",
+      "sources": ["src/components/link/link.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use trigger group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": ["src/components/link/link.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "disabled is a UI state, not access control. Arbitrary supplied URLs are not validated or sanitized by Link.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

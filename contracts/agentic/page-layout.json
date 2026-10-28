@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "page-layout",
   "version": 1,
   "status": "experimental",
@@ -60,6 +60,107 @@
     "The consuming application owns the document main landmark, data states and actual task semantics."
   ],
   "limits": [
+    "These four recipes are an initial library, not an exhaustive classification of pages. Unsupported tasks may require another reviewed recipe.",
+    "Reading measures are starting points, not universal readability guarantees.",
+    "Configuration validation cannot replace browser interaction, geometry, accessibility and visual review.",
+    "No human approval or stable release is implied by experimental registry discovery."
+  ],
+  "ownership": {
+    "component": [
+      "supported recipe selection and structural slot order",
+      "PageHeader composition and section identity",
+      "explicit reading columns and adaptive grid wrappers"
+    ],
+    "host": [
+      "document main landmark and page-padding shell",
+      "actual task data/forms/navigation and content",
+      "nested component semantics and rendered review"
+    ]
+  },
+  "states": [
+    "collection",
+    "detail with or without aside",
+    "settings reading measure",
+    "dashboard adaptive grid",
+    "unsupported configuration"
+  ],
+  "requirements": [
+    {
+      "id": "public-entry",
+      "kind": "host",
+      "statement": "Import PageLayout, ReadingColumn, ContentGrid, pageLayoutRecipes and validatePageLayoutRecipe from the declared public importPath. Read recipeSource/portableRecipes and the page-composition guidance for the same supported recipe decisions.",
+      "sources": [
+        "src/patterns/page-layout/page-layout.tsx",
+        "src/patterns/page-layout/recipes.ts",
+        "scripts/build-agent-kit.mjs",
+        "skills/references/page-composition.md"
+      ]
+    },
+    {
+      "id": "required-structure",
+      "kind": "component",
+      "statement": "Require archetype, title and children by the public props union. Render a named section with the shared PageHeader and heading ID, then optional filters, main content, optional labelled aside and optional footer in that order.",
+      "sources": ["src/patterns/page-layout/page-layout.tsx"]
+    },
+    {
+      "id": "runtime-selection",
+      "kind": "component",
+      "statement": "Collect supplied non-null/non-undefined/non-false optional slots and validate their recipe configuration at render time; throw TypeError for unsupported configuration. Header/main are always declared structurally, so null children are not detected as missing task content.",
+      "sources": ["src/patterns/page-layout/page-layout.tsx", "src/patterns/page-layout/recipes.ts"]
+    },
+    {
+      "id": "collection-recipe",
+      "kind": "component",
+      "statement": "Collection permits filters/footer and available-width main content; reject aside, measure and grid options. Keep collection overflow and toolbar behavior inside its supplied data component.",
+      "sources": ["src/patterns/page-layout/page-layout.tsx", "src/patterns/page-layout/recipes.ts"]
+    },
+    {
+      "id": "detail-recipe",
+      "kind": "component",
+      "statement": "Detail permits a labelled aside/footer, with main before aside and at most those two recipe regions. Reject filters and page-level reading/grid options; use ReadingColumn explicitly within main for prose.",
+      "sources": ["src/patterns/page-layout/page-layout.tsx", "src/patterns/page-layout/recipes.ts"]
+    },
+    {
+      "id": "settings-recipe",
+      "kind": "component",
+      "statement": "Settings wraps children in ReadingColumn with optional measure and footer; reject filters, aside and grid options. ReadingColumn accepts compact/comfortable/wide and defaults comfortable; unsupported measures throw.",
+      "sources": ["src/patterns/page-layout/page-layout.tsx", "src/patterns/page-layout/recipes.ts"]
+    },
+    {
+      "id": "dashboard-recipe",
+      "kind": "component",
+      "statement": "Dashboard wraps direct non-null children into ContentGrid items and permits maxColumns/minItemWidth/footer; reject filters, aside and page-level measure. ContentGrid accepts caps one through four, defaults four, and accepts small/regular/large minimums with regular default.",
+      "sources": ["src/patterns/page-layout/page-layout.tsx", "src/patterns/page-layout/recipes.ts"]
+    },
+    {
+      "id": "selection-validator",
+      "kind": "component",
+      "statement": "validatePageLayoutRecipe returns structured issues for unknown keys/unsupported options, duplicate or forbidden slots, missing header/main when slots are supplied, and an unlabelled detail aside. Omitting slots does not assert actual rendered content exists.",
+      "sources": ["src/patterns/page-layout/page-layout.tsx", "src/patterns/page-layout/recipes.ts"]
+    },
+    {
+      "id": "responsive-presentation",
+      "kind": "design",
+      "statement": "Use page-structure group tokens; detail regions stack main before aside in narrow containers and grid maximum columns is a cap rather than a forced count. Reading measures are explicit starting points, not universal readability guarantees.",
+      "sources": [
+        "src/patterns/page-layout/page-layout.tsx",
+        "skills/references/design-contract.md"
+      ]
+    },
+    {
+      "id": "host-shell",
+      "kind": "host",
+      "statement": "Own the document main landmark and outer page padding. PageLayout adds structure without a surface, routing, persistence, fetching, selection or form state; nested components retain behavior and category tokens.",
+      "sources": ["src/patterns/page-layout/page-layout.tsx"]
+    },
+    {
+      "id": "validation-limits",
+      "kind": "host",
+      "statement": "Review real React content, DOM semantics, data states, route completeness, keyboard workflows, geometry and visual quality. A valid recipe selection alone cannot establish those properties or human approval.",
+      "sources": ["src/patterns/page-layout/page-layout.tsx"]
+    }
+  ],
+  "limitations": [
     "These four recipes are an initial library, not an exhaustive classification of pages. Unsupported tasks may require another reviewed recipe.",
     "Reading measures are starting points, not universal readability guarantees.",
     "Configuration validation cannot replace browser interaction, geometry, accessibility and visual review.",

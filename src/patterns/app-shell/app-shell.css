@@ -1,0 +1,50 @@
+.aegis-app-shell {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-primary);
+}
+.aegis-app-shell-skip,
+.aegis-app-shell-header,
+.aegis-app-shell-footer {
+  padding: var(--group-application-business-app-space-padding-regular);
+}
+.aegis-app-shell-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-application-business-app-space-gap-regular);
+  border-block-end: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.aegis-app-shell-brand {
+  overflow-wrap: anywhere;
+  min-inline-size: var(--group-application-business-app-number-0);
+}
+.aegis-app-shell-header-actions {
+  margin-inline-start: auto;
+}
+.aegis-app-shell-workspace {
+  display: flex;
+  align-items: stretch;
+  min-inline-size: var(--group-application-business-app-number-0);
+}
+.aegis-app-shell-navigation {
+  flex: var(--group-application-business-app-flex-none)
+    var(--group-application-business-app-flex-none)
+    var(--group-application-business-app-size-width-wide-panel-small);
+  inline-size: var(--group-application-business-app-size-width-wide-panel-small);
+  padding: var(--group-application-business-app-space-padding-regular);
+  border-inline-end: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.aegis-app-shell-main {
+  flex: var(--group-application-business-app-flex-fill);
+  min-inline-size: var(--group-application-business-app-number-0);
+  padding: var(--group-application-business-app-space-padding-regular);
+  overflow-wrap: anywhere;
+}
+.aegis-app-shell-main:focus-visible {
+  outline: var(--group-application-business-app-border-width-regular) solid
+    var(--group-application-surface-ring-focus);
+}

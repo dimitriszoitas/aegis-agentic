@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 2,
+  "id": "entity-cell",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A compact user, project, or account identity with a primary name and optional supporting detail.",
+  "anatomy": ["leading avatar/icon", "name", "optional detail"],
+  "states": ["user", "project", "account", "custom avatar"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Shared data-grid cell adapter; table/record state remains with its host.",
+  "ownership": {
+    "component": [
+      "Render the entity name and optional detail as text. Use an Avatar for user entities, a decorative folder for projects and a decorative globe for accounts unless avatar is supplied.",
+      "Forward div attributes and className without adding navigation, selection or row activation."
+    ],
+    "host": [
+      "Supply the correct entity type and accessible custom avatar content.",
+      "Own navigation and permissions in a separate actual link/button or table interaction."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Render the entity name and optional detail as text. Use an Avatar for user entities, a decorative folder for projects and a decorative globe for accounts unless avatar is supplied.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Forward div attributes and className without adding navigation, selection or row activation.",
+      "sources": ["src/components/data-grid-cells/data-grid-cells.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply the correct entity type and accessible custom avatar content.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own navigation and permissions in a separate actual link/button or table interaction.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/data-grid-cells/data-grid-cells.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "EntityCell is descriptive content, not a clickable row or identity resolver.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

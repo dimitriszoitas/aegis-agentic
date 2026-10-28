@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 2,
+  "id": "wizard",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Compose a controlled sequence of product steps with asynchronous validation, back navigation and guarded cancellation.",
+  "anatomy": [
+    "stepper",
+    "wizard title",
+    "focused step heading",
+    "step content fieldset",
+    "validation feedback",
+    "navigation actions",
+    "cancel confirmation"
+  ],
+  "states": ["active-step", "validating", "finishing", "step-error", "dirty-cancel-confirmation"],
+  "tokenGroup": "workflow",
+  "behaviorProvider": "Shared Stepper, Button, Banner and ConfirmDialog with local asynchronous validation state.",
+  "ownership": {
+    "component": [
+      "advance validation",
+      "pending navigation guards",
+      "step focus and cancel prompt"
+    ],
+    "host": ["current step and data", "validation and finish semantics", "routing and persistence"]
+  },
+  "requirements": [
+    {
+      "id": "controlled-index",
+      "kind": "component",
+      "statement": "Read the zero-based currentStep and emit requested transitions through onStepChange. Render nothing when no step exists at the supplied index.",
+      "sources": ["src/patterns/wizard/wizard.tsx"]
+    },
+    {
+      "id": "advance-validation",
+      "kind": "component",
+      "statement": "Await the active step validate function before continuing. False or a returned string keeps the step active and shows feedback; otherwise request the next step or await onFinish at the last step.",
+      "sources": ["src/patterns/wizard/wizard.tsx"]
+    },
+    {
+      "id": "pending-boundary",
+      "kind": "component",
+      "statement": "Guard duplicate advances and disable owned navigation and the native step fieldset while pending. Ignore a validation result after unmount or after currentStep changes.",
+      "sources": ["src/patterns/wizard/wizard.tsx"]
+    },
+    {
+      "id": "step-focus",
+      "kind": "component",
+      "statement": "Focus the step heading after the controlled index changes. Back and eligible Stepper selections request movement without running advance validation.",
+      "sources": ["src/patterns/wizard/wizard.tsx"]
+    },
+    {
+      "id": "dirty-cancel",
+      "kind": "component",
+      "statement": "When dirty, Cancel opens shared ConfirmDialog before invoking onCancel; when clean, it invokes onCancel directly. Dirty also registers a browser beforeunload request.",
+      "sources": ["src/patterns/wizard/wizard.tsx"]
+    },
+    {
+      "id": "field-validation",
+      "kind": "host",
+      "statement": "Implement validate for domain and form constraints; this section is not itself a native form and does not automatically submit or validate all descendant inputs.",
+      "sources": ["src/patterns/wizard/wizard.tsx"]
+    },
+    {
+      "id": "step-authority",
+      "kind": "host",
+      "statement": "Keep currentStep valid, preserve step draft state outside conditionally mounted content, and decide when completed steps may be revisited. Supply stable unique step ids.",
+      "sources": ["src/patterns/wizard/wizard.tsx"]
+    },
+    {
+      "id": "routing-and-cancellation",
+      "kind": "host",
+      "statement": "Implement finish persistence, actual cancellation and router protection. Native fieldset disabling does not cover portaled or custom widgets, and beforeunload cannot reliably intercept every SPA or browser exit.",
+      "sources": ["src/patterns/wizard/wizard.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes workflow group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/patterns/wizard/wizard.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No persistence, automatic form validation, server cancellation or universal router adapter.",
+    "Back/Stepper movement bypasses advance validation; host policy must account for it.",
+    "Pending finish and validation callbacks receive no AbortSignal. Browser unload prompts remain browser-controlled."
+  ]
+}

@@ -1,0 +1,13 @@
+.aegis-phone-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-input-field-gap-compact);
+  min-width: var(--group-input-field-number-0);
+  width: var(--group-input-field-width-available);
+}
+.aegis-phone-preview {
+  margin: var(--group-input-field-number-0);
+  color: var(--group-input-field-color-content-secondary);
+  font-size: var(--group-input-field-font-size-body);
+  overflow-wrap: anywhere;
+}

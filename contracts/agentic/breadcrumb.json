@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 2,
+  "id": "breadcrumb",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Render an ordered navigation hierarchy with native links or actions and a current-page endpoint.",
+  "anatomy": [
+    "named navigation",
+    "ordered list",
+    "ancestor links or actions",
+    "decorative separators",
+    "current page"
+  ],
+  "states": ["ancestor-link", "ancestor-action", "plain-ancestor", "current-page", "empty"],
+  "tokenGroup": "navigation",
+  "behaviorProvider": "Native nav, ordered list, anchor and button elements.",
+  "ownership": {
+    "component": ["ordered hierarchy markup", "current-page semantics", "native ancestor elements"],
+    "host": ["hierarchy data", "routing and valid URLs", "meaningful labels"]
+  },
+  "requirements": [
+    {
+      "id": "landmark",
+      "kind": "component",
+      "statement": "Render a nav landmark with default accessible name Breadcrumb and an ordered list; supplied nav attributes may override the default name.",
+      "sources": ["src/components/breadcrumb/breadcrumb.tsx"]
+    },
+    {
+      "id": "current-page",
+      "kind": "component",
+      "statement": "Render the final item as a span with aria-current=page regardless of supplied href or onClick; it is not an interactive ancestor.",
+      "sources": ["src/components/breadcrumb/breadcrumb.tsx"]
+    },
+    {
+      "id": "native-links",
+      "kind": "component",
+      "statement": "Render nonfinal items with href as native anchors, preserving browser link behavior and invoking an optional item callback on click.",
+      "sources": ["src/components/breadcrumb/breadcrumb.tsx"]
+    },
+    {
+      "id": "native-actions",
+      "kind": "component",
+      "statement": "Render nonfinal items without href but with onClick as type=button controls; items without either are plain text spans.",
+      "sources": ["src/components/breadcrumb/breadcrumb.tsx"]
+    },
+    {
+      "id": "separator-semantics",
+      "kind": "component",
+      "statement": "Hide each visual separator from the accessibility tree; the default separator is a shared chevron icon.",
+      "sources": ["src/components/breadcrumb/breadcrumb.tsx"]
+    },
+    {
+      "id": "hierarchy-order",
+      "kind": "host",
+      "statement": "Supply the hierarchy in ancestor-to-current order, with the current page last. The component does not derive routes or validate whether an item is an ancestor.",
+      "sources": ["src/components/breadcrumb/breadcrumb.tsx"]
+    },
+    {
+      "id": "native-route-boundary",
+      "kind": "host",
+      "statement": "Provide safe appropriate href values and implement application navigation. A click callback on an anchor is not itself a router adapter or an automatic preventDefault.",
+      "sources": ["src/components/breadcrumb/breadcrumb.tsx"]
+    },
+    {
+      "id": "accessible-labels",
+      "kind": "host",
+      "statement": "Provide meaningful item labels and appropriately hidden or named custom icons; give multiple breadcrumb landmarks distinct accessible names when needed.",
+      "sources": ["src/components/breadcrumb/breadcrumb.tsx"]
+    },
+    {
+      "id": "group-ownership",
+      "kind": "design",
+      "statement": "Own pattern or component styling consumes navigation group tokens. Nested shared components retain their own group ownership; do not restyle their internals.",
+      "sources": [
+        "src/components/breadcrumb/breadcrumb.tsx",
+        "tokens/component-categories.json",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No route detection, URL validation, collapsing, overflow menu or asynchronous navigation handling.",
+    "No disabled item API; current items are plain text and other unavailable items must be modelled by the host.",
+    "The array order determines the current item; no active-route matching occurs."
+  ]
+}

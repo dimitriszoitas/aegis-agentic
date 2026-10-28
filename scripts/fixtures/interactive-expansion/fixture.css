@@ -1,0 +1,13 @@
+main {
+  padding: var(--group-data-display-list-space-gap-regular);
+  display: grid;
+  gap: var(--group-data-display-list-space-gap-regular);
+}
+section {
+  min-width: var(--group-data-display-list-number-0);
+  display: grid;
+  gap: var(--group-data-display-list-space-gap-regular);
+}
+output {
+  overflow-wrap: anywhere;
+}

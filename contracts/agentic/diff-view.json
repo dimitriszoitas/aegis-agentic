@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "id": "diff-view",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Compare original and proposed source with split/unified layouts, change navigation and optional proposed editing.",
+  "anatomy": [
+    "label and change count",
+    "collapse and navigation actions",
+    "layout toggles",
+    "original/proposed legend",
+    "editor comparison"
+  ],
+  "states": [
+    "split",
+    "unified",
+    "read-only",
+    "editable proposal",
+    "no changes",
+    "collapsed context",
+    "AI provenance styling"
+  ],
+  "tokenGroup": "code",
+  "behaviorProvider": "CodeMirror MergeView/unifiedMergeView with shared code extensions.",
+  "ownership": {
+    "component": [
+      "Keep original read-only in split mode and configure unified comparison without merge controls. readOnly defaults true and governs only the proposed/modified editor.",
+      "Use controlled mode or initialize local mode from defaultMode. Layout actions update local state only uncontrolled and report onModeChange; rebuild and destroy editor instances when mode/options change.",
+      "Replace changed original/modified documents in mounted editors when props update, suppressing onModifiedChange for these external transactions. User document edits emit the latest modified text."
+    ],
+    "host": [
+      "Own approval/rejection, persistence and accepted modified state. Feed onModifiedChange back when editing; proposal content is not automatically accepted or merged into a server document.",
+      "Use modifiedIntent=ai only for provenance styling. It does not certify correctness, author identity, review completion or authorization."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "original-lock",
+      "kind": "component",
+      "statement": "Keep original read-only in split mode and configure unified comparison without merge controls. readOnly defaults true and governs only the proposed/modified editor.",
+      "sources": ["src/components/diff-view/diff-view.tsx"]
+    },
+    {
+      "id": "mode-state",
+      "kind": "component",
+      "statement": "Use controlled mode or initialize local mode from defaultMode. Layout actions update local state only uncontrolled and report onModeChange; rebuild and destroy editor instances when mode/options change.",
+      "sources": ["src/components/diff-view/diff-view.tsx"]
+    },
+    {
+      "id": "external-documents",
+      "kind": "component",
+      "statement": "Replace changed original/modified documents in mounted editors when props update, suppressing onModifiedChange for these external transactions. User document edits emit the latest modified text.",
+      "sources": ["src/components/diff-view/diff-view.tsx"]
+    },
+    {
+      "id": "change-summary",
+      "kind": "component",
+      "statement": "Compute changed section and added/removed line counts from merge chunks, expose a status and hidden comparison instructions, and disable previous/next actions when no chunks exist.",
+      "sources": ["src/components/diff-view/diff-view.tsx"]
+    },
+    {
+      "id": "navigation-focus",
+      "kind": "component",
+      "statement": "Previous/next change commands act on the proposed editor and focus it. focusFirstChange scrolls/selects the first change without explicitly calling focus.",
+      "sources": ["src/components/diff-view/diff-view.tsx"]
+    },
+    {
+      "id": "collapsed-context",
+      "kind": "component",
+      "statement": "Keep local collapse state synchronized from collapseUnchanged and the Focus changes/Show all lines action. Enhance collapsed widgets with button role, keyboard focus, Enter/Space activation and editor focus restoration.",
+      "sources": ["src/components/diff-view/diff-view.tsx"]
+    },
+    {
+      "id": "lifecycle-cleanup",
+      "kind": "component",
+      "statement": "Destroy MergeView/EditorView instances on rebuild/unmount, and disconnect collapsed-context observers and event listeners during plugin destruction.",
+      "sources": ["src/components/diff-view/diff-view.tsx"]
+    },
+    {
+      "id": "host-acceptance",
+      "kind": "host",
+      "statement": "Own approval/rejection, persistence and accepted modified state. Feed onModifiedChange back when editing; proposal content is not automatically accepted or merged into a server document.",
+      "sources": ["src/components/diff-view/diff-view.tsx"]
+    },
+    {
+      "id": "provenance-not-approval",
+      "kind": "host",
+      "statement": "Use modifiedIntent=ai only for provenance styling. It does not certify correctness, author identity, review completion or authorization.",
+      "sources": ["src/components/diff-view/diff-view.tsx"]
+    },
+    {
+      "id": "owned-token-presentation",
+      "kind": "design",
+      "statement": "Consume code group tokens for this family; nested shared components retain their declared ownership. Keep theme/mode changes in token mappings rather than branching behavioral code.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "Document replacements and option changes may reset selection/history; this is not collaborative version control.",
+    "No chunk accept/reject controls, conflict resolution or native form field is provided."
+  ]
+}

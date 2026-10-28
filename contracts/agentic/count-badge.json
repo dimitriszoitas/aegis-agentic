@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 2,
+  "id": "count-badge",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A compact count that can visually cap large values while preserving their full meaning.",
+  "anatomy": ["visual count", "optional accessible count phrase"],
+  "states": ["default/inverted", "sm/md", "capped value"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Static numeric count presentation.",
+  "ownership": {
+    "component": [
+      "Display max followed by + when count exceeds max; otherwise display count clamped at zero. title retains the original count.",
+      "When label is provided, hide the visual count and include the full raw count plus label in a visually hidden phrase. Without label, expose the displayed count directly."
+    ],
+    "host": [
+      "Supply finite nonnegative whole counts, a finite nonnegative display cap and a contextual label for capped or ambiguous counts.",
+      "Own count calculation and updates. Use Indicator to position a count around another element."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Display max followed by + when count exceeds max; otherwise display count clamped at zero. title retains the original count.",
+      "sources": ["src/components/count-badge/count-badge.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "When label is provided, hide the visual count and include the full raw count plus label in a visually hidden phrase. Without label, expose the displayed count directly.",
+      "sources": ["src/components/count-badge/count-badge.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Supply finite nonnegative whole counts, a finite nonnegative display cap and a contextual label for capped or ambiguous counts.",
+      "sources": ["src/components/count-badge/count-badge.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own count calculation and updates. Use Indicator to position a count around another element.",
+      "sources": ["src/components/count-badge/count-badge.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/count-badge/count-badge.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "CountBadge does not normalize invalid numbers/fractions or announce updates as a live region.",
+    "Negative display clamps to zero but its raw title/accessible phrase can still be negative; validate inputs at the host boundary.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

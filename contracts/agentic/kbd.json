@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "id": "kbd",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "A visual keyboard-key label with native kbd semantics.",
+  "anatomy": ["keycap text"],
+  "states": ["sm", "md"],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Native keyboard-input semantic element.",
+  "ownership": {
+    "component": [
+      "Render a kbd element with supplied content and ordinary kbd properties. Merge className and expose size for presentation.",
+      "Do not register keyboard listeners or synthesize shortcut behavior."
+    ],
+    "host": [
+      "Show shortcuts that actually exist in the current platform/context and provide readable key names.",
+      "Own keyboard bindings, conflicts, localization and accessible action descriptions."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Render a kbd element with supplied content and ordinary kbd properties. Merge className and expose size for presentation.",
+      "sources": ["src/components/kbd/kbd.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Do not register keyboard listeners or synthesize shortcut behavior.",
+      "sources": ["src/components/kbd/kbd.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Show shortcuts that actually exist in the current platform/context and provide readable key names.",
+      "sources": ["src/components/kbd/kbd.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own keyboard bindings, conflicts, localization and accessible action descriptions.",
+      "sources": ["src/components/kbd/kbd.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use data-display group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": ["src/components/kbd/kbd.tsx", "skills/references/design-contract.md"]
+    }
+  ],
+  "limitations": [
+    "Displayed shortcut text does not bind a command.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}

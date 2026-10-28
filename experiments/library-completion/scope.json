@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "families": [
+    {
+      "id": "components-forms-combobox",
+      "name": "Combobox",
+      "title": "Components/Inputs & Selection/Combobox",
+      "contractId": "combobox",
+      "importPath": "./combobox",
+      "implementation": "src/components/combobox/combobox.tsx",
+      "root": ".aegis-combobox",
+      "plays": ["keyboard-and-form", "remote-results", "cancelled-selection"]
+    },
+    {
+      "id": "components-forms-otpinput",
+      "name": "OtpInput",
+      "title": "Components/Inputs & Selection/OtpInput",
+      "contractId": "otp-input",
+      "importPath": "./otp-input",
+      "implementation": "src/components/otp-input/otp-input.tsx",
+      "root": ".aegis-otp-input",
+      "plays": ["paste-and-form", "alphanumeric"]
+    },
+    {
+      "id": "components-forms-timepicker",
+      "name": "TimePicker",
+      "title": "Components/Inputs & Selection/TimePicker",
+      "contractId": "time-picker",
+      "importPath": "./time-picker",
+      "implementation": "src/components/time-picker/time-picker.tsx",
+      "root": ".aegis-time-picker",
+      "plays": ["native-form"]
+    },
+    {
+      "id": "components-forms-datetimepicker",
+      "name": "DateTimePicker",
+      "title": "Components/Inputs & Selection/DateTimePicker",
+      "contractId": "date-time-picker",
+      "importPath": "./date-time-picker",
+      "implementation": "src/components/date-time-picker/date-time-picker.tsx",
+      "root": ".aegis-date-time-picker",
+      "plays": ["native-form"]
+    },
+    {
+      "id": "components-forms-phoneinput",
+      "name": "PhoneInput",
+      "title": "Components/Inputs & Selection/PhoneInput",
+      "contractId": "phone-input",
+      "importPath": "./phone-input",
+      "implementation": "src/components/phone-input/phone-input.tsx",
+      "root": ".aegis-phone-input",
+      "plays": ["draft-and-form", "explicit-normalization"]
+    },
+    {
+      "id": "components-forms-colorpicker",
+      "name": "ColorPicker",
+      "title": "Components/Inputs & Selection/ColorPicker",
+      "contractId": "color-picker",
+      "importPath": "./color-picker",
+      "implementation": "src/components/color-picker/color-picker.tsx",
+      "root": ".aegis-color-picker",
+      "plays": ["draft-alpha-and-form"]
+    },
+    {
+      "id": "components-forms-inlineedit",
+      "name": "InlineEdit",
+      "title": "Components/Inputs & Selection/InlineEdit",
+      "contractId": "inline-edit",
+      "importPath": "./inline-edit",
+      "implementation": "src/components/inline-edit/inline-edit.tsx",
+      "root": ".aegis-inline-edit",
+      "plays": ["draft-lifecycle", "async-failure-and-conflict"]
+    },
+    {
+      "id": "components-forms-richtexteditor",
+      "name": "RichTextEditor",
+      "title": "Components/Inputs & Selection/RichTextEditor",
+      "contractId": "rich-text-editor",
+      "importPath": "./rich-text-editor",
+      "implementation": "src/components/rich-text-editor/rich-text-editor.tsx",
+      "root": ".aegis-rich-text-editor",
+      "plays": ["formatting-and-form", "link-validation", "read-only"]
+    },
+    {
+      "id": "components-data-sortablelist",
+      "name": "SortableList",
+      "title": "Components/Data Display/SortableList",
+      "contractId": "sortable-list",
+      "importPath": "./sortable-list",
+      "implementation": "src/components/sortable-list/sortable-list.tsx",
+      "root": ".aegis-sortable-list",
+      "plays": ["keyboard-reorder"]
+    },
+    {
+      "id": "components-data-filepreview",
+      "name": "FilePreview",
+      "title": "Components/Data Display/FilePreview",
+      "contractId": "file-preview",
+      "importPath": "./file-preview",
+      "implementation": "src/components/file-preview/file-preview.tsx",
+      "root": ".aegis-file-preview",
+      "plays": ["lightbox", "document-fallback", "unsafe-url"]
+    },
+    {
+      "id": "patterns-formerrorsummary",
+      "name": "FormErrorSummary",
+      "title": "Components/Feedback/FormErrorSummary",
+      "contractId": "form-error-summary",
+      "importPath": "./patterns/form-error-summary",
+      "implementation": "src/patterns/form-error-summary/form-error-summary.tsx",
+      "root": ".aegis-form-error-summary",
+      "plays": ["validation-and-focus"]
+    },
+    {
+      "id": "patterns-resourcestate",
+      "name": "ResourceState",
+      "title": "Components/Feedback/ResourceState",
+      "contractId": "resource-state",
+      "importPath": "./patterns/resource-state",
+      "implementation": "src/patterns/resource-state/resource-state.tsx",
+      "root": ".aegis-resource-state",
+      "plays": ["refresh-and-retry"]
+    },
+    {
+      "id": "patterns-recordeditor",
+      "name": "RecordEditor",
+      "title": "Patterns/Workflows/RecordEditor",
+      "contractId": "record-editor",
+      "importPath": "./patterns/record-editor",
+      "implementation": "src/patterns/record-editor/record-editor.tsx",
+      "root": ".aegis-record-editor",
+      "plays": ["save-failure-and-conflict"]
+    },
+    {
+      "id": "patterns-appshell",
+      "name": "AppShell",
+      "title": "Patterns/Application/AppShell",
+      "contractId": "app-shell",
+      "importPath": "./patterns/app-shell",
+      "implementation": "src/patterns/app-shell/app-shell.tsx",
+      "root": ".aegis-app-shell",
+      "plays": ["navigation-and-skip"]
+    },
+    {
+      "id": "patterns-unsavednavigationguard",
+      "name": "UnsavedNavigationGuard",
+      "title": "Patterns/Workflows/UnsavedNavigationGuard",
+      "contractId": "unsaved-navigation-guard",
+      "importPath": "./patterns/unsaved-navigation-guard",
+      "implementation": "src/patterns/unsaved-navigation-guard/unsaved-navigation-guard.tsx",
+      "root": ".aegis-unsaved-navigation-guard",
+      "plays": ["confirm-or-stay"]
+    },
+    {
+      "id": "components-data-indicator",
+      "name": "Indicator",
+      "title": "Components/Data Display/Indicator",
+      "contractId": "indicator",
+      "importPath": "./indicator",
+      "implementation": "src/components/indicator/indicator.tsx",
+      "root": ".aegis-indicator",
+      "plays": ["interaction"]
+    },
+    {
+      "id": "components-people-presenceindicator",
+      "name": "PresenceIndicator",
+      "title": "Components/Data Display/PresenceIndicator",
+      "contractId": "presence-indicator",
+      "importPath": "./presence-indicator",
+      "implementation": "src/components/presence-indicator/presence-indicator.tsx",
+      "root": ".aegis-presence-indicator",
+      "plays": ["accessible-meaning"]
+    }
+  ]
+}

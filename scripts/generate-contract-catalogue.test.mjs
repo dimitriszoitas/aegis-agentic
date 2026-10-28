@@ -24,15 +24,15 @@ const schema = JSON.parse(original.files['schemas/component-contract.schema.json
 
 test('catalogue accounts for every API family, authored-only entry and separate protocol', () => {
   const output = buildContractCatalogue(fixture());
-  assert.equal(output.entries.length, 111);
+  assert.equal(output.entries.length, 129);
   assert.deepEqual(output.coverage, {
-    apiFamilies: 107,
-    apiFamiliesWithAuthoredBehavior: 29,
-    apiFamiliesWithoutAuthoredBehavior: 78,
-    authoredComponentPatternContracts: 31,
-    authoredOnlyEntries: 2,
+    apiFamilies: 124,
+    apiFamiliesWithAuthoredBehavior: 124,
+    apiFamiliesWithoutAuthoredBehavior: 0,
+    authoredComponentPatternContracts: 127,
+    authoredOnlyEntries: 3,
     systemProtocolContracts: 2,
-    entriesWithLinkedChecks: 27,
+    entriesWithLinkedChecks: 108,
     entriesWithLinkedEvidence: 1,
     entriesWithReportedEvidence: 1,
   });
@@ -69,6 +69,8 @@ test('source inclusion alone cannot map a nested dependency to the wrong public 
   binding(input, (value) => {
     value.bindings.find((item) => item.contractId === 'button').apiFamilyId =
       'components-actions-iconbutton';
+    value.bindings.find((item) => item.contractId === 'icon-button').apiFamilyId =
+      'components-actions-button';
   });
   assert.throws(() => buildContractCatalogue(input), /does not export/);
 });
@@ -76,7 +78,9 @@ test('source inclusion alone cannot map a nested dependency to the wrong public 
 test('all canonical authored contracts validate against the corrected closed schema', () => {
   for (const path of original.authoredPaths)
     assert.deepEqual(validateComponentContract(JSON.parse(original.files[path]), schema), [], path);
-  assert.equal(JSON.parse(original.files['contracts/agentic/page-layout.json']).states, undefined);
+  assert(
+    JSON.parse(original.files['contracts/agentic/page-layout.json']).states.includes('collection'),
+  );
 });
 
 test('contract schema rejects missing baseline behavior, unknown fields and invalid version-specific properties', () => {
@@ -400,4 +404,91 @@ test('generation changes only its catalogue file and --check detects stale outpu
     /Contract catalogue is stale/,
   );
   assert.equal(await readFile(join(root, cataloguePath), 'utf8'), 'stale\n');
+});
+
+test('seven migrated contracts preserve typed legacy metadata while adding schema2 responsibilities', () => {
+  for (const id of [
+    'button',
+    'card',
+    'dataset-filtering',
+    'dialog',
+    'field',
+    'page-layout',
+    'token-input',
+  ]) {
+    const value = JSON.parse(original.files[`contracts/agentic/${id}.json`]);
+    assert.equal(value.schemaVersion, 2, id);
+    assert(value.requirements.length > 0, id);
+    assert(value.ownership.component.length && value.ownership.host.length, id);
+    assert(value.invariants.length > 0, `retained invariants: ${id}`);
+    assert.deepEqual(validateComponentContract(value, schema), [], id);
+    // The original closed schema1 shapes remain accepted for historical consumers.
+    const legacy = structuredClone(value);
+    legacy.schemaVersion = 1;
+    delete legacy.requirements;
+    delete legacy.ownership;
+    delete legacy.limitations;
+    if (id === 'page-layout') delete legacy.states;
+    assert.deepEqual(validateComponentContract(legacy, schema), [], `legacy ${id}`);
+  }
+  const token = JSON.parse(original.files['contracts/agentic/token-input.json']);
+  assert.equal(token.version, 2);
+  assert.equal(token.status, 'experimental');
+  assert.equal(token.verification, 'bounded-automated-evidence-not-human-certification');
+  assert.deepEqual(token.defaults, {
+    duplicatePolicy: 'reject',
+    commitKeys: ['Enter'],
+    commitOnBlur: false,
+    confirmationMode: 'values',
+  });
+  assert.equal(token.evidence, 'experiments/token-input/consolidated/evidence.json');
+  assert.equal(token.migration, 'experiments/token-input/consolidated/MIGRATION.md');
+  const page = JSON.parse(original.files['contracts/agentic/page-layout.json']);
+  assert.equal(page.version, 1);
+  assert.equal(page.status, 'experimental');
+  assert.equal(
+    page.verification,
+    'recipe-selection-validation-is-not-rendered-or-human-certification',
+  );
+  assert.equal(page.recipeSource, 'src/patterns/page-layout/recipes.ts');
+  assert.equal(page.portableRecipes, 'recipes/page-layout.json');
+  assert.equal(page.publicApi.ContentGrid.defaultMaxColumns, 4);
+  assert.equal(page.publicApi.ReadingColumn.default, 'comfortable');
+});
+
+test('schema2 retains closed special metadata and cannot fabricate certification or omit ownership', () => {
+  for (const id of ['token-input', 'page-layout', 'dataset-filtering']) {
+    const current = JSON.parse(original.files[`contracts/agentic/${id}.json`]);
+    for (const change of [
+      (value) => {
+        delete value.ownership;
+      },
+      (value) => {
+        delete value.requirements;
+      },
+      (value) => {
+        value.verification = 'certified';
+      },
+      (value) => {
+        value.status = 'approved';
+      },
+    ]) {
+      const value = structuredClone(current);
+      change(value);
+      assert(validateComponentContract(value, schema).length > 0, id);
+    }
+  }
+  const token = JSON.parse(original.files['contracts/agentic/token-input.json']);
+  delete token.defaults;
+  assert(validateComponentContract(token, schema).length > 0);
+  const page = JSON.parse(original.files['contracts/agentic/page-layout.json']);
+  page.publicApi.ContentGrid.unreviewedBehavior = 'anything';
+  assert(validateComponentContract(page, schema).length > 0);
+  // Valid special metadata must remain attached to its actual contract family.
+  const button = JSON.parse(original.files['contracts/agentic/button.json']);
+  button.evidence = 'experiments/token-input/consolidated/evidence.json';
+  assert(validateComponentContract(button, schema).length > 0);
+  const tokenWithRecipes = JSON.parse(original.files['contracts/agentic/token-input.json']);
+  tokenWithRecipes.portableRecipes = 'recipes/page-layout.json';
+  assert(validateComponentContract(tokenWithRecipes, schema).length > 0);
 });

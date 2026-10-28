@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 2,
+  "id": "progress-bar",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Determinate or indeterminate progress with a required accessible task label.",
+  "anatomy": ["optional visible label/value", "named progress track", "fill"],
+  "states": ["determinate", "indeterminate", "optional visible percentage"],
+  "tokenGroup": "feedback",
+  "behaviorProvider": "ARIA progressbar with normalized host-provided numeric progress.",
+  "ownership": {
+    "component": [
+      "Use a positive finite max or default to 100. Clamp finite value into zero through max; omitted/non-finite value is indeterminate.",
+      "Expose label, min, max and actual normalized value on the progressbar. Omit aria-valuenow for indeterminate progress and use a token-backed indeterminate fill width."
+    ],
+    "host": [
+      "Provide a meaningful task label and truthful progress units.",
+      "Own operation start/end/error state; an intent color does not set completion or execute work."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "behavior-1",
+      "kind": "component",
+      "statement": "Use a positive finite max or default to 100. Clamp finite value into zero through max; omitted/non-finite value is indeterminate.",
+      "sources": ["src/components/progress-bar/progress-bar.tsx"]
+    },
+    {
+      "id": "behavior-2",
+      "kind": "component",
+      "statement": "Expose label, min, max and actual normalized value on the progressbar. Omit aria-valuenow for indeterminate progress and use a token-backed indeterminate fill width.",
+      "sources": ["src/components/progress-bar/progress-bar.tsx"]
+    },
+    {
+      "id": "behavior-3",
+      "kind": "component",
+      "statement": "Optional visible percentage is rounded from value/max and hidden from assistive technology to avoid duplicating the progressbar name/value.",
+      "sources": ["src/components/progress-bar/progress-bar.tsx"]
+    },
+    {
+      "id": "host-1",
+      "kind": "host",
+      "statement": "Provide a meaningful task label and truthful progress units.",
+      "sources": [
+        "src/components/progress-bar/progress-bar.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "host-2",
+      "kind": "host",
+      "statement": "Own operation start/end/error state; an intent color does not set completion or execute work.",
+      "sources": [
+        "src/components/progress-bar/progress-bar.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "token-and-composition-ownership",
+      "kind": "design",
+      "statement": "Use feedback group tokens for owned presentation, preserve genuine nested component ownership, and verify the same geometry across Fundamental and Fundamental Floating in light/dark. Keep the documented semantics and state model when composing or extending this family.",
+      "sources": [
+        "src/components/progress-bar/progress-bar.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "No progress estimation, live task monitoring or success/error lifecycle is implemented.",
+    "Authored source coverage is separate from executed interaction, visual, accessibility and consumer-package evidence."
+  ]
+}
