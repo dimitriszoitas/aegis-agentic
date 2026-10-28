@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-charts-sparkline",
   "name": "Sparkline",
@@ -39,13 +39,23 @@
       "component": "Sparkline",
       "name": "data",
       "type": "readonly number[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Sparkline",
       "name": "height",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "28px (var(--group-data-viz-measurement-sparkline-height))"
     },
     {
@@ -53,6 +63,11 @@
       "name": "intent",
       "type": "\"function\" | \"destroy\" | \"ai\" | \"success\" | \"warning\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"function\""
     },
     {
@@ -60,6 +75,11 @@
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"No activity data\""
     },
     {
@@ -67,6 +87,11 @@
       "name": "loading",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -74,6 +99,11 @@
       "name": "variant",
       "type": "\"area\" | \"line\" | \"bar\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"line\""
     },
     {
@@ -81,6 +111,11 @@
       "name": "width",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/sparkline/sparkline.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "100px (var(--group-data-viz-measurement-sparkline-width))"
     }
   ],

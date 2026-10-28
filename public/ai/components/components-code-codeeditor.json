@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-code-codeeditor",
   "name": "CodeEditor",
@@ -37,6 +37,11 @@
       "name": "autoFocus",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -44,38 +49,68 @@
       "name": "defaultValue",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"\""
     },
     {
       "component": "CodeEditor",
       "name": "extensions",
       "type": "Extension[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "CodeEditor",
       "name": "folding",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
       "component": "CodeEditor",
       "name": "height",
       "type": "string | number | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "CodeEditor",
       "name": "highlightedLines",
       "type": "readonly HighlightedLineRange[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "CodeEditor",
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Code editor\"",
       "description": "Accessible name of the editing surface."
     },
@@ -84,6 +119,11 @@
       "name": "language",
       "type": "CodeLanguage | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"yaml\""
     },
     {
@@ -91,6 +131,11 @@
       "name": "lineNumbers",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
@@ -98,6 +143,11 @@
       "name": "maxHeight",
       "type": "string | number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "520px (var(--group-code-measurement-code-max-height))"
     },
     {
@@ -105,25 +155,45 @@
       "name": "minHeight",
       "type": "string | number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "160px (var(--group-code-measurement-code-min-height))"
     },
     {
       "component": "CodeEditor",
       "name": "onValueChange",
       "type": "((value: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "CodeEditor",
       "name": "placeholder",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "CodeEditor",
       "name": "readOnly",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -131,19 +201,34 @@
       "name": "statusBar",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      },
       "description": "Custom content at the left of the status bar, or false to hide the bar."
     },
     {
       "component": "CodeEditor",
       "name": "value",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "CodeEditor",
       "name": "wrapLines",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/code-editor/code-editor.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     }
   ],

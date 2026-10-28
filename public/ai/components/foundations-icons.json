@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "foundations-icons",
   "name": "Iconography",
@@ -31,7 +31,96 @@
     "import { Search } from '@dimitriszoitas/aegis-agentic/icons';"
   ],
   "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
-  "props": [],
+  "props": [
+    {
+      "component": "Search",
+      "name": "absoluteStrokeWidth",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@hugeicons+react@1.1.10_react@19.3.0/node_modules/@hugeicons/react/dist/types/HugeiconsIcon.d.ts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "Search",
+      "name": "altIcon",
+      "type": "IconSvgElement | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@hugeicons+react@1.1.10_react@19.3.0/node_modules/@hugeicons/react/dist/types/HugeiconsIcon.d.ts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "Search",
+      "name": "disableSecondaryOpacity",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@hugeicons+react@1.1.10_react@19.3.0/node_modules/@hugeicons/react/dist/types/HugeiconsIcon.d.ts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "Search",
+      "name": "primaryColor",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@hugeicons+react@1.1.10_react@19.3.0/node_modules/@hugeicons/react/dist/types/HugeiconsIcon.d.ts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "Search",
+      "name": "secondaryColor",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@hugeicons+react@1.1.10_react@19.3.0/node_modules/@hugeicons/react/dist/types/HugeiconsIcon.d.ts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "Search",
+      "name": "showAlt",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@hugeicons+react@1.1.10_react@19.3.0/node_modules/@hugeicons/react/dist/types/HugeiconsIcon.d.ts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "Search",
+      "name": "size",
+      "type": "string | number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@hugeicons+react@1.1.10_react@19.3.0/node_modules/@hugeicons/react/dist/types/HugeiconsIcon.d.ts",
+        "kind": "dependency"
+      }
+    },
+    {
+      "component": "Search",
+      "name": "strokeWidth",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/@hugeicons+react@1.1.10_react@19.3.0/node_modules/@hugeicons/react/dist/types/HugeiconsIcon.d.ts",
+        "kind": "dependency"
+      }
+    }
+  ],
   "variants": [
     {
       "name": "size",

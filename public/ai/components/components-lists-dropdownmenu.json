@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-lists-dropdownmenu",
   "name": "DropdownMenu",
@@ -41,38 +41,68 @@
       "name": "align",
       "type": "Align | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"end\""
     },
     {
       "component": "DropdownMenu",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DropdownMenu",
       "name": "defaultOpen",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "DropdownMenu",
       "name": "dir",
       "type": "\"rtl\" | \"ltr\" | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DropdownMenu",
       "name": "items",
       "type": "DropdownMenuEntry[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DropdownMenu",
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Actions\""
     },
     {
@@ -80,32 +110,57 @@
       "name": "modal",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "DropdownMenu",
       "name": "onOpenChange",
       "type": "((open: boolean) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DropdownMenu",
       "name": "open",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "DropdownMenu",
       "name": "side",
       "type": "Side | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"bottom\""
     },
     {
       "component": "DropdownMenu",
       "name": "trigger",
       "type": "ReactElement<unknown, string | JSXElementConstructor<any>>",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/dropdown-menu/dropdown-menu.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

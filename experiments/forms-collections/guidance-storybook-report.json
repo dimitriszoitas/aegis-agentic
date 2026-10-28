@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "build": "/private/tmp/aegis-agentic-experiment/storybook-static",
+  "indexSha256": "83b40a209f9dadb78f5c07df6d1b47482f9a5cbedafac6af110f2f5ec1283d87",
+  "status": "passed",
+  "checks": [
+    "Built settings overview renders the shared heading, comfortable measure and working local edit/save flow.",
+    "Built detail exposes its named aside and stacks main before aside in a narrow container.",
+    "Built dashboard renders four independent cards and collapses them in order without a forced four-column layout.",
+    "Rendered public API includes required title/archetype/children and real subcomponent defaults, with no Playground/show controls.",
+    "Layout Creation renders canonical composition/policy sources, a real GFM table and local reference link, and copies their exact combined source.",
+    "Build UI renders canonical composition/policy sources, a real GFM table and local reference link, and copies their exact combined source."
+  ],
+  "browserErrors": [],
+  "screenshots": [
+    "layout-overview.png",
+    "layout-detail-narrow.png",
+    "layout-dashboard.png",
+    "layout-public-api.png",
+    "skill-create-layout.png",
+    "skill-build-ui.png"
+  ],
+  "limits": [
+    "Focused Chromium smoke of the built layout and two skill tabs; not an exhaustive catalogue or accessibility audit."
+  ]
+}

@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-actions-button",
   "name": "Button",
@@ -41,6 +41,11 @@
       "name": "emphasis",
       "type": "\"primary\" | \"secondary\" | \"tertiary\" | \"ghost\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/button/button.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"primary\""
     },
     {
@@ -48,19 +53,34 @@
       "name": "intent",
       "type": "Intent | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/button/button.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"default\""
     },
     {
       "component": "Button",
       "name": "leadingIcon",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/button/button.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Button",
       "name": "loading",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/button/button.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -68,13 +88,23 @@
       "name": "size",
       "type": "\"sm\" | \"md\" | \"lg\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/button/button.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\""
     },
     {
       "component": "Button",
       "name": "trailingIcon",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/button/button.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

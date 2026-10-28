@@ -29,7 +29,13 @@ export interface ComponentMetadata {
     required: boolean;
     defaultValue?: string;
     description?: string;
+    /** True when declared outside this component, including inherited design-system APIs. */
     inherited?: boolean;
+    /** Source-backed origin; native platform props stay separate from composed component APIs. */
+    declaration?: {
+      source: string;
+      kind: 'design-system' | 'dependency' | 'platform';
+    };
   }[];
   css: {
     file: string;

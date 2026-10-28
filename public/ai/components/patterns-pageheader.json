@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "patterns-pageheader",
   "name": "PageHeader",
@@ -39,13 +39,23 @@
       "component": "PageHeader",
       "name": "actions",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-header/page-header.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageHeader",
       "name": "back",
       "type": "PageHeaderBack | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-header/page-header.tsx",
+        "kind": "design-system"
+      },
       "description": "A back destination takes precedence over breadcrumbs when both are supplied."
     },
     {
@@ -53,6 +63,11 @@
       "name": "breadcrumbs",
       "type": "readonly BreadcrumbItem[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-header/page-header.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[]"
     },
     {
@@ -60,44 +75,79 @@
       "name": "children",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-header/page-header.tsx",
+        "kind": "design-system"
+      },
       "description": "Optional content below the heading, such as navigation tabs or filters."
     },
     {
       "component": "PageHeader",
       "name": "description",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-header/page-header.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageHeader",
       "name": "headingId",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-header/page-header.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageHeader",
       "name": "headingLevel",
       "type": "2 | 3 | 1 | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-header/page-header.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "1"
     },
     {
       "component": "PageHeader",
       "name": "leading",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-header/page-header.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageHeader",
       "name": "metadata",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-header/page-header.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PageHeader",
       "name": "title",
       "type": "ReactNode",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/page-header/page-header.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [],

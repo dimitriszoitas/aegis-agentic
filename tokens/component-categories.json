@@ -33,7 +33,9 @@
         "src/components/text-input/",
         "src/components/time-range-picker/",
         "src/components/tree-view/",
-        "src/agentic/components/"
+        "src/agentic/components/",
+        "src/components/password-input/",
+        "src/components/number-input/"
       ]
     },
     "navigation": {
@@ -152,12 +154,17 @@
         "src/patterns/filter-bar/",
         "src/patterns/filter-panel/",
         "src/agentic/components/FilteredDataset.tsx",
-        "src/agentic/components/FilteredDataset.css"
+        "src/agentic/components/FilteredDataset.css",
+        "src/patterns/collection-toolbar/"
       ]
     },
     "page-structure": {
       "title": "Patterns/Page Structure",
-      "prefixes": ["src/patterns/page-header/", "src/patterns/page-layout/"]
+      "prefixes": [
+        "src/patterns/page-header/",
+        "src/patterns/page-layout/",
+        "src/patterns/form-section/"
+      ]
     },
     "communication": {
       "title": "Patterns/Communication",

@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-feedback-spinner",
   "name": "Spinner",
@@ -40,6 +40,11 @@
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/spinner/spinner.tsx",
+        "kind": "design-system"
+      },
       "description": "Omit the label when the containing button or status already describes loading."
     },
     {
@@ -47,6 +52,11 @@
       "name": "size",
       "type": "\"sm\" | \"md\" | \"lg\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/spinner/spinner.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\""
     }
   ],

@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "patterns-ai-promptinput",
   "name": "PromptInput",
@@ -40,31 +40,56 @@
       "component": "PromptInput",
       "name": "availableContext",
       "type": "AiContextItem[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PromptInput",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PromptInput",
       "name": "commands",
       "type": "PromptCommand[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PromptInput",
       "name": "context",
       "type": "AiContextItem[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PromptInput",
       "name": "defaultValue",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"\""
     },
     {
@@ -72,6 +97,11 @@
       "name": "disabled",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -79,37 +109,67 @@
       "name": "generating",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "PromptInput",
       "name": "onContextChange",
       "type": "((context: AiContextItem[]) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PromptInput",
       "name": "onSend",
       "type": "(prompt: string, context: AiContextItem[]) => void | Promise<void>",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PromptInput",
       "name": "onStop",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PromptInput",
       "name": "onValueChange",
       "type": "((value: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "PromptInput",
       "name": "placeholder",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Ask about your work…\""
     },
     {
@@ -117,6 +177,11 @@
       "name": "presentation",
       "type": "\"compact\" | \"hero\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"compact\"",
       "description": "Hero gives landing-page prompts a spacious composer and a separate context strip."
     },
@@ -124,7 +189,12 @@
       "component": "PromptInput",
       "name": "value",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/prompt-input/prompt-input.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

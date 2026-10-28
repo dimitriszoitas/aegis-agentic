@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-data-grid-sparkline-cell",
   "name": "Sparkline cell",
@@ -36,43 +36,78 @@
       "component": "SparklineCell",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SparklineCell",
       "name": "data",
       "type": "readonly number[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SparklineCell",
       "name": "height",
       "type": "number | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SparklineCell",
       "name": "intent",
       "type": "\"function\" | \"destroy\" | \"ai\" | \"success\" | \"warning\" | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SparklineCell",
       "name": "label",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SparklineCell",
       "name": "variant",
       "type": "\"area\" | \"line\" | \"bar\" | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "SparklineCell",
       "name": "width",
       "type": "number | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/data-grid-cells/data-grid-cells.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

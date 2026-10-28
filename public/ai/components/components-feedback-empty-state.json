@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-feedback-empty-state",
   "name": "Empty state",
@@ -39,45 +39,80 @@
       "component": "EmptyState",
       "name": "action",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/empty-state/empty-state.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "EmptyState",
       "name": "compact",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/empty-state/empty-state.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "EmptyState",
       "name": "description",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/empty-state/empty-state.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "EmptyState",
       "name": "icon",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/empty-state/empty-state.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "EmptyState",
       "name": "preset",
       "type": "\"error\" | \"no-results\" | \"no-data\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/empty-state/empty-state.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"no-results\""
     },
     {
       "component": "EmptyState",
       "name": "secondaryAction",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/empty-state/empty-state.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "EmptyState",
       "name": "title",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/empty-state/empty-state.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

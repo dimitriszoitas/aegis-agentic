@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-charts-ganttchart",
   "name": "GanttChart",
@@ -41,69 +41,124 @@
       "component": "GanttChart",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "GanttChart",
       "name": "defaultScale",
       "type": "GanttScale | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"week\""
     },
     {
       "component": "GanttChart",
       "name": "description",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "GanttChart",
       "name": "onScaleChange",
       "type": "((scale: GanttScale) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "GanttChart",
       "name": "onTaskSelect",
       "type": "((task: GanttTask) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "GanttChart",
       "name": "scale",
       "type": "GanttScale | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "GanttChart",
       "name": "selectedTaskId",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "GanttChart",
       "name": "showControls",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
       "component": "GanttChart",
       "name": "tasks",
       "type": "readonly GanttTask[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "GanttChart",
       "name": "title",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "GanttChart",
       "name": "today",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/gantt-chart/gantt-chart.tsx",
+        "kind": "design-system"
+      },
       "description": "An explicit ISO date keeps server and client rendering deterministic."
     }
   ],

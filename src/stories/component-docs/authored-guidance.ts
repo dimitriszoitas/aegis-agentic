@@ -9,6 +9,89 @@ export const authoredGuidance: Record<
     context?: string[];
   }
 > = {
+  PasswordInput: {
+    overview:
+      'A native password field with a named reveal/conceal action, composed from TextInput and IconButton.',
+    usage: [
+      'Use a standalone label or an enclosing Field. Field associations, required/invalid state and explicit-control precedence remain the same as TextInput.',
+      'Use value with a change handler for controlled entry or defaultValue for uncontrolled entry. Both onValueChange and native onChange are preserved, and ref addresses the actual input.',
+      'Choose current-password or new-password autocomplete for the task. PasswordInput reserves type, suffix and clear controls; a prefix remains available.',
+      'Read-only values can be revealed. Disabled blocks input and visibility changes but does not conceal an already revealed value. Visibility is local instance state, not controlled or automatically reset on blur.',
+    ],
+    accessibility: [
+      'The input starts concealed. The real visibility button has an action label, type=button and aria-controls pointing to the input. Enter/Space toggles visibility without submitting or changing the value.',
+      'Visibility activation keeps focus on the action button. The wrapper retains TextInput keyboard focus treatment and the nested IconButton retains trigger-category focus styling.',
+      'Give multiple password fields distinct labels and meaningful custom showPasswordLabel/hidePasswordLabel values when necessary.',
+    ],
+    intent: [
+      'Reveal/conceal changes presentation only; it does not grant permission or protect stored credentials. Validation, strength rules and authentication belong to the host.',
+    ],
+    context: [
+      'Use for sign-in, account creation and password replacement with explicit native form handling. Do not show real credentials in demonstration stories or telemetry.',
+    ],
+  },
+  NumberInput: {
+    overview:
+      'Nullable numeric entry with locale-aware display, native form participation and optional shared step buttons.',
+    usage: [
+      'Use for quantities; use TextInput for identifiers where exact text and leading zeroes matter.',
+      'Control value with number or null and accept changes in onValueChange. Omitted or null defaultValue starts empty; defaultValue is initialization, not a reset command.',
+      'Arrow Up/Down use step, Shift uses largeStep, Alt uses smallStep, and Home/End use defined bounds. Set showSteppers=false to omit pointer buttons while retaining keyboard entry.',
+      'Preserve onValueChange/onValueCommitted details when wrapping the component. A commit describes the interaction, not validation or persistence.',
+      'Set name and optionally form to submit the raw number once. Locale formatting is visual/editing behavior; formatting precision can round committed values.',
+    ],
+    accessibility: [
+      'Use a visible standalone label, enclosing Field, or accessible name. Field help/error text is associated automatically, alongside explicit descriptions.',
+      'Read-only input remains focusable; disabled input is unavailable. Steppers are outside the Tab sequence and retain primitive pointer/touch behavior.',
+      'Localize decrementLabel/incrementLabel as needed. The primitive exposes a text input with a number-field role description; do not add unsupported spinbutton semantics.',
+    ],
+    intent: [
+      'invalid and Field.error reflect host-owned validation; allowOutOfRange lets direct entry reach native bounds validation without creating an application error message.',
+      'Currency/percent formatting does not calculate money, conversions or arbitrary precision values. Supply finite bounds, positive steps and valid Intl options.',
+    ],
+    context: [
+      'Compose inside Field and FormSection for allocation, quantity and numeric settings forms. The component does not own saving or persistence.',
+      'Use an explicit locale for predictable server/client formatting. Choose a data representation and validation policy appropriate to the domain.',
+    ],
+  },
+  CollectionToolbar: {
+    overview:
+      'Compose generic controlled collection search, host filter/action slots and a result status without assuming a record model.',
+    usage: [
+      'Keep query and resultCount with the host. Apply filters to records before supplying the count.',
+      'Render filters and actions through their state callbacks; apply disabled explicitly to each custom or portaled control.',
+      'Use FilterBar for the existing WorkRecord filter editor; keep the DataGrid toolbar for density, columns and selection.',
+    ],
+    accessibility: [
+      'Provide meaningful region and search names. This is normal section content, not an ARIA toolbar with roving focus.',
+      'busy exposes pending work without disabling edits. Disabled directly affects the shared search only; slot controls require explicit wiring.',
+    ],
+    intent: [
+      'Transparent structural control row; the result status is not a success or approval badge.',
+    ],
+    context: [
+      'Use above a list or table with host-owned loading, empty, error and results states. Record shared usage in product pattern policy.',
+    ],
+  },
+  FormSection: {
+    overview:
+      'Group related labeled form controls in a native fieldset with an associated description and responsive field layout.',
+    usage: [
+      'Group related fields under a short noninteractive legend. Each field still needs its own label.',
+      'Wrap in a host form when submission is intended; action buttons keep explicit button/submit types.',
+      'Use maxColumns as a responsive cap and reuse the shared minItemWidth choices.',
+    ],
+    accessibility: [
+      'The native fieldset uses its legend as its group name and associates the optional description.',
+      'Native disabled inheritance excludes first-legend descendants and portaled/custom controls. Set explicit disabled props on those controls.',
+    ],
+    intent: [
+      'Transparent grouping, with no card surface, validation state or save behavior added.',
+    ],
+    context: [
+      'Use within a settings page or editor, with the host owning drafts, validation, reset and persistence.',
+    ],
+  },
   Accordion: {
     overview: 'A set of labeled disclosure rows for content that can be explored independently.',
     usage: [

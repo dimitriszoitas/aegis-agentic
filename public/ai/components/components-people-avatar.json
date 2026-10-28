@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-people-avatar",
   "name": "Avatar",
@@ -41,32 +41,101 @@
       "component": "Avatar",
       "name": "initials",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/avatar/avatar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Avatar",
       "name": "name",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/avatar/avatar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Avatar",
       "name": "size",
       "type": "\"sm\" | \"md\" | \"lg\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/avatar/avatar.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\""
     },
     {
       "component": "Avatar",
       "name": "src",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/avatar/avatar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Avatar",
       "name": "status",
       "type": "\"online\" | \"away\" | \"busy\" | \"offline\" | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/avatar/avatar.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "AvatarGroup",
+      "name": "avatars",
+      "type": "readonly AvatarProps[]",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/avatar/avatar.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "AvatarGroup",
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/avatar/avatar.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "AvatarGroup",
+      "name": "max",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/avatar/avatar.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "AvatarGroup",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/avatar/avatar.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

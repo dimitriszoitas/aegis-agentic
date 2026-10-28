@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-textarea",
   "name": "Textarea",
@@ -40,6 +40,11 @@
       "name": "appearance",
       "type": "\"default\" | \"plain\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/textarea/textarea.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"default\"",
       "description": "Plain removes the field surface for composition inside another labelled control."
     },
@@ -48,6 +53,11 @@
       "name": "autoGrow",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/textarea/textarea.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -55,38 +65,68 @@
       "name": "defaultValue",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/textarea/textarea.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"\""
     },
     {
       "component": "Textarea",
       "name": "invalid",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/textarea/textarea.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Textarea",
       "name": "label",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/textarea/textarea.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Textarea",
       "name": "maxRows",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/textarea/textarea.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "10"
     },
     {
       "component": "Textarea",
       "name": "onValueChange",
       "type": "((value: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/textarea/textarea.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Textarea",
       "name": "showCount",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/textarea/textarea.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -94,19 +134,34 @@
       "name": "size",
       "type": "\"sm\" | \"md\" | \"lg\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/textarea/textarea.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\""
     },
     {
       "component": "Textarea",
       "name": "textareaClassName",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/textarea/textarea.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Textarea",
       "name": "value",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/textarea/textarea.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

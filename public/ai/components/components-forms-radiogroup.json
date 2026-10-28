@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-forms-radiogroup",
   "name": "RadioGroup",
@@ -39,87 +39,157 @@
       "component": "RadioGroup",
       "name": "defaultValue",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "RadioGroup",
       "name": "description",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "RadioGroup",
       "name": "disabled",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "RadioGroup",
       "name": "form",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "RadioGroup",
       "name": "invalid",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "RadioGroup",
       "name": "label",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "RadioGroup",
       "name": "loop",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
       "component": "RadioGroup",
       "name": "name",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "RadioGroup",
       "name": "onValueChange",
       "type": "((value: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "RadioGroup",
       "name": "options",
       "type": "readonly RadioOption[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "RadioGroup",
       "name": "orientation",
       "type": "\"horizontal\" | \"vertical\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"vertical\""
     },
     {
       "component": "RadioGroup",
       "name": "readOnly",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "RadioGroup",
       "name": "required",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "RadioGroup",
       "name": "value",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/radio-group/radio-group.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

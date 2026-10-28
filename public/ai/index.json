@@ -4,7 +4,7 @@
   "documentType": "index",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "provenance": {
     "generator": "scripts/generate-ai-contracts.mjs",
@@ -18,7 +18,7 @@
       "src/styles/primitive-color-tokens.css"
     ],
     "tokenManifest": "tokens/design-tokens.json",
-    "sourceDigest": "7dec3a44844ad80e542fa233c670c79c2be3d4842ef7406bac6acd0e25177ecc"
+    "sourceDigest": "68d797df1ca45251d6e66bf707d96a97adadc996657d7c4f22e31ead63922fa6"
   },
   "description": "Task-based discovery of component APIs, usage guidance, examples and token references.",
   "limitations": [
@@ -1286,6 +1286,54 @@
       }
     },
     {
+      "id": "components-forms-numberinput",
+      "name": "NumberInput",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "number field",
+        "numeric input",
+        "quantity",
+        "step input"
+      ],
+      "purpose": "Nullable numeric entry with locale-aware display, native form participation and optional shared step buttons.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/number-input"
+      ],
+      "links": {
+        "contract": "./components/components-forms-numberinput.json",
+        "overview": "../?path=/docs/components-inputs-selection-numberinput-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-numberinput-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-numberinput-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-numberinput-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "components-forms-passwordinput",
+      "name": "PasswordInput",
+      "category": "Inputs & Selection",
+      "tokenGroup": "input",
+      "kind": "component",
+      "aliases": [
+        "password",
+        "reveal password",
+        "secret",
+        "show password"
+      ],
+      "purpose": "A native password field with a named reveal/conceal action, composed from TextInput and IconButton.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/password-input"
+      ],
+      "links": {
+        "contract": "./components/components-forms-passwordinput.json",
+        "overview": "../?path=/docs/components-inputs-selection-passwordinput-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/components-inputs-selection-passwordinput-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/components-inputs-selection-passwordinput-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/components-inputs-selection-passwordinput-overview--docs&docsTab=tokens"
+      }
+    },
+    {
       "id": "components-forms-radiogroup",
       "name": "RadioGroup",
       "category": "Inputs & Selection",
@@ -2168,6 +2216,30 @@
       }
     },
     {
+      "id": "patterns-collectiontoolbar",
+      "name": "CollectionToolbar",
+      "category": "Filtering",
+      "tokenGroup": "filtering",
+      "kind": "pattern",
+      "aliases": [
+        "collection controls",
+        "list search",
+        "result count",
+        "table toolbar"
+      ],
+      "purpose": "Compose generic controlled collection search, host filter/action slots and a result status without assuming a record model.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-collectiontoolbar.json",
+        "overview": "../?path=/docs/patterns-filtering-collectiontoolbar-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-filtering-collectiontoolbar-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-filtering-collectiontoolbar-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-filtering-collectiontoolbar-overview--docs&docsTab=tokens"
+      }
+    },
+    {
       "id": "patterns-filterbar",
       "name": "FilterBar",
       "category": "Filtering",
@@ -2209,6 +2281,30 @@
         "anatomy": "../?path=/docs/patterns-filtering-filterpanel-overview--docs&docsTab=guidelines&docsSection=anatomy",
         "api": "../?path=/docs/patterns-filtering-filterpanel-overview--docs&docsTab=guidelines&docsSection=api",
         "tokens": "../?path=/docs/patterns-filtering-filterpanel-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-formsection",
+      "name": "FormSection",
+      "category": "Page Structure",
+      "tokenGroup": "page-structure",
+      "kind": "pattern",
+      "aliases": [
+        "fieldset",
+        "form group",
+        "legend",
+        "settings section"
+      ],
+      "purpose": "Group related labeled form controls in a native fieldset with an associated description and responsive field layout.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-formsection.json",
+        "overview": "../?path=/docs/patterns-page-structure-formsection-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-page-structure-formsection-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-page-structure-formsection-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-page-structure-formsection-overview--docs&docsTab=tokens"
       }
     },
     {

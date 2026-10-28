@@ -17,9 +17,9 @@ A contract is a versioned specification of what a component, composition or serv
 
 [`public/ai/contract-catalogue.json`](../public/ai/contract-catalogue.json) is generated from the canonical source files, not edited by hand. Storybook and agent interfaces consume the same data through [`src/agentic/contracts.ts`](../src/agentic/contracts.ts): `contractCatalogue`, `searchContracts`, `getContractEntry` and `getContractCoverage`. Missing identities return `undefined`; discovery never fabricates a contract.
 
-The `0.5.0-experiment.0` inventory contains **103 API families**, **27 authored component/pattern contracts** and **two separately classified service protocols**. **25 API families have mapped authored requirements**; two authored contracts have no generated API-family entry. Consequently, **78 API families have API documentation without a mapped authored behavioral contract**. These counts describe different artifacts, not a percentage of behavior verified.
+The `0.6.0-experiment.0` inventory contains **107 API families**, **31 authored component/pattern contracts** and **two separately classified service protocols**. **29 API families have mapped authored requirements**; two authored contracts have no generated API-family entry. Consequently, **78 API families have API documentation without a mapped authored behavioral contract**. These counts describe different artifacts, not a percentage of behavior verified.
 
-This milestone adds **20 source-backed contracts** to the seven present in 0.4. The existing contracts retain their identities and versions:
+The 0.5 milestone added **20 source-backed contracts** to the seven present in 0.4. The 0.6 milestone adds four working components/patterns with their own contracts. The existing contracts retain their identities and versions:
 
 | Authored identity   | API family                  | Scope                                                                  |
 | ------------------- | --------------------------- | ---------------------------------------------------------------------- |
@@ -31,7 +31,7 @@ This milestone adds **20 source-backed contracts** to the seven present in 0.4. 
 | `dataset-filtering` | No API-family mapping       | Experimental `FilteredDataset` renderer and supported customer filters |
 | `token-input`       | No API-family mapping       | Experimental free-text multi-value entry and controlled acknowledgment |
 
-The 20 additions cover existing product-facing implementations:
+The 20 additions in 0.5 cover existing product-facing implementations:
 
 | Area                       | New authored identities                                                                       |
 | -------------------------- | --------------------------------------------------------------------------------------------- |
@@ -39,6 +39,8 @@ The 20 additions cover existing product-facing implementations:
 | Overlays and menus         | `dropdown-menu`, `popover`, `side-sheet`                                                      |
 | Collections and navigation | `data-grid`, `filter-bar`, `page-header`, `side-nav`, `tabs`, `pagination`                    |
 | Data and feedback          | `metric-card`, `sparkline`, `description-list`, `empty-state`                                 |
+
+The four new 0.6 implementations are `password-input` (native password entry and visibility), `number-input` (Base UI numeric entry and form serialization), `collection-toolbar` (generic host-owned search, filter/action slots and result status) and `form-section` (native fieldset grouping with the shared responsive grid). Each has its own public import, source-backed requirements, interaction stories and anatomy specimen. These remain experimental additions with no fabricated owner approval.
 
 `dataset-filtering` does **not** describe the inherited `FilterBar` API family; `filter-bar` now supplies that family's own requirement document. A shared word, category or nested dependency is insufficient to map contracts. [`contracts/catalogue-bindings.json`](../contracts/catalogue-bindings.json) records explicit registry identities, versions, implementation files and export names. The generator checks these against the registry and source-derived API metadata, and rejects stale, duplicate, missing or incompatible bindings.
 
@@ -56,15 +58,15 @@ Source paths and SHA-256 hashes identify the exact catalogue inputs. Authored do
 
 ## Schema 2: explicit responsibility and source references
 
-The 20 new documents use **contract schema 2**, each starting at **contract version 1**. These are separate version axes: `schemaVersion` identifies the document shape, while `version` identifies that component's requirements. They retain `status: source-backed-baseline` and `verification: not-certified-by-this-contract`.
+The 24 source-backed documents use **contract schema 2**, each starting at **contract version 1**. These are separate version axes: `schemaVersion` identifies the document shape, while `version` identifies that component's requirements. They retain `status: source-backed-baseline` and `verification: not-certified-by-this-contract`.
 
 Each document declares component and host ownership, then gives each requirement a stable lower-kebab `id`, a `kind`, a statement and one or more repository-relative source references:
 
-| Requirement kind | Meaning                                                                                                                                                                          |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Requirement kind | Meaning                                                                                                                                                                                                                                                                   |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `component`      | Responsibility grounded in the implementation, including delegated primitive behavior and explicit limits. The requirement must cite an implementation or style file in the component’s own directory and API source graph; transitive dependencies alone do not qualify. |
-| `host`           | Caller obligations such as accepting controlled-state changes, providing names, applying filters, fetching data, routing, submitting forms or preserving drafts.                 |
-| `design`         | Canonical composition or token guidance that an implementation or extension must follow; not a claim that the component executes that guidance at runtime.                       |
+| `host`           | Caller obligations such as accepting controlled-state changes, providing names, applying filters, fetching data, routing, submitting forms or preserving drafts.                                                                                                          |
+| `design`         | Canonical composition or token guidance that an implementation or extension must follow; not a claim that the component executes that guidance at runtime.                                                                                                                |
 
 Keep a requirement's id stable while its responsibility remains the same; use it to discuss changes and relate future checks to the requirement. Ids are unique within their contract, so references need both the contract identity/version and requirement id. Do not silently reuse an id for unrelated behavior. A material requirement change needs deliberate contract versioning and review.
 

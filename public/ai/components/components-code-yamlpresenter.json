@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-code-yamlpresenter",
   "name": "YamlPresenter",
@@ -37,25 +37,45 @@
       "name": "filename",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/yaml-presenter/yaml-presenter.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"config.yaml\""
     },
     {
       "component": "YamlPresenter",
       "name": "highlightedLines",
       "type": "readonly HighlightedLineRange[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/yaml-presenter/yaml-presenter.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "YamlPresenter",
       "name": "label",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/yaml-presenter/yaml-presenter.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "YamlPresenter",
       "name": "maxHeight",
       "type": "string | number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/yaml-presenter/yaml-presenter.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "520px (var(--group-code-measurement-code-max-height))"
     },
     {
@@ -63,25 +83,45 @@
       "name": "minHeight",
       "type": "string | number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/yaml-presenter/yaml-presenter.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "120px (var(--group-code-measurement-yaml-min-height))"
     },
     {
       "component": "YamlPresenter",
       "name": "onCopy",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/yaml-presenter/yaml-presenter.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "YamlPresenter",
       "name": "value",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/yaml-presenter/yaml-presenter.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "YamlPresenter",
       "name": "wrapLines",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/yaml-presenter/yaml-presenter.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     }
   ],

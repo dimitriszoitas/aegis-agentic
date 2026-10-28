@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-ai-aimessage",
   "name": "AiMessage",
@@ -36,31 +36,56 @@
       "component": "AiMessage",
       "name": "message",
       "type": "AiMessageData",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-message/ai-message.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiMessage",
       "name": "onCitationClick",
       "type": "((citation: AiContextItem) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-message/ai-message.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiMessage",
       "name": "onFeedback",
       "type": "((feedback: \"helpful\" | \"unhelpful\") => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-message/ai-message.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiMessage",
       "name": "onRegenerate",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-message/ai-message.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiMessage",
       "name": "resultCards",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-message/ai-message.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

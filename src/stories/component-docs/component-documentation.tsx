@@ -16,6 +16,7 @@ import { TokenDocumentation } from './token-documentation';
 import { PlaygroundControls } from './playground-controls';
 import { ExamplePicker } from './example-picker';
 import { playgroundControls } from './playground-controls-model';
+import { isComponentProp } from './prop-origin';
 import { useSpecimenArgs } from './use-specimen-args';
 import { hubNavigationMessage } from './hub-navigation';
 import { ComponentContract } from '../contracts/contract-details';
@@ -410,7 +411,7 @@ function Specimen({
   );
 }
 const enumProps = (meta: ComponentMetadata) =>
-  meta.props.filter((prop) => /"[^"]+"\s*\||'[^']+'\s*\|/.test(prop.type) && !prop.inherited);
+  meta.props.filter((prop) => /"[^"]+"\s*\||'[^']+'\s*\|/.test(prop.type) && isComponentProp(prop));
 function VariantTable({
   meta,
   filter = () => true,
@@ -843,7 +844,7 @@ function ApiTable({ meta }: { meta: ComponentMetadata }) {
     [inherited, setInherited] = useState(false);
   const props = meta.props.filter(
     (prop) =>
-      (inherited || !prop.inherited) &&
+      (inherited || isComponentProp(prop)) &&
       `${prop.component} ${prop.name} ${prop.type}`.toLowerCase().includes(query.toLowerCase()),
   );
   return (
@@ -890,6 +891,9 @@ function ApiTable({ meta }: { meta: ComponentMetadata }) {
             <td>
               {prop.description ||
                 'See the property type and working examples for the supported value.'}
+              {prop.inherited && prop.declaration && (
+                <small>Inherited from {prop.declaration.source}</small>
+              )}
             </td>
           </tr>
         ))}

@@ -38,7 +38,18 @@ The proposed direction is one Aegis product with a common UI foundation and opti
 
 Storybook's **Contract Catalogue** and each family’s **Contract** tab expose the same generated catalogue used by the portable CLI and optional MCP adapter. API metadata, authored requirements, linked checks and reported evidence are separate facts. Missing behavioral contracts remain visible; a linked test or historical report does not certify the current implementation. Component and pattern entries are separate from infrastructure protocols.
 
-The **0.5 product behavior contract milestone** adds 20 source-backed documents. The current catalogue has **27 authored component/pattern contracts**, **25 mapped families out of 103**, **78 API-only families**, and two separately classified service protocols. The new schema-2 requirements distinguish component responsibilities, host obligations and design guidance, with stable ids and source references. This expands the written behavioral coverage without claiming that every requirement has executable or passing evidence. See [contract coverage and semantics](docs/CONTRACTS.md).
+The **0.5 product behavior contract milestone** adds 20 source-backed documents. At that milestone, the catalogue had **27 authored component/pattern contracts**, **25 mapped families out of 103**, **78 API-only families**, and two separately classified service protocols. The new schema-2 requirements distinguish component responsibilities, host obligations and design guidance, with stable ids and source references. This expands the written behavioral coverage without claiming that every requirement has executable or passing evidence. See [contract coverage and semantics](docs/CONTRACTS.md).
+
+The **0.6 forms and collections milestone** adds usable `PasswordInput`, `NumberInput`, `CollectionToolbar` and `FormSection` implementations, public exports, examples and contracts. The current catalogue has **107 API families**, **31 authored contracts**, **29 mapped families** and **78 API-only families**. The inputs handle password visibility and Base UI numeric entry; the patterns standardize controlled collection controls and native form grouping.
+
+| Addition                                                       | Use it for                                                                    | Public subpath                 |
+| -------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------ |
+| [PasswordInput](src/components/password-input/README.md)       | Concealed entry with an accessible reveal action and native form integration. | `/password-input`              |
+| [NumberInput](src/components/number-input/README.md)           | Nullable numeric values, bounds, stepping and locale-aware formatting.        | `/number-input`                |
+| [CollectionToolbar](src/patterns/collection-toolbar/README.md) | Consistent search, filter/action slots, pending feedback and result counts.   | `/patterns/collection-toolbar` |
+| [FormSection](src/patterns/form-section/README.md)             | Named field groups, shared descriptions and responsive field columns.         | `/patterns/form-section`       |
+
+Each has Storybook examples, anatomy and a contract describing component and host responsibilities. `forms-collections:browser` checks the built Storybook; `forms-collections:package` exercises the packed public entries in a separate consumer. The catalogue reports coverage separately from passing evidence.
 
 ```sh
 node agent-kit/bin/aegis.mjs contracts coverage

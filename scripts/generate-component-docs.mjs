@@ -4,6 +4,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import ts from 'typescript';
 import { supportsStoryArgs } from './component-story-args.mjs';
+import { componentPropOrigin, isComponentProp } from './component-prop-origin.mjs';
 import { createSharedRuleLookup, sharedRuleOwners } from './component-doc-ownership.mjs';
 import { storyNameFromExport, toId } from 'storybook/internal/csf';
 import {
@@ -249,7 +250,11 @@ function propsFor(expression) {
             alternatives.every((item) => checker.getPropertyOfType(item, prop.getName())),
           ...(defaults.has(prop.getName()) ? { defaultValue: defaults.get(prop.getName()) } : {}),
           description: ts.displayPartsToString(prop.getDocumentationComment(checker)),
-          inherited: node.getSourceFile().fileName !== declaration.getSourceFile().fileName,
+          ...componentPropOrigin(
+            node.getSourceFile().fileName,
+            declaration.getSourceFile().fileName,
+            root,
+          ),
         };
         const existing = properties.get(entry.name);
         if (existing && existing.type !== entry.type)
@@ -739,7 +744,7 @@ for (const file of storyFiles) {
         ...(actualDefault !== undefined ? { default: actualDefault.replace(/^"|"$/g, '') } : {}),
       };
     }) ?? [];
-  for (const prop of props.filter((prop) => !prop.inherited)) {
+  for (const prop of props.filter(isComponentProp)) {
     const values = propLiteralValues.get(`${prop.component}:${prop.name}`) ?? [];
     if (
       values.length >= 2 &&

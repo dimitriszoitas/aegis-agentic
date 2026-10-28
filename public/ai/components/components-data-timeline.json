@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-data-timeline",
   "name": "Timeline",
@@ -39,26 +39,46 @@
       "component": "Timeline",
       "name": "items",
       "type": "readonly TimelineEntry[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/timeline/timeline.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Timeline",
       "name": "label",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/timeline/timeline.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Activity timeline\""
     },
     {
       "component": "Timeline",
       "name": "now",
       "type": "number | Date | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/timeline/timeline.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Timeline",
       "name": "timeZone",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/timeline/timeline.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"UTC\""
     }
   ],

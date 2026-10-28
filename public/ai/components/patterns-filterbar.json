@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "patterns-filterbar",
   "name": "FilterBar",
@@ -40,19 +40,34 @@
       "name": "columns",
       "type": "readonly FilterColumn[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[]"
     },
     {
       "component": "FilterBar",
       "name": "density",
       "type": "FilterDensity | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterBar",
       "name": "disabled",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -60,6 +75,11 @@
       "name": "filterMode",
       "type": "FilterMode | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"bar\"",
       "description": "Bar mode edits filters inline; panel mode delegates editing to the sidebar."
     },
@@ -68,6 +88,11 @@
       "name": "filterPanelOpen",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false",
       "description": "Applied chips appear only when the filter sidebar is closed."
     },
@@ -75,57 +100,102 @@
       "component": "FilterBar",
       "name": "now",
       "type": "number | Date | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterBar",
       "name": "onColumnVisibilityChange",
       "type": "((id: string, visible: boolean) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterBar",
       "name": "onDensityChange",
       "type": "((density: FilterDensity) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterBar",
       "name": "onTogglePanel",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterBar",
       "name": "onValueChange",
       "type": "(value: RecordFilterState) => void",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterBar",
       "name": "owners",
       "type": "readonly RecordOwner[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[]"
     },
     {
       "component": "FilterBar",
       "name": "panelId",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterBar",
       "name": "selectionActions",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      },
       "description": "Replaces the normal filter/search row while records are selected."
     },
     {
       "component": "FilterBar",
       "name": "value",
       "type": "RecordFilterState",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-bar/filter-bar.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

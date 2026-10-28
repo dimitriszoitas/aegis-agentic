@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-charts-area-chart",
   "name": "Area chart",
@@ -36,121 +36,221 @@
       "component": "AreaChart",
       "name": "action",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "brush",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "brushRange",
       "type": "ChartBrushRange | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "compact",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "data",
       "type": "readonly object[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "description",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "emptyTitle",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "error",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "height",
       "type": "number | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "loading",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "onBrushChange",
       "type": "((range: ChartBrushRange) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "onRetry",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "series",
       "type": "readonly ChartSeries[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "showDataTable",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "showLegend",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "stacked",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "title",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "valueFormatter",
       "type": "((value: number) => string) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "xFormatter",
       "type": "((value: string | number) => string) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AreaChart",
       "name": "xKey",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/charts/charts.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

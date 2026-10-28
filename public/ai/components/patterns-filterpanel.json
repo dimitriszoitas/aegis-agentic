@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "patterns-filterpanel",
   "name": "FilterPanel",
@@ -40,6 +40,11 @@
       "name": "additionalFilterCount",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "0",
       "description": "Include host-owned criteria in the applied count and Clear all state."
     },
@@ -48,6 +53,11 @@
       "name": "children",
       "type": "ReactNode",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      },
       "description": "Additional host-owned controls shown above the standard facets."
     },
     {
@@ -55,6 +65,11 @@
       "name": "defaultSearch",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"\""
     },
     {
@@ -62,62 +77,112 @@
       "name": "disabled",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "FilterPanel",
       "name": "now",
       "type": "number | Date | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterPanel",
       "name": "onClearAll",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterPanel",
       "name": "onClose",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterPanel",
       "name": "onValueChange",
       "type": "(value: RecordFilterState) => void",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterPanel",
       "name": "owners",
       "type": "readonly RecordOwner[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterPanel",
       "name": "records",
       "type": "readonly WorkRecord[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterPanel",
       "name": "statusGroupLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Status\""
     },
     {
       "component": "FilterPanel",
       "name": "statusLabelOverrides",
       "type": "Partial<Record<RecordStatus, string>> | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "FilterPanel",
       "name": "value",
       "type": "RecordFilterState",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/patterns/filter-panel/filter-panel.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [],

@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-ai-aiinlinesuggestion",
   "name": "AiInlineSuggestion",
@@ -36,13 +36,23 @@
       "component": "AiInlineSuggestion",
       "name": "aria-label",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiInlineSuggestion",
       "name": "as",
       "type": "\"input\" | \"textarea\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"input\""
     },
     {
@@ -50,81 +60,146 @@
       "name": "autoGrow",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
       "component": "AiInlineSuggestion",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiInlineSuggestion",
       "name": "defaultValue",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"\""
     },
     {
       "component": "AiInlineSuggestion",
       "name": "label",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiInlineSuggestion",
       "name": "maxLength",
       "type": "number | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiInlineSuggestion",
       "name": "maxRows",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "8"
     },
     {
       "component": "AiInlineSuggestion",
       "name": "name",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiInlineSuggestion",
       "name": "onAccept",
       "type": "((value: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiInlineSuggestion",
       "name": "onDismiss",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiInlineSuggestion",
       "name": "onKeyDown",
       "type": "((event: KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiInlineSuggestion",
       "name": "onValueChange",
       "type": "((value: string) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiInlineSuggestion",
       "name": "placeholder",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "AiInlineSuggestion",
       "name": "readOnly",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -132,6 +207,11 @@
       "name": "rows",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "3"
     },
     {
@@ -139,6 +219,11 @@
       "name": "size",
       "type": "\"sm\" | \"md\" | \"lg\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\""
     },
     {
@@ -146,13 +231,67 @@
       "name": "suggestion",
       "type": "string",
       "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      },
       "description": "Full proposed value, including the already typed prefix."
     },
     {
       "component": "AiInlineSuggestion",
       "name": "value",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "AiInlineSuggestion",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "AiInlineSuggestion",
+      "name": "id",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "AiInlineSuggestion",
+      "name": "invalid",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "AiInlineSuggestion",
+      "name": "required",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/field/field.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

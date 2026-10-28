@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 2,
+  "id": "number-input",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Enter a nullable numeric quantity with locale-aware formatting, optional step actions and native form participation.",
+  "anatomy": [
+    "optional standalone label",
+    "number-field group",
+    "optional decrement IconButton",
+    "visible numeric text input",
+    "optional increment IconButton",
+    "primitive form-associated numeric input"
+  ],
+  "states": [
+    "empty",
+    "populated",
+    "controlled",
+    "uncontrolled",
+    "disabled",
+    "read-only",
+    "invalid",
+    "required",
+    "keyboard-focus",
+    "at-minimum",
+    "at-maximum"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Installed @base-ui/react NumberField Root, Group, Input, Decrement and Increment; shared Aegis useFieldControl and IconButton.",
+  "ownership": {
+    "component": [
+      "Primitive composition, numeric state and interaction delegation",
+      "Visible input ref and raw-number form participation",
+      "Field association and optional shared step actions"
+    ],
+    "host": [
+      "Controlled state acceptance and domain validation",
+      "Meaningful accessible naming and locale choices",
+      "Submission, persistence, finite configuration and financial precision decisions"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "nullable-value-ownership",
+      "kind": "component",
+      "statement": "Delegate numeric state to Base UI NumberField. A supplied value selects controlled behavior and preserves null as empty; otherwise defaultValue initializes uncontrolled state. Null defaultValue maps to the primitive empty default rather than zero.",
+      "sources": ["src/components/number-input/number-input.tsx"]
+    },
+    {
+      "id": "change-and-commit-details",
+      "kind": "component",
+      "statement": "Pass onValueChange and onValueCommitted directly to Base UI without dropping their value or event details. Change details preserve primitive cancellation and reason information; commit callbacks report interaction completion, not persistence.",
+      "sources": [
+        "src/components/number-input/number-input.tsx",
+        "src/components/number-input/README.md"
+      ]
+    },
+    {
+      "id": "native-form-value",
+      "kind": "component",
+      "statement": "Pass name, form, min, max, step, required, disabled and readOnly to NumberField.Root. Its associated numeric input owns the submitted raw number. The visible input uses the primitive text-editing behavior and has no duplicate form name. The forwarded ref targets the visible input; hiddenInputRef targets the associated numeric input.",
+      "sources": ["src/components/number-input/number-input.tsx"]
+    },
+    {
+      "id": "bounds-steps-and-editing",
+      "kind": "component",
+      "statement": "Delegate min/max, step, smallStep, largeStep, snapOnStep, allowOutOfRange and allowWheelScrub to NumberField. Keep its arrow-key stepping and defined Home/End bounds; showSteppers only controls the two rendered increment/decrement actions.",
+      "sources": [
+        "src/components/number-input/number-input.tsx",
+        "src/components/number-input/README.md"
+      ]
+    },
+    {
+      "id": "locale-formatting",
+      "kind": "component",
+      "statement": "Pass locale and Intl format options through to NumberField so localized display and numeric value remain distinct. The wrapper adds no currency conversion, decimal accounting or precision arithmetic.",
+      "sources": [
+        "src/components/number-input/number-input.tsx",
+        "src/components/number-input/README.md"
+      ]
+    },
+    {
+      "id": "field-association",
+      "kind": "component",
+      "statement": "Use useFieldControl to resolve the real input id, required, disabled, invalid and description references. Associate a standalone visible label when provided; explicit aria-labelledby takes precedence. Enclosing Field help/error references are merged with an explicit aria-describedby.",
+      "sources": ["src/components/number-input/number-input.tsx", "src/components/field/field.tsx"]
+    },
+    {
+      "id": "shared-step-actions",
+      "kind": "component",
+      "statement": "Render NumberField.Decrement and NumberField.Increment through actual IconButton components when showSteppers is true. Supply localizable action labels and preserve the primitive button interactions and Tab-sequence policy.",
+      "sources": [
+        "src/components/number-input/number-input.tsx",
+        "src/components/icon-button/icon-button.tsx"
+      ]
+    },
+    {
+      "id": "controlled-host-and-inputs",
+      "kind": "host",
+      "statement": "When value is provided, update it to accept requested changes, including null. Supply finite meaningful bounds, valid positive step amounts and valid Intl options. Treat defaultValue as initialization, not a reset command.",
+      "sources": [
+        "src/components/number-input/number-input.tsx",
+        "src/components/number-input/README.md"
+      ]
+    },
+    {
+      "id": "validation-and-domain-ownership",
+      "kind": "host",
+      "statement": "Own domain validation, error messages, financial calculations, submission and persistence. invalid and Field.error present host decisions; a committed callback does not certify validity. When allowing out-of-range input, decide how native validity and recovery messages are surfaced.",
+      "sources": [
+        "src/components/number-input/number-input.tsx",
+        "src/components/field/field.tsx",
+        "src/components/number-input/README.md"
+      ]
+    },
+    {
+      "id": "accessible-naming",
+      "kind": "host",
+      "statement": "Supply a standalone label, enclosing Field label or input accessible name. Localize step action names where needed. Do not use placeholder text as the label or override the text-input role to claim unsupported spinbutton semantics.",
+      "sources": [
+        "src/components/number-input/number-input.tsx",
+        "src/components/number-input/README.md"
+      ]
+    },
+    {
+      "id": "group-token-and-focus-ownership",
+      "kind": "design",
+      "statement": "Keep the owned root and input styles within the input token group; real nested IconButton components retain trigger tokens. Preserve keyboard-visible focus, forced-colors indication and stable size metrics across both themes and modes.",
+      "sources": [
+        "src/components/number-input/number-input.css",
+        "src/components/icon-button/icon-button.tsx",
+        "skills/references/design-contract.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "This is a source-backed requirement record, not a current browser result or release approval.",
+    "The wrapper adds no native form-reset listener, application validation, asynchronous validation or persistence.",
+    "Intl precision options may round committed values. The component does not provide arbitrary precision accounting or currency conversion; compact notation is unsuitable when edited values must round-trip.",
+    "Primitive numeric parsing and keyboard behavior remain dependent on the installed Base UI version. The visible element is a text input with a number-field role description, not an added spinbutton role."
+  ]
+}

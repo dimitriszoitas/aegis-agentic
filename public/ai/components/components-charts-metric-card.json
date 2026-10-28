@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-charts-metric-card",
   "name": "Metric card",
@@ -41,58 +41,103 @@
       "component": "MetricCard",
       "name": "delta",
       "type": "number | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MetricCard",
       "name": "deltaLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"vs previous 24h\""
     },
     {
       "component": "MetricCard",
       "name": "format",
       "type": "Intl.NumberFormatOptions | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MetricCard",
       "name": "intent",
       "type": "\"function\" | \"destroy\" | \"ai\" | \"success\" | \"warning\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      },
       "description": "Gives the metric a semantic accent, independently of whether its delta is favorable."
     },
     {
       "component": "MetricCard",
       "name": "label",
       "type": "string",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MetricCard",
       "name": "loading",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
       "component": "MetricCard",
       "name": "sparkline",
       "type": "readonly number[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MetricCard",
       "name": "sparklineLabel",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MetricCard",
       "name": "sparklineVariant",
       "type": "\"area\" | \"line\" | \"bar\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"line\""
     },
     {
@@ -100,19 +145,45 @@
       "name": "trendIsPositive",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      },
       "description": "Set explicitly when a decrease is desirable, such as mean time to resolution."
     },
     {
       "component": "MetricCard",
       "name": "unit",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "MetricCard",
       "name": "value",
       "type": "string | number",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/metric-card/metric-card.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "MetricCard",
+      "name": "elevation",
+      "type": "\"flat\" | \"raised\" | \"floating\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/card/card.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [
@@ -133,6 +204,14 @@
         "function",
         "success",
         "warning"
+      ]
+    },
+    {
+      "name": "elevation",
+      "values": [
+        "flat",
+        "floating",
+        "raised"
       ]
     }
   ],

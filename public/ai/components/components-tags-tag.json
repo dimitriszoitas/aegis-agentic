@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-tags-tag",
   "name": "Tag",
@@ -43,32 +43,57 @@
       "component": "Tag",
       "name": "children",
       "type": "ReactNode",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tag",
       "name": "className",
       "type": "string | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tag",
       "name": "count",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "0"
     },
     {
       "component": "Tag",
       "name": "disabled",
       "type": "boolean | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tag",
       "name": "dotColor",
       "type": "Property.Color | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      },
       "description": "Optional semantic CSS color for a status dot, independent of action intent."
     },
     {
@@ -76,25 +101,45 @@
       "name": "intent",
       "type": "Intent | \"success\" | \"warning\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"default\""
     },
     {
       "component": "Tag",
       "name": "onRemove",
       "type": "(() => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tag",
       "name": "onSelectedChange",
       "type": "((selected: boolean) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Tag",
       "name": "removeLabel",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"Remove filter\""
     },
     {
@@ -102,6 +147,11 @@
       "name": "selected",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -109,6 +159,11 @@
       "name": "size",
       "type": "\"sm\" | \"md\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"md\""
     },
     {
@@ -116,7 +171,145 @@
       "name": "variant",
       "type": "\"status\" | \"interactive\" | \"static\" | \"removable\" | \"counter\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"static\""
+    },
+    {
+      "component": "Chip",
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Chip",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Chip",
+      "name": "count",
+      "type": "number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Chip",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Chip",
+      "name": "dotColor",
+      "type": "Property.Color | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      },
+      "description": "Optional semantic CSS color for a status dot, independent of action intent."
+    },
+    {
+      "component": "Chip",
+      "name": "intent",
+      "type": "Intent | \"success\" | \"warning\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Chip",
+      "name": "onRemove",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Chip",
+      "name": "onSelectedChange",
+      "type": "((selected: boolean) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Chip",
+      "name": "removeLabel",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Chip",
+      "name": "selected",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Chip",
+      "name": "size",
+      "type": "\"sm\" | \"md\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "Chip",
+      "name": "variant",
+      "type": "\"status\" | \"interactive\" | \"static\" | \"removable\" | \"counter\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/tag/tag.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

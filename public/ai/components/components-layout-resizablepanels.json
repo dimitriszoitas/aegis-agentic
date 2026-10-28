@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-layout-resizablepanels",
   "name": "ResizablePanels",
@@ -36,13 +36,422 @@
     "import { ResizablePanel, ResizablePanels, ResizeHandle } from '@dimitriszoitas/aegis-agentic/resizable-panels';"
   ],
   "stylesheetImport": "import '@dimitriszoitas/aegis-agentic/styles.css';",
-  "props": [],
+  "props": [
+    {
+      "component": "ResizablePanels",
+      "name": "defaultLayout",
+      "type": "Layout | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Default layout for the Group.\r\n\r\nℹ️ This value allows layouts to be remembered between page reloads.\r\n\r\n⚠️ Slight layout shift may occur when server-rendering panels with percentage-based default sizes.\r\nRefer to the documentation for suggestions on how to minimize the impact of this."
+    },
+    {
+      "component": "ResizablePanels",
+      "name": "disableCursor",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "This library sets custom mouse cursor styles to indicate drag state.\r\nUse this prop to disable that behavior for Panels and Separators in this group."
+    },
+    {
+      "component": "ResizablePanels",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Disable resize functionality."
+    },
+    {
+      "component": "ResizablePanels",
+      "name": "elementRef",
+      "type": "Ref<HTMLDivElement | null> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Ref attached to the root `HTMLDivElement`."
+    },
+    {
+      "component": "ResizablePanels",
+      "name": "groupRef",
+      "type": "Ref<GroupImperativeHandle | null> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Exposes the following imperative API:\r\n- `getLayout(): Layout`\r\n- `setLayout(layout: Layout): void`\r\n\r\nℹ️ The `useGroupRef` and `useGroupCallbackRef` hooks are exported for convenience use in TypeScript projects."
+    },
+    {
+      "component": "ResizablePanels",
+      "name": "onLayoutChange",
+      "type": "((layout: Layout) => void | undefined) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Called when the Group's layout is changing.\r\n\r\n⚠️ For layout changes caused by pointer events, this method is called each time the pointer is moved.\r\nFor most cases, it is recommended to use the `onLayoutChanged` callback instead."
+    },
+    {
+      "component": "ResizablePanels",
+      "name": "onLayoutChanged",
+      "type": "((layout: Layout, meta: LayoutChangedMeta) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Called after the Group's layout has  been changed.\r\n\r\nℹ️ For layout changes caused by pointer events, this method is not called until the pointer has been released.\r\nThis method is recommended when saving layouts to some storage api.\r\n\r\nℹ️ The second argument contains meta information about the layout change.\r\nThe `isUserInteraction` attribute signals whether the resize was caused by direct user input.\r\nIt is true for resizes caused by pointer or keyboard input\r\nand false for other triggers (e.g. imperative API calls, initial mount, etc.)\r\nThe `requestedLayout` attribute is the layout before constraints were applied for the current Group size;\r\nprefer it when persisting layouts."
+    },
+    {
+      "component": "ResizablePanels",
+      "name": "orientation",
+      "type": "\"horizontal\" | \"vertical\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Specifies the resizable orientation (\"horizontal\" or \"vertical\"); defaults to \"horizontal\""
+    },
+    {
+      "component": "ResizablePanels",
+      "name": "resizePreviewMode",
+      "type": "ResizePreviewMode | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Controls whether pointer dragging updates `Panel`s sizes immediately,\r\nor renders overlay separator previews until the pointer is released.\r\n\r\nDefaults to `\"panel\"` (immediate resizing); `\"separator\"` defers resizing until release.\r\n\r\nCustomize previews using the `SeparatorOverlay` component."
+    },
+    {
+      "component": "ResizablePanels",
+      "name": "resizeTargetMinimumSize",
+      "type": "{ coarse: number; fine: number; } | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Minimum size of the resizable hit target area (either `Separator` or `Panel` edge)\r\nThis threshold ensures are large enough to avoid mis-clicks.\r\n\r\n- Coarse inputs (typically a finger on a touchscreen) have reduced accuracy;\r\nto ensure accessibility and ease of use, hit targets should be larger to prevent mis-clicks.\r\n- Fine inputs (typically a mouse) can be smaller\r\n\r\nℹ️ [Apple interface guidelines](https://developer.apple.com/design/human-interface-guidelines/accessibility) suggest `20pt` (`27px`) on desktops and `28pt` (`37px`) for touch devices\r\nIn practice this seems to be much larger than many of their own applications use though."
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "CSS class name.\r\n\r\n⚠️ Class is applied to nested `HTMLDivElement` to avoid styles that interfere with Flex layout."
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "collapsedSize",
+      "type": "string | number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Panel size when collapsed; defaults to 0%."
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "collapsedThreshold",
+      "type": "string | number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Distance a collapsible panel must be resized past its `minSize` to collapse,\r\nor past its `collapsedSize` to expand.\r\nDefaults to half the distance between `collapsedSize` and `minSize`.\r\n\r\nFor example if a panel declares `collapsedSize=\"5%\"`, `collapsedThreshold=\"5%\"`, and `minSize=\"25%\"`,\r\nit will collapse when resized below 20% and expands when resized above 10%.\r\n\r\nℹ️ Interpretation rules:\r\n- Numbers are interpreted as pixels (e.g. `minSize={200}` is 200 pixels)\r\n- Strings without explicit units are interpreted as percentage (e.g. `minSize=\"50\"` is 50 percent)\r\n- Use explicit units (e.g. \"px\", \"%\", \"em\", \"rem\", \"vh\", or \"vw\") to change interpretation"
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "collapsible",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "This panel can be collapsed.\r\n\r\nℹ️ A collapsible panel will collapse when it's size is less than of the specified `minSize`"
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "defaultSize",
+      "type": "string | number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Default size of Panel within its parent group; default is auto-assigned based on the total number of Panels.\r\n\r\nℹ️ Interpretation rules:\r\n- Numbers are interpreted as pixels (e.g. `defaultSize={200}` is 200 pixels)\r\n- Strings without explicit units are interpreted as percentage (e.g. `defaultSize=\"50\"` is 50 percent)\r\n- Use explicit units (e.g. \"px\", \"%\", \"em\", \"rem\", \"vh\", or \"vw\") to change interpretation\r\n\r\n⚠️ Percentage based sizes may cause slight layout shift when server-rendering.\r\nFor more information see the documentation."
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "When disabled, a panel cannot be resized either directly or indirectly (by resizing another panel)."
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "elementRef",
+      "type": "Ref<HTMLDivElement | null> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Ref attached to the root `HTMLDivElement`."
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "groupResizeBehavior",
+      "type": "\"preserve-relative-size\" | \"preserve-pixel-size\" | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "How should this Panel behave if the parent Group is resized?\r\nDefaults to `preserve-relative-size`.\r\n\r\n- `preserve-relative-size`: Retain the current relative size (as a percentage of the Group)\r\n- `preserve-pixel-size`: Retain its current size (in pixels)\r\n\r\nℹ️ Panel min/max size constraints may impact this behavior.\r\n\r\n⚠️ A Group must contain at least one Panel with `preserve-relative-size` resize behavior."
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "id",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Uniquely identifies this panel within the parent group.\r\nFalls back to `useId` when not provided.\r\n\r\nℹ️ This prop is used to associate persisted group layouts with the original panel.\r\n\r\nℹ️ This value will also be assigned to the `id` and `data-testid` attributes."
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "maxSize",
+      "type": "string | number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Maximum size of Panel within its parent group; defaults to `\"100%\"`.\r\n\r\nℹ️ Interpretation rules:\r\n- Numbers are interpreted as pixels (e.g. `maxSize={200}` is 200 pixels)\r\n- Strings without explicit units are interpreted as percentage (e.g. `maxSize=\"50\"` is 50 percent)\r\n- Use explicit units (e.g. \"px\", \"%\", \"em\", \"rem\", \"vh\", or \"vw\") to change interpretation"
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "minSize",
+      "type": "string | number | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Minimum size of Panel within its parent group; defaults to 0%.\r\n\r\nℹ️ Interpretation rules:\r\n- Numbers are interpreted as pixels (e.g. `minSize={200}` is 200 pixels)\r\n- Strings without explicit units are interpreted as percentage (e.g. `minSize=\"50\"` is 50 percent)\r\n- Use explicit units (e.g. \"px\", \"%\", \"em\", \"rem\", \"vh\", or \"vw\") to change interpretation"
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "onResize",
+      "type": "((panelSize: PanelSize, id: string | number | undefined, prevPanelSize: PanelSize | undefined) => void) | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Called when panel sizes change."
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "panelRef",
+      "type": "Ref<PanelImperativeHandle | null> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Exposes the following imperative API:\r\n- `collapse(): void`\r\n- `expand(): void`\r\n- `getSize(): number`\r\n- `isCollapsed(): boolean`\r\n- `resize(size: number): void`\r\n\r\nℹ️ The `usePanelRef` and `usePanelCallbackRef` hooks are exported for convenience use in TypeScript projects."
+    },
+    {
+      "component": "ResizablePanel",
+      "name": "style",
+      "type": "CSSProperties | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "CSS properties.\r\n\r\n⚠️ The default inline styles cannot be overridden, except for [`overflow`](https://react-resizable-panels.vercel.app/examples/overflow)."
+    },
+    {
+      "component": "ResizeHandle",
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "CSS class name.\r\n\r\nℹ️ Use the `data-separator` attribute for custom _hover_ and _active_ styles\r\n\r\n⚠️ The following properties cannot be overridden: `flex-grow`, `flex-shrink`"
+    },
+    {
+      "component": "ResizeHandle",
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "When disabled, the separator cannot be used to resize its neighboring panels.\r\n\r\nℹ️ The panels may still be resized indirectly (while other panels are being resized).\r\nTo prevent a panel from being resized at all, it needs to also be disabled."
+    },
+    {
+      "component": "ResizeHandle",
+      "name": "disableDoubleClick",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "When true, double-clicking this `Separator` will not reset its `Panel` to its default size."
+    },
+    {
+      "component": "ResizeHandle",
+      "name": "elementRef",
+      "type": "Ref<HTMLDivElement> | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Ref attached to the root `HTMLDivElement`."
+    },
+    {
+      "component": "ResizeHandle",
+      "name": "id",
+      "type": "string | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Uniquely identifies the separator within the parent group.\r\nFalls back to `useId` when not provided.\r\n\r\nℹ️ This value will also be assigned to the `id` and `data-testid` attributes."
+    },
+    {
+      "component": "ResizeHandle",
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/resizable-panels/resizable-panels.tsx",
+        "kind": "design-system"
+      }
+    },
+    {
+      "component": "ResizeHandle",
+      "name": "preview",
+      "type": "ReactNode",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "Overrides the `Group` default preview for this `Separator` when `resizePreviewMode` is \"separator\"."
+    },
+    {
+      "component": "ResizeHandle",
+      "name": "style",
+      "type": "CSSProperties | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "node_modules/.pnpm/react-resizable-panels@4.14.2_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/react-resizable-panels/dist/react-resizable-panels.d.ts",
+        "kind": "dependency"
+      },
+      "description": "CSS properties.\r\n\r\nℹ️ Use the `data-separator` attribute for custom _hover_ and _active_ styles\r\n\r\n⚠️ The following properties cannot be overridden: `flex-grow`, `flex-shrink`"
+    },
+    {
+      "component": "ResizeHandle",
+      "name": "withGrip",
+      "type": "boolean | undefined",
+      "required": false,
+      "inherited": true,
+      "declaration": {
+        "source": "src/components/resizable-panels/resizable-panels.tsx",
+        "kind": "design-system"
+      }
+    }
+  ],
   "variants": [
     {
       "name": "orientation",
       "values": [
         "horizontal",
         "vertical"
+      ]
+    },
+    {
+      "name": "resizePreviewMode",
+      "values": [
+        "panel",
+        "separator"
+      ]
+    },
+    {
+      "name": "groupResizeBehavior",
+      "values": [
+        "preserve-pixel-size",
+        "preserve-relative-size"
       ]
     }
   ],

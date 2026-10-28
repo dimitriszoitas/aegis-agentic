@@ -1,0 +1,33 @@
+.aegis-collection-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-filtering-filter-bar-space-gap-regular);
+  min-inline-size: var(--group-filtering-filter-bar-number-0);
+  color: var(--group-filtering-filter-bar-color-content-primary);
+}
+.aegis-collection-toolbar-controls,
+.aegis-collection-toolbar-filters,
+.aegis-collection-toolbar-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--group-filtering-filter-bar-space-gap-compact);
+  min-inline-size: var(--group-filtering-filter-bar-number-0);
+  max-inline-size: var(--group-filtering-filter-bar-size-max-width-full);
+}
+.aegis-collection-toolbar-search {
+  flex: var(--group-filtering-filter-bar-flex-none) var(--group-filtering-filter-bar-flex-fill)
+    var(--group-filtering-filter-bar-size-flex-wide-panel-snug);
+  min-inline-size: var(--group-filtering-filter-bar-number-0);
+  max-inline-size: var(--group-filtering-filter-bar-size-max-width-full);
+}
+.aegis-collection-toolbar-actions {
+  margin-inline-start: auto;
+}
+.aegis-collection-toolbar-count {
+  margin: var(--group-filtering-filter-bar-number-0);
+  color: var(--group-filtering-filter-bar-color-content-secondary);
+  font-size: var(--group-filtering-filter-bar-font-size-label);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}

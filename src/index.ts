@@ -84,3 +84,6 @@ export * from './components/gantt-chart';
 export * from './components/link';
 export * from './components/split-button';
 export * from './components/file-upload';
+
+export * from './components/password-input';
+export * from './components/number-input';

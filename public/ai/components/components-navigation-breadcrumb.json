@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-navigation-breadcrumb",
   "name": "Breadcrumb",
@@ -39,13 +39,23 @@
       "component": "Breadcrumb",
       "name": "items",
       "type": "readonly BreadcrumbItem[]",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/breadcrumb/breadcrumb.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Breadcrumb",
       "name": "separator",
       "type": "ReactNode",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/breadcrumb/breadcrumb.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [],

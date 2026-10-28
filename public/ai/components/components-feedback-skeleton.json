@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-feedback-skeleton",
   "name": "Skeleton",
@@ -40,6 +40,11 @@
       "name": "animate",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/skeleton/skeleton.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "true"
     },
     {
@@ -47,6 +52,11 @@
       "name": "columns",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/skeleton/skeleton.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "5",
       "description": "The number of cells in a table-row preset."
     },
@@ -54,20 +64,35 @@
       "component": "Skeleton",
       "name": "height",
       "type": "Property.Height<string | number> | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/skeleton/skeleton.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Skeleton",
       "name": "variant",
       "type": "\"text\" | \"block\" | \"table-row\" | \"avatar\" | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/skeleton/skeleton.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"text\""
     },
     {
       "component": "Skeleton",
       "name": "width",
       "type": "Property.Width<string | number> | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/skeleton/skeleton.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

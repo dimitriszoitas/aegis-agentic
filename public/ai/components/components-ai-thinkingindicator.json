@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-ai-thinkingindicator",
   "name": "ThinkingIndicator",
@@ -37,6 +37,11 @@
       "name": "compact",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/thinking-indicator/thinking-indicator.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -44,13 +49,23 @@
       "name": "interval",
       "type": "number | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/thinking-indicator/thinking-indicator.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "3200"
     },
     {
       "component": "ThinkingIndicator",
       "name": "messages",
       "type": "readonly string[] | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/thinking-indicator/thinking-indicator.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [

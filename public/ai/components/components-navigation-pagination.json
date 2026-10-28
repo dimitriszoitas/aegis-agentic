@@ -4,7 +4,7 @@
   "documentType": "component",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.5.0-experiment.0"
+    "version": "0.6.0-experiment.0"
   },
   "id": "components-navigation-pagination",
   "name": "Pagination",
@@ -37,6 +37,11 @@
       "name": "disabled",
       "type": "boolean | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/pagination/pagination.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "false"
     },
     {
@@ -44,45 +49,80 @@
       "name": "noun",
       "type": "string | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/pagination/pagination.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "\"results\""
     },
     {
       "component": "Pagination",
       "name": "onPageChange",
       "type": "(page: number) => void",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/pagination/pagination.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Pagination",
       "name": "onPageSizeChange",
       "type": "((pageSize: number) => void) | undefined",
-      "required": false
+      "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/pagination/pagination.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Pagination",
       "name": "page",
       "type": "number",
       "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/pagination/pagination.tsx",
+        "kind": "design-system"
+      },
       "description": "One-based page number."
     },
     {
       "component": "Pagination",
       "name": "pageSize",
       "type": "number",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/pagination/pagination.tsx",
+        "kind": "design-system"
+      }
     },
     {
       "component": "Pagination",
       "name": "pageSizeOptions",
       "type": "readonly number[] | undefined",
       "required": false,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/pagination/pagination.tsx",
+        "kind": "design-system"
+      },
       "defaultValue": "[10, 25, 50, 100]"
     },
     {
       "component": "Pagination",
       "name": "total",
       "type": "number",
-      "required": true
+      "required": true,
+      "inherited": false,
+      "declaration": {
+        "source": "src/components/pagination/pagination.tsx",
+        "kind": "design-system"
+      }
     }
   ],
   "variants": [],
