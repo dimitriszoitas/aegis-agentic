@@ -69,10 +69,24 @@ try {
     reducedMotion: 'reduce',
     permissions: ['clipboard-read', 'clipboard-write'],
   });
+  // Keep clipboard completion asynchronous on fast local browsers too. The native write
+  // still executes; this reproduces the slower CI schedule that exposed an eager read.
+  await context.addInitScript(() => {
+    const writeText = navigator.clipboard.writeText.bind(navigator.clipboard);
+    navigator.clipboard.writeText = async (text) => {
+      await new Promise((accept) => setTimeout(accept, 150));
+      return writeText(text);
+    };
+  });
   const page = await context.newPage();
   page.on('pageerror', (error) => report.browserErrors.push(error.message));
   const docs = page.frameLocator('#storybook-preview-iframe');
   const catalogueView = docs.locator('.contract-catalogue');
+  const copyAndAssert = async (scope, label, expected) => {
+    await scope.getByRole('button', { name: label, exact: true }).click();
+    await expect(scope.getByRole('button', { name: 'Copied', exact: true })).toBeVisible();
+    await expect.poll(() => page.evaluate(() => navigator.clipboard.readText())).toBe(expected);
+  };
   const search = catalogueView.getByRole('searchbox', { name: 'Search contracts', exact: true });
   const openCatalogue = () => page.goto(`${base}/?path=/docs/aegis-contract-catalogue--docs`);
   const choose = async (name, value) => {
@@ -199,9 +213,8 @@ try {
     avatar.api.url,
   );
   await detail.getByRole('button', { name: 'Load API JSON to copy', exact: true }).click();
-  await detail.getByRole('button', { name: 'Copy API JSON', exact: true }).click();
   const expectedApi = await readFile(resolve(built, avatar.api.url.replace(/^\.\//, '')), 'utf8');
-  assert.equal(await page.evaluate(() => navigator.clipboard.readText()), expectedApi);
+  await copyAndAssert(detail, 'Copy API JSON', expectedApi);
   await expect(detail.locator('[data-intent="success"]')).toHaveCount(0);
   passed(
     'An API-only family states its behavioral coverage gap and copies the exact served API JSON without a success/certification badge.',
@@ -242,8 +255,7 @@ try {
       'Public import paths must appear on separate readable lines',
     );
   }
-  await detail.getByRole('button', { name: 'Copy contract JSON', exact: true }).click();
-  assert.equal(await page.evaluate(() => navigator.clipboard.readText()), layout.contract.raw);
+  await copyAndAssert(detail, 'Copy contract JSON', layout.contract.raw);
   const downloadPromise = page.waitForEvent('download');
   await detail.getByRole('link', { name: 'Download contract JSON', exact: true }).click();
   const download = await downloadPromise;
@@ -408,11 +420,7 @@ try {
   await page.goto(`${base}/?path=/docs/aegis-mcp-integration--docs`);
   const mcp = docs.locator('.contract-mcp');
   await expect(mcp.getByRole('heading', { name: 'MCP integration', exact: true })).toBeVisible();
-  await mcp.getByRole('button', { name: 'Copy MCP documentation', exact: true }).click();
-  assert.equal(
-    await page.evaluate(() => navigator.clipboard.readText()),
-    await readFile('docs/MCP.md', 'utf8'),
-  );
+  await copyAndAssert(mcp, 'Copy MCP documentation', await readFile('docs/MCP.md', 'utf8'));
   await screenshot('mcp-integration');
   passed('MCP integration renders from docs/MCP.md and copies its exact canonical source.');
   assert.deepEqual(report.browserErrors, [], 'No browser page errors');
