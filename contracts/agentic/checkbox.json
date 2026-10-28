@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 2,
+  "id": "checkbox",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Choose an independent boolean value or display an aggregate mixed state with a form-compatible checkbox.",
+  "anatomy": [
+    "button-backed Base UI checkbox",
+    "native form input managed by Base UI",
+    "check or mixed indicator",
+    "optional visible label",
+    "optional description"
+  ],
+  "states": [
+    "unchecked",
+    "checked",
+    "indeterminate",
+    "controlled",
+    "uncontrolled",
+    "disabled",
+    "read-only",
+    "invalid",
+    "required",
+    "keyboard-focus"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Base UI Checkbox rendered as a native button, with a React tri-state adapter and shared useFieldControl metadata.",
+  "ownership": {
+    "component": [
+      "Checked/mixed rendering and boolean activation requests",
+      "Native-form integration and local reset listener",
+      "Name/description association and disabled/readOnly delegation"
+    ],
+    "host": [
+      "Meaning of the boolean or aggregate selection",
+      "Controlled state updates and group aggregation",
+      "Accessible labeling and validation/submission effects"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "tri-state-adapter",
+      "kind": "component",
+      "statement": "Resolve checked from the controlled prop or internal defaultChecked, default false. Map true to primitive checked and indeterminate to the primitive indeterminate prop; the mixed display is not treated as checked=true.",
+      "sources": ["src/components/checkbox/checkbox.tsx"]
+    },
+    {
+      "id": "change-requests",
+      "kind": "component",
+      "statement": "Forward the primitive boolean next value through onCheckedChange and update internal state only when checked is undefined. Mixed state must be supplied or derived by the host rather than inferred from children.",
+      "sources": ["src/components/checkbox/checkbox.tsx"]
+    },
+    {
+      "id": "uncontrolled-form-reset",
+      "kind": "component",
+      "statement": "When uncontrolled, attach a reset listener to the native input owner form and restore defaultChecked. Remove that listener when the dependency set changes or the component unmounts; controlled state is not reset by this listener.",
+      "sources": ["src/components/checkbox/checkbox.tsx"]
+    },
+    {
+      "id": "native-form-attributes",
+      "kind": "component",
+      "statement": "Pass name, value, form and resolved required to the Base UI root/input integration; forward the public ref to the rendered button, not to the internal input.",
+      "sources": ["src/components/checkbox/checkbox.tsx"]
+    },
+    {
+      "id": "disabled-vs-readonly",
+      "kind": "component",
+      "statement": "Delegate disabled and readOnly to Base UI and expose aria-readonly for read-only controls. A read-only checkbox remains focusable while refusing pointer/keyboard changes; disabled is a separate unavailable state.",
+      "sources": [
+        "src/components/checkbox/checkbox.tsx",
+        "src/components/checkbox/checkbox.stories.tsx"
+      ]
+    },
+    {
+      "id": "keyboard-toggle",
+      "kind": "component",
+      "statement": "Preserve the Base UI checkbox keyboard model on the native button, including Space activation. The linked story exercises Space, read-only immutability and disabled state; it does not establish that Enter toggles.",
+      "sources": [
+        "src/components/checkbox/checkbox.tsx",
+        "src/components/checkbox/checkbox.stories.tsx"
+      ]
+    },
+    {
+      "id": "field-label-and-help",
+      "kind": "component",
+      "statement": "Resolve shared Field attributes, associate the optional visible label, and merge optional description ids with caller and Field descriptions.",
+      "sources": ["src/components/checkbox/checkbox.tsx", "src/components/field/field.tsx"]
+    },
+    {
+      "id": "controlled-and-aggregate-host",
+      "kind": "host",
+      "statement": "Update controlled checked when accepting a change. For select-all or aggregate use, compute true, false or indeterminate from the actual collection and implement changes to that collection.",
+      "sources": [
+        "src/components/checkbox/checkbox.tsx",
+        "src/components/checkbox/checkbox.stories.tsx"
+      ]
+    },
+    {
+      "id": "name-and-validation-host",
+      "kind": "host",
+      "statement": "Provide a meaningful label or explicit accessible name, a name for form serialization when needed, and any application validation message. required/invalid flags do not authorize or perform a product action.",
+      "sources": [
+        "src/components/checkbox/checkbox.tsx",
+        "src/components/field/field.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "input-token-and-focus-policy",
+      "kind": "design",
+      "statement": "Use the input group for checkbox-owned geometry and styling, distinguish mixed from checked, and preserve keyboard-visible focus without adding a pointer-only focus ring.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "tokens/component-categories.json",
+        "src/components/checkbox/checkbox.css"
+      ]
+    }
+  ],
+  "limitations": [
+    "Checkbox is not a tri-state cycle: ordinary activation emits a boolean; the host owns mixed-state derivation.",
+    "Enter is left to Base UI/native-form semantics and is not specified here as a toggle key.",
+    "Linked read-only and select-all story assertions are scoped checks, not current execution evidence or full native-form certification."
+  ]
+}

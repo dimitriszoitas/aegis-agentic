@@ -2,6 +2,12 @@
 import data from '../../public/ai/contract-catalogue.json';
 
 export type ContractSource = { readonly path: string; readonly sha256: string };
+export type ContractRequirement = {
+  readonly id: string;
+  readonly kind: 'component' | 'host' | 'design';
+  readonly statement: string;
+  readonly sources: readonly string[];
+};
 export type ContractCheck = ContractSource & { readonly label: string; readonly scope: string };
 export type ContractEvidence = ContractCheck & {
   readonly reportedStatus: string | null;
@@ -22,6 +28,7 @@ export type ContractEntry = {
     readonly version: number | null;
     readonly status: string;
     readonly source: ContractSource;
+    readonly references: readonly ContractSource[];
     readonly document: Readonly<Record<string, unknown>>;
     readonly raw: string;
   } | null;

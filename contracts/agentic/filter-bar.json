@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 2,
+  "id": "filter-bar",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Edit the shared WorkRecord filter model and expose density and column-view controls, either inline or alongside a host-owned filter panel.",
+  "anatomy": [
+    "named filter region",
+    "inline picker or panel toggle",
+    "search and time-range controls",
+    "density and column controls",
+    "optional selection-actions replacement",
+    "removable applied-filter summary"
+  ],
+  "states": [
+    "bar mode",
+    "panel mode open or closed",
+    "criteria applied or default",
+    "selection actions visible",
+    "disabled controls",
+    "picker draft"
+  ],
+  "tokenGroup": "filtering",
+  "behaviorProvider": "Aegis recordFilterReducer and controlled host state, composed from shared Base UI-backed controls.",
+  "ownership": {
+    "component": [
+      "translate filter edits to reducer transitions",
+      "maintain picker draft and optional internal density",
+      "applied summaries and removal focus handoff"
+    ],
+    "host": [
+      "own accepted RecordFilterState and apply it to records",
+      "render and control any external panel",
+      "wire density, column visibility and selection actions to the dataset"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "controlled-record-model",
+      "kind": "component",
+      "statement": "All filter edits derive a next RecordFilterState from the current value through recordFilterReducer and emit onValueChange; the bar keeps no authoritative filter-value copy.",
+      "sources": ["src/patterns/filter-bar/filter-bar.tsx", "src/lib/filters.ts"]
+    },
+    {
+      "id": "apply-results-in-host",
+      "kind": "host",
+      "statement": "Feed accepted changes back through value and apply the same state to the dataset. For WorkRecord semantics, applyRecordFilters uses OR within facets, AND across facets and rules, case-insensitive search and inclusive lastSeen time bounds; FilterBar itself does not fetch or filter rows.",
+      "sources": ["src/patterns/filter-bar/filter-bar.tsx", "src/lib/filters.ts"]
+    },
+    {
+      "id": "inline-picker-commit",
+      "kind": "component",
+      "statement": "The inline picker prevents native form submission, trims input and rejects blank or disabled commits. Equality choices for supported facets deduplicate facet values; other choices append a rule with an id. Successful commit clears the input and closes the picker.",
+      "sources": ["src/patterns/filter-bar/filter-bar.tsx"]
+    },
+    {
+      "id": "picker-context-change",
+      "kind": "component",
+      "statement": "Changing picker field or operator clears its input. Closing the popover alone does not explicitly reset its field, operator or draft; do not promise discard-on-dismiss behavior.",
+      "sources": ["src/patterns/filter-bar/filter-bar.tsx"]
+    },
+    {
+      "id": "panel-toggle-boundary",
+      "kind": "host",
+      "statement": "Panel mode delegates editing and visibility to the host. Supply onTogglePanel, filterPanelOpen and a matching panelId to connect the toggle with the real panel; the bar does not mount that panel.",
+      "sources": ["src/patterns/filter-bar/filter-bar.tsx"]
+    },
+    {
+      "id": "applied-summary-visibility",
+      "kind": "component",
+      "statement": "Show applied criteria when their count is nonzero and either bar mode is active or the external panel is closed. Panel mode with an open panel suppresses this duplicate summary.",
+      "sources": ["src/patterns/filter-bar/filter-bar.tsx"]
+    },
+    {
+      "id": "filter-removal-focus",
+      "kind": "component",
+      "statement": "Before dispatching a chip removal initiated from its remove button, request focus on the next remove button, then the previous, then the search input. When search is visible and enabled, the final-chip fallback and Clear all can return focus to it. Clear all resets the filter model, including its relative 24-hour time range. Truthy selectionActions hides search while applied summaries may remain, so those search-focus requests do not guarantee recovery after the focused removal control disappears.",
+      "sources": ["src/patterns/filter-bar/filter-bar.tsx", "src/lib/filters.ts"]
+    },
+    {
+      "id": "selection-replacement",
+      "kind": "component",
+      "statement": "Truthy selectionActions hides the normal search/filter row while keeping it mounted. Applied summaries follow their own visibility rules and are not automatically removed by selection mode.",
+      "sources": ["src/patterns/filter-bar/filter-bar.tsx"]
+    },
+    {
+      "id": "density-control",
+      "kind": "component",
+      "statement": "density is controlled when supplied; otherwise an internal default density is updated. Every density activation emits onDensityChange when present. The host must use that density to affect its actual rows.",
+      "sources": ["src/patterns/filter-bar/filter-bar.tsx"]
+    },
+    {
+      "id": "column-visibility-control",
+      "kind": "host",
+      "statement": "columns describes host-owned visibility; onColumnVisibilityChange must update the dataset and fed-back column settings. The bar disables choices marked non-hideable or lacking a change callback; it does not itself ensure a data column remains visible.",
+      "sources": ["src/patterns/filter-bar/filter-bar.tsx"]
+    },
+    {
+      "id": "disabled-boundary",
+      "kind": "component",
+      "statement": "disabled is forwarded to search, time range, picker trigger/fields, panel toggle, density buttons, column-settings trigger and removable summaries. Column checkboxes in an already-open popover use their own hideable/callback conditions; disabled does not uniformly lock those mounted choices.",
+      "sources": ["src/patterns/filter-bar/filter-bar.tsx"]
+    },
+    {
+      "id": "owned-and-nested-tokens",
+      "kind": "design",
+      "statement": "Use filtering group tokens for the bar and picker layout while preserving nested control token ownership and shared keyboard, popover dismissal and focus behavior.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "skills/create-component/SKILL.md",
+        "tokens/component-categories.json"
+      ]
+    }
+  ],
+  "limitations": [
+    "This record-specific filter editor is distinct from the experimental FilteredDataset composition contract.",
+    "Search and time-range changes emit immediately; the picker Apply button commits one criterion, not a global deferred filter transaction.",
+    "No remote query service, saved-filter persistence or automatic dataset wiring is provided.",
+    "The disabled prop does not disable every child in an already-open column settings popover; hosts needing a complete interaction lock must account for that limitation.",
+    "In selection mode, the search input is hidden but applied-filter controls may remain visible. Clear all or the last-chip removal can remove the focused control without a visible focus fallback; hosts must review and provide focus recovery for that composition."
+  ]
+}

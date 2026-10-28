@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 2,
+  "id": "select",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Choose one stable string value from a supplied option set using a form-compatible popup listbox.",
+  "anatomy": [
+    "optional visible label",
+    "combobox trigger and selected value",
+    "portal and positioner",
+    "popup listbox",
+    "optional option groups",
+    "options with optional descriptions/icons",
+    "selected indicator",
+    "scroll arrows"
+  ],
+  "states": [
+    "unselected",
+    "selected",
+    "open",
+    "closed",
+    "controlled-value",
+    "controlled-open",
+    "uncontrolled",
+    "disabled",
+    "read-only",
+    "invalid",
+    "required",
+    "empty-options",
+    "keyboard-focus"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Base UI Select and DirectionProvider, with local controlled/uncontrolled adapters and shared useFieldControl metadata.",
+  "ownership": {
+    "component": [
+      "Single selection and independent popup-open state adapters",
+      "Base UI form/keyboard/dismissal delegation",
+      "Option grouping, descriptions, selected display and empty option state"
+    ],
+    "host": [
+      "Valid stable option identities and accessible names",
+      "Controlled value/open updates and application validation",
+      "Application effects of a selected value"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "value-state",
+      "kind": "component",
+      "statement": "Display the supplied value or local defaultValue, defaulting to the empty string. Pass an empty selected string to Base UI as null and translate a null value callback back to the empty string.",
+      "sources": ["src/components/select/select.tsx"]
+    },
+    {
+      "id": "open-state",
+      "kind": "component",
+      "statement": "Resolve open independently from value using open or internal state initialized by defaultOpen. Update internal state only when open is undefined and forward onOpenChange as a boolean notification.",
+      "sources": ["src/components/select/select.tsx"]
+    },
+    {
+      "id": "native-form-delegation",
+      "kind": "component",
+      "statement": "Pass name, form, autoComplete, readOnly and resolved required/disabled into Base UI Select.Root for its form-compatible input behavior.",
+      "sources": ["src/components/select/select.tsx"]
+    },
+    {
+      "id": "keyboard-and-dismissal",
+      "kind": "component",
+      "statement": "Use Base UI Trigger/List/Item/Popup to delegate typeahead, Arrow/Home/End navigation, option activation, Escape dismissal and focus return. The keyboard story specifically exercises ArrowDown/Enter selection and trigger focus return.",
+      "sources": ["src/components/select/select.tsx", "src/components/select/select.stories.tsx"]
+    },
+    {
+      "id": "disabled-and-readonly",
+      "kind": "component",
+      "statement": "Delegate disabled controls, disabled options and readOnly selection locking to Base UI. readOnly is not a promise that the popup cannot open or be browsed; it prevents value changes.",
+      "sources": ["src/components/select/select.tsx"]
+    },
+    {
+      "id": "labels-and-descriptions",
+      "kind": "component",
+      "statement": "Apply the standalone label or Field/explicit label references to the trigger; associate optional descriptions to their options using ids derived from the resolved control id and encoded option value.",
+      "sources": ["src/components/select/select.tsx", "src/components/field/field.tsx"]
+    },
+    {
+      "id": "groups-and-empty-options",
+      "kind": "component",
+      "statement": "Render distinct option group labels in first-occurrence group order. With no options, render a disabled No options available item rather than a selectable fallback.",
+      "sources": ["src/components/select/select.tsx"]
+    },
+    {
+      "id": "direction-and-placement",
+      "kind": "component",
+      "statement": "Use the explicit dir when supplied or the inherited Base UI direction, and render the popup through a portal with token-backed offset and collision padding.",
+      "sources": ["src/components/select/select.tsx"]
+    },
+    {
+      "id": "stable-option-values",
+      "kind": "host",
+      "statement": "Provide unique nonempty option value strings, meaningful labels, and values that correspond to the available option set. Empty string is reserved for no selection; the wrapper does not validate or repair duplicate, empty or unknown option identities.",
+      "sources": ["src/components/select/select.tsx", "src/components/select/select.stories.tsx"]
+    },
+    {
+      "id": "controlled-host-updates",
+      "kind": "host",
+      "statement": "When controlling value or open, update the corresponding prop from its callback. Own validation/error messages and the application action caused by a selection; the wrapper does not save or fetch records.",
+      "sources": ["src/components/select/select.tsx"]
+    },
+    {
+      "id": "accessible-control-name",
+      "kind": "host",
+      "statement": "Provide a visible label, enclosing Field or explicit aria-label/aria-labelledby for the trigger. Do not use placeholder or the generic option-list fallback name as the control name.",
+      "sources": [
+        "src/components/select/select.tsx",
+        "src/components/field/field.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "input-token-and-overlay-policy",
+      "kind": "design",
+      "statement": "Use the input group for Select-owned styles and fixed geometry, preserve Base UI focus guards and portal behavior, and keep control metrics consistent across all four theme/mode mappings.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "tokens/component-categories.json",
+        "src/components/select/select.css"
+      ]
+    }
+  ],
+  "limitations": [
+    "This is a single-string selection contract, not free-text entry, multi-selection or an action-menu contract.",
+    "Base UI behavior is delegated; this record and its linked checks do not certify every browser, form reset or assistive-technology combination.",
+    "onOpenChange and onValueChange expose values only; the wrapper does not expose the primitive event-details cancellation API through those callbacks."
+  ]
+}

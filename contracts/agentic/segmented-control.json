@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "id": "segmented-control",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Select one value from a short related option set using a labeled native radio group.",
+  "anatomy": [
+    "fieldset",
+    "visually hidden legend",
+    "one label per option",
+    "native radio input per option",
+    "option text and optional icon"
+  ],
+  "states": [
+    "selected",
+    "unselected-option",
+    "controlled",
+    "uncontrolled",
+    "disabled-group",
+    "disabled-option",
+    "wrapped",
+    "keyboard-focus"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Native HTML fieldset, legend and radio inputs with React state and input-focus modality tracking.",
+  "ownership": {
+    "component": [
+      "Native radio grouping and label association",
+      "Initial default selection and value-change notifications",
+      "Group/option disabled states and presentation flags"
+    ],
+    "host": [
+      "Meaningful group and option labels",
+      "Stable option identities and controlled state",
+      "Application effects and any stable form serialization"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "native-group-name",
+      "kind": "component",
+      "statement": "Render a fieldset with a visually hidden legend from label. Render each option as a labeled radio and use one generated useId name for the native radio group.",
+      "sources": ["src/components/segmented-control/segmented-control.tsx"]
+    },
+    {
+      "id": "initial-selection",
+      "kind": "component",
+      "statement": "Initialize local state from defaultValue when supplied, otherwise from the first non-disabled option, otherwise the empty string. Display value instead when a controlled value is supplied.",
+      "sources": ["src/components/segmented-control/segmented-control.tsx"]
+    },
+    {
+      "id": "selection-change",
+      "kind": "component",
+      "statement": "On a radio change, update local state only when value is undefined and notify onValueChange with that option value. Set each radio checked state by equality with the selected string.",
+      "sources": ["src/components/segmented-control/segmented-control.tsx"]
+    },
+    {
+      "id": "disabled-states",
+      "kind": "component",
+      "statement": "Disable the fieldset for a disabled group and individual radio inputs for option.disabled. Expose disabled/selected attributes on option wrappers for their corresponding styles.",
+      "sources": ["src/components/segmented-control/segmented-control.tsx"]
+    },
+    {
+      "id": "native-keyboard",
+      "kind": "component",
+      "statement": "Keep native radio keyboard behavior and focus tracking. The keyboard story selects Monthly and uses ArrowRight to check Quarterly.",
+      "sources": [
+        "src/components/segmented-control/segmented-control.tsx",
+        "src/components/segmented-control/segmented-control.stories.tsx"
+      ]
+    },
+    {
+      "id": "presentation-flags",
+      "kind": "component",
+      "statement": "Expose size, fullWidth and wrap as presentation attributes while retaining the same fieldset/radio interaction model.",
+      "sources": ["src/components/segmented-control/segmented-control.tsx"]
+    },
+    {
+      "id": "option-validity-host",
+      "kind": "host",
+      "statement": "Supply unique stable option values and meaningful option labels. Keep a controlled value in the current available option set and reconcile removed/disabled options in the host; the component does not automatically repair a stale selection.",
+      "sources": ["src/components/segmented-control/segmented-control.tsx"]
+    },
+    {
+      "id": "controlled-and-form-host",
+      "kind": "host",
+      "statement": "Update value when accepting onValueChange. If stable native-form naming is needed, serialize the selected value explicitly in the host: this API does not expose name, form or required, and its internal generated radio name is not a product field contract.",
+      "sources": ["src/components/segmented-control/segmented-control.tsx"]
+    },
+    {
+      "id": "semantic-choice-host",
+      "kind": "host",
+      "statement": "Use the radio-group selection for a related choice and implement any associated view or data change in the host. Do not assume tabs, tabpanels, routing, readOnly or validation semantics are supplied.",
+      "sources": [
+        "src/components/segmented-control/segmented-control.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "input-token-and-focus-policy",
+      "kind": "design",
+      "statement": "Use input-group tokens for owned styles, retain native radio keyboard focus, and preserve size metrics when theme or mode changes.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "tokens/component-categories.json",
+        "src/components/segmented-control/segmented-control.css"
+      ]
+    }
+  ],
+  "limitations": [
+    "The public API has no readOnly, name, form, required or invalid prop. Disabled is not a substitute for a focusable read-only contract.",
+    "The initial local selection is not recomputed just because options or defaultValue change later; the host must reconcile dynamic option sets.",
+    "The keyboard story is a bounded native-radio assertion, not a full tab-widget or native-form acceptance suite."
+  ]
+}

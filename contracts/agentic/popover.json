@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 2,
+  "id": "popover",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Open anchored contextual content with a named popup, optional header/footer, and explicit close composition.",
+  "anatomy": [
+    "trigger",
+    "portal and positioner",
+    "popup",
+    "visible or hidden title/description",
+    "optional close control",
+    "focusable scrolling body",
+    "optional footer",
+    "optional PopoverClose composition"
+  ],
+  "states": [
+    "open",
+    "closed",
+    "controlled",
+    "uncontrolled",
+    "header-visible",
+    "header-hidden",
+    "close-visible",
+    "regular-density",
+    "tight-density",
+    "keyboard-focus"
+  ],
+  "tokenGroup": "surface",
+  "behaviorProvider": "Base UI Popover root, trigger, portal, positioner, popup and close primitives, with explicit initial/final focus selection.",
+  "ownership": {
+    "component": [
+      "Primitive open/dismissal delegation and anchored placement",
+      "Popup/body names and hidden-header semantics",
+      "Scoped initial/final focus and close composition"
+    ],
+    "host": [
+      "Accessible trigger and meaningful popup name",
+      "Controlled open state and content validation/submission",
+      "Application effects and draft lifetime"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "root-state",
+      "kind": "component",
+      "statement": "Forward the supported Root props, including open/defaultOpen and onOpenChange, to Base UI. The wrapper does not maintain a separate open-state copy or expose event details in the typed onOpenChange callback.",
+      "sources": ["src/components/popover/popover.tsx"]
+    },
+    {
+      "id": "trigger-and-dismissal",
+      "kind": "component",
+      "statement": "Render the supplied trigger through Primitive.Trigger and use the primitive popup/close model for activation, Escape and dismissal. The scrollable-body story checks Escape close and return to the trigger.",
+      "sources": [
+        "src/components/popover/popover.tsx",
+        "src/components/popover/popover.stories.tsx"
+      ]
+    },
+    {
+      "id": "name-and-hidden-header",
+      "kind": "component",
+      "statement": "Name the popup and body from title when supplied, otherwise from label, default Details. When showHeader is false, retain title and description in visually hidden elements and preserve their ARIA references.",
+      "sources": ["src/components/popover/popover.tsx"]
+    },
+    {
+      "id": "initial-focus",
+      "kind": "component",
+      "statement": "On opening, choose the first visible eligible button, link, input, select, textarea or tabindex=0 descendant, excluding the scroll body itself and hidden/inert/aria-hidden ancestors; fall back to the primitive default focus behavior.",
+      "sources": ["src/components/popover/popover.tsx"]
+    },
+    {
+      "id": "final-focus",
+      "kind": "component",
+      "statement": "Allow primitive final focus unless the current active element is already outside the popup and is not the body; preserve a deliberate external focus handoff rather than always refocusing the trigger.",
+      "sources": ["src/components/popover/popover.tsx"]
+    },
+    {
+      "id": "close-composition",
+      "kind": "component",
+      "statement": "showClose renders a Primitive.Close with the accessible name Close popover, including a floating close button when the header is hidden. PopoverClose forwards primitive props/ref; deprecated asChild requires one valid React element or throws.",
+      "sources": ["src/components/popover/popover.tsx"]
+    },
+    {
+      "id": "scroll-body",
+      "kind": "component",
+      "statement": "Render children in a separately focusable scrolling region, with optional header and footer outside that scroll container so body scrolling does not move those regions.",
+      "sources": [
+        "src/components/popover/popover.tsx",
+        "src/components/popover/popover.css",
+        "src/components/popover/popover.stories.tsx"
+      ]
+    },
+    {
+      "id": "placement-and-sizing",
+      "kind": "component",
+      "statement": "Portal the popup and position it with side/align and token-backed offset/collision padding. Apply optional width while CSS constrains the popup to available viewport dimensions.",
+      "sources": ["src/components/popover/popover.tsx", "src/components/popover/popover.css"]
+    },
+    {
+      "id": "controlled-content-host",
+      "kind": "host",
+      "statement": "When controlling open, update it from onOpenChange. Own content state, asynchronous actions, validation, submission and dirty-draft policy; a close request does not save or reset application data.",
+      "sources": [
+        "src/components/popover/popover.tsx",
+        "src/components/popover/popover.stories.tsx",
+        "skills/create-layout/SKILL.md"
+      ]
+    },
+    {
+      "id": "accessible-trigger-and-content",
+      "kind": "host",
+      "statement": "Supply a usable named trigger that accepts the primitive props/ref and a meaningful title or label. Children containing forms or interactive controls must provide their own form associations, names and disabled/readOnly states.",
+      "sources": ["src/components/popover/popover.tsx", "skills/create-component/SKILL.md"]
+    },
+    {
+      "id": "surface-token-and-focus-policy",
+      "kind": "design",
+      "statement": "Use the surface group for popover-owned styles and fixed defaults, preserve nested shared-component styling and primitive focus guards, and retain keyboard-visible focus across the four theme/mode mappings.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "tokens/component-categories.json",
+        "src/components/popover/popover.css"
+      ]
+    }
+  ],
+  "limitations": [
+    "The generic fallback label Details supplies a name but does not establish meaningful product context.",
+    "Root open props are forwarded, but Popup initialFocus/finalFocus are owned by this wrapper rather than exposed as public override props.",
+    "Popover has no component-level disabled/readOnly or native form field value. Its trigger and nested controls own those semantics.",
+    "The linked scrolling/Escape story is a scoped check, not certification of every nested popup, modal configuration or custom trigger."
+  ]
+}

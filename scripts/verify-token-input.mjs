@@ -1,9 +1,12 @@
 import assert from 'node:assert/strict';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { chromium, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 const base = process.env.AGENTIC_URL || 'http://127.0.0.1:4183';
 const output = 'artifacts/token-input-consolidated';
+const registry = JSON.parse(
+  await readFile(new URL('../registry/canonical.json', import.meta.url), 'utf8'),
+);
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({ viewport: { width: 1280, height: 1000 } });
@@ -13,7 +16,7 @@ await page.routeWebSocket('**', (socket) => socket.close());
 const report = {
   schemaVersion: 1,
   contractVersion: 2,
-  registryRevision: 2,
+  registryRevision: registry.revision,
   checks: [],
   accessibility: [],
   browserErrors: [],

@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { test } from 'node:test';
 import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
@@ -26,12 +27,12 @@ test('catalogue accounts for every API family, authored-only entry and separate 
   assert.equal(output.entries.length, 107);
   assert.deepEqual(output.coverage, {
     apiFamilies: 103,
-    apiFamiliesWithAuthoredBehavior: 5,
-    apiFamiliesWithoutAuthoredBehavior: 98,
-    authoredComponentPatternContracts: 7,
+    apiFamiliesWithAuthoredBehavior: 25,
+    apiFamiliesWithoutAuthoredBehavior: 78,
+    authoredComponentPatternContracts: 27,
     authoredOnlyEntries: 2,
     systemProtocolContracts: 2,
-    entriesWithLinkedChecks: 5,
+    entriesWithLinkedChecks: 23,
     entriesWithLinkedEvidence: 1,
     entriesWithReportedEvidence: 1,
   });
@@ -47,14 +48,20 @@ test('catalogue accounts for every API family, authored-only entry and separate 
 
 test('explicit mappings never equate the FilteredDataset renderer with FilterBar', () => {
   const output = buildContractCatalogue(fixture());
-  assert.equal(output.entries.find((entry) => entry.id === 'patterns-filterbar').contract, null);
+  assert.equal(
+    output.entries.find((entry) => entry.id === 'patterns-filterbar').contract.id,
+    'filter-bar',
+  );
   assert.equal(output.entries.find((entry) => entry.id === 'dataset-filtering').api, null);
   const input = fixture();
   binding(input, (value) => {
     value.bindings.find((item) => item.contractId === 'dataset-filtering').apiFamilyId =
       'patterns-filterbar';
   });
-  assert.throws(() => buildContractCatalogue(input), /declared implementation/);
+  assert.throws(
+    () => buildContractCatalogue(input),
+    /declared implementation|Duplicate binding API family/,
+  );
 });
 
 test('source inclusion alone cannot map a nested dependency to the wrong public family', () => {
@@ -66,7 +73,7 @@ test('source inclusion alone cannot map a nested dependency to the wrong public 
   assert.throws(() => buildContractCatalogue(input), /does not export/);
 });
 
-test('all seven canonical authored contracts validate against the corrected closed schema', () => {
+test('all canonical authored contracts validate against the corrected closed schema', () => {
   for (const path of original.authoredPaths)
     assert.deepEqual(validateComponentContract(JSON.parse(original.files[path]), schema), [], path);
   assert.equal(JSON.parse(original.files['contracts/agentic/page-layout.json']).states, undefined);
@@ -153,6 +160,125 @@ test('unsupported schema validation keywords fail instead of being silently igno
     () => validateComponentContract({}, { type: 'object', unknownValidation: true }),
     /Unsupported contract schema keyword/,
   );
+});
+
+test('source-backed requirements reject missing ownership, unsupported kinds and unsafe citations', () => {
+  const contract = JSON.parse(original.files['contracts/agentic/data-grid.json']);
+  for (const change of [
+    (value) => {
+      delete value.ownership;
+    },
+    (value) => {
+      value.requirements[0].kind = 'certified';
+    },
+    (value) => {
+      value.requirements[0].sources = [];
+    },
+    (value) => {
+      value.requirements[0].sources = ['../outside.tsx'];
+    },
+    (value) => {
+      value.requirements[0].approved = true;
+    },
+    (value) => {
+      value.status = 'production-certified';
+    },
+    (value) => {
+      value.id = 'page-layout';
+    },
+  ]) {
+    const value = structuredClone(contract);
+    change(value);
+    assert(validateComponentContract(value, schema).length > 0, String(change));
+  }
+});
+
+test('requirements must have unique IDs, accurate token ownership and implementation citations', () => {
+  const cases = [
+    [
+      (value) => {
+        value.requirements[1].id = value.requirements[0].id;
+      },
+      /Duplicate requirement ID/,
+    ],
+    [
+      (value) => {
+        value.tokenGroup = 'actions';
+      },
+      /token group differs/,
+    ],
+    [
+      (value) => {
+        value.requirements.find((requirement) => requirement.kind === 'component').sources = [
+          'skills/references/design-contract.md',
+        ];
+      },
+      /must cite a family implementation source/,
+    ],
+    [
+      (value) => {
+        value.requirements[0].sources.push('src/missing.tsx');
+      },
+      /Missing source/,
+    ],
+    [
+      (value) => {
+        value.requirements[0].statement = '   ';
+      },
+      /must be nonempty/,
+    ],
+    [
+      (value) => {
+        value.ownership.host = ['  '];
+      },
+      /nonempty responsibilities/,
+    ],
+  ];
+  for (const [change, expected] of cases) {
+    const input = fixture();
+    mutateJson(input, 'contracts/agentic/data-grid.json', change);
+    assert.throws(() => buildContractCatalogue(input), expected);
+  }
+});
+
+test('requirement citations retain exact source hashes independently of evidence or approval', () => {
+  const input = fixture();
+  const first = buildContractCatalogue(input);
+  const entry = first.entries.find((entry) => entry.registryId === 'data-grid');
+  const paths = [
+    ...new Set(entry.contract.document.requirements.flatMap((item) => item.sources)),
+  ].sort();
+  assert.deepEqual(entry.contract.references.map((item) => item.path).sort(), paths);
+  for (const reference of entry.contract.references)
+    assert.equal(
+      reference.sha256,
+      createHash('sha256').update(input.files[reference.path]).digest('hex'),
+    );
+  assert.equal(entry.coverage.evidenceReported, false);
+  assert.equal(entry.contract.document.verification, 'not-certified-by-this-contract');
+  const implementation = 'src/components/data-grid/data-grid.tsx';
+  input.files[implementation] += '\n// source changed after contract authoring\n';
+  const next = buildContractCatalogue(input);
+  const updated = next.entries.find((item) => item.registryId === 'data-grid');
+  assert.notEqual(
+    updated.contract.references.find((item) => item.path === implementation).sha256,
+    entry.contract.references.find((item) => item.path === implementation).sha256,
+  );
+  assert.notEqual(next.sourceDigest, first.sourceDigest);
+  assert.equal(updated.contract.raw, entry.contract.raw);
+  assert.equal(updated.coverage.evidenceReported, false);
+});
+
+test('transitive dependencies and global styles cannot stand alone as component requirement citations', () => {
+  const api = JSON.parse(original.files['public/ai/components/components-data-datagrid.json']);
+  for (const path of ['src/components/button/button.tsx', 'src/styles/globals.css']) {
+    assert(api.sourceFiles.includes(path), `${path} is a transitive DataGrid API source`);
+    const input = fixture();
+    mutateJson(input, 'contracts/agentic/data-grid.json', (value) => {
+      value.requirements.find((requirement) => requirement.kind === 'component').sources = [path];
+    });
+    assert.throws(() => buildContractCatalogue(input), /must cite a family implementation source/);
+  }
 });
 
 test('stale registry and binding contract versions are rejected', () => {

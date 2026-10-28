@@ -4,7 +4,7 @@
   "documentType": "index",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.4.0-experiment.0"
+    "version": "0.5.0-experiment.0"
   },
   "provenance": {
     "generator": "scripts/generate-ai-contracts.mjs",
@@ -18,7 +18,7 @@
       "src/styles/primitive-color-tokens.css"
     ],
     "tokenManifest": "tokens/design-tokens.json",
-    "sourceDigest": "3015e9b04fa137b748dbb78a7ca37a65b668b488a3d352f07e9f2a61916b3742"
+    "sourceDigest": "7dec3a44844ad80e542fa233c670c79c2be3d4842ef7406bac6acd0e25177ecc"
   },
   "description": "Task-based discovery of component APIs, usage guidance, examples and token references.",
   "limitations": [

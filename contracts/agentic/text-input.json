@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "id": "text-input",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Enter one native input value with optional field labeling, adornments and a clear action.",
+  "anatomy": [
+    "optional visible label",
+    "input shell",
+    "optional prefix",
+    "native input",
+    "conditional clear button",
+    "optional suffix"
+  ],
+  "states": [
+    "empty",
+    "populated",
+    "controlled",
+    "uncontrolled",
+    "disabled",
+    "read-only",
+    "invalid",
+    "required",
+    "keyboard-focus"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Native HTML input and button with React state and shared useFieldControl metadata.",
+  "ownership": {
+    "component": [
+      "Native input rendering and forwarded input ref",
+      "Controlled or local value display and change callbacks",
+      "Field metadata association and conditional clear action"
+    ],
+    "host": [
+      "Accessible naming and meaningful validation messages",
+      "Controlled state updates and application submission",
+      "Meaning and behavior of supplied adornments"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "value-ownership",
+      "kind": "component",
+      "statement": "Display value when it is supplied; otherwise initialize local text from defaultValue. An input change updates local text only when value is undefined, then calls onValueChange with the string and onChange with the native-input React change event.",
+      "sources": ["src/components/text-input/text-input.tsx"]
+    },
+    {
+      "id": "native-input-props",
+      "kind": "component",
+      "statement": "Render a native input, default type to text, forward the input ref, and pass supported input attributes such as name, form, autoComplete and constraints through to that input.",
+      "sources": ["src/components/text-input/text-input.tsx"]
+    },
+    {
+      "id": "field-association",
+      "kind": "component",
+      "statement": "Use useFieldControl to resolve id, required, disabled, invalid and description references. A standalone label is associated through htmlFor and aria-labelledby; explicit aria-labelledby takes precedence.",
+      "sources": ["src/components/text-input/text-input.tsx", "src/components/field/field.tsx"]
+    },
+    {
+      "id": "locked-editing",
+      "kind": "component",
+      "statement": "Forward readOnly to the native input and resolved disabled to the control. Show the clear button only when clearable is true, text is nonempty, and the control is neither disabled nor read-only.",
+      "sources": ["src/components/text-input/text-input.tsx"]
+    },
+    {
+      "id": "clear-event-and-focus",
+      "kind": "component",
+      "statement": "The clear button is type button. Clearing uses the native value setter and a bubbling input event, returns focus to the input, and calls onClear; the existing change handlers remain the value-change path.",
+      "sources": ["src/components/text-input/text-input.tsx"]
+    },
+    {
+      "id": "native-keyboard",
+      "kind": "component",
+      "statement": "Leave text editing, selection, Tab focus and native form keyboard behavior on the input; this wrapper adds no Enter or Escape command handler.",
+      "sources": ["src/components/text-input/text-input.tsx"]
+    },
+    {
+      "id": "controlled-host",
+      "kind": "host",
+      "statement": "When supplying value, update it from onValueChange or onChange to accept edits, including clear requests. Treat defaultValue as the initial local value rather than a reset command.",
+      "sources": ["src/components/text-input/text-input.tsx"]
+    },
+    {
+      "id": "accessible-name",
+      "kind": "host",
+      "statement": "Provide a meaningful standalone label, enclosing Field label, or accessible name on the input. Placeholder text and decorative prefix/suffix content do not replace that name.",
+      "sources": [
+        "src/components/text-input/text-input.tsx",
+        "src/components/field/field.tsx",
+        "skills/create-component/SKILL.md"
+      ]
+    },
+    {
+      "id": "validation-ownership",
+      "kind": "host",
+      "statement": "Own validation decisions, error text and submission effects. invalid and aria-invalid expose state; they do not compute an application validation result.",
+      "sources": ["src/components/text-input/text-input.tsx", "src/components/field/field.tsx"]
+    },
+    {
+      "id": "input-token-and-focus-policy",
+      "kind": "design",
+      "statement": "Keep owned styles in the input group, retain keyboard-visible focus, and preserve size and font metrics across Fundamental/Fundamental Floating and light/dark modes.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "tokens/component-categories.json",
+        "src/components/text-input/text-input.css"
+      ]
+    }
+  ],
+  "limitations": [
+    "This baseline is a source-grounded requirement record, not a current browser result or approval.",
+    "The wrapper stores even its uncontrolled value in React state and does not install an explicit native form-reset listener. Do not infer a synchronized reset guarantee from defaultValue.",
+    "Clear behavior is described for supported text-like native input types; this contract does not certify every possible HTML input type or custom event override."
+  ]
+}

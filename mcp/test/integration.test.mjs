@@ -193,7 +193,7 @@ test('fails closed if bound profile/lock or loaded runtime changes after startup
 
 test('rejects unsupported kit/compiler and inconsistent catalogue identities even with recomputed file hash', async () => {
   const changedKit = await copyKit();
-  for (const change of [{ version: '0.5.0-unknown' }, { compilerVersion: '99' }]) {
+  for (const change of [{ version: '0.5.0-unknown' }, { compilerVersion: '99' }, { version: '0.4.0-experiment.0', registryRevision: 3 }, { version: '0.5.0-experiment.0', registryRevision: 2 }]) {
     await replaceCovered(changedKit, 'kit.json', JSON.stringify({ ...manifest, ...change }));
     await assert.rejects(connect([], changedKit), /Unsupported kit identity/);
   }
@@ -237,4 +237,41 @@ test('audit file-count/total-byte bounds and nonregular startup files fail witho
     execFileSync('mkfifo', [join(root, 'fifo-lock')]);
     await assert.rejects(connect(['--project', root, '--lock', 'fifo-lock']), /not regular/);
   }
+});
+
+
+test('schema2 authored contracts retain requirements and source references through read-only MCP discovery', async () => {
+  assert.equal(manifest.version, '0.5.0-experiment.0', 'Build the new contract-bearing kit before this suite.');
+  assert.equal(manifest.registryRevision, 3);
+  const { client, close } = await connect();
+  const catalogue = JSON.parse((await client.readResource({ uri: 'aegis://catalogue' })).contents[0].text);
+  const required = ['data-grid', 'filter-bar', 'page-header', 'side-nav', 'tabs', 'pagination', 'metric-card', 'sparkline', 'description-list', 'empty-state', 'text-input', 'textarea', 'search-input', 'select', 'checkbox', 'switch', 'segmented-control', 'side-sheet', 'popover', 'dropdown-menu'];
+  for (const id of required) {
+    const entry = core.getContractEntry(id);
+    assert.ok(entry?.contract, `Missing authored contract ${id}`);
+    const summary = catalogue.entries.find((item) => item.id === entry.id);
+    const raw = (await client.readResource({ uri: summary.resources.contract })).contents[0].text;
+    assert.equal(raw, entry.contract.raw);
+    const contract = JSON.parse(raw);
+    assert.equal(contract.schemaVersion, 2);
+    assert.equal(contract.verification, 'not-certified-by-this-contract');
+    assert.ok(contract.requirements.length > 0);
+    assert.deepEqual(summary.contract.source, entry.contract.source);
+    assert.deepEqual(summary.contract.references, entry.contract.references);
+    for (const requirement of contract.requirements) {
+      assert.ok(requirement.sources.length > 0);
+      for (const path of requirement.sources) {
+        const reference = summary.contract.references.find((item) => item.path === path);
+        assert.ok(reference, `${id}/${requirement.id}: missing requirement source ${path}`);
+        assert.match(reference.sha256, /^[a-f0-9]{64}$/);
+      }
+    }
+    const search = await call(client, 'search_contracts', { query: id, limit: 30 });
+    const found = search.entries.find((item) => item.id === entry.id);
+    assert.deepEqual(found?.contract, summary.contract);
+  }
+  const legacy = core.contractCatalogue.entries.find((entry) => entry.contract?.document.schemaVersion === 1);
+  assert.ok(legacy, 'Legacy authored entries remain discoverable');
+  assert.deepEqual(catalogue.entries.find((entry) => entry.id === legacy.id).contract.references, legacy.contract.references ?? []);
+  await close();
 });

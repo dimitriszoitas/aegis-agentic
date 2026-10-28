@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 2,
+  "id": "search-input",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Capture a search query immediately and optionally emit a debounced search callback.",
+  "anatomy": [
+    "nested TextInput",
+    "decorative search icon",
+    "native search input",
+    "conditional clear action",
+    "optional shortcut hint"
+  ],
+  "states": [
+    "empty",
+    "populated",
+    "controlled",
+    "uncontrolled",
+    "pending-debounce",
+    "disabled",
+    "read-only",
+    "invalid",
+    "keyboard-focus"
+  ],
+  "tokenGroup": "input",
+  "behaviorProvider": "Composition of TextInput with a React-managed debounce timer; native input behavior remains with TextInput.",
+  "ownership": {
+    "component": [
+      "Immediate query entry and native search semantics",
+      "Cancellation of superseded pending timers",
+      "Clear action and display-only shortcut hint"
+    ],
+    "host": [
+      "Result computation, fetching and asynchronous race handling",
+      "Accessible query name and result announcements",
+      "Controlled updates, shortcut registration and submission policy"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "search-semantics",
+      "kind": "component",
+      "statement": "Compose TextInput with type search, a decorative Search icon and a forwarded input ref. The type, prefix and suffix are owned by SearchInput rather than exposed as replacement props.",
+      "sources": ["src/components/search-input/search-input.tsx"]
+    },
+    {
+      "id": "immediate-value",
+      "kind": "component",
+      "statement": "Use controlled value or local text initialized from defaultValue. onValueChange is called immediately for edits, and the inherited native onChange remains immediate; debounce applies only to onSearch.",
+      "sources": [
+        "src/components/search-input/search-input.tsx",
+        "src/components/text-input/text-input.tsx",
+        "src/components/search-input/search-input.stories.tsx"
+      ]
+    },
+    {
+      "id": "debounce-delay",
+      "kind": "component",
+      "statement": "For a query different from the last emitted query, schedule onSearch after Math.max(0, debounceMs), defaulting debounceMs to 250 milliseconds.",
+      "sources": ["src/components/search-input/search-input.tsx"]
+    },
+    {
+      "id": "timer-cleanup",
+      "kind": "component",
+      "statement": "Cancel the pending timer when query or debounceMs changes and on unmount. Read the current onSearch callback through a ref when the timer fires.",
+      "sources": ["src/components/search-input/search-input.tsx"]
+    },
+    {
+      "id": "no-initial-search",
+      "kind": "component",
+      "statement": "Initialize lastEmitted from the initial query so mounting alone does not emit onSearch. A later controlled value change follows the same debounce path as a user edit.",
+      "sources": ["src/components/search-input/search-input.tsx"]
+    },
+    {
+      "id": "inherited-field-and-locks",
+      "kind": "component",
+      "statement": "Preserve TextInput labeling, Field metadata, native form attributes, disabled/readOnly behavior and clearing. clearable defaults true and the clear label defaults to Clear search.",
+      "sources": [
+        "src/components/search-input/search-input.tsx",
+        "src/components/text-input/text-input.tsx",
+        "src/components/field/field.tsx"
+      ]
+    },
+    {
+      "id": "controlled-query-host",
+      "kind": "host",
+      "statement": "When passing value, accept edits by updating it through the immediate change callback. Keep the input draft distinct from any delayed search results.",
+      "sources": ["src/components/search-input/search-input.tsx"]
+    },
+    {
+      "id": "search-effects-host",
+      "kind": "host",
+      "statement": "Implement result filtering or requests, loading/error/empty states and result announcements. Cancel or ignore stale asynchronous results in the host; clearing a pending timer cannot cancel an onSearch request that already began.",
+      "sources": [
+        "src/components/search-input/search-input.tsx",
+        "src/components/search-input/search-input.stories.tsx",
+        "skills/create-layout/SKILL.md"
+      ]
+    },
+    {
+      "id": "name-and-shortcut-host",
+      "kind": "host",
+      "statement": "Give the search input an accessible name and implement any advertised keyboard shortcut in the owning page. shortcut renders a kbd hint only; SearchInput does not register a shortcut handler.",
+      "sources": [
+        "src/components/search-input/search-input.tsx",
+        "src/components/search-input/search-input.stories.tsx"
+      ]
+    },
+    {
+      "id": "input-token-and-focus-policy",
+      "kind": "design",
+      "statement": "Keep SearchInput-owned styling in the input group and preserve the nested TextInput behavior and keyboard focus treatment across modes.",
+      "sources": [
+        "skills/references/design-contract.md",
+        "tokens/component-categories.json",
+        "src/components/search-input/search-input.css"
+      ]
+    }
+  ],
+  "limitations": [
+    "Debounce cancellation applies to pending timers, not network requests, promises or search side effects already started.",
+    "No initial search, Enter-to-search override, result list, loading indicator or search service is supplied by this component.",
+    "TextInput native-form reset limitations also apply to the locally stored SearchInput query. Existing linked checks are bounded story assertions, not certification."
+  ]
+}

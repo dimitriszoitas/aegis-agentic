@@ -155,6 +155,7 @@ export async function loadCatalogueInputs(root = repository) {
     'registry/canonical.json',
     'public/ai/index.json',
     'schemas/component-contract.schema.json',
+    'tokens/component-categories.json',
   ])
     await load(path);
   const bindings = JSON.parse(files['contracts/catalogue-bindings.json']);
@@ -168,6 +169,15 @@ export async function loadCatalogueInputs(root = repository) {
     .sort()
     .map((path) => `contracts/${path}`);
   for (const path of [...authoredPaths, ...protocolPaths]) await load(path);
+  for (const path of authoredPaths) {
+    const document = JSON.parse(files[path]);
+    if (document.schemaVersion !== 2) continue;
+    assert(Array.isArray(document.requirements), `${path} requires explicit requirements`);
+    for (const requirement of document.requirements) {
+      assert(Array.isArray(requirement.sources), `${path} requires source references`);
+      for (const reference of requirement.sources) await load(reference);
+    }
+  }
   for (const api of index.components) await load(`public/ai/components/${api.id}.json`);
   for (const binding of [...bindings.bindings, ...bindings.protocols]) {
     if (binding.implementation) await load(binding.implementation);
@@ -200,6 +210,7 @@ export function buildContractCatalogue({ files, authoredPaths, protocolPaths }) 
   const registry = json('registry/canonical.json');
   const index = json('public/ai/index.json');
   const schema = json('schemas/component-contract.schema.json');
+  const categories = json('tokens/component-categories.json').categories;
   assert(Array.isArray(index.components));
   const unique = (values, context) =>
     assert.equal(new Set(values).size, values.length, `Duplicate ${context}`);
@@ -340,6 +351,50 @@ export function buildContractCatalogue({ files, authoredPaths, protocolPaths }) 
     );
     read(binding.implementation);
     assert(nonempty(binding.exportName), 'Export name required');
+    const requirementReferences = [];
+    if (document.schemaVersion === 2) {
+      unique(
+        document.requirements.map((requirement) => requirement.id),
+        'requirement ID',
+      );
+      const ownership = Object.entries(categories)
+        .flatMap(([group, category]) =>
+          category.prefixes
+            .filter((prefix) => binding.implementation.startsWith(prefix))
+            .map((prefix) => ({ group, prefix })),
+        )
+        .sort((a, b) => b.prefix.length - a.prefix.length);
+      assert(ownership.length, 'Requirement implementation must have a token owner');
+      assert.equal(
+        document.tokenGroup,
+        ownership[0].group,
+        'Contract token group differs from implementation owner',
+      );
+      const familySources =
+        binding.apiFamilyId === null
+          ? [binding.implementation]
+          : json(`public/ai/components/${binding.apiFamilyId}.json`).sourceFiles.filter(
+              (path) =>
+                path.startsWith(`${dirname(binding.implementation)}/`) &&
+                /\.(?:[cm]?[jt]sx?|css)$/.test(path),
+            );
+      for (const responsibility of Object.values(document.ownership))
+        assert(responsibility.every(nonempty), 'Ownership must state nonempty responsibilities');
+      for (const requirement of document.requirements) {
+        assert(nonempty(requirement.statement), 'Requirement statement must be nonempty');
+        if (requirement.kind === 'component')
+          assert(
+            requirement.sources.some((path) => familySources.includes(path)),
+            'Component requirement must cite a family implementation source',
+          );
+        for (const path of requirement.sources) {
+          const reference = source(path);
+          if (!requirementReferences.some((existing) => existing.path === path))
+            requirementReferences.push(reference);
+        }
+      }
+      requirementReferences.sort((a, b) => a.path.localeCompare(b.path));
+    }
     let entry;
     if (binding.apiFamilyId !== null) {
       entry = entries.find((item) => item.apiFamilyId === binding.apiFamilyId);
@@ -391,6 +446,7 @@ export function buildContractCatalogue({ files, authoredPaths, protocolPaths }) 
       version: document.version,
       status: document.status,
       source: source(binding.path),
+      references: requirementReferences,
       document,
       raw: read(binding.path),
     };
@@ -421,6 +477,7 @@ export function buildContractCatalogue({ files, authoredPaths, protocolPaths }) 
         version: null,
         status: 'protocol-specification',
         source: source(binding.path),
+        references: [],
         document,
         raw: read(binding.path),
       },

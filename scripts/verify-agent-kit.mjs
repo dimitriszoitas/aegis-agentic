@@ -34,18 +34,19 @@ assert.deepEqual(run(['contracts', 'coverage']), catalogue.coverage);
 assert.equal(catalogue.package.version, kitInfo.version);
 assert.equal(catalogue.registryRevision, kitInfo.registryRevision);
 assert.equal(catalogue.coverage.apiFamilies, 103);
-assert.equal(catalogue.coverage.authoredComponentPatternContracts, 7);
-assert.equal(catalogue.coverage.apiFamiliesWithAuthoredBehavior, 5);
+assert.equal(catalogue.coverage.authoredComponentPatternContracts, 27);
+assert.equal(catalogue.coverage.apiFamiliesWithAuthoredBehavior, 25);
 assert.equal(catalogue.coverage.systemProtocolContracts, 2);
 const contractButton = run(['contracts', 'get', 'button']);
 assert.equal(contractButton.apiFamilyId, 'components-actions-button');
 assert.equal(contractButton.contract.id, 'button');
 assert.equal(contractButton.coverage.behaviorAuthored, true);
 assert.equal(
-  run(['contracts', 'get', 'components-data-datagrid']).coverage.behaviorAuthored,
+  run(['contracts', 'get', 'components-people-avatar']).coverage.behaviorAuthored,
   false,
 );
-assert.equal(run(['contracts', 'get', 'patterns-filterbar']).contract, null);
+assert.equal(run(['contracts', 'get', 'patterns-filterbar']).contract.id, 'filter-bar');
+assert.equal(run(['contracts', 'get', 'data-grid']).contract.document.schemaVersion, 2);
 assert.equal(run(['contracts', 'get', 'dataset-filtering']).apiFamilyId, null);
 assert(
   run(['contracts', 'search', 'page layout']).some((entry) => entry.registryId === 'page-layout'),

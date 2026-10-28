@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 2,
+  "id": "pagination",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Present a controlled one-based page position, result range and optional page-size selector for a host-owned result set.",
+  "anatomy": [
+    "named navigation region",
+    "polite range summary",
+    "optional labeled rows-per-page select",
+    "previous/next buttons",
+    "numbered page buttons and visual gaps"
+  ],
+  "states": [
+    "first page",
+    "middle page",
+    "last page",
+    "zero results",
+    "disabled",
+    "page-size selection"
+  ],
+  "tokenGroup": "navigation",
+  "behaviorProvider": "Native nav, buttons and select; Aegis calculates a bounded display window from host props.",
+  "ownership": {
+    "component": [
+      "normalize displayed page/range",
+      "emit page and size requests",
+      "label boundary controls and current page"
+    ],
+    "host": [
+      "actual paging, fetching and accepted page state",
+      "accurate total and page-size options",
+      "coordinate loading and asynchronous results"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "display-normalization",
+      "kind": "component",
+      "statement": "For display, normalize a finite total to a nonnegative integer, a finite pageSize to at least one and a finite page to the one-based valid range. Nonfinite values fall back to total=0, size=25 and page=1 respectively.",
+      "sources": ["src/components/pagination/pagination.tsx"]
+    },
+    {
+      "id": "controlled-page-requests",
+      "kind": "host",
+      "statement": "Update page in response to onPageChange and apply it to the underlying dataset or request. Display normalization does not call back to correct invalid host state or fetch records.",
+      "sources": ["src/components/pagination/pagination.tsx"]
+    },
+    {
+      "id": "range-summary",
+      "kind": "component",
+      "statement": "The polite summary reports 0 plus noun for an empty total, otherwise the current inclusive item range and total. The page count remains at least one even for zero results.",
+      "sources": ["src/components/pagination/pagination.tsx"]
+    },
+    {
+      "id": "boundary-controls",
+      "kind": "component",
+      "statement": "Disable Previous at the first page and Next at the last page; zero results or disabled disables all page navigation buttons. Each numbered button identifies its page and the current one exposes aria-current=page.",
+      "sources": ["src/components/pagination/pagination.tsx"]
+    },
+    {
+      "id": "number-window",
+      "kind": "component",
+      "statement": "Always include valid first/last pages and the current neighborhood, adding near-edge neighbors as needed, deduplicating and sorting. Gaps render as aria-hidden ellipses rather than navigable controls.",
+      "sources": ["src/components/pagination/pagination.tsx"]
+    },
+    {
+      "id": "size-change-sequence",
+      "kind": "component",
+      "statement": "Render the size select only when onPageSizeChange exists. A size change calls onPageSizeChange with the numeric selected value, then calls onPageChange(1); the host must accept both updates coherently.",
+      "sources": ["src/components/pagination/pagination.tsx"]
+    },
+    {
+      "id": "size-options-boundary",
+      "kind": "host",
+      "statement": "Supply finite positive integer pageSizeOptions suitable for the dataset. The component deduplicates finite positive choices and includes the normalized current size, but does not integer-normalize the supplied option values.",
+      "sources": ["src/components/pagination/pagination.tsx"]
+    },
+    {
+      "id": "native-form-boundary",
+      "kind": "component",
+      "statement": "Pagination buttons use type=button and must not submit an enclosing form. The size control has an associated Rows per page label and uses native select keyboard behavior.",
+      "sources": ["src/components/pagination/pagination.tsx"]
+    },
+    {
+      "id": "loading-and-focus",
+      "kind": "host",
+      "statement": "Set disabled while page changes must be blocked and own any focus/announcement policy for newly loaded content. Pagination does not move focus to the result region or provide loading/error UI.",
+      "sources": ["src/components/pagination/pagination.tsx"]
+    },
+    {
+      "id": "owned-tokens",
+      "kind": "design",
+      "statement": "Use navigation group tokens for controls and input-modality focus styling. Keep the display range and disabled semantics independent of theme and density decisions.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "Pagination does not store pages or perform a fetch; the host remains authoritative.",
+    "The noun and Rows per page label are not a comprehensive localization API.",
+    "Accepted host inputs should be finite positive integer sizes even though the display applies defensive normalization."
+  ]
+}

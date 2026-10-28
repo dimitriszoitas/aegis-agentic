@@ -10,9 +10,9 @@ describe('canonical contract discovery', () => {
   it('reports API documentation and authored requirements separately', () => {
     const coverage = getContractCoverage();
     expect(coverage.apiFamilies).toBe(103);
-    expect(coverage.authoredComponentPatternContracts).toBe(7);
-    expect(coverage.apiFamiliesWithAuthoredBehavior).toBe(5);
-    expect(coverage.apiFamiliesWithoutAuthoredBehavior).toBe(98);
+    expect(coverage.authoredComponentPatternContracts).toBe(27);
+    expect(coverage.apiFamiliesWithAuthoredBehavior).toBe(25);
+    expect(coverage.apiFamiliesWithoutAuthoredBehavior).toBe(78);
     expect(coverage.authoredOnlyEntries).toBe(2);
     expect(coverage.systemProtocolContracts).toBe(2);
   });
@@ -20,7 +20,9 @@ describe('canonical contract discovery', () => {
     expect(getContractEntry(' dialog ')).toBe(getContractEntry('components-overlays-modal'));
     expect(getContractEntry('page-layout')).toBe(getContractEntry('patterns-pagelayout'));
     expect(getContractEntry('dataset-filtering')?.contract?.id).toBe('dataset-filtering');
-    expect(getContractEntry('patterns-filterbar')?.contract).toBeNull();
+    expect(getContractEntry('patterns-filterbar')?.contract?.id).toBe('filter-bar');
+    expect(getContractEntry('filter-bar')).not.toBe(getContractEntry('dataset-filtering'));
+    expect(getContractEntry('components-people-avatar')?.contract).toBeNull();
     expect(getContractEntry('not-present')).toBeUndefined();
   });
   it('searches task aliases while retaining explicit coverage distinctions', () => {

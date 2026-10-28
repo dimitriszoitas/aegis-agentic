@@ -1,5 +1,6 @@
 /** Focused built-Storybook contract discovery, evidence labeling and source integrity check. */
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { createServer } from 'node:http';
 import { readFile, mkdir, stat, writeFile } from 'node:fs/promises';
 import { extname, resolve, relative, isAbsolute } from 'node:path';
@@ -54,7 +55,7 @@ const report = {
   presentation: [],
   screenshots: [],
   limits: [
-    'Focused Chromium checks of catalogue, two component Contract tabs, and MCP documentation. Evidence labels are checked without treating them as current execution or approval.',
+    'Focused Chromium checks of catalogue, one complete schema-2 requirement list, three component Contract tabs, and MCP documentation. Source hashes establish provenance only; evidence labels do not establish current execution or approval.',
   ],
 };
 const passed = (message) => {
@@ -197,6 +198,9 @@ try {
   );
 
   const avatar = findEntry('components-people-avatar');
+  assert.equal(avatar.contract, null, 'Avatar remains the API-only coverage-gap fixture');
+  assert.equal(avatar.coverage.apiDocumented, true);
+  assert.equal(avatar.coverage.behaviorAuthored, false);
   await search.fill(avatar.id);
   await catalogueView
     .getByRole('button', { name: `Open ${avatar.name} contract`, exact: true })
@@ -268,6 +272,105 @@ try {
   await screenshot('authored-contract');
   passed(
     'Authored requirements remain separate from verification, raw copy/download preserve canonical bytes, and repeated selection restores detail focus.',
+  );
+
+  const grid = findEntry('components-data-datagrid');
+  const gridContract = grid.contract;
+  assert(gridContract, 'DataGrid must have its new authored contract');
+  assert.equal(gridContract.document.schemaVersion, 2);
+  assert.equal(gridContract.document.verification, 'not-certified-by-this-contract');
+  const canonicalGridSource = await readFile(resolve(gridContract.source.path), 'utf8');
+  assert.equal(
+    gridContract.raw,
+    canonicalGridSource,
+    'Built raw contract matches canonical source',
+  );
+  assert.deepEqual(JSON.parse(canonicalGridSource), gridContract.document);
+  assert.equal(
+    createHash('sha256').update(canonicalGridSource).digest('hex'),
+    gridContract.source.sha256,
+  );
+  const requirements = gridContract.document.requirements;
+  assert(Array.isArray(requirements) && requirements.length > 0);
+  assert.deepEqual(
+    new Set(requirements.map((requirement) => requirement.kind)),
+    new Set(['component', 'host', 'design']),
+    'The fixture covers each responsibility kind',
+  );
+  const labels = {
+    component: 'Component responsibility',
+    host: 'Caller responsibility',
+    design: 'Design constraint',
+  };
+  const expectedIds = requirements.map(
+    (requirement) => `requirement-${gridContract.id}-${requirement.id}`,
+  );
+  assert.equal(new Set(expectedIds).size, requirements.length);
+  await search.fill(grid.id);
+  await catalogueView
+    .getByRole('button', { name: `Open ${grid.name} contract`, exact: true })
+    .click();
+  detail = catalogueView.getByRole('region', {
+    name: `${grid.name} contract details`,
+    exact: true,
+  });
+  const requirementRows = detail.locator('[data-contract-requirements] > ul > li');
+  await expect(requirementRows).toHaveCount(requirements.length);
+  assert.deepEqual(
+    await requirementRows.evaluateAll((nodes) => nodes.map((node) => node.id)),
+    expectedIds,
+  );
+  const checkedSources = new Set();
+  for (const requirement of requirements) {
+    const row = detail.locator(`#requirement-${gridContract.id}-${requirement.id}`);
+    await expect(row.getByText(labels[requirement.kind], { exact: true })).toBeVisible();
+    await expect(
+      row.locator('code').and(row.getByText(requirement.id, { exact: true })),
+    ).toBeVisible();
+    await expect(row.getByText(requirement.statement, { exact: true })).toBeVisible();
+    const sources = row.locator('details');
+    await expect(sources).not.toHaveAttribute('open', '');
+    await sources.locator('summary').click();
+    await expect(sources).toHaveAttribute('open', '');
+    await expect(sources.locator('li')).toHaveCount(requirement.sources.length);
+    for (const path of requirement.sources) {
+      const reference = gridContract.references.find((item) => item.path === path);
+      assert(reference, `Missing generated source hash for ${requirement.id}: ${path}`);
+      if (!checkedSources.has(path)) {
+        const bytes = await readFile(resolve(path));
+        assert.equal(
+          createHash('sha256').update(bytes).digest('hex'),
+          reference.sha256,
+          `Generated requirement source hash must match ${path}`,
+        );
+        checkedSources.add(path);
+      }
+      const source = sources.locator('li').filter({ hasText: path });
+      await expect(source).toHaveCount(1);
+      await expect(source.getByText(path, { exact: true })).toBeVisible();
+      await expect(source.locator(`code[title="${reference.sha256}"]`)).toHaveText(
+        `${reference.sha256.slice(0, 16)}…`,
+      );
+    }
+  }
+  await expect(detail.getByText('not-certified-by-this-contract', { exact: true })).toBeVisible();
+  await expect(detail.locator('[data-intent="success"]')).toHaveCount(0);
+  await copyAndAssert(detail, 'Copy contract JSON', canonicalGridSource);
+  const gridDownloadPromise = page.waitForEvent('download');
+  await detail.getByRole('link', { name: 'Download contract JSON', exact: true }).click();
+  const gridDownload = await gridDownloadPromise;
+  assert.equal(await readFile(await gridDownload.path(), 'utf8'), canonicalGridSource);
+  await expect.poll(() => new URL(page.url()).searchParams.get('contract')).toBe(grid.id);
+  await page.reload();
+  await expect(requirementRows).toHaveCount(requirements.length);
+  assert.deepEqual(
+    await requirementRows.evaluateAll((nodes) => nodes.map((node) => node.id)),
+    expectedIds,
+  );
+  await requirementRows.first().scrollIntoViewIfNeeded();
+  await screenshot('schema-two-requirements');
+  passed(
+    'DataGrid schema-2 requirements preserve stable IDs, distinguish component/caller/design responsibility, expose matching source paths and hashes, and copy/download canonical source bytes without certification claims.',
   );
 
   const token = findEntry('token-input');
@@ -385,6 +488,7 @@ try {
 
   for (const [entry, path, missing] of [
     [layout, 'patterns-page-structure-pagelayout-overview--docs', false],
+    [grid, 'components-data-display-datagrid-overview--docs', false],
     [avatar, 'components-data-display-avatar-overview--docs', true],
   ]) {
     const docsEntry = Object.values(index.entries).find(
@@ -412,6 +516,14 @@ try {
       'aria-selected',
       'true',
     );
+    if (entry === grid) {
+      const rows = family.locator('[data-contract-requirements] > ul > li');
+      await expect(rows).toHaveCount(requirements.length);
+      assert.deepEqual(
+        await rows.evaluateAll((nodes) => nodes.map((node) => node.id)),
+        expectedIds,
+      );
+    }
   }
   passed(
     'Per-family Contract tabs render the same authored/API-only coverage and preserve their direct route on refresh.',

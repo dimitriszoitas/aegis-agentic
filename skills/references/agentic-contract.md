@@ -6,6 +6,12 @@ The project profile, registry, composition contract and kit version are authorit
 
 Start with the kit manifest and registry. Search by responsibility, capability and aliases. Prefer the canonical implementation when it fits; extend its public contract only when the responsibility remains coherent. Keep product data/routing in the consuming application. A new semantic role, incompatible behavior, or unsupported combination is an explicit proposal, not an undocumented CSS override.
 
+Read the selected entry in the contract catalogue before composing it. API metadata describes available props; an authored contract describes responsibilities and boundaries. A family with only API metadata has no authored behavioral guarantee. Inspect its implementation and relevant examples before relying on behavior that the API does not establish.
+
+Source-backed contracts use stable requirement IDs and three kinds: `component` identifies implementation behavior to preserve, `host` identifies work the consuming application must provide, and `design` identifies a composition or styling constraint. Resolve host obligations in the product's shared pattern or state owner; do not assume a component handles routing, remote data, request cancellation or persistence unless its contract says so. Read its limitations and controlled-state rules before selecting it. Keep relevant requirement IDs in acceptance cases so two contributors can compare the same responsibility when reviewing an extension.
+
+Cited source paths and hashes record which source bytes were catalogued. They do not establish that a requirement passed a test, remains semantically correct after a source change, or received owner approval. Linked checks describe their finite scope; reported evidence is separate. Reassess affected requirements when an implementation changes, retain IDs for unchanged responsibilities, and version changed behavior with its migration guidance.
+
 ## Product pattern decisions
 
 Before composing or extending pages, read the product's existing pattern policy or composition specification. If none exists, record the relevant decisions alongside the product source before building repeated page structures. The user's direction governs these choices; this is a shared implementation record, not a new approval step.

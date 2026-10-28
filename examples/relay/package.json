@@ -10,7 +10,7 @@
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
-    "@dimitriszoitas/aegis-agentic": "0.4.0-experiment.0",
+    "@dimitriszoitas/aegis-agentic": "0.5.0-experiment.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },

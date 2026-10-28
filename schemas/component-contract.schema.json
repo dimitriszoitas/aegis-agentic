@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aegis.local/schemas/component-contract.schema.json",
-  "description": "Closed authored requirement shapes. Baselines require states; the stateless page-layout recipe instead requires its explicit API and recipe boundaries. New contract versions with different fields require a reviewed schema update.",
+  "description": "Closed authored requirement shapes. Schema 2 separates component responsibilities, host obligations and design constraints with stable requirement IDs and explicit source references. Shape and source validation do not execute requirements.",
   "oneOf": [
     {
       "$ref": "#/$defs/baseline"
@@ -11,6 +11,9 @@
     },
     {
       "$ref": "#/$defs/pageLayoutV1"
+    },
+    {
+      "$ref": "#/$defs/sourceBackedV2"
     }
   ],
   "$defs": {
@@ -455,6 +458,139 @@
         "guidance",
         "publicApi",
         "limits"
+      ],
+      "additionalProperties": false
+    },
+    "sourceBackedV2": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 2
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^(?!token-input$|page-layout$)[a-z][a-z0-9-]*$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "const": "source-backed-baseline"
+        },
+        "verification": {
+          "const": "not-certified-by-this-contract"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "anatomy": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "tokenGroup": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "behaviorProvider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ownership": {
+          "type": "object",
+          "properties": {
+            "component": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "host": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          },
+          "required": ["component", "host"],
+          "additionalProperties": false
+        },
+        "requirements": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9-]*$"
+              },
+              "kind": {
+                "enum": ["component", "host", "design"]
+              },
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            },
+            "required": ["id", "kind", "statement", "sources"],
+            "additionalProperties": false
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "version",
+        "status",
+        "verification",
+        "purpose",
+        "anatomy",
+        "states",
+        "tokenGroup",
+        "behaviorProvider",
+        "ownership",
+        "requirements",
+        "limitations"
       ],
       "additionalProperties": false
     }

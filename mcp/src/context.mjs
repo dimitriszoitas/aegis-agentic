@@ -5,6 +5,10 @@ import { isAbsolute, relative, resolve, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 export const limits = Object.freeze({ resourceBytes: 256 * 1024, inputBytes: 32 * 1024, inputDepth: 16, policyBytes: 64 * 1024, sourceFiles: 100, sourceBytes: 256 * 1024, totalSourceBytes: 2 * 1024 * 1024, runtimeBytes: 32 * 1024 * 1024, outputBytes: 256 * 1024 });
+export const supportedKitRevisions = Object.freeze({
+  '0.4.0-experiment.0': 2,
+  '0.5.0-experiment.0': 3,
+});
 export const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 export const within = (root, file) => { const part = relative(root, file); return part === '' || (!isAbsolute(part) && part !== '..' && !part.startsWith(`..${sep}`)); };
 export function safeRelative(value) {
@@ -56,7 +60,7 @@ export async function loadContext(options) {
     return text;
   };
   const kit = parse(await kitRead('kit.json'), 'kit.json');
-  if (kit.name !== '@dimitriszoitas/aegis-agentic' || kit.schemaVersion !== 1 || kit.version !== '0.4.0-experiment.0' || kit.compilerVersion !== '1' || kit.registryRevision !== 2) throw new Error('Unsupported kit identity/schema.');
+  if (kit.name !== '@dimitriszoitas/aegis-agentic' || kit.schemaVersion !== 1 || !Object.hasOwn(supportedKitRevisions, kit.version) || kit.compilerVersion !== '1' || kit.registryRevision !== supportedKitRevisions[kit.version]) throw new Error('Unsupported kit identity/schema.');
   const runtimePath = safeRelative(kit.runtime);
   const runtimeText = await kitRead(runtimePath, limits.runtimeBytes);
   // Dynamic file imports intentionally resolve the supplied installed kit; no repository fallback.

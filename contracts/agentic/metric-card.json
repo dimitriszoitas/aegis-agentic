@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 2,
+  "id": "metric-card",
+  "version": 1,
+  "status": "source-backed-baseline",
+  "verification": "not-certified-by-this-contract",
+  "purpose": "Summarize one named metric, optional unit, change and small trend while keeping the meaning of favorable movement explicit.",
+  "anatomy": [
+    "nested Card root",
+    "metric label",
+    "formatted value and unit",
+    "optional trend chart",
+    "optional comparison with signed delta",
+    "loading status and skeletons"
+  ],
+  "states": [
+    "value available",
+    "finite positive/negative/zero delta",
+    "delta absent or invalid",
+    "loading",
+    "trend chart present"
+  ],
+  "tokenGroup": "data-display",
+  "behaviorProvider": "Native read-only content composed with Card, Skeleton, Sparkline or MiniBarChart.",
+  "ownership": {
+    "component": [
+      "format value and delta",
+      "derive trend presentation from explicit favorability",
+      "replace data with a named loading state"
+    ],
+    "host": [
+      "accurate metric units and comparison period",
+      "data loading and failures",
+      "meaningful trend labels and favorable-direction decision"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "metric-name",
+      "kind": "component",
+      "statement": "Render the supplied label visibly and as the Card aria-label; loading marks the Card aria-busy.",
+      "sources": ["src/components/metric-card/metric-card.tsx"]
+    },
+    {
+      "id": "value-format",
+      "kind": "component",
+      "statement": "Format numeric values with Intl.NumberFormat using en-GB and the supplied format options; render string values as supplied. Append a truthy unit without calculating or converting the value.",
+      "sources": ["src/components/metric-card/metric-card.tsx"]
+    },
+    {
+      "id": "finite-delta-only",
+      "kind": "component",
+      "statement": "Omit comparison when delta is undefined or nonfinite. A finite delta renders a signed percent with at most one fractional digit and the supplied comparison label.",
+      "sources": ["src/components/metric-card/metric-card.tsx"]
+    },
+    {
+      "id": "delta-direction-and-favorability",
+      "kind": "component",
+      "statement": "Arrow direction follows delta sign, but success/destroy treatment follows trendIsPositive when given and otherwise whether delta is positive. Zero is always neutral and described as unchanged.",
+      "sources": ["src/components/metric-card/metric-card.tsx"]
+    },
+    {
+      "id": "define-favorable-change",
+      "kind": "host",
+      "statement": "Set trendIsPositive when a decrease is beneficial or when product semantics differ from positive-is-good. Supply delta as an already-computed percentage; the card does not derive it from value or prior data.",
+      "sources": ["src/components/metric-card/metric-card.tsx"]
+    },
+    {
+      "id": "non-color-trend-meaning",
+      "kind": "component",
+      "statement": "Include screen-reader text describing unchanged, favorable or unfavorable change alongside the signed delta. Decorative direction arrows are aria-hidden.",
+      "sources": ["src/components/metric-card/metric-card.tsx"]
+    },
+    {
+      "id": "chart-choice-and-label",
+      "kind": "component",
+      "statement": "With sparkline supplied, bar selects MiniBarChart and other variants select Sparkline. Explicit intent controls the chart accent independently of favorability; otherwise neutral uses function and nonneutral uses the derived trend.",
+      "sources": ["src/components/metric-card/metric-card.tsx"]
+    },
+    {
+      "id": "loading-replacement",
+      "kind": "component",
+      "statement": "While loading, retain the label and render a named status with skeletons instead of value, chart and comparison. Do not leave stale metric content presented as the current value in that branch.",
+      "sources": ["src/components/metric-card/metric-card.tsx"]
+    },
+    {
+      "id": "truthful-period-and-data",
+      "kind": "host",
+      "statement": "Supply accurate deltaLabel and sparklineLabel when the data is not the default previous/last 24 hours. Model missing or failed metric data explicitly; there is no dedicated error or no-data prop.",
+      "sources": ["src/components/metric-card/metric-card.tsx"]
+    },
+    {
+      "id": "owned-and-nested-tokens",
+      "kind": "design",
+      "statement": "MetricCard-owned typography and spacing use data-display tokens even though its API family name includes charts. Card, Skeleton and nested chart components retain surface, feedback and data-viz ownership respectively.",
+      "sources": ["skills/references/design-contract.md", "tokens/component-categories.json"]
+    }
+  ],
+  "limitations": [
+    "MetricCard is distinct from ChartMetricCard and does not provide a detailed chart, calculation engine or data-fetch lifecycle.",
+    "The value is not normalized for nonfinite numbers; callers must choose truthful missing/error content.",
+    "Default comparison and trend labels assume a 24-hour period and must be overridden when inaccurate."
+  ]
+}

@@ -33,7 +33,7 @@ function output(value) {
   return { content: [{ type: 'text', text }], structuredContent: value };
 }
 function entrySummary(entry) {
-  return { id: entry.id, apiFamilyId: entry.apiFamilyId, registryId: entry.registryId, name: entry.name, kind: entry.kind, summary: entry.summary, aliases: entry.aliases, importPaths: entry.importPaths, coverage: entry.coverage, resources: { api: entry.api ? `aegis://api/${encodeURIComponent(entry.id)}` : null, contract: entry.contract ? `aegis://contracts/${encodeURIComponent(entry.id)}` : null } };
+  return { id: entry.id, apiFamilyId: entry.apiFamilyId, registryId: entry.registryId, name: entry.name, kind: entry.kind, summary: entry.summary, aliases: entry.aliases, importPaths: entry.importPaths, coverage: entry.coverage, contract: entry.contract ? { id: entry.contract.id, version: entry.contract.version, status: entry.contract.status, source: entry.contract.source, references: entry.contract.references ?? [] } : null, resources: { api: entry.api ? `aegis://api/${encodeURIComponent(entry.id)}` : null, contract: entry.contract ? `aegis://contracts/${encodeURIComponent(entry.id)}` : null } };
 }
 export async function createServer(options) {
   const context = await loadContext(options);
