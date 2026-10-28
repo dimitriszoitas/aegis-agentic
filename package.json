@@ -12,7 +12,7 @@
     "build-storybook": "storybook build --disable-telemetry",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . && npm run tokens:check && npm run headless:check",
-    "test": "vitest run src",
+    "test": "vitest run src --exclude \".aegis-repair/**\"",
     "format": "prettier --write .",
     "check": "npm run agentic:check",
     "test:stories": "node scripts/verify-stories.mjs",
