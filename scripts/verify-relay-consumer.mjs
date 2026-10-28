@@ -26,6 +26,53 @@ const report = {
   scope:
     'The selected Relay implementation is verified against the final installed experimental package. Original independent-generation candidates and their input kit hashes are separate evidence in experiments/relay/comparison.json.',
 };
+async function readVerificationInputs() {
+  const manifestPath = 'experiments/relay/current-source.json';
+  const manifestBytes = await readFile(join(root, manifestPath));
+  const manifest = JSON.parse(manifestBytes.toString('utf8'));
+  assert.equal(manifest.schemaVersion, 1, 'Unsupported current Relay source manifest.');
+  assert.equal(manifest.baseline.path, 'experiments/relay/post-selection.json');
+  const baselineBytes = await readFile(join(root, manifest.baseline.path));
+  assert.equal(
+    sha256(baselineBytes),
+    manifest.baseline.sha256,
+    'Historical Relay baseline must remain byte-identical.',
+  );
+  const baseline = JSON.parse(baselineBytes.toString('utf8'));
+  assert.equal(manifest.change.kind, 'documentation-only');
+  assert.deepEqual(manifest.change.paths, ['README.md']);
+  assert.deepEqual(
+    Object.keys(manifest.sourceSha256).sort(),
+    Object.keys(baseline.sourceSha256).sort(),
+  );
+  for (const [path, hash] of Object.entries(manifest.sourceSha256)) {
+    assert.match(hash, /^[a-f0-9]{64}$/);
+    if (path !== 'README.md')
+      assert.equal(
+        hash,
+        baseline.sourceSha256[path],
+        `Documentation-only update must preserve historical source: ${path}`,
+      );
+  }
+  return {
+    manifest,
+    identity: {
+      path: manifestPath,
+      sha256: sha256(manifestBytes),
+      baseline: manifest.baseline,
+      change: manifest.change,
+    },
+  };
+}
+async function assertDeclaredSources(consumer, sourceSha256) {
+  for (const [path, expectedHash] of Object.entries(sourceSha256)) {
+    assert.equal(
+      sha256(await readFile(join(consumer, path))),
+      expectedHash,
+      `Final evidence must match the current declared source: ${path}`,
+    );
+  }
+}
 async function run(name, command, arguments_, cwd = root) {
   console.log(`Relay consumer: ${name}`);
   const start = Date.now();
@@ -67,12 +114,15 @@ async function run(name, command, arguments_, cwd = root) {
   }
 }
 try {
+  const inputs = await readVerificationInputs();
+  report.sourceManifest = inputs.identity;
   await run('prepare', process.execPath, [join(root, 'scripts/prepare-relay.mjs'), ...args]);
   const preparation = await readJson(join(output, 'preparation.json'));
   const consumer = resolve(preparation.consumer);
   const kit = resolve(preparation.kit);
   report.consumer = consumer;
   report.preparation = preparation;
+  await assertDeclaredSources(consumer, inputs.manifest.sourceSha256);
   // Preserve exact preparation provenance, and independently verify its package/kit hashes.
   report.dependencySource = preparation.provenance.dependencySource;
   assert.equal(sha256(await readFile(preparation.tarball)), preparation.provenance.tarballSha256);
@@ -137,35 +187,19 @@ try {
     browser.harnessSha256,
     sha256(await readFile(join(root, 'scripts/verify-relay.mjs'))),
   );
-  const postSelectionPath = join(root, 'experiments/relay/post-selection.json');
-  const postSelection = await readJson(postSelectionPath);
-  for (const [path, expectedHash] of Object.entries(postSelection.sourceSha256)) {
-    assert.equal(
-      sha256(await readFile(join(consumer, path))),
-      expectedHash,
-      `Final evidence must match the recorded post-selection source: ${path}`,
-    );
-  }
-  report.postSelectionSourceHashes = postSelection.sourceSha256;
+  await assertDeclaredSources(consumer, inputs.manifest.sourceSha256);
+  const finalInputs = await readVerificationInputs();
+  assert.deepEqual(
+    finalInputs.identity,
+    inputs.identity,
+    'Verification inputs must not change during the consumer run.',
+  );
+  report.currentSourceHashes = inputs.manifest.sourceSha256;
   report.browser = browser;
   report.status = 'passed';
   report.completedAt = new Date().toISOString();
-  const evidence = join(root, 'experiments/relay');
-  await mkdir(evidence, { recursive: true });
-  // This is final-package adoption evidence, separate from the frozen A/B experiment inputs.
-  await writeFile(
-    join(evidence, 'final-consumer-report.json'),
-    JSON.stringify(report, null, 2) + '\n',
-  );
-  postSelection.verification = {
-    ...postSelection.verification,
-    status: 'passed',
-    completedAt: report.completedAt,
-    presentationReview: browser.presentationReview,
-    cancelledDraftRetained: browser.observations.cancelDraft.retained,
-    finalPackage: preparation.provenance,
-  };
-  await writeFile(postSelectionPath, JSON.stringify(postSelection, null, 2) + '\n');
+  // The current run is saved under artifacts in finally. Historical post-selection
+  // evidence, its original final consumer report, and input manifests stay unchanged.
   console.log(`Relay consumer passed: ${report.dependencySource}`);
 } catch (error) {
   report.status = 'failed';
