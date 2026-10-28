@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { fork } from 'node:child_process';
-import { mkdir, readFile, writeFile, readdir, lstat } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, readdir, lstat, realpath } from 'node:fs/promises';
 import { resolve, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createServer } from 'vite';
@@ -241,7 +241,7 @@ async function canonicalOracle(origin, evidenceDir) {
 }
 
 async function auditMetrics({ cwd, evidenceDir }) {
-  const candidate = resolve(cwd);
+  const candidate = await realpath(cwd);
   const output = resolve(evidenceDir);
   // Existing evidence is never overwritten, including after an interrupted run.
   await mkdir(output, { recursive: true });
