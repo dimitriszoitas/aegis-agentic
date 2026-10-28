@@ -19,6 +19,7 @@ jobs:
         with:
           cache: true
       - run: pnpm install --frozen-lockfile
+      - run: npm run mcp:setup
       - run: pnpm check
       - run: pnpm exec playwright install --with-deps chromium
       - run: npm run agentic:browser
@@ -26,6 +27,7 @@ jobs:
       - run: npm run page-layout:browser
       - run: npm run build-storybook
       - run: node scripts/verify-agentic-storybook.mjs
+      - run: node scripts/verify-contract-storybook.mjs
       - run: npm run token-input:adoption
       - run: npm run relay:check -- --local-dependencies
       - uses: actions/upload-artifact@v4

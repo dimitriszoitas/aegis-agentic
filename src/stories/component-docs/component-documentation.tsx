@@ -18,6 +18,7 @@ import { ExamplePicker } from './example-picker';
 import { playgroundControls } from './playground-controls-model';
 import { useSpecimenArgs } from './use-specimen-args';
 import { hubNavigationMessage } from './hub-navigation';
+import { ComponentContract } from '../contracts/contract-details';
 import type { SpecimenPresentation } from './specimen-args-protocol';
 import type { ComponentMetadata, DocumentationSection } from './types';
 import './component-documentation.css';
@@ -46,10 +47,11 @@ function docsId(title: string) {
       .replace(/^-|-$/g, '') + '--docs'
   );
 }
-type HubTab = 'overview' | 'guidelines' | 'tokens' | 'examples';
+type HubTab = 'overview' | 'contract' | 'guidelines' | 'tokens' | 'examples';
 type GuidelineSection = Exclude<DocumentationSection, 'overview' | 'tokens'>;
 const hubTabs: { id: HubTab; label: string }[] = [
   { id: 'overview', label: 'Overview' },
+  { id: 'contract', label: 'Contract' },
   { id: 'guidelines', label: 'Component Guidelines' },
   { id: 'tokens', label: 'Tokens Used' },
   { id: 'examples', label: 'Examples' },
@@ -1045,6 +1047,9 @@ function ComponentHub({
         </Tabs.List>
         <Tabs.Panel value="overview" className="component-docs-panel">
           <Guidelines {...guidanceProps} section="overview" />
+        </Tabs.Panel>
+        <Tabs.Panel value="contract" className="component-docs-panel">
+          <ComponentContract componentId={meta.id} />
         </Tabs.Panel>
         <Tabs.Panel value="guidelines" className="component-docs-panel">
           <div className="component-docs-guidelines">

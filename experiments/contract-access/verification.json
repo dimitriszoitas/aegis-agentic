@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "recordedAt": "2026-10-28T19:30:34.260089+00:00",
+  "packageVersion": "0.4.0-experiment.0",
+  "baselineCommit": "7c5e5b03f9fcce18b71ec527d40ee101537ab5d0",
+  "catalogueSourceDigest": "996d4ac939fd16163e64dda12c31d429fadb749dfd15fb16ded473ee9f5e8766",
+  "coverage": {
+    "apiFamilies": 103,
+    "apiFamiliesWithAuthoredBehavior": 5,
+    "apiFamiliesWithoutAuthoredBehavior": 98,
+    "authoredComponentPatternContracts": 7,
+    "authoredOnlyEntries": 2,
+    "systemProtocolContracts": 2,
+    "entriesWithLinkedChecks": 5,
+    "entriesWithLinkedEvidence": 1,
+    "entriesWithReportedEvidence": 1
+  },
+  "checks": {
+    "integrated": "npm run check passed",
+    "sourceTests": 360,
+    "projectPolicyTests": 20,
+    "catalogueGeneratorTests": 14,
+    "mcpIntegrationGroups": 10,
+    "infrastructureTests": 109,
+    "documentation": "npm run docs:check passed",
+    "storybookBuild": "passed",
+    "storybookContractGroups": 8,
+    "storybookContractAccessibilityScans": 1,
+    "existingPageAndSkillStorybookGroups": 6,
+    "focusedFinalUiTypesAndLint": "passed"
+  },
+  "mcp": {
+    "transport": "stdio",
+    "verifiedProtocolVersion": "2025-11-25",
+    "sdkVersion": "2.4.0",
+    "isolatedCopiedKitWithoutNodeModules": true,
+    "readOnly": true,
+    "kitIntegritySha256": "a2cac239ee5a847181988fa653fe9e10f8193ab558d1b0247976ca305d3585ed"
+  },
+  "sourceHashes": {
+    "src/agentic/contracts.ts": "4a92e76e66575448c31f5f1ca6c69e0cdfb0be11444ccf9490e5e3a3e9025a39",
+    "scripts/generate-contract-catalogue.mjs": "7fec400ae7afc82a0a24bd74ed4fb1a55493d4d8696c188375c1708b24bdbd3a",
+    "scripts/generate-contract-catalogue.test.mjs": "2de65584b411fee05ca5d55e297443c3c776efab79c2b233635caf586e46effd",
+    "scripts/build-agent-kit.mjs": "5118a2b7e952c1cad6b9ae47fd4a11bcd687fd5e9871bb1ba242e1b1f762aa5e",
+    "scripts/agentic-cli.mjs": "68f91aaa7c52fc5fdc7a7b68c73471e8cb74aca526262959ed4b3d41e63814c5",
+    "mcp/src/server.mjs": "d587bc7e69d7231e60dad34e3eab13edbaa51414e8a701686ef88c81eb20ed03",
+    "mcp/src/context.mjs": "b8ad9e4de18be9977fd8b42d5c33e1c2d870ecca749812acd1584555910c1546",
+    "mcp/test/integration.test.mjs": "0b8d5736bd0d87b8407ca60810aa6f30416747c15e99418ac0ae3c9a4eaa51f7",
+    "src/stories/contracts/contract-catalogue.tsx": "232fe0f1152ad4bb8b208f9dbe69a3b1023ddd9e93e49f730ffed9eaea1dd03c",
+    "src/stories/contracts/contract-details.tsx": "7d08ad8131261fef7fd224291bec9a348990c0bb2acbba5f7c0ec3bf6a6e6188",
+    "src/stories/contracts/catalogue-navigation.ts": "b3b0454544d1bc1d4261648dbe6b260b5e1790bae34ae130a7dc08f7cc60d15e",
+    "scripts/verify-contract-storybook.mjs": "b85b65ec19c70a004a000fba9e32f82390b68c3f2cbff14a9443c98f6e6aad4e"
+  },
+  "originalAegis": {
+    "unchanged": true,
+    "baseline": "12e4f6b218c6cc68aba303feec211ba91aaeb20a",
+    "preexistingStatus": [
+      " M src/main.tsx",
+      "?? component-audit/",
+      "?? docs/",
+      "?? scripts/verify-v0-simple.mjs",
+      "?? src/review/"
+    ]
+  },
+  "limits": [
+    "Catalogue coverage records source documentation and explicitly mapped requirements, not certified behavior.",
+    "MCP tests use the official SDK client and do not establish every host client configuration.",
+    "Project profile numeric revisions and original tarball bytes are explicitly unattested by supported lock checks.",
+    "Static validation, one focused accessibility scan and agent screenshot review do not establish universal visual, behavioral or accessibility compliance.",
+    "Production app and Storybook builds retain bundle-size warnings; performance has not been benchmarked.",
+    "Existing consumer/service pins are not activated or migrated by this milestone."
+  ]
+}

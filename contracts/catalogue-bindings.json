@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "bindings": [
+    {
+      "contractId": "button",
+      "path": "contracts/agentic/button.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-actions-button",
+      "implementation": "src/components/button/button.tsx",
+      "exportName": "Button",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "field",
+      "path": "contracts/agentic/field.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-forms-field",
+      "implementation": "src/components/field/field.tsx",
+      "exportName": "Field",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "dialog",
+      "path": "contracts/agentic/dialog.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-overlays-modal",
+      "implementation": "src/components/modal/modal.tsx",
+      "exportName": "Modal",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "card",
+      "path": "contracts/agentic/card.json",
+      "contractVersion": 1,
+      "apiFamilyId": "components-surfaces-card",
+      "implementation": "src/components/card/card.tsx",
+      "exportName": "Card",
+      "checks": [],
+      "evidence": []
+    },
+    {
+      "contractId": "dataset-filtering",
+      "path": "contracts/agentic/dataset-filtering.json",
+      "contractVersion": 1,
+      "apiFamilyId": null,
+      "implementation": "src/agentic/components/FilteredDataset.tsx",
+      "exportName": "FilteredDataset",
+      "checks": [
+        {
+          "path": "src/agentic/composition.test.ts",
+          "label": "Composition validation tests",
+          "scope": "Supported customer-filter specifications, invalid combinations and deterministic resolution; not arbitrary dataset behavior."
+        },
+        {
+          "path": "scripts/verify-agentic-workbench.mjs",
+          "label": "Workbench browser scenarios",
+          "scope": "Includes immediate/explicit filtering and draft preservation in the local workbench; a linked script is not a passing result."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "contractId": "token-input",
+      "path": "contracts/agentic/token-input.json",
+      "contractVersion": 2,
+      "apiFamilyId": null,
+      "implementation": "src/agentic/components/TokenInput.tsx",
+      "exportName": "TokenInput",
+      "checks": [
+        {
+          "path": "src/agentic/components/token-input-model.test.ts",
+          "label": "TokenInput model tests",
+          "scope": "Normalization, atomic validation, duplicate behavior and controlled requests."
+        },
+        {
+          "path": "scripts/verify-token-input.mjs",
+          "label": "TokenInput browser scenarios",
+          "scope": "Keyboard, controlled host, focus and automated accessibility in the fixture."
+        },
+        {
+          "path": "scripts/verify-token-input-adoption.mjs",
+          "label": "Packed adoption scenarios",
+          "scope": "Installed package integration, including public entry points; bounded fixture coverage."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/token-input/consolidated/evidence.json",
+          "label": "Consolidated experiment record",
+          "scope": "Reports bounded model/browser/adoption results; no human certification or release approval."
+        }
+      ]
+    },
+    {
+      "contractId": "page-layout",
+      "path": "contracts/agentic/page-layout.json",
+      "contractVersion": 1,
+      "apiFamilyId": "patterns-pagelayout",
+      "implementation": "src/patterns/page-layout/page-layout.tsx",
+      "exportName": "PageLayout",
+      "checks": [
+        {
+          "path": "src/patterns/page-layout/page-layout.test.tsx",
+          "label": "Page-layout tests",
+          "scope": "Recipe selection and rendered structure for supported archetypes."
+        },
+        {
+          "path": "src/patterns/page-layout/verify-layout-browser.mjs",
+          "label": "Page-layout browser scenarios",
+          "scope": "Geometry and structure in specified fixture configurations; script linkage does not establish a current pass."
+        }
+      ],
+      "evidence": []
+    }
+  ],
+  "protocols": [
+    {
+      "id": "infrastructure-api",
+      "path": "contracts/infrastructure-api.json",
+      "schemaVersion": 1,
+      "checks": [
+        {
+          "path": "scripts/infrastructure/server.test.mjs",
+          "label": "Local HTTP server tests",
+          "scope": "Loopback request validation and local service boundaries."
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "id": "workspace-api",
+      "path": "contracts/workspace-api.json",
+      "schemaVersion": 1,
+      "checks": [
+        {
+          "path": "scripts/infrastructure/workspace.test.mjs",
+          "label": "Shared workspace tests",
+          "scope": "Workspace state, scoped operations and activation boundaries."
+        }
+      ],
+      "evidence": []
+    }
+  ],
+  "limitations": [
+    "Bindings are explicit source identity mappings, not inferred from shared words. Dataset filtering is the FilteredDataset renderer, not the inherited FilterBar API family.",
+    "Checks and evidence references are curated, incomplete links. Absence of a link does not prove absence of tests."
+  ]
+}

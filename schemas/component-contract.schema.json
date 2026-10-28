@@ -1,77 +1,462 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aegis.local/schemas/component-contract.schema.json",
-  "type": "object",
-  "properties": {
-    "schemaVersion": {
-      "const": 1
+  "description": "Closed authored requirement shapes. Baselines require states; the stateless page-layout recipe instead requires its explicit API and recipe boundaries. New contract versions with different fields require a reviewed schema update.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/baseline"
     },
-    "id": {
-      "type": "string",
-      "pattern": "^[a-z][a-z0-9-]*$"
+    {
+      "$ref": "#/$defs/tokenInputV2"
     },
-    "version": {
-      "type": "integer",
-      "minimum": 1
-    },
-    "status": {
-      "enum": ["candidate", "source-backed-baseline"]
-    },
-    "verification": {
-      "const": "not-certified-by-this-contract"
-    },
-    "purpose": {
-      "type": "string",
-      "minLength": 1
-    },
-    "anatomy": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1
-      },
-      "minItems": 1,
-      "uniqueItems": true
-    },
-    "states": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1
-      },
-      "minItems": 1,
-      "uniqueItems": true
-    },
-    "invariants": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1
-      },
-      "minItems": 1,
-      "uniqueItems": true
-    },
-    "tokenGroup": {
-      "type": "string",
-      "pattern": "^[a-z][a-z0-9-]*$"
-    },
-    "behaviorProvider": {
-      "type": "string",
-      "minLength": 1
+    {
+      "$ref": "#/$defs/pageLayoutV1"
     }
-  },
-  "required": [
-    "schemaVersion",
-    "id",
-    "version",
-    "status",
-    "verification",
-    "purpose",
-    "anatomy",
-    "states",
-    "invariants",
-    "tokenGroup",
-    "behaviorProvider"
   ],
-  "additionalProperties": false
+  "$defs": {
+    "baseline": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^(?!token-input$|page-layout$)[a-z][a-z0-9-]*$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "enum": ["candidate", "source-backed-baseline"]
+        },
+        "verification": {
+          "const": "not-certified-by-this-contract"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "anatomy": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "invariants": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "tokenGroup": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "behaviorProvider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "version",
+        "status",
+        "verification",
+        "purpose",
+        "anatomy",
+        "invariants",
+        "tokenGroup",
+        "behaviorProvider",
+        "states"
+      ],
+      "additionalProperties": false
+    },
+    "tokenInputV2": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "id": {
+          "const": "token-input"
+        },
+        "version": {
+          "const": 2
+        },
+        "status": {
+          "const": "experimental"
+        },
+        "verification": {
+          "const": "bounded-automated-evidence-not-human-certification"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "anatomy": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "invariants": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "tokenGroup": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "behaviorProvider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "defaults": {
+          "type": "object",
+          "properties": {
+            "duplicatePolicy": {
+              "enum": ["reject", "ignore"]
+            },
+            "commitKeys": {
+              "type": "array",
+              "items": {
+                "enum": ["Enter", ","]
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "commitOnBlur": {
+              "type": "boolean"
+            },
+            "confirmationMode": {
+              "enum": ["values", "request"]
+            }
+          },
+          "required": ["duplicatePolicy", "commitKeys", "commitOnBlur", "confirmationMode"],
+          "additionalProperties": false
+        },
+        "asyncHostRequirement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+        },
+        "migration": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "version",
+        "status",
+        "verification",
+        "purpose",
+        "anatomy",
+        "invariants",
+        "tokenGroup",
+        "behaviorProvider",
+        "states",
+        "defaults",
+        "asyncHostRequirement",
+        "evidence",
+        "migration"
+      ],
+      "additionalProperties": false
+    },
+    "pageLayoutV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "id": {
+          "const": "page-layout"
+        },
+        "version": {
+          "const": 1
+        },
+        "status": {
+          "const": "experimental"
+        },
+        "verification": {
+          "const": "recipe-selection-validation-is-not-rendered-or-human-certification"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "anatomy": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "invariants": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "tokenGroup": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "behaviorProvider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exports": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "importPath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recipeSource": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+        },
+        "portableRecipes": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+        },
+        "guidance": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+        },
+        "publicApi": {
+          "type": "object",
+          "properties": {
+            "PageLayout": {
+              "type": "object",
+              "properties": {
+                "required": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "archetypes": {
+                  "type": "array",
+                  "items": {
+                    "enum": ["collection", "detail", "settings", "dashboard"]
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "header": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "slots": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "collection": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "detail": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "settings": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "dashboard": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "required",
+                "archetypes",
+                "header",
+                "slots",
+                "collection",
+                "detail",
+                "settings",
+                "dashboard"
+              ],
+              "additionalProperties": false
+            },
+            "ReadingColumn": {
+              "type": "object",
+              "properties": {
+                "measure": {
+                  "type": "array",
+                  "items": {
+                    "enum": ["compact", "comfortable", "wide"]
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "default": {
+                  "enum": ["compact", "comfortable", "wide"]
+                },
+                "scope": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": ["measure", "default", "scope"],
+              "additionalProperties": false
+            },
+            "ContentGrid": {
+              "type": "object",
+              "properties": {
+                "maxColumns": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "defaultMaxColumns": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4
+                },
+                "minItemWidth": {
+                  "type": "array",
+                  "items": {
+                    "enum": ["small", "regular", "large"]
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "defaultMinItemWidth": {
+                  "enum": ["small", "regular", "large"]
+                },
+                "scope": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "maxColumns",
+                "defaultMaxColumns",
+                "minItemWidth",
+                "defaultMinItemWidth",
+                "scope"
+              ],
+              "additionalProperties": false
+            },
+            "validatePageLayoutRecipe": {
+              "type": "object",
+              "properties": {
+                "input": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "returns": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "slotValidation": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "excluded": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": ["input", "returns", "slotValidation", "excluded"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["PageLayout", "ReadingColumn", "ContentGrid", "validatePageLayoutRecipe"],
+          "additionalProperties": false
+        },
+        "limits": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "version",
+        "status",
+        "verification",
+        "purpose",
+        "anatomy",
+        "invariants",
+        "tokenGroup",
+        "behaviorProvider",
+        "exports",
+        "importPath",
+        "recipeSource",
+        "portableRecipes",
+        "guidance",
+        "publicApi",
+        "limits"
+      ],
+      "additionalProperties": false
+    }
+  }
 }

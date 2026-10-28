@@ -101,7 +101,12 @@ export type ConfigurabilityInventory = {
   limitations: string[];
 };
 export type InfrastructureSupport = { supportedKitVersions?: readonly string[] };
-const supportedDefault = ['0.1.0-experiment.0', '0.2.0-experiment.0', '0.3.0-experiment.0'];
+const supportedDefault = [
+  '0.1.0-experiment.0',
+  '0.2.0-experiment.0',
+  '0.3.0-experiment.0',
+  '0.4.0-experiment.0',
+];
 const axes: ConfigurationAxis[] = ['theme', 'presentation', 'behavior', 'unknown'];
 export const infrastructureObject = (value: unknown): value is Record<string, unknown> =>
   !!value && typeof value === 'object' && !Array.isArray(value);

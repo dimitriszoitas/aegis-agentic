@@ -818,6 +818,9 @@ async function main() {
   const existing = await outputFiles(path.join(root, 'public/ai'));
   for (const filename of existing) {
     const relative = path.relative(path.join(root, 'public'), filename).split(path.sep).join('/');
+    // This sibling artifact has its own deterministic generator/freshness check.
+    // Preserve it here; the combined ai:generate pipeline regenerates it afterward.
+    if (relative === 'ai/contract-catalogue.json') continue;
     if (!artifacts.has(relative)) {
       if (check) differences.push(`Unexpected generated artifact: ${relative}`);
       else await rm(filename);

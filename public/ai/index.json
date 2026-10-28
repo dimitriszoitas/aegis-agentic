@@ -4,7 +4,7 @@
   "documentType": "index",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.3.0-experiment.0"
+    "version": "0.4.0-experiment.0"
   },
   "provenance": {
     "generator": "scripts/generate-ai-contracts.mjs",
@@ -18,7 +18,7 @@
       "src/styles/primitive-color-tokens.css"
     ],
     "tokenManifest": "tokens/design-tokens.json",
-    "sourceDigest": "d8d7626ec1e2a43f0702382c6c84697a31b5b1d0af893e058f88a9e57c7e0185"
+    "sourceDigest": "3015e9b04fa137b748dbb78a7ca37a65b668b488a3d352f07e9f2a61916b3742"
   },
   "description": "Task-based discovery of component APIs, usage guidance, examples and token references.",
   "limitations": [
@@ -64,6 +64,16 @@
         "label": "Directory",
         "id": "foundations-component-directory--docs",
         "url": "../?path=/docs/foundations-component-directory--docs"
+      },
+      {
+        "label": "Contract Catalogue",
+        "id": "aegis-contract-catalogue--docs",
+        "url": "../?path=/docs/aegis-contract-catalogue--docs"
+      },
+      {
+        "label": "MCP Integration",
+        "id": "aegis-mcp-integration--docs",
+        "url": "../?path=/docs/aegis-mcp-integration--docs"
       },
       {
         "label": "AI Guidelines",

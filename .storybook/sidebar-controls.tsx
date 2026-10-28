@@ -7,6 +7,7 @@ import { version } from '../package.json';
 import { managerTheme } from './manager-theme';
 import { ManagerThemeSelect } from './theme-select';
 import { readHubNavigationUpdate } from '../src/stories/component-docs/hub-navigation';
+import { readCatalogueNavigationUpdate } from '../src/stories/contracts/catalogue-navigation';
 
 const mobileQuery = window.matchMedia('(max-width: 599px)');
 const railWidth = 64;
@@ -81,11 +82,17 @@ export function SidebarControls({ children }: PropsWithChildren) {
   useLayoutEffect(() => {
     const receive = (event: MessageEvent) => {
       const preview = document.querySelector<HTMLIFrameElement>('#storybook-preview-iframe');
-      const query = readHubNavigationUpdate(
-        event,
-        preview?.contentWindow ?? null,
-        new URL(window.location.href),
-      );
+      const query =
+        readHubNavigationUpdate(
+          event,
+          preview?.contentWindow ?? null,
+          new URL(window.location.href),
+        ) ??
+        readCatalogueNavigationUpdate(
+          event,
+          preview?.contentWindow ?? null,
+          new URL(window.location.href),
+        );
       if (query) api.setQueryParams(query);
     };
     window.addEventListener('message', receive);

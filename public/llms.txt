@@ -14,6 +14,8 @@
 - [Welcome](./?path=/docs/foundations-welcome--docs)
 - [Principles](./?path=/docs/foundations-principles--docs)
 - [Directory](./?path=/docs/foundations-component-directory--docs)
+- [Contract Catalogue](./?path=/docs/aegis-contract-catalogue--docs)
+- [MCP Integration](./?path=/docs/aegis-mcp-integration--docs)
 - [AI Guidelines](./?path=/docs/foundations-ai-guidelines--docs)
 
 Foundations: [Colors](./?path=/docs/foundations-colors--docs) · [Typography](./?path=/docs/foundations-type-and-motion--docs) · [Spacing & Sizing](./?path=/docs/foundations-space-and-surfaces--docs) · [Iconography](./?path=/docs/foundations-icons-overview--docs) · [Motion](./?path=/docs/foundations-motion--docs) · [Opacity](./?path=/docs/foundations-opacity--docs) · [Border (Radius, Width, Style)](./?path=/docs/foundations-border--docs) · [Elevation](./?path=/docs/foundations-elevation--docs) · [Themes & Modes](./?path=/docs/foundations-theme--docs).
