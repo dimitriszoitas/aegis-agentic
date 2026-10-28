@@ -1,0 +1,120 @@
+import { SearchInput } from '@dimitriszoitas/aegis-agentic/search-input';
+import { Select } from '@dimitriszoitas/aegis-agentic/select';
+import { Button } from '@dimitriszoitas/aegis-agentic/button';
+import { Tag } from '@dimitriszoitas/aegis-agentic/tag';
+import { CountBadge } from '@dimitriszoitas/aegis-agentic/count-badge';
+import {
+  customerStatusLabels,
+  requestStatusLabels,
+  type CustomerStatus,
+  type RequestStatus,
+} from './model';
+
+/** Keep total-count context visible and consistent across collection headers. */
+export function RelayCollectionCount({ count, noun }: { count: number; noun: 'requests' | 'customers' }) {
+  const label = `total ${count === 1 ? noun.slice(0, -1) : noun}`;
+  return (
+    <span className="relay-collection-count">
+      <CountBadge count={count} label={label} />
+      <span aria-hidden="true">{label}</span>
+    </span>
+  );
+}
+
+export interface RelayFiltersProps {
+  query: string;
+  onQueryChange: (query: string) => void;
+  status: string;
+  onStatusChange: (status: string) => void;
+  statusOptions: readonly { value: string; label: string }[];
+  resultCount: number;
+  noun: 'requests' | 'customers';
+  searchPlaceholder?: string;
+}
+
+/** Product-wide immediate filters; the DataGrid keeps its own canonical toolbar. */
+export function RelayFilters({
+  query,
+  onQueryChange,
+  status,
+  onStatusChange,
+  statusOptions,
+  resultCount,
+  noun,
+  searchPlaceholder,
+}: RelayFiltersProps) {
+  const active = query !== '' || status !== 'all';
+  return (
+    <div className="relay-filters" role="search" aria-label={`Filter ${noun}`}>
+      <div className="relay-filter-controls">
+        <div className="relay-filter-search">
+          <SearchInput
+            value={query}
+            onValueChange={onQueryChange}
+            aria-label={`Search ${noun}`}
+            placeholder={searchPlaceholder ?? `Search ${noun}…`}
+          />
+        </div>
+        <div className="relay-filter-status">
+          <Select
+            value={status}
+            onValueChange={onStatusChange}
+            options={statusOptions}
+            aria-label={`Filter ${noun} by status`}
+          />
+        </div>
+        {active && (
+          <Button
+            emphasis="ghost"
+            size="sm"
+            onClick={() => {
+              onQueryChange('');
+              onStatusChange('all');
+            }}
+          >
+            Clear filters
+          </Button>
+        )}
+      </div>
+      <span className="relay-result-count" role="status" aria-live="polite">
+        {resultCount} {resultCount === 1 ? noun.slice(0, -1) : noun}
+      </span>
+    </div>
+  );
+}
+
+export function RequestStatusTag({ status }: { status: RequestStatus }) {
+  const intent =
+    status === 'resolved'
+      ? 'success'
+      : status === 'waiting'
+        ? 'warning'
+        : status === 'in-progress'
+          ? 'function'
+          : 'default';
+  return (
+    <Tag variant="status" intent={intent}>
+      {requestStatusLabels[status]}
+    </Tag>
+  );
+}
+
+export function CustomerStatusTag({ status }: { status: CustomerStatus }) {
+  return (
+    <Tag
+      variant="status"
+      intent={status === 'active' ? 'success' : status === 'trial' ? 'function' : 'default'}
+    >
+      {customerStatusLabels[status]}
+    </Tag>
+  );
+}
+
+export function RelayMark() {
+  return (
+    <svg className="relay-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 5h9a5 5 0 0 1 0 10H5V5Z" stroke="currentColor" strokeWidth="2" />
+      <path d="m11 15 7 5M5 10h9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}

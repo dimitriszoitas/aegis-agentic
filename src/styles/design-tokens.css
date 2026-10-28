@@ -1216,6 +1216,13 @@
   --primitive-string-value-22: 600 14px Figtree, system-ui, sans-serif;
   --primitive-string-value-27: 0 0 0 1px;
   --primitive-string-value-6: 'JetBrains Mono', ui-monospace, monospace;
+  --primitive-size-55ch: 55ch;
+  --primitive-size-65ch: 65ch;
+  --primitive-size-75ch: 75ch;
+  --primitive-size-16rem: 16rem;
+  --primitive-size-20rem: 20rem;
+  --primitive-size-24rem: 24rem;
+  --primitive-size-32rem: 32rem;
 }
 :root, [data-layout-theme='fundamental'], [data-layout-theme='fundamental'] :is(.dark, .aegis-theme-light) {
   --semantic-accent: light-dark(var(--color-neutral-50), var(--color-neutral-1200));
@@ -1933,6 +1940,15 @@
   --semantic-z-sticky: var(--primitive-number-40);
   --semantic-z-toast: var(--primitive-number-90);
   --semantic-z-tooltip: var(--primitive-number-100);
+  --semantic-size-reading-s: var(--primitive-size-55ch);
+  --semantic-size-reading-m: var(--primitive-size-65ch);
+  --semantic-size-reading-l: var(--primitive-size-75ch);
+  --semantic-size-content-grid-s: var(--primitive-size-16rem);
+  --semantic-size-content-grid-m: var(--primitive-size-20rem);
+  --semantic-size-content-grid-l: var(--primitive-size-24rem);
+  --semantic-size-detail-main-m: var(--primitive-size-32rem);
+  --semantic-layout-main-grow: var(--primitive-number-2);
+  --semantic-columns-one: var(--primitive-number-1);
 }
 [data-layout-theme='fundamental-floating'], [data-layout-theme='fundamental-floating'] :is(.dark, .aegis-theme-light) {
   --semantic-accent: light-dark(var(--color-neutral-50), var(--color-neutral-1200));
@@ -2650,6 +2666,15 @@
   --semantic-z-sticky: var(--primitive-number-40);
   --semantic-z-toast: var(--primitive-number-90);
   --semantic-z-tooltip: var(--primitive-number-100);
+  --semantic-size-reading-s: var(--primitive-size-55ch);
+  --semantic-size-reading-m: var(--primitive-size-65ch);
+  --semantic-size-reading-l: var(--primitive-size-75ch);
+  --semantic-size-content-grid-s: var(--primitive-size-16rem);
+  --semantic-size-content-grid-m: var(--primitive-size-20rem);
+  --semantic-size-content-grid-l: var(--primitive-size-24rem);
+  --semantic-size-detail-main-m: var(--primitive-size-32rem);
+  --semantic-layout-main-grow: var(--primitive-number-2);
+  --semantic-columns-one: var(--primitive-number-1);
 }
 :root, .aegis-theme-light {
   --semantic-badge-text-highlight: var(--primitive-ratio-0percent);
@@ -6409,6 +6434,25 @@
   --group-workflow-wizard-space-padding-regular: var(--semantic-space-l);
   --group-workflow-wizard-space-padding-roomy: var(--semantic-space-xxl);
   --group-workflow-wizard-track-flex: var(--semantic-track-flex);
+  --group-page-structure-reading-width-compact: var(--semantic-size-reading-s);
+  --group-page-structure-reading-width-comfortable: var(--semantic-size-reading-m);
+  --group-page-structure-reading-width-large: var(--semantic-size-reading-l);
+  --group-page-structure-content-grid-item-width-small: var(--semantic-size-content-grid-s);
+  --group-page-structure-content-grid-item-width-regular: var(--semantic-size-content-grid-m);
+  --group-page-structure-content-grid-item-width-large: var(--semantic-size-content-grid-l);
+  --group-page-structure-page-layout-main-width-regular: var(--semantic-size-detail-main-m);
+  --group-page-structure-page-layout-aside-width-regular: var(--semantic-size-18rem);
+  --group-page-structure-page-layout-main-grow: var(--semantic-layout-main-grow);
+  --group-page-structure-page-layout-flex-fill: var(--semantic-flex-fill);
+  --group-page-structure-page-layout-number-zero: var(--semantic-number-0);
+  --group-page-structure-page-layout-size-full: var(--semantic-size-full);
+  --group-page-structure-page-layout-space-gap-roomy: var(--semantic-space-xxl);
+  --group-page-structure-content-grid-space-gap-comfortable: var(--semantic-space-xl);
+  --group-page-structure-content-grid-track-flex: var(--semantic-track-flex);
+  --group-page-structure-content-grid-columns-one: var(--semantic-columns-one);
+  --group-page-structure-content-grid-columns-two: var(--semantic-columns-two);
+  --group-page-structure-content-grid-columns-three: var(--semantic-columns-three);
+  --group-page-structure-content-grid-columns-four: var(--semantic-columns-four);
 }
 :root, [data-layout-theme], .dark, .aegis-theme-light {
   --component-icon-dot: var(--semantic-measurement-icon-dot);

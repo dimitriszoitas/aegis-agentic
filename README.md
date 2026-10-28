@@ -21,6 +21,18 @@ This is a browser-local demo. It does not authenticate users, send invitations o
 
 The [product pattern policy](src/product/pattern-policy.json) records shared headers, filters, grid controls and form conventions. `npm run product:patterns` checks shared implementation use; `npm run product:browser` starts an isolated preview and checks cross-page layout consistency, workflows, accessibility, light/dark and mobile behavior. Set `FORMA_URL` to test an existing preview instead. Screenshots and reports are written under `artifacts/forma-*`.
 
+## Page construction and project consistency
+
+The [page composition guide](skills/references/page-composition.md) combines design language, a page archetype, project decisions, content and acceptance evidence. `PageLayout`, `ReadingColumn` and `ContentGrid` are public patterns at `/patterns/page-layout`. The initial recipes cover collections, details, settings and dashboards. Reading measures and column caps are scoped choices: a data grid stays full width, prose may use a reading column, and dashboard cards collapse according to available space. These defaults do not claim to classify every product page or guarantee readability for every language.
+
+A versioned [project pattern policy](skills/references/pattern-policy.md) records the canonical header, filters, grid configuration and permitted exceptions for one product. Its portable static checker detects missing shared implementations, forbidden props, literal-value drift, unresolved configuration and declared route gaps. It is a separate Node tool; TypeScript is not added to the browser/core runtime. Static checks complement browser geometry, keyboard, accessibility and visual review.
+
+[Relay](examples/relay) is a second browser-local product that consumes the built npm tarball through public imports. Its Requests page is evaluated through two independent agent implementations against one shared brief. This is a bounded experiment in reuse and consistency, not a general claim of deterministic agent output. The preparation script supports a fresh dependency installation or an explicitly labelled local dependency snapshot; the latter does not establish registry installability.
+
+## Product direction
+
+The proposed direction is one Aegis product with a common UI foundation and optional agent tools and workspace services. Conventional users can consume components and tokens; teams building with agents can additionally pin decisions, validate compositions and coordinate contributions. The experimental repository stays separate while these interfaces are tested. No merge into classic Aegis or public release is implied.
+
 ## Start the infrastructure service
 
 Build the kit, initialize a new project directory, and start its local service:
@@ -51,7 +63,7 @@ The authenticated workspace adds scoped roles, signed portable releases, multipl
 - **Configurability:** source-derived component dimensions, choices, defaults, and unbounded props are inspectable. Finite combination estimates remain separate from explicit verification records.
 - **Maintenance and updates:** actual derived drift can be repaired from unchanged pinned inputs, with evidence and a rescan. An optional service loop enforces physical retention and repeats health checks, pausing repair after three failed cycles. Changed sources, behavior, contracts, and releases require owner review; update comparison produces a plan without applying a migration.
 - **Optional AI advisory:** a server-side key, explicit model, project opt-in, and per-request selection enable a bounded remote proposal request. Selected aggregate evidence is sent with `store: false`; responses are validated and never executed. Live AI has not been verified in this experiment.
-- **Portable kit:** contracts, schemas, profiles, registry, source skills, reference API metadata and a dependency-free core/CLI run outside this repository.
+- **Portable kit:** contracts, schemas, profiles, registry, page recipes, source skills, reference API metadata and a dependency-free core/CLI run outside this repository. An optional separate Node bundle checks project pattern policies.
 
 The design language and proposed components are experimental. Token compliance, test results and selected color checks are evidence, not a universal usability or accessibility certification.
 
@@ -63,6 +75,9 @@ node agent-kit/bin/aegis.mjs help
 node agent-kit/bin/aegis.mjs profile compile agent-kit/profiles/atlas.json --out /path/to/consumer/agentic-dist
 node agent-kit/bin/aegis.mjs composition validate agent-kit/examples/composition.json --profile agent-kit/profiles/aegis.json
 node agent-kit/bin/aegis.mjs registry search filtering
+node agent-kit/bin/aegis.mjs pages recipes
+node agent-kit/bin/aegis.mjs pages validate /path/to/page-selection.json
+node agent-kit/bin/aegis.mjs patterns check pattern-policy.json --project /path/to/product
 node agent-kit/bin/aegis.mjs maintain scan --out /path/to/consumer/agentic-dist
 node agent-kit/bin/aegis.mjs maintain repair --out /path/to/consumer/agentic-dist
 ```

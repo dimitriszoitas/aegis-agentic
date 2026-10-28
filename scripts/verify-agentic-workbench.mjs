@@ -215,8 +215,8 @@ try {
     .fill('no-such-capability');
   await expect(page.getByText('No registered capability matches.', { exact: false })).toBeVisible();
   await page.getByRole('textbox', { name: 'Find a component or capability' }).fill('');
-  const a = page.getByRole('combobox', { name: 'Proposal A values', exact: true });
-  const b = page.getByRole('combobox', { name: 'Proposal B values', exact: true });
+  const a = page.getByRole('textbox', { name: 'Proposal A values', exact: true });
+  const b = page.getByRole('textbox', { name: 'Proposal B values', exact: true });
   await a.fill('research');
   await a.press(',');
   await expect(a).toHaveValue('');
@@ -256,12 +256,12 @@ try {
   await expect(a).toHaveValue('draft-only');
   await page.getByRole('button', { name: 'Prepare consolidation plan' }).click();
   await expect(
-    page.getByRole('heading', { name: 'Plan prepared · owner review required' }),
+    page.getByRole('heading', { name: 'Historical example plan · not a pending release' }),
   ).toBeVisible();
   await capture('registry-proposals');
   await axe('Registry proposals');
   passed(
-    'Two TokenInput proposals follow their declared keys and duplicate policies; rejected paste is atomic and preserves the full draft; consolidation remains owner-gated.',
+    'Historical TokenInput fixtures follow their declared keys and duplicate policies; rejected paste is atomic and preserves the full draft; the example plan is clearly labeled as not a pending release.',
   );
   await navigate('Maintain the system');
   await expect(page.getByText('0 eligible derived repairs')).toBeVisible();
@@ -322,12 +322,12 @@ try {
   const validated = page.getByRole('textbox', { name: 'Validated emails' });
   await validated.evaluate((node) => {
     const clipboardData = new DataTransfer();
-    clipboardData.setData('text/plain', 'bad-address,valid@example.com');
+    clipboardData.setData('text/plain', 'bad-address\nvalid@example.com');
     node.dispatchEvent(
       new ClipboardEvent('paste', { clipboardData, bubbles: true, cancelable: true }),
     );
   });
-  await expect(validated).toHaveValue('bad-address,valid@example.com');
+  await expect(validated).toHaveValue('bad-address\nvalid@example.com');
   await expect(page.getByRole('button', { name: 'Remove valid@example.com' })).not.toBeVisible();
   await expect(page.getByRole('alert')).toContainText('Enter an email address');
   await validated.fill('fixed@example.com');

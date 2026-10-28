@@ -9,6 +9,8 @@ Read [the shared design contract](../references/design-contract.md) before choos
 
 Apply the [product pattern decisions](../references/agentic-contract.md#product-pattern-decisions) before composing pages; use the product's recorded shared patterns and permitted variants.
 
+Use [Constructing a page](../references/page-composition.md) to choose an archetype, scope reading widths and column rules, and plan source, browser and visual acceptance evidence.
+
 ## Start with content and existing patterns
 
 Identify the page's primary task, information hierarchy, navigation, state ownership, and responsive constraints. Inspect existing page headers, navigation, filtering, wizard, notification, and AI patterns before introducing another shell. Reuse a pattern when its responsibility matches; do not copy a whole demonstration application to obtain one layout.

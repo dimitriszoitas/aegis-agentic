@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "scope": "Two independently generated Requests pages from an identical task brief, shared project patterns and the same installed kit. Foundation and package are shared inputs, not independently generated.",
+  "selected": "a",
+  "selectionReason": "Both candidates passed the measured acceptance checks. No measured evidence favors B; A is the requested default selection. This is not a visual-quality ranking.",
+  "inputKit": {
+    "schemaVersion": 1,
+    "consumer": "relay",
+    "package": "@dimitriszoitas/aegis-agentic",
+    "version": "0.3.0-experiment.0",
+    "tarballSha256": "65d0d66bb7649998ab0a31ed8b2567ef5ff45f329f86943595cc791e70a27d31",
+    "kitIntegritySha256": "52c5d4692b35c587bb553af15a9b1ed6de05547d5d6fca2abfb5abde24dc8b5a",
+    "registryRevision": 2,
+    "dependencySource": "Copied local dependency snapshot; clean registry installation is not verified.",
+    "profileId": "atlas",
+    "profileHash": "v1-b1dee001",
+    "source": "Installed npm tarball; public package imports; no repository source aliases."
+  },
+  "inputMetadataSha256": "ad907023516546183d468ae8eb3918434e620951c0ccf57962c443d9d97b427a",
+  "candidates": {
+    "a": {
+      "sourceSha256": "258da17c7a7a772381cad5f298cc2749c3559022ba99c2503a35c58413991288",
+      "status": "passed",
+      "staticChecks": [
+        {
+          "command": "node node_modules/typescript/bin/tsc --noEmit",
+          "exitCode": 0
+        },
+        {
+          "command": "node node_modules/@dimitriszoitas/aegis-agentic/agent-kit/bin/aegis.mjs patterns check pattern-policy.json --project .",
+          "exitCode": 0
+        }
+      ],
+      "browserChecks": [
+        "Headers, search width, display controls and page containment across both pages, two modes and two widths",
+        "Combined immediate filters, empty results, clear-all, pagination size and theme-preserved state",
+        "Keyboard row details, canonical TokenInput duplicate handling, focus return and persisted labels",
+        "Cancel closes without creating a record; reopened draft behavior recorded without a pass/fail preference",
+        "Validated creation, existing-customer selection and local persistence"
+      ],
+      "axeScenarios": 10,
+      "axeViolationCount": 0,
+      "browserErrors": [],
+      "cancelDraft": {
+        "enteredTitle": "Cancelled draft observation",
+        "reopenedTitle": "",
+        "contract": "Cancel closes without adding a record; retaining or discarding the draft was not specified."
+      }
+    },
+    "b": {
+      "sourceSha256": "1606a84c92b84e7f8919be308b3b782b83111a91101d5f41216576b512a67fe3",
+      "status": "passed",
+      "staticChecks": [
+        {
+          "command": "node node_modules/typescript/bin/tsc --noEmit",
+          "exitCode": 0
+        },
+        {
+          "command": "node node_modules/@dimitriszoitas/aegis-agentic/agent-kit/bin/aegis.mjs patterns check pattern-policy.json --project .",
+          "exitCode": 0
+        }
+      ],
+      "browserChecks": [
+        "Headers, search width, display controls and page containment across both pages, two modes and two widths",
+        "Combined immediate filters, empty results, clear-all, pagination size and theme-preserved state",
+        "Keyboard row details, canonical TokenInput duplicate handling, focus return and persisted labels",
+        "Cancel closes without creating a record; reopened draft behavior recorded without a pass/fail preference",
+        "Validated creation, existing-customer selection and local persistence"
+      ],
+      "axeScenarios": 10,
+      "axeViolationCount": 0,
+      "browserErrors": [],
+      "cancelDraft": {
+        "enteredTitle": "Cancelled draft observation",
+        "reopenedTitle": "Cancelled draft observation",
+        "contract": "Cancel closes without adding a record; retaining or discarding the draft was not specified."
+      }
+    }
+  },
+  "harnessCorrections": [
+    "Wait for document.fonts.ready and finite animations before geometry and axe; theme/route transitions otherwise caused transient sidebar contrast failures.",
+    "Inspect background-grid DOM with includeHidden while the modal correctly hides the rest of the document from the accessibility tree. No accessibility thresholds or rules were relaxed."
+  ],
+  "visualObservations": {
+    "reviewedScreenshots": [
+      "candidate-a/requests-light-1440.png",
+      "candidate-a/requests-dark-390.png",
+      "candidate-b/requests-light-1440.png",
+      "candidate-b/requests-dark-390.png"
+    ],
+    "sharedLimitations": [
+      "Both header metadata slots display a bare total count (12), without visible context.",
+      "Both Request columns clip long titles without an ellipsis. Detail sheets expose the complete title, but cell presentation remains incomplete."
+    ],
+    "differences": [
+      "A puts title before ID and uses plain priority text; B puts ID before title and uses colored priority tags.",
+      "B’s longer mobile description wraps to an extra line. Both retain shared horizontal header/search alignment and typography."
+    ]
+  },
+  "productDecisions": [
+    {
+      "topic": "Cancelled new-request drafts",
+      "contract": "Cancel closes without adding a record. The brief does not define whether a later reopen retains the draft.",
+      "a": "Discarded when Cancel closes the modal.",
+      "b": "Retained when Cancel closes the modal.",
+      "decision": "Underspecified. A is selected for the example; a reusable product policy should explicitly choose retention, discard, or confirmation for unsaved work."
+    }
+  ],
+  "limits": [
+    "Only the Requests page was independently generated. Both agents received the same shared shell, Customers page, pattern implementations, local dataset, task brief and installed kit.",
+    "The reports exercise prebuilt original candidate distributions; their asset hashes are captured. The candidate sources are unchanged and pass no-emit type checking.",
+    "The original kit is identified by the recorded tarball and integrity hashes. Later final-kit verification is separate evidence.",
+    "Two modes and two widths in Chromium, ten axe scenarios per candidate, and the named interaction flows are bounded checks, not complete accessibility or responsive certification.",
+    "Screenshots were inspected for the listed observations; they are not approved visual regression baselines. Known clipping and bare-count limitations remain in the untouched candidate sources.",
+    "The dependency snapshot was copied locally; a clean registry installation was not verified. This local demo has no backend, live telemetry or production integration."
+  ],
+  "selectedDestination": "examples/relay/src/requests.tsx",
+  "selectedSourceSha256": "258da17c7a7a772381cad5f298cc2749c3559022ba99c2503a35c58413991288",
+  "selectedSourceStage": "Exact original selected at adoption, before post-selection presentation corrections",
+  "selectedSourceArtifact": "candidate-a/requests.tsx.txt",
+  "postSelectionChanges": "post-selection.json"
+}

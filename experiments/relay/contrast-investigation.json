@@ -1,0 +1,521 @@
+{
+  "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/relay-agent-a-8NvJfl",
+  "profile": "atlas",
+  "preset": "fundamental-floating",
+  "runs": [
+    {
+      "waitSettled": false,
+      "repeat": 0,
+      "mode": "dark",
+      "route": "requests",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": false,
+      "repeat": 0,
+      "mode": "dark",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": false,
+      "repeat": 0,
+      "mode": "light",
+      "route": "requests",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "#base-ui-_r_9_ > .nav-item-copy[aria-hidden=\"false\"] > .nav-item-label"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5f6770, background color: #dddddd, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "checks": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fgColor": "#5f6770",
+                    "bgColor": "#dddddd",
+                    "contrastRatio": 4.22,
+                    "fontSize": "10.5pt (14px)",
+                    "fontWeight": "normal",
+                    "messageKey": null,
+                    "expectedContrastRatio": "4.5:1"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": false,
+      "repeat": 0,
+      "mode": "light",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": false,
+      "repeat": 1,
+      "mode": "dark",
+      "route": "requests",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": false,
+      "repeat": 1,
+      "mode": "dark",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": false,
+      "repeat": 1,
+      "mode": "light",
+      "route": "requests",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "#base-ui-_r_9_ > .nav-item-copy[aria-hidden=\"false\"] > .nav-item-label"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5f6770, background color: #dddddd, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "checks": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fgColor": "#5f6770",
+                    "bgColor": "#dddddd",
+                    "contrastRatio": 4.22,
+                    "fontSize": "10.5pt (14px)",
+                    "fontWeight": "normal",
+                    "messageKey": null,
+                    "expectedContrastRatio": "4.5:1"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": false,
+      "repeat": 1,
+      "mode": "light",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": false,
+      "repeat": 2,
+      "mode": "dark",
+      "route": "requests",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": false,
+      "repeat": 2,
+      "mode": "dark",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": false,
+      "repeat": 2,
+      "mode": "light",
+      "route": "requests",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "#base-ui-_r_9_ > .nav-item-copy[aria-hidden=\"false\"] > .nav-item-label"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #5f6770, background color: #dddddd, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "checks": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fgColor": "#5f6770",
+                    "bgColor": "#dddddd",
+                    "contrastRatio": 4.22,
+                    "fontSize": "10.5pt (14px)",
+                    "fontWeight": "normal",
+                    "messageKey": null,
+                    "expectedContrastRatio": "4.5:1"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": false,
+      "repeat": 2,
+      "mode": "light",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 0,
+      "mode": "dark",
+      "route": "requests",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 0,
+      "mode": "dark",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 0,
+      "mode": "light",
+      "route": "requests",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 0,
+      "mode": "light",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 1,
+      "mode": "dark",
+      "route": "requests",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 1,
+      "mode": "dark",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 1,
+      "mode": "light",
+      "route": "requests",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 1,
+      "mode": "light",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 2,
+      "mode": "dark",
+      "route": "requests",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 2,
+      "mode": "dark",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(240, 243, 248)",
+          "background": "rgb(25, 27, 30)",
+          "labelColor": "rgb(240, 243, 248)",
+          "transition": "background 0.12s",
+          "mode": "dark",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 2,
+      "mode": "light",
+      "route": "requests",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Requests9",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    },
+    {
+      "waitSettled": true,
+      "repeat": 2,
+      "mode": "light",
+      "route": "customers",
+      "violations": [],
+      "settledComputed": [
+        {
+          "text": "Customers",
+          "color": "rgb(30, 34, 38)",
+          "background": "rgb(231, 234, 238)",
+          "labelColor": "rgb(30, 34, 38)",
+          "transition": "background 0.12s",
+          "mode": "light",
+          "animations": []
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Uses unchanged candidate-a production build and its installed package.",
+    "Investigates transient contrast sampling only; not a broader component certification."
+  ]
+}

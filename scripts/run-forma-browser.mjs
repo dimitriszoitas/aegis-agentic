@@ -29,7 +29,7 @@ try {
     }
     if (!ready) throw new Error(`Forma test server did not start: ${output}`);
   }
-  for (const name of ['patterns', 'users', 'commerce', 'settings']) {
+  for (const name of ['patterns', 'metrics', 'users', 'commerce', 'settings']) {
     const child = spawn(process.execPath, [`scripts/verify-forma-${name}.mjs`], {
       stdio: 'inherit',
       env: { ...process.env, FORMA_URL: url },

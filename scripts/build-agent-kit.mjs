@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { cp, mkdir, readFile, readdir, writeFile, rm } from 'node:fs/promises';
 import { dirname, join, resolve, relative } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { patternPolicyCapability } from './product-pattern-policy.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = join(root, 'agent-kit');
@@ -21,9 +22,38 @@ await build({
     lib: { entry: join(root, 'src/agentic/index.ts'), formats: ['es'], fileName: () => 'core.mjs' },
   },
 });
+// The optional static source checker is a separate Node bundle. The browser/core runtime
+// remains independent of TypeScript, the filesystem and this parser's bundle size.
+await build({
+  configFile: false,
+  publicDir: false,
+  logLevel: 'warn',
+  ssr: { noExternal: ['typescript'], target: 'node' },
+  build: {
+    ssr: join(root, 'scripts/product-pattern-policy.mjs'),
+    outDir: join(out, 'runtime'),
+    emptyOutDir: false,
+    target: 'node24',
+    minify: false,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'pattern-policy.mjs',
+        // TypeScript's Node host initializes these CommonJS globals even when only
+        // its in-memory parser/checker is used. Supply their ESM equivalents.
+        banner:
+          "import { fileURLToPath as aegisFileURLToPath } from 'node:url';\nimport { dirname as aegisDirname } from 'node:path';\nconst __filename = aegisFileURLToPath(import.meta.url);\nconst __dirname = aegisDirname(__filename);",
+      },
+    },
+  },
+});
 for (const directory of ['profiles', 'registry', 'schemas', 'contracts']) {
   await cp(join(root, directory), join(out, directory), { recursive: true });
 }
+await cp(
+  join(root, 'experiments/token-input/consolidated'),
+  join(out, 'experiments/token-input/consolidated'),
+  { recursive: true },
+);
 await cp(join(root, 'public/ai'), join(out, 'reference-api/ai'), { recursive: true });
 await cp(join(root, 'public/llms.txt'), join(out, 'reference-api/llms.txt'));
 for (const skill of ['build-ui', 'compose-pattern', 'extend-design-language', 'audit-ui']) {
@@ -38,6 +68,14 @@ await cp(
   join(root, 'skills/references/design-contract.md'),
   join(out, 'skills/references/design-contract.md'),
 );
+await cp(
+  join(root, 'skills/references/pattern-policy.md'),
+  join(out, 'skills/references/pattern-policy.md'),
+);
+await cp(
+  join(root, 'skills/references/page-composition.md'),
+  join(out, 'skills/references/page-composition.md'),
+);
 await mkdir(join(out, 'tokens'), { recursive: true });
 for (const name of ['design-tokens.json', 'component-categories.json']) {
   await cp(join(root, 'tokens', name), join(out, 'tokens', name));
@@ -51,6 +89,11 @@ await cp(join(root, 'scripts/agentic-cli.mjs'), join(out, 'bin/aegis.mjs'));
 await cp(join(root, 'LICENSE'), join(out, 'LICENSE'));
 const core = await import(
   pathToFileURL(join(out, 'runtime/core.mjs')).href + `?build=${Date.now()}`
+);
+await mkdir(join(out, 'recipes'), { recursive: true });
+await writeFile(
+  join(out, 'recipes/page-layout.json'),
+  JSON.stringify(core.pageLayoutRecipes, null, 2) + '\n',
 );
 await mkdir(join(out, 'examples'), { recursive: true });
 await writeFile(
@@ -75,6 +118,20 @@ const manifest = {
   entry: 'skills/build-ui/SKILL.md',
   cli: 'bin/aegis.mjs',
   runtime: 'runtime/core.mjs',
+  patternPolicy: patternPolicyCapability,
+  pageComposition: {
+    recipeVersion: core.pageLayoutRecipes.version,
+    registryId: 'page-layout',
+    contract: 'contracts/agentic/page-layout.json',
+    recipes: 'recipes/page-layout.json',
+    guidance: 'skills/references/page-composition.md',
+    importPath: `${packageInfo.name}/patterns/page-layout`,
+    exports: ['PageLayout', 'ReadingColumn', 'ContentGrid'],
+    archetypes: Object.keys(core.pageLayoutRecipes.recipes),
+    validator: 'validatePageLayoutRecipe',
+    validationScope: 'recipe-selection-only',
+    cli: { recipes: 'pages recipes', validate: 'pages validate <selection.json>' },
+  },
   infrastructure: {
     cli: 'infrastructure/cli.mjs',
     protocolVersion: 1,
@@ -89,7 +146,8 @@ const manifest = {
     hash: core.compileProfile(profile).hash,
   })),
   limits: [
-    'Initial experiment: one executable composition pattern and TokenInput extension schema.',
+    'Experimental dataset filtering, consolidated TokenInput and four initial page-layout recipes; these do not cover every possible component or page.',
+    'Page recipe validation checks supported selection options and supplied slot names, not rendered semantics, visual quality or nested interaction behavior.',
     'Authenticated multi-project workspace on one local filesystem host; no managed hosting, SSO, distributed coordination or automatic release.',
     'Optional remote AI advisory requires explicit model, server credentials and project opt-in; proposals never execute automatically.',
     'Periodic reconciliation repairs derived artifacts only while the local service is running; no operating-system daemon is installed.',

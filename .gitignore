@@ -25,3 +25,6 @@ agentic-dist/
 .aegis-release-keys/
 .aegis-release.json
 *.token
+
+# Compiled consumer profile; regenerate from its installed kit.
+examples/relay/profile/

@@ -210,8 +210,11 @@ async function maintenance(action, out) {
       { expectedRegistryRevision: core.registry.revision, maxAttempts: 1 },
     );
     const evidenceRoot = join(out, '.aegis-maintenance');
-    try { await mkdir(evidenceRoot); }
-    catch (error) { if (error.code !== 'EEXIST') throw error; }
+    try {
+      await mkdir(evidenceRoot);
+    } catch (error) {
+      if (error.code !== 'EEXIST') throw error;
+    }
     await safeDirectory(evidenceRoot);
     const evidenceDirectory = join(evidenceRoot, randomUUID());
     await mkdir(evidenceDirectory);
@@ -251,6 +254,9 @@ const help = `Aegis Agentic ${kitInfo.version}
 profile validate <profile.json>
 profile compile <profile.json> --out <project/agentic-dist>
 composition validate <spec.json> [--profile <profile.json>] [--registry <canonical.json>]
+patterns check <policy.json> --project <project-root>
+pages recipes
+pages validate <selection.json>
 registry search <query> [--registry <canonical.json>]
 registry compare <proposal-a.json> <proposal-b.json> [--registry <canonical.json>]
 registry submit <proposal.json> --registry <canonical.json> --expected-revision <number>
@@ -270,7 +276,37 @@ try {
   const [group, action, ...rest] = args;
   if (!group || ['help', '--help', '-h'].includes(group)) console.log(help);
   else if (group === 'status') print(kitInfo);
-  else if (group === 'profile') {
+  else if (group === 'pages') {
+    if (action === 'recipes') {
+      if (rest.length) throw new Error('pages recipes takes no arguments.');
+      print(core.pageLayoutRecipes);
+    } else if (action === 'validate') {
+      if (rest.length !== 1) throw new Error('Supply exactly one page recipe selection JSON file.');
+      const issues = core.validatePageLayoutRecipe(await readJson(rest[0]));
+      print({
+        valid: issues.length === 0,
+        issues,
+        recipeVersion: core.pageLayoutRecipes.version,
+        registryRevision: core.registry.revision,
+        scope: 'recipe-selection-only',
+      });
+      if (issues.length) process.exitCode = 1;
+    } else
+      throw new Error(
+        'Unknown pages command. Use pages recipes or pages validate <selection.json>.',
+      );
+  } else if (group === 'patterns' && action === 'check') {
+    const [file, ...flags] = rest;
+    const opts = options(flags, ['--project']);
+    if (!file || !opts['--project']) throw new Error('Supply a policy file and --project root.');
+    const { auditProductPatterns } = await import('../runtime/pattern-policy.mjs');
+    const result = await auditProductPatterns({
+      root: resolve(opts['--project']),
+      policyPath: file,
+    });
+    print(result);
+    if (!result.valid) process.exitCode = 1;
+  } else if (group === 'profile') {
     const [file, ...flags] = rest;
     if (!file) throw new Error('Supply a profile JSON file.');
     const profile = await readJson(file);

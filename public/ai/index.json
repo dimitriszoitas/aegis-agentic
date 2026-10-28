@@ -4,7 +4,7 @@
   "documentType": "index",
   "package": {
     "name": "@dimitriszoitas/aegis-agentic",
-    "version": "0.2.0-experiment.0"
+    "version": "0.3.0-experiment.0"
   },
   "provenance": {
     "generator": "scripts/generate-ai-contracts.mjs",
@@ -18,7 +18,7 @@
       "src/styles/primitive-color-tokens.css"
     ],
     "tokenManifest": "tokens/design-tokens.json",
-    "sourceDigest": "590b5f7eb1b4b700664c419b2a51c70e5a45c39de44ff575fc240def2395f487"
+    "sourceDigest": "d8d7626ec1e2a43f0702382c6c84697a31b5b1d0af893e058f88a9e57c7e0185"
   },
   "description": "Task-based discovery of component APIs, usage guidance, examples and token references.",
   "limitations": [
@@ -2265,6 +2265,25 @@
         "anatomy": "../?path=/docs/patterns-page-structure-pageheader-overview--docs&docsTab=guidelines&docsSection=anatomy",
         "api": "../?path=/docs/patterns-page-structure-pageheader-overview--docs&docsTab=guidelines&docsSection=api",
         "tokens": "../?path=/docs/patterns-page-structure-pageheader-overview--docs&docsTab=tokens"
+      }
+    },
+    {
+      "id": "patterns-pagelayout",
+      "name": "PageLayout",
+      "category": "Page Structure",
+      "tokenGroup": "page-structure",
+      "kind": "pattern",
+      "aliases": [],
+      "purpose": "Initial library choices for collection, detail, settings, and dashboard pages. PageHeader owns the heading and actions. PageLayout adds transparent region wrappers without page padding or child styling. ReadingColumn provides 55ch/65ch/75ch starting measures. ContentGrid uses a container-responsive maximum of one to four columns. Products can propose additional recipes through review.",
+      "importPaths": [
+        "@dimitriszoitas/aegis-agentic/patterns"
+      ],
+      "links": {
+        "contract": "./components/patterns-pagelayout.json",
+        "overview": "../?path=/docs/patterns-page-structure-pagelayout-overview--docs&docsTab=overview",
+        "anatomy": "../?path=/docs/patterns-page-structure-pagelayout-overview--docs&docsTab=guidelines&docsSection=anatomy",
+        "api": "../?path=/docs/patterns-page-structure-pagelayout-overview--docs&docsTab=guidelines&docsSection=api",
+        "tokens": "../?path=/docs/patterns-page-structure-pagelayout-overview--docs&docsTab=tokens"
       }
     },
     {

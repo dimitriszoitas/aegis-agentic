@@ -23,6 +23,11 @@ jobs:
       - run: pnpm exec playwright install --with-deps chromium
       - run: npm run agentic:browser
       - run: npm run product:browser
+      - run: npm run page-layout:browser
+      - run: npm run build-storybook
+      - run: node scripts/verify-agentic-storybook.mjs
+      - run: npm run token-input:adoption
+      - run: npm run relay:check -- --local-dependencies
       - uses: actions/upload-artifact@v4
         if: always()
         with:

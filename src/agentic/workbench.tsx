@@ -25,6 +25,7 @@ import { compileProfile, designProfiles, validateProfile, type DesignProfile } f
 import {
   registry,
   proposals,
+  proposalExampleRegistry,
   discoverRegistry,
   compareProposals,
   planConsolidation,
@@ -1074,10 +1075,11 @@ function RegistryWorkbench() {
   const [valuesB, setValuesB] = useState<string[]>(['design', 'system']);
   const [showPlan, setShowPlan] = useState(false);
   const entries = discoverRegistry(search);
-  const comparison = compareProposals(proposals[0], proposals[1]);
+  const comparison = compareProposals(proposals[0], proposals[1], proposalExampleRegistry);
   const plan = planConsolidation(
     proposals.map((proposal) => proposal.id),
-    { expectedRevision: registry.revision },
+    { expectedRevision: proposalExampleRegistry.revision },
+    proposalExampleRegistry,
   );
   return (
     <>
@@ -1135,7 +1137,7 @@ function RegistryWorkbench() {
         <div>
           <span className="aw-eyebrow">EXTENSION LAB</span>
           <h2>One name. Two interpretations.</h2>
-          <p>These illustrative proposal fixtures deliberately disagree about duplicate values.</p>
+          <p>These historical fixtures use registry revision 1 to demonstrate conflicting defaults. The current registry includes the consolidated experimental TokenInput.</p>
         </div>
         <Tag intent="warning">Proposals · not approved</Tag>
       </div>
@@ -1196,7 +1198,7 @@ function RegistryWorkbench() {
         </Button>
         {showPlan && (
           <div className="aw-plan" role="status">
-            <h4>Plan prepared · owner review required</h4>
+            <h4>Historical example plan · not a pending release</h4>
             <p>
               Resolve the duplicate policy, supply passing tests and visual evidence, then record an
               explicit owner decision. This workbench does not mark either fixture approved.

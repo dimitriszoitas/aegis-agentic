@@ -30,13 +30,20 @@ try {
     }
     if (!ready) throw new Error(`Test server did not start: ${output}`);
   }
-  for (const script of ['scripts/verify-agentic-workbench.mjs', 'scripts/verify-infrastructure-console.mjs']) {
+  for (const script of [
+    'scripts/verify-agentic-workbench.mjs',
+    'scripts/verify-token-input.mjs',
+    'scripts/verify-infrastructure-console.mjs',
+  ]) {
     const child = spawn(process.execPath, [script], {
       stdio: 'inherit',
       env: { ...process.env, AGENTIC_URL: url },
     });
     const [code] = await once(child, 'exit');
-    if (code !== 0) { process.exitCode = code ?? 1; break; }
+    if (code !== 0) {
+      process.exitCode = code ?? 1;
+      break;
+    }
   }
 } finally {
   if (server && server.exitCode === null) {

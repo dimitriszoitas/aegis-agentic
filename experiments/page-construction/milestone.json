@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-28T18:55:55.212076+00:00",
+  "status": "passed-with-bounded-evidence",
+  "version": "0.3.0-experiment.0",
+  "registryRevision": 2,
+  "checks": {
+    "integratedCheck": "passed",
+    "sourceTests": 351,
+    "patternPolicyTests": 20,
+    "infrastructureTests": 109,
+    "pageLayoutBrowserScenarios": 28,
+    "storybookBrowserGroups": 6,
+    "tokenInputBrowserGroups": 8,
+    "tokenInputPackedConsumerChecks": 6,
+    "relayFinalConsumer": "../relay/final-consumer-report.json",
+    "formaBrowser": "passed; patterns, metrics, users, commerce, settings"
+  },
+  "review": {
+    "independentSourceReview": "route assignment-pattern detection corrected; real public metadata integrated",
+    "humanApproval": null,
+    "publicRelease": null
+  },
+  "limits": [
+    "Local dependency snapshot reused for package adoption; fresh registry install unverified.",
+    "Browser/axe scenarios are bounded evidence, not general design quality or accessibility certification.",
+    "Registry revision2 is an unreleased experimental draft.",
+    "Original Aegis repository remains unchanged; repositories have not been merged.",
+    "Large production bundle warning remains."
+  ]
+}

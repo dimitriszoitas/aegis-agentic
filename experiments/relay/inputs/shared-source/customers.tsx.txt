@@ -1,0 +1,177 @@
+import { useMemo, useState } from 'react';
+import { PageHeader } from '@dimitriszoitas/aegis-agentic/patterns/page-header';
+import { DataGrid, type DataGridProps } from '@dimitriszoitas/aegis-agentic/data-grid';
+import { CountBadge } from '@dimitriszoitas/aegis-agentic/count-badge';
+import { Avatar } from '@dimitriszoitas/aegis-agentic/avatar';
+import { Button } from '@dimitriszoitas/aegis-agentic/button';
+import { DescriptionList } from '@dimitriszoitas/aegis-agentic/description-list';
+import { SideSheet } from '@dimitriszoitas/aegis-agentic/side-sheet';
+import { CustomerStatusTag, RelayFilters } from './patterns';
+import { customerStatusOptions, formatDate, type RelayCustomer, type RelayRequest } from './model';
+
+export interface CustomersPageProps {
+  customers: RelayCustomer[];
+  requests: RelayRequest[];
+}
+
+export function CustomersPage({ customers, requests }: CustomersPageProps) {
+  const [query, setQuery] = useState('');
+  const [status, setStatus] = useState('all');
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+  const visible = useMemo(() => {
+    const search = query.toLocaleLowerCase().trim();
+    return customers.filter(
+      (customer) =>
+        (status === 'all' || customer.status === status) &&
+        (!search ||
+          `${customer.name} ${customer.company} ${customer.email}`
+            .toLocaleLowerCase()
+            .includes(search)),
+    );
+  }, [customers, query, status]);
+  const selected = customers.find((customer) => customer.id === selectedId);
+  const openCount = (id: string) =>
+    requests.filter((request) => request.customerId === id && request.status !== 'resolved').length;
+  const columns: DataGridProps<RelayCustomer>['columns'] = [
+    {
+      accessorKey: 'name',
+      header: 'Customer',
+      cell: ({ row }) => (
+        <div className="relay-person-cell">
+          <Avatar name={row.original.name} size="sm" />
+          <div>
+            <strong className="relay-cell-main">{row.original.name}</strong>
+            <span className="relay-cell-secondary">{row.original.email}</span>
+          </div>
+        </div>
+      ),
+    },
+    { accessorKey: 'company', header: 'Company' },
+    {
+      accessorKey: 'status',
+      header: 'Status',
+      cell: ({ row }) => <CustomerStatusTag status={row.original.status} />,
+    },
+    { accessorKey: 'plan', header: 'Plan' },
+    {
+      id: 'openRequests',
+      header: 'Open requests',
+      accessorFn: (customer) => openCount(customer.id),
+      cell: ({ getValue }) => <span className="relay-numeric">{getValue<number>()}</span>,
+    },
+    {
+      accessorKey: 'joinedAt',
+      header: 'Joined',
+      cell: ({ row }) => (
+        <span className="relay-cell-secondary">{formatDate(row.original.joinedAt)}</span>
+      ),
+    },
+  ];
+  function openCustomer(customer: RelayCustomer) {
+    setCopied(false);
+    setSelectedId(customer.id);
+  }
+  async function copyEmail() {
+    if (!selected) return;
+    try {
+      await navigator.clipboard.writeText(selected.email);
+      setCopied(true);
+    } catch {
+      setCopied(false);
+    }
+  }
+
+  return (
+    <section className="relay-page" aria-labelledby="customers-heading">
+      <PageHeader
+        headingId="customers-heading"
+        title="Customers"
+        description="The people and teams behind every conversation."
+        metadata={<CountBadge count={customers.length} label="customers" />}
+      />
+      <div className="relay-collection">
+        <RelayFilters
+          query={query}
+          onQueryChange={setQuery}
+          status={status}
+          onStatusChange={setStatus}
+          statusOptions={customerStatusOptions}
+          resultCount={visible.length}
+          noun="customers"
+          searchPlaceholder="Search name, company, or email…"
+        />
+        <DataGrid<RelayCustomer>
+          data={visible}
+          columns={columns}
+          getRowId={(customer) => customer.id}
+          label="Customers"
+          noun="customers"
+          rowLabel={(customer) => customer.name}
+          density="default"
+          enableSelection={false}
+          pagination
+          pageSize={10}
+          onRowClick={openCustomer}
+          emptyTitle="No customers found"
+          emptyDescription="Try a different search or clear the status filter."
+        />
+      </div>
+      <SideSheet
+        open={Boolean(selected)}
+        onOpenChange={(open) => {
+          if (!open) setSelectedId(null);
+        }}
+        title={selected?.name ?? 'Customer details'}
+        description={selected?.company}
+        size="md"
+        footer={
+          <Button emphasis="secondary" onClick={() => setSelectedId(null)}>
+            Done
+          </Button>
+        }
+      >
+        {selected && (
+          <div className="relay-detail">
+            <div className="relay-detail-identity">
+              <Avatar name={selected.name} size="lg" />
+              <div>
+                <strong>{selected.company}</strong>
+                <span className="relay-cell-secondary">{selected.email}</span>
+              </div>
+              <CustomerStatusTag status={selected.status} />
+            </div>
+            <DescriptionList
+              columns={2}
+              items={[
+                { id: 'plan', label: 'Plan', value: selected.plan },
+                { id: 'requests', label: 'Open requests', value: openCount(selected.id) },
+                { id: 'joined', label: 'Customer since', value: formatDate(selected.joinedAt) },
+                {
+                  id: 'total',
+                  label: 'Total requests',
+                  value: requests.filter((request) => request.customerId === selected.id).length,
+                },
+              ]}
+            />
+            <div className="relay-field-stack">
+              <h2 className="relay-section-title">About this customer</h2>
+              <p className="relay-detail-copy">{selected.notes}</p>
+            </div>
+            <div>
+              <Button emphasis="secondary" size="sm" onClick={copyEmail}>
+                {copied ? 'Email copied' : 'Copy email address'}
+              </Button>
+              <span className="relay-sr-only" role="status">
+                {copied ? 'Email address copied to clipboard.' : ''}
+              </span>
+            </div>
+            <p className="relay-local-note">
+              Local demo record. No customer information is sent to a service.
+            </p>
+          </div>
+        )}
+      </SideSheet>
+    </section>
+  );
+}

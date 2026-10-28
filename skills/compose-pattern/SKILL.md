@@ -7,6 +7,8 @@ description: Select and configure canonical Aegis Agentic patterns while preserv
 
 Read [the agentic contract](../references/agentic-contract.md) and discover the applicable pattern in the kit registry. Resolve the [product pattern decisions](../references/agentic-contract.md#product-pattern-decisions) before selecting page-specific variants.
 
+For whole pages, use the archetype selection and scoped layout rules in [Constructing a page](../references/page-composition.md). A prose reading measure and a dashboard grid solve different tasks; preserve each region's responsibility.
+
 1. Specify the task, state owner, loading/empty/error handling and content constraints.
 2. Separate invariants from allowed variants. For filtering, identify immediate versus explicit application, draft/applied state, clear-all behavior and result synchronization.
 3. Select explicit approved defaults. Validate the full specification, including cross-field constraints and pinned registry revision, using the kit CLI.

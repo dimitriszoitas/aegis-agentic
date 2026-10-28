@@ -1,22 +1,14 @@
 {
   "schemaVersion": 1,
-  "revision": 1,
+  "revision": 2,
   "entries": [
     {
       "id": "button",
       "name": "Button",
       "kind": "component",
       "version": 1,
-      "aliases": [
-        "action",
-        "submit",
-        "trigger"
-      ],
-      "capabilities": [
-        "activate-action",
-        "disabled-state",
-        "loading-state"
-      ],
+      "aliases": ["action", "submit", "trigger"],
+      "capabilities": ["activate-action", "disabled-state", "loading-state"],
       "contract": "contracts/agentic/button.json",
       "importPath": "@dimitriszoitas/aegis-agentic/button",
       "provenance": {
@@ -30,16 +22,8 @@
       "name": "Field",
       "kind": "component",
       "version": 1,
-      "aliases": [
-        "form field",
-        "label",
-        "validation message"
-      ],
-      "capabilities": [
-        "label-control",
-        "validation-feedback",
-        "description-association"
-      ],
+      "aliases": ["form field", "label", "validation message"],
+      "capabilities": ["label-control", "validation-feedback", "description-association"],
       "contract": "contracts/agentic/field.json",
       "importPath": "@dimitriszoitas/aegis-agentic/field",
       "provenance": {
@@ -53,16 +37,8 @@
       "name": "Dialog",
       "kind": "component",
       "version": 1,
-      "aliases": [
-        "modal",
-        "confirmation",
-        "overlay"
-      ],
-      "capabilities": [
-        "modal-interaction",
-        "focus-return",
-        "dismissal"
-      ],
+      "aliases": ["modal", "confirmation", "overlay"],
+      "capabilities": ["modal-interaction", "focus-return", "dismissal"],
       "contract": "contracts/agentic/dialog.json",
       "importPath": "@dimitriszoitas/aegis-agentic/modal",
       "provenance": {
@@ -76,15 +52,8 @@
       "name": "Card",
       "kind": "component",
       "version": 1,
-      "aliases": [
-        "surface",
-        "panel",
-        "container"
-      ],
-      "capabilities": [
-        "group-related-content",
-        "surface-hierarchy"
-      ],
+      "aliases": ["surface", "panel", "container"],
+      "capabilities": ["group-related-content", "surface-hierarchy"],
       "contract": "contracts/agentic/card.json",
       "importPath": "@dimitriszoitas/aegis-agentic/card",
       "provenance": {
@@ -98,21 +67,79 @@
       "name": "Dataset filtering",
       "kind": "pattern",
       "version": 1,
-      "aliases": [
-        "filter bar",
-        "search records",
-        "query data"
-      ],
-      "capabilities": [
-        "filter-dataset",
-        "immediate-filtering",
-        "explicit-filtering"
-      ],
+      "aliases": ["filter bar", "search records", "query data"],
+      "capabilities": ["filter-dataset", "immediate-filtering", "explicit-filtering"],
       "contract": "contracts/agentic/dataset-filtering.json",
       "importPath": "@dimitriszoitas/aegis-agentic/agentic",
       "provenance": {
         "origin": "experimental-composition",
         "source": "src/agentic/components/FilteredDataset.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "token-input",
+      "name": "TokenInput",
+      "kind": "component",
+      "version": 2,
+      "aliases": ["project labels", "tag input", "chip input", "token entry"],
+      "capabilities": [
+        "multi-value-entry",
+        "free-text-entry",
+        "value-validation",
+        "value-removal",
+        "atomic-multi-value-paste",
+        "optional-suggestions",
+        "controlled-value",
+        "disabled-state",
+        "keyboard-operation",
+        "accessible-names",
+        "draft-preservation",
+        "correlated-request-confirmation"
+      ],
+      "contract": "contracts/agentic/token-input.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/agentic",
+      "behavior": {
+        "freeText": true,
+        "commitKeys": ["Enter"],
+        "duplicatePolicy": "reject",
+        "commitOnBlur": false
+      },
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "experiments/token-input/consolidated/decision.json; src/agentic/components/TokenInput.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "page-layout",
+      "name": "Page layout",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": [
+        "page composition",
+        "collection page",
+        "record detail",
+        "settings page",
+        "dashboard page",
+        "reading column",
+        "content grid"
+      ],
+      "capabilities": [
+        "compose-page",
+        "collection-layout",
+        "detail-layout",
+        "settings-layout",
+        "dashboard-layout",
+        "reading-measure",
+        "responsive-content-grid",
+        "validate-page-recipe"
+      ],
+      "contract": "contracts/agentic/page-layout.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/patterns/page-layout",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/patterns/page-layout/recipes.ts; src/patterns/page-layout/page-layout.tsx",
         "reviewedBy": null
       }
     }

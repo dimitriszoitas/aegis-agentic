@@ -1,0 +1,283 @@
+/* Product composition owns Application/Business App group tokens only.
+   The responsive breakpoint is a viewport rule shared by both collection pages. */
+.relay-app {
+  display: flex;
+  height: var(--group-application-business-app-size-height-100dvh);
+  min-width: var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-primary);
+  background: var(--group-application-business-app-color-surface-canvas);
+  overflow: hidden;
+}
+.relay-sidebar {
+  flex-shrink: var(--group-application-business-app-flex-none);
+}
+.relay-workspace-main {
+  display: flex;
+  flex: var(--group-application-business-app-flex-fill);
+  flex-direction: column;
+  min-width: var(--group-application-business-app-number-0);
+}
+.relay-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-gap-regular);
+  padding: var(--group-application-business-app-space-padding-regular)
+    var(--group-application-business-app-layout-page-padding);
+  border-bottom: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.relay-topbar-context,
+.relay-topbar-actions,
+.relay-workspace,
+.relay-profile,
+.relay-person-cell,
+.relay-detail-identity,
+.relay-mobile-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--group-application-business-app-space-gap-compact);
+}
+.relay-topbar-context {
+  min-width: var(--group-application-business-app-number-0);
+}
+.relay-context-label {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.relay-context-label strong {
+  color: var(--group-application-business-app-color-content-primary);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.relay-context-label > span {
+  margin-inline: var(--group-application-business-app-space-margin-compact);
+}
+.relay-profile,
+.relay-workspace {
+  padding: var(--group-application-business-app-space-padding-snug);
+}
+.relay-profile > div,
+.relay-workspace > div {
+  display: grid;
+  gap: var(--group-application-business-app-size-gap-micro-compact);
+}
+.relay-profile strong,
+.relay-workspace strong {
+  font-size: var(--group-application-business-app-font-size-label);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.relay-profile > div > span,
+.relay-workspace > div > span {
+  font-size: var(--group-application-business-app-font-size-caption);
+  color: var(--group-application-business-app-color-content-secondary);
+}
+.relay-mark {
+  width: var(--group-application-business-app-font-size-heading-l);
+  height: var(--group-application-business-app-font-size-heading-l);
+  color: var(--group-application-business-app-color-action-foreground);
+}
+.relay-nav-icon {
+  width: var(--group-application-business-app-font-size-subheading);
+  height: var(--group-application-business-app-font-size-subheading);
+}
+.relay-main {
+  flex: var(--group-application-business-app-flex-fill);
+  min-height: var(--group-application-business-app-number-0);
+  min-width: var(--group-application-business-app-number-0);
+  padding: var(--group-application-business-app-space-padding-spacious)
+    var(--group-application-business-app-layout-page-padding);
+  overflow: auto;
+}
+.relay-main > [hidden] {
+  display: none;
+}
+.relay-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-gap-roomy);
+  min-width: var(--group-application-business-app-number-0);
+  max-width: var(--group-application-business-app-size-max-width-extended-canvas-regular);
+  margin-inline: auto;
+}
+.relay-collection {
+  min-width: var(--group-application-business-app-number-0);
+}
+.relay-filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--group-application-business-app-space-gap-regular);
+  margin-bottom: var(--group-application-business-app-space-margin-bottom-regular);
+}
+.relay-filter-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: var(--group-application-business-app-number-0);
+  gap: var(--group-application-business-app-space-gap-compact);
+}
+.relay-filter-search {
+  width: var(--group-application-business-app-size-width-canvas-snug);
+  max-width: var(--group-application-business-app-size-max-width-full);
+}
+.relay-filter-status {
+  width: var(--group-application-business-app-size-width-panel-roomy);
+}
+.relay-result-count {
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+  white-space: nowrap;
+}
+.relay-cell-main {
+  display: block;
+  font-weight: var(--group-application-business-app-font-weight-medium);
+  color: var(--group-application-business-app-color-content-primary);
+}
+.relay-cell-secondary {
+  display: block;
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+}
+.relay-inline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--group-application-business-app-space-gap-snug);
+}
+.relay-numeric {
+  font-variant-numeric: tabular-nums;
+}
+.relay-detail,
+.relay-form {
+  display: grid;
+  gap: var(--group-application-business-app-space-gap-roomy);
+}
+.relay-detail-identity {
+  flex-wrap: wrap;
+  padding-bottom: var(--group-application-business-app-space-padding-regular);
+  border-bottom: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+}
+.relay-detail-identity > div {
+  flex: var(--group-application-business-app-flex-fill);
+}
+.relay-field-stack {
+  display: grid;
+  gap: var(--group-application-business-app-space-gap-compact);
+}
+.relay-form-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--group-application-business-app-columns-two),
+    minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    )
+  );
+  gap: var(--group-application-business-app-space-gap-regular);
+}
+.relay-section-title {
+  margin: var(--group-application-business-app-number-0);
+  font-size: var(--group-application-business-app-font-size-body);
+  font-weight: var(--group-application-business-app-font-weight-medium);
+}
+.relay-detail-copy {
+  margin: var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-secondary);
+  line-height: var(--group-application-business-app-font-leading-relaxed);
+}
+.relay-local-note {
+  margin: var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-caption);
+  line-height: var(--group-application-business-app-font-leading-relaxed);
+}
+.relay-page-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--group-application-business-app-space-gap-compact);
+  max-width: var(--group-application-business-app-size-max-width-extended-canvas-regular);
+  margin: var(--group-application-business-app-space-margin-top-roomy) auto
+    var(--group-application-business-app-number-0);
+  color: var(--group-application-business-app-color-content-secondary);
+  font-size: var(--group-application-business-app-font-size-annotation-s);
+}
+.relay-mobile-nav,
+.relay-mobile-brand {
+  display: none;
+}
+.relay-skip-link {
+  position: fixed;
+  top: var(--group-application-business-app-size-top-negative-100);
+  left: var(--group-application-business-app-space-left-comfortable);
+  z-index: var(--group-application-business-app-z-toast);
+  padding: var(--group-application-business-app-space-padding-regular);
+  color: var(--group-application-business-app-color-action-foreground);
+  background: var(--group-application-business-app-color-surface-surface);
+}
+.relay-skip-link:focus {
+  top: var(--group-application-business-app-space-top-comfortable);
+}
+.relay-main:focus-visible {
+  outline: var(--group-application-business-app-border-width-regular) solid
+    var(--group-application-business-app-color-action-foreground);
+  outline-offset: calc(-1 * var(--group-application-business-app-border-width-regular));
+}
+.relay-sr-only {
+  position: absolute;
+  width: var(--group-application-business-app-border-width-hairline);
+  height: var(--group-application-business-app-border-width-hairline);
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .relay-sidebar,
+  .relay-context-label {
+    display: none;
+  }
+  .relay-mobile-brand {
+    display: flex;
+  }
+  .relay-topbar {
+    padding: var(--group-application-business-app-space-padding-regular);
+    gap: var(--group-application-business-app-space-gap-compact);
+  }
+  .relay-topbar-actions {
+    gap: var(--group-application-business-app-space-gap-snug);
+  }
+  .relay-mobile-nav {
+    display: flex;
+    gap: var(--group-application-business-app-space-gap-compact);
+    padding: var(--group-application-business-app-space-padding-compact)
+      var(--group-application-business-app-space-padding-regular);
+    border-bottom: var(--group-application-business-app-border-width-hairline) solid
+      var(--group-application-business-app-color-border-subtle);
+  }
+  .relay-main {
+    padding: var(--group-application-business-app-space-padding-roomy)
+      var(--group-application-business-app-space-padding-regular);
+  }
+  .relay-filters,
+  .relay-filter-controls {
+    align-items: stretch;
+  }
+  .relay-filter-controls {
+    width: var(--group-application-business-app-size-width-full);
+  }
+  .relay-filter-search {
+    width: var(--group-application-business-app-size-width-full);
+  }
+  .relay-filter-status {
+    flex: var(--group-application-business-app-flex-fill);
+  }
+  .relay-form-grid {
+    grid-template-columns: minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  }
+}

@@ -42575,17 +42575,328 @@
         "fundamental-floating.dark": "var(--primitive-number-100)"
       },
       "invariant": true
+    },
+    "--primitive-size-55ch": {
+      "path": "size.55ch",
+      "tier": "primitive",
+      "type": "dimension",
+      "value": "55ch"
+    },
+    "--semantic-size-reading-s": {
+      "path": "size.reading.s",
+      "tier": "semantic",
+      "type": "dimension",
+      "mappings": {
+        "fundamental.light": "var(--primitive-size-55ch)",
+        "fundamental.dark": "var(--primitive-size-55ch)",
+        "fundamental-floating.light": "var(--primitive-size-55ch)",
+        "fundamental-floating.dark": "var(--primitive-size-55ch)"
+      },
+      "invariant": true
+    },
+    "--group-page-structure-reading-width-compact": {
+      "path": "page-structure.reading.width.compact",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "dimension",
+      "value": "var(--semantic-size-reading-s)"
+    },
+    "--primitive-size-65ch": {
+      "path": "size.65ch",
+      "tier": "primitive",
+      "type": "dimension",
+      "value": "65ch"
+    },
+    "--semantic-size-reading-m": {
+      "path": "size.reading.m",
+      "tier": "semantic",
+      "type": "dimension",
+      "mappings": {
+        "fundamental.light": "var(--primitive-size-65ch)",
+        "fundamental.dark": "var(--primitive-size-65ch)",
+        "fundamental-floating.light": "var(--primitive-size-65ch)",
+        "fundamental-floating.dark": "var(--primitive-size-65ch)"
+      },
+      "invariant": true
+    },
+    "--group-page-structure-reading-width-comfortable": {
+      "path": "page-structure.reading.width.comfortable",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "dimension",
+      "value": "var(--semantic-size-reading-m)"
+    },
+    "--primitive-size-75ch": {
+      "path": "size.75ch",
+      "tier": "primitive",
+      "type": "dimension",
+      "value": "75ch"
+    },
+    "--semantic-size-reading-l": {
+      "path": "size.reading.l",
+      "tier": "semantic",
+      "type": "dimension",
+      "mappings": {
+        "fundamental.light": "var(--primitive-size-75ch)",
+        "fundamental.dark": "var(--primitive-size-75ch)",
+        "fundamental-floating.light": "var(--primitive-size-75ch)",
+        "fundamental-floating.dark": "var(--primitive-size-75ch)"
+      },
+      "invariant": true
+    },
+    "--group-page-structure-reading-width-large": {
+      "path": "page-structure.reading.width.large",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "dimension",
+      "value": "var(--semantic-size-reading-l)"
+    },
+    "--primitive-size-16rem": {
+      "path": "size.16rem",
+      "tier": "primitive",
+      "type": "dimension",
+      "value": "16rem"
+    },
+    "--semantic-size-content-grid-s": {
+      "path": "size.content.grid.s",
+      "tier": "semantic",
+      "type": "dimension",
+      "mappings": {
+        "fundamental.light": "var(--primitive-size-16rem)",
+        "fundamental.dark": "var(--primitive-size-16rem)",
+        "fundamental-floating.light": "var(--primitive-size-16rem)",
+        "fundamental-floating.dark": "var(--primitive-size-16rem)"
+      },
+      "invariant": true
+    },
+    "--group-page-structure-content-grid-item-width-small": {
+      "path": "page-structure.content.grid.item.width.small",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "dimension",
+      "value": "var(--semantic-size-content-grid-s)"
+    },
+    "--primitive-size-20rem": {
+      "path": "size.20rem",
+      "tier": "primitive",
+      "type": "dimension",
+      "value": "20rem"
+    },
+    "--semantic-size-content-grid-m": {
+      "path": "size.content.grid.m",
+      "tier": "semantic",
+      "type": "dimension",
+      "mappings": {
+        "fundamental.light": "var(--primitive-size-20rem)",
+        "fundamental.dark": "var(--primitive-size-20rem)",
+        "fundamental-floating.light": "var(--primitive-size-20rem)",
+        "fundamental-floating.dark": "var(--primitive-size-20rem)"
+      },
+      "invariant": true
+    },
+    "--group-page-structure-content-grid-item-width-regular": {
+      "path": "page-structure.content.grid.item.width.regular",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "dimension",
+      "value": "var(--semantic-size-content-grid-m)"
+    },
+    "--primitive-size-24rem": {
+      "path": "size.24rem",
+      "tier": "primitive",
+      "type": "dimension",
+      "value": "24rem"
+    },
+    "--semantic-size-content-grid-l": {
+      "path": "size.content.grid.l",
+      "tier": "semantic",
+      "type": "dimension",
+      "mappings": {
+        "fundamental.light": "var(--primitive-size-24rem)",
+        "fundamental.dark": "var(--primitive-size-24rem)",
+        "fundamental-floating.light": "var(--primitive-size-24rem)",
+        "fundamental-floating.dark": "var(--primitive-size-24rem)"
+      },
+      "invariant": true
+    },
+    "--group-page-structure-content-grid-item-width-large": {
+      "path": "page-structure.content.grid.item.width.large",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "dimension",
+      "value": "var(--semantic-size-content-grid-l)"
+    },
+    "--primitive-size-32rem": {
+      "path": "size.32rem",
+      "tier": "primitive",
+      "type": "dimension",
+      "value": "32rem"
+    },
+    "--semantic-size-detail-main-m": {
+      "path": "size.detail.main.m",
+      "tier": "semantic",
+      "type": "dimension",
+      "mappings": {
+        "fundamental.light": "var(--primitive-size-32rem)",
+        "fundamental.dark": "var(--primitive-size-32rem)",
+        "fundamental-floating.light": "var(--primitive-size-32rem)",
+        "fundamental-floating.dark": "var(--primitive-size-32rem)"
+      },
+      "invariant": true
+    },
+    "--group-page-structure-page-layout-main-width-regular": {
+      "path": "page-structure.page.layout.main.width.regular",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "dimension",
+      "value": "var(--semantic-size-detail-main-m)"
+    },
+    "--group-page-structure-page-layout-aside-width-regular": {
+      "path": "page-structure.page.layout.aside.width.regular",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "dimension",
+      "value": "var(--semantic-size-18rem)"
+    },
+    "--semantic-layout-main-grow": {
+      "path": "layout.main.grow",
+      "tier": "semantic",
+      "type": "number",
+      "mappings": {
+        "fundamental.light": "var(--primitive-number-2)",
+        "fundamental.dark": "var(--primitive-number-2)",
+        "fundamental-floating.light": "var(--primitive-number-2)",
+        "fundamental-floating.dark": "var(--primitive-number-2)"
+      },
+      "invariant": true
+    },
+    "--group-page-structure-page-layout-main-grow": {
+      "path": "page-structure.page.layout.main.grow",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "number",
+      "value": "var(--semantic-layout-main-grow)"
+    },
+    "--group-page-structure-page-layout-flex-fill": {
+      "path": "page-structure.page.layout.flex.fill",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "number",
+      "value": "var(--semantic-flex-fill)"
+    },
+    "--group-page-structure-page-layout-number-zero": {
+      "path": "page-structure.page.layout.number.zero",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "number",
+      "value": "var(--semantic-number-0)"
+    },
+    "--group-page-structure-page-layout-size-full": {
+      "path": "page-structure.page.layout.size.full",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "percentage",
+      "value": "var(--semantic-size-full)"
+    },
+    "--group-page-structure-page-layout-space-gap-roomy": {
+      "path": "page-structure.page.layout.space.gap.roomy",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "dimension",
+      "value": "var(--semantic-space-xxl)"
+    },
+    "--group-page-structure-content-grid-space-gap-comfortable": {
+      "path": "page-structure.content.grid.space.gap.comfortable",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "dimension",
+      "value": "var(--semantic-space-xl)"
+    },
+    "--group-page-structure-content-grid-track-flex": {
+      "path": "page-structure.content.grid.track.flex",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "string",
+      "value": "var(--semantic-track-flex)"
+    },
+    "--semantic-columns-one": {
+      "path": "columns.one",
+      "tier": "semantic",
+      "type": "number",
+      "mappings": {
+        "fundamental.light": "var(--primitive-number-1)",
+        "fundamental.dark": "var(--primitive-number-1)",
+        "fundamental-floating.light": "var(--primitive-number-1)",
+        "fundamental-floating.dark": "var(--primitive-number-1)"
+      },
+      "invariant": true
+    },
+    "--group-page-structure-content-grid-columns-one": {
+      "path": "page-structure.content.grid.columns.one",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "number",
+      "value": "var(--semantic-columns-one)"
+    },
+    "--group-page-structure-content-grid-columns-two": {
+      "path": "page-structure.content.grid.columns.two",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "number",
+      "value": "var(--semantic-columns-two)"
+    },
+    "--group-page-structure-content-grid-columns-three": {
+      "path": "page-structure.content.grid.columns.three",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "number",
+      "value": "var(--semantic-columns-three)"
+    },
+    "--group-page-structure-content-grid-columns-four": {
+      "path": "page-structure.content.grid.columns.four",
+      "tier": "group",
+      "family": "page-structure",
+      "type": "number",
+      "value": "var(--semantic-columns-four)"
     }
   },
   "consumers": [
-    { "file": "src/agentic/workbench.tsx", "family": "application" },
-    { "file": "src/agentic/workbench.css", "family": "application" },
-    { "file": "src/agentic/infrastructure-panel.tsx", "family": "application" },
-    { "file": "src/agentic/infrastructure-panel.css", "family": "application" },
-    { "file": "src/agentic/components/TokenInput.tsx", "family": "input" },
-    { "file": "src/agentic/components/TokenInput.css", "family": "input" },
-    { "file": "src/agentic/components/FilteredDataset.tsx", "family": "filtering" },
-    { "file": "src/agentic/components/FilteredDataset.css", "family": "filtering" },
+    {
+      "file": "src/agentic/workbench.tsx",
+      "family": "application"
+    },
+    {
+      "file": "src/agentic/workbench.css",
+      "family": "application"
+    },
+    {
+      "file": "src/agentic/infrastructure-panel.tsx",
+      "family": "application"
+    },
+    {
+      "file": "src/agentic/infrastructure-panel.css",
+      "family": "application"
+    },
+    {
+      "file": "src/agentic/components/TokenInput.tsx",
+      "family": "input"
+    },
+    {
+      "file": "src/agentic/components/token-input-model.ts",
+      "family": "input"
+    },
+    {
+      "file": "src/agentic/components/TokenInput.css",
+      "family": "input"
+    },
+    {
+      "file": "src/agentic/components/FilteredDataset.tsx",
+      "family": "filtering"
+    },
+    {
+      "file": "src/agentic/components/FilteredDataset.css",
+      "family": "filtering"
+    },
     {
       "file": "src/components/accordion/accordion.css",
       "family": "surface"
@@ -52189,6 +52500,26 @@
     {
       "file": "src/product/filter-toolbar.tsx",
       "family": "application"
+    },
+    {
+      "file": "src/patterns/page-layout/index.ts",
+      "family": "page-structure"
+    },
+    {
+      "file": "src/patterns/page-layout/recipes.ts",
+      "family": "page-structure"
+    },
+    {
+      "file": "src/patterns/page-layout/page-layout.tsx",
+      "family": "page-structure"
+    },
+    {
+      "file": "src/patterns/page-layout/page-layout.css",
+      "family": "page-structure"
+    },
+    {
+      "file": "src/patterns/page-layout/browser-fixture.tsx",
+      "family": "page-structure"
     }
   ],
   "dynamicVariables": [
@@ -52375,6 +52706,20 @@
       "reason": "DataGrid generates left/right pinned-column offsets from measured column indices; these are runtime geometry, never theme values.",
       "files": [
         "src/components/data-grid/data-grid.tsx"
+      ]
+    },
+    {
+      "name": "--aegis-content-grid-columns",
+      "reason": "Private state binding selected only from owning page-structure group tokens by the supported ContentGrid props; not a new token tier or caller-supplied design value.",
+      "files": [
+        "src/patterns/page-layout/page-layout.css"
+      ]
+    },
+    {
+      "name": "--aegis-content-grid-minimum",
+      "reason": "Private state binding selected only from owning page-structure group tokens by the supported ContentGrid props; not a new token tier or caller-supplied design value.",
+      "files": [
+        "src/patterns/page-layout/page-layout.css"
       ]
     }
   ],

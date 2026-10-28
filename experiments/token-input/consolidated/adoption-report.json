@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packageVersion": "0.3.0-experiment.0",
+  "registryRevision": 2,
+  "contractVersion": 2,
+  "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-token-input-adoption-X4edbX",
+  "tarball": "dimitriszoitas-aegis-agentic-0.3.0-experiment.0.tgz",
+  "packageIntegrity": "sha512-Xe0JS4Su8eeTrY0pzQ7eq7XOsPIkUj3XHdR+pmJKIQdcTbxBhLwx21HngSkZA188KOUenSaChKYLYXH635ztBQ==",
+  "sourceImports": false,
+  "dependencyReuse": "Installed Aegis from npm-pack tarball; dependencies reused from local node_modules.",
+  "originalCandidateHashesUnchanged": true,
+  "checks": [
+    "Packed registry discovers experimental TokenInput and points to an importable package export.",
+    "Installed public TypeScript API compiles without repository aliases.",
+    "Production-built consumer uses package TokenInput with correlated request confirmation.",
+    "Comma stays literal; invalid batch is atomic and exact multiline draft survives; corrected batch commits.",
+    "Original candidate A/B hashes remain unchanged.",
+    "Public PageLayout, ReadingColumn and ContentGrid exports compile, render and adapt in the packed consumer."
+  ],
+  "accessibility": [
+    {
+      "mode": "light",
+      "width": 390,
+      "violations": 0
+    },
+    {
+      "mode": "dark",
+      "width": 390,
+      "violations": 0
+    }
+  ],
+  "browserErrors": []
+}

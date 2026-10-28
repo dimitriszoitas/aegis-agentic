@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "consumer": "relay",
+  "package": "@dimitriszoitas/aegis-agentic",
+  "version": "0.3.0-experiment.0",
+  "tarballSha256": "65d0d66bb7649998ab0a31ed8b2567ef5ff45f329f86943595cc791e70a27d31",
+  "kitIntegritySha256": "52c5d4692b35c587bb553af15a9b1ed6de05547d5d6fca2abfb5abde24dc8b5a",
+  "registryRevision": 2,
+  "dependencySource": "Copied local dependency snapshot; clean registry installation is not verified.",
+  "profileId": "atlas",
+  "profileHash": "v1-b1dee001",
+  "source": "Installed npm tarball; public package imports; no repository source aliases."
+}

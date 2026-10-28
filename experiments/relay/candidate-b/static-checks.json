@@ -1,0 +1,14 @@
+[
+  {
+    "command": "node node_modules/typescript/bin/tsc --noEmit",
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "node node_modules/@dimitriszoitas/aegis-agentic/agent-kit/bin/aegis.mjs patterns check pattern-policy.json --project .",
+    "exitCode": 0,
+    "stdout": "{\n  \"schemaVersion\": 1,\n  \"checkerVersion\": \"1\",\n  \"valid\": true,\n  \"policy\": {\n    \"product\": \"relay\",\n    \"revision\": 1,\n    \"sha256\": \"9d1d0b34f4d3f3085ca5285cc3da78d0038162dca0870d0e76e17d8199cab36d\"\n  },\n  \"sources\": [\n    {\n      \"path\": \"src/customers.tsx\",\n      \"sha256\": \"ce92d41ccf750c6b80cacaf7b41b83c3e2921b1f40e301d80e30a08beee645cb\"\n    },\n    {\n      \"path\": \"src/patterns.tsx\",\n      \"sha256\": \"b41f00de7d8c057cc863594fb7baba02d5eb3ef54838b992053e0e56ab46f0f7\"\n    },\n    {\n      \"path\": \"src/requests.tsx\",\n      \"sha256\": \"1606a84c92b84e7f8919be308b3b782b83111a91101d5f41216576b512a67fe3\"\n    }\n  ],\n  \"checkedPatterns\": 6,\n  \"issues\": [],\n  \"exceptions\": [],\n  \"limits\": [\n    \"Checks declared JSX syntax and import identity, not executed render counts, responsive appearance, accessibility, or interaction behavior.\",\n    \"Only declared pages and an optional literal route inventory are inspected; undeclared routes are not discovered automatically.\",\n    \"Public named or namespace imports are supported. Local aliases, re-export resolution, dynamic component construction, and spread-prop values are not inferred.\",\n    \"Required props are checked for explicit presence, not evaluated values. Declared local implementation files are fingerprinted, not behaviorally validated.\",\n    \"Policy and source hashes identify this evidence; they do not authenticate owner approval or prove component package integrity.\"\n  ]\n}\n",
+    "stderr": ""
+  }
+]

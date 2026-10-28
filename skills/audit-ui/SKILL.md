@@ -7,6 +7,8 @@ description: Audit or remediate Aegis Agentic interfaces using reproducible evid
 
 Read [the agentic contract](../references/agentic-contract.md). Include its [product pattern decisions](../references/agentic-contract.md#product-pattern-decisions) when comparing related pages. Record kit/profile/registry versions and the failing scenario before changing anything.
 
+Use [page acceptance guidance](../references/page-composition.md#verify-the-result-at-three-levels) for composition audits. Check long values, readable content widths and responsive column behavior alongside implementation reuse.
+
 1. Check contract validity, token graph/ownership, expected variants, required anatomy and behavior. Inspect both light/dark and both presentations at relevant widths.
 2. Classify findings as derived drift, implementation defect, missing capability, design-language change or uncertain diagnosis. Distinguish observed failure from a fixture scenario.
 3. Run the kit maintenance scan. Automatic repair may restore only known derived files when the approved profile and compiler lock still match. Keep the returned evidence/backup.

@@ -22,6 +22,85 @@ function run(args, expected = 0) {
   return JSON.parse(result.stdout);
 }
 const fixture = (name) => join(kit, name);
+const kitInfo = run(['status']);
+assert.equal(kitInfo.pageComposition.validationScope, 'recipe-selection-only');
+assert.equal(kitInfo.pageComposition.registryId, 'page-layout');
+assert.equal(kitInfo.pageComposition.validator, 'validatePageLayoutRecipe');
+const pageRecipes = run(['pages', 'recipes']);
+assert.equal(pageRecipes.version, kitInfo.pageComposition.recipeVersion);
+assert.deepEqual(Object.keys(pageRecipes.recipes), kitInfo.pageComposition.archetypes);
+assert.deepEqual(pageRecipes.maxColumns, [1, 2, 3, 4]);
+assert.deepEqual(
+  JSON.parse(await readFile(fixture(kitInfo.pageComposition.recipes), 'utf8')),
+  pageRecipes,
+  'Portable recipe snapshot must be generated from the same compiled runtime facts',
+);
+const pageEntry = run(['registry', 'search', 'page composition']).find(
+  (entry) => entry.id === 'page-layout',
+);
+assert(pageEntry, 'Installed registry must discover page-layout.');
+assert.equal(pageEntry.kind, 'pattern');
+assert.equal(pageEntry.importPath, kitInfo.pageComposition.importPath);
+assert.equal(pageEntry.provenance.origin, 'experimental-composition');
+assert.equal(pageEntry.provenance.reviewedBy, null);
+const pageContract = JSON.parse(await readFile(fixture(pageEntry.contract), 'utf8'));
+assert.equal(pageContract.version, pageEntry.version);
+assert.equal(pageContract.portableRecipes, kitInfo.pageComposition.recipes);
+assert.equal(pageContract.status, 'experimental');
+assert(
+  (await readFile(fixture(kitInfo.pageComposition.guidance), 'utf8')).includes(
+    'Constructing a page',
+  ),
+);
+const pageSelectionPath = join(consumer, 'page-selection.json');
+for (const selection of [
+  { archetype: 'collection', slots: ['header', 'filters', 'main', 'footer'] },
+  { archetype: 'detail', slots: ['header', 'main', 'aside'], asideLabel: 'Record history' },
+  { archetype: 'settings', slots: ['header', 'main'], measure: 'wide' },
+  { archetype: 'dashboard', slots: ['header', 'main'], maxColumns: 4, minItemWidth: 'small' },
+]) {
+  const serialized = JSON.stringify(selection);
+  await writeFile(pageSelectionPath, serialized);
+  const result = run(['pages', 'validate', pageSelectionPath]);
+  assert.equal(result.valid, true, serialized);
+  assert.deepEqual(result.issues, []);
+  assert.equal(result.scope, 'recipe-selection-only');
+  assert.equal(result.recipeVersion, pageRecipes.version);
+  assert.equal(result.registryRevision, kitInfo.registryRevision);
+  assert.equal(
+    await readFile(pageSelectionPath, 'utf8'),
+    serialized,
+    'Validation must not rewrite the selection',
+  );
+}
+for (const [selection, expectedCode, expectedPath] of [
+  [{ archetype: 'collection', measure: 'comfortable' }, 'forbidden-option', 'measure'],
+  [{ archetype: 'dashboard', maxColumns: 5 }, 'invalid-value', 'maxColumns'],
+  [{ archetype: 'detail', slots: ['header', 'main', 'aside'] }, 'invalid-value', 'asideLabel'],
+  [
+    { archetype: 'settings', slots: ['header', 'main', 'aside'], asideLabel: 'Notes' },
+    'forbidden-slot',
+    'slots',
+  ],
+  [{ archetype: 'collection', slots: ['header'] }, 'missing-slot', 'slots'],
+  [{ archetype: 'dashboard', slots: ['header', 'main', 'main'] }, 'duplicate-slot', 'slots'],
+  [{ archetype: 'dashboard', invented: true }, 'unknown-property', 'invented'],
+  [{ archetype: 'inbox' }, 'invalid-value', 'archetype'],
+]) {
+  await writeFile(pageSelectionPath, JSON.stringify(selection));
+  const result = run(['pages', 'validate', pageSelectionPath], 1);
+  assert.equal(result.valid, false);
+  assert(
+    result.issues.some((issue) => issue.code === expectedCode && issue.path === expectedPath),
+    JSON.stringify(result),
+  );
+}
+assert(run(['pages', 'recipes', 'unexpected'], 1).error.includes('no arguments'));
+assert(run(['pages', 'validate'], 1).error.includes('exactly one'));
+checks.push(
+  'Page recipes, contract and discovery agree in an isolated kit; four valid archetypes pass and incompatible widths, grids, slots and unknown choices fail without React or npm modules',
+);
+
 for (const id of ['aegis', 'atlas', 'solstice']) {
   const out = join(consumer, id, 'agentic-dist');
   const result = run(['profile', 'compile', fixture(`profiles/${id}.json`), '--out', out]);
@@ -102,15 +181,27 @@ assert(run(['registry', 'search', 'dialog']).some((entry) => entry.id === 'dialo
 const proposals = JSON.parse(await readFile(fixture('registry/proposals.json'), 'utf8'));
 for (let i = 0; i < proposals.length; i++)
   await writeFile(join(consumer, `proposal-${i}.json`), JSON.stringify(proposals[i]));
-const canonical = fixture('registry/canonical.json');
+const canonical = fixture('registry/proposal-example-registry.json');
 assert.equal(
-  run(['registry', 'compare', join(consumer, 'proposal-0.json'), join(consumer, 'proposal-1.json')])
-    .duplicate,
+  run([
+    'registry',
+    'compare',
+    join(consumer, 'proposal-0.json'),
+    join(consumer, 'proposal-1.json'),
+    '--registry',
+    canonical,
+  ]).duplicate,
   true,
 );
 assert(
-  run(['registry', 'compare', join(consumer, 'proposal-0.json'), join(consumer, 'proposal-1.json')])
-    .conflicts.length > 0,
+  run([
+    'registry',
+    'compare',
+    join(consumer, 'proposal-0.json'),
+    join(consumer, 'proposal-1.json'),
+    '--registry',
+    canonical,
+  ]).conflicts.length > 0,
 );
 run([
   'registry',
@@ -180,6 +271,52 @@ assert(
   ),
 );
 checks.push('Output symlink refused');
+const product = join(consumer, 'independent-product');
+await mkdir(join(product, 'src'), { recursive: true });
+const patternPolicy = {
+  schemaVersion: 2,
+  product: 'independent-product',
+  revision: 1,
+  scope: 'src',
+  pages: [{ id: 'records', source: 'src/records.tsx', patterns: ['header'] }],
+  patterns: {
+    header: {
+      module: '@company/design-system/page-header',
+      export: 'PageHeader',
+      cardinality: { min: 1, max: 1 },
+      requiredProps: ['title'],
+      forbiddenProps: ['eyebrow'],
+      forbiddenLocalTags: ['h1'],
+    },
+  },
+  exceptions: [],
+};
+await writeFile(join(product, 'pattern-policy.json'), JSON.stringify(patternPolicy));
+const productSource = join(product, 'src/records.tsx');
+const agreedSource = `import { PageHeader as Header } from '@company/design-system/page-header';
+export const Records = () => <Header title="Records"/>;`;
+await writeFile(productSource, agreedSource);
+const patternArgs = ['patterns', 'check', 'pattern-policy.json', '--project', product];
+const patternPass = run(patternArgs);
+assert.equal(patternPass.valid, true);
+assert.equal(patternPass.checkedPatterns, 1);
+assert.equal(patternPass.policy.product, 'independent-product');
+assert.deepEqual(run(patternArgs), patternPass, 'Unchanged inputs produce the same evidence');
+await writeFile(productSource, agreedSource.replace('title="Records"', 'eyebrow="Workspace"'));
+const propDrift = run(patternArgs, 1);
+assert.equal(propDrift.valid, false);
+assert(propDrift.issues.some((entry) => entry.rule === 'required-prop:title'));
+assert(propDrift.issues.some((entry) => entry.rule === 'forbidden-prop:eyebrow'));
+await writeFile(
+  productSource,
+  agreedSource.replace('@company/design-system/page-header', './one-off-header'),
+);
+assert(run(patternArgs, 1).issues.some((entry) => entry.rule === 'missing-import'));
+await writeFile(productSource, agreedSource);
+assert.equal(run(patternArgs).valid, true);
+checks.push(
+  'Portable product policy accepts aliased public patterns and rejects prop/import drift without npm modules',
+);
 const report = {
   status: 'passed',
   consumer,

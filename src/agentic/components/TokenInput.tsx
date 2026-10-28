@@ -1,34 +1,53 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { Field } from '@/components/field';
-import { TextInput } from '@/components/text-input';
+import { Textarea } from '@/components/textarea';
 import { Tag } from '@/components/tag';
 import { Button } from '@/components/button';
+import { evaluateTokenBatch, type TokenValidator } from './token-input-model';
 import './TokenInput.css';
 
+export type TokenInputRequest = { requestId: string; signal: AbortSignal };
+export type TokenInputAcknowledgment = {
+  requestId: string;
+  status: 'accepted' | 'rejected';
+  message?: string;
+};
 export interface TokenInputProps {
   label: string;
   values: readonly string[];
-  /** Return false to refuse. Otherwise echo the requested ordered values to acknowledge. */
-  onValuesChange: (values: string[]) => void | false;
+  /** Echo the requested ordered values. Return false for immediate refusal. */
+  onValuesChange: (values: string[], request: TokenInputRequest) => void | false;
+  /** Use request confirmation for asynchronous hosts; values mode supports synchronous state setters. */
+  confirmationMode?: 'values' | 'request';
+  acknowledgment?: TokenInputAcknowledgment;
   suggestions?: readonly string[];
   duplicatePolicy?: 'reject' | 'ignore';
   commitKeys?: readonly string[];
   commitOnBlur?: boolean;
-  validateValue?: (value: string) => string | undefined;
+  validateValue?: TokenValidator;
   disabled?: boolean;
   error?: string;
   placeholder?: string;
 }
 
+type PendingChange = {
+  requestId: string;
+  controller: AbortController;
+  values: string[];
+  draftRevision: number | null;
+  announcement: string;
+};
 /**
- * Controlled free-text entry with native suggestions. Typed commas are literal unless comma
- * is a commit key. Pasted comma/newline batches validate atomically. Single-value paste edits
- * the draft. A draft clears only when the host echoes the requested ordered values.
+ * Controlled free-text entry. Commas are literal unless explicitly configured as commit keys.
+ * Newline/tab batches validate atomically and preserve the exact rejected draft. Async hosts
+ * should use request confirmation, echo accepted values, and honor the request's abort signal.
  */
 export function TokenInput({
   label,
   values,
   onValuesChange,
+  confirmationMode = 'values',
+  acknowledgment,
   suggestions = [],
   duplicatePolicy = 'reject',
   commitKeys = ['Enter'],
@@ -39,18 +58,33 @@ export function TokenInput({
   placeholder = 'Type a value, then press Enter',
 }: TokenInputProps) {
   const id = useId();
-  const input = useRef<HTMLInputElement>(null);
+  const input = useRef<HTMLTextAreaElement>(null);
   const [draft, setDraft] = useState('');
   const [message, setMessage] = useState('');
   const [announcement, setAnnouncement] = useState('');
   const [armedRemoval, setArmedRemoval] = useState<string | null>(null);
-  type PendingChange = { values: string[]; draftRevision: number | null; announcement: string };
   const [pending, setPending] = useState<PendingChange | null>(null);
   const pendingRef = useRef<PendingChange | null>(null);
   const draftRevision = useRef(0);
+  const sequence = useRef(0);
+  const composing = useRef(false);
+  useEffect(() => () => pendingRef.current?.controller.abort(), []);
   useEffect(() => {
+    if (!pending) return;
+    if (confirmationMode === 'request') {
+      if (acknowledgment?.requestId !== pending.requestId) return;
+      if (acknowledgment.status === 'rejected') {
+        pending.controller.abort();
+        pendingRef.current = null;
+        setPending(null);
+        setMessage(
+          acknowledgment.message || 'The host did not accept this change. Your draft is preserved.',
+        );
+        setAnnouncement('Change rejected. Your draft is preserved.');
+        return;
+      }
+    }
     if (
-      !pending ||
       values.length !== pending.values.length ||
       !values.every((value, index) => value === pending.values[index])
     )
@@ -61,73 +95,65 @@ export function TokenInput({
     setMessage('');
     setPending(null);
     pendingRef.current = null;
-  }, [pending, values]);
+  }, [pending, values, confirmationMode, acknowledgment]);
   function requestValues(next: string[], revision: number | null, acceptedMessage: string) {
-    const request = { values: next, draftRevision: revision, announcement: acceptedMessage };
+    const request: PendingChange = {
+      requestId: `${id}-${++sequence.current}`,
+      controller: new AbortController(),
+      values: next,
+      draftRevision: revision,
+      announcement: acceptedMessage,
+    };
     pendingRef.current = request;
     setPending(request);
     setAnnouncement('Change requested. Waiting for the host to confirm it.');
     try {
-      if (onValuesChange(next) === false) {
-        pendingRef.current = null;
-        setPending(null);
-        setMessage('The host did not accept this change. Your draft is preserved.');
-      }
+      if (
+        onValuesChange(next, {
+          requestId: request.requestId,
+          signal: request.controller.signal,
+        }) !== false
+      )
+        return;
+      setMessage('The host did not accept this change. Your draft is preserved.');
     } catch {
-      pendingRef.current = null;
-      setPending(null);
       setMessage('The host could not apply this change. Your draft is preserved.');
     }
+    request.controller.abort();
+    pendingRef.current = null;
+    setPending(null);
+    setAnnouncement('Change rejected. Your draft is preserved.');
   }
-  function commit(text: string, restoreFocus = true, pastedBatch = false) {
-    if (disabled || pendingRef.current) return;
-    const delimiter = pastedBatch || commitKeys.includes(',') ? /[,\n]/ : /\n/;
-    const candidates = text
-      .split(delimiter)
-      .map((raw) => ({ raw, value: raw.trim() }))
-      .filter((item) => item.value);
-    if (!candidates.length) return;
-    const next = [...values];
-    const rejected: string[] = [];
-    for (const { value: candidate } of candidates) {
-      let invalid: string | undefined;
-      try {
-        invalid = validateValue?.(candidate);
-      } catch {
-        invalid = 'Validation could not complete. Retry this value.';
-      }
-      if (invalid) {
-        rejected.push(`${candidate}: ${invalid}`);
-        continue;
-      }
-      if (next.some((value) => value.toLocaleLowerCase() === candidate.toLocaleLowerCase())) {
-        if (duplicatePolicy === 'reject') {
-          rejected.push(`${candidate} is already added.`);
-        }
-        continue;
-      }
-      next.push(candidate);
-    }
-    draftRevision.current++;
-    setDraft(text);
+  function commit(text: string, restoreFocus = true, preserveDraft = false) {
+    if (disabled || pendingRef.current || composing.current) return;
+    const result = evaluateTokenBatch(text, values, {
+      duplicatePolicy,
+      commaDelimiter: commitKeys.includes(','),
+      validateValue,
+    });
+    if (!text.trim()) return;
+    const revision = preserveDraft ? null : ++draftRevision.current;
+    if (!preserveDraft) setDraft(text);
     setArmedRemoval(null);
-    setMessage(rejected.join(' '));
-    if (rejected.length) {
+    setMessage(result.errors.join(' '));
+    if (result.errors.length) {
       setAnnouncement('No values were added. Correct the rejected batch and try again.');
-    } else if (next.length === values.length) {
-      setDraft('');
-      setAnnouncement('No new values. Existing duplicates were ignored.');
+    } else if (!result.added) {
+      if (!preserveDraft) setDraft('');
+      setAnnouncement(
+        `${result.skipped} duplicate${result.skipped === 1 ? '' : 's'} skipped. No values added.`,
+      );
     } else {
       requestValues(
-        next,
-        draftRevision.current,
-        `${next.length - values.length} values added. ${next.length} total.`,
+        result.values,
+        revision,
+        `${result.added} value${result.added === 1 ? '' : 's'} added. ${result.skipped} duplicates skipped. ${result.values.length} total.`,
       );
     }
     if (restoreFocus) input.current?.focus();
   }
   function remove(value: string) {
-    if (disabled || pendingRef.current) return;
+    if (disabled || pendingRef.current || composing.current) return;
     requestValues(
       values.filter((item) => item !== value),
       null,
@@ -137,17 +163,20 @@ export function TokenInput({
     input.current?.focus();
   }
   return (
-    <div className="agentic-token-input" data-testid="token-input">
+    <div className="agentic-token-input" data-testid="token-input" aria-busy={!!pending}>
       <Field
         label={label}
         disabled={disabled}
         error={error || message}
-        helpText={`${commitKeys.map((key) => (key === ',' ? 'comma' : key)).join(' or ')} adds a value. Pasted comma-separated batches are atomic: a rejected batch stays intact. Duplicates are ${duplicatePolicy === 'reject' ? 'reported' : 'ignored'} (case-insensitive).${commitOnBlur ? ' Leaving the input also submits its draft.' : ''}`}
+        helpText={`${commitKeys.map((key) => (key === ',' ? 'comma' : key)).join(' or ')} or Add commits. Shift+Enter inserts a line. Pasted lines and tabs form an atomic batch; rejected text stays intact. Commas ${commitKeys.includes(',') ? 'separate values' : 'are literal text'}. Duplicates are ${duplicatePolicy === 'reject' ? 'reported' : 'skipped with a count'} (case-insensitive).${commitOnBlur ? ' Leaving the input also submits its draft.' : ''}`}
       >
         <div className="agentic-token-entry">
-          <TextInput
+          <Textarea
             ref={input}
             value={draft}
+            rows={1}
+            autoGrow
+            maxRows={4}
             onValueChange={(value) => {
               setDraft(value);
               draftRevision.current++;
@@ -156,14 +185,33 @@ export function TokenInput({
             }}
             disabled={disabled}
             placeholder={placeholder}
-            list={suggestions.length ? `${id}-suggestions` : undefined}
+            onCompositionStart={() => {
+              composing.current = true;
+            }}
+            onCompositionEnd={() => {
+              composing.current = false;
+            }}
             onKeyDown={(event) => {
-              if (event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229) return;
-              if (commitKeys.includes(event.key)) {
+              if (
+                composing.current ||
+                event.nativeEvent.isComposing ||
+                event.nativeEvent.keyCode === 229
+              )
+                return;
+              if (
+                commitKeys.includes(event.key as 'Enter' | ',') &&
+                !(event.key === 'Enter' && event.shiftKey)
+              ) {
                 event.preventDefault();
                 commit(draft);
               }
-              if (event.key === 'Backspace' && !draft && values.length) {
+              if (
+                event.key === 'Backspace' &&
+                !draft &&
+                values.length &&
+                !pendingRef.current &&
+                !event.repeat
+              ) {
                 event.preventDefault();
                 const last = values[values.length - 1];
                 if (armedRemoval === last) remove(last);
@@ -180,15 +228,21 @@ export function TokenInput({
               }
             }}
             onBlur={() => {
+              setArmedRemoval(null);
               if (commitOnBlur && draft.trim()) commit(draft, false);
             }}
             onPaste={(event) => {
+              if (composing.current) return;
               const pasted = event.clipboardData.getData('text');
-              if (/[,\n]/.test(pasted)) {
+              if ((commitKeys.includes(',') ? /[,\r\n\t]/ : /[\r\n\t]/).test(pasted)) {
                 event.preventDefault();
                 const start = event.currentTarget.selectionStart ?? draft.length;
                 const end = event.currentTarget.selectionEnd ?? draft.length;
-                commit(`${draft.slice(0, start)}${pasted}${draft.slice(end)}`, true, true);
+                const text = `${draft.slice(0, start)}${pasted}${draft.slice(end)}`;
+                if (pendingRef.current) {
+                  setDraft(text);
+                  draftRevision.current++;
+                } else commit(text);
               }
             }}
           />
@@ -200,14 +254,23 @@ export function TokenInput({
             Add
           </Button>
         </div>
-        {suggestions.length > 0 && (
-          <datalist id={`${id}-suggestions`}>
-            {suggestions.map((value) => (
-              <option key={value} value={value} />
-            ))}
-          </datalist>
-        )}
       </Field>
+      {suggestions.length > 0 && (
+        <div className="agentic-token-suggestions" role="group" aria-label={`${label} suggestions`}>
+          {[...new Set(suggestions)].map((value) => (
+            <Button
+              key={value}
+              emphasis="ghost"
+              size="sm"
+              disabled={disabled || !!pending}
+              aria-label={`Add suggestion ${value}`}
+              onClick={() => commit(value, true, true)}
+            >
+              {value}
+            </Button>
+          ))}
+        </div>
+      )}
       {values.length > 0 && (
         <ul className="agentic-token-list" aria-label={`${label} values`}>
           {values.map((value) => (
@@ -231,10 +294,14 @@ export function TokenInput({
           <Button
             emphasis="ghost"
             size="sm"
+            disabled={disabled}
             onClick={() => {
+              pendingRef.current?.controller.abort();
               pendingRef.current = null;
               setPending(null);
-              setAnnouncement('You can keep editing. A later host update may still arrive.');
+              setAnnouncement(
+                'Request cancelled. Keep editing; the host must discard cancelled work.',
+              );
             }}
           >
             Keep editing

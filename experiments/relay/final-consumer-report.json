@@ -1,0 +1,492 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "startedAt": "2026-10-28T18:53:02.717Z",
+  "dependencyMode": "local-snapshot",
+  "phases": [
+    {
+      "name": "prepare",
+      "command": "/opt/homebrew/Cellar/node/24.1.0/bin/node",
+      "arguments": [
+        "/private/tmp/aegis-agentic-experiment/scripts/prepare-relay.mjs",
+        "--local-dependencies"
+      ],
+      "cwd": "/private/tmp/aegis-agentic-experiment",
+      "log": "artifacts/relay/prepare.log",
+      "exitCode": 0,
+      "status": "passed",
+      "durationMs": 17462
+    },
+    {
+      "name": "installed-policy",
+      "command": "/opt/homebrew/Cellar/node/24.1.0/bin/node",
+      "arguments": [
+        "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-relay-consumer-3nDN9F/relay/node_modules/@dimitriszoitas/aegis-agentic/agent-kit/bin/aegis.mjs",
+        "patterns",
+        "check",
+        "pattern-policy.json",
+        "--project",
+        "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-relay-consumer-3nDN9F/relay"
+      ],
+      "cwd": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-relay-consumer-3nDN9F/relay",
+      "log": "artifacts/relay/installed-policy.log",
+      "exitCode": 0,
+      "status": "passed",
+      "durationMs": 158
+    },
+    {
+      "name": "production-build",
+      "command": "npm",
+      "arguments": [
+        "run",
+        "build"
+      ],
+      "cwd": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-relay-consumer-3nDN9F/relay",
+      "log": "artifacts/relay/production-build.log",
+      "exitCode": 0,
+      "status": "passed",
+      "durationMs": 2698
+    },
+    {
+      "name": "browser",
+      "command": "/opt/homebrew/Cellar/node/24.1.0/bin/node",
+      "arguments": [
+        "/private/tmp/aegis-agentic-experiment/scripts/verify-relay.mjs",
+        "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-relay-consumer-3nDN9F/relay",
+        "final-consumer",
+        "--review-presentation"
+      ],
+      "cwd": "/private/tmp/aegis-agentic-experiment",
+      "log": "artifacts/relay/browser.log",
+      "exitCode": 0,
+      "status": "passed",
+      "durationMs": 8625
+    }
+  ],
+  "scope": "The selected Relay implementation is verified against the final installed experimental package. Original independent-generation candidates and their input kit hashes are separate evidence in experiments/relay/comparison.json.",
+  "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-relay-consumer-3nDN9F/relay",
+  "preparation": {
+    "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-relay-consumer-3nDN9F/relay",
+    "tarball": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-relay-consumer-3nDN9F/dimitriszoitas-aegis-agentic-0.3.0-experiment.0.tgz",
+    "kit": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-relay-consumer-3nDN9F/relay/node_modules/@dimitriszoitas/aegis-agentic/agent-kit",
+    "provenance": {
+      "schemaVersion": 1,
+      "consumer": "relay",
+      "package": "@dimitriszoitas/aegis-agentic",
+      "version": "0.3.0-experiment.0",
+      "tarballSha256": "8dd9e91c3e600047a5a14c452aab902e40c94e7c59dfca7cab1d90d761e674d5",
+      "kitIntegritySha256": "3f6bbaa2dbfe79f6dd6d381a31aa34043d4fc10e1999fbd6385312dfd7843fc6",
+      "registryRevision": 2,
+      "dependencySource": "Copied local dependency snapshot; clean registry installation is not verified.",
+      "profileId": "atlas",
+      "profileHash": "v1-75b2eb91",
+      "source": "Installed npm tarball; public package imports; no repository source aliases."
+    }
+  },
+  "dependencySource": "Copied local dependency snapshot; clean registry installation is not verified.",
+  "policy": {
+    "schemaVersion": 1,
+    "checkerVersion": "2",
+    "valid": true,
+    "policy": {
+      "product": "relay",
+      "revision": 2,
+      "sha256": "a8ff6c830a8776e315f62aca210d0f88fd9113f11479cf0bb4413e08b3e5879f"
+    },
+    "sources": [
+      {
+        "path": "src/customers.tsx",
+        "sha256": "b641f76d07d54526ac219be8803ef328688db8187e99144e5217e872e45a98fc"
+      },
+      {
+        "path": "src/patterns.tsx",
+        "sha256": "3ba320222edac0382c3df2a733d20a4fbb17be93bd11b92645b48cf8427aa1f4"
+      },
+      {
+        "path": "src/requests.tsx",
+        "sha256": "d394ee63859cda1473ef568610e13dc6a8aacad726f5cdf0831cbc5633cf6a24"
+      }
+    ],
+    "checkedPatterns": 6,
+    "issues": [],
+    "exceptions": [],
+    "limits": [
+      "Checks declared JSX syntax and import identity, not executed render counts, responsive appearance, accessibility, or interaction behavior.",
+      "Only declared pages and an optional literal route inventory are inspected; undeclared routes are not discovered automatically.",
+      "Route inventory checks reject direct local writes, including destructuring and for-in/of targets, and array-binding escapes; callback effects, returned entry aliases and external runtime mutation are not analyzed.",
+      "Public named or namespace imports are supported. Local aliases, re-export resolution, dynamic component construction, and spread-prop values are not inferred.",
+      "Required props check explicit presence; propValues checks direct primitive literals only. Expressions, spread overrides and encoded JSX attribute strings are not evaluated. Local implementation files are fingerprinted, not behaviorally validated.",
+      "Policy and source hashes identify this evidence; they do not authenticate owner approval or prove component package integrity."
+    ]
+  },
+  "postSelectionSourceHashes": {
+    "src/requests.tsx": "d394ee63859cda1473ef568610e13dc6a8aacad726f5cdf0831cbc5633cf6a24",
+    "src/customers.tsx": "b641f76d07d54526ac219be8803ef328688db8187e99144e5217e872e45a98fc",
+    "src/patterns.tsx": "3ba320222edac0382c3df2a733d20a4fbb17be93bd11b92645b48cf8427aa1f4",
+    "src/styles.css": "9353f37e0f8758bad57322cc1b1bc8f820caab80e440d52ddef8b95aecf5c207",
+    "REQUESTS_TASK.md": "56e7d854cd91707c2b0eba3aa41275c253b75e7feb4ac934b98c550624c0b7d9",
+    "README.md": "cf764a2c394ba3cc9b3ac8b2782de6ae6b3380a9ac3a71a75719ae9b011142f9"
+  },
+  "browser": {
+    "consumer": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-relay-consumer-3nDN9F/relay",
+    "name": "final-consumer",
+    "checks": [
+      "Headers, search width, display controls and page containment across both pages, two modes and two widths",
+      "Combined immediate filters, empty results, clear-all, pagination size and theme-preserved state",
+      "Keyboard row details, canonical TokenInput duplicate handling, focus return and persisted labels",
+      "Cancel closes without creating a record and final product contract discards the draft",
+      "Validated creation, existing-customer selection and local persistence"
+    ],
+    "comparisons": [
+      {
+        "route": "requests",
+        "mode": "dark",
+        "width": 1440,
+        "header": {
+          "x": 296,
+          "y": 85,
+          "width": 1100,
+          "height": 93.5
+        },
+        "search": {
+          "x": 296,
+          "y": 202.5,
+          "width": 376,
+          "height": 34
+        },
+        "font": [
+          "26px",
+          "32.5px",
+          "600"
+        ],
+        "overflow": false
+      },
+      {
+        "route": "customers",
+        "mode": "dark",
+        "width": 1440,
+        "header": {
+          "x": 296,
+          "y": 85,
+          "width": 1100,
+          "height": 93.5
+        },
+        "search": {
+          "x": 296,
+          "y": 202.5,
+          "width": 376,
+          "height": 34
+        },
+        "font": [
+          "26px",
+          "32.5px",
+          "600"
+        ],
+        "overflow": false
+      },
+      {
+        "route": "requests",
+        "mode": "light",
+        "width": 1440,
+        "header": {
+          "x": 296,
+          "y": 85,
+          "width": 1100,
+          "height": 93.5
+        },
+        "search": {
+          "x": 296,
+          "y": 202.5,
+          "width": 376,
+          "height": 34
+        },
+        "font": [
+          "26px",
+          "32.5px",
+          "600"
+        ],
+        "overflow": false
+      },
+      {
+        "route": "customers",
+        "mode": "light",
+        "width": 1440,
+        "header": {
+          "x": 296,
+          "y": 85,
+          "width": 1100,
+          "height": 93.5
+        },
+        "search": {
+          "x": 296,
+          "y": 202.5,
+          "width": 376,
+          "height": 34
+        },
+        "font": [
+          "26px",
+          "32.5px",
+          "600"
+        ],
+        "overflow": false
+      },
+      {
+        "route": "requests",
+        "mode": "dark",
+        "width": 390,
+        "header": {
+          "x": 12,
+          "y": 128,
+          "width": 366,
+          "height": 143.5
+        },
+        "search": {
+          "x": 12,
+          "y": 295.5,
+          "width": 366,
+          "height": 34
+        },
+        "font": [
+          "26px",
+          "32.5px",
+          "600"
+        ],
+        "overflow": false
+      },
+      {
+        "route": "customers",
+        "mode": "dark",
+        "width": 390,
+        "header": {
+          "x": 12,
+          "y": 128,
+          "width": 366,
+          "height": 93.5
+        },
+        "search": {
+          "x": 12,
+          "y": 245.5,
+          "width": 366,
+          "height": 34
+        },
+        "font": [
+          "26px",
+          "32.5px",
+          "600"
+        ],
+        "overflow": false
+      },
+      {
+        "route": "requests",
+        "mode": "light",
+        "width": 390,
+        "header": {
+          "x": 12,
+          "y": 128,
+          "width": 366,
+          "height": 143.5
+        },
+        "search": {
+          "x": 12,
+          "y": 295.5,
+          "width": 366,
+          "height": 34
+        },
+        "font": [
+          "26px",
+          "32.5px",
+          "600"
+        ],
+        "overflow": false
+      },
+      {
+        "route": "customers",
+        "mode": "light",
+        "width": 390,
+        "header": {
+          "x": 12,
+          "y": 128,
+          "width": 366,
+          "height": 93.5
+        },
+        "search": {
+          "x": 12,
+          "y": 245.5,
+          "width": 366,
+          "height": 34
+        },
+        "font": [
+          "26px",
+          "32.5px",
+          "600"
+        ],
+        "overflow": false
+      }
+    ],
+    "accessibility": [
+      {
+        "scenario": "requests/dark/1440",
+        "violations": []
+      },
+      {
+        "scenario": "customers/dark/1440",
+        "violations": []
+      },
+      {
+        "scenario": "requests/light/1440",
+        "violations": []
+      },
+      {
+        "scenario": "customers/light/1440",
+        "violations": []
+      },
+      {
+        "scenario": "requests/dark/390",
+        "violations": []
+      },
+      {
+        "scenario": "customers/dark/390",
+        "violations": []
+      },
+      {
+        "scenario": "requests/light/390",
+        "violations": []
+      },
+      {
+        "scenario": "customers/light/390",
+        "violations": []
+      },
+      {
+        "scenario": "Editable request details",
+        "violations": []
+      },
+      {
+        "scenario": "New request form",
+        "violations": []
+      }
+    ],
+    "errors": [],
+    "observedAt": "2026-10-28T18:53:23.440Z",
+    "observations": {
+      "cancelDraft": {
+        "enteredTitle": "Cancelled draft observation",
+        "reopenedTitle": "",
+        "retained": false,
+        "contract": "Final product choice: Cancel closes without adding a record and discards the new-request draft."
+      }
+    },
+    "presentationReview": true,
+    "presentationChecks": [
+      {
+        "route": "requests",
+        "mode": "dark",
+        "width": 1440,
+        "countContext": "total requests",
+        "truncation": {
+          "textOverflow": "ellipsis",
+          "whiteSpace": "nowrap",
+          "overflow": "hidden",
+          "minWidth": "0px",
+          "clientWidth": 148,
+          "scrollWidth": 297,
+          "fullTitle": "Unable to connect the production workspace",
+          "text": "Unable to connect the production workspace"
+        }
+      },
+      {
+        "route": "customers",
+        "mode": "dark",
+        "width": 1440,
+        "countContext": "total customers"
+      },
+      {
+        "route": "requests",
+        "mode": "light",
+        "width": 1440,
+        "countContext": "total requests",
+        "truncation": {
+          "textOverflow": "ellipsis",
+          "whiteSpace": "nowrap",
+          "overflow": "hidden",
+          "minWidth": "0px",
+          "clientWidth": 148,
+          "scrollWidth": 297,
+          "fullTitle": "Unable to connect the production workspace",
+          "text": "Unable to connect the production workspace"
+        }
+      },
+      {
+        "route": "customers",
+        "mode": "light",
+        "width": 1440,
+        "countContext": "total customers"
+      },
+      {
+        "route": "requests",
+        "mode": "dark",
+        "width": 390,
+        "countContext": "total requests",
+        "truncation": {
+          "textOverflow": "ellipsis",
+          "whiteSpace": "nowrap",
+          "overflow": "hidden",
+          "minWidth": "0px",
+          "clientWidth": 148,
+          "scrollWidth": 297,
+          "fullTitle": "Unable to connect the production workspace",
+          "text": "Unable to connect the production workspace"
+        }
+      },
+      {
+        "route": "customers",
+        "mode": "dark",
+        "width": 390,
+        "countContext": "total customers"
+      },
+      {
+        "route": "requests",
+        "mode": "light",
+        "width": 390,
+        "countContext": "total requests",
+        "truncation": {
+          "textOverflow": "ellipsis",
+          "whiteSpace": "nowrap",
+          "overflow": "hidden",
+          "minWidth": "0px",
+          "clientWidth": 148,
+          "scrollWidth": 297,
+          "fullTitle": "Unable to connect the production workspace",
+          "text": "Unable to connect the production workspace"
+        }
+      },
+      {
+        "route": "customers",
+        "mode": "light",
+        "width": 390,
+        "countContext": "total customers"
+      }
+    ],
+    "harnessSha256": "0cda434e900c2969caa1729160523828cf41fb5af332bcbcab887a76ee03f875",
+    "sourceSha256": "d394ee63859cda1473ef568610e13dc6a8aacad726f5cdf0831cbc5633cf6a24",
+    "lock": {
+      "schemaVersion": 1,
+      "consumer": "relay",
+      "package": "@dimitriszoitas/aegis-agentic",
+      "version": "0.3.0-experiment.0",
+      "tarballSha256": "8dd9e91c3e600047a5a14c452aab902e40c94e7c59dfca7cab1d90d761e674d5",
+      "kitIntegritySha256": "3f6bbaa2dbfe79f6dd6d381a31aa34043d4fc10e1999fbd6385312dfd7843fc6",
+      "registryRevision": 2,
+      "dependencySource": "Copied local dependency snapshot; clean registry installation is not verified.",
+      "profileId": "atlas",
+      "profileHash": "v1-75b2eb91",
+      "source": "Installed npm tarball; public package imports; no repository source aliases."
+    },
+    "limits": [
+      "Shared shell and patterns supplied to both agents; only the Requests page was independently generated.",
+      "Screenshots are evidence, not approved visual regression baselines.",
+      "Local demo data; no service or telemetry integration."
+    ],
+    "status": "passed"
+  },
+  "completedAt": "2026-10-28T18:53:31.668Z"
+}

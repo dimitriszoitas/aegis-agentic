@@ -29,7 +29,7 @@ export const defaultCompositionSpec: CompositionSpec = {
   pattern: 'dataset-filtering',
   profileId: 'aegis-default',
   profileRevision: 1,
-  registryRevision: 1,
+  registryRevision: registry.revision,
   mode: 'light',
   presentation: 'fundamental',
   density: 'comfortable',

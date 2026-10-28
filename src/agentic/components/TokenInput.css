@@ -7,10 +7,11 @@
   gap: var(--group-input-field-gap-compact);
   align-items: start;
 }
-.agentic-token-entry > .aegis-input {
+.agentic-token-entry > .aegis-textarea {
   flex: var(--group-input-field-flex-fill);
   min-width: var(--group-input-field-number-0);
 }
+.agentic-token-suggestions,
 .agentic-token-list {
   display: flex;
   flex-wrap: wrap;

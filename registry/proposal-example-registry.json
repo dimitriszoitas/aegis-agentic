@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "entries": [
+    {
+      "id": "button",
+      "name": "Button",
+      "kind": "component",
+      "version": 1,
+      "aliases": [
+        "action",
+        "submit",
+        "trigger"
+      ],
+      "capabilities": [
+        "activate-action",
+        "disabled-state",
+        "loading-state"
+      ],
+      "contract": "contracts/agentic/button.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/button",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/button/button.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "field",
+      "name": "Field",
+      "kind": "component",
+      "version": 1,
+      "aliases": [
+        "form field",
+        "label",
+        "validation message"
+      ],
+      "capabilities": [
+        "label-control",
+        "validation-feedback",
+        "description-association"
+      ],
+      "contract": "contracts/agentic/field.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/field",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/field/field.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "dialog",
+      "name": "Dialog",
+      "kind": "component",
+      "version": 1,
+      "aliases": [
+        "modal",
+        "confirmation",
+        "overlay"
+      ],
+      "capabilities": [
+        "modal-interaction",
+        "focus-return",
+        "dismissal"
+      ],
+      "contract": "contracts/agentic/dialog.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/modal",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/modal/modal.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "card",
+      "name": "Card",
+      "kind": "component",
+      "version": 1,
+      "aliases": [
+        "surface",
+        "panel",
+        "container"
+      ],
+      "capabilities": [
+        "group-related-content",
+        "surface-hierarchy"
+      ],
+      "contract": "contracts/agentic/card.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/card",
+      "provenance": {
+        "origin": "existing-aegis",
+        "source": "src/components/card/card.tsx",
+        "reviewedBy": null
+      }
+    },
+    {
+      "id": "dataset-filtering",
+      "name": "Dataset filtering",
+      "kind": "pattern",
+      "version": 1,
+      "aliases": [
+        "filter bar",
+        "search records",
+        "query data"
+      ],
+      "capabilities": [
+        "filter-dataset",
+        "immediate-filtering",
+        "explicit-filtering"
+      ],
+      "contract": "contracts/agentic/dataset-filtering.json",
+      "importPath": "@dimitriszoitas/aegis-agentic/agentic",
+      "provenance": {
+        "origin": "experimental-composition",
+        "source": "src/agentic/components/FilteredDataset.tsx",
+        "reviewedBy": null
+      }
+    }
+  ]
+}

@@ -1,19 +1,58 @@
 {
   "schemaVersion": 1,
   "id": "token-input",
-  "version": 1,
-  "status": "candidate",
-  "verification": "not-certified-by-this-contract",
-  "purpose": "Enter and remove multiple free-text values with per-value validation.",
-  "anatomy": ["label", "input", "tokens", "error"],
-  "states": ["empty", "populated", "invalid", "disabled", "focus-visible"],
+  "version": 2,
+  "status": "experimental",
+  "verification": "bounded-automated-evidence-not-human-certification",
+  "purpose": "Enter and remove multiple free-text values with atomic per-value validation and controlled host confirmation.",
+  "anatomy": [
+    "label",
+    "input",
+    "tokens",
+    "error",
+    "description",
+    "add-control",
+    "remove-controls",
+    "suggestions",
+    "status"
+  ],
+  "states": [
+    "empty",
+    "populated",
+    "invalid",
+    "disabled",
+    "focus-visible",
+    "pending-controlled-change",
+    "composing"
+  ],
   "invariants": [
-    "A committed value is trimmed and nonempty.",
-    "Duplicate behavior is explicitly reject or ignore.",
-    "Backspace never silently deletes a value while editing input.",
-    "Removal controls have accessible names.",
-    "Suggestions do not prevent new free-text values."
+    "A committed value is trimmed, Unicode NFC normalized and nonempty. Duplicate identity uses JavaScript lowercase after normalization.",
+    "Enter or Add commits; Shift+Enter inserts a newline. Blur commitment is off unless explicitly configured.",
+    "Newlines and tabs separate batch values. Commas remain literal unless comma is explicitly a commit key.",
+    "Every invalid batch is atomic: no values change and the exact submitted draft remains editable, including line breaks.",
+    "Duplicate reject is the default. Explicit ignore skips duplicates and announces their count.",
+    "Blank commit is a no-op. Validator accepts null/undefined; a nonempty string rejects; exceptions and other return types reject safely. Validators are synchronous.",
+    "In values confirmation mode a draft clears only when the host echoes the ordered requested values. This mode suits synchronous parents.",
+    "Asynchronous parents use request confirmation: accepted acknowledgment must match requestId AND requested ordered values; rejected acknowledgment preserves the draft. Stale acknowledgments never settle a newer request.",
+    "The host owns committed values and must honor the supplied AbortSignal when work is cancelled. This component cannot undo an authoritative stale host write.",
+    "Editing and restoring draft text still counts as a new draft. A delayed acceptance does not clear newer edits or steal focus.",
+    "Pending controls block additional mutations; draft remains editable. Keep editing aborts the pending request.",
+    "IME composition, native isComposing and keyCode229 prevent commit/removal. Holding Backspace does not remove values.",
+    "Empty-input Backspace arms removal; a second distinct press removes. Escape, blur or editing cancels the arm.",
+    "Suggestions are named buttons, preserve unrelated draft, and never restrict free-text entry. This is not a combobox.",
+    "Removal controls have accessible names; disabled state prevents user mutations."
   ],
   "tokenGroup": "input",
-  "behaviorProvider": "native-input-plus-existing-components"
+  "behaviorProvider": "native-textarea-plus-existing-components",
+  "defaults": {
+    "duplicatePolicy": "reject",
+    "commitKeys": [
+      "Enter"
+    ],
+    "commitOnBlur": false,
+    "confirmationMode": "values"
+  },
+  "asyncHostRequirement": "Use confirmationMode=request and correlate acknowledgment IDs; discard results whose request signal is aborted.",
+  "evidence": "experiments/token-input/consolidated/evidence.json",
+  "migration": "experiments/token-input/consolidated/MIGRATION.md"
 }

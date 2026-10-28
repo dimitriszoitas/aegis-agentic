@@ -157,7 +157,7 @@
     },
     "page-structure": {
       "title": "Patterns/Page Structure",
-      "prefixes": ["src/patterns/page-header/"]
+      "prefixes": ["src/patterns/page-header/", "src/patterns/page-layout/"]
     },
     "communication": {
       "title": "Patterns/Communication",
