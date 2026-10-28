@@ -212,7 +212,7 @@ try {
   await navigate('Component registry');
   await page
     .getByRole('textbox', { name: 'Find a component or capability' })
-    .fill('no-such-capability');
+    .fill('aegiszzznomatchfixturezzz');
   await expect(page.getByText('No registered capability matches.', { exact: false })).toBeVisible();
   await page.getByRole('textbox', { name: 'Find a component or capability' }).fill('');
   const a = page.getByRole('textbox', { name: 'Proposal A values', exact: true });
