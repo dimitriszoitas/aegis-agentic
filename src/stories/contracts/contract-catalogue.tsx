@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from '@/components/button';
-import { DataGrid, type DataGridProps } from '@/components/data-grid';
+import { DataGrid, type DataGridProps, type GridDensity } from '@/components/data-grid';
 import { DescriptionList } from '@/components/description-list';
 import { SearchInput } from '@/components/search-input';
 import { Select } from '@/components/select';
@@ -46,6 +46,7 @@ const kindOptions = [
 ];
 
 export function ContractCatalogue() {
+  const [density, setDensity] = useState<GridDensity>('default');
   const [state, setState] = useState(() => {
     const initial = readCatalogueState(new URL(navigationWindow().location.href));
     if (initial.selectedId && getContractEntry(initial.selectedId)?.kind === 'protocol')
@@ -244,7 +245,8 @@ export function ContractCatalogue() {
                   noun="contracts"
                   rowLabel={(entry) => entry.name}
                   enableSelection={false}
-                  density="default"
+                  density={density}
+                  onDensityChange={setDensity}
                   pagination
                   pageSize={10}
                   onRowClick={select}

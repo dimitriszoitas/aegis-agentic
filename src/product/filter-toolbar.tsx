@@ -1,9 +1,9 @@
-import { useRef, useState, type ReactNode } from 'react';
+import { useId, useRef, useState, type ReactNode } from 'react';
 import { Button } from '@/components/button';
 import { Checkbox } from '@/components/checkbox';
 import { CountBadge } from '@/components/count-badge';
-import { Funnel } from '@/components/icon';
-import { SideSheet } from '@/components/side-sheet';
+import { Funnel, X } from '@/components/icon';
+import { IconButton } from '@/components/icon-button';
 import { componentToken } from '@/lib/component-design-tokens';
 import { AppliedFilterGroups } from '@/patterns/filter-bar';
 import { FilterOptions } from '@/patterns/filter-panel';
@@ -16,7 +16,7 @@ export interface FormaFilterFacet {
   onValueChange: (values: string[]) => void;
 }
 
-/** Product-owned domain facets, composed from the shared filtering and overlay parts. */
+/** Product-owned facets following the shared in-flow push-filter pattern. */
 export function FormaFilterToolbar({
   label,
   search,
@@ -26,6 +26,7 @@ export function FormaFilterToolbar({
   resultCount,
   noun,
   onClearAll,
+  children,
 }: {
   label: string;
   search: ReactNode;
@@ -35,9 +36,15 @@ export function FormaFilterToolbar({
   resultCount: number;
   noun: 'user' | 'product' | 'invoice';
   onClearAll: () => void;
+  children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
   const root = useRef<HTMLDivElement>(null);
+  const panelId = useId();
+  const close = () => {
+    setOpen(false);
+    root.current?.querySelector<HTMLButtonElement>('button[aria-label="Filters"]')?.focus();
+  };
   const count =
     facets.reduce((total, facet) => total + facet.values.length, 0) + Number(!!query.trim());
   const result = `${resultCount} ${noun}${resultCount === 1 ? '' : 's'}`;
@@ -56,63 +63,19 @@ export function FormaFilterToolbar({
     <div className="forma-collection-filters" ref={root}>
       <div className="forma-filter-toolbar" role="search" aria-label={label}>
         <div className="forma-filter-search">{search}</div>
-        <SideSheet
-          title={label}
-          description="Changes apply immediately. Select multiple options to include any of them."
-          size="sm"
-          open={open}
-          onOpenChange={setOpen}
-          closeLabel="Close filter panel"
-          trigger={
-            <Button
-              emphasis="secondary"
-              intent={count ? 'function' : 'default'}
-              aria-label="Filters"
-              aria-description={`${count} active filters`}
-              leadingIcon={<Funnel size={componentToken('application.icon-md')} />}
-              trailingIcon={count ? <CountBadge count={count} label="active filters" /> : undefined}
-            >
-              Filters
-            </Button>
-          }
-          footer={
-            <div className="forma-filter-panel-footer">
-              <Button emphasis="ghost" disabled={!count} onClick={onClearAll}>
-                Clear all
-              </Button>
-              <Button intent="function" onClick={() => setOpen(false)}>
-                Show {result}
-              </Button>
-            </div>
-          }
+        <Button
+          emphasis="secondary"
+          intent={count ? 'function' : 'default'}
+          aria-label="Filters"
+          aria-description={`${count} active filters`}
+          aria-expanded={open}
+          aria-controls={open ? panelId : undefined}
+          onClick={() => setOpen((value) => !value)}
+          leadingIcon={<Funnel size={componentToken('application.icon-md')} />}
+          trailingIcon={count ? <CountBadge count={count} label="active filters" /> : undefined}
         >
-          <div className="forma-filter-panel-content">
-            <p className="forma-filter-panel-result forma-muted" role="status" aria-live="polite">
-              {result} match your filters
-            </p>
-            {facets.map((facet) => (
-              <fieldset className="forma-filter-facet" key={facet.id}>
-                <legend>{facet.label}</legend>
-                <FilterOptions groupLabel={facet.label}>
-                  {facet.options.map((option) => (
-                    <Checkbox
-                      key={option.value}
-                      label={option.label}
-                      checked={facet.values.includes(option.value)}
-                      onCheckedChange={(checked) =>
-                        facet.onValueChange(
-                          checked
-                            ? [...new Set([...facet.values, option.value])]
-                            : facet.values.filter((value) => value !== option.value),
-                        )
-                      }
-                    />
-                  ))}
-                </FilterOptions>
-              </fieldset>
-            ))}
-          </div>
-        </SideSheet>
+          Filters
+        </Button>
         <span className="forma-filter-result forma-muted" role="status" aria-live="polite">
           {result}
         </span>
@@ -126,6 +89,68 @@ export function FormaFilterToolbar({
           }
         />
       )}
+      <div className="forma-filter-workspace" data-panel-open={open}>
+        {open && (
+          <aside
+            id={panelId}
+            className="forma-filter-panel"
+            aria-label={label}
+            onKeyDown={(event) => {
+              if (event.key === 'Escape') {
+                event.preventDefault();
+                close();
+              }
+            }}
+          >
+            <div className="forma-filter-panel-heading">
+              <h2>{label}</h2>
+              <IconButton
+                aria-label="Close filter panel"
+                emphasis="ghost"
+                size="sm"
+                onClick={close}
+              >
+                <X size={componentToken('application.icon-sm')} />
+              </IconButton>
+            </div>
+            <div className="forma-filter-panel-footer">
+              <Button emphasis="ghost" disabled={!count} onClick={onClearAll}>
+                Clear all
+              </Button>
+              <Button intent="function" onClick={close}>
+                Show {result}
+              </Button>
+            </div>
+            <div className="forma-filter-panel-content">
+              <p className="forma-filter-panel-result forma-muted" role="status" aria-live="polite">
+                {result} match your filters
+              </p>
+              {facets.map((facet) => (
+                <fieldset className="forma-filter-facet" key={facet.id}>
+                  <legend>{facet.label}</legend>
+                  <FilterOptions groupLabel={facet.label}>
+                    {facet.options.map((option) => (
+                      <Checkbox
+                        key={option.value}
+                        label={option.label}
+                        checked={facet.values.includes(option.value)}
+                        onCheckedChange={(checked) =>
+                          facet.onValueChange(
+                            checked
+                              ? [...new Set([...facet.values, option.value])]
+                              : facet.values.filter((value) => value !== option.value),
+                          )
+                        }
+                      />
+                    ))}
+                  </FilterOptions>
+                </fieldset>
+              ))}
+            </div>
+          </aside>
+        )}
+        <div className="forma-filter-results">{children}</div>
+      </div>
     </div>
   );
 }

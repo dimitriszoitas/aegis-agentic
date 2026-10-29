@@ -3,7 +3,7 @@ import { expect } from '@playwright/test';
 /** Interact with the shared collection UI, retaining the existing workflow oracle. */
 export async function setCollectionFilter(page, collection, group, values) {
   const trigger = page.getByRole('button', { name: 'Filters', exact: true });
-  const dialog = page.getByRole('dialog', { name: `Filter ${collection}`, exact: true });
+  const dialog = page.getByRole('complementary', { name: `Filter ${collection}`, exact: true });
   if (!(await dialog.isVisible())) await trigger.click();
   await expect(dialog).toBeVisible();
   const options = dialog.getByRole('group', { name: group, exact: true });

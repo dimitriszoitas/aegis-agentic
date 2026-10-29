@@ -196,55 +196,56 @@ export function InvoicesPage({ state, update, notice, navigate }: FormaStore) {
             onValueChange={setQuery}
           />
         }
-      />
-      <DataGrid
-        data={filtered}
-        columns={columns}
-        getRowId={(invoice) => invoice.id}
-        label="Invoices"
-        noun="invoices"
-        rowLabel={(invoice) => `${invoice.number}, ${invoice.customer}`}
-        onRowClick={(invoice) => setSelectedId(invoice.id)}
-        density={state.settings.density}
-        onDensityChange={(density) =>
-          update((current) => ({ ...current, settings: { ...current.settings, density } }))
-        }
-        pagination
-        pageSize={10}
-        initialSorting={[{ id: 'issued', desc: true }]}
-        emptyTitle="No invoices found"
-        emptyDescription="Try another search or create an invoice."
-        renderBulkActions={(invoices, clear) => (
-          <>
-            <span>{invoices.length} selected</span>
-            <Button size="sm" emphasis="secondary" onClick={() => exportInvoices(invoices)}>
-              Export selected
-            </Button>
-            <Button
-              size="sm"
-              intent="function"
-              disabled={invoices.every((invoice) => invoice.status === 'Paid')}
-              onClick={() => {
-                const ids = new Set(invoices.map((invoice) => invoice.id));
-                const count = invoices.filter((invoice) => invoice.status !== 'Paid').length;
-                update((current) => ({
-                  ...current,
-                  invoices: current.invoices.map((invoice) =>
-                    ids.has(invoice.id) ? { ...invoice, status: 'Paid' } : invoice,
-                  ),
-                }));
-                clear();
-                notice(`${count} invoices marked as paid locally. No payments were processed.`);
-              }}
-            >
-              Mark selected paid
-            </Button>
-            <Button size="sm" emphasis="ghost" onClick={clear}>
-              Clear selection
-            </Button>
-          </>
-        )}
-      />
+      >
+        <DataGrid
+          data={filtered}
+          columns={columns}
+          getRowId={(invoice) => invoice.id}
+          label="Invoices"
+          noun="invoices"
+          rowLabel={(invoice) => `${invoice.number}, ${invoice.customer}`}
+          onRowClick={(invoice) => setSelectedId(invoice.id)}
+          density={state.settings.density}
+          onDensityChange={(density) =>
+            update((current) => ({ ...current, settings: { ...current.settings, density } }))
+          }
+          pagination
+          pageSize={10}
+          initialSorting={[{ id: 'issued', desc: true }]}
+          emptyTitle="No invoices found"
+          emptyDescription="Try another search or create an invoice."
+          renderBulkActions={(invoices, clear) => (
+            <>
+              <span>{invoices.length} selected</span>
+              <Button size="sm" emphasis="secondary" onClick={() => exportInvoices(invoices)}>
+                Export selected
+              </Button>
+              <Button
+                size="sm"
+                intent="function"
+                disabled={invoices.every((invoice) => invoice.status === 'Paid')}
+                onClick={() => {
+                  const ids = new Set(invoices.map((invoice) => invoice.id));
+                  const count = invoices.filter((invoice) => invoice.status !== 'Paid').length;
+                  update((current) => ({
+                    ...current,
+                    invoices: current.invoices.map((invoice) =>
+                      ids.has(invoice.id) ? { ...invoice, status: 'Paid' } : invoice,
+                    ),
+                  }));
+                  clear();
+                  notice(`${count} invoices marked as paid locally. No payments were processed.`);
+                }}
+              >
+                Mark selected paid
+              </Button>
+              <Button size="sm" emphasis="ghost" onClick={clear}>
+                Clear selection
+              </Button>
+            </>
+          )}
+        />
+      </FormaFilterToolbar>
       <SideSheet
         open={!!selected}
         onOpenChange={(open) => {

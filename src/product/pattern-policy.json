@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "product": "forma",
-  "revision": 3,
+  "revision": 4,
   "scope": "src/product",
   "route": "?view=product",
   "mode": {
@@ -71,7 +71,8 @@
       "mobileSearchWidth": "available-content-width",
       "invariants": [
         "Search first, then one Filters trigger with active count and result count",
-        "The shared wrapper opens a SideSheet with canonical FilterOptions and AppliedFilterGroups",
+        "The shared wrapper opens an in-flow push filter panel beside the collection; narrow layouts stack it above the collection",
+        "Filtering never uses a modal overlay, backdrop or inert page content; results stay interactive while the panel is open",
         "Immediate filtering: OR within a facet and AND across facets and search",
         "Close, Show results and Escape preserve applied values and restore trigger focus",
         "Clear all resets search and all facets; removable summaries clear only their category",

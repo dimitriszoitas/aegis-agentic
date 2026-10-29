@@ -383,84 +383,85 @@ export function UsersPage({ state, update, notice, navigate }: FormaStore) {
             }}
           />
         }
-      />
-      <DataGrid
-        data={filtered}
-        columns={columns}
-        getRowId={(user) => user.id}
-        label="All users"
-        noun="users"
-        rowLabel={(user) => user.name}
-        onRowClick={(user) => setDetailId(user.id)}
-        selectedRowIds={selectedIds}
-        onSelectedRowsChange={setSelectedIds}
-        density={state.settings.density}
-        onDensityChange={(density) =>
-          update((current) => ({ ...current, settings: { ...current.settings, density } }))
-        }
-        pageSize={10}
-        initialColumnVisibility={{ location: false }}
-        emptyTitle={
-          state.users.length ? 'No users match your filters' : 'Your people, in one place'
-        }
-        emptyDescription={
-          state.users.length
-            ? 'Try a different name, email, role or status, or clear the filters above.'
-            : 'Choose Add user to create your first user.'
-        }
-        renderBulkActions={(selected, clear) => (
-          <>
-            <span>{selected.length} selected</span>
-            <Button
-              size="sm"
-              emphasis="secondary"
-              onClick={() => {
-                const ids = new Set(selected.map((user) => user.id));
-                update((current) => ({
-                  ...current,
-                  users: current.users.map((user) =>
-                    ids.has(user.id) ? { ...user, status: 'Active' } : user,
-                  ),
-                }));
-                clear();
-                notice(`${selected.length} users marked active.`);
-              }}
-            >
-              Activate
-            </Button>
-            <Button
-              size="sm"
-              emphasis="secondary"
-              onClick={() => {
-                const ids = new Set(selected.map((user) => user.id));
-                update((current) => ({
-                  ...current,
-                  users: current.users.map((user) =>
-                    ids.has(user.id) ? { ...user, status: 'Suspended' } : user,
-                  ),
-                }));
-                clear();
-                notice(`${selected.length} users suspended.`);
-              }}
-            >
-              Suspend
-            </Button>
-            <Button
-              size="sm"
-              emphasis="ghost"
-              onClick={() => {
-                exportUsers(selected);
-                notice(`Exported ${selected.length} selected users.`);
-              }}
-            >
-              Export selected
-            </Button>
-            <Button size="sm" emphasis="ghost" onClick={clear}>
-              Clear selection
-            </Button>
-          </>
-        )}
-      />
+      >
+        <DataGrid
+          data={filtered}
+          columns={columns}
+          getRowId={(user) => user.id}
+          label="All users"
+          noun="users"
+          rowLabel={(user) => user.name}
+          onRowClick={(user) => setDetailId(user.id)}
+          selectedRowIds={selectedIds}
+          onSelectedRowsChange={setSelectedIds}
+          density={state.settings.density}
+          onDensityChange={(density) =>
+            update((current) => ({ ...current, settings: { ...current.settings, density } }))
+          }
+          pageSize={10}
+          initialColumnVisibility={{ location: false }}
+          emptyTitle={
+            state.users.length ? 'No users match your filters' : 'Your people, in one place'
+          }
+          emptyDescription={
+            state.users.length
+              ? 'Try a different name, email, role or status, or clear the filters above.'
+              : 'Choose Add user to create your first user.'
+          }
+          renderBulkActions={(selected, clear) => (
+            <>
+              <span>{selected.length} selected</span>
+              <Button
+                size="sm"
+                emphasis="secondary"
+                onClick={() => {
+                  const ids = new Set(selected.map((user) => user.id));
+                  update((current) => ({
+                    ...current,
+                    users: current.users.map((user) =>
+                      ids.has(user.id) ? { ...user, status: 'Active' } : user,
+                    ),
+                  }));
+                  clear();
+                  notice(`${selected.length} users marked active.`);
+                }}
+              >
+                Activate
+              </Button>
+              <Button
+                size="sm"
+                emphasis="secondary"
+                onClick={() => {
+                  const ids = new Set(selected.map((user) => user.id));
+                  update((current) => ({
+                    ...current,
+                    users: current.users.map((user) =>
+                      ids.has(user.id) ? { ...user, status: 'Suspended' } : user,
+                    ),
+                  }));
+                  clear();
+                  notice(`${selected.length} users suspended.`);
+                }}
+              >
+                Suspend
+              </Button>
+              <Button
+                size="sm"
+                emphasis="ghost"
+                onClick={() => {
+                  exportUsers(selected);
+                  notice(`Exported ${selected.length} selected users.`);
+                }}
+              >
+                Export selected
+              </Button>
+              <Button size="sm" emphasis="ghost" onClick={clear}>
+                Clear selection
+              </Button>
+            </>
+          )}
+        />
+      </FormaFilterToolbar>
       <p className="forma-muted">
         Select a row to explore user details. Use column menus to sort, pin or customize your view.
       </p>

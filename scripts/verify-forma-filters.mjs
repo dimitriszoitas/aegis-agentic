@@ -64,7 +64,7 @@ const cases = [
   },
 ];
 const trigger = () => page.getByRole('button', { name: 'Filters', exact: true });
-const panel = (item) => page.getByRole('dialog', { name: `Filter ${item.id}`, exact: true });
+const panel = (item) => page.getByRole('complementary', { name: `Filter ${item.id}`, exact: true });
 const search = (item) => page.getByRole('searchbox', { name: `Search ${item.id}`, exact: true });
 const resultLabel = (item, count) =>
   `Show ${count} ${count === 1 ? item.id.slice(0, -1) : item.id}`;
@@ -106,6 +106,7 @@ async function assertResults(item, expected) {
 }
 
 async function open(item) {
+  const before = await page.locator('.forma-filter-results').boundingBox();
   await trigger().click();
   const dialog = panel(item);
   await expect(dialog).toBeVisible();
@@ -128,6 +129,28 @@ async function open(item) {
     geometry.documentWidth <= geometry.viewport + 1,
     `${item.title} filter panel does not create page overflow`,
   );
+  const after = await page.locator('.forma-filter-results').boundingBox();
+  const panelBox = await dialog.boundingBox();
+  if (geometry.viewport > 767) {
+    assert(
+      after.x > before.x + 100 && after.width < before.width - 100,
+      `${item.title}: filters push and resize results`,
+    );
+    assert(
+      panelBox.x + panelBox.width <= after.x + 1,
+      `${item.title}: panel and results never overlap`,
+    );
+  } else {
+    assert(
+      panelBox.y + panelBox.height <= after.y + 1,
+      `${item.title}: narrow panel stacks before results`,
+    );
+  }
+  await expect(page.locator('.forma-filter-results').locator('[inert]')).toHaveCount(0);
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await search(item).focus();
+  await expect(search(item)).toBeFocused();
+  await dialog.getByRole('button', { name: 'Close filter panel', exact: true }).focus();
   for (const irrelevant of ['Severity', 'Assignee', 'Source'])
     await expect(dialog.getByRole('group', { name: irrelevant, exact: true })).toHaveCount(0);
   return dialog;
