@@ -1,0 +1,12 @@
+diff --git a/src/components/metric-card/metric-card.css b/src/components/metric-card/metric-card.css
+index 0869d3e..c72f791 100644
+--- a/src/components/metric-card/metric-card.css
++++ b/src/components/metric-card/metric-card.css
+@@ -97,7 +97,3 @@
+   flex-direction: column;
+   gap: var(--group-data-display-metric-card-space-gap-comfortable);
+ }
+-
+-.aegis-metric-main > .aegis-sparkline {
+-  min-width: var(--group-data-display-metric-card-size-max-width-extended-canvas-roomy);
+-}

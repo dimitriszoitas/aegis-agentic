@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "evidenceOrigin": "seeded-regression",
+  "providerKind": "controlled-test-provider",
+  "aiExecution": false,
+  "externalModelRequests": 0,
+  "observedProductionDefect": false,
+  "state": "passed",
+  "startedAt": "2026-10-28T22:19:27.843Z",
+  "originalRepository": "/private/tmp/aegis-agentic-experiment",
+  "originalBaseCommit": "42849a29b01a23b18cc12a7a0833d4f3d90df6dc",
+  "originalSourceTreeSha256": "c351d784dc8f983f0e9a1f06ffa444ac688a352452b8f4da0926ebec4186fe46",
+  "fixtureRepository": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-repair-controlled-JGoT5u/fixture",
+  "limitations": [
+    "The defect and its deterministic repair are supplied by this test.",
+    "This verifies worker orchestration, the real browser oracle, regressions and isolation; it does not verify AI diagnosis or repair quality.",
+    "No external model, publication, automatic merge or release is performed."
+  ],
+  "healthyBaseline": {
+    "status": "passed",
+    "scenarios": 84,
+    "productScenarios": 28,
+    "canonicalScenarios": 56,
+    "canonicalFailures": 0,
+    "reportSha256": "d4dd4b2cb40247ff00d2a2e4e0995dfaf1fb05393fb6efff9cb672b7e487a50f"
+  },
+  "seededCommit": "9cfea4a4e1e9486822f8899804a1ce2be6b63b20",
+  "seed": {
+    "path": "src/components/metric-card/metric-card.css",
+    "beforeSha256": "eeab1c983f1463b2ab371f3652b10efb2874c1a5cd6de5669ddf3a263503ccf2",
+    "afterSha256": "93bb6ab8296b46c6fa34f37899eeec858e288dcb7967f2c1c3d1d5be9a010761"
+  },
+  "before": {
+    "status": "failed",
+    "scenarios": 84,
+    "productScenarios": 28,
+    "canonicalScenarios": 56,
+    "canonicalFailures": 56,
+    "reportSha256": "5d1fdbb0d287cec5e7aa8fc948d87dd8e1eb3e96a0cccbf7be06310e24208fd1"
+  },
+  "worker": {
+    "id": "121fad8f25739e80f4a00d0e9232d2a3",
+    "state": "proposed",
+    "candidate": "/private/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-repair-controlled-JGoT5u/fixture/.aegis-repair/121fad8f25739e80f4a00d0e9232d2a3/candidate",
+    "candidateCommit": "ad6060631da60f6baf04af585cf4ab7a62a2aff0",
+    "branch": "codex/repair/metric-containment/121fad8f2573",
+    "policySha256": "f565c624634065d6f279f18af8390ce9831d87a71bd8b037bdfaa45a907547c2",
+    "patchSha256": "4b8997d76671152dc95c2a5cc5edc194c15c216efbaaaa3a71d52bd5e5bce8a0",
+    "attempts": [
+      {
+        "number": 1,
+        "state": "passed",
+        "provenance": {
+          "kind": "controlled-test-provider",
+          "modelInvoked": false,
+          "fixtureOnly": true,
+          "knownAnswer": true
+        },
+        "regressions": [
+          {
+            "id": "types",
+            "passed": true,
+            "durationMs": 9520
+          },
+          {
+            "id": "tokens",
+            "passed": true,
+            "durationMs": 2055
+          },
+          {
+            "id": "headless",
+            "passed": true,
+            "durationMs": 409
+          },
+          {
+            "id": "unit",
+            "passed": true,
+            "durationMs": 3623
+          }
+        ]
+      }
+    ]
+  },
+  "controlledProviderCalls": 1,
+  "after": {
+    "status": "passed",
+    "scenarios": 84,
+    "productScenarios": 28,
+    "canonicalScenarios": 56,
+    "canonicalFailures": 0,
+    "reportSha256": "000ee740dc3671a7f2db0ec02f80a66e87fe0b40a8fa130220d82203425cdd2f"
+  },
+  "protectedSourceUnchanged": true,
+  "externalPublication": false,
+  "originalSourceTreeAfterSha256": "c351d784dc8f983f0e9a1f06ffa444ac688a352452b8f4da0926ebec4186fe46",
+  "originalSourceUnchanged": true,
+  "finishedAt": "2026-10-28T22:21:18.003Z",
+  "evidenceDirectory": "/private/tmp/aegis-agentic-experiment/artifacts/repair-worker-controlled/c46c48c5-fe7f-4f82-8041-bf58089b2295"
+}

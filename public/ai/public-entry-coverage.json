@@ -9,7 +9,7 @@
   "sources": [
     {
       "path": "package.json",
-      "sha256": "c04c3c55474a369854b6930280df4f94da189e087889dd196f1c8a1c720cb4ec"
+      "sha256": "d1a22bfd76bd93755f48b936bf3b5c2ed454a99c961361355a371b031515a46f"
     },
     {
       "path": "public/ai/contract-catalogue.json",

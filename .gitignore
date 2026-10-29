@@ -16,6 +16,7 @@ playwright-report/
 agent-kit/
 agentic-dist/
 .aegis-maintenance/
+.aegis-repair/
 
 .aegis-workspace/
 

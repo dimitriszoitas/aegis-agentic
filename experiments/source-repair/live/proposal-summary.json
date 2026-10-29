@@ -1,0 +1,28 @@
+{
+  "summary": "Remove the MetricCard sparkline minimum-width override that causes horizontal overflow.",
+  "rationale": "The trailing rule overrides the existing zero minimum width with an extended canvas width, matching the measured 1500px chart inside 360px of card content. Removing it restores the existing token-based flex sizing and maximum width while retaining the visible sparkline and automatic aspect-ratio sizing. No checks were run.",
+  "changes": [
+    {
+      "path": "src/components/metric-card/metric-card.css",
+      "beforeSha256": "93bb6ab8296b46c6fa34f37899eeec858e288dcb7967f2c1c3d1d5be9a010761",
+      "afterSha256": "eeab1c983f1463b2ab371f3652b10efb2874c1a5cd6de5669ddf3a263503ccf2"
+    }
+  ],
+  "provider": {
+    "kind": "codex-cli",
+    "executable": "codex",
+    "mode": "read-only-proposal",
+    "modelSelection": "cli-default",
+    "startedAt": "2026-10-29T04:20:32.280Z",
+    "durationMs": 16142,
+    "promptSha256": "7d2c63d7a74308118105093ca23c67c25e33bf24c22fde1aecd0cc1639f10b1b",
+    "responseSha256": "e50eb8133c4fa3893d28db92c1ebd8b5a72f3bc25232e70f5cc2f1c39bbfc1f1",
+    "outputBytes": 5119,
+    "usage": {
+      "input_tokens": 12493,
+      "cached_input_tokens": 0,
+      "output_tokens": 1288,
+      "reasoning_output_tokens": 16
+    }
+  }
+}

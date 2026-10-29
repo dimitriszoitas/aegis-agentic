@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-10-29T04-19-27.972Z-2946bf7b",
+  "experiment": "source-repair-worker-live",
+  "evidenceOrigin": "seeded-regression",
+  "defectOrigin": "intentionally introduced into a disposable fixture repository",
+  "providerExecution": "live-codex-cli",
+  "observedProductionDefect": false,
+  "originalRepository": "/private/tmp/aegis-agentic-experiment",
+  "originalBaseCommit": "6fc55e040e169466616317c1e06dbfdef78aa2dd",
+  "originalSourceTreeSha256": "052d2e9feb34328a6ae830541615c3964986eeff9ff5221c3fb049bf552f9e21",
+  "fixtureRepository": "/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-repair-live-proof-FVu7WY/fixture",
+  "auditId": "metric-containment",
+  "startedAt": "2026-10-29T04:19:27.973Z",
+  "state": "passed",
+  "providerCalls": [
+    {
+      "attempt": 1,
+      "provenance": {
+        "kind": "codex-cli",
+        "executable": "codex",
+        "mode": "read-only-proposal",
+        "modelSelection": "cli-default",
+        "startedAt": "2026-10-29T04:20:32.280Z",
+        "durationMs": 16142,
+        "promptSha256": "7d2c63d7a74308118105093ca23c67c25e33bf24c22fde1aecd0cc1639f10b1b",
+        "responseSha256": "e50eb8133c4fa3893d28db92c1ebd8b5a72f3bc25232e70f5cc2f1c39bbfc1f1",
+        "outputBytes": 5119,
+        "usage": {
+          "input_tokens": 12493,
+          "cached_input_tokens": 0,
+          "output_tokens": 1288,
+          "reasoning_output_tokens": 16
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "The defect is deliberately seeded. This is not evidence of a detected production incident.",
+    "A successful run proves one bounded live proposal against the recorded Chromium scenarios and regressions.",
+    "It does not establish repair reliability across arbitrary components, semantic correctness, automatic merge or release authority."
+  ],
+  "healthyBaseline": {
+    "status": "passed",
+    "scenarios": 84,
+    "productScenarios": 28,
+    "canonicalScenarios": 56,
+    "canonicalFailures": 0,
+    "reportSha256": "bd82cc22ab6a37e6ba0a568fc43837337d4f1b98f218b32077dc2690efe8c712"
+  },
+  "seededBaseCommit": "17a54fe9797bde3a35a89ba9fed41ad2d9a5cde2",
+  "seed": {
+    "path": "src/components/metric-card/metric-card.css",
+    "beforeSha256": "eeab1c983f1463b2ab371f3652b10efb2874c1a5cd6de5669ddf3a263503ccf2",
+    "afterSha256": "93bb6ab8296b46c6fa34f37899eeec858e288dcb7967f2c1c3d1d5be9a010761",
+    "patchSha256": "633f4924591fac7a57ff81295b13d3496326f626b9f33e6211b93f0e5c6cef6e",
+    "description": "A sparkline receives an excessive minimum width from an existing group token."
+  },
+  "worker": {
+    "id": "5261ffde8b6c47daf5c232ae5cacd75e",
+    "state": "proposed",
+    "baseCommit": "17a54fe9797bde3a35a89ba9fed41ad2d9a5cde2",
+    "candidateCommit": "d9ef846ba7080c5ca596b91bd1c456f4a356f7f9",
+    "candidateRepository": "/private/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-repair-live-proof-FVu7WY/fixture/.aegis-repair/5261ffde8b6c47daf5c232ae5cacd75e/candidate",
+    "reportPath": "/private/var/folders/l4/10pfsrln6fx22jwhf0g43x2h0000gn/T/aegis-repair-live-proof-FVu7WY/fixture/.aegis-repair/5261ffde8b6c47daf5c232ae5cacd75e/report.json",
+    "policySha256": "f565c624634065d6f279f18af8390ce9831d87a71bd8b037bdfaa45a907547c2",
+    "patchSha256": "4b8997d76671152dc95c2a5cc5edc194c15c216efbaaaa3a71d52bd5e5bce8a0",
+    "authority": "isolated-proposal-only",
+    "attempts": [
+      {
+        "number": 1,
+        "state": "passed",
+        "audit": {
+          "status": "passed",
+          "scenarios": 84,
+          "productScenarios": 28,
+          "canonicalScenarios": 56,
+          "canonicalFailures": 0,
+          "reportSha256": "2e3b16fbd243c5ab95a68dbb367b0fb86146d503f7d8e53809f8d7b737562034"
+        },
+        "regressions": [
+          {
+            "id": "types",
+            "passed": true,
+            "durationMs": 9683
+          },
+          {
+            "id": "tokens",
+            "passed": true,
+            "durationMs": 2087
+          },
+          {
+            "id": "headless",
+            "passed": true,
+            "durationMs": 401
+          },
+          {
+            "id": "unit",
+            "passed": true,
+            "durationMs": 3760
+          }
+        ],
+        "provider": {
+          "kind": "codex-cli",
+          "executable": "codex",
+          "mode": "read-only-proposal",
+          "modelSelection": "cli-default",
+          "startedAt": "2026-10-29T04:20:32.280Z",
+          "durationMs": 16142,
+          "promptSha256": "7d2c63d7a74308118105093ca23c67c25e33bf24c22fde1aecd0cc1639f10b1b",
+          "responseSha256": "e50eb8133c4fa3893d28db92c1ebd8b5a72f3bc25232e70f5cc2f1c39bbfc1f1",
+          "outputBytes": 5119,
+          "usage": {
+            "input_tokens": 12493,
+            "cached_input_tokens": 0,
+            "output_tokens": 1288,
+            "reasoning_output_tokens": 16
+          }
+        },
+        "changes": [
+          {
+            "path": "src/components/metric-card/metric-card.css",
+            "beforeSha256": "93bb6ab8296b46c6fa34f37899eeec858e288dcb7967f2c1c3d1d5be9a010761",
+            "afterSha256": "eeab1c983f1463b2ab371f3652b10efb2874c1a5cd6de5669ddf3a263503ccf2"
+          }
+        ]
+      }
+    ]
+  },
+  "before": {
+    "status": "failed",
+    "scenarios": 84,
+    "productScenarios": 28,
+    "canonicalScenarios": 56,
+    "canonicalFailures": 56,
+    "reportSha256": "ec85d77c4cb51bf6678d08c382e7c40054d3bf030352b9a04d705246c0a51b33"
+  },
+  "after": {
+    "status": "passed",
+    "scenarios": 84,
+    "productScenarios": 28,
+    "canonicalScenarios": 56,
+    "canonicalFailures": 0,
+    "reportSha256": "2e3b16fbd243c5ab95a68dbb367b0fb86146d503f7d8e53809f8d7b737562034"
+  },
+  "candidateSourceTreeSha256": "c979f6c0ac0ee06d7bfffde42a36b1c215089bfae4c56377fee16b977ca10971",
+  "sourceHashes": {
+    "src/components/metric-card/metric-card.css": {
+      "original": "eeab1c983f1463b2ab371f3652b10efb2874c1a5cd6de5669ddf3a263503ccf2",
+      "seeded": "93bb6ab8296b46c6fa34f37899eeec858e288dcb7967f2c1c3d1d5be9a010761",
+      "proposed": "eeab1c983f1463b2ab371f3652b10efb2874c1a5cd6de5669ddf3a263503ccf2"
+    },
+    "src/components/sparkline/sparkline.css": {
+      "original": "08d91548267955ba34f38d543adb2c22470be52fdc451006031f1c4e494faba3",
+      "seeded": "08d91548267955ba34f38d543adb2c22470be52fdc451006031f1c4e494faba3",
+      "proposed": "08d91548267955ba34f38d543adb2c22470be52fdc451006031f1c4e494faba3"
+    }
+  },
+  "originalSourceTreeAfterSha256": "052d2e9feb34328a6ae830541615c3964986eeff9ff5221c3fb049bf552f9e21",
+  "originalSourceUnchanged": true,
+  "finishedAt": "2026-10-29T04:21:36.285Z"
+}

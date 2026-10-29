@@ -148,6 +148,8 @@ The server accepts up to 100 events per batch, rejects the entire batch if an ev
 
 ## Deterministic maintenance and periodic repair
 
+The source repository additionally provides a [bounded source repair worker](SOURCE-REPAIR.md) for MetricCard/Sparkline CSS defects. It runs separate browser audits and creates reviewable source proposals. It is not part of this service's `reconcile` action or portable kit, and does not automatically approve or release source changes.
+
 ```sh
 npm run infrastructure -- plan --project .aegis-workspace
 npm run infrastructure -- reconcile --project .aegis-workspace
