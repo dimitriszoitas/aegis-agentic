@@ -10,6 +10,7 @@ export const canonicalSidebarEntry: API_FilterFunction = (entry) => {
       'Principles',
       'Directory',
       'Contract Catalogue',
+      'Contract Semantics',
       'AI Guidelines',
       'Agentic Skills',
       'MCP Integration',
@@ -18,6 +19,8 @@ export const canonicalSidebarEntry: API_FilterFunction = (entry) => {
     return entry.type === 'docs';
   }
   if (entry.title.startsWith('Agentic Skills/')) return false;
+  // Infrastructure tools include interactive stories as well as reference docs.
+  if (entry.title.startsWith('Agentic Tools/')) return true;
   if (entry.title.startsWith('Components/') || entry.title.startsWith('Patterns/')) return false;
   if (entry.title.startsWith('Foundations/')) {
     // Icons uses the generated hub. Other foundations retain their native docs page.
