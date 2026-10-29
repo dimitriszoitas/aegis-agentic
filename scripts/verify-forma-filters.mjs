@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { chromium, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { assertPushFilterLayout } from './acceptance/oracles.mjs';
 
 const base = (process.env.FORMA_URL || 'http://127.0.0.1:4180/?view=product').split('#')[0];
 const output = 'artifacts/forma-filters';
@@ -111,45 +112,13 @@ async function open(item) {
   const dialog = panel(item);
   await expect(dialog).toBeVisible();
   await expect(dialog.getByRole('button', { name: /^(Apply|Cancel)$/ })).toHaveCount(0);
-  const geometry = await dialog.evaluate((element) => {
-    const rect = element.getBoundingClientRect();
-    return {
-      left: rect.left,
-      right: rect.right,
-      width: rect.width,
-      viewport: innerWidth,
-      documentWidth: document.documentElement.scrollWidth,
-    };
+  await assertPushFilterLayout({
+    page,
+    panel: dialog,
+    results: page.locator('.forma-filter-results'),
+    before,
+    interactive: search(item),
   });
-  assert(
-    geometry.left >= -1 && geometry.right <= geometry.viewport + 1,
-    `${item.title} filter panel fits viewport`,
-  );
-  assert(
-    geometry.documentWidth <= geometry.viewport + 1,
-    `${item.title} filter panel does not create page overflow`,
-  );
-  const after = await page.locator('.forma-filter-results').boundingBox();
-  const panelBox = await dialog.boundingBox();
-  if (geometry.viewport > 767) {
-    assert(
-      after.x > before.x + 100 && after.width < before.width - 100,
-      `${item.title}: filters push and resize results`,
-    );
-    assert(
-      panelBox.x + panelBox.width <= after.x + 1,
-      `${item.title}: panel and results never overlap`,
-    );
-  } else {
-    assert(
-      panelBox.y + panelBox.height <= after.y + 1,
-      `${item.title}: narrow panel stacks before results`,
-    );
-  }
-  await expect(page.locator('.forma-filter-results').locator('[inert]')).toHaveCount(0);
-  await expect(page.getByRole('dialog')).toHaveCount(0);
-  await search(item).focus();
-  await expect(search(item)).toBeFocused();
   await dialog.getByRole('button', { name: 'Close filter panel', exact: true }).focus();
   for (const irrelevant of ['Severity', 'Assignee', 'Source'])
     await expect(dialog.getByRole('group', { name: irrelevant, exact: true })).toHaveCount(0);

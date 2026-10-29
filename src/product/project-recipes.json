@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "project": "forma",
+  "revision": 1,
+  "recipes": {
+    "collection": {
+      "header": "standard",
+      "filters": "push",
+      "searchMeasure": "wide",
+      "density": "comfortable",
+      "details": "side-sheet",
+      "narrow": "stack"
+    },
+    "detail": {
+      "header": "standard",
+      "supportingRegion": "none",
+      "measure": "comfortable",
+      "narrow": "stack"
+    },
+    "settings": {
+      "header": "standard",
+      "measure": "comfortable",
+      "save": "explicit",
+      "narrow": "stack"
+    },
+    "dashboard": {
+      "header": "standard",
+      "maxColumns": 4,
+      "minItemWidth": "regular",
+      "narrow": "stack"
+    }
+  }
+}

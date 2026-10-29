@@ -9,6 +9,7 @@ import {
   type ContractEntry,
   type ContractRequirement,
 } from '@/agentic/contracts';
+import { getAcceptanceRequirement } from '@/agentic/acceptance';
 import './contracts.css';
 
 const words = (name: string) => name.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('-', ' ');
@@ -66,6 +67,26 @@ function SourceReference({ path, sha256 }: { path: string; sha256: string }) {
   );
 }
 
+function RequirementAcceptance({
+  contractId,
+  requirementId,
+}: {
+  contractId: string;
+  requirementId: string;
+}) {
+  const acceptance = getAcceptanceRequirement(contractId, requirementId);
+  return (
+    <div>
+      <Tag>{acceptance?.status ?? 'unsupported'}</Tag>
+      <p>
+        {acceptance?.caseIds.length
+          ? `Registered scenarios: ${acceptance.caseIds.join(', ')}. A scenario covers only part of this requirement.`
+          : 'No executable scenario is registered for this requirement in the shared acceptance runner.'}
+      </p>
+    </div>
+  );
+}
+
 function AuthoredRequirements({ entry }: { entry: ContractEntry }) {
   const contract = entry.contract!;
   const requirements = contract.document.requirements as readonly ContractRequirement[];
@@ -88,6 +109,7 @@ function AuthoredRequirements({ entry }: { entry: ContractEntry }) {
               <code>{requirement.id}</code>
             </div>
             <p>{requirement.statement}</p>
+            <RequirementAcceptance contractId={contract.id} requirementId={requirement.id} />
             <details>
               <summary>Requirement sources</summary>
               <ul className="contract-references">

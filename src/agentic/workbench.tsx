@@ -20,6 +20,8 @@ import { Tag } from '@/components/tag';
 import { StatusBadge } from '@/components/status-badge';
 import { TokenInput } from './components/TokenInput';
 import { FilteredDataset, type FilteredDatasetRecord } from './components/FilteredDataset';
+import { PortabilityPanel } from './portability-panel';
+import { RecipePanel } from './recipe-panel';
 import { InfrastructurePanel } from './infrastructure-panel';
 import { compileProfile, designProfiles, validateProfile, type DesignProfile } from './profile';
 import {
@@ -34,10 +36,12 @@ import * as composition from './composition';
 import * as maintenance from './maintenance';
 import './workbench.css';
 
-type Page = 'configure' | 'compose' | 'registry' | 'maintain' | 'export' | 'infrastructure';
+type Page =
+  'recipes' | 'configure' | 'compose' | 'registry' | 'maintain' | 'export' | 'infrastructure';
 const pages: { id: Page; label: string; detail: string }[] = [
   { id: 'configure', label: 'Design language', detail: 'Set the character' },
   { id: 'compose', label: 'Compose a pattern', detail: 'Intent to interface' },
+  { id: 'recipes', label: 'Project recipes', detail: 'One shared set of rules' },
   { id: 'registry', label: 'Component registry', detail: 'Discover and extend' },
   { id: 'maintain', label: 'Maintain the system', detail: 'Inspect changes' },
   { id: 'export', label: 'Export agent kit', detail: 'Bring your own agent' },
@@ -352,7 +356,8 @@ export function AgenticWorkbench() {
               <p>Rules, contracts, and evidence travel with your system.</p>
             </div>
             <div className="aw-version">
-              <span className="aw-project-dot" /> Experimental build <span>v{packageVersion.split('.').slice(0, 2).join('.')}</span>
+              <span className="aw-project-dot" /> Experimental build{' '}
+              <span>v{packageVersion.split('.').slice(0, 2).join('.')}</span>
             </div>
           </div>
         </aside>
@@ -634,6 +639,7 @@ export function AgenticWorkbench() {
                 onSpecChange={setCompositionSpec}
               />
             )}
+            {page === 'recipes' && <RecipePanel />}
             {page === 'registry' && <RegistryWorkbench />}
             {page === 'maintain' && <MaintenanceWorkbench />}
             {page === 'infrastructure' && <InfrastructurePanel />}
@@ -724,6 +730,7 @@ export function AgenticWorkbench() {
                     </CardFooter>
                   </Card>
                 </div>
+                <PortabilityPanel profile={compiled.profile} onApply={setProfile} />
                 <section className="aw-handoff">
                   <span className="aw-eyebrow">THE AGENT WORKFLOW</span>
                   <h2>Discover → compose → validate → review</h2>
@@ -1137,7 +1144,10 @@ function RegistryWorkbench() {
         <div>
           <span className="aw-eyebrow">EXTENSION LAB</span>
           <h2>One name. Two interpretations.</h2>
-          <p>These historical fixtures use registry revision 1 to demonstrate conflicting defaults. The current registry includes the consolidated experimental TokenInput.</p>
+          <p>
+            These historical fixtures use registry revision 1 to demonstrate conflicting defaults.
+            The current registry includes the consolidated experimental TokenInput.
+          </p>
         </div>
         <Tag intent="warning">Proposals · not approved</Tag>
       </div>

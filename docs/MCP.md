@@ -24,7 +24,9 @@ Configure a compatible MCP client explicitly using its own configuration format.
         "--profile",
         "profile/profile.json",
         "--policy",
-        "pattern-policy.json"
+        "pattern-policy.json",
+        "--recipes",
+        "project-recipes.json"
       ]
     }
   }
@@ -53,18 +55,19 @@ Unknown lock formats, mismatched versions/hashes, missing files and escaping pat
 
 Resources use fixed `aegis://` identities:
 
-| Resource                  | Contents                                                                   |
-| ------------------------- | -------------------------------------------------------------------------- |
-| `aegis://context`         | Installed kit identity and explicit bound/unbound context                  |
-| `aegis://project-profile` | Exact bound configured profile (bound mode only)                           |
-| `aegis://project-policy`  | Current explicitly selected product policy (bound mode only)               |
-| `aegis://catalogue`       | Searchable entry summaries, coverage distinctions and exact-document links |
-| `aegis://contracts/<id>`  | Exact authored contract or system protocol JSON                            |
-| `aegis://api/<id>`        | Exact generated public API metadata                                        |
-| `aegis://profiles/<id>`   | Installed profile preset JSON                                              |
-| `aegis://page-recipes`    | Supported layout recipe facts and limits                                   |
+| Resource                        | Contents                                                                       |
+| ------------------------------- | ------------------------------------------------------------------------------ |
+| `aegis://context`               | Installed kit identity and explicit bound/unbound context                      |
+| `aegis://project-profile`       | Exact bound configured profile (bound mode only)                               |
+| `aegis://project-recipes`       | Explicitly selected validated project recipe configuration (when bound)        |
+| `aegis://project-policy`        | Current explicitly selected product policy (bound mode only)                   |
+| `aegis://catalogue`             | Searchable entry summaries, coverage distinctions and exact-document links     |
+| `aegis://contracts/<id>`        | Exact authored contract or system protocol JSON                                |
+| `aegis://api/<id>`              | Exact generated public API metadata                                            |
+| `aegis://profiles/<id>`         | Installed profile preset JSON                                                  |
+| `aegis://page-recipes`          | Supported layout recipe facts and limits                                       |
 | `aegis://public-entry-coverage` | Public UI ownership/export classification snapshot, when advertised by the kit |
-| `aegis://guidance/<name>` | Exact installed skill or shared reference text                             |
+| `aegis://guidance/<name>`       | Exact installed skill or shared reference text                                 |
 
 The creation resources `aegis://guidance/create-component`, `aegis://guidance/create-token` and `aegis://guidance/create-layout` are exposed only when the installed kit advertises them in `authoringGuidance.skills`. They require a **library source checkout**: distributing these instructions does not put source folders or authoring checks in an installed npm package and does not authorize editing `node_modules`. Older supported kits without this metadata keep their existing resources. The optional public-entry coverage resource likewise appears only when advertised, and its supplied SHA-256 is checked in addition to the installed integrity manifest.
 
@@ -72,7 +75,7 @@ Clients should list resources and follow returned identities rather than guess n
 
 The 0.7 catalogue includes 127 authored component/pattern contracts, with all 124 API families mapped, zero API-only families and three authored-only entries. Seventeen working additions and authored requirements for all 78 previously uncovered families complete this milestone. Schema-2 contracts distinguish component responsibilities, host obligations and design guidance using stable requirement ids and cited sources. The catalogue wrapper remains schema 1; documents returned by `aegis://contracts/<id>` retain their own schema and version. Referenced hashes identify the source snapshot, not executed acceptance evidence. See [contract semantics and coverage](CONTRACTS.md).
 
-Tools are `search_contracts`, `inspect_project_context`, `validate_page_recipe`, `validate_composition` and `audit_product_patterns`. Search delegates to the installed core catalogue helper, including curated capability aliases. Recipe and composition checks call the same pure engines as the kit CLI. Product audit uses the same installed static pattern-policy engine, reading only explicitly declared sources inside the bound policy scope. The adapter has no write, install, repair, promotion, instrumentation or network-fetch tools.
+Tools include `search_contracts`, `inspect_project_context`, `validate_page_recipe`, `validate_composition`, `audit_product_patterns`, `discover_by_behavior` and `resolve_project_recipe`. The new behaviour and project-recipe tools are advertised only when the installed core provides their capabilities. Optional `--recipes project-recipes.json` binds a validated relative file at startup; its product must match a bound pattern policy and later changes require rebinding. Discovery can work without a project; project-specific resolution requires the selected recipe. Neither tool invents approval or renders a page. Search delegates to the installed core catalogue helper, including curated capability aliases. Recipe and composition checks call the same pure engines as the kit CLI. Product audit uses the same installed static pattern-policy engine, reading only explicitly declared sources inside the bound policy scope. The adapter has no write, install, repair, promotion, instrumentation or network-fetch tools.
 
 The `build_page` and `audit_page` prompts combine the task with current context and exact installed build/audit skill, agentic contract and page composition, design contract and pattern-policy guidance. They expose source guidance; they do not execute it or extend the host agent's authority.
 

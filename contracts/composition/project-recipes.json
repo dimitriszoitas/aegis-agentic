@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "project-recipes",
+  "version": 1,
+  "status": "authored-project-composition-requirements",
+  "scope": "Project composition obligations; not component implementation guarantees or passing evidence.",
+  "requirements": [
+    {
+      "id": "push-resizes-results",
+      "kind": "host",
+      "statement": "Opening push filters reduces the adjacent results region width on a wide container; closing restores it.",
+      "verification": "Compare results bounding rectangles before, during and after opening.",
+      "verificationSource": "scripts/acceptance/oracles.mjs",
+      "sources": ["src/agentic/project-recipes.ts", "skills/references/page-composition.md"]
+    },
+    {
+      "id": "push-keeps-results-interactive",
+      "kind": "host",
+      "statement": "Push filters create no backdrop, modal dialog, inert results or focus trap. Results remain interactive.",
+      "verification": "Open filters, interact with results, and inspect inert/modal/backdrop state.",
+      "verificationSource": "scripts/acceptance/oracles.mjs",
+      "sources": ["src/agentic/project-recipes.ts", "skills/references/page-composition.md"]
+    },
+    {
+      "id": "narrow-panel-order",
+      "kind": "design",
+      "statement": "At narrow widths filter controls stack before results, with page overflow contained.",
+      "verification": "Check source order, bounding rectangles and page scroll width at narrow container size.",
+      "verificationSource": "scripts/acceptance/oracles.mjs",
+      "sources": ["src/agentic/project-recipes.ts", "skills/references/page-composition.md"]
+    },
+    {
+      "id": "density-updates-controlled-state",
+      "kind": "host",
+      "statement": "The host accepts density changes and updates the controlled value. All supported choices produce distinct row heights.",
+      "verification": "Select each density, assert pressed state and measure actual rendered rows.",
+      "sources": ["src/agentic/project-recipes.ts", "skills/references/page-composition.md"]
+    },
+    {
+      "id": "shared-search-measure",
+      "kind": "design",
+      "statement": "Comparable collection pages use the same selected search measure and expand to available width on narrow layouts.",
+      "verification": "Compare computed widths on sibling collection pages at equal container sizes.",
+      "sources": ["src/agentic/project-recipes.ts", "skills/references/page-composition.md"]
+    },
+    {
+      "id": "header-consistency",
+      "kind": "design",
+      "statement": "One shared PageHeader owns the page title, description and actions; the selected navigation variant is reused.",
+      "verification": "Inspect shared imports and compare the rendered header hierarchy across project pages.",
+      "sources": ["src/agentic/project-recipes.ts", "skills/references/page-composition.md"]
+    },
+    {
+      "id": "host-state-preservation",
+      "kind": "host",
+      "statement": "Theme, panel visibility and responsive changes preserve host query, filters, selection and drafts.",
+      "verification": "Change presentation and available width with nonempty state, then compare the state.",
+      "sources": ["src/agentic/project-recipes.ts", "skills/references/page-composition.md"]
+    }
+  ]
+}

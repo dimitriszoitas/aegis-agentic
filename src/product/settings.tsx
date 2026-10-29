@@ -1,3 +1,5 @@
+import { ReadingColumn } from '@/patterns/page-layout';
+import { formaRecipes } from './recipes';
 import { PageHeader } from '@/patterns/page-header';
 import { useRef, useState, type FormEvent } from 'react';
 import { Button } from '@/components/button';
@@ -87,174 +89,176 @@ export function SettingsPage({ state, update, notice }: FormaStore) {
         description="Manage your workspace details, appearance, and preferences."
       />
 
-      <div className="forma-two-col">
-        <Card aria-labelledby="forma-workspace-title">
-          <form onSubmit={saveWorkspace} noValidate>
+      <ReadingColumn measure={formaRecipes.settings.measure} className="forma-stack">
+        <div className="forma-stack">
+          <Card aria-labelledby="forma-workspace-title">
+            <form onSubmit={saveWorkspace} noValidate>
+              <CardHeader>
+                <CardTitle id="forma-workspace-title" aria-level={2}>
+                  Workspace details
+                </CardTitle>
+                <CardDescription>Your workspace name and primary contact.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="forma-stack">
+                  <Field label="Workspace name" required error={errors.workspace}>
+                    <TextInput
+                      ref={workspaceRef}
+                      name="workspace"
+                      autoComplete="organization"
+                      value={workspace}
+                      maxLength={80}
+                      onValueChange={(value) => {
+                        setWorkspace(value);
+                        setErrors((current) => ({ ...current, workspace: undefined }));
+                      }}
+                    />
+                  </Field>
+                  <Field
+                    label="Contact email"
+                    required
+                    error={errors.email}
+                    helpText="Saved as a contact detail. This demo does not send email."
+                  >
+                    <TextInput
+                      ref={emailRef}
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      value={email}
+                      maxLength={254}
+                      onValueChange={(value) => {
+                        setEmail(value);
+                        setErrors((current) => ({ ...current, email: undefined }));
+                      }}
+                    />
+                  </Field>
+                  <p className="forma-muted" role="status">
+                    {dirty
+                      ? 'You have unsaved workspace changes.'
+                      : 'Workspace details are up to date.'}
+                  </p>
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button type="submit" intent="function" disabled={!dirty}>
+                  Save changes
+                </Button>
+                <Button emphasis="ghost" disabled={!dirty} onClick={discardWorkspaceChanges}>
+                  Cancel
+                </Button>
+              </CardFooter>
+            </form>
+          </Card>
+
+          <Card aria-labelledby="forma-preferences-title">
             <CardHeader>
-              <CardTitle id="forma-workspace-title" aria-level={2}>
-                Workspace details
+              <CardTitle id="forma-preferences-title" aria-level={2}>
+                Appearance & preferences
               </CardTitle>
-              <CardDescription>Your workspace name and primary contact.</CardDescription>
+              <CardDescription>Changes apply immediately across your workspace.</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="forma-stack">
-                <Field label="Workspace name" required error={errors.workspace}>
-                  <TextInput
-                    ref={workspaceRef}
-                    name="workspace"
-                    autoComplete="organization"
-                    value={workspace}
-                    maxLength={80}
-                    onValueChange={(value) => {
-                      setWorkspace(value);
-                      setErrors((current) => ({ ...current, workspace: undefined }));
-                    }}
+                <div className="forma-stack">
+                  <span>Appearance</span>
+                  <SegmentedControl
+                    label="Appearance"
+                    value={state.settings.theme}
+                    options={[
+                      { label: 'Dark', value: 'dark' },
+                      { label: 'Light', value: 'light' },
+                    ]}
+                    onValueChange={(value) =>
+                      changePreference('theme', value as FormaSettings['theme'])
+                    }
+                    fullWidth
                   />
-                </Field>
+                </div>
+                <div className="forma-stack">
+                  <span>Table density</span>
+                  <SegmentedControl
+                    label="Table density"
+                    value={state.settings.density}
+                    options={[
+                      { label: 'Compact', value: 'compact' },
+                      { label: 'Default', value: 'default' },
+                      { label: 'Comfortable', value: 'comfortable' },
+                    ]}
+                    onValueChange={(value) =>
+                      changePreference('density', value as FormaSettings['density'])
+                    }
+                    fullWidth
+                    wrap
+                  />
+                </div>
                 <Field
-                  label="Contact email"
-                  required
-                  error={errors.email}
-                  helpText="Saved as a contact detail. This demo does not send email."
+                  label="Display currency"
+                  helpText="Demo amounts keep their numeric value. Currency changes do not convert exchange rates."
                 >
-                  <TextInput
-                    ref={emailRef}
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    value={email}
-                    maxLength={254}
-                    onValueChange={(value) => {
-                      setEmail(value);
-                      setErrors((current) => ({ ...current, email: undefined }));
-                    }}
+                  <Select
+                    value={state.settings.currency}
+                    options={[
+                      { value: 'USD', label: 'USD — US dollar' },
+                      { value: 'EUR', label: 'EUR — Euro' },
+                      { value: 'GBP', label: 'GBP — British pound' },
+                    ]}
+                    onValueChange={(value) =>
+                      changePreference('currency', value as FormaSettings['currency'])
+                    }
                   />
                 </Field>
-                <p className="forma-muted" role="status">
-                  {dirty
-                    ? 'You have unsaved workspace changes.'
-                    : 'Workspace details are up to date.'}
-                </p>
               </div>
             </CardContent>
-            <CardFooter>
-              <Button type="submit" intent="function" disabled={!dirty}>
-                Save changes
-              </Button>
-              <Button emphasis="ghost" disabled={!dirty} onClick={discardWorkspaceChanges}>
-                Cancel
-              </Button>
-            </CardFooter>
-          </form>
-        </Card>
+          </Card>
+        </div>
 
-        <Card aria-labelledby="forma-preferences-title">
+        <Card aria-labelledby="forma-data-title">
           <CardHeader>
-            <CardTitle id="forma-preferences-title" aria-level={2}>
-              Appearance & preferences
+            <CardTitle id="forma-data-title" aria-level={2}>
+              Your workspace data
             </CardTitle>
-            <CardDescription>Changes apply immediately across your workspace.</CardDescription>
+            <CardDescription>
+              This demo saves changes in this browser. Export a backup before clearing browser data.
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="forma-stack">
-              <div className="forma-stack">
-                <span>Appearance</span>
-                <SegmentedControl
-                  label="Appearance"
-                  value={state.settings.theme}
-                  options={[
-                    { label: 'Dark', value: 'dark' },
-                    { label: 'Light', value: 'light' },
-                  ]}
-                  onValueChange={(value) =>
-                    changePreference('theme', value as FormaSettings['theme'])
-                  }
-                  fullWidth
-                />
+            <div className="forma-summary-grid">
+              <div className="forma-summary">
+                <span>Users</span>
+                <strong>{state.users.length}</strong>
               </div>
-              <div className="forma-stack">
-                <span>Table density</span>
-                <SegmentedControl
-                  label="Table density"
-                  value={state.settings.density}
-                  options={[
-                    { label: 'Compact', value: 'compact' },
-                    { label: 'Default', value: 'default' },
-                    { label: 'Comfortable', value: 'comfortable' },
-                  ]}
-                  onValueChange={(value) =>
-                    changePreference('density', value as FormaSettings['density'])
-                  }
-                  fullWidth
-                  wrap
-                />
+              <div className="forma-summary">
+                <span>Products</span>
+                <strong>{state.products.length}</strong>
               </div>
-              <Field
-                label="Display currency"
-                helpText="Demo amounts keep their numeric value. Currency changes do not convert exchange rates."
-              >
-                <Select
-                  value={state.settings.currency}
-                  options={[
-                    { value: 'USD', label: 'USD — US dollar' },
-                    { value: 'EUR', label: 'EUR — Euro' },
-                    { value: 'GBP', label: 'GBP — British pound' },
-                  ]}
-                  onValueChange={(value) =>
-                    changePreference('currency', value as FormaSettings['currency'])
-                  }
-                />
-              </Field>
+              <div className="forma-summary">
+                <span>Invoices</span>
+                <strong>{state.invoices.length}</strong>
+              </div>
             </div>
           </CardContent>
+          <CardFooter>
+            <div className="forma-toolbar">
+              <Button emphasis="secondary" onClick={exportWorkspace}>
+                Export workspace
+              </Button>
+              <ConfirmDialog
+                title="Reset this demo workspace?"
+                description="This replaces all users, products, invoices, and preferences with the original demo data. Export a backup first if you want to keep your changes."
+                trigger={
+                  <Button intent="destroy" emphasis="secondary">
+                    Reset demo data
+                  </Button>
+                }
+                confirmLabel="Reset demo data"
+                confirmationText="RESET"
+                onConfirm={resetWorkspace}
+              />
+            </div>
+          </CardFooter>
         </Card>
-      </div>
-
-      <Card aria-labelledby="forma-data-title">
-        <CardHeader>
-          <CardTitle id="forma-data-title" aria-level={2}>
-            Your workspace data
-          </CardTitle>
-          <CardDescription>
-            This demo saves changes in this browser. Export a backup before clearing browser data.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="forma-summary-grid">
-            <div className="forma-summary">
-              <span>Users</span>
-              <strong>{state.users.length}</strong>
-            </div>
-            <div className="forma-summary">
-              <span>Products</span>
-              <strong>{state.products.length}</strong>
-            </div>
-            <div className="forma-summary">
-              <span>Invoices</span>
-              <strong>{state.invoices.length}</strong>
-            </div>
-          </div>
-        </CardContent>
-        <CardFooter>
-          <div className="forma-toolbar">
-            <Button emphasis="secondary" onClick={exportWorkspace}>
-              Export workspace
-            </Button>
-            <ConfirmDialog
-              title="Reset this demo workspace?"
-              description="This replaces all users, products, invoices, and preferences with the original demo data. Export a backup first if you want to keep your changes."
-              trigger={
-                <Button intent="destroy" emphasis="secondary">
-                  Reset demo data
-                </Button>
-              }
-              confirmLabel="Reset demo data"
-              confirmationText="RESET"
-              onConfirm={resetWorkspace}
-            />
-          </div>
-        </CardFooter>
-      </Card>
+      </ReadingColumn>
     </div>
   );
 }

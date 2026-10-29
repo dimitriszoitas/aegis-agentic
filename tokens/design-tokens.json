@@ -52919,6 +52919,18 @@
     {
       "file": "src/components/rich-text-editor/rich-text-editor.tsx",
       "family": "input"
+    },
+    {
+      "file": "src/product/recipes.ts",
+      "family": "application"
+    },
+    {
+      "file": "src/agentic/portability-panel.tsx",
+      "family": "application"
+    },
+    {
+      "file": "src/agentic/recipe-panel.tsx",
+      "family": "application"
     }
   ],
   "dynamicVariables": [

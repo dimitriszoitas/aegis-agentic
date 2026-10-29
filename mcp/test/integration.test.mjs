@@ -66,7 +66,7 @@ test('isolated exported bundle negotiates protocol, discovers read-only tools/re
   const { client, close, stderr } = await connect([], kit, true);
   assert.equal(client.getServerVersion().name, 'aegis-agentic-readonly');
   const tools = (await client.listTools()).tools;
-  assert.deepEqual(tools.map((item) => item.name).sort(), ['audit_product_patterns', 'inspect_project_context', 'search_contracts', 'validate_composition', 'validate_page_recipe']);
+  assert.deepEqual(tools.map((item) => item.name).sort(), ['audit_product_patterns', 'discover_by_behavior', 'inspect_project_context', 'resolve_project_recipe', 'search_contracts', 'validate_composition', 'validate_page_recipe']);
   assert.ok(tools.every((item) => item.annotations.readOnlyHint && !item.annotations.destructiveHint && !item.annotations.openWorldHint));
   const resources = (await client.listResources()).resources;
   assert.ok(resources.some((item) => item.uri === 'aegis://catalogue'));
@@ -344,4 +344,44 @@ test('schema2 authored contracts retain requirements and source references throu
   const pageLayout = core.getContractEntry('page-layout').contract.document;
   for (const key of ['exports', 'publicApi', 'recipeSource', 'portableRecipes', 'invariants', 'limits']) assert.ok(Object.hasOwn(pageLayout, key), `PageLayout retains ${key}`);
   await close();
+});
+
+
+test('behavior discovery distinguishes push/modal semantics and validates inline project recipes', async () => {
+  const { client, close } = await connect();
+  const projectRecipes = { schemaVersion: 1, project: 'example', revision: 1, recipes: {} };
+  const result = await call(client, 'discover_by_behavior', { query: 'filters beside a table', projectRecipes, requestedComponent: 'SideSheet' });
+  assert.equal(result.result.status, 'rejected');
+  assert.equal(result.result.candidates[0].intent, 'push-filtering');
+  assert.equal(result.recipeBinding, 'inline-proposal');
+  assert.equal(result.context.binding.status, 'unbound');
+  assert.equal((await call(client, 'discover_by_behavior', { query: 'side panel' })).result.status, 'ambiguous');
+  const resolved = await call(client, 'resolve_project_recipe', { archetype: 'collection', projectRecipes });
+  assert.deepEqual(resolved.resolved, core.resolveProjectRecipe(projectRecipes, 'collection'));
+  assert.match(await callError(client, 'resolve_project_recipe', { archetype: 'settings' }), /Provide projectRecipes/);
+  assert.match(await callError(client, 'resolve_project_recipe', { archetype: 'collection', projectRecipes: { ...projectRecipes, recipes: { collection: { filters: 'modal' } } } }), /Invalid project recipes/);
+  await close();
+});
+
+test('startup recipe binding keeps project scope, rejects overrides and detects changed config', async () => {
+  const root = await project();
+  const config = { schemaVersion: 1, project: 'mcp-fixture', revision: 1, recipes: { collection: { filters: 'push' } } };
+  await writeFile(join(root, 'project-recipes.json'), JSON.stringify(config));
+  const before = await snapshot(root);
+  const { client, close } = await connect(['--project', root, '--recipes', 'project-recipes.json']);
+  const result = await call(client, 'discover_by_behavior', { query: 'filter' });
+  assert.equal(result.recipeBinding, 'startup-bound');
+  assert.equal(result.result.selectedIntent, 'push-filtering');
+  assert.equal(result.result.projectRecipe.patternPolicy.product, 'mcp-fixture');
+  assert.equal((await client.readResource({ uri: 'aegis://project-recipes' })).contents[0].text, JSON.stringify(config));
+  assert.match(await callError(client, 'resolve_project_recipe', { archetype: 'collection', projectRecipes: { ...config, revision: 2 } }), /differ from the explicit startup binding/);
+  await writeFile(join(root, 'project-recipes.json'), JSON.stringify({ ...config, revision: 2 }));
+  assert.match(await callError(client, 'discover_by_behavior', { query: 'filter' }), /recipes changed/);
+  await close();
+  await writeFile(join(root, 'project-recipes.json'), JSON.stringify(config));
+  assert.deepEqual(await snapshot(root), before);
+  await assert.rejects(connect(['--recipes', 'project-recipes.json']), /require --project/);
+  await assert.rejects(connect(['--project', root, '--recipes', '../outside.json']), /normalized relative path/);
+  await writeFile(join(root, 'project-recipes.json'), JSON.stringify({ ...config, project: 'different' }));
+  await assert.rejects(connect(['--project', root, '--recipes', 'project-recipes.json']), /different products/);
 });

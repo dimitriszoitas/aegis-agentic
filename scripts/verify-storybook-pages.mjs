@@ -5,6 +5,7 @@ import { mkdir } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { resolve, relative, extname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { assertDensityChanges, assertKeyboardDismissal } from './acceptance/oracles.mjs';
 // A finite publication smoke; component acceptance matrices remain separate.
 const repo = fileURLToPath(new URL('..', import.meta.url));
 const require = createRequire(resolve(repo, 'package.json'));
@@ -262,21 +263,7 @@ try {
   assert((await apiResponse.json()).id === 'components-forms-combobox');
   pass('Contract Catalogue and the current Combobox API JSON are published.');
   const catalogueGrid = docs.locator('.contract-catalogue .aegis-data-grid').first();
-  const rowHeights = [];
-  for (const density of ['compact', 'default', 'comfortable']) {
-    await catalogueGrid.getByRole('button', { name: density, exact: true }).click();
-    await expect(catalogueGrid).toHaveAttribute('data-density', density);
-    rowHeights.push(
-      await catalogueGrid
-        .locator('.aegis-grid-row')
-        .first()
-        .evaluate((row) => row.getBoundingClientRect().height),
-    );
-  }
-  assert(
-    rowHeights[0] < rowHeights[1] && rowHeights[1] < rowHeights[2],
-    `Density changes rendered row heights: ${rowHeights}`,
-  );
+  await assertDensityChanges({ grid: catalogueGrid });
   pass('Contract Catalogue density buttons change both selected state and rendered row heights.');
   const story = async (
     id,
@@ -312,6 +299,12 @@ try {
     await expect(page.locator('html')).toHaveAttribute('data-layout-theme', layout);
     await page.evaluate(() => document.fonts.ready);
   };
+  await story('components-overlays-modal--default');
+  await assertKeyboardDismissal({
+    trigger: page.getByRole('button', { name: 'Assign record', exact: true }),
+    popup: page.getByRole('dialog'),
+  });
+  pass('Modal Enter/Escape dismissal and focus return passed the shared acceptance oracle.');
   await story('components-forms-combobox--keyboard-and-form', { play: true });
   await expect(page.getByLabel('Submitted ID', { exact: true })).toHaveText('ath');
   pass('Combobox keyboard selection, form value and clearing play passed.');

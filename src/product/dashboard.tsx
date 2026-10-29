@@ -1,3 +1,5 @@
+import { ContentGrid } from '@/patterns/page-layout';
+import { formaRecipes } from './recipes';
 import { PageHeader } from '@/patterns/page-header';
 import { useState } from 'react';
 import { Avatar } from '@/components/avatar';
@@ -98,7 +100,11 @@ export function DashboardPage({ state, navigate, notice }: FormaStore) {
           </>
         }
       />
-      <div className="forma-metrics">
+      <ContentGrid
+        className="forma-metrics"
+        maxColumns={formaRecipes.dashboard.maxColumns}
+        minItemWidth={formaRecipes.dashboard.minItemWidth}
+      >
         {metrics.map(({ label, value, detail, icon: Icon, sparkline }) => (
           <Card key={label} className="forma-metric" aria-label={label}>
             <div className="forma-metric-label">
@@ -114,7 +120,7 @@ export function DashboardPage({ state, navigate, notice }: FormaStore) {
             <p className="forma-metric-detail">{detail}</p>
           </Card>
         ))}
-      </div>
+      </ContentGrid>
       <section className="forma-chart-grid" aria-labelledby="forma-analytics-title">
         <h2 id="forma-analytics-title" className="sr-only">
           Workspace analytics

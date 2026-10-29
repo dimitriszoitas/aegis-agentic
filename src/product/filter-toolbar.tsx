@@ -1,3 +1,4 @@
+import { formaRecipes } from './recipes';
 import { useId, useRef, useState, type ReactNode } from 'react';
 import { Button } from '@/components/button';
 import { Checkbox } from '@/components/checkbox';
@@ -60,7 +61,12 @@ export function FormaFilterToolbar({
     })),
   ];
   return (
-    <div className="forma-collection-filters" ref={root}>
+    <div
+      className="forma-collection-filters"
+      ref={root}
+      data-filter-behavior={formaRecipes.collection.filters}
+      data-search-measure={formaRecipes.collection.searchMeasure}
+    >
       <div className="forma-filter-toolbar" role="search" aria-label={label}>
         <div className="forma-filter-search">{search}</div>
         <Button

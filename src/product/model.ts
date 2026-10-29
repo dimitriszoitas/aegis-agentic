@@ -1,3 +1,4 @@
+import { formaRecipes } from './recipes';
 import type { FormaInvoice, FormaState, FormaUser } from './types';
 
 export const STORAGE_KEY = 'forma-workspace-v1';
@@ -225,7 +226,7 @@ export function createInitialState(now = new Date()): FormaState {
       workspace: 'Forma Studio',
       email: 'hello@example.com',
       theme: 'dark',
-      density: 'comfortable',
+      density: formaRecipes.collection.density,
       currency: 'USD',
     },
   };

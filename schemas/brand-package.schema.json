@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-agentic.local/schemas/brand-package.schema.json",
+  "title": "Aegis portable brand package",
+  "description": "Data-only, versioned design profile. Import previews validation, token graph and contrast; application is an explicit consumer decision.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "version", "packageVersion", "compatibility", "profile"],
+  "properties": {
+    "kind": { "const": "aegis-brand-package" },
+    "version": { "const": 1 },
+    "packageVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profileVersion", "compilerVersion", "tokenContractVersion", "configurations"],
+      "properties": {
+        "profileVersion": { "const": 1 },
+        "compilerVersion": { "const": 1 },
+        "tokenContractVersion": { "const": 1 },
+        "configurations": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "fundamental.light",
+              "fundamental.dark",
+              "fundamental-floating.light",
+              "fundamental-floating.dark"
+            ]
+          }
+        }
+      }
+    },
+    "profile": { "$ref": "./design-profile.schema.json" }
+  }
+}

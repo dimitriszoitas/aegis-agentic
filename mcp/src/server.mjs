@@ -20,7 +20,7 @@ function parseOptions(args) {
   const options = {};
   for (let i = 0; i < args.length; i += 2) {
     const name = args[i];
-    if (!['--kit', '--project', '--lock', '--profile', '--policy'].includes(name) || !args[i + 1] || args[i + 1].startsWith('--') || Object.hasOwn(options, name.slice(2))) throw new Error('Use --kit <installed-kit> [--project <root> --lock <relative-lock> --profile <relative-profile> --policy <relative-policy>].');
+    if (!['--kit', '--project', '--lock', '--profile', '--policy', '--recipes'].includes(name) || !args[i + 1] || args[i + 1].startsWith('--') || Object.hasOwn(options, name.slice(2))) throw new Error('Use --kit <installed-kit> [--project <root> --lock <relative-lock> --profile <relative-profile> --policy <relative-policy> --recipes <relative-recipes>].');
     options[name.slice(2)] = args[i + 1];
   }
   // Portable bundled entry lives at <kit>/bin/aegis-mcp.mjs.
@@ -47,6 +47,7 @@ export async function createServer(options) {
   resource('project-context', 'aegis://context', 'Explicit installed kit and project binding; unbound is not project approval.', 'application/json', async () => JSON.stringify(context.metadata()));
   if (context.projectRoot) {
     resource('project-profile', 'aegis://project-profile', 'Exact configured profile bound at startup; its hash was checked against the explicit lock.', 'application/json', () => context.projectRead('profile'));
+    if (context.binding.recipesPath) resource('project-recipes', 'aegis://project-recipes', 'Exact project recipes selected at startup; changes invalidate this binding.', 'application/json', () => context.projectRead('recipes'));
     resource('project-policy', 'aegis://project-policy', 'Current explicitly configured product pattern decisions. The policy may change; audit reports fingerprint the policy and declared sources.', 'application/json', () => context.projectRead('policy'));
   }
   resource('contract-catalogue', 'aegis://catalogue', 'Coverage and discovery links; authored rules and source API facts are separate, neither implies passing evidence.', 'application/json', async () => JSON.stringify({ coverage: context.core.getContractCoverage(), entries: context.catalogue.entries.map(entrySummary) }));
@@ -74,6 +75,17 @@ export async function createServer(options) {
     const results = context.core.searchContracts(query);
     return { context: context.metadata(), total: results.length, entries: results.slice(0, limit).map(entrySummary) };
   });
+  if (typeof context.core.discoverByBehavior === 'function' && typeof context.core.resolveProjectRecipe === 'function') {
+    tool('discover_by_behavior', 'Resolve intended behavior before selecting an implementation. Distinguishes in-flow push filters from modal sheets and record inspection; includes project recipe obligations and rejected substitutions.', z.object({ query: z.string().min(1).max(256), intent: z.enum(['push-filtering', 'inline-filtering', 'modal-side-sheet', 'record-details', 'collection-page', 'detail-page', 'settings-page', 'dashboard-page']).optional(), archetype: z.enum(['collection', 'detail', 'settings', 'dashboard']).optional(), projectRecipes: z.unknown().optional(), requestedComponent: z.string().min(1).max(128).optional(), limit: z.number().int().min(1).max(30).default(10) }).strict(), async (input) => {
+      const selected = await context.recipeContext(input.projectRecipes);
+      return { result: context.core.discoverByBehavior({ ...input, projectRecipes: selected.config }, { patternPolicy: selected.patternPolicy }), recipeBinding: selected.binding, context: context.metadata() };
+    });
+    tool('resolve_project_recipe', 'Validate and resolve approved project variants into imports, props, required host state and acceptance references. Read-only implementation plan, not rendered certification.', z.object({ archetype: z.enum(['collection', 'detail', 'settings', 'dashboard']), projectRecipes: z.unknown().optional() }).strict(), async ({ archetype, projectRecipes }) => {
+      const selected = await context.recipeContext(projectRecipes);
+      if (!selected.config) throw new Error('Provide projectRecipes or start with --project and --recipes.');
+      return { resolved: context.core.resolveProjectRecipe(selected.config, archetype, { patternPolicy: selected.patternPolicy }), recipeBinding: selected.binding, context: context.metadata() };
+    });
+  }
   tool('inspect_project_context', 'Inspect the startup-selected project lock and installed kit; reports unbound when no project was selected.', z.object({}).strict(), async () => context.metadata());
   tool('validate_page_recipe', 'Validate recipe selection with the installed core. Does not inspect rendered content, interaction, or visual quality.', z.object({ selection: z.unknown() }).strict(), async ({ selection }) => {
     const issues = context.core.validatePageLayoutRecipe(selection);

@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.design/schemas/acceptance-evidence.schema.json",
+  "description": "Finite browser observations with source and oracle provenance. Passing linked scenarios do not certify complete authored requirements.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "kind",
+    "createdAt",
+    "source",
+    "sourceStableDuringRun",
+    "cases",
+    "records",
+    "requirements",
+    "summary",
+    "reportDigest",
+    "limitations"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "finite-browser-acceptance" },
+    "createdAt": { "type": "string", "minLength": 1 },
+    "runFailure": { "type": "string", "minLength": 1 },
+    "sourceStableDuringRun": { "type": "boolean" },
+    "source": {
+      "type": "object",
+      "required": ["commit", "dirty", "digest", "sources", "binding"],
+      "properties": {
+        "commit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "dirty": { "type": "boolean" },
+        "digest": { "$ref": "#/$defs/digest" },
+        "binding": { "const": "local-source-snapshot; supplied-server-build-is-not-attested" },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "sha256"],
+            "properties": {
+              "path": { "type": "string", "minLength": 1 },
+              "sha256": { "$ref": "#/$defs/digest" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "cases": { "type": "array", "items": { "type": "object" } },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "caseId",
+          "context",
+          "width",
+          "theme",
+          "presentation",
+          "requirementRefs",
+          "sourceDigest",
+          "status",
+          "reason",
+          "observations"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "caseId": { "type": "string", "minLength": 1 },
+          "context": {
+            "type": "object",
+            "required": ["id", "surface", "route"],
+            "properties": {
+              "id": { "type": "string" },
+              "surface": { "enum": ["storybook", "forma"] },
+              "route": { "type": "string" }
+            }
+          },
+          "width": { "type": "integer", "minimum": 1 },
+          "theme": { "enum": ["light", "dark"] },
+          "presentation": { "enum": ["fundamental", "fundamental-floating"] },
+          "requirementRefs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "pattern": "^[a-z0-9-]+#[a-z0-9-]+$" }
+          },
+          "sourceDigest": { "$ref": "#/$defs/digest" },
+          "status": { "$ref": "#/$defs/status" },
+          "reason": { "type": "string", "minLength": 1 },
+          "observations": { "type": "object" },
+          "url": { "type": "string" },
+          "startedAt": { "type": "string" },
+          "finishedAt": { "type": "string" },
+          "browserErrors": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "requirementRef",
+          "contractId",
+          "requirementId",
+          "owner",
+          "status",
+          "coverage",
+          "caseIds",
+          "evidenceIds",
+          "planned",
+          "executed",
+          "reason"
+        ],
+        "properties": {
+          "requirementRef": { "type": "string" },
+          "contractId": { "type": "string" },
+          "requirementId": { "type": "string" },
+          "owner": { "enum": ["host", "component", "design"] },
+          "status": { "$ref": "#/$defs/status" },
+          "coverage": { "enum": ["partial-scenario", "no-executable-scenario"] },
+          "caseIds": { "type": "array", "items": { "type": "string" } },
+          "evidenceIds": { "type": "array", "items": { "type": "string" } },
+          "planned": { "type": "integer", "minimum": 0 },
+          "executed": { "type": "integer", "minimum": 0 },
+          "reason": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["passed", "failed", "not-run", "unsupported"],
+      "properties": {
+        "passed": { "type": "integer", "minimum": 0 },
+        "failed": { "type": "integer", "minimum": 0 },
+        "not-run": { "type": "integer", "minimum": 0 },
+        "unsupported": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "reportDigest": { "$ref": "#/$defs/digest" },
+    "limitations": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "digest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "status": { "enum": ["passed", "failed", "not-run", "unsupported"] }
+  }
+}

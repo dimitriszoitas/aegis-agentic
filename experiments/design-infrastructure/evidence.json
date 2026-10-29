@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "sourceSnapshot": {
+    "digest": "a3659edc3f58727684eea0240725eb97f582f217ae68efc994d7e1c7b5f842f3",
+    "parentCommit": "d0f6de0561d275c8e4bedd3640fe1c61dcb4c3e3",
+    "note": "Built and verified before committing the implementation; source digest identifies the tested source bytes."
+  },
+  "verification": {
+    "requiredCheck": "npm run check passed",
+    "sourceUnitTests": 473,
+    "infrastructureTests": 109,
+    "mcpIntegrationTests": 15,
+    "repairWorkerTests": 72,
+    "sharedAcceptanceTests": 8,
+    "browserScenarios": {
+      "status": "passed",
+      "report": "acceptance.json",
+      "executed": 72,
+      "digest": "a8df9023b1c422381738a8398956ca12e2b3b4ca737c52b0007614594349f76b"
+    },
+    "newInterfaceWorkflows": {
+      "status": "passed",
+      "report": "ui/report.json",
+      "checks": 10,
+      "verifierSha256": "f6533379a463fa6ff724153103e35eff145ff7e74b8b3da754eeff682e63e2a2"
+    },
+    "productWorkflows": "npm run product:browser passed",
+    "builds": {
+      "storybook": {
+        "directory": "storybook-static",
+        "fileCount": 2294,
+        "digest": "d4bf90ecf9c10ec8fdf68dbb13b7f433224e159a5f0383723170ba77e8b8a5c0"
+      },
+      "product": {
+        "directory": "dist",
+        "fileCount": 200,
+        "digest": "006619801ceb9751032ee502e1944fb6c6cc3f94fea95c6e7f03092d463d0558"
+      }
+    },
+    "sourceScan": {
+      "components": 127,
+      "scanned": 127,
+      "needsReview": 0,
+      "uniqueCssFiles": 106,
+      "declarations": 5880,
+      "browserExecuted": 0,
+      "providerRequests": 0
+    }
+  },
+  "densityOracleExperiment": {
+    "aiExecution": false,
+    "providerRequests": 0,
+    "cases": [
+      {
+        "kind": "healthy",
+        "observedStatus": "passed",
+        "checks": 16,
+        "failures": 0,
+        "reportSha256": "141f186d8141af385f51986c470665cdc2dacfdc0ba645f4a7ec3b4a5eac5ea8"
+      },
+      {
+        "kind": "fixed-height",
+        "observedStatus": "failed",
+        "checks": 16,
+        "failures": 16,
+        "reportSha256": "42a18e839600c090c606d3ba2b6fb5c733b7062ee4819ef3c2a9e7f331b88b71"
+      },
+      {
+        "kind": "hidden-text",
+        "observedStatus": "failed",
+        "checks": 16,
+        "failures": 16,
+        "reportSha256": "b0731d364a7645fdca2e753aaec9e5e18365f186932e1ae695218fd2b724cbba"
+      },
+      {
+        "kind": "restored",
+        "observedStatus": "passed",
+        "checks": 16,
+        "failures": 0,
+        "reportSha256": "b38aac6d80eed3435fd140c14cbae88dec7388393f28a28a8e86389235fd4e72"
+      }
+    ],
+    "scope": "Independent copied source fixture. Proves rejection of seeded fixed-height and hidden-content defects; not a live AI-generated repair."
+  },
+  "limits": [
+    "All 127 authored entries have source inspection. Only MetricCard, Sparkline and DataGrid have bounded source-repair policies.",
+    "DTCG interchange implements the documented subset and reports unsupported expressions.",
+    "Finite Chromium checks are not comprehensive accessibility or visual certification.",
+    "No automated source merge, release or downstream consumer update."
+  ]
+}

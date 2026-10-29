@@ -16,7 +16,7 @@ npm run mcp:setup
 npm run dev -- --host 127.0.0.1 --port 4175 --strictPort
 ```
 
-The root opens the workbench: Configure, Compose, Registry, Maintain, Export, and Infrastructure. The inherited examples remain available at `?view=console`, `?view=components` and `?view=marketing`. Browser profile edits persist locally. Infrastructure shows a disconnected state until its project service is started; browser examples do not create usage data or imply a connected model.
+The root opens the workbench: Configure, Compose, Project recipes, Registry, Maintain, Export, and Infrastructure. The inherited examples remain available at `?view=console`, `?view=components` and `?view=marketing`. Browser profile edits persist locally. Infrastructure shows a disconnected state until its project service is started; browser examples do not create usage data or imply a connected model.
 
 ## Forma product pilot
 
@@ -33,6 +33,25 @@ The [page composition guide](skills/references/page-composition.md) combines des
 A versioned [project pattern policy](skills/references/pattern-policy.md) records the canonical header, filters, grid configuration and permitted exceptions for one product. Its portable static checker detects missing shared implementations, forbidden props, literal-value drift, unresolved configuration and declared route gaps. It is a separate Node tool; TypeScript is not added to the browser/core runtime. Static checks complement browser geometry, keyboard, accessibility and visual review.
 
 [Relay](examples/relay) is a second browser-local product that consumes the built npm tarball through public imports. Its Requests page is evaluated through two independent agent implementations against one shared brief. This is a bounded experiment in reuse and consistency, not a general claim of deterministic agent output. The preparation script supports a fresh dependency installation or an explicitly labelled local dependency snapshot; the latter does not establish registry installability.
+
+## Portable design language and measurable composition
+
+The **Agentic Tools** section in Storybook exposes the new workflows. Brand packages separate the saved visual profile from components and behaviour. Import previews show changed fields before applying them. DTCG import supports explicit mappings into the profile, and export produces one token document per theme/mode, preserving supported aliases and reporting unsupported expressions. See [brand packages and token exchange](docs/BRAND-PACKAGES.md).
+
+A validated **project recipe** records shared choices for collection, detail, settings and dashboard pages. Forma consumes its recipe for search measure, push filtering, initial density, settings width and dashboard columns. The resolver returns public imports, host state bindings and requirement references. Behaviour discovery distinguishes a push filter panel from a modal sheet and reports ambiguity. See [project recipes](docs/PROJECT-RECIPES.md).
+
+The **shared acceptance runner** exercises the same assertions in isolated stories and product contexts. Its requirement inventory separates registered scenarios, executed results and unsupported scopes. It records source/oracle hashes, theme, width and observations. These finite checks complement the rest of the test suite; they do not certify every requirement. See [acceptance evidence](docs/ACCEPTANCE.md).
+
+```sh
+npm run agentic:kit
+node agent-kit/bin/aegis.mjs brand preview agent-kit/examples/brand-package.json --profile profiles/atlas.json
+node agent-kit/bin/aegis.mjs tokens preview agent-kit/examples/token-import.json --profile profiles/aegis.json --mapping agent-kit/examples/token-mapping.json
+node agent-kit/bin/aegis.mjs project-recipes resolve src/product/project-recipes.json --archetype collection --policy src/product/pattern-policy.json
+node agent-kit/bin/aegis.mjs discover behavior "push filters beside live results" --recipes src/product/project-recipes.json
+node agent-kit/bin/aegis.mjs acceptance coverage
+```
+
+The working UI implementations remain React and TypeScript for the web. Portable tokens and contracts can inform other stacks, but this does not provide native or multi-framework component implementations.
 
 ## Product direction
 
@@ -91,7 +110,7 @@ The authenticated workspace adds scoped roles, signed portable releases, multipl
 - **Usage:** a disabled-by-default SDK records only caller-supplied, allowlisted facts and flushes explicitly. Local retention and recent batch receipts are bounded. Counts describe instrumented surfaces; there is no inferred user/session analytics or globally exactly-once delivery.
 - **Configurability:** source-derived component dimensions, choices, defaults, and unbounded props are inspectable. Finite combination estimates remain separate from explicit verification records.
 - **Maintenance and updates:** actual derived drift can be repaired from unchanged pinned inputs, with evidence and a rescan. An optional service loop enforces physical retention and repeats health checks, pausing repair after three failed cycles. Changed sources, behavior, contracts, and releases require owner review; update comparison produces a plan without applying a migration.
-- **Source repair proposals:** a bounded worker reproduces MetricCard/Sparkline containment failures, requests an AI-generated CSS fix, reruns the browser matrix and source regressions, and produces an isolated commit for review. Attempts and evidence persist across runs. Draft PR publication is explicit; no automatic merge or consumer update is enabled. See [source repair operations](docs/SOURCE-REPAIR.md).
+- **Source repair proposals:** a catalogue-wide scanner covers every authored component. Bounded policies reproduce MetricCard/Sparkline containment and DataGrid density failures, request a CSS proposal, rerun trusted browser scenarios and source regressions, and produce an isolated commit for review. Other components expose their missing repair verification and remain manual-review only. Attempts and evidence persist across runs. Draft PR publication is explicit; no automatic merge or consumer update is enabled. See [source repair operations](docs/SOURCE-REPAIR.md).
 - **Optional AI advisory:** a server-side key, explicit model, project opt-in, and per-request selection enable a bounded remote proposal request. Selected aggregate evidence is sent with `store: false`; responses are validated and never executed. Live AI has not been verified in this experiment.
 - **Portable kit:** contracts, schemas, profiles, registry, page recipes, source skills, reference API metadata and a dependency-free core/CLI run outside this repository. An optional separate Node bundle checks project pattern policies.
 

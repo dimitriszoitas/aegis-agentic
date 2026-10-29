@@ -11,6 +11,8 @@ export const productionConsumerDirectories = [
   'src/product',
 ];
 export const productionConsumerEntries = [
+  'src/agentic/portability-panel.tsx',
+  'src/agentic/recipe-panel.tsx',
   'src/agentic/workbench.tsx',
   'src/agentic/workbench.css',
   'src/agentic/infrastructure-panel.tsx',
