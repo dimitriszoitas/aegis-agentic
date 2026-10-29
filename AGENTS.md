@@ -3,6 +3,7 @@
 This is the isolated **Aegis Agentic experiment**. The upstream Aegis checkout is not a work directory for this project. Read `docs/PRD.md` for accepted scope and `skills/references/agentic-contract.md` for portable consumer rules.
 
 - Agent consumption: `skills/build-ui/SKILL.md`.
+- Systemizing an existing product repository: `skills/systemize-repo/SKILL.md`. Preserve its design language, interaction intent, and meaningful variants unless a redesign is explicitly requested.
 - Canonical composition: `skills/compose-pattern/SKILL.md`.
 - Missing capabilities and concurrent contributions: `skills/extend-design-language/SKILL.md`.
 - Evidence, audits and bounded repair: `skills/audit-ui/SKILL.md`.

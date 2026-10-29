@@ -63,6 +63,14 @@ export async function createServer(options) {
   resource('page-recipes', 'aegis://page-recipes', 'Supported page selections and their explicitly bounded validation scope.', 'application/json', () => context.kitRead(context.kit.pageComposition.recipes));
   for (const [name, path] of Object.entries(guidance)) resource(`guidance-${name}`, `aegis://guidance/${name}`, `Exact installed source guidance: ${path}`, 'text/markdown', () => context.kitRead(path));
   for (const [name, path] of Object.entries(context.kit.authoringGuidance?.skills ?? {})) resource(`guidance-${name}`, `aegis://guidance/${name}`, `Exact library authoring guidance: ${path}. Requires a library source checkout; an installed package does not supply source editing or build workflows.`, 'text/markdown', () => context.kitRead(path));
+  const systemization = context.kit.repositorySystemization;
+  if (systemization) {
+    resource('guidance-systemize-repo', 'aegis://guidance/systemize-repo', 'Exact installed guidance for an agent-assisted staged refactor of an existing product. Preserves existing design and interaction intent by default; this adapter does not migrate source.', 'text/markdown', () => context.kitRead(systemization.guidance));
+    for (const path of systemization.references) {
+      const name = path.split('/').at(-1).replace(/\.md$/, '');
+      resource(`systemization-${name}`, `aegis://systemization/${name}`, `Exact installed systemization reference: ${path}`, 'text/markdown', () => context.kitRead(path));
+    }
+  }
   if (context.kit.publicEntryCoverage) {
     const coverage = context.kit.publicEntryCoverage;
     resource('public-entry-coverage', 'aegis://public-entry-coverage', 'Exact public UI ownership and export classifications; source coverage is not runtime certification.', 'application/json', () => context.kitRead(coverage.path, limits.resourceBytes, coverage.sha256));
@@ -97,12 +105,18 @@ export async function createServer(options) {
     return { valid: true, resolved, profileIdentityAndHashVerified: Boolean(context.projectRoot), profileRevisionAttested: false, scope: 'composition-specification-only', context: context.metadata() };
   });
   tool('audit_product_patterns', 'Audit only declared sources in the startup-bound product policy using the installed static policy engine. No source writes or rendered acceptance.', z.object({}).strict(), async () => ({ report: await context.audit(), context: context.metadata() }));
-  for (const [name, skill] of [['build_page', 'build-ui'], ['audit_page', 'audit-ui']]) server.registerPrompt(name, { description: `Prepare ${name === 'build_page' ? 'page construction' : 'page audit'} using exact installed guidance and explicit project context. This adapter remains read-only.`, argsSchema: z.object({ task: z.string().min(1).max(4000) }) }, async ({ task }) => {
+  const prompts = [
+    { name: 'build_page', description: 'page construction', path: guidance['build-ui'], references: [] },
+    { name: 'audit_page', description: 'page audit', path: guidance['audit-ui'], references: [] },
+    ...(systemization ? [{ name: 'systemize_repo', description: 'an existing repository systemization workflow with preserved design and interaction intent', path: systemization.guidance, references: systemization.references }] : []),
+  ];
+  for (const { name, description, path, references } of prompts) server.registerPrompt(name, { description: `Prepare ${description} using exact installed guidance and explicit project context. This adapter remains read-only.`, argsSchema: z.object({ task: z.string().min(1).max(4000), ...(name === 'systemize_repo' ? { accessibilityTarget: z.enum(['normal', 'AA', 'AAA']).optional().describe('Optional workflow target. When omitted, preserve the established project target; otherwise use normal. Never lower a stronger target without an explicit user request. Normal requires AA text contrast while permitting subtle borders; AA/AAA target applicable WCAG 2.2 criteria. Not a certification.') } : {}) }) }, async ({ task, accessibilityTarget }) => {
     await context.assertFresh();
-    const paths = [guidance[skill], guidance['agentic-contract'], guidance['page-composition'], guidance['design-contract'], guidance['pattern-policy']];
+    const paths = [path, ...references, guidance['agentic-contract'], guidance['page-composition'], guidance['design-contract'], guidance['pattern-policy']];
     const source = [];
     for (const path of paths) source.push(`Source: ${path}\n${await context.kitRead(path, 64 * 1024)}`);
-    const text = `Task: ${task}\n\nInstalled context:\n${JSON.stringify(context.metadata())}\n\nThe following are exact installed guidance files. Discovery facts and historical evidence do not certify a newly built page. The MCP adapter exposes read-only discovery and validation; any changes require the host agent's existing authority.\n\n${source.join('\n\n')}`;
+    const target = name === 'systemize_repo' ? `\n\n${accessibilityTarget === undefined ? 'Accessibility target: preserve established project target; otherwise normal.' : `Requested accessibility target: ${accessibilityTarget}.`} Do not lower an established stronger project or user target unless the user explicitly requested that downgrade; a supplied prompt argument alone does not establish that request. This is a workflow target, not an existing conformance claim. Preserve the product's design language and intentional interactions; document necessary target-related corrections using the supplied guidance.` : '';
+    const text = `Task: ${task}${target}\n\nInstalled context:\n${JSON.stringify(context.metadata())}\n\nThe following are exact installed guidance files. Discovery facts and historical evidence do not certify a newly built page. The MCP adapter exposes read-only discovery and validation; any changes require the host agent's existing authority.\n\n${source.join('\n\n')}`;
     if (Buffer.byteLength(text) > limits.outputBytes) throw new Error('Prompt exceeds output limit.');
     return { messages: [{ role: 'user', content: { type: 'text', text } }] };
   });

@@ -5,7 +5,7 @@
     "version": "0.7.0-experiment.0"
   },
   "registryRevision": 5,
-  "sourceDigest": "a889801a4e12e3de19a20bb16a7cf076537ce58688e5a623cf600d23d252082b",
+  "sourceDigest": "606cf593ff54f3b3ee98bd83e2d9f1047455752fb3c711bcfe4c07e42660fc44",
   "sources": [
     {
       "path": "contracts/agentic/accordion.json",
@@ -1045,7 +1045,7 @@
     },
     {
       "path": "scripts/build-agent-kit.mjs",
-      "sha256": "ac7ee54f52b40e06ee4b5d7a62a57155e93f47c998335a45a7262b7b74140438"
+      "sha256": "13437cd7299227cdd7f0276209fe1c372fe13dfbf1af1aabd0c47c58a3a098a1"
     },
     {
       "path": "scripts/fixtures/complete-inputs/verify.mjs",
@@ -24630,7 +24630,7 @@
         "references": [
           {
             "path": "scripts/build-agent-kit.mjs",
-            "sha256": "ac7ee54f52b40e06ee4b5d7a62a57155e93f47c998335a45a7262b7b74140438"
+            "sha256": "13437cd7299227cdd7f0276209fe1c372fe13dfbf1af1aabd0c47c58a3a098a1"
           },
           {
             "path": "skills/references/design-contract.md",

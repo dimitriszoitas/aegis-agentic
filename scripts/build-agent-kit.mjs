@@ -63,6 +63,7 @@ await cp(join(root, 'public/ai'), join(out, 'reference-api/ai'), { recursive: tr
 await cp(join(root, 'public/llms.txt'), join(out, 'reference-api/llms.txt'));
 for (const skill of [
   'build-ui',
+  'systemize-repo',
   'compose-pattern',
   'extend-design-language',
   'audit-ui',
@@ -249,6 +250,17 @@ const manifest = {
     limitation:
       'Installed guidance is portable; implementation changes and repository checks require a writable source checkout. Do not edit an installed package in node_modules.',
   },
+  repositorySystemization: {
+    guidance: 'skills/systemize-repo/SKILL.md',
+    references: [
+      'skills/systemize-repo/references/consolidation.md',
+      'skills/systemize-repo/references/systemization-record.md',
+      'skills/systemize-repo/references/accessibility.md',
+    ],
+    workflow: 'agent-assisted-staged-refactor',
+    defaultDesignTreatment: 'preserve-existing',
+    automaticMigration: false,
+  },
   mcp: {
     entry: 'bin/aegis-mcp.mjs',
     transport: 'stdio',
@@ -353,7 +365,7 @@ await writeFile(
 );
 await writeFile(
   join(out, 'README.md'),
-  '# Aegis Agentic portable kit\n\nStart with `skills/build-ui/SKILL.md`. Inspect contract coverage with `node bin/aegis.mjs contracts coverage`. The optional read-only MCP adapter is `bin/aegis-mcp.mjs`; see `docs/MCP.md` for explicit binding and supported protocol. Run `node bin/aegis.mjs help` for commands. The core runtime has no npm dependencies. Keep this folder together. React component implementations are provided separately by the Aegis Agentic package; this kit defines and validates the design language.\n\nCompile a profile into a consuming project: `node bin/aegis.mjs profile compile profiles/aegis.json --out /path/to/project/agentic-dist`. Apply the emitted CSS after the base Aegis styles and set the documented profile attribute at the document root.\n\nInfrastructure: `node infrastructure/cli.mjs help`. Initialize a new local project with `node infrastructure/cli.mjs init --project /path/to/new-project --id my-project --profile profiles/aegis.json`; inspect `status`, `inventory`, and `plan`. The optional loopback service uses `serve --project /path/to/new-project --reconcile-interval 60`. Its HTTP shapes and limits are in `contracts/infrastructure-api.json`. Telemetry and remote AI start disabled. The runtime exports an explicit usage client; an AI provider is never required for component rendering.\n\nShared workspace (Node 24): `node infrastructure/workspace-cli.mjs help`. Supports signed kit installation, scoped bearer credentials, multiple projects, reviewed generation activation and rollback. Protocol: `contracts/workspace-api.json`. Single-host local filesystem only; no SSO or managed hosting.\n',
+  '# Aegis Agentic portable kit\n\nStart with `skills/build-ui/SKILL.md` for new interfaces or `skills/systemize-repo/SKILL.md` to organize an existing product while preserving its design language and interaction intent. Systemization is an agent-assisted staged refactor, not a migration CLI. Inspect contract coverage with `node bin/aegis.mjs contracts coverage`. The optional read-only MCP adapter is `bin/aegis-mcp.mjs`; see `docs/MCP.md` for explicit binding and supported protocol. Run `node bin/aegis.mjs help` for commands. The core runtime has no npm dependencies. Keep this folder together. React component implementations are provided separately by the Aegis Agentic package; this kit defines and validates the design language.\n\nCompile a profile into a consuming project: `node bin/aegis.mjs profile compile profiles/aegis.json --out /path/to/project/agentic-dist`. Apply the emitted CSS after the base Aegis styles and set the documented profile attribute at the document root.\n\nInfrastructure: `node infrastructure/cli.mjs help`. Initialize a new local project with `node infrastructure/cli.mjs init --project /path/to/new-project --id my-project --profile profiles/aegis.json`; inspect `status`, `inventory`, and `plan`. The optional loopback service uses `serve --project /path/to/new-project --reconcile-interval 60`. Its HTTP shapes and limits are in `contracts/infrastructure-api.json`. Telemetry and remote AI start disabled. The runtime exports an explicit usage client; an AI provider is never required for component rendering.\n\nShared workspace (Node 24): `node infrastructure/workspace-cli.mjs help`. Supports signed kit installation, scoped bearer credentials, multiple projects, reviewed generation activation and rollback. Protocol: `contracts/workspace-api.json`. Single-host local filesystem only; no SSO or managed hosting.\n',
 );
 async function files(directory) {
   const entries = await readdir(directory, { withFileTypes: true });

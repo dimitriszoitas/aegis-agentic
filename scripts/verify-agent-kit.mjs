@@ -51,6 +51,18 @@ for (const skill of Object.keys(kitInfo.authoringGuidance.skills)) {
     await readFile(join(root, 'skills', skill, 'SKILL.md'), 'utf8'),
   );
 }
+assert.equal(kitInfo.repositorySystemization.workflow, 'agent-assisted-staged-refactor');
+assert.equal(kitInfo.repositorySystemization.automaticMigration, false);
+for (const path of [
+  kitInfo.repositorySystemization.guidance,
+  ...kitInfo.repositorySystemization.references,
+]) {
+  assert.equal(
+    await readFile(fixture(path), 'utf8'),
+    await readFile(join(root, path), 'utf8'),
+    `Portable systemization guidance must match its canonical source: ${path}`,
+  );
+}
 const entryCoverage = JSON.parse(await readFile(fixture(kitInfo.publicEntryCoverage.path), 'utf8'));
 assert.equal(entryCoverage.summary.apiFamiliesWithoutAuthoredBehavior, 0);
 assert.equal(entryCoverage.summary.publicUiEntries, 110);

@@ -207,6 +207,7 @@ try {
     'Token Creation',
     'Layout Creation',
     'Build UI',
+    'Systemize Repo',
     'Compose Pattern',
     'Extend Design Language',
     'Audit UI',
@@ -220,7 +221,19 @@ try {
     );
     assert.deepEqual(missing, [], `${title} has no dead shared-reference anchors`);
   }
-  pass('All seven skill tabs resolve every shared-reference anchor, including section fragments.');
+  pass('All eight skill tabs resolve every shared-reference anchor, including section fragments.');
+  await skills.getByRole('tab', { name: 'Systemize Repo', exact: true }).click();
+  await skills.getByRole('link', { name: 'create-component', exact: true }).first().click();
+  await expect(page).toHaveURL(
+    `${base}?path=/docs/agentic-skills-component-creation--docs&agenticSkill=component`,
+  );
+  await expect(
+    skills.getByRole('heading', { name: 'Component Creation', exact: true }),
+  ).toBeVisible();
+  pass(
+    'Systemize Repo links reach the corresponding skill tab without leaving the canonical docs route.',
+  );
+  await skills.getByRole('tab', { name: 'Audit UI', exact: true }).click();
   await skills.getByRole('link', { name: 'the coverage model', exact: true }).click();
   await expect(page).toHaveURL(`${base}?path=/docs/aegis-contract-semantics--docs`);
   const semantics = docs.locator('.contract-semantics');

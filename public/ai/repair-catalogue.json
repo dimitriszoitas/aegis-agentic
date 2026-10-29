@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "kind": "component-repair-catalogue",
-  "sourceDigest": "b9ce398be3c0df6bab5cb1f95c01ab87c32ee3174937b312e1b53e1d219e720e",
+  "sourceDigest": "6015dcb1dc29ac0637866858a49cf0840d84a7a325e6c0ce8e9ed8a31864496f",
   "entries": [
     {
       "id": "accordion",
@@ -11742,7 +11742,7 @@
         }
       ],
       "tokenGroup": "page-structure",
-      "sourceDigest": "bccd2c30bd382fd4f4f3f2fcd0442218e2d136bc5476524d45fff02ae7da9146",
+      "sourceDigest": "acbc701500bfd4bb8139f1e9711263c2202c5c518f4515d25dbab60478a1a57f",
       "sources": [
         {
           "path": "contracts/agentic/page-layout.json",
@@ -11750,7 +11750,7 @@
         },
         {
           "path": "scripts/build-agent-kit.mjs",
-          "sha256": "ac7ee54f52b40e06ee4b5d7a62a57155e93f47c998335a45a7262b7b74140438"
+          "sha256": "13437cd7299227cdd7f0276209fe1c372fe13dfbf1af1aabd0c47c58a3a098a1"
         },
         {
           "path": "skills/references/design-contract.md",
