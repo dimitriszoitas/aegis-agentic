@@ -4,6 +4,8 @@ A configurable, contract-driven design system with local and authenticated share
 
 ## Run the experiment
 
+The public [Storybook](https://dimitriszoitas.github.io/aegis-agentic-storybook/) contains the component library, patterns, contract catalogue, canonical agent skills and MCP integration guidance. Its separate [publishing repository](https://github.com/dimitriszoitas/aegis-agentic-storybook) holds compiled static files only; this development repository remains private.
+
 Use Node 24 and the package manager pinned in `package.json`.
 
 ```sh
@@ -139,4 +141,20 @@ npm run agentic:browser
 - [Audit and repair](skills/audit-ui/SKILL.md)
 - [Original Aegis reference](docs/original-aegis.md)
 
-No existing Aegis deployment or npm package is updated by this experiment. The original Pages deployment workflow has been replaced with independent experiment checks. Publishing a version and consumer adoption remain deliberate actions.
+## Publish Storybook updates
+
+From a clean, committed checkout of the version to publish, with GitHub CLI authenticated as a maintainer of `dimitriszoitas/aegis-agentic-storybook`, run:
+
+```sh
+node scripts/publish-storybook-pages.mjs
+```
+
+The publisher builds production Storybook, checks it at the GitHub Pages project subpath in Chromium, and pushes only the compiled site and public notices to the dedicated publishing repository. Install Playwright Chromium first if needed. It refuses a private destination or an existing repository without its deployment marker. The marker records the source commit and index hash; future publishes use ordinary commits without force pushing. GitHub Pages serves `main` from the repository root. Source commits do not automatically update the public site; publishing is explicit.
+
+To verify the deployed site independently:
+
+```sh
+STORYBOOK_URL=https://dimitriszoitas.github.io/aegis-agentic-storybook/ node scripts/verify-storybook-pages.mjs
+```
+
+The website exposes documentation and interactive examples, not a running infrastructure service or MCP server. No existing classic Aegis deployment or npm package is updated. Package publishing and consumer adoption remain deliberate actions.

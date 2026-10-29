@@ -3,6 +3,7 @@ import { Tabs } from '@base-ui/react/tabs';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { CopyButton } from '@/components/copy-button';
+import { DocumentationLink } from '../contracts/documentation-link';
 import componentSource from '../../../skills/create-component/SKILL.md?raw';
 import tokenSource from '../../../skills/create-token/SKILL.md?raw';
 import layoutSource from '../../../skills/create-layout/SKILL.md?raw';
@@ -54,7 +55,7 @@ const skills = {
     result: 'A typed component, focused stories, real anatomy, and verified interactions.',
     request: 'Build or extend a reusable component for the requested interaction.',
     source: componentSource,
-    contracts: [designContract],
+    contracts: [designContract, agenticContract, patternPolicy],
   },
   token: {
     name: 'create-token',
@@ -113,7 +114,7 @@ const skills = {
       'An experimental proposal, supporting evidence, and a consolidation plan for owner review.',
     request: 'Discover existing capabilities, then propose and reconcile the requested extension.',
     source: extendDesignLanguageSource,
-    contracts: [agenticContract, designContract],
+    contracts: [agenticContract, designContract, patternPolicy],
   },
   'audit-ui': {
     name: 'audit-ui',
@@ -143,8 +144,11 @@ function skillLink(href?: string) {
     'page-composition.md': pageComposition.id,
     'pattern-policy.md': patternPolicy.id,
   };
-  const file = href?.split('#')[0].split('/').at(-1);
-  return file && Object.hasOwn(references, file) ? `#${references[file]}` : href;
+  const [path, fragment] = href?.split('#') ?? [];
+  const file = path?.split('/').at(-1);
+  return file && Object.hasOwn(references, file)
+    ? `#${references[file]}${fragment ? `-${fragment}` : ''}`
+    : href;
 }
 
 function SkillContent({ skillId }: { skillId: SkillId }) {
@@ -195,7 +199,9 @@ function SkillContent({ skillId }: { skillId: SkillId }) {
           remarkPlugins={[remarkGfm]}
           skipHtml
           components={{
-            a: ({ href, children }) => <a href={skillLink(href)}>{children}</a>,
+            a: ({ href, children }) => (
+              <DocumentationLink href={skillLink(href)}>{children}</DocumentationLink>
+            ),
           }}
         >
           {markdownBody(skill.source)}
@@ -217,8 +223,19 @@ function SkillContent({ skillId }: { skillId: SkillId }) {
             remarkPlugins={[remarkGfm]}
             skipHtml
             components={{
-              h2: ({ children }) => <h3>{children}</h3>,
-              a: ({ href, children }) => <a href={skillLink(href)}>{children}</a>,
+              h2: ({ children }) => (
+                <h3
+                  id={`${contract.id}-${String(children)
+                    .toLowerCase()
+                    .replace(/[^\w\s-]/g, '')
+                    .replace(/\s+/g, '-')}`}
+                >
+                  {children}
+                </h3>
+              ),
+              a: ({ href, children }) => (
+                <DocumentationLink href={skillLink(href)}>{children}</DocumentationLink>
+              ),
             }}
           >
             {markdownBody(contract.source)}

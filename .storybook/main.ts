@@ -33,6 +33,7 @@ const config: StorybookConfig = {
   viteFinal(config, { configType }) {
     if (configType !== 'PRODUCTION') return config;
     return mergeConfig(config, {
+      build: { license: { fileName: 'THIRD-PARTY-LICENSES.md' } },
       resolve: {
         alias: {
           '@untitledui/icons': fileURLToPath(new URL('./public-icon-pack.ts', import.meta.url)),

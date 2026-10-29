@@ -3,6 +3,7 @@ import remarkGfm from 'remark-gfm';
 import { CopyButton } from '@/components/copy-button';
 import { PageHeader } from '@/patterns/page-header';
 import source from '../../../docs/MCP.md?raw';
+import { DocumentationLink } from './documentation-link';
 import './contracts.css';
 
 export function McpReference() {
@@ -17,7 +18,7 @@ export function McpReference() {
         Source: <code>docs/MCP.md</code>
       </p>
       <div className="contract-markdown">
-        <Markdown remarkPlugins={[remarkGfm]} skipHtml>
+        <Markdown remarkPlugins={[remarkGfm]} skipHtml components={{ a: DocumentationLink }}>
           {source.replace(/^# [^\n]+\n/, '')}
         </Markdown>
       </div>
