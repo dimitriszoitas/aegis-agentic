@@ -13,7 +13,7 @@
     },
     {
       "path": "public/ai/contract-catalogue.json",
-      "sha256": "16c81170ad88357264a75d810bebd5d3b0a1a39cb90ab056995f14bc599269f2"
+      "sha256": "348fc7210ffff065f692f0e761330b50be971cd2633b2ea849d6e1a0bdd7ed60"
     },
     {
       "path": "contracts/catalogue-bindings.json",

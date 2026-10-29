@@ -74,6 +74,11 @@ export async function loadContext(options) {
     if (!object(coverage) || (coverage.sha256 !== undefined && !digest(coverage.sha256))) throw new Error('Invalid public entry coverage metadata.');
     safeRelative(coverage.path);
   }
+  if (kit.repositorySystemization !== undefined) {
+    const systemization = kit.repositorySystemization;
+    if (!object(systemization) || systemization.workflow !== 'agent-assisted-staged-refactor' || systemization.defaultDesignTreatment !== 'preserve-existing' || systemization.automaticMigration !== false || !Array.isArray(systemization.references) || systemization.references.length > 8) throw new Error('Unsupported repository systemization metadata.');
+    for (const path of [systemization.guidance, ...systemization.references]) safeRelative(path);
+  }
   const runtimePath = safeRelative(kit.runtime);
   const runtimeText = await kitRead(runtimePath, limits.runtimeBytes);
   // Dynamic file imports intentionally resolve the supplied installed kit; no repository fallback.
@@ -112,7 +117,7 @@ export async function loadContext(options) {
     if (!validation.valid) throw new Error(`Invalid project recipes: ${JSON.stringify(validation.issues)}`);
     binding = { ...binding, recipesPath, recipesSha256: sha256(recipesText), recipesProject: projectRecipes.project, recipesRevision: projectRecipes.revision };
   }
-  const metadata = () => ({ kit: { name: kit.name, version: kit.version, registryRevision: kit.registryRevision, compilerVersion: kit.compilerVersion, integritySha256: kitIntegritySha256, ...(kit.authoringGuidance ? { authoringGuidance: kit.authoringGuidance } : {}), ...(kit.publicEntryCoverage ? { publicEntryCoverage: kit.publicEntryCoverage } : {}) }, binding, readOnly: true, supportedProtocolVersions: ['2025-11-25'], limits });
+  const metadata = () => ({ kit: { name: kit.name, version: kit.version, registryRevision: kit.registryRevision, compilerVersion: kit.compilerVersion, integritySha256: kitIntegritySha256, ...(kit.authoringGuidance ? { authoringGuidance: kit.authoringGuidance } : {}), ...(kit.publicEntryCoverage ? { publicEntryCoverage: kit.publicEntryCoverage } : {}), ...(kit.repositorySystemization ? { repositorySystemization: kit.repositorySystemization } : {}) }, binding, readOnly: true, supportedProtocolVersions: ['2025-11-25'], limits });
   const assertFresh = async () => {
     if (sha256(await readBound(kitRoot, 'integrity.json', 2 * 1024 * 1024)) !== kitIntegritySha256) throw new Error('Kit snapshot changed; restart against explicit pins.');
     await kitRead('kit.json');

@@ -118,6 +118,8 @@ The design language and proposed components are experimental. Token compliance, 
 
 ## Build and use the portable kit
 
+To organize an existing product, use [Systemize Repo](skills/systemize-repo/SKILL.md). The agent inventories pages, components, patterns, styling, APIs, and interaction decisions, then consolidates compatible implementations and migrates tokens in verified slices. It preserves the product's existing design language by default, including intentional anatomy such as a trailing selection check, with necessary corrections for the selected accessibility target. Missing reusable capabilities follow the complete component contribution workflow; app endpoints, routes, and business logic remain host responsibilities. This is an agent-assisted refactoring workflow, not a one-command repository converter. The skill and its supporting references travel with the portable kit and appear in Storybook's Agentic Skills.
+
 ```sh
 npm run agentic:kit
 node agent-kit/bin/aegis.mjs help
@@ -157,6 +159,7 @@ npm run agentic:browser
 - [Local MCP adapter](docs/MCP.md)
 - [Portable agent contract](skills/references/agentic-contract.md)
 - [Build UI](skills/build-ui/SKILL.md)
+- [Systemize an existing repository](skills/systemize-repo/SKILL.md)
 - [Compose patterns](skills/compose-pattern/SKILL.md)
 - [Extend the language](skills/extend-design-language/SKILL.md)
 - [Audit and repair](skills/audit-ui/SKILL.md)

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Tabs } from '@base-ui/react/tabs';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -8,6 +8,10 @@ import componentSource from '../../../skills/create-component/SKILL.md?raw';
 import tokenSource from '../../../skills/create-token/SKILL.md?raw';
 import layoutSource from '../../../skills/create-layout/SKILL.md?raw';
 import buildUiSource from '../../../skills/build-ui/SKILL.md?raw';
+import systemizeRepoSource from '../../../skills/systemize-repo/SKILL.md?raw';
+import consolidationSource from '../../../skills/systemize-repo/references/consolidation.md?raw';
+import systemizationRecordSource from '../../../skills/systemize-repo/references/systemization-record.md?raw';
+import systemizationAccessibilitySource from '../../../skills/systemize-repo/references/accessibility.md?raw';
 import composePatternSource from '../../../skills/compose-pattern/SKILL.md?raw';
 import extendDesignLanguageSource from '../../../skills/extend-design-language/SKILL.md?raw';
 import auditUiSource from '../../../skills/audit-ui/SKILL.md?raw';
@@ -43,6 +47,27 @@ const patternPolicy = {
   title: 'Project pattern policy',
   path: 'skills/references/pattern-policy.md',
   source: patternPolicySource,
+} as const;
+
+const consolidation = {
+  id: 'systemization-consolidation',
+  title: 'Consolidation decisions',
+  path: 'skills/systemize-repo/references/consolidation.md',
+  source: consolidationSource,
+} as const;
+
+const systemizationRecord = {
+  id: 'systemization-record',
+  title: 'Systemization record',
+  path: 'skills/systemize-repo/references/systemization-record.md',
+  source: systemizationRecordSource,
+} as const;
+
+const systemizationAccessibility = {
+  id: 'systemization-accessibility',
+  title: 'Accessibility target',
+  path: 'skills/systemize-repo/references/accessibility.md',
+  source: systemizationAccessibilitySource,
 } as const;
 
 const skills = {
@@ -91,6 +116,28 @@ const skills = {
     source: buildUiSource,
     contracts: [agenticContract, designContract, pageComposition, patternPolicy],
   },
+  'systemize-repo': {
+    name: 'systemize-repo',
+    title: 'Systemize Repo',
+    description:
+      'Organize an existing product into shared components, patterns, layouts, and tokens while preserving its design language and interaction decisions.',
+    useFor:
+      'An existing UI repository with repeated implementations, scattered styling, or undocumented design decisions.',
+    result:
+      'An evidence-backed design inventory and staged refactor with compatible reuse, preserved APIs and variants, and verified behavior.',
+    request:
+      'Systemize this repository. Infer and preserve its current design language, consolidate compatible implementations, and migrate tokens in verified slices.',
+    source: systemizeRepoSource,
+    contracts: [
+      consolidation,
+      systemizationRecord,
+      systemizationAccessibility,
+      agenticContract,
+      designContract,
+      pageComposition,
+      patternPolicy,
+    ],
+  },
   'compose-pattern': {
     name: 'compose-pattern',
     title: 'Compose Pattern',
@@ -137,18 +184,38 @@ function markdownBody(source: string) {
   return source.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '').replace(/^\s*# [^\n]+\n/, '');
 }
 
-function skillLink(href?: string) {
+function SkillDocumentationLink({ href, children }: { href?: string; children?: ReactNode }) {
   const references: Record<string, string> = {
     'design-contract.md': designContract.id,
     'agentic-contract.md': agenticContract.id,
     'page-composition.md': pageComposition.id,
     'pattern-policy.md': patternPolicy.id,
+    'consolidation.md': consolidation.id,
+    'systemization-record.md': systemizationRecord.id,
+    'accessibility.md': systemizationAccessibility.id,
   };
   const [path, fragment] = href?.split('#') ?? [];
+  const skillName = path?.match(/^(?:\.\.?\/)*(?:skills\/)?([\w-]+)\/SKILL\.md$/)?.[1];
+  const skillEntry = Object.entries(skills).find(([, skill]) => skill.name === skillName);
+  if (skillEntry) {
+    const url = new URL(navigationWindow().location.href);
+    if (!url.searchParams.get('path')?.startsWith('/docs/agentic-skills-')) {
+      url.searchParams.set('path', '/docs/agentic-skills-component-creation--docs');
+    }
+    url.searchParams.set('agenticSkill', skillEntry[0]);
+    url.hash = fragment ?? '';
+    return (
+      <a href={url.href} target="_top">
+        {children}
+      </a>
+    );
+  }
   const file = path?.split('/').at(-1);
-  return file && Object.hasOwn(references, file)
-    ? `#${references[file]}${fragment ? `-${fragment}` : ''}`
-    : href;
+  const resolved =
+    file && Object.hasOwn(references, file)
+      ? `#${references[file]}${fragment ? `-${fragment}` : ''}`
+      : href;
+  return <DocumentationLink href={resolved}>{children}</DocumentationLink>;
 }
 
 function SkillContent({ skillId }: { skillId: SkillId }) {
@@ -200,7 +267,7 @@ function SkillContent({ skillId }: { skillId: SkillId }) {
           skipHtml
           components={{
             a: ({ href, children }) => (
-              <DocumentationLink href={skillLink(href)}>{children}</DocumentationLink>
+              <SkillDocumentationLink href={href}>{children}</SkillDocumentationLink>
             ),
           }}
         >
@@ -234,7 +301,7 @@ function SkillContent({ skillId }: { skillId: SkillId }) {
                 </h3>
               ),
               a: ({ href, children }) => (
-                <DocumentationLink href={skillLink(href)}>{children}</DocumentationLink>
+                <SkillDocumentationLink href={href}>{children}</SkillDocumentationLink>
               ),
             }}
           >
@@ -277,8 +344,9 @@ export function AgenticSkillPage({ skillId = 'component' }: { skillId?: SkillId 
         <h1>Agentic Skills</h1>
         <p>
           Repository instructions for creating components, tokens, and layouts, plus building,
-          composing, extending, and auditing interfaces with the portable Agentic kit. Each tab
-          renders the source skill and its applicable shared contracts, together with a copy action.
+          systemizing, composing, extending, and auditing interfaces with the portable Agentic kit.
+          Each tab renders the source skill and its applicable shared contracts, together with a
+          copy action.
         </p>
       </header>
       <Tabs.Root

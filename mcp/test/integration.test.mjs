@@ -87,16 +87,26 @@ test('isolated exported bundle negotiates protocol, discovers read-only tools/re
   assert.deepEqual(results.entries.map((item) => item.id), core.searchContracts('dialog').slice(0, 2).map((item) => item.id));
   assert.equal(results.total, core.searchContracts('dialog').length);
   assert.match(await callError(client, 'audit_product_patterns'), /requires startup --project/);
-  assert.deepEqual((await client.listPrompts()).prompts.map((item) => item.name).sort(), ['audit_page', 'build_page']);
-  for (const name of ['build_page', 'audit_page']) {
+  assert.deepEqual((await client.listPrompts()).prompts.map((item) => item.name).sort(), ['audit_page', 'build_page', 'systemize_repo']);
+  for (const [name, skill] of [['build_page', 'build-ui'], ['audit_page', 'audit-ui'], ['systemize_repo', 'systemize-repo']]) {
     const prompt = await client.getPrompt({ name, arguments: { task: 'Review customer detail' } });
     const text = prompt.messages[0].content.text;
-    assert.ok(text.includes(await readFile(join(kit, `skills/${name === 'build_page' ? 'build-ui' : 'audit-ui'}/SKILL.md`), 'utf8')));
+    assert.ok(text.includes(await readFile(join(kit, `skills/${skill}/SKILL.md`), 'utf8')));
     assert.ok(text.includes(await readFile(join(kit, 'skills/references/page-composition.md'), 'utf8')));
     assert.ok(text.includes(await readFile(join(kit, 'skills/references/design-contract.md'), 'utf8')));
     assert.ok(text.includes(await readFile(join(kit, 'skills/references/pattern-policy.md'), 'utf8')));
     assert.match(text, /"status":"unbound"/);
+    if (name === 'systemize_repo') {
+      assert.match(text, /Accessibility target: preserve established project target; otherwise normal/);
+      assert.doesNotMatch(text, /Requested accessibility target: normal/);
+      for (const path of manifest.repositorySystemization.references) assert.ok(text.includes(await readFile(join(kit, path), 'utf8')));
+    }
   }
+  const systemizationPrompt = await client.getPrompt({ name: 'systemize_repo', arguments: { task: 'Consolidate existing selection rows', accessibilityTarget: 'AAA' } });
+  assert.match(systemizationPrompt.messages[0].content.text, /Requested accessibility target: AAA/);
+  const normalPrompt = await client.getPrompt({ name: 'systemize_repo', arguments: { task: 'Preserve this project’s established AAA target while consolidating rows', accessibilityTarget: 'normal' } });
+  assert.match(normalPrompt.messages[0].content.text, /Do not lower an established stronger project or user target unless the user explicitly requested that downgrade/);
+  await assert.rejects(client.getPrompt({ name: 'systemize_repo', arguments: { task: 'Consolidate existing selection rows', accessibilityTarget: 'certified' } }));
   assert.equal(stderr(), '');
   await close();
   assert.deepEqual(await snapshot(kit), before);
@@ -122,6 +132,14 @@ test('advertised authoring guidance and public-entry coverage return exact pinne
   const context = await call(client, 'inspect_project_context');
   assert.deepEqual(context.kit.authoringGuidance, manifest.authoringGuidance);
   assert.deepEqual(context.kit.publicEntryCoverage, manifest.publicEntryCoverage);
+  assert.deepEqual(context.kit.repositorySystemization, manifest.repositorySystemization);
+  assert.equal((await client.readResource({ uri: 'aegis://guidance/systemize-repo' })).contents[0].text, await readFile(join(kit, manifest.repositorySystemization.guidance), 'utf8'));
+  for (const path of manifest.repositorySystemization.references) {
+    const name = path.split('/').at(-1).replace(/\.md$/, '');
+    const uri = `aegis://systemization/${name}`;
+    assert.ok(resources.some((item) => item.uri === uri));
+    assert.equal((await client.readResource({ uri })).contents[0].text, await readFile(join(kit, path), 'utf8'));
+  }
   await close();
 });
 
@@ -130,14 +148,16 @@ test('optional resource discovery is absent for unadvertised capabilities and fa
   const baseOnly = { ...manifest };
   delete baseOnly.authoringGuidance;
   delete baseOnly.publicEntryCoverage;
+  delete baseOnly.repositorySystemization;
   await replaceCovered(changedKit, 'kit.json', JSON.stringify(baseOnly));
   const base = await connect([], changedKit);
   const resources = (await base.client.listResources()).resources;
-  for (const uri of ['aegis://guidance/create-component', 'aegis://guidance/create-token', 'aegis://guidance/create-layout', 'aegis://public-entry-coverage']) {
+  for (const uri of ['aegis://guidance/create-component', 'aegis://guidance/create-token', 'aegis://guidance/create-layout', 'aegis://public-entry-coverage', 'aegis://guidance/systemize-repo', 'aegis://systemization/consolidation']) {
     assert.ok(!resources.some((item) => item.uri === uri));
     await assert.rejects(base.client.readResource({ uri }));
   }
   assert.ok(resources.some((item) => item.uri === 'aegis://guidance/build-ui'));
+  assert.deepEqual((await base.client.listPrompts()).prompts.map((item) => item.name).sort(), ['audit_page', 'build_page']);
   assert.equal((await call(base.client, 'inspect_project_context')).binding.status, 'unbound');
   await base.close();
   const withoutCoverageHash = { ...manifest, publicEntryCoverage: { ...manifest.publicEntryCoverage } };
@@ -151,9 +171,11 @@ test('optional resource discovery is absent for unadvertised capabilities and fa
     { authoringGuidance: { ...manifest.authoringGuidance, skills: { 'create-component': '../outside.md' } } },
     { publicEntryCoverage: { path: '../outside.json' } },
     { publicEntryCoverage: { ...manifest.publicEntryCoverage, sha256: 'invalid' } },
+    { repositorySystemization: { ...manifest.repositorySystemization, guidance: '../outside.md' } },
+    { repositorySystemization: { ...manifest.repositorySystemization, automaticMigration: true } },
   ]) {
     await replaceCovered(changedKit, 'kit.json', JSON.stringify({ ...manifest, ...change }));
-    await assert.rejects(connect([], changedKit), /authoring guidance|normalized relative path|coverage metadata/);
+    await assert.rejects(connect([], changedKit), /authoring guidance|normalized relative path|coverage metadata|systemization metadata/);
   }
   await replaceCovered(changedKit, 'kit.json', JSON.stringify(manifest));
   await replaceCovered(changedKit, manifest.publicEntryCoverage.path, JSON.stringify({ changed: true }));
