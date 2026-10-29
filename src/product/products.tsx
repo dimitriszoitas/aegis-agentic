@@ -29,21 +29,27 @@ const options = (values: readonly string[]) => values.map((value) => ({ value, l
 
 export function ProductsPage({ state, update, notice }: FormaStore) {
   const [query, setQuery] = useState('');
-  const [status, setStatus] = useState('all');
-  const [category, setCategory] = useState('all');
+  const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [editing, setEditing] = useState<FormaProduct | 'new' | null>(null);
   const filtered = useMemo(
     () =>
       state.products.filter(
         (product) =>
-          (status === 'all' || product.status === status) &&
-          (category === 'all' || product.category === category) &&
+          (!selectedStatuses.length || selectedStatuses.includes(product.status)) &&
+          (!selectedCategories.length || selectedCategories.includes(product.category)) &&
           `${product.name} ${product.sku} ${product.description}`
             .toLowerCase()
             .includes(query.trim().toLowerCase()),
       ),
-    [state.products, query, status, category],
+    [state.products, query, selectedStatuses, selectedCategories],
   );
+
+  function clearFilters() {
+    setQuery('');
+    setSelectedStatuses([]);
+    setSelectedCategories([]);
+  }
 
   function save(product: FormaProduct) {
     update((current) => ({
@@ -107,7 +113,28 @@ export function ProductsPage({ state, update, notice }: FormaStore) {
         }
       />
       <FormaFilterToolbar
-        label="Product filters"
+        label="Filter products"
+        noun="product"
+        resultCount={filtered.length}
+        query={query}
+        onClearQuery={() => setQuery('')}
+        onClearAll={clearFilters}
+        facets={[
+          {
+            id: 'category',
+            label: 'Category',
+            options: options(categories),
+            values: selectedCategories,
+            onValueChange: setSelectedCategories,
+          },
+          {
+            id: 'status',
+            label: 'Status',
+            options: options(statuses),
+            values: selectedStatuses,
+            onValueChange: setSelectedStatuses,
+          },
+        ]}
         search={
           <SearchInput
             aria-label="Search products"
@@ -116,23 +143,7 @@ export function ProductsPage({ state, update, notice }: FormaStore) {
             onValueChange={setQuery}
           />
         }
-      >
-        <Select
-          aria-label="Product status"
-          value={status}
-          onValueChange={setStatus}
-          options={[{ value: 'all', label: 'All statuses' }, ...options(statuses)]}
-        />
-        <Select
-          aria-label="Product category"
-          value={category}
-          onValueChange={setCategory}
-          options={[{ value: 'all', label: 'All categories' }, ...options(categories)]}
-        />
-        <span className="forma-muted" role="status">
-          {filtered.length} products
-        </span>
-      </FormaFilterToolbar>
+      />
       {filtered.length ? (
         <div className="forma-product-grid">
           {filtered.map((product) => (
@@ -201,14 +212,7 @@ export function ProductsPage({ state, update, notice }: FormaStore) {
           <Layers size={componentToken('application.icon-navigation')} aria-hidden="true" />
           <h2>No products found</h2>
           <p>Try a different search or add your first product.</p>
-          <Button
-            emphasis="secondary"
-            onClick={() => {
-              setQuery('');
-              setStatus('all');
-              setCategory('all');
-            }}
-          >
+          <Button emphasis="secondary" onClick={clearFilters}>
             Clear filters
           </Button>
         </div>

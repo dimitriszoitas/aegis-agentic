@@ -63,8 +63,8 @@ function exportUsers(users: FormaUser[]) {
 
 export function UsersPage({ state, update, notice, navigate }: FormaStore) {
   const [query, setQuery] = useState('');
-  const [role, setRole] = useState('all');
-  const [status, setStatus] = useState('all');
+  const [roles, setRoles] = useState<string[]>([]);
+  const [statuses, setStatuses] = useState<string[]>([]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [detailId, setDetailId] = useState<string | null>(null);
   const [addOpen, setAddOpen] = useState(false);
@@ -85,10 +85,10 @@ export function UsersPage({ state, update, notice, navigate }: FormaStore) {
     return state.users.filter(
       (user) =>
         (!search || `${user.name} ${user.email} ${user.company}`.toLowerCase().includes(search)) &&
-        (role === 'all' || user.role === role) &&
-        (status === 'all' || user.status === status),
+        (!roles.length || roles.includes(user.role)) &&
+        (!statuses.length || statuses.includes(user.status)),
     );
-  }, [state.users, query, role, status]);
+  }, [state.users, query, roles, statuses]);
   const relatedInvoices = detail
     ? state.invoices.filter((invoice) => invoice.userId === detail.id)
     : [];
@@ -144,8 +144,8 @@ export function UsersPage({ state, update, notice, navigate }: FormaStore) {
 
   function clearFilters() {
     setQuery('');
-    setRole('all');
-    setStatus('all');
+    setRoles([]);
+    setStatuses([]);
     setSelectedIds([]);
   }
 
@@ -341,6 +341,36 @@ export function UsersPage({ state, update, notice, navigate }: FormaStore) {
       </div>
       <FormaFilterToolbar
         label="Filter users"
+        noun="user"
+        resultCount={filtered.length}
+        query={query}
+        onClearQuery={() => {
+          setQuery('');
+          setSelectedIds([]);
+        }}
+        onClearAll={clearFilters}
+        facets={[
+          {
+            id: 'role',
+            label: 'Role',
+            options: roleOptions,
+            values: roles,
+            onValueChange: (values) => {
+              setRoles(values);
+              setSelectedIds([]);
+            },
+          },
+          {
+            id: 'status',
+            label: 'Status',
+            options: statusOptions,
+            values: statuses,
+            onValueChange: (values) => {
+              setStatuses(values);
+              setSelectedIds([]);
+            },
+          },
+        ]}
         search={
           <SearchInput
             ref={searchRef}
@@ -353,31 +383,7 @@ export function UsersPage({ state, update, notice, navigate }: FormaStore) {
             }}
           />
         }
-      >
-        <Select
-          aria-label="Filter by role"
-          value={role}
-          options={[{ value: 'all', label: 'All roles' }, ...roleOptions]}
-          onValueChange={(value) => {
-            setRole(value);
-            setSelectedIds([]);
-          }}
-        />
-        <Select
-          aria-label="Filter by status"
-          value={status}
-          options={[{ value: 'all', label: 'All statuses' }, ...statusOptions]}
-          onValueChange={(value) => {
-            setStatus(value);
-            setSelectedIds([]);
-          }}
-        />
-        {(query || role !== 'all' || status !== 'all') && (
-          <Button emphasis="ghost" onClick={clearFilters}>
-            Clear filters
-          </Button>
-        )}
-      </FormaFilterToolbar>
+      />
       <DataGrid
         data={filtered}
         columns={columns}

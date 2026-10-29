@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { chromium, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { setCollectionFilter } from './forma-filter-browser-helpers.mjs';
 
 const base = process.env.FORMA_URL || 'http://127.0.0.1:4176/?view=product';
 const output = 'artifacts/forma-users';
@@ -123,14 +124,14 @@ try {
   await expect(rows()).toHaveCount(
     original.users.filter((user) => user.company === 'Layers').length,
   );
-  await select(page.getByRole('combobox', { name: 'Filter by role', exact: true }), 'Admin');
+  await setCollectionFilter(page, 'users', 'Role', ['Admin']);
   await expect(rows()).toHaveCount(1);
   await expect(rows().first()).toHaveAttribute('aria-label', 'Olivia Rhye');
-  await select(page.getByRole('combobox', { name: 'Filter by status', exact: true }), 'Suspended');
+  await setCollectionFilter(page, 'users', 'Status', ['Suspended']);
   await expect(
     page.getByRole('heading', { name: 'No users match your filters', exact: true }),
   ).toBeVisible();
-  await page.getByRole('button', { name: 'Clear filters', exact: true }).click();
+  await page.getByRole('button', { name: 'Clear all', exact: true }).click();
   await expect(rows()).toHaveCount(10);
   passed('Case-insensitive email/company search and combined filters with empty recovery');
 
@@ -166,7 +167,7 @@ try {
   await expect(page.getByRole('region', { name: 'Selected row actions', exact: true })).toHaveCount(
     0,
   );
-  await page.getByRole('button', { name: 'Clear filters', exact: true }).click();
+  await page.getByRole('button', { name: 'Clear all', exact: true }).click();
   passed('Bulk status changes, selection-only export and filter selection clearing');
 
   const oliviaRow = page.getByRole('row', { name: 'Olivia Rhye', exact: true });
@@ -282,12 +283,10 @@ try {
         'Theme-safe draft',
       );
       geometry.push(
-        await dialog
-          .getByRole('textbox', { name: /Full name/ })
-          .evaluate((el) => ({
-            height: el.getBoundingClientRect().height,
-            fontSize: getComputedStyle(el).fontSize,
-          })),
+        await dialog.getByRole('textbox', { name: /Full name/ }).evaluate((el) => ({
+          height: el.getBoundingClientRect().height,
+          fontSize: getComputedStyle(el).fontSize,
+        })),
       );
       await axe(`${presentation}/${theme} Add user`);
     }

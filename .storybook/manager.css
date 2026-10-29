@@ -394,20 +394,46 @@ html[data-aegis-manager-focus='pointer'] .aegis-manager-reopen:focus {
 }
 
 /* One original emblem, paired with a real text wordmark for crisp scaling. */
+.sidebar-header > div:has(.aegis-storybook-brand) {
+  min-width: 0;
+  margin-inline-end: 8px;
+}
 .aegis-storybook-brand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 6px;
+  min-width: 0;
   color: inherit;
   font-family: Figtree, sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: -0.025em;
 }
 .aegis-storybook-brand img {
   display: block;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   flex: none;
+}
+.aegis-storybook-wordmark {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px 6px;
+  min-width: 0;
+}
+.aegis-storybook-wordmark > span:first-child {
+  white-space: nowrap;
+}
+.aegis-storybook-beta {
+  flex: none;
+  padding: 3px 4px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  color: var(--manager-footer-accent, inherit);
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.04em;
 }

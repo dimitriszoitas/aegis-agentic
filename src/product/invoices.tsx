@@ -39,7 +39,7 @@ function InvoiceStatus({ status }: { status: FormaInvoice['status'] }) {
 
 export function InvoicesPage({ state, update, notice, navigate }: FormaStore) {
   const [query, setQuery] = useState('');
-  const [status, setStatus] = useState('all');
+  const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
   const selected = state.invoices.find((invoice) => invoice.id === selectedId);
@@ -47,12 +47,12 @@ export function InvoicesPage({ state, update, notice, navigate }: FormaStore) {
     () =>
       state.invoices.filter(
         (invoice) =>
-          (status === 'all' || invoice.status === status) &&
+          (!selectedStatuses.length || selectedStatuses.includes(invoice.status)) &&
           `${invoice.number} ${invoice.customer} ${invoice.email}`
             .toLowerCase()
             .includes(query.trim().toLowerCase()),
       ),
-    [state.invoices, query, status],
+    [state.invoices, query, selectedStatuses],
   );
   const currency = state.settings.currency;
   const columns = useMemo<ColumnDef<FormaInvoice>[]>(
@@ -171,6 +171,23 @@ export function InvoicesPage({ state, update, notice, navigate }: FormaStore) {
       </div>
       <FormaFilterToolbar
         label="Filter invoices"
+        noun="invoice"
+        resultCount={filtered.length}
+        query={query}
+        onClearQuery={() => setQuery('')}
+        onClearAll={() => {
+          setQuery('');
+          setSelectedStatuses([]);
+        }}
+        facets={[
+          {
+            id: 'status',
+            label: 'Status',
+            options: statuses.map((value) => ({ value, label: value })),
+            values: selectedStatuses,
+            onValueChange: setSelectedStatuses,
+          },
+        ]}
         search={
           <SearchInput
             aria-label="Search invoices"
@@ -179,28 +196,7 @@ export function InvoicesPage({ state, update, notice, navigate }: FormaStore) {
             onValueChange={setQuery}
           />
         }
-      >
-        <Select
-          aria-label="Invoice status"
-          value={status}
-          onValueChange={setStatus}
-          options={[
-            { value: 'all', label: 'All statuses' },
-            ...statuses.map((value) => ({ value, label: value })),
-          ]}
-        />
-        {(query || status !== 'all') && (
-          <Button
-            emphasis="tertiary"
-            onClick={() => {
-              setQuery('');
-              setStatus('all');
-            }}
-          >
-            Clear filters
-          </Button>
-        )}
-      </FormaFilterToolbar>
+      />
       <DataGrid
         data={filtered}
         columns={columns}

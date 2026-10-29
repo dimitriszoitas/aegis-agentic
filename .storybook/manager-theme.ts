@@ -4,7 +4,7 @@ export function managerTheme(dark: boolean) {
   return create({
     base: dark ? 'dark' : 'light',
     brandTitle:
-      '<span class="aegis-storybook-brand"><img src="./aegis-mark.svg" alt="" width="32" height="32" /><span>Aegis</span></span>',
+      '<span class="aegis-storybook-brand"><img src="./aegis-mark.svg" alt="" width="24" height="24" /><span class="aegis-storybook-wordmark"><span>Aegis Agentic</span> <span class="aegis-storybook-beta">BETA</span></span></span>',
     brandUrl: '?path=/docs/foundations-welcome--docs',
     brandTarget: '_self',
     fontBase: 'Figtree, sans-serif',

@@ -411,6 +411,12 @@
   }
 }
 
+.forma-collection-filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-gap-compact);
+  min-width: var(--group-application-business-app-number-0);
+}
 .forma-filter-toolbar {
   display: flex;
   align-items: center;
@@ -422,12 +428,36 @@
   max-width: var(--group-application-business-app-size-width-full);
   flex-shrink: var(--group-application-business-app-flex-none);
 }
-.forma-filter-controls {
+.forma-filter-result {
+  margin-inline-start: auto;
+  white-space: nowrap;
+}
+.forma-filter-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-gap-roomy);
+}
+.forma-filter-panel-result {
+  margin: var(--group-application-business-app-number-0);
+}
+.forma-filter-facet {
+  min-width: var(--group-application-business-app-number-0);
+  margin: var(--group-application-business-app-number-0);
+  padding: var(--group-application-business-app-number-0);
+  border: none;
+}
+.forma-filter-facet legend {
+  padding: var(--group-application-business-app-number-0);
+  margin-bottom: var(--group-application-business-app-space-gap-compact);
+  font-weight: var(--group-application-business-app-title-weight);
+}
+.forma-filter-panel-footer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--group-application-business-app-space-gap-compact);
-  min-width: var(--group-application-business-app-number-0);
+  width: var(--group-application-business-app-size-width-full);
 }
 .forma-card-heading {
   flex-direction: row;

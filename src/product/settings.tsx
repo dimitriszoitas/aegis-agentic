@@ -91,7 +91,9 @@ export function SettingsPage({ state, update, notice }: FormaStore) {
         <Card aria-labelledby="forma-workspace-title">
           <form onSubmit={saveWorkspace} noValidate>
             <CardHeader>
-              <CardTitle id="forma-workspace-title">Workspace details</CardTitle>
+              <CardTitle id="forma-workspace-title" aria-level={2}>
+                Workspace details
+              </CardTitle>
               <CardDescription>Your workspace name and primary contact.</CardDescription>
             </CardHeader>
             <CardContent>
@@ -148,7 +150,9 @@ export function SettingsPage({ state, update, notice }: FormaStore) {
 
         <Card aria-labelledby="forma-preferences-title">
           <CardHeader>
-            <CardTitle id="forma-preferences-title">Appearance & preferences</CardTitle>
+            <CardTitle id="forma-preferences-title" aria-level={2}>
+              Appearance & preferences
+            </CardTitle>
             <CardDescription>Changes apply immediately across your workspace.</CardDescription>
           </CardHeader>
           <CardContent>
@@ -208,7 +212,9 @@ export function SettingsPage({ state, update, notice }: FormaStore) {
 
       <Card aria-labelledby="forma-data-title">
         <CardHeader>
-          <CardTitle id="forma-data-title">Your workspace data</CardTitle>
+          <CardTitle id="forma-data-title" aria-level={2}>
+            Your workspace data
+          </CardTitle>
           <CardDescription>
             This demo saves changes in this browser. Export a backup before clearing browser data.
           </CardDescription>

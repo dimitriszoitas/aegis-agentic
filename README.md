@@ -4,7 +4,9 @@ A configurable, contract-driven design system with local and authenticated share
 
 ## Run the experiment
 
-The public [Storybook](https://dimitriszoitas.github.io/aegis-agentic-storybook/) contains the component library, patterns, contract catalogue, canonical agent skills and MCP integration guidance. Its separate [publishing repository](https://github.com/dimitriszoitas/aegis-agentic-storybook) holds compiled static files only; this development repository remains private.
+**Working beta.** The public [Storybook](https://dimitriszoitas.github.io/aegis-agentic-storybook/) contains the component library, patterns, contract catalogue, canonical agent skills and MCP integration guidance. The [source repository](https://github.com/dimitriszoitas/aegis-agentic) is available under the MIT license, with third-party assets covered by their own notices. Its default `beta` branch contains the current experiment; `main` retains the initial experiment snapshot. The separate [publishing repository](https://github.com/dimitriszoitas/aegis-agentic-storybook) holds compiled static files only.
+
+Start with [contributing and local setup](CONTRIBUTING.md), [security boundaries and private reporting](SECURITY.md), and [third-party notices](THIRD_PARTY_NOTICES.md). This is experimental software without a production support commitment. The source and Storybook are public; no public npm release is implied.
 
 Use Node 24 and the package manager pinned in `package.json`.
 
@@ -18,7 +20,7 @@ The root opens the workbench: Configure, Compose, Registry, Maintain, Export, an
 
 ## Forma product pilot
 
-Open `?view=product` for a five-section product built with Aegis: Dashboard, Users, Products, Invoices and Settings. It defaults to a dark, elevated presentation and also supports light mode. Users have a searchable, sortable grid, bulk actions, a detail side panel and a validated creation modal. Products and invoices support local creation, updates and CSV exports; settings persist appearance, density and workspace details.
+Open `?view=product`, or **Console → Application Demo** in Storybook, for a five-section product built with Aegis: Dashboard, Users, Products, Invoices and Settings. The standalone product defaults to a dark, elevated presentation; the embedded demo follows Storybook's theme and presentation controls. Users have a searchable, sortable grid, bulk actions, a detail side panel and a validated creation modal. Users, Products and Invoices share a slide-in filtering panel with immediate selection, removable applied filters, result counts and Clear all. Products and invoices support local creation, updates and CSV exports; settings persist appearance, density and workspace details.
 
 This is a browser-local demo. It does not authenticate users, send invitations or invoices, process payments, or connect to a backend. Settings can export all workspace data or restore the sample records.
 
@@ -34,7 +36,7 @@ A versioned [project pattern policy](skills/references/pattern-policy.md) record
 
 ## Product direction
 
-The proposed direction is one Aegis product with a common UI foundation and optional agent tools and workspace services. Conventional users can consume components and tokens; teams building with agents can additionally pin decisions, validate compositions and coordinate contributions. The experimental repository stays separate while these interfaces are tested. No merge into classic Aegis or public release is implied.
+The direction is one Aegis product with a common UI foundation and optional agent tools and workspace services. Conventional users can consume components and tokens; teams building with agents can additionally pin decisions, validate compositions and coordinate contributions. This public beta stays separate from classic Aegis while these interfaces are tested. Public source availability does not imply a stable package release or a merge into classic Aegis.
 
 ## Contract discovery and MCP
 

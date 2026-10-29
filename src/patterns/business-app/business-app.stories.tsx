@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useGlobals } from 'storybook/preview-api';
 import { consolePreviewParameters } from '../../../.storybook/console-canvas';
-import { defaultLayoutTheme, normalizeLayoutTheme } from '@/lib/layout-theme';
-import { BusinessApp } from './business-app';
+import { FormaApp } from '@/product/forma-app';
 const meta = {
+  id: 'console-application-demo',
   title: 'Console/Application Demo',
-  component: BusinessApp,
+  component: FormaApp,
   tags: ['!autodocs'],
   parameters: {
     ...consolePreviewParameters,
@@ -13,23 +13,21 @@ const meta = {
       ...consolePreviewParameters.docs,
       description: {
         component:
-          'Northstar is a connected B2B workspace for projects, customers, invoices, and people. Explore dashboards, sortable data grids, editable details, member profiles, activity, and Aegis AI. Sample changes remain in the session. Both Fundamental themes support light and dark modes.',
+          'Forma is a working local product with Dashboard, Users, Products, Invoices and Settings. Explore metrics, sortable data grids, shared slide-in filters, user detail panels and creation dialogs. Changes are saved in this browser. Storybook owns the light/dark and Fundamental/Floating presentation controls; no backend is connected.',
       },
     },
   },
-  render: function Render(args, context) {
-    const [, updateGlobals] = useGlobals();
+  render: function Render() {
+    const [globals, updateGlobals] = useGlobals();
     return (
-      <BusinessApp
-        {...args}
-        theme={context.globals.theme === 'dark' ? 'dark' : 'light'}
+      <FormaApp
+        embedded
+        theme={globals.theme === 'light' ? 'light' : 'dark'}
         onThemeChange={(theme) => updateGlobals({ theme })}
-        layoutTheme={normalizeLayoutTheme(context.globals.layoutTheme) ?? defaultLayoutTheme}
-        onLayoutThemeChange={(layoutTheme) => updateGlobals({ layoutTheme })}
       />
     );
   },
-} satisfies Meta<typeof BusinessApp>;
+} satisfies Meta<typeof FormaApp>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Demo: Story = { name: 'Application Demo' };

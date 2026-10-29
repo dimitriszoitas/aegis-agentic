@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { chromium, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { setCollectionFilter } from './forma-filter-browser-helpers.mjs';
 
 const base = process.env.FORMA_URL || 'http://127.0.0.1:4176/?view=product';
 const output = 'artifacts/forma-commerce';
@@ -119,18 +120,18 @@ try {
   await dialog.getByRole('button', { name: 'Save changes', exact: true }).click();
   await expect(product).toContainText('$27.50');
   await product.getByRole('button', { name: 'Archive Regression analytics', exact: true }).click();
-  await select(page.getByRole('combobox', { name: 'Product status', exact: true }), 'Active');
+  await setCollectionFilter(page, 'products', 'Status', ['Active']);
   await expect(page.getByRole('heading', { name: 'No products found', exact: true })).toBeVisible();
-  await select(page.getByRole('combobox', { name: 'Product status', exact: true }), 'Archived');
+  await setCollectionFilter(page, 'products', 'Status', ['Archived']);
   await expect(product).toContainText('Archived');
   await product
     .getByRole('button', { name: 'Reactivate Regression analytics', exact: true })
     .click();
-  await select(page.getByRole('combobox', { name: 'Product status', exact: true }), 'Active');
+  await setCollectionFilter(page, 'products', 'Status', ['Active']);
   await expect(product).toContainText('Active');
-  await select(page.getByRole('combobox', { name: 'Product category', exact: true }), 'Service');
+  await setCollectionFilter(page, 'products', 'Category', ['Service']);
   await expect(page.getByRole('heading', { name: 'No products found', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: 'Clear filters', exact: true }).click();
+  await page.getByRole('button', { name: 'Clear all', exact: true }).click();
   await expect(page.locator('.forma-product-card')).toHaveCount(9);
   passed(
     'Product required fields, duplicate SKU and price validation; create, edit, archive/reactivate, search/category/status filters and CSV export.',
@@ -175,7 +176,7 @@ try {
   await page.keyboard.press('Escape');
   await expect(sheet).not.toBeVisible();
   await page.getByRole('searchbox', { name: 'Search invoices' }).fill(invoiceNumber);
-  await select(page.getByRole('combobox', { name: 'Invoice status', exact: true }), 'Paid');
+  await setCollectionFilter(page, 'invoices', 'Status', ['Paid']);
   await expect(
     page.getByRole('row', { name: `${invoiceNumber}, Olivia Rhye`, exact: true }),
   ).toBeVisible();
@@ -194,7 +195,7 @@ try {
     page.getByRole('button', { name: 'Mark selected paid', exact: true }),
   ).toBeDisabled();
   await selectedInvoice.uncheck();
-  await select(page.getByRole('combobox', { name: 'Invoice status', exact: true }), 'Pending');
+  await setCollectionFilter(page, 'invoices', 'Status', ['Pending']);
   await expect(page.getByText('No invoices found', { exact: true })).toBeVisible();
   passed(
     'Invoice missing-field and quantity validation, creation with saved customer/product, calculated total, detail sheet, paid status, filters and CSV downloads.',

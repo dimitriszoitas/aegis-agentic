@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "product": "forma",
-  "revision": 2,
+  "revision": 3,
   "scope": "src/product",
   "route": "?view=product",
   "mode": {
@@ -70,19 +70,24 @@
       "desktopSearchWidthToken": "--group-application-business-app-size-width-wide-panel-vast",
       "mobileSearchWidth": "available-content-width",
       "invariants": [
-        "Search first, then filters",
-        "Immediate filtering",
+        "Search first, then one Filters trigger with active count and result count",
+        "The shared wrapper opens a SideSheet with canonical FilterOptions and AppliedFilterGroups",
+        "Immediate filtering: OR within a facet and AND across facets and search",
+        "Close, Show results and Escape preserve applied values and restore trigger focus",
+        "Clear all resets search and all facets; removable summaries clear only their category",
         "One shared search width at each breakpoint",
         "Filters sit before the collection"
       ],
       "allowedVariations": [
         "Filter fields required by the domain",
-        "Optional result count and clear action"
+        "Users role/status, Products category/status and Invoices status facets",
+        "The dashboard recent-invoices table is a read-only summary linking to the full Invoices collection; its filtering lives there"
       ],
       "cardinality": {
         "min": 1,
         "max": 1
-      }
+      },
+      "requiredProps": ["query", "onClearQuery", "facets", "resultCount", "noun", "onClearAll"]
     },
     "dataGrid": {
       "export": "DataGrid",
