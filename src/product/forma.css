@@ -411,23 +411,91 @@
   }
 }
 
+.forma-collection-filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-gap-compact);
+  min-width: var(--group-application-business-app-number-0);
+}
 .forma-filter-toolbar {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: var(--group-application-business-app-space-gap-compact);
 }
+.forma-filter-workspace {
+  display: grid;
+  grid-template-columns: minmax(
+    var(--group-application-business-app-number-0),
+    var(--group-application-business-app-track-flex)
+  );
+  align-items: start;
+  min-width: var(--group-application-business-app-number-0);
+}
+.forma-filter-workspace[data-panel-open='true'] {
+  grid-template-columns: var(--group-application-business-app-size-width-wide-panel-vast) minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  gap: var(--group-application-business-app-space-gap-roomy);
+}
+.forma-filter-results {
+  min-width: var(--group-application-business-app-number-0);
+}
+.forma-filter-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-gap-regular);
+  padding-inline-end: var(--group-application-business-app-space-gap-regular);
+  border-inline-end: var(--group-application-business-app-border-width-hairline) solid
+    var(--group-application-business-app-color-border-subtle);
+  min-width: var(--group-application-business-app-number-0);
+}
+.forma-filter-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--group-application-business-app-space-gap-compact);
+}
+.forma-filter-panel-heading h2 {
+  margin: var(--group-application-business-app-number-0);
+  font-size: var(--group-application-business-app-font-size-body);
+}
 .forma-filter-search {
   width: var(--group-application-business-app-size-width-wide-panel-vast);
   max-width: var(--group-application-business-app-size-width-full);
   flex-shrink: var(--group-application-business-app-flex-none);
 }
-.forma-filter-controls {
+.forma-filter-result {
+  margin-inline-start: auto;
+  white-space: nowrap;
+}
+.forma-filter-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--group-application-business-app-space-gap-roomy);
+}
+.forma-filter-panel-result {
+  margin: var(--group-application-business-app-number-0);
+}
+.forma-filter-facet {
+  min-width: var(--group-application-business-app-number-0);
+  margin: var(--group-application-business-app-number-0);
+  padding: var(--group-application-business-app-number-0);
+  border: none;
+}
+.forma-filter-facet legend {
+  padding: var(--group-application-business-app-number-0);
+  margin-bottom: var(--group-application-business-app-space-gap-compact);
+  font-weight: var(--group-application-business-app-title-weight);
+}
+.forma-filter-panel-footer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--group-application-business-app-space-gap-compact);
-  min-width: var(--group-application-business-app-number-0);
+  width: var(--group-application-business-app-size-width-full);
 }
 .forma-card-heading {
   flex-direction: row;
@@ -448,6 +516,19 @@
   padding: var(--group-application-business-app-space-padding-compact);
 }
 @media (max-width: 767px) {
+  .forma-filter-workspace[data-panel-open='true'] {
+    grid-template-columns: minmax(
+      var(--group-application-business-app-number-0),
+      var(--group-application-business-app-track-flex)
+    );
+  }
+  .forma-filter-panel {
+    padding-inline-end: var(--group-application-business-app-number-0);
+    padding-block-end: var(--group-application-business-app-space-gap-regular);
+    border-inline-end: none;
+    border-block-end: var(--group-application-business-app-border-width-hairline) solid
+      var(--group-application-business-app-color-border-subtle);
+  }
   .forma-filter-search {
     width: var(--group-application-business-app-size-width-full);
   }

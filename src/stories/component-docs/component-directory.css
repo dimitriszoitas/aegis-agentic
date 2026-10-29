@@ -76,7 +76,7 @@
   padding-block: var(--space-5);
   border-block: var(--stroke-1) solid var(--color-border-subtle);
 }
-.component-directory-controls label {
+.component-directory-controls > label {
   display: grid;
   flex: 1 1 var(--size-200);
   min-width: var(--number-0);
@@ -88,7 +88,11 @@
   flex-basis: var(--size-320);
   flex-grow: 2;
 }
-.component-directory-controls :is(input, select) {
+.component-directory-group-select {
+  flex: 1 1 var(--size-200);
+  min-width: var(--number-0);
+}
+.component-directory-controls input {
   width: var(--size-full);
   min-width: var(--number-0);
   min-height: var(--size-36);
@@ -103,7 +107,8 @@
 .component-directory-controls input::placeholder {
   color: var(--color-text-secondary);
 }
-.component-directory :is(a, button, input, select):focus-visible {
+.component-directory :is(a, input):focus-visible,
+.component-directory-results > button:focus-visible {
   outline: var(--stroke-2) solid var(--ring-focus);
   outline-offset: var(--space-1);
 }

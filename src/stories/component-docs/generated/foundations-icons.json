@@ -11,7 +11,7 @@
     "icons",
     "symbols"
   ],
-  "description": "Browse Hugeicons with search, paging, adjustable size and stroke width, and copyable imports. Counts include named exports and compatibility aliases. Local development additionally offers the installed Untitled UI reference pack; that pack and its selector are excluded from production builds. Application components use individual Hugeicons icons.",
+  "description": "Browse the Hugeicons free pack with search, paging, adjustable size and stroke width, and copyable imports. Counts include named exports and compatibility aliases. The same catalog is available in local development and the public Storybook. Application components import individual Hugeicons icons.",
   "purpose": "Use a consistent set of semantic icons across actions and information.",
   "usage": "Import named icons from the public adapter. Decorative icons should be hidden from assistive technology; controls still need their own text label.",
   "anatomy": [
@@ -74,7 +74,7 @@
     },
     {
       "id": "foundations-icons--library-switching",
-      "name": "Library Switching",
+      "name": "Preview controls",
       "exportName": "LibrarySwitching",
       "sourceFile": "src/stories/foundations/icons.stories.tsx",
       "supportsArgs": true

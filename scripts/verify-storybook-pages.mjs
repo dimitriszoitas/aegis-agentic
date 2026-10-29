@@ -153,6 +153,31 @@ try {
   pass(
     'Published index includes current library/docs; Welcome, manager and brand assets load below the project path.',
   );
+  await expect(page.locator('.aegis-storybook-beta')).toHaveText('BETA');
+  await page.goto(`${base}?path=/docs/foundations-component-directory--docs`);
+  const purpose = docs.getByRole('combobox', { name: 'Purpose group', exact: true });
+  await purpose.click();
+  await expect(docs.getByRole('listbox', { name: 'Purpose group', exact: true })).toBeVisible();
+  await docs.getByRole('option', { name: 'Triggers', exact: true }).click();
+  await expect(purpose).toContainText('Triggers');
+  await expect(docs.locator('.component-directory-results')).toContainText('in Triggers');
+  const chevron = await purpose.evaluate((element) => {
+    const control = element.getBoundingClientRect();
+    const icon = element.querySelector('.aegis-select-chevron').getBoundingClientRect();
+    return {
+      inset: control.right - icon.right,
+      center: Math.abs((control.top + control.bottom - icon.top - icon.bottom) / 2),
+    };
+  });
+  assert(
+    chevron.inset >= 8 && chevron.center <= 1,
+    'Purpose select chevron is inset and vertically centered',
+  );
+  await purpose.press('ArrowDown');
+  await expect(docs.getByRole('listbox', { name: 'Purpose group', exact: true })).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(purpose).toBeFocused();
+  pass('Directory uses the styled Select with aligned chevron, filtering and keyboard dismissal.');
   await page.goto(`${base}?path=/docs/agentic-skills-component-creation--docs`);
   const skills = docs.locator('.agentic-skill-page');
   await expect(
@@ -236,6 +261,23 @@ try {
   assert.equal(apiResponse.status(), 200);
   assert((await apiResponse.json()).id === 'components-forms-combobox');
   pass('Contract Catalogue and the current Combobox API JSON are published.');
+  const catalogueGrid = docs.locator('.contract-catalogue .aegis-data-grid').first();
+  const rowHeights = [];
+  for (const density of ['compact', 'default', 'comfortable']) {
+    await catalogueGrid.getByRole('button', { name: density, exact: true }).click();
+    await expect(catalogueGrid).toHaveAttribute('data-density', density);
+    rowHeights.push(
+      await catalogueGrid
+        .locator('.aegis-grid-row')
+        .first()
+        .evaluate((row) => row.getBoundingClientRect().height),
+    );
+  }
+  assert(
+    rowHeights[0] < rowHeights[1] && rowHeights[1] < rowHeights[2],
+    `Density changes rendered row heights: ${rowHeights}`,
+  );
+  pass('Contract Catalogue density buttons change both selected state and rendered row heights.');
   const story = async (
     id,
     { width = 1440, theme = 'light', layout = 'fundamental', play = false } = {},

@@ -1651,6 +1651,7 @@ const gridRecords: PreviewRecord[] = [
   { id: 'AEG-1045', severity: 'critical', signal: 'Delivery milestone overdue', events: 42 },
 ];
 function GridPreview({ expanded }: { expanded: boolean }) {
+  const [density, setDensity] = useState<'compact' | 'default' | 'comfortable'>('compact');
   const [selected, setSelected] = useState<string[]>([]);
   const [opened, setOpened] = useState<PreviewRecord>();
   const columns = useMemo<ColumnDef<PreviewRecord>[]>(
@@ -1677,7 +1678,8 @@ function GridPreview({ expanded }: { expanded: boolean }) {
         columns={columns}
         getRowId={(row) => row.id}
         rowLabel={(row) => row.signal}
-        density="compact"
+        density={density}
+        onDensityChange={setDensity}
         enableSelection={expanded}
         selectedRowIds={selected}
         onSelectedRowsChange={setSelected}

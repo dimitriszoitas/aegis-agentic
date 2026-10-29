@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Avatar } from '@/components/avatar';
 import { Button } from '@/components/button';
 import { IconButton } from '@/components/icon-button';
@@ -59,11 +59,29 @@ function loadWorkspace() {
   }
 }
 
-export function FormaApp() {
+export interface FormaAppProps {
+  /** An embedding host owns document navigation and the theme of portaled content. */
+  embedded?: boolean;
+  theme?: FormaState['settings']['theme'];
+  onThemeChange?: (theme: FormaState['settings']['theme']) => void;
+}
+
+export function FormaApp({ embedded = false, theme, onThemeChange }: FormaAppProps = {}) {
   const [loaded] = useState(loadWorkspace);
-  const [state, setState] = useState<FormaState>(loaded.state);
+  const [workspace, setWorkspace] = useState<FormaState>(loaded.state);
+  const state = useMemo(
+    () =>
+      theme === undefined || theme === workspace.settings.theme
+        ? workspace
+        : { ...workspace, settings: { ...workspace.settings, theme } },
+    [workspace, theme],
+  );
+  const stateRef = useRef(state);
+  useLayoutEffect(() => {
+    stateRef.current = state;
+  }, [state]);
   const [storageError, setStorageError] = useState(loaded.warning);
-  const [page, setPage] = useState<Page>(currentPage);
+  const [page, setPage] = useState<Page>(() => (embedded ? 'dashboard' : currentPage()));
   const [mobileNav, setMobileNav] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
@@ -71,23 +89,37 @@ export function FormaApp() {
   const notice = useCallback((title: string) => {
     showToast({ title });
   }, []);
-  const navigate = useCallback((next: Page) => {
-    window.location.hash = next;
-    setPage(next);
-    setMobileNav(false);
-  }, []);
-  const update = useCallback((change: (current: FormaState) => FormaState) => setState(change), []);
+  const navigate = useCallback(
+    (next: Page) => {
+      if (!embedded) window.location.hash = next;
+      setPage(next);
+      setMobileNav(false);
+    },
+    [embedded],
+  );
+  const update = useCallback(
+    (change: (current: FormaState) => FormaState) => {
+      const current = stateRef.current;
+      const next = change(current);
+      stateRef.current = next;
+      setWorkspace(next);
+      if (next.settings.theme !== current.settings.theme) onThemeChange?.(next.settings.theme);
+    },
+    [onThemeChange],
+  );
   useEffect(() => {
+    if (embedded) return;
     function fromHistory() {
       setPage(currentPage());
     }
     window.addEventListener('hashchange', fromHistory);
     return () => window.removeEventListener('hashchange', fromHistory);
-  }, []);
+  }, [embedded]);
   useLayoutEffect(() => {
+    if (embedded) return;
     applyTheme(state.settings.theme, { persist: false });
     applyLayoutTheme('fundamental-floating', { persist: false });
-  }, [state.settings.theme]);
+  }, [embedded, state.settings.theme]);
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
@@ -98,14 +130,14 @@ export function FormaApp() {
     }
   }, [state]);
   useEffect(() => {
-    document.title = `${pages.find((p) => p.id === page)?.label} · Forma`;
+    if (!embedded) document.title = `${pages.find((p) => p.id === page)?.label} · Forma`;
     if (firstPage.current) {
       firstPage.current = false;
       return;
     }
     mainRef.current?.focus({ preventScroll: true });
     mainRef.current?.scrollTo({ top: 0 });
-  }, [page]);
+  }, [embedded, page]);
   const props: FormaStore = { state, update, notice, navigate };
   const activePage = pages.find((p) => p.id === page)!;
   const navItems = pages.map(({ id, label, Icon }) => ({
@@ -121,7 +153,15 @@ export function FormaApp() {
     }));
   return (
     <div className="forma-app">
-      <a className="forma-skip" href="#forma-main">
+      <a
+        className="forma-skip"
+        href="#forma-main"
+        onClick={(event) => {
+          event.preventDefault();
+          mainRef.current?.focus({ preventScroll: true });
+          mainRef.current?.scrollTo({ top: 0 });
+        }}
+      >
         Skip to content
       </a>
       <aside className="forma-sidebar">

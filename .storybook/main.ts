@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import { fileURLToPath } from 'node:url';
 import { mergeConfig } from 'vite';
 import remarkGfm from 'remark-gfm';
 const config: StorybookConfig = {
@@ -34,11 +33,6 @@ const config: StorybookConfig = {
     if (configType !== 'PRODUCTION') return config;
     return mergeConfig(config, {
       build: { license: { fileName: 'THIRD-PARTY-LICENSES.md' } },
-      resolve: {
-        alias: {
-          '@untitledui/icons': fileURLToPath(new URL('./public-icon-pack.ts', import.meta.url)),
-        },
-      },
       plugins: [
         {
           name: 'aegis-public-icon-license-guard',

@@ -1,7 +1,6 @@
-import { useId, useMemo, useRef, useState, type ComponentType, type SVGProps } from 'react';
+import { useId, useMemo, useRef, useState, type SVGProps } from 'react';
 import * as HugeIcons from '@hugeicons/core-free-icons';
 import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
-import * as UntitledIcons from '@untitledui/icons';
 import { Button } from '@/components/button';
 import { CopyButton } from '@/components/copy-button';
 import { Pagination } from '@/components/pagination';
@@ -11,56 +10,29 @@ import { Check } from '@/components/icon';
 import './icon-gallery.css';
 
 // Full namespaces belong only to this reference gallery, never the application bundle.
-export type IconLibrary = 'hugeicons' | 'untitled';
-type GalleryIcon = { name: string; searchName: string } & (
-  | { library: 'hugeicons'; data: IconSvgElement }
-  | { library: 'untitled'; Icon: ComponentType<SVGProps<SVGSVGElement> & { size?: number }> }
-);
-const iconLibraries: Record<IconLibrary, GalleryIcon[]> = {
-  hugeicons: Object.entries(HugeIcons).map(([name, data]) => ({
-    library: 'hugeicons',
+type GalleryIcon = { name: string; searchName: string; data: IconSvgElement };
+const iconEntries: GalleryIcon[] = Object.entries(HugeIcons)
+  .map(([name, data]) => ({
     name,
     data,
     searchName: name.toLowerCase(),
-  })),
-  untitled: Object.entries(UntitledIcons).map(([name, Icon]) => ({
-    library: 'untitled',
-    name,
-    Icon,
-    searchName: name.toLowerCase(),
-  })),
-};
-Object.values(iconLibraries).forEach((entries) =>
-  entries.sort((a, b) => a.name.localeCompare(b.name, 'en')),
-);
-export const iconCounts = {
-  hugeicons: iconLibraries.hugeicons.length,
-  untitled: iconLibraries.untitled.length,
-};
-export const hasLocalUntitledIcons = import.meta.env.DEV && iconCounts.untitled > 0;
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name, 'en'));
+export const iconCounts = { hugeicons: iconEntries.length };
 export const iconPageSize = 96;
-const libraryNames = { hugeicons: 'Hugeicons', untitled: 'Untitled UI' };
 function IconPreview({
   entry,
   ...props
 }: { entry: GalleryIcon; size: number } & SVGProps<SVGSVGElement>) {
-  if (entry.library === 'hugeicons')
-    return <HugeiconsIcon icon={entry.data} {...props} strokeWidth={Number(props.strokeWidth)} />;
-  const Icon = entry.Icon;
-  return <Icon {...props} />;
+  return <HugeiconsIcon icon={entry.data} {...props} strokeWidth={Number(props.strokeWidth)} />;
 }
 
 export interface IconGalleryProps {
   /** Initial search for a focused reference example. */
   initialQuery?: string;
-  initialLibrary?: IconLibrary;
 }
 
-export function IconGallery({ initialQuery = '', initialLibrary = 'hugeicons' }: IconGalleryProps) {
-  const [library, setLibrary] = useState<IconLibrary>(
-    initialLibrary === 'untitled' && !hasLocalUntitledIcons ? 'hugeicons' : initialLibrary,
-  );
-  const iconEntries = iconLibraries[library];
+export function IconGallery({ initialQuery = '' }: IconGalleryProps) {
   const iconCount = iconEntries.length;
   const [query, setQuery] = useState(initialQuery);
   const [page, setPage] = useState(1);
@@ -78,21 +50,10 @@ export function IconGallery({ initialQuery = '', initialLibrary = 'hugeicons' }:
       .split(/[^a-z0-9]+/)
       .filter(Boolean);
     return iconEntries.filter(({ searchName }) => words.every((word) => searchName.includes(word)));
-  }, [query, iconEntries]);
+  }, [query]);
   const currentPage = Math.min(page, Math.max(1, Math.ceil(results.length / iconPageSize)));
   const visible = results.slice((currentPage - 1) * iconPageSize, currentPage * iconPageSize);
-  const importText =
-    selected.library === 'hugeicons'
-      ? `import { HugeiconsIcon } from '@hugeicons/react';\nimport { ${selected.name} } from '@hugeicons/core-free-icons';`
-      : `import { ${selected.name} } from '@untitledui/icons';`;
-  function changeLibrary(value: string) {
-    const next: IconLibrary =
-      value === 'untitled' && hasLocalUntitledIcons ? 'untitled' : 'hugeicons';
-    setLibrary(next);
-    setSelected(iconLibraries[next][0]);
-    setPage(1);
-    listRef.current?.scrollTo({ top: 0 });
-  }
+  const importText = `import { HugeiconsIcon } from '@hugeicons/react';\nimport { ${selected.name} } from '@hugeicons/core-free-icons';`;
 
   function changeQuery(next: string) {
     setQuery(next);
@@ -107,11 +68,11 @@ export function IconGallery({ initialQuery = '', initialLibrary = 'hugeicons' }:
   return (
     <section className="aegis-icon-gallery" aria-labelledby={headingId}>
       <header className="aegis-icon-gallery-heading">
-        <p className="aegis-icon-gallery-eyebrow">Foundations · {libraryNames[library]}</p>
+        <p className="aegis-icon-gallery-eyebrow">Foundations · Hugeicons</p>
         <h1 id={headingId}>Icons</h1>
         <p>
-          Browse all {iconCount.toLocaleString()} icon exports in the installed{' '}
-          {libraryNames[library]} free pack. Select an icon to copy its name or React import.
+          Browse all {iconCount.toLocaleString()} icon exports in the installed Hugeicons free pack.
+          Select an icon to copy its name or React import.
         </p>
       </header>
       <div className="aegis-icon-gallery-controls">
@@ -124,17 +85,6 @@ export function IconGallery({ initialQuery = '', initialLibrary = 'hugeicons' }:
           clearLabel="Clear icon search"
           aria-controls={resultsId}
         />
-        {hasLocalUntitledIcons && (
-          <Select
-            label="Icon library"
-            value={library}
-            onValueChange={changeLibrary}
-            options={[
-              { value: 'hugeicons', label: 'Hugeicons' },
-              { value: 'untitled', label: 'Untitled UI' },
-            ]}
-          />
-        )}
         <Select
           label="Preview size"
           value={size}

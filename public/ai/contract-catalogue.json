@@ -5,7 +5,7 @@
     "version": "0.7.0-experiment.0"
   },
   "registryRevision": 5,
-  "sourceDigest": "d5ad55f9e230b09ce253b28e2e4a4ec0524c6ca151864ff17a25084aa6c1ca5d",
+  "sourceDigest": "e56081bc3e2fcf8d3b074a4733fe713fcdc8930955850f3c1e62ef75ec49727e",
   "sources": [
     {
       "path": "contracts/agentic/accordion.json",
@@ -957,7 +957,7 @@
     },
     {
       "path": "public/ai/components/foundations-icons.json",
-      "sha256": "5a2dd0f413796a805793327e09de6c14b3ff68ab6f3cf1a2f34b2c793596cfba"
+      "sha256": "4a6512abb8b254768dbe682001a597275d357265793c69666badd001972c6041"
     },
     {
       "path": "public/ai/components/patterns-ai-aidiffreview.json",
@@ -1033,7 +1033,7 @@
     },
     {
       "path": "public/ai/index.json",
-      "sha256": "a785beac2cbdda4b1dd8eb8f98bbd23255e1cc1d1a5e35b159eb35489b52aa04"
+      "sha256": "6a74b80d6316c44c04dd3948b355ad59f17a3898f4c43ee036b6c99b319db712"
     },
     {
       "path": "registry/canonical.json",
@@ -2333,7 +2333,7 @@
     },
     {
       "path": "src/stories/foundations/icons.stories.tsx",
-      "sha256": "857b8a6ec6295ab015365093d322f22a584bfedb96e65fce5471108a9e5e431d"
+      "sha256": "b49eb9a977228fef8efc1696804b0ef30fa456ce9c4c15da0ea031393cccc877"
     },
     {
       "path": "tokens/component-categories.json",
@@ -21810,7 +21810,7 @@
       "api": {
         "source": {
           "path": "public/ai/components/foundations-icons.json",
-          "sha256": "5a2dd0f413796a805793327e09de6c14b3ff68ab6f3cf1a2f34b2c793596cfba"
+          "sha256": "4a6512abb8b254768dbe682001a597275d357265793c69666badd001972c6041"
         },
         "url": "./ai/components/foundations-icons.json"
       },
@@ -21927,7 +21927,7 @@
       "checks": [
         {
           "path": "src/stories/foundations/icons.stories.tsx",
-          "sha256": "857b8a6ec6295ab015365093d322f22a584bfedb96e65fce5471108a9e5e431d",
+          "sha256": "b49eb9a977228fef8efc1696804b0ef30fa456ce9c4c15da0ea031393cccc877",
           "label": "Storybook examples and any authored interactions",
           "scope": "Example source reference; static stories and play definitions are not current execution evidence."
         }

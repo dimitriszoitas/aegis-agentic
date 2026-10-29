@@ -1,4 +1,5 @@
 import { useId, useMemo, useState } from 'react';
+import { Select } from '@/components/select';
 import { componentMetadata } from './generated';
 import './component-directory.css';
 
@@ -150,21 +151,17 @@ export function ComponentDirectory() {
             autoComplete="off"
           />
         </label>
-        <label htmlFor={`${prefix}-group`}>
-          Purpose group
-          <select
-            id={`${prefix}-group`}
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-          >
-            <option value="all">All groups</option>
-            {categories.map((group) => (
-              <option key={group} value={group}>
-                {group}
-              </option>
-            ))}
-          </select>
-        </label>
+        <Select
+          className="component-directory-group-select"
+          id={`${prefix}-group`}
+          label="Purpose group"
+          value={category}
+          onValueChange={setCategory}
+          options={[
+            { value: 'all', label: 'All groups' },
+            ...categories.map((group) => ({ value: group, label: group })),
+          ]}
+        />
       </div>
       <div className="component-directory-results">
         <p role="status" aria-live="polite">

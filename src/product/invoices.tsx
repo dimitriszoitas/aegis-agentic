@@ -39,7 +39,7 @@ function InvoiceStatus({ status }: { status: FormaInvoice['status'] }) {
 
 export function InvoicesPage({ state, update, notice, navigate }: FormaStore) {
   const [query, setQuery] = useState('');
-  const [status, setStatus] = useState('all');
+  const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
   const selected = state.invoices.find((invoice) => invoice.id === selectedId);
@@ -47,12 +47,12 @@ export function InvoicesPage({ state, update, notice, navigate }: FormaStore) {
     () =>
       state.invoices.filter(
         (invoice) =>
-          (status === 'all' || invoice.status === status) &&
+          (!selectedStatuses.length || selectedStatuses.includes(invoice.status)) &&
           `${invoice.number} ${invoice.customer} ${invoice.email}`
             .toLowerCase()
             .includes(query.trim().toLowerCase()),
       ),
-    [state.invoices, query, status],
+    [state.invoices, query, selectedStatuses],
   );
   const currency = state.settings.currency;
   const columns = useMemo<ColumnDef<FormaInvoice>[]>(
@@ -171,6 +171,23 @@ export function InvoicesPage({ state, update, notice, navigate }: FormaStore) {
       </div>
       <FormaFilterToolbar
         label="Filter invoices"
+        noun="invoice"
+        resultCount={filtered.length}
+        query={query}
+        onClearQuery={() => setQuery('')}
+        onClearAll={() => {
+          setQuery('');
+          setSelectedStatuses([]);
+        }}
+        facets={[
+          {
+            id: 'status',
+            label: 'Status',
+            options: statuses.map((value) => ({ value, label: value })),
+            values: selectedStatuses,
+            onValueChange: setSelectedStatuses,
+          },
+        ]}
         search={
           <SearchInput
             aria-label="Search invoices"
@@ -180,75 +197,55 @@ export function InvoicesPage({ state, update, notice, navigate }: FormaStore) {
           />
         }
       >
-        <Select
-          aria-label="Invoice status"
-          value={status}
-          onValueChange={setStatus}
-          options={[
-            { value: 'all', label: 'All statuses' },
-            ...statuses.map((value) => ({ value, label: value })),
-          ]}
+        <DataGrid
+          data={filtered}
+          columns={columns}
+          getRowId={(invoice) => invoice.id}
+          label="Invoices"
+          noun="invoices"
+          rowLabel={(invoice) => `${invoice.number}, ${invoice.customer}`}
+          onRowClick={(invoice) => setSelectedId(invoice.id)}
+          density={state.settings.density}
+          onDensityChange={(density) =>
+            update((current) => ({ ...current, settings: { ...current.settings, density } }))
+          }
+          pagination
+          pageSize={10}
+          initialSorting={[{ id: 'issued', desc: true }]}
+          emptyTitle="No invoices found"
+          emptyDescription="Try another search or create an invoice."
+          renderBulkActions={(invoices, clear) => (
+            <>
+              <span>{invoices.length} selected</span>
+              <Button size="sm" emphasis="secondary" onClick={() => exportInvoices(invoices)}>
+                Export selected
+              </Button>
+              <Button
+                size="sm"
+                intent="function"
+                disabled={invoices.every((invoice) => invoice.status === 'Paid')}
+                onClick={() => {
+                  const ids = new Set(invoices.map((invoice) => invoice.id));
+                  const count = invoices.filter((invoice) => invoice.status !== 'Paid').length;
+                  update((current) => ({
+                    ...current,
+                    invoices: current.invoices.map((invoice) =>
+                      ids.has(invoice.id) ? { ...invoice, status: 'Paid' } : invoice,
+                    ),
+                  }));
+                  clear();
+                  notice(`${count} invoices marked as paid locally. No payments were processed.`);
+                }}
+              >
+                Mark selected paid
+              </Button>
+              <Button size="sm" emphasis="ghost" onClick={clear}>
+                Clear selection
+              </Button>
+            </>
+          )}
         />
-        {(query || status !== 'all') && (
-          <Button
-            emphasis="tertiary"
-            onClick={() => {
-              setQuery('');
-              setStatus('all');
-            }}
-          >
-            Clear filters
-          </Button>
-        )}
       </FormaFilterToolbar>
-      <DataGrid
-        data={filtered}
-        columns={columns}
-        getRowId={(invoice) => invoice.id}
-        label="Invoices"
-        noun="invoices"
-        rowLabel={(invoice) => `${invoice.number}, ${invoice.customer}`}
-        onRowClick={(invoice) => setSelectedId(invoice.id)}
-        density={state.settings.density}
-        onDensityChange={(density) =>
-          update((current) => ({ ...current, settings: { ...current.settings, density } }))
-        }
-        pagination
-        pageSize={10}
-        initialSorting={[{ id: 'issued', desc: true }]}
-        emptyTitle="No invoices found"
-        emptyDescription="Try another search or create an invoice."
-        renderBulkActions={(invoices, clear) => (
-          <>
-            <span>{invoices.length} selected</span>
-            <Button size="sm" emphasis="secondary" onClick={() => exportInvoices(invoices)}>
-              Export selected
-            </Button>
-            <Button
-              size="sm"
-              intent="function"
-              disabled={invoices.every((invoice) => invoice.status === 'Paid')}
-              onClick={() => {
-                const ids = new Set(invoices.map((invoice) => invoice.id));
-                const count = invoices.filter((invoice) => invoice.status !== 'Paid').length;
-                update((current) => ({
-                  ...current,
-                  invoices: current.invoices.map((invoice) =>
-                    ids.has(invoice.id) ? { ...invoice, status: 'Paid' } : invoice,
-                  ),
-                }));
-                clear();
-                notice(`${count} invoices marked as paid locally. No payments were processed.`);
-              }}
-            >
-              Mark selected paid
-            </Button>
-            <Button size="sm" emphasis="ghost" onClick={clear}>
-              Clear selection
-            </Button>
-          </>
-        )}
-      />
       <SideSheet
         open={!!selected}
         onOpenChange={(open) => {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
-import { IconGallery, iconCounts, iconPageSize, hasLocalUntitledIcons } from './icon-gallery';
+import { IconGallery, iconCounts, iconPageSize } from './icon-gallery';
 
 const meta = {
   id: 'foundations-icons',
@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Browse Hugeicons with search, paging, adjustable size and stroke width, and copyable imports. Counts include named exports and compatibility aliases. Local development additionally offers the installed Untitled UI reference pack; that pack and its selector are excluded from production builds. Application components use individual Hugeicons icons.',
+          'Browse the Hugeicons free pack with search, paging, adjustable size and stroke width, and copyable imports. Counts include named exports and compatibility aliases. The same catalog is available in local development and the public Storybook. Application components import individual Hugeicons icons.',
       },
     },
   },
@@ -20,10 +20,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const AllIcons: Story = {};
 export const LibraryPreview: Story = {
-  args: { initialLibrary: hasLocalUntitledIcons ? 'untitled' : 'hugeicons' },
+  args: { initialQuery: 'shield' },
 };
 export const SearchAndBrowse: Story = {
-  args: { initialLibrary: 'hugeicons' },
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
     const user = userEvent.setup();
@@ -74,42 +73,37 @@ export const SearchAndBrowse: Story = {
 export const NoResults: Story = { args: { initialQuery: 'no matching aegis icon' } };
 
 export const LibrarySwitching: Story = {
+  name: 'Preview controls',
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement),
       page = within(canvasElement.ownerDocument.body);
-    if (hasLocalUntitledIcons) {
-      await expect(canvas.getByRole('combobox', { name: 'Icon library' })).toHaveTextContent(
-        'Hugeicons',
-      );
-      await expect(
-        canvas.getByText(`1–96 of ${iconCounts.hugeicons.toLocaleString()} icons`),
-      ).toBeVisible();
-      await userEvent.click(canvas.getByRole('combobox', { name: 'Icon library' }));
-      await userEvent.click(await page.findByRole('option', { name: 'Untitled UI' }));
-      await waitFor(() =>
-        expect(canvas.getByRole('combobox', { name: 'Icon library' })).toHaveFocus(),
-      );
-      await expect(
-        canvas.getByText(`1–96 of ${iconCounts.untitled.toLocaleString()} icons`),
-      ).toBeVisible();
-      await userEvent.click(canvas.getByRole('combobox', { name: 'Icon library' }));
-      await userEvent.click(await page.findByRole('option', { name: 'Hugeicons' }));
-      await waitFor(() =>
-        expect(canvas.getByRole('combobox', { name: 'Icon library' })).toHaveFocus(),
-      );
-    } else {
-      await expect(
-        canvas.queryByRole('combobox', { name: 'Icon library' }),
-      ).not.toBeInTheDocument();
-      await expect(
-        canvas.getByText(`1–96 of ${iconCounts.hugeicons.toLocaleString()} icons`),
-      ).toBeVisible();
-    }
+    await expect(canvas.queryByRole('combobox', { name: 'Icon library' })).not.toBeInTheDocument();
+    await expect(
+      canvas.getByText(`1–96 of ${iconCounts.hugeicons.toLocaleString()} icons`),
+    ).toBeVisible();
     await userEvent.type(canvas.getByRole('searchbox', { name: 'Search icons' }), 'Activity01Icon');
     await userEvent.click(canvas.getByRole('button', { name: 'Activity01Icon icon' }));
     await expect(canvas.getByRole('img', { name: 'Activity01Icon icon preview' })).toBeVisible();
     await expect(
       canvas.getByText(/import \{ Activity01Icon \} from '@hugeicons\/core-free-icons'/),
     ).toBeVisible();
+    await userEvent.click(canvas.getByRole('combobox', { name: 'Preview size' }));
+    await userEvent.click(await page.findByRole('option', { name: '32 px' }));
+    await waitFor(() =>
+      expect(canvas.getByRole('combobox', { name: 'Preview size' })).toHaveFocus(),
+    );
+    await expect(canvas.getByRole('img', { name: 'Activity01Icon icon preview' })).toHaveAttribute(
+      'width',
+      '32',
+    );
+    await userEvent.click(canvas.getByRole('combobox', { name: 'Stroke width' }));
+    await userEvent.click(await page.findByRole('option', { name: '1.5 px' }));
+    await waitFor(() =>
+      expect(canvas.getByRole('combobox', { name: 'Stroke width' })).toHaveFocus(),
+    );
+    await expect(canvas.getByRole('img', { name: 'Activity01Icon icon preview' })).toHaveAttribute(
+      'stroke-width',
+      '1.5',
+    );
   },
 };

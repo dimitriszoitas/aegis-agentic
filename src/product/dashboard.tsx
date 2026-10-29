@@ -115,7 +115,10 @@ export function DashboardPage({ state, navigate, notice }: FormaStore) {
           </Card>
         ))}
       </div>
-      <div className="forma-chart-grid">
+      <section className="forma-chart-grid" aria-labelledby="forma-analytics-title">
+        <h2 id="forma-analytics-title" className="sr-only">
+          Workspace analytics
+        </h2>
         <AreaChart
           title="Revenue overview"
           description="Collected invoice revenue, grouped by issue month."
@@ -153,12 +156,12 @@ export function DashboardPage({ state, navigate, notice }: FormaStore) {
           height={chart['business-chart-height']}
           showDataTable
         />
-      </div>
+      </section>
       <div className="forma-dashboard-bottom">
         <Card>
           <CardHeader className="forma-card-heading">
             <div>
-              <CardTitle>Recent invoices</CardTitle>
+              <CardTitle aria-level={2}>Recent invoices</CardTitle>
               <p className="forma-muted">The latest activity across your accounts.</p>
             </div>
             <Button
@@ -224,7 +227,7 @@ export function DashboardPage({ state, navigate, notice }: FormaStore) {
         <Card className="forma-workspace-card">
           <CardHeader>
             <div className="forma-eyebrow">A LITTLE LESS ADMIN</div>
-            <CardTitle>Room for your next big idea.</CardTitle>
+            <CardTitle aria-level={2}>Room for your next big idea.</CardTitle>
             <p className="forma-muted">
               Keep the everyday work moving. Everything you need is right here.
             </p>
