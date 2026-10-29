@@ -50,13 +50,13 @@ const repository = JSON.parse(
     'view',
     destination,
     '--json',
-    'nameWithOwner,visibility,defaultBranchRef',
+    'nameWithOwner,visibility,defaultBranchRef,isEmpty',
   ]),
 );
 assert.equal(repository.nameWithOwner, destination);
 assert.equal(repository.visibility, 'PUBLIC', 'The dedicated site repository must be public.');
 assert(
-  !repository.defaultBranchRef || repository.defaultBranchRef.name === 'main',
+  repository.isEmpty === true || repository.defaultBranchRef?.name === 'main',
   'Expected the dedicated main publishing branch.',
 );
 
