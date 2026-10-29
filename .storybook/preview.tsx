@@ -58,6 +58,7 @@ const preview: Preview = {
           'Principles',
           'Directory',
           'Contract Catalogue',
+          'Contract Semantics',
           'AI Guidelines',
           'Agentic Skills',
           'MCP Integration',

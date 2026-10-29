@@ -31,7 +31,7 @@ function SampleCard({ title }: { title: string }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle aria-level={2}>{title}</CardTitle>
       </CardHeader>
       <CardContent>
         Local illustrative content. This nested Card retains its own surface and text styling.
