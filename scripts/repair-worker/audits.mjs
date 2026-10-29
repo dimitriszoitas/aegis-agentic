@@ -8,6 +8,8 @@ import { createServer } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { chromium } from '@playwright/test';
+import { auditDataGridDensity } from './catalogue-density-audit.mjs';
+import { componentRepairPolicies } from './catalogue.mjs';
 
 const directory = dirname(fileURLToPath(import.meta.url));
 const trustedRoot = resolve(directory, '../..');
@@ -354,6 +356,18 @@ async function auditMetrics({ cwd, evidenceDir }) {
 }
 
 export const audits = Object.freeze({
+  'data-grid-density': Object.freeze({
+    id: 'data-grid-density',
+    policyVersion: '1',
+    instructions:
+      'Repair only a measured DataGrid density CSS defect in the exact allowed data-grid.css path. Compact/default/comfortable must visibly select and use the approved owning group token row heights in controlled and uncontrolled hosts, both widths and all four theme/mode combinations. Preserve every record, column, cell value, selected state, pointer/keyboard row activation and visible readable cell paint. Do not hide, clip, fade, transform, overlap, collapse, replace content, shrink text or introduce CSS content to obtain a pass. Do not alter behavior, TypeScript, tokens, contracts, fixtures, oracles, expectations or thresholds. Keep all existing states and group-token ownership; fix only the faulty density layout declarations, without affecting unrelated selectors. A passing candidate is a proposal for human review, not authorization to publish, merge or release.',
+    allowedPaths: Object.freeze(['src/components/data-grid/data-grid.css']),
+    maxAttempts: 2,
+    maxFiles: 1,
+    maxBytes: 35_000,
+    reproduce: auditDataGridDensity,
+    verify: auditDataGridDensity,
+  }),
   'metric-containment': Object.freeze({
     id: 'metric-containment',
     policyVersion: '1',
@@ -375,4 +389,15 @@ export function getAudit(id) {
   const audit = Object.hasOwn(audits, id) ? audits[id] : undefined;
   if (!audit) throw new Error(`Unknown trusted repair audit: ${id}`);
   return audit;
+}
+
+export function getComponentAudit(componentId) {
+  const id = Object.hasOwn(componentRepairPolicies, componentId)
+    ? componentRepairPolicies[componentId]
+    : undefined;
+  if (!id)
+    throw new Error(
+      `Component ${componentId} has no trusted automatic repair policy. Run repair scan --component ${componentId} for linked checks and the manual-review reason.`,
+    );
+  return getAudit(id);
 }

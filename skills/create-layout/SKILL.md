@@ -11,6 +11,12 @@ Apply the [product pattern decisions](../references/agentic-contract.md#product-
 
 Use [Constructing a page](../references/page-composition.md) to choose an archetype, scope reading widths and column rules, and plan source, browser and visual acceptance evidence.
 
+## Resolve project decisions
+
+If the project has a `project-recipes.json`, validate it and resolve the relevant archetype before composing another page. Use the portable `project-recipes validate` and `project-recipes resolve` commands, or the equivalent read-only MCP tools. Keep product wrappers consistent with the resolved variants; unsupported host variants must fail explicitly. Do not silently fall back to a different filter behaviour or layout.
+
+Discover the intended behaviour before choosing a component name. Push filtering reserves space beside live results and stacks on narrow screens. A modal SideSheet isolates a task; it is not a substitute for the push shell. Review the resolver's import bindings, host state and acceptance references. See `docs/PROJECT-RECIPES.md` for the source format and limits.
+
 ## Start with content and existing patterns
 
 Identify the page's primary task, information hierarchy, navigation, state ownership, and responsive constraints. Inspect existing page headers, navigation, filtering, wizard, notification, and AI patterns before introducing another shell. Reuse a pattern when its responsibility matches; do not copy a whole demonstration application to obtain one layout.

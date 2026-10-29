@@ -105,6 +105,15 @@
       "sources": ["src/components/data-grid/data-grid.tsx"]
     },
     {
+      "id": "density-state-and-geometry",
+      "kind": "host",
+      "statement": "A host that controls density must feed accepted density changes back through the density prop. Compact, default and comfortable selections must change the actual grid row geometry in that order, while preserving selected rows and other table state. Merely changing the segmented-control label does not satisfy the interaction.",
+      "sources": [
+        "src/components/data-grid/data-grid.tsx",
+        "src/components/data-grid/data-grid.css"
+      ]
+    },
+    {
       "id": "owned-and-nested-tokens",
       "kind": "design",
       "statement": "Use data-display group tokens for grid-owned visuals and density; nested Checkbox, DropdownMenu, EmptyState and Pagination retain their own groups. Preserve dimensions across the four theme/mode mappings and verify the actual scroll container.",

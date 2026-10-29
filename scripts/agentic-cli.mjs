@@ -257,11 +257,22 @@ composition validate <spec.json> [--profile <profile.json>] [--registry <canonic
 patterns check <policy.json> --project <project-root>
 pages recipes
 pages validate <selection.json>
+project-recipes validate <recipes.json>
+project-recipes resolve <recipes.json> --archetype <collection|detail|settings|dashboard> [--policy <policy.json>]
+discover behavior <query> [--recipes <recipes.json>]
+brand export <profile.json> [--version <1.0.0>]
+brand validate <brand.json>
+brand preview <brand.json> --profile <current-profile.json>
+tokens export <profile.json>
+tokens inspect <tokens.json>
+tokens preview <tokens.json> --profile <profile.json> --mapping <mapping.json>
 registry search <query> [--registry <canonical.json>]
 contracts list
 contracts search <query>
 contracts get <entry-or-family-id>
 contracts coverage
+acceptance coverage
+acceptance requirement <contract-id> <requirement-id>
 registry compare <proposal-a.json> <proposal-b.json> [--registry <canonical.json>]
 registry submit <proposal.json> --registry <canonical.json> --expected-revision <number>
 registry consolidate <proposal-a.json> <proposal-b.json> [--registry <canonical.json>]
@@ -280,7 +291,17 @@ try {
   const [group, action, ...rest] = args;
   if (!group || ['help', '--help', '-h'].includes(group)) console.log(help);
   else if (group === 'status') print(kitInfo);
-  else if (group === 'contracts') {
+  else if (group === 'acceptance') {
+    if (action === 'coverage' && !rest.length) print(core.getAcceptanceCoverage());
+    else if (action === 'requirement' && rest.length === 2) {
+      const result = core.getAcceptanceRequirement(...rest);
+      if (!result) throw new Error('Unknown acceptance requirement.');
+      print(result);
+    } else
+      throw new Error(
+        'Use acceptance coverage or acceptance requirement <contract-id> <requirement-id>.',
+      );
+  } else if (group === 'contracts') {
     if (action === 'list' || action === 'coverage') {
       if (rest.length) throw new Error(`contracts ${action} takes no arguments.`);
       print(action === 'list' ? core.searchContracts('') : core.getContractCoverage());
@@ -313,6 +334,92 @@ try {
       throw new Error(
         'Unknown pages command. Use pages recipes or pages validate <selection.json>.',
       );
+  } else if (group === 'project-recipes') {
+    const [file, ...flags] = rest;
+    if (!file) throw new Error('Supply a project recipe file.');
+    const config = await readJson(file);
+    if (action === 'validate') {
+      if (flags.length) throw new Error('Unexpected recipe validation options.');
+      const result = core.validateProjectRecipes(config);
+      print(result);
+      if (!result.valid) process.exitCode = 1;
+    } else if (action === 'resolve') {
+      const opts = options(flags, ['--archetype', '--policy']);
+      if (!opts['--archetype']) throw new Error('--archetype is required.');
+      print(
+        core.resolveProjectRecipe(config, opts['--archetype'], {
+          patternPolicy: opts['--policy'] ? await readJson(opts['--policy']) : undefined,
+        }),
+      );
+    } else throw new Error('Use project-recipes validate or resolve.');
+  } else if (group === 'discover' && action === 'behavior') {
+    const [query, ...flags] = rest;
+    if (!query?.trim()) throw new Error('Supply an intended behavior.');
+    const opts = options(flags, ['--recipes']);
+    print(
+      core.discoverByBehavior({
+        query,
+        projectRecipes: opts['--recipes'] ? await readJson(opts['--recipes']) : undefined,
+      }),
+    );
+  } else if (group === 'brand') {
+    const [file, ...flags] = rest;
+    if (!file) throw new Error('Supply a JSON file.');
+    const input = await readJson(file);
+    if (action === 'export') {
+      const opts = options(flags, ['--version']);
+      print(core.createBrandPackage(input, { packageVersion: opts['--version'] }));
+    } else if (action === 'validate') {
+      if (flags.length) throw new Error('Unexpected brand validate options.');
+      const issues = core.validateBrandPackage(input);
+      const valid = !issues.some((issue) => issue.severity === 'error');
+      print({ valid, issues });
+      if (!valid) process.exitCode = 1;
+    } else if (action === 'preview') {
+      const opts = options(flags, ['--profile']);
+      if (!opts['--profile']) throw new Error('--profile is required.');
+      const { compiled, ...preview } = core.previewBrandPackage(
+        input,
+        await readJson(opts['--profile']),
+      );
+      print({
+        ...preview,
+        compilation: compiled && {
+          hash: compiled.hash,
+          stats: compiled.stats,
+          contrast: compiled.contrast,
+        },
+      });
+      if (!preview.valid) process.exitCode = 1;
+    } else throw new Error('Use brand export, validate or preview.');
+  } else if (group === 'tokens') {
+    const [file, ...flags] = rest;
+    if (!file) throw new Error('Supply a JSON file.');
+    const input = await readJson(file);
+    if (action === 'export' || action === 'inspect') {
+      if (flags.length) throw new Error('Unexpected token options.');
+      const result = action === 'export' ? core.exportDtcg(input) : core.inspectDtcg(input);
+      print(result);
+      if (result.valid === false) process.exitCode = 1;
+    } else if (action === 'preview') {
+      const opts = options(flags, ['--profile', '--mapping']);
+      if (!opts['--profile'] || !opts['--mapping'])
+        throw new Error('--profile and --mapping are required.');
+      const { compiled, ...preview } = core.previewDtcgImport(
+        input,
+        await readJson(opts['--profile']),
+        await readJson(opts['--mapping']),
+      );
+      print({
+        ...preview,
+        compilation: compiled && {
+          hash: compiled.hash,
+          stats: compiled.stats,
+          contrast: compiled.contrast,
+        },
+      });
+      if (!preview.valid) process.exitCode = 1;
+    } else throw new Error('Use tokens export, inspect or preview.');
   } else if (group === 'patterns' && action === 'check') {
     const [file, ...flags] = rest;
     const opts = options(flags, ['--project']);

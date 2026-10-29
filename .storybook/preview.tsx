@@ -62,6 +62,7 @@ const preview: Preview = {
           'AI Guidelines',
           'Agentic Skills',
           'MCP Integration',
+          'Agentic Tools',
           'Foundations',
           'Components',
           'Patterns',

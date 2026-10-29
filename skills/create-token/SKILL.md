@@ -7,6 +7,10 @@ description: 'Create, map, or migrate design tokens in this repository across Pr
 
 Read [the shared design contract](../references/design-contract.md) first. Its tier boundaries and naming scales are requirements, not suggestions to approximate with the current file names.
 
+## Import or exchange an existing language
+
+For a complete Aegis profile, use the versioned brand package and preview its field changes before explicitly applying them. For external DTCG JSON, inspect aliases, inherited types and diagnostics, then supply explicit token-to-profile mappings. Unmapped values remain unchanged. Unsupported types, expressions, color spaces and missing references must remain visible as diagnostics; never silently approximate them or bypass the token tiers. Export emits one document per theme/mode. See `docs/BRAND-PACKAGES.md` for the supported subset and the distinction between a design seed and a resolved color.
+
 ## Trace before adding
 
 Identify the property, owning sidebar category from `tokens/component-categories.json`, existing role, value source, consumers, and all four theme mappings. Search CSS, TypeScript, generated stylesheet inputs, package exports, stories, and documentation. Record computed values before a migration so refactoring references does not silently restyle the system.

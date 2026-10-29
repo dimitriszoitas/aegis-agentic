@@ -157,17 +157,6 @@
   text-align: center;
   color: var(--group-application-business-app-color-content-secondary);
 }
-.forma-metrics {
-  display: grid;
-  grid-template-columns: repeat(
-    var(--group-application-business-app-columns-four),
-    minmax(
-      var(--group-application-business-app-number-0),
-      var(--group-application-business-app-track-flex)
-    )
-  );
-  gap: var(--group-application-business-app-space-gap-comfortable);
-}
 .forma-metric {
   padding: var(--group-application-business-app-space-padding-5);
   min-width: var(--group-application-business-app-number-0);
@@ -345,15 +334,6 @@
   }
 }
 @media (max-width: 1150px) {
-  .forma-metrics {
-    grid-template-columns: repeat(
-      var(--group-application-business-app-columns-two),
-      minmax(
-        var(--group-application-business-app-number-0),
-        var(--group-application-business-app-track-flex)
-      )
-    );
-  }
   .forma-chart-grid,
   .forma-dashboard-bottom {
     grid-template-columns: minmax(
@@ -400,14 +380,6 @@
   }
   .forma-page-footer {
     flex-direction: column;
-  }
-}
-@media (max-width: 400px) {
-  .forma-metrics {
-    grid-template-columns: minmax(
-      var(--group-application-business-app-number-0),
-      var(--group-application-business-app-track-flex)
-    );
   }
 }
 
@@ -530,6 +502,17 @@
       var(--group-application-business-app-color-border-subtle);
   }
   .forma-filter-search {
+    width: var(--group-application-business-app-size-width-full);
+  }
+}
+
+/* Product-owned approved search measures; nested SearchInput keeps its own styling. */
+.forma-collection-filters[data-search-measure='regular'] .forma-filter-search {
+  width: var(--group-application-business-app-size-width-wide-panel-small);
+}
+
+@media (max-width: 767px) {
+  .forma-collection-filters[data-search-measure='regular'] .forma-filter-search {
     width: var(--group-application-business-app-size-width-full);
   }
 }

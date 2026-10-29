@@ -826,7 +826,14 @@ async function main() {
     const relative = path.relative(path.join(root, 'public'), filename).split(path.sep).join('/');
     // This sibling artifact has its own deterministic generator/freshness check.
     // Preserve it here; the combined ai:generate pipeline regenerates it afterward.
-    if (['ai/contract-catalogue.json', 'ai/public-entry-coverage.json'].includes(relative))
+    if (
+      [
+        'ai/contract-catalogue.json',
+        'ai/public-entry-coverage.json',
+        'ai/acceptance-inventory.json',
+        'ai/repair-catalogue.json',
+      ].includes(relative)
+    )
       continue;
     if (!artifacts.has(relative)) {
       if (check) differences.push(`Unexpected generated artifact: ${relative}`);

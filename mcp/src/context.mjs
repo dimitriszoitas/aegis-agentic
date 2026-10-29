@@ -82,11 +82,12 @@ export async function loadContext(options) {
   if (!Array.isArray(core.contractCatalogue?.entries) || core.contractCatalogue.schemaVersion !== 1 || core.contractCatalogue.package?.name !== kit.name || core.contractCatalogue.package?.version !== kit.version || core.contractCatalogue.registryRevision !== kit.registryRevision || core.registry?.revision !== kit.registryRevision) throw new Error('Installed catalogue/registry does not match kit.');
   const catalogue = core.contractCatalogue;
   const projectRoot = options.project ? await realpath(resolve(options.project)) : null;
-  if (!projectRoot && (options.lock || options.profile || options.policy)) throw new Error('Project options require --project.');
+  if (!projectRoot && (options.lock || options.profile || options.policy || options.recipes)) throw new Error('Project options require --project.');
   const lockPath = safeRelative(options.lock ?? 'aegis-lock.json');
   const profilePath = safeRelative(options.profile ?? 'profile/profile.json');
   const policyPath = safeRelative(options.policy ?? 'pattern-policy.json');
-  let lockText, profileText, binding;
+  const recipesPath = options.recipes ? safeRelative(options.recipes) : null;
+  let lockText, profileText, recipesText, projectRecipes, binding;
   if (projectRoot) {
     lockText = await readBound(projectRoot, lockPath, limits.policyBytes);
     const lock = parse(lockText, lockPath);
@@ -103,11 +104,20 @@ export async function loadContext(options) {
     } else throw new Error('Unsupported project lock format; explicit consumer or compiled-profile lock required.');
     binding = { status: 'bound', projectRoot, lockPath, lockKind, lockSha256: sha256(lockText), profilePath, profileId: compiled.profile.id, profileHash: compiled.hash, profileSourceSha256: sha256(profileText), profileRevisionAttested: false, policyPath, dependencySource: lock.dependencySource ?? null, declaredTarballSha256: lock.tarballSha256 ?? null, tarballBytesVerified: false };
   } else binding = { status: 'unbound', projectRoot: null, profileRevisionAttested: false, note: 'Discovery uses only this installed kit. No project/profile pin or product policy is attested.' };
+  if (recipesPath) {
+    if (typeof core.validateProjectRecipes !== 'function') throw new Error('Installed kit does not support project recipes.');
+    recipesText = await readBound(projectRoot, recipesPath, limits.policyBytes);
+    projectRecipes = parse(recipesText, recipesPath);
+    const validation = core.validateProjectRecipes(projectRecipes);
+    if (!validation.valid) throw new Error(`Invalid project recipes: ${JSON.stringify(validation.issues)}`);
+    binding = { ...binding, recipesPath, recipesSha256: sha256(recipesText), recipesProject: projectRecipes.project, recipesRevision: projectRecipes.revision };
+  }
   const metadata = () => ({ kit: { name: kit.name, version: kit.version, registryRevision: kit.registryRevision, compilerVersion: kit.compilerVersion, integritySha256: kitIntegritySha256, ...(kit.authoringGuidance ? { authoringGuidance: kit.authoringGuidance } : {}), ...(kit.publicEntryCoverage ? { publicEntryCoverage: kit.publicEntryCoverage } : {}) }, binding, readOnly: true, supportedProtocolVersions: ['2025-11-25'], limits });
   const assertFresh = async () => {
     if (sha256(await readBound(kitRoot, 'integrity.json', 2 * 1024 * 1024)) !== kitIntegritySha256) throw new Error('Kit snapshot changed; restart against explicit pins.');
     await kitRead('kit.json');
     await kitRead(runtimePath, limits.runtimeBytes);
+    if (recipesPath && await readBound(projectRoot, recipesPath, limits.policyBytes) !== recipesText) throw new Error('Project recipes changed; restart to validate the new binding.');
     if (projectRoot && (await readBound(projectRoot, lockPath, limits.policyBytes) !== lockText || await readBound(projectRoot, profilePath, limits.policyBytes) !== profileText)) throw new Error('Project pin/profile changed; restart to validate the new binding.');
   };
   let policyEngine;
@@ -138,9 +148,26 @@ export async function loadContext(options) {
     }
     return policyEngine.auditPatternSources(policy, sources);
   };
-  const projectRead = async (kind) => {
-    if (!projectRoot || !['profile', 'policy'].includes(kind)) throw new Error('Only the bound project profile/policy can be read.');
-    return readBound(projectRoot, kind === 'profile' ? profilePath : policyPath, limits.policyBytes);
+  const recipeContext = async (inlineConfig) => {
+    if (inlineConfig !== undefined && projectRecipes && core.serializeProjectRecipes(inlineConfig) !== core.serializeProjectRecipes(projectRecipes)) throw new Error('Inline project recipes differ from the explicit startup binding.');
+    const config = projectRecipes ?? inlineConfig;
+    if (config !== undefined) { const check = core.validateProjectRecipes(config); if (!check.valid) throw new Error(`Invalid project recipes: ${JSON.stringify(check.issues)}`); }
+    let patternPolicy;
+    if (projectRoot && config !== undefined) {
+      patternPolicy = parse(await readBound(projectRoot, policyPath, limits.policyBytes), policyPath);
+      const enginePath = safeRelative(kit.patternPolicy?.runtime);
+      await kitRead(enginePath, limits.runtimeBytes);
+      policyEngine ??= await import(pathToFileURL(resolve(kitRoot, enginePath)).href);
+      const validation = policyEngine.validatePatternPolicy(patternPolicy);
+      if (!validation.valid) throw new Error('Project pattern policy is invalid.');
+      if (patternPolicy.product !== config.project) throw new Error('Project recipes and pattern policy identify different products.');
+    }
+    return { config, patternPolicy, binding: projectRecipes ? 'startup-bound' : config ? 'inline-proposal' : 'unbound' };
   };
-  return { kitRoot, kit, core, catalogue, kitRead, projectRoot, binding, metadata, assertFresh, audit, projectRead };
+  const projectRead = async (kind) => {
+    if (!projectRoot || !['profile', 'policy', ...(recipesPath ? ['recipes'] : [])].includes(kind)) throw new Error('Only explicitly bound project inputs can be read.');
+    return readBound(projectRoot, kind === 'profile' ? profilePath : kind === 'recipes' ? recipesPath : policyPath, limits.policyBytes);
+  };
+  if (projectRecipes) await recipeContext(undefined);
+  return { kitRoot, kit, core, catalogue, kitRead, projectRoot, binding, metadata, assertFresh, audit, projectRead, recipeContext };
 }

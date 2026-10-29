@@ -38,3 +38,7 @@ Check the four Fundamental/Fundamental Floating and light/dark combinations. The
 Run scoped formatting/lint and the repository checks relevant to the change. If public exports change, verify the package entry and consumer types. Coordinate the final documentation generation with other work so one generation uses a stable source snapshot. Report what changed, what was verified, and any remaining limitation.
 
 For additions to the reusable library, follow [authored contract coverage](../references/agentic-contract.md#new-components): bind the real implementation and public entry, preserve component/host ownership, and pass the coverage gate. Keep generated API facts, written requirements and executed evidence distinct.
+
+## Link behaviour to executable acceptance
+
+Give authored requirements stable IDs and distinguish component, host and design responsibilities. Reuse a registered scenario from `scripts/acceptance/` when it measures the relevant behaviour, and link its exact requirement and context. Add a new scenario when the behaviour needs one; do not mark a broad clause passed from an unrelated smoke test. Preserve source/oracle hashes, theme, width and passed/failed/not-run/unsupported status. The shared runner covers finite workflows, not the whole test suite. See `docs/ACCEPTANCE.md`. A repair proposal must preserve its oracle and the content being verified; missing repair coverage requires review, not a fabricated pass.

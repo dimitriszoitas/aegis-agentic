@@ -5,7 +5,7 @@
     "version": "0.7.0-experiment.0"
   },
   "registryRevision": 5,
-  "sourceDigest": "e56081bc3e2fcf8d3b074a4733fe713fcdc8930955850f3c1e62ef75ec49727e",
+  "sourceDigest": "a889801a4e12e3de19a20bb16a7cf076537ce58688e5a623cf600d23d252082b",
   "sources": [
     {
       "path": "contracts/agentic/accordion.json",
@@ -141,7 +141,7 @@
     },
     {
       "path": "contracts/agentic/data-grid.json",
-      "sha256": "70dd940b8f065329c20c9d279ce07b2bfa3363e6f720d2cde177b66532646f5d"
+      "sha256": "22e4daddc70ca47197a36f9adae7c5ce817342bca634ae0af3f8f779f1a1bc71"
     },
     {
       "path": "contracts/agentic/dataset-filtering.json",
@@ -1033,7 +1033,7 @@
     },
     {
       "path": "public/ai/index.json",
-      "sha256": "6a74b80d6316c44c04dd3948b355ad59f17a3898f4c43ee036b6c99b319db712"
+      "sha256": "282f130f2384cc5cada61b9f0d6a8beda55c73bc29459b53ba4c9329267f2d72"
     },
     {
       "path": "registry/canonical.json",
@@ -1045,7 +1045,7 @@
     },
     {
       "path": "scripts/build-agent-kit.mjs",
-      "sha256": "7e76b06c56b9d01ed393259f65022a9dc1009e53343fced8ac25531a39411356"
+      "sha256": "ac7ee54f52b40e06ee4b5d7a62a57155e93f47c998335a45a7262b7b74140438"
     },
     {
       "path": "scripts/fixtures/complete-inputs/verify.mjs",
@@ -1085,11 +1085,11 @@
     },
     {
       "path": "skills/create-component/SKILL.md",
-      "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+      "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
     },
     {
       "path": "skills/create-layout/SKILL.md",
-      "sha256": "ac6decd6c737be38c50a30c9d340eaf6d0d795fb0b73ae9fb328111de02e4a5f"
+      "sha256": "e5467b3ca31f5c061068ff0f3bf39a1f49ff7b019e76c52a60f66c0ef67ac2bc"
     },
     {
       "path": "skills/references/design-contract.md",
@@ -1382,6 +1382,10 @@
     {
       "path": "src/components/data-grid-cells/time-cell.stories.tsx",
       "sha256": "0917949e03967441e4e120a1d51358f646875c0c87bbcf31b381cdeb9376cca2"
+    },
+    {
+      "path": "src/components/data-grid/data-grid.css",
+      "sha256": "b5294481b2b47f5aff554f4a9afd6f344cd9cd858301c24ebd6e00101f9cfd09"
     },
     {
       "path": "src/components/data-grid/data-grid.stories.tsx",
@@ -2337,7 +2341,7 @@
     },
     {
       "path": "tokens/component-categories.json",
-      "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+      "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
     }
   ],
   "entries": [
@@ -2731,7 +2735,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -2875,7 +2879,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -3032,7 +3036,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -3190,7 +3194,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -3355,7 +3359,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -3523,7 +3527,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -3689,7 +3693,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -3836,7 +3840,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -4013,7 +4017,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -4191,7 +4195,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -4337,7 +4341,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -4482,7 +4486,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -4649,7 +4653,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -4828,7 +4832,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -5008,7 +5012,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -5185,7 +5189,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -5376,7 +5380,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -5553,7 +5557,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -5739,7 +5743,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -5944,7 +5948,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -6126,7 +6130,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -6325,7 +6329,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -6498,7 +6502,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -6698,7 +6702,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -6897,7 +6901,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -7091,7 +7095,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -7256,7 +7260,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -7424,16 +7428,20 @@
         "status": "source-backed-baseline",
         "source": {
           "path": "contracts/agentic/data-grid.json",
-          "sha256": "70dd940b8f065329c20c9d279ce07b2bfa3363e6f720d2cde177b66532646f5d"
+          "sha256": "22e4daddc70ca47197a36f9adae7c5ce817342bca634ae0af3f8f779f1a1bc71"
         },
         "references": [
           {
             "path": "skills/create-layout/SKILL.md",
-            "sha256": "ac6decd6c737be38c50a30c9d340eaf6d0d795fb0b73ae9fb328111de02e4a5f"
+            "sha256": "e5467b3ca31f5c061068ff0f3bf39a1f49ff7b019e76c52a60f66c0ef67ac2bc"
           },
           {
             "path": "skills/references/design-contract.md",
             "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+          },
+          {
+            "path": "src/components/data-grid/data-grid.css",
+            "sha256": "b5294481b2b47f5aff554f4a9afd6f344cd9cd858301c24ebd6e00101f9cfd09"
           },
           {
             "path": "src/components/data-grid/data-grid.tsx",
@@ -7441,7 +7449,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -7573,6 +7581,15 @@
               ]
             },
             {
+              "id": "density-state-and-geometry",
+              "kind": "host",
+              "statement": "A host that controls density must feed accepted density changes back through the density prop. Compact, default and comfortable selections must change the actual grid row geometry in that order, while preserving selected rows and other table state. Merely changing the segmented-control label does not satisfy the interaction.",
+              "sources": [
+                "src/components/data-grid/data-grid.tsx",
+                "src/components/data-grid/data-grid.css"
+              ]
+            },
+            {
               "id": "owned-and-nested-tokens",
               "kind": "design",
               "statement": "Use data-display group tokens for grid-owned visuals and density; nested Checkbox, DropdownMenu, EmptyState and Pagination retain their own groups. Preserve dimensions across the four theme/mode mappings and verify the actual scroll container.",
@@ -7590,7 +7607,7 @@
             "No browser run, visual acceptance or comprehensive accessibility certification is implied by these source-backed requirements."
           ]
         },
-        "raw": "{\n  \"schemaVersion\": 2,\n  \"id\": \"data-grid\",\n  \"version\": 1,\n  \"status\": \"source-backed-baseline\",\n  \"verification\": \"not-certified-by-this-contract\",\n  \"purpose\": \"Browse a supplied local dataset with sortable columns, row selection, optional details, local pagination and optional virtualization.\",\n  \"anatomy\": [\n    \"toolbar or host toolbar slot\",\n    \"named scroll region\",\n    \"grid header and column controls\",\n    \"data rows with optional selection and expansion controls\",\n    \"loading, error or empty body\",\n    \"pagination or count footer\"\n  ],\n  \"states\": [\n    \"populated\",\n    \"loading\",\n    \"error\",\n    \"empty\",\n    \"row selected\",\n    \"row expanded\",\n    \"column sorted, resized, reordered or pinned\",\n    \"paginated or virtualized\"\n  ],\n  \"tokenGroup\": \"data-display\",\n  \"behaviorProvider\": \"TanStack Table and Virtual provide row models and measured rendering; Aegis implements row keyboard handling and composes shared Checkbox, DropdownMenu and Pagination controls.\",\n  \"ownership\": {\n    \"component\": [\n      \"local sorting, column state, expansion and pagination\",\n      \"row focus, selection requests and measured virtualization\",\n      \"body-state precedence and toolbar integration\"\n    ],\n    \"host\": [\n      \"stable unique row identities and meaningful labels\",\n      \"fetching, filtering, mutations and complete local dataset\",\n      \"controlled selection/density acknowledgment and custom cell interaction semantics\"\n    ]\n  },\n  \"requirements\": [\n    {\n      \"id\": \"stable-row-identity\",\n      \"kind\": \"host\",\n      \"statement\": \"Supply stable unique getRowId values and meaningful rowLabel values; selection, expansion, keyed rendering and focus restoration use those identities. Keep custom cell controls independently named.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"controlled-selection\",\n      \"kind\": \"component\",\n      \"statement\": \"selectedRowIds controls the selection when supplied; otherwise defaultSelectedRowIds initializes internal selection. Selection changes emit all selected ids and only matching row objects from the currently supplied data.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"host-selection-reconciliation\",\n      \"kind\": \"host\",\n      \"statement\": \"A controlled host must feed accepted selectedRowIds back and decide whether ids absent from current data remain selected. Bulk-action row objects cover only records present in data, not unavailable server records.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"local-pagination\",\n      \"kind\": \"component\",\n      \"statement\": \"The supplied data is locally sorted and paginated by default. Pagination derives its total from data.length and clamps a rendered page after data shrinks; pagination=false presents the supplied rows without local page slicing. pageSize initializes internal page state rather than controlling later page-size changes.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"loading-error-empty-precedence\",\n      \"kind\": \"component\",\n      \"statement\": \"Loading replaces body rows with skeletons and marks the grid busy; otherwise a truthy error replaces rows with the error EmptyState and optional retry action; otherwise zero displayed rows renders the empty state. Loading disables pagination but is not a blanket lock on every toolbar or header control.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"row-keyboard-boundary\",\n      \"kind\": \"component\",\n      \"statement\": \"When a key originates on the row itself, Up/Down/Home/End move row focus, Enter invokes onRowClick, Space toggles enabled selection, and Right/Left expand or collapse eligible details. Events from nested controls do not execute those row shortcuts.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"row-click-boundary\",\n      \"kind\": \"component\",\n      \"statement\": \"A row click invokes onRowClick only outside recognized interactive descendants and when no text selection exists. The host must supply actual navigation or detail-opening behavior.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"selection-toolbar-ownership\",\n      \"kind\": \"host\",\n      \"statement\": \"When supplying renderToolbar, render its selectionActions in the intended selection mode and connect density and visibility through the supplied toolbar API. Custom bulk actions must implement their real operations and call clear when appropriate.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"column-controls\",\n      \"kind\": \"component\",\n      \"statement\": \"Column menus provide pinning, sorting, hiding and movement alternatives to drag; movement stays within a pinned or unpinned group, and the built-in visibility controls preserve at least one visible data column. Resize handles support Arrow keys, Shift larger steps, Home/End bounds and Enter autosize.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"measured-virtualization\",\n      \"kind\": \"component\",\n      \"statement\": \"Virtualization is requested explicitly or defaults on above 200 supplied records, and is inactive during loading/error or with no entries. Row focus scrolls the target into view; detail rows have separate measured entries. Resize observers, drag listeners and resize listeners are cleaned up on unmount.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"source-state-ownership\",\n      \"kind\": \"host\",\n      \"statement\": \"Provide the complete local result set and apply filters before passing data. Fetching, error recovery, remote pagination, authorization and persistence of user column preferences are host responsibilities; the grid does not implement those services.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"owned-and-nested-tokens\",\n      \"kind\": \"design\",\n      \"statement\": \"Use data-display group tokens for grid-owned visuals and density; nested Checkbox, DropdownMenu, EmptyState and Pagination retain their own groups. Preserve dimensions across the four theme/mode mappings and verify the actual scroll container.\",\n      \"sources\": [\n        \"skills/references/design-contract.md\",\n        \"skills/create-layout/SKILL.md\",\n        \"tokens/component-categories.json\"\n      ]\n    }\n  ],\n  \"limitations\": [\n    \"This baseline covers DataGrid, not the record-specific DataGridPresentation demonstration or every data-grid cell family.\",\n    \"Sorting, expansion, column state and pagination are initialized internally; they are not a general externally controlled or server-side grid protocol.\",\n    \"Row-oriented keyboard handling is not an editable spreadsheet or full two-dimensional cell navigation model.\",\n    \"No browser run, visual acceptance or comprehensive accessibility certification is implied by these source-backed requirements.\"\n  ]\n}\n"
+        "raw": "{\n  \"schemaVersion\": 2,\n  \"id\": \"data-grid\",\n  \"version\": 1,\n  \"status\": \"source-backed-baseline\",\n  \"verification\": \"not-certified-by-this-contract\",\n  \"purpose\": \"Browse a supplied local dataset with sortable columns, row selection, optional details, local pagination and optional virtualization.\",\n  \"anatomy\": [\n    \"toolbar or host toolbar slot\",\n    \"named scroll region\",\n    \"grid header and column controls\",\n    \"data rows with optional selection and expansion controls\",\n    \"loading, error or empty body\",\n    \"pagination or count footer\"\n  ],\n  \"states\": [\n    \"populated\",\n    \"loading\",\n    \"error\",\n    \"empty\",\n    \"row selected\",\n    \"row expanded\",\n    \"column sorted, resized, reordered or pinned\",\n    \"paginated or virtualized\"\n  ],\n  \"tokenGroup\": \"data-display\",\n  \"behaviorProvider\": \"TanStack Table and Virtual provide row models and measured rendering; Aegis implements row keyboard handling and composes shared Checkbox, DropdownMenu and Pagination controls.\",\n  \"ownership\": {\n    \"component\": [\n      \"local sorting, column state, expansion and pagination\",\n      \"row focus, selection requests and measured virtualization\",\n      \"body-state precedence and toolbar integration\"\n    ],\n    \"host\": [\n      \"stable unique row identities and meaningful labels\",\n      \"fetching, filtering, mutations and complete local dataset\",\n      \"controlled selection/density acknowledgment and custom cell interaction semantics\"\n    ]\n  },\n  \"requirements\": [\n    {\n      \"id\": \"stable-row-identity\",\n      \"kind\": \"host\",\n      \"statement\": \"Supply stable unique getRowId values and meaningful rowLabel values; selection, expansion, keyed rendering and focus restoration use those identities. Keep custom cell controls independently named.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"controlled-selection\",\n      \"kind\": \"component\",\n      \"statement\": \"selectedRowIds controls the selection when supplied; otherwise defaultSelectedRowIds initializes internal selection. Selection changes emit all selected ids and only matching row objects from the currently supplied data.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"host-selection-reconciliation\",\n      \"kind\": \"host\",\n      \"statement\": \"A controlled host must feed accepted selectedRowIds back and decide whether ids absent from current data remain selected. Bulk-action row objects cover only records present in data, not unavailable server records.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"local-pagination\",\n      \"kind\": \"component\",\n      \"statement\": \"The supplied data is locally sorted and paginated by default. Pagination derives its total from data.length and clamps a rendered page after data shrinks; pagination=false presents the supplied rows without local page slicing. pageSize initializes internal page state rather than controlling later page-size changes.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"loading-error-empty-precedence\",\n      \"kind\": \"component\",\n      \"statement\": \"Loading replaces body rows with skeletons and marks the grid busy; otherwise a truthy error replaces rows with the error EmptyState and optional retry action; otherwise zero displayed rows renders the empty state. Loading disables pagination but is not a blanket lock on every toolbar or header control.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"row-keyboard-boundary\",\n      \"kind\": \"component\",\n      \"statement\": \"When a key originates on the row itself, Up/Down/Home/End move row focus, Enter invokes onRowClick, Space toggles enabled selection, and Right/Left expand or collapse eligible details. Events from nested controls do not execute those row shortcuts.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"row-click-boundary\",\n      \"kind\": \"component\",\n      \"statement\": \"A row click invokes onRowClick only outside recognized interactive descendants and when no text selection exists. The host must supply actual navigation or detail-opening behavior.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"selection-toolbar-ownership\",\n      \"kind\": \"host\",\n      \"statement\": \"When supplying renderToolbar, render its selectionActions in the intended selection mode and connect density and visibility through the supplied toolbar API. Custom bulk actions must implement their real operations and call clear when appropriate.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"column-controls\",\n      \"kind\": \"component\",\n      \"statement\": \"Column menus provide pinning, sorting, hiding and movement alternatives to drag; movement stays within a pinned or unpinned group, and the built-in visibility controls preserve at least one visible data column. Resize handles support Arrow keys, Shift larger steps, Home/End bounds and Enter autosize.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"measured-virtualization\",\n      \"kind\": \"component\",\n      \"statement\": \"Virtualization is requested explicitly or defaults on above 200 supplied records, and is inactive during loading/error or with no entries. Row focus scrolls the target into view; detail rows have separate measured entries. Resize observers, drag listeners and resize listeners are cleaned up on unmount.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"source-state-ownership\",\n      \"kind\": \"host\",\n      \"statement\": \"Provide the complete local result set and apply filters before passing data. Fetching, error recovery, remote pagination, authorization and persistence of user column preferences are host responsibilities; the grid does not implement those services.\",\n      \"sources\": [\"src/components/data-grid/data-grid.tsx\"]\n    },\n    {\n      \"id\": \"density-state-and-geometry\",\n      \"kind\": \"host\",\n      \"statement\": \"A host that controls density must feed accepted density changes back through the density prop. Compact, default and comfortable selections must change the actual grid row geometry in that order, while preserving selected rows and other table state. Merely changing the segmented-control label does not satisfy the interaction.\",\n      \"sources\": [\n        \"src/components/data-grid/data-grid.tsx\",\n        \"src/components/data-grid/data-grid.css\"\n      ]\n    },\n    {\n      \"id\": \"owned-and-nested-tokens\",\n      \"kind\": \"design\",\n      \"statement\": \"Use data-display group tokens for grid-owned visuals and density; nested Checkbox, DropdownMenu, EmptyState and Pagination retain their own groups. Preserve dimensions across the four theme/mode mappings and verify the actual scroll container.\",\n      \"sources\": [\n        \"skills/references/design-contract.md\",\n        \"skills/create-layout/SKILL.md\",\n        \"tokens/component-categories.json\"\n      ]\n    }\n  ],\n  \"limitations\": [\n    \"This baseline covers DataGrid, not the record-specific DataGridPresentation demonstration or every data-grid cell family.\",\n    \"Sorting, expansion, column state and pagination are initialized internally; they are not a general externally controlled or server-side grid protocol.\",\n    \"Row-oriented keyboard handling is not an editable spreadsheet or full two-dimensional cell navigation model.\",\n    \"No browser run, visual acceptance or comprehensive accessibility certification is implied by these source-backed requirements.\"\n  ]\n}\n"
       },
       "checks": [
         {
@@ -7657,11 +7674,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/create-layout/SKILL.md",
-            "sha256": "ac6decd6c737be38c50a30c9d340eaf6d0d795fb0b73ae9fb328111de02e4a5f"
+            "sha256": "e5467b3ca31f5c061068ff0f3bf39a1f49ff7b019e76c52a60f66c0ef67ac2bc"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -7677,7 +7694,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -8061,7 +8078,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -8215,7 +8232,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -8368,7 +8385,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -8537,7 +8554,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -8684,7 +8701,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -8838,7 +8855,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -8980,7 +8997,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -9103,7 +9120,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -9238,7 +9255,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -9361,7 +9378,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -9514,7 +9531,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -9847,7 +9864,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -10035,7 +10052,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -10415,7 +10432,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -10585,11 +10602,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/create-layout/SKILL.md",
-            "sha256": "ac6decd6c737be38c50a30c9d340eaf6d0d795fb0b73ae9fb328111de02e4a5f"
+            "sha256": "e5467b3ca31f5c061068ff0f3bf39a1f49ff7b019e76c52a60f66c0ef67ac2bc"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -10601,7 +10618,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -10790,7 +10807,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -10963,7 +10980,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -11118,7 +11135,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -11266,7 +11283,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -11417,7 +11434,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -11441,7 +11458,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -13772,7 +13789,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -14605,7 +14622,7 @@
         "references": [
           {
             "path": "skills/create-layout/SKILL.md",
-            "sha256": "ac6decd6c737be38c50a30c9d340eaf6d0d795fb0b73ae9fb328111de02e4a5f"
+            "sha256": "e5467b3ca31f5c061068ff0f3bf39a1f49ff7b019e76c52a60f66c0ef67ac2bc"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -14633,7 +14650,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -14835,7 +14852,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -14855,7 +14872,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -15051,7 +15068,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -15075,7 +15092,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -15467,7 +15484,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -15491,7 +15508,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -15692,7 +15709,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -15716,7 +15733,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -15917,7 +15934,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -15937,7 +15954,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -16691,7 +16708,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -16873,7 +16890,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -17063,7 +17080,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -17242,7 +17259,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -17262,7 +17279,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -17466,7 +17483,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -17646,7 +17663,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -17825,7 +17842,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -18013,7 +18030,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -18202,7 +18219,7 @@
         "references": [
           {
             "path": "skills/create-layout/SKILL.md",
-            "sha256": "ac6decd6c737be38c50a30c9d340eaf6d0d795fb0b73ae9fb328111de02e4a5f"
+            "sha256": "e5467b3ca31f5c061068ff0f3bf39a1f49ff7b019e76c52a60f66c0ef67ac2bc"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -18214,7 +18231,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -18411,7 +18428,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -18583,11 +18600,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/create-layout/SKILL.md",
-            "sha256": "ac6decd6c737be38c50a30c9d340eaf6d0d795fb0b73ae9fb328111de02e4a5f"
+            "sha256": "e5467b3ca31f5c061068ff0f3bf39a1f49ff7b019e76c52a60f66c0ef67ac2bc"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -18599,7 +18616,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -18788,7 +18805,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -19152,11 +19169,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/create-layout/SKILL.md",
-            "sha256": "ac6decd6c737be38c50a30c9d340eaf6d0d795fb0b73ae9fb328111de02e4a5f"
+            "sha256": "e5467b3ca31f5c061068ff0f3bf39a1f49ff7b019e76c52a60f66c0ef67ac2bc"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -19176,7 +19193,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -19401,7 +19418,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -19597,11 +19614,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/create-layout/SKILL.md",
-            "sha256": "ac6decd6c737be38c50a30c9d340eaf6d0d795fb0b73ae9fb328111de02e4a5f"
+            "sha256": "e5467b3ca31f5c061068ff0f3bf39a1f49ff7b019e76c52a60f66c0ef67ac2bc"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -19621,7 +19638,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -19848,7 +19865,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -20026,7 +20043,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -20517,7 +20534,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -20665,7 +20682,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -20812,7 +20829,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -20957,7 +20974,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -21107,7 +21124,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -21258,7 +21275,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -21440,7 +21457,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -21825,7 +21842,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -22189,7 +22206,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -22380,7 +22397,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -22570,7 +22587,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -22963,7 +22980,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -23165,7 +23182,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -23181,7 +23198,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -23406,7 +23423,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -23783,7 +23800,7 @@
         "references": [
           {
             "path": "skills/create-layout/SKILL.md",
-            "sha256": "ac6decd6c737be38c50a30c9d340eaf6d0d795fb0b73ae9fb328111de02e4a5f"
+            "sha256": "e5467b3ca31f5c061068ff0f3bf39a1f49ff7b019e76c52a60f66c0ef67ac2bc"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -23795,7 +23812,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -24004,7 +24021,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -24196,7 +24213,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -24380,11 +24397,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "75fa8d1a00ec0fdb5e3102b2aedcd747ded14fd8e88bec0f7bb09c29fbaea4b0"
+            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
           },
           {
             "path": "skills/create-layout/SKILL.md",
-            "sha256": "ac6decd6c737be38c50a30c9d340eaf6d0d795fb0b73ae9fb328111de02e4a5f"
+            "sha256": "e5467b3ca31f5c061068ff0f3bf39a1f49ff7b019e76c52a60f66c0ef67ac2bc"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -24404,7 +24421,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -24613,7 +24630,7 @@
         "references": [
           {
             "path": "scripts/build-agent-kit.mjs",
-            "sha256": "7e76b06c56b9d01ed393259f65022a9dc1009e53343fced8ac25531a39411356"
+            "sha256": "ac7ee54f52b40e06ee4b5d7a62a57155e93f47c998335a45a7262b7b74140438"
           },
           {
             "path": "skills/references/design-contract.md",
@@ -25340,7 +25357,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {
@@ -25742,7 +25759,7 @@
           },
           {
             "path": "tokens/component-categories.json",
-            "sha256": "0bc2080b66d815018add212ab5e92e4913bb2edac1e71e0c16858ef91f2c7942"
+            "sha256": "1b985cdfa35ed5aa05dd32a163971ede7970e2d33a79faa4c312c633137395c0"
           }
         ],
         "document": {

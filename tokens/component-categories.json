@@ -152,10 +152,7 @@
     },
     "iconography": {
       "title": "Foundations/Iconography",
-      "prefixes": [
-        "src/components/icon/",
-        "src/components/aws-logo/"
-      ]
+      "prefixes": ["src/components/icon/", "src/components/aws-logo/"]
     },
     "ai-assistance": {
       "title": "Patterns/AI Assistance",
@@ -185,9 +182,7 @@
     },
     "communication": {
       "title": "Patterns/Communication",
-      "prefixes": [
-        "src/patterns/notification-center/"
-      ]
+      "prefixes": ["src/patterns/notification-center/"]
     },
     "workflow": {
       "title": "Patterns/Workflows",
@@ -209,7 +204,10 @@
         "src/agentic/infrastructure-panel.tsx",
         "src/agentic/infrastructure-panel.css",
         "src/stories/contracts/",
-        "src/patterns/app-shell/"
+        "src/patterns/app-shell/",
+        "src/agentic/portability-panel.tsx",
+        "src/agentic/recipe-panel.tsx",
+        "src/stories/infrastructure/"
       ]
     }
   },

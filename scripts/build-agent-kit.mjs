@@ -140,7 +140,14 @@ await writeFile(
   JSON.stringify(notices, null, 2) + '\n',
 );
 await mkdir(join(out, 'docs'), { recursive: true });
-for (const name of ['CONTRACTS.md', 'MCP.md']) {
+for (const name of [
+  'CONTRACTS.md',
+  'MCP.md',
+  'BRAND-PACKAGES.md',
+  'PROJECT-RECIPES.md',
+  'ACCEPTANCE.md',
+  'SOURCE-REPAIR.md',
+]) {
   await cp(join(root, 'docs', name), join(out, 'docs', name));
 }
 await cp(join(root, 'LICENSE'), join(out, 'LICENSE'));
@@ -153,6 +160,47 @@ await writeFile(
   JSON.stringify(core.pageLayoutRecipes, null, 2) + '\n',
 );
 await mkdir(join(out, 'examples'), { recursive: true });
+await cp(
+  join(root, 'contracts/composition/project-recipes.json'),
+  join(out, 'contracts/composition/project-recipes.json'),
+);
+await cp(join(root, 'src/product/project-recipes.json'), join(out, 'examples/forma.recipes.json'));
+await writeFile(
+  join(out, 'examples/project-recipes.json'),
+  JSON.stringify(
+    core.normalizeProjectRecipes({
+      schemaVersion: 1,
+      project: 'my-product',
+      revision: 1,
+      recipes: {},
+    }),
+    null,
+    2,
+  ) + '\n',
+);
+await writeFile(
+  join(out, 'examples/brand-package.json'),
+  core.serializeBrandPackage(core.createBrandPackage(core.designProfiles[0])),
+);
+await writeFile(
+  join(out, 'examples/token-import.json'),
+  JSON.stringify(
+    {
+      palette: {
+        brand: {
+          $type: 'color',
+          $value: { colorSpace: 'srgb', components: [0.36, 0.25, 0.8], alpha: 1 },
+        },
+      },
+    },
+    null,
+    2,
+  ) + '\n',
+);
+await writeFile(
+  join(out, 'examples/token-mapping.json'),
+  JSON.stringify([{ field: 'brand', tokenPath: 'palette.brand' }], null, 2) + '\n',
+);
 await writeFile(
   join(out, 'examples/composition.json'),
   JSON.stringify(
@@ -226,6 +274,37 @@ const manifest = {
     validator: 'validatePageLayoutRecipe',
     validationScope: 'recipe-selection-only',
     cli: { recipes: 'pages recipes', validate: 'pages validate <selection.json>' },
+  },
+  designPortability: {
+    brandSchema: 'schemas/brand-package.schema.json',
+    guidance: 'docs/BRAND-PACKAGES.md',
+    brandExample: 'examples/brand-package.json',
+    dtcg: {
+      formatVersion: '2025.10',
+      scope: 'documented-subset',
+      previewOnly: true,
+      configurations: core.configurations,
+    },
+  },
+  projectRecipes: {
+    guidance: 'docs/PROJECT-RECIPES.md',
+    requirements: 'contracts/composition/project-recipes.json',
+    example: 'examples/project-recipes.json',
+    validator: 'validateProjectRecipes',
+    resolver: 'resolveProjectRecipe',
+    discovery: 'discoverByBehavior',
+  },
+  sourceRepair: {
+    inventory: 'reference-api/ai/repair-catalogue.json',
+    guidance: 'docs/SOURCE-REPAIR.md',
+    sourceCheckoutRequired: true,
+    autoPublish: false,
+  },
+  acceptance: {
+    inventory: 'reference-api/ai/acceptance-inventory.json',
+    guidance: 'docs/ACCEPTANCE.md',
+    scope: 'registered-finite-scenarios-not-executed-certification',
+    sourceCheckoutRequiredForBrowserRunner: true,
   },
   infrastructure: {
     cli: 'infrastructure/cli.mjs',
