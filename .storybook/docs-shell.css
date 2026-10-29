@@ -16,6 +16,23 @@
   overflow-x: auto;
 }
 
+/* Keep Storybook's high-contrast table stripes out of live DataGrid specimens. */
+.sbdocs-content .aegis-data-grid .aegis-grid-table > tbody > .aegis-grid-row {
+  background: var(--group-data-display-table-color-transparent);
+}
+.sbdocs-content
+  .aegis-data-grid
+  .aegis-grid-table
+  > tbody
+  > .aegis-grid-row:nth-of-type(2n):not(:hover, .is-selected)
+  > td {
+  background: color-mix(
+    in srgb,
+    var(--group-data-display-table-color-content-primary) var(--group-data-display-table-mix-3),
+    var(--group-data-display-surface-fundamental-grid-surface)
+  );
+}
+
 /* Component hubs use the same generous page width; their tables scroll independently. */
 .sbdocs-wrapper:has(.component-docs) {
   padding: var(--space-8) var(--space-12);
