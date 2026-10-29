@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useId, useMemo, useRef, useState } from 'react';
 import { Button } from '@/components/button';
 import {
   Card,
@@ -73,6 +73,7 @@ export function PortabilityPanel({
   profile: DesignProfile;
   onApply: (profile: DesignProfile) => void;
 }) {
+  const fileInputId = useId();
   const fileReadVersion = useRef(0);
   const [source, setSource] = useState(() => JSON.stringify(createBrandPackage(profile), null, 2));
   const [kind, setKind] = useState<'brand' | 'tokens'>('brand');
@@ -147,8 +148,9 @@ export function PortabilityPanel({
               ]}
             />
           </Field>
-          <Field label="Load JSON file">
+          <Field id={fileInputId} label="Load JSON file">
             <input
+              id={fileInputId}
               type="file"
               accept="application/json,.json"
               onChange={async (event) => {

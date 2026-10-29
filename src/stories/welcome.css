@@ -78,11 +78,16 @@
 .aegis-welcome.aegis-welcome .aegis-welcome-meta {
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;
   gap: var(--space-2) var(--space-5);
   padding: 0;
   color: var(--color-text-secondary);
   font-size: var(--text-xs);
   list-style: none;
+}
+.aegis-welcome.aegis-welcome .aegis-welcome-meta > li {
+  /* The capability row owns its spacing, including inside Storybook Docs. */
+  margin: 0;
 }
 .aegis-welcome.aegis-welcome .aegis-welcome-meta li + li {
   padding-inline-start: var(--space-5);
