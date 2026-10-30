@@ -5,7 +5,7 @@
     "version": "0.7.0-experiment.0"
   },
   "registryRevision": 5,
-  "sourceDigest": "606cf593ff54f3b3ee98bd83e2d9f1047455752fb3c711bcfe4c07e42660fc44",
+  "sourceDigest": "99b3041eb1f1185c0ae6f7ea1c64c011fa255b33b1a3f4f6530e26319cacad10",
   "sources": [
     {
       "path": "contracts/agentic/accordion.json",
@@ -1045,7 +1045,7 @@
     },
     {
       "path": "scripts/build-agent-kit.mjs",
-      "sha256": "13437cd7299227cdd7f0276209fe1c372fe13dfbf1af1aabd0c47c58a3a098a1"
+      "sha256": "f0747abac68fe5f0c7cf5fc6d282c8beaabf5ee799fee9d0027d32eda8d206e1"
     },
     {
       "path": "scripts/fixtures/complete-inputs/verify.mjs",
@@ -1085,7 +1085,7 @@
     },
     {
       "path": "skills/create-component/SKILL.md",
-      "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+      "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
     },
     {
       "path": "skills/create-layout/SKILL.md",
@@ -1093,7 +1093,7 @@
     },
     {
       "path": "skills/references/design-contract.md",
-      "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+      "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
     },
     {
       "path": "skills/references/page-composition.md",
@@ -2374,7 +2374,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/aws-logo/ATTRIBUTION.md",
@@ -2567,7 +2567,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/button/button.tsx",
@@ -2735,11 +2735,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/button-group/button-group.tsx",
@@ -2879,11 +2879,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/copy-button/copy-button.tsx",
@@ -3036,11 +3036,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/icon-button/icon-button.tsx",
@@ -3194,11 +3194,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/link/link.tsx",
@@ -3359,11 +3359,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/split-button/split-button.tsx",
@@ -3527,11 +3527,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/ai-card/ai-card.tsx",
@@ -3693,11 +3693,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/ai-card/ai-card.tsx",
@@ -3840,11 +3840,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/ai-inline-suggestion/ai-inline-suggestion.tsx",
@@ -4017,11 +4017,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/ai-message/ai-message.tsx",
@@ -4195,11 +4195,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/confidence-badge/confidence-badge.tsx",
@@ -4341,11 +4341,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/streaming-skeleton/streaming-skeleton.tsx",
@@ -4486,11 +4486,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/thinking-indicator/thinking-indicator.tsx",
@@ -4645,7 +4645,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/charts/charts.tsx",
@@ -4824,7 +4824,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/charts/charts.tsx",
@@ -5004,7 +5004,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/charts/charts.tsx",
@@ -5181,7 +5181,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/metric-card/chart-metric-card.tsx",
@@ -5372,7 +5372,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/charts/charts.tsx",
@@ -5549,7 +5549,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/event-histogram/event-histogram.tsx",
@@ -5731,7 +5731,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/gantt-chart/gantt-chart.tsx",
@@ -5940,7 +5940,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/charts/charts.tsx",
@@ -6122,7 +6122,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/metric-card/metric-card.tsx",
@@ -6317,7 +6317,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/mini-bar-chart/mini-bar-chart.tsx",
@@ -6494,7 +6494,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/sparkline/sparkline.tsx",
@@ -6690,7 +6690,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/code-editor/code-editor.tsx",
@@ -6893,7 +6893,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/diff-view/diff-view.tsx",
@@ -7087,7 +7087,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/yaml-presenter/yaml-presenter.tsx",
@@ -7260,11 +7260,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/expandable-text/expandable-text.tsx",
@@ -7437,7 +7437,7 @@
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/data-grid/data-grid.css",
@@ -7674,7 +7674,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/create-layout/SKILL.md",
@@ -7682,7 +7682,7 @@
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/description-list/description-list.css",
@@ -7882,7 +7882,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/file-preview/file-preview.css",
@@ -8078,11 +8078,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/data-grid-cells/data-grid-cells.tsx",
@@ -8232,11 +8232,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/data-grid-cells/data-grid-cells.tsx",
@@ -8385,11 +8385,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/bulk-actions-bar/bulk-actions-bar.tsx",
@@ -8554,11 +8554,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/data-grid-cells/data-grid-cells.tsx",
@@ -8701,11 +8701,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/data-grid-cells/data-grid-cells.tsx",
@@ -8855,11 +8855,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/data-grid-cells/data-grid-cells.tsx",
@@ -8997,11 +8997,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/data-grid-cells/data-grid-cells.tsx",
@@ -9120,11 +9120,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/data-grid-cells/data-grid-cells.tsx",
@@ -9255,11 +9255,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/data-grid-cells/data-grid-cells.tsx",
@@ -9378,11 +9378,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/data-grid-cells/data-grid-cells.tsx",
@@ -9531,11 +9531,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/data-grid-cells/data-grid-cells.tsx",
@@ -9668,7 +9668,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/indicator/indicator.css",
@@ -9856,7 +9856,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/json-viewer/json-viewer.tsx",
@@ -10044,7 +10044,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/relative-time/relative-time.tsx",
@@ -10214,7 +10214,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/sortable-list/README.md",
@@ -10424,7 +10424,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/timeline/timeline.tsx",
@@ -10602,7 +10602,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/create-layout/SKILL.md",
@@ -10610,7 +10610,7 @@
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/empty-state/empty-state.tsx",
@@ -10807,11 +10807,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/notification/notification-viewport.tsx",
@@ -10980,11 +10980,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/progress-bar/progress-bar.tsx",
@@ -11135,11 +11135,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/skeleton/skeleton.tsx",
@@ -11283,11 +11283,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/spinner/spinner.tsx",
@@ -11434,11 +11434,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/checkbox/checkbox.css",
@@ -11656,7 +11656,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/color-picker/color-picker.css",
@@ -11864,7 +11864,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/combobox/combobox.css",
@@ -12079,7 +12079,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/copy-button/copy-button.tsx",
@@ -12237,7 +12237,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/date-picker/date-picker.css",
@@ -12394,7 +12394,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/date-time-picker/date-time-picker.css",
@@ -12583,7 +12583,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/field/field.tsx",
@@ -12768,7 +12768,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/file-upload/file-upload.css",
@@ -12943,7 +12943,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/inline-edit/inline-edit.css",
@@ -13161,7 +13161,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/multi-combobox/multi-combobox.css",
@@ -13339,7 +13339,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/field/field.tsx",
@@ -13577,7 +13577,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/field/field.tsx",
@@ -13789,11 +13789,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/button/button.tsx",
@@ -14043,7 +14043,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/field/field.tsx",
@@ -14250,7 +14250,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/radio-group/radio-group.css",
@@ -14402,7 +14402,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/rich-text-editor/README.md",
@@ -14626,7 +14626,7 @@
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/field/field.tsx",
@@ -14852,11 +14852,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/segmented-control/segmented-control.css",
@@ -15068,11 +15068,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/field/field.tsx",
@@ -15312,7 +15312,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/slider/slider.css",
@@ -15484,11 +15484,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/field/field.tsx",
@@ -15709,11 +15709,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/field/field.tsx",
@@ -15934,11 +15934,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/field/field.tsx",
@@ -16149,7 +16149,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/field/field.tsx",
@@ -16337,7 +16337,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/time-range-picker/time-range-picker.css",
@@ -16518,7 +16518,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/tree-view/tree-view.css",
@@ -16700,7 +16700,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/resizable-panels/resizable-panels.tsx",
@@ -16878,7 +16878,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/accordion/accordion.stories.tsx",
@@ -17072,7 +17072,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/context-menu/context-menu.tsx",
@@ -17259,11 +17259,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/dropdown-menu/dropdown-menu.css",
@@ -17483,11 +17483,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/list/list.tsx",
@@ -17655,7 +17655,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/breadcrumb/breadcrumb.tsx",
@@ -17834,7 +17834,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/command-palette/command-palette.tsx",
@@ -18022,7 +18022,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/pagination/pagination.tsx",
@@ -18223,7 +18223,7 @@
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/side-nav/side-nav.tsx",
@@ -18420,7 +18420,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/stepper/stepper.tsx",
@@ -18600,7 +18600,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/create-layout/SKILL.md",
@@ -18608,7 +18608,7 @@
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/tabs/tabs.tsx",
@@ -18797,7 +18797,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/bottom-sheet/bottom-sheet.tsx",
@@ -18987,7 +18987,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/modal/modal.tsx",
@@ -19169,7 +19169,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/create-layout/SKILL.md",
@@ -19177,7 +19177,7 @@
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/popover/popover.css",
@@ -19406,7 +19406,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/sheet/sheet-state.ts",
@@ -19614,7 +19614,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/create-layout/SKILL.md",
@@ -19622,7 +19622,7 @@
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/side-sheet/side-sheet.css",
@@ -19857,7 +19857,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/tooltip/tooltip.tsx",
@@ -20043,11 +20043,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/avatar/avatar.tsx",
@@ -20203,7 +20203,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/presence-indicator/presence-indicator.css",
@@ -20377,7 +20377,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/card/card.tsx",
@@ -20534,11 +20534,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/separator/separator.tsx",
@@ -20682,11 +20682,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/count-badge/count-badge.tsx",
@@ -20829,11 +20829,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/kbd/kbd.tsx",
@@ -20974,11 +20974,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/severity-badge/severity-badge.tsx",
@@ -21124,11 +21124,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/status-badge/status-badge.tsx",
@@ -21275,11 +21275,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/tag/tag.tsx",
@@ -21445,7 +21445,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/scroll-area/scroll-area.css",
@@ -21628,7 +21628,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/agentic/components/FilteredDataset.tsx",
@@ -21842,11 +21842,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/components/icon/index.tsx",
@@ -22198,7 +22198,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/ai-diff-review/ai-diff-review.tsx",
@@ -22389,7 +22389,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/ai-panel/ai-panel.tsx",
@@ -22579,7 +22579,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/prompt-input/prompt-input.tsx",
@@ -22769,7 +22769,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/app-shell/app-shell.tsx",
@@ -22968,7 +22968,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "skills/references/page-composition.md",
@@ -23182,11 +23182,11 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/lib/filters.ts",
@@ -23415,7 +23415,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/filter-panel/filter-panel.tsx",
@@ -23604,7 +23604,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/form-error-summary/form-error-summary.tsx",
@@ -23804,7 +23804,7 @@
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/form-section/form-section.tsx",
@@ -24013,7 +24013,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/notification-center/notification-center.tsx",
@@ -24205,7 +24205,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/onboarding-checklist/onboarding-checklist.tsx",
@@ -24397,7 +24397,7 @@
         "references": [
           {
             "path": "skills/create-component/SKILL.md",
-            "sha256": "c2fcfc55fcb6ffdb93df7a27542b546a669e5382b06d23c39776ea780123b63d"
+            "sha256": "7fa90d7f6ca006b4d294e02ad5cfdb679546e248f8820368cf7e1393e0a23263"
           },
           {
             "path": "skills/create-layout/SKILL.md",
@@ -24405,7 +24405,7 @@
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/page-header/page-header.css",
@@ -24630,11 +24630,11 @@
         "references": [
           {
             "path": "scripts/build-agent-kit.mjs",
-            "sha256": "13437cd7299227cdd7f0276209fe1c372fe13dfbf1af1aabd0c47c58a3a098a1"
+            "sha256": "f0747abac68fe5f0c7cf5fc6d282c8beaabf5ee799fee9d0027d32eda8d206e1"
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "skills/references/page-composition.md",
@@ -24936,7 +24936,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/record-editor/README.md",
@@ -25155,7 +25155,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/resource-state/README.md",
@@ -25349,7 +25349,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/unsaved-changes-bar/unsaved-changes-bar.tsx",
@@ -25537,7 +25537,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/unsaved-navigation-guard/README.md",
@@ -25751,7 +25751,7 @@
         "references": [
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/patterns/wizard/wizard.tsx",
@@ -25952,7 +25952,7 @@
           },
           {
             "path": "skills/references/design-contract.md",
-            "sha256": "308a2f054e861a727bad35619612de889e6fdf0efefe4a2c52faf55309236581"
+            "sha256": "02ee778d74f9338c82697a8e701ec4ac76f5e8359a43eac51a8f12a3998f870a"
           },
           {
             "path": "src/agentic/components/token-input-model.ts",

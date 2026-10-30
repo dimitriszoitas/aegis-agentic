@@ -9,11 +9,11 @@
   "sources": [
     {
       "path": "package.json",
-      "sha256": "a18d641230334d7dd2e105d2931e5e7f145934c54ec1de6bd97633494361e287"
+      "sha256": "ae613bfe1e049c676cf9bab9ea747e8e1e6b105f25dd41ee87d64234b0941957"
     },
     {
       "path": "public/ai/contract-catalogue.json",
-      "sha256": "348fc7210ffff065f692f0e761330b50be971cd2633b2ea849d6e1a0bdd7ed60"
+      "sha256": "8c8645ff3d24e627b3c6ffd2d0b14e8e4ef4cb0f4fc3bb1c5eb96a551da66118"
     },
     {
       "path": "contracts/catalogue-bindings.json",
