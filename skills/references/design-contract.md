@@ -11,8 +11,8 @@ Primitive values → Semantic roles → Group roles → Components and layouts
 There are three token tiers. Components and layouts are consumers, not a fourth token tier.
 
 - **Primitive:** exact context-free colors, dimensions, font metrics, percentages, and other design values. No semantic or group references.
-- **Semantic:** shared design meaning with explicit theme mappings. Primitive references only.
-- **Group:** descriptive roles owned by the Storybook sidebar category. Semantic references only.
+- **Semantic:** a reusable design choice, treatment, state or scale with explicit theme mappings. Primitive references only.
+- **Group:** the use of a semantic choice by an owning category, component part or layout role. Semantic references only.
 - **Consumer:** component or layout styling and its numeric design defaults. Group references only.
 
 Resolve the category from `tokens/component-categories.json` using the longest matching source prefix. A component's own CSS, inline styles, and numeric design defaults use only that category's namespace. Every component under **Components/Triggers**, including Button, Link, DropdownMenu, and ContextMenu, uses `--group-trigger-*` for its own properties. Do not create a per-component top-level group or borrow another category's tokens because their values happen to match.
@@ -31,21 +31,21 @@ Sizing, spacing, font families, font sizes, line heights, weights, and tracking 
 
 Responsive breakpoints, density choices, and user resizing are separate axes. Their rules must behave consistently across the four combinations. Keep theme changes from altering content, selection, drafts, or interaction state.
 
-## Naming scales
+## Meaning before naming
 
-Semantic dimension, spacing, and radius ramps use this order:
+Classify responsibility before choosing a prefix. A valid reference graph alone does not establish a useful design system.
 
-`xxxs`, `xxs`, `xs`, `s`, `m`, `l`, `xl`, `xxl`, `xxxl`, `xxxxl`.
+- Primitives answer **what exact value?** Their names describe context-free values, palettes or scales. Reuse a primitive only when its value and type match; an opacity zero is not a spacing primitive.
+- Semantics answer **which reusable design choice?** Examples include `radius-subtle`, `radius-rounded`, `radius-pill`, `size-small`, `size-large`, `space-compact`, `color-neutral-subtle`, `color-content-muted`, `color-danger`, `duration-fast` and `elevation-raised`. Define meaning, ordering and applicable property in the manifest. The same choice has one mapping per theme, independent of the consuming family.
+- Groups answer **where is that choice applied?** Control, item, surface, dialog, avatar, toolbar and page identify ownership or anatomy. For example, `--group-input-control-radius` selects `--semantic-radius-subtle`, while `--group-surface-dialog-radius` selects `--semantic-radius-rounded`. Keep the category namespace and meaningful part/property/state. A semantic called `radius-control` or `size-sidebar` has placed a group responsibility in the semantic tier.
 
-Group names describe relative treatment within a category:
+These examples express responsibilities, not a ban on a word in every context. A generic disabled color or selected treatment is shared meaning; a navigation item's selected background is a group application. A typography title or body style can be shared meaning; a specific badge's text size is a group application. Descriptions and consumers must support the distinction.
 
-- **Spacing:** `flush`, `hairline`, `tight`, `snug`, `compact`, `regular`, `comfortable`, `roomy`, `spacious`, `expansive`.
-- **Radius:** `square`, `slight`, `subtle`, `soft`, `rounded`, `bold`, `strong`, `pronounced`, `dramatic`, `full`.
-- **Sizing:** `tiny`, `small`, `compact`, `regular`, `comfortable`, `roomy`, `large`, `extra-large`, `huge`, `vast`.
+Use a deliberate, ordered semantic vocabulary per property: for example square/subtle/soft/rounded/pill for radius, small/medium/large for size, and tight/compact/regular/roomy for spacing. Existing abbreviated scales (`xxxs` through `xxxxl`) are valid when defined consistently and used as shared choices. Do not put owner names or `legacy`/`native` source labels into a semantic scale. Family-relative differences belong in group mappings to different shared choices, not multiple incompatible definitions of one semantic name.
 
-Sizing names are the working vocabulary; inspect the approved token manifest before adding a new family. A label's numeric meaning is local to its group. For example, the Trigger category's button `snug` spacing may be 4px while the Surface category's container `snug` spacing is 16px. This illustrates relative naming, not a universal mapping to copy into every group.
+A group name may include a variant such as `small` when it identifies a real family option, but that does not make `small` exclusively group vocabulary. Its category and part establish ownership. Avoid parallel aliases for the same responsibility. Equal values alone do not prove equal meaning; merge choices only when their meaning and all four mappings agree. Record distinct meanings and deliberate exceptions.
 
-When a new step belongs between existing group steps, review the ordering and neighboring names. Renaming may be appropriate. Audit and migrate all consumers, exports, documentation, and tests while preserving existing values unless a visual change is explicitly requested.
+During migration, separate canonical tokens from compatibility aliases. Compatibility aliases have an owner, target and remaining consumers; they do not become extra canonical semantic choices. Preserve existing API hooks where required without presenting them as the new design vocabulary. Review the ordered scale, affected consumers, docs and tests together when adding or renaming a choice.
 
 ## Headless behavior and focus
 

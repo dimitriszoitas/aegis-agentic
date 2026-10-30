@@ -6,6 +6,8 @@ Read when deciding whether similar implementations should become one component, 
 
 For every proposed family, compare purpose, anatomy, interactions, state ownership, public APIs, semantics, density, responsive behavior and visual roles. Cite source/call sites and rendered evidence. Names and pixel similarity only identify candidates.
 
+Compare behavior beyond textual duplication. Different field names, endpoint adapters, callbacks or copied markup can implement the same collection lifecycle. Conversely, identical relative imports can resolve to different providers. Follow those dependencies and the relevant state transitions before choosing a boundary. A byte-identical-file scan is a useful starting point, not the limit of consolidation.
+
 | Finding                                                                        | Treatment                                                                                            |
 | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
 | Same responsibility, state model and API; repeated implementation              | Extract once, preserve exports through aliases/adapters as needed, migrate consumers.                |
@@ -28,7 +30,13 @@ An existing input named `selectedId` with `onSelect(id)` must not silently becom
 
 Collection pages may share a header, toolbar and results shell while retaining distinct filters, columns and permissions. Settings pages with immediate persistence and forms with Save/Cancel require different commit contracts even if their field layouts match. Push filter panels occupy layout space and preserve access to results; modal panels isolate a task. Do not swap one for the other to make the components look uniform.
 
+For repeated tables or grids, compare the layers separately: rendering engine, table state/provider, collection lifecycle, toolbar/filter pattern, page layout and domain configuration. Similar domain wrappers may share collection orchestration even when their columns differ. Two providers that cannot yet merge may still reuse compatible controls or layout primitives. Extract the stable behavior with typed configuration, slots or adapters; keep requests, permissions, business rules and domain cell renderers with their appropriate host. If an abstraction needs unrelated switches to accommodate the examples, split its responsibilities instead.
+
+Migrate actual consumers to the shared boundary. Moving repeated code into a folder, adding a barrel export, wrapping each old page independently, or renaming Storybook entries does not consolidate behavior. Keep domain examples as configurations of their canonical family when that is what they are.
+
 Record which decisions are product-wide and which are scoped exceptions. A saved pattern policy can enforce supported import/prop rules, while browser scenarios verify layout and state. Do not pretend a static import check proves correct reading order or panel behavior.
+
+For each retained overlap, record whether it is a deliberate semantic separation or a temporary migration boundary. Name the incompatible API, behavior or consumer obligation and the concrete work and verification needed for convergence. An unexamined large provider or a generic “risk of behavior change” is an investigation task, not sufficient justification to finish the requested refactor. Do not force convergence when the evidence supports separate responsibilities.
 
 ## Aegis fit and missing components
 

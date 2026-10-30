@@ -12,6 +12,9 @@ import systemizeRepoSource from '../../../skills/systemize-repo/SKILL.md?raw';
 import consolidationSource from '../../../skills/systemize-repo/references/consolidation.md?raw';
 import systemizationRecordSource from '../../../skills/systemize-repo/references/systemization-record.md?raw';
 import systemizationAccessibilitySource from '../../../skills/systemize-repo/references/accessibility.md?raw';
+import systemizationStorybookSource from '../../../skills/systemize-repo/references/storybook.md?raw';
+import systemizationUsageSource from '../../../skills/systemize-repo/references/usage.md?raw';
+import systemizationStagesSource from '../../../skills/systemize-repo/references/stages.md?raw';
 import composePatternSource from '../../../skills/compose-pattern/SKILL.md?raw';
 import extendDesignLanguageSource from '../../../skills/extend-design-language/SKILL.md?raw';
 import auditUiSource from '../../../skills/audit-ui/SKILL.md?raw';
@@ -70,6 +73,27 @@ const systemizationAccessibility = {
   source: systemizationAccessibilitySource,
 } as const;
 
+const systemizationStorybook = {
+  id: 'systemization-storybook',
+  title: 'Canonical family documentation',
+  path: 'skills/systemize-repo/references/storybook.md',
+  source: systemizationStorybookSource,
+} as const;
+
+const systemizationUsage = {
+  id: 'systemization-usage',
+  title: 'Application usage evidence',
+  path: 'skills/systemize-repo/references/usage.md',
+  source: systemizationUsageSource,
+} as const;
+
+const systemizationStages = {
+  id: 'systemization-stages',
+  title: 'Stages and migration progress',
+  path: 'skills/systemize-repo/references/stages.md',
+  source: systemizationStagesSource,
+} as const;
+
 const skills = {
   component: {
     name: 'create-component',
@@ -122,7 +146,7 @@ const skills = {
     description:
       'Organize an existing product into shared components, patterns, layouts, and tokens while preserving its design language and interaction decisions.',
     useFor:
-      'An existing UI repository with repeated implementations, scattered styling, or undocumented design decisions.',
+      'An existing product or design system with overlapping families, incomplete variant documentation, scattered styling, or undocumented decisions.',
     result:
       'An evidence-backed design inventory and staged refactor with compatible reuse, preserved APIs and variants, and verified behavior.',
     request:
@@ -132,6 +156,9 @@ const skills = {
       consolidation,
       systemizationRecord,
       systemizationAccessibility,
+      systemizationStorybook,
+      systemizationUsage,
+      systemizationStages,
       agenticContract,
       designContract,
       pageComposition,
@@ -193,6 +220,9 @@ function SkillDocumentationLink({ href, children }: { href?: string; children?: 
     'consolidation.md': consolidation.id,
     'systemization-record.md': systemizationRecord.id,
     'accessibility.md': systemizationAccessibility.id,
+    'storybook.md': systemizationStorybook.id,
+    'usage.md': systemizationUsage.id,
+    'stages.md': systemizationStages.id,
   };
   const [path, fragment] = href?.split('#') ?? [];
   const skillName = path?.match(/^(?:\.\.?\/)*(?:skills\/)?([\w-]+)\/SKILL\.md$/)?.[1];

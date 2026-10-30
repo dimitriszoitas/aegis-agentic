@@ -18,13 +18,15 @@ Identify the property, owning sidebar category from `tokens/component-categories
 Choose the tier by responsibility:
 
 - A primitive is an exact, context-free value or scale entry.
-- A semantic token expresses a shared design role and references only primitives.
-- A group token gives that role a descriptive name within the sidebar category and references only semantic tokens. All Trigger implementations use `--group-trigger-*`; do not introduce separate Button or Link top-level groups.
+- A semantic token expresses a reusable treatment, scale or state, such as subtle radius, pill shape, small size or muted content color. It references only primitives.
+- A group token applies that choice to a category, part or layout role, such as control radius, item spacing or surface background, and references only semantic tokens. All Trigger implementations use `--group-trigger-*`; do not introduce separate Button or Link top-level groups.
 - A component consumes only its own category group tokens; it does not reach through to semantic or primitive tokens or borrow another category. A real nested child component independently retains its own category bindings.
 
 Keep measured positions, user-resized widths, progress, and supplied content data outside the design-token catalog. A fixed default, minimum, maximum, icon size, or animation duration is still a design decision and must follow the tiers, even if JavaScript reads it.
 
 ## Define the mapping
+
+For a systemization task, first reconcile the target scales and meanings. Consolidate equivalent choices, move owner-specific decisions into groups, and retain justified exceptions with their reason. Do not freeze every source inconsistency by adding a new semantic alias. For reference-only migration, preserve computed values; for requested normalization, record the old/new choices and verify intentional visual changes.
 
 Use an existing exact primitive when possible. Add an appropriate primitive when the required value is absent; do not choose the nearest color or dimension merely to avoid adding a value. Keep raw values in the primitive source and maintain any generated outputs through their owning generator.
 
@@ -32,7 +34,7 @@ Every semantic token must have four explicit mappings: Fundamental/light, Fundam
 
 Flatten semantic-to-semantic references at generation time or in the authoritative mapping. Composite semantic expressions may use primitive operands, but must not hide semantic dependencies inside gradients, `color-mix()`, `calc()`, fallbacks, or shadow lists. Group tokens must reference semantic roles only. Preserve meaningful primitive alpha and composition instead of rounding to a nearby opacity stop.
 
-Use the approved semantic ramps and group vocabularies in the shared contract. Group labels are relative to their category; the same label does not imply the same numeric value in every group.
+Use the responsibility distinction and ordered vocabulary in the shared contract. One semantic choice has a consistent meaning across families; groups select different shared choices when a family needs a different treatment. Review all token properties, not just colors and spacing. Owner-specific names, compatibility labels and one-to-one literal wrappers are not evidence of semantic design.
 
 ## Migrate names deliberately
 
@@ -42,6 +44,6 @@ Avoid editing generated CSS or JSON as the source of truth. Update the owning ty
 
 ## Verify the contract
 
-Check reference direction and all four explicit mappings. Compare computed dimensions, spacing, and font metrics across themes. For colors, verify actual text and control contrast on the surfaces and interaction states where the token is used; test gradient intermediates when text crosses a gradient. For numeric JavaScript consumers, check CSS-resolved values, server defaults, scoped theme inheritance, and measured layout estimates remain consistent.
+Check reference direction, property/type compatibility, meaningful classification and all four explicit mappings. Review each semantic choice for owner leakage and redundant aliases; review each group for a real owner and property. Keep unresolved migration debt visible instead of hiding it in the Foundations filters. Compare computed dimensions, spacing, and font metrics across themes. For colors, verify actual text and control contrast on the surfaces and interaction states where the token is used; test gradient intermediates when text crosses a gradient. For numeric JavaScript consumers, check CSS-resolved values, server defaults, scoped theme inheritance, and measured layout estimates remain consistent.
 
 Run the repository token checks and focused component tests affected by the mapping. Review representative light/dark and Fundamental/Floating examples. Update the token documentation with the real source, role, group, and resolved values. Report any intentional appearance change separately from the reference migration.
